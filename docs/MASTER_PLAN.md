@@ -19,8 +19,8 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M1 | source certificate | source semantics + immutable snapshot integrity | PASS |
 | M2 | frozen research contract | strict validation receipt | PASS |
 | M3 | PIT data product | fixed audit + behavior audit | PASS |
-| M4 | Qlib research foundation | reproducible data/model/recorder loop | IN_PROGRESS |
-| M5 | baselines | B0 LightGBM and B1 MLP rolling scores | NOT_RUN |
+| M4 | Qlib research foundation | reproducible data/model/recorder loop | PASS |
+| M5 | baselines | B0 LightGBM and B1 MLP rolling scores | IN_PROGRESS |
 | M6 | PeerLite | mechanics and ablation pass | DESIGN_ONLY |
 | M7 | Huatai increments | CCC/Gate isolated comparisons | NOT_RUN |
 | M8 | institutional evaluation | final OOS and decision package | NOT_RUN |
@@ -38,11 +38,13 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 
 ## Current handoff
 
-M3 passed on the exact pre-final-OOS product under descendant contract
-`qrc-v2-5b7353756e0fded36622a6946011f77a`. The fixed audit covered
-1,658,525 samples and 82,926,250 feature cells; the separate future-poison
-replay kept 5,750 protected feature keys unchanged.
+M4 passed on the exact M3-qualified pre-final-OOS product. Qlib loaded all
+1,658,525 rows and 50 frozen features, constructed the seven declared rolling
+folds, reproduced `wf_2018` exactly, and retained the foundation receipt through
+SQLite-backed Recorder with byte-identical readback. Signal-analysis and
+portfolio mechanics were verified separately on synthetic data only.
 
-This opens M4 engineering against the bound development product. It does not
-open the 2025+ final OOS, establish Alpha, authorize model selection outside
-the frozen budget, or authorize deployment.
+This opens M5 B0 LightGBM and B1 MLP training on the seven frozen development
+folds under the append-only trial ledger. It does not open 2025+ final OOS,
+establish Alpha, authorize unregistered tuning, promote PeerLite, or authorize
+deployment.

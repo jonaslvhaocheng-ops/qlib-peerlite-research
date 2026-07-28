@@ -134,3 +134,39 @@ Synthetic mechanics never satisfy these requirements.
 
 Even after enablement, the guard must reject the 2025+ final-OOS partitions
 until the M8 one-time opening procedure.
+
+## 6. Qlib foundation gate
+
+Run the real-data foundation check on the server. It loads the exact qualified
+2012–2024 product, constructs all seven rolling folds and records the receipt,
+but it must not fit a model or compute a signal/backtest metric:
+
+```bash
+QLIB_PEERLITE_ALLOW_EMPIRICAL=true \
+uv run python scripts/server/verify_qlib_foundation.py \
+  --project-root /home/lvhc/abama/研究沙盒/qlib模型框架 \
+  --product-dir /home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3 \
+  --output-dir /home/lvhc/abama/研究沙盒/qlib模型框架/evidence/qlib/foundation_<run-id> \
+  --tracking-dir /home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/qlib_tracking
+```
+
+Run signal-analysis and portfolio plumbing separately on synthetic data:
+
+```bash
+uv run python scripts/server/verify_qlib_analysis_mechanics.py \
+  --project-root /home/lvhc/abama/研究沙盒/qlib模型框架 \
+  --output-dir /home/lvhc/abama/研究沙盒/qlib模型框架/evidence/qlib/analysis_mechanics_<run-id> \
+  --tracking-dir /home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/qlib_tracking
+```
+
+After downloading both immutable evidence directories, independently verify
+their content hashes, Recorder readback hashes, local source hashes and M3
+bindings:
+
+```bash
+uv run python scripts/verify_m4_evidence.py
+```
+
+The verifier creates `evidence/gates/M4_qlib_foundation_gate.json` exclusively;
+it refuses to overwrite an existing gate. Only an M4 `PASS` permits M5 baseline
+training. Synthetic metrics must never be reported as empirical results.

@@ -48,11 +48,15 @@ def purged_segment_masks(
     fold: FoldSpec,
     *,
     embargo_sessions: int = 5,
+    calendar: pd.DatetimeIndex | None = None,
 ) -> dict[str, pd.Series]:
     """Return temporal masks with explicit label purge and unassigned embargo."""
 
     date_series = pd.Series(dates, index=label_end.index)
-    calendar = pd.DatetimeIndex(sorted(pd.unique(dates)))
+    if calendar is None:
+        calendar = pd.DatetimeIndex(sorted(pd.unique(dates)))
+    else:
+        calendar = pd.DatetimeIndex(calendar).tz_localize(None).normalize().sort_values().unique()
 
     def shift_start(start: pd.Timestamp) -> pd.Timestamp:
         candidates = calendar[calendar >= start]
@@ -63,13 +67,11 @@ def purged_segment_masks(
     effective_valid_start = shift_start(fold.valid_start)
     effective_test_start = shift_start(fold.test_start)
 
-    train = (
-        date_series.between(fold.train_start, fold.train_end)
-        & (pd.to_datetime(label_end) < fold.valid_start)
+    train = date_series.between(fold.train_start, fold.train_end) & (
+        pd.to_datetime(label_end) < fold.valid_start
     )
-    valid = (
-        date_series.between(effective_valid_start, fold.valid_end)
-        & (pd.to_datetime(label_end) < fold.test_start)
+    valid = date_series.between(effective_valid_start, fold.valid_end) & (
+        pd.to_datetime(label_end) < fold.test_start
     )
     test = date_series.between(effective_test_start, fold.test_end)
     return {"train": train, "valid": valid, "test": test}

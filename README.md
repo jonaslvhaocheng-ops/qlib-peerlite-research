@@ -13,12 +13,11 @@ A 股日频横截面研究框架。第一阶段只产出“研究级 Alpha 候�
 ## 当前研究状态
 
 - 轨道：`STRICT`
-- 当前阶段：`M4-STRICT`
+- 当前阶段：`M5-STRICT`
 - 真实数据研究状态：`PIT_QUALIFIED_DEVELOPMENT_ONLY`
-- PIT 模式：`VERIFY`
-- 允许：在哈希绑定的 2012–2024 开发数据上建设和验证 Qlib 数据、
-  Recorder、信号分析与回测闭环
-- 禁止：M4 通过前晋级基准模型、2025+ 最终 OOS 访问、Alpha/可投资性
+- 允许：在哈希绑定的 2012–2024 开发数据和七个冻结滚动折上训练
+  B0 LightGBM 与 B1 MLP，并输出统一 score
+- 禁止：2025+ 最终 OOS 访问、未登记调参、PeerLite 晋级、Alpha/可投资性
   结论和实盘连接
 
 状态真相以 `docs/STATUS.md` 和 `artifacts/progress/events.jsonl` 为准。
@@ -82,4 +81,12 @@ uv run qlib-peerlite synthetic-demo \
 - 行为审计：真实特征函数的未来数据扰动测试，保护区 5,750 个键逐键逐值
   不变，结果 `PASS / NOVEL_CANDIDATE`。
 
-这只放行受控开发，不代表模型已经有效。
+M4 Qlib 研究底座也已通过独立验收：
+
+- 1,658,525 行、50 个冻结特征进入 Qlib DatasetH；
+- `wf_2018` 至 `wf_2024` 七个 purge/embargo 滚动折均可复现；
+- Qlib Recorder 的 SQLite 记录和产物字节回读一致；
+- 信号分析与组合链路只用合成数据验证，真实模型拟合、真实信号评估和
+  真实组合回测均为 0。
+
+这只放行 M5 基准训练，不代表模型已经有效。

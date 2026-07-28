@@ -1,9 +1,12 @@
 # True Status Card
 
 - Master plan: `docs/MASTER_PLAN.md`
-- Current phase and track: `M4-STRICT`
-- Last actual action: full-input fixed PIT audit plus real-pipeline future-poison behavior audit
-- Status: executed=`yes`; completed=`yes`; passed=`M3 PASS`
+- Master plan SHA256:
+  `42d9506377ad057e9246d2323e9b58cb98a40eed1d746a08160159520c19d367`
+- Current phase and track: `M5-STRICT`
+- Last actual action: full-data Qlib foundation run, synthetic analysis-mechanics
+  run and independent downloaded-evidence verification
+- Status: executed=`yes`; completed=`yes`; passed=`M4 PASS`
 - Active frozen contract:
   - `contracts/immutable/research_contract_pit_v2.json`
   - contract ID `qrc-v2-5b7353756e0fded36622a6946011f77a`
@@ -14,6 +17,7 @@
   - `evidence/gates/M1_source_gate.json`: source/snapshot `PASS`
   - `evidence/gates/M2_contract_gate.json`: initial contract gate `PASS`
   - `evidence/gates/M3_pit_data_gate.json`: full PIT data gate `PASS`
+  - `evidence/gates/M4_qlib_foundation_gate.json`: Qlib foundation gate `PASS`
   - `data/manifests/pit_data_product_2012_2024_v3/data_product_manifest.json`:
     1,658,525 pre-OOS samples and exactly 50 frozen features
   - `evidence/pit/audits/pit_full_2012_2024_v2/audit_manifest.json`:
@@ -23,10 +27,17 @@
     all four behavior checks `PASS`; 5,750 protected keys unchanged
   - local grouped executor validation: fixed suite `163/163`; behavior suite
     `18/18`
+  - Qlib foundation: 1,658,525 rows, 50 features, seven rolling folds and one
+    exact deterministic fold replay
+  - Qlib Recorder: foundation and synthetic-analysis receipts downloaded with
+    byte-identical hashes
+  - Qlib signal/portfolio mechanics: synthetic track only
+  - real-data model fits, signal evaluations and portfolio backtests: `0 / 0 / 0`
   - final-OOS market partitions opened: `false`
   - performance metrics computed: `false`
-- Current blocker: none for M3. M4 must build and independently verify the Qlib
-  data/recorder/backtest mechanics before any baseline is promoted to M5.
+- Current blocker: M5 needs one frozen, resource-bounded baseline runner that
+  records every B0/B1 fold outcome, including failures and interruptions, in
+  the append-only ledger.
 - Risk/ambiguity:
   - DataYes descriptions and snapshot hashes cannot prove vendor truth or that
     no off-system future data was consulted.
@@ -35,20 +46,21 @@
     prove that the upstream vendor omitted no eligible security.
   - Behavior status is `NOVEL_CANDIDATE`: it proves this exact hash-bound replay,
     not every possible execution.
-- Only permitted next action: integrate the qualified pre-OOS product into the
-  Qlib Dataset/Recorder/signal/backtest loop and prove reproducibility without
-  opening final OOS or reporting Alpha.
-- Forbidden until later gates: baseline promotion before M4, PeerLite claims
-  before M6, final-OOS access before M8 freeze, production trading and
-  “top 1%” claims.
+- Only permitted next action: implement and verify B0 LightGBM and B1 MLP
+  rolling baseline training on the seven fixed pre-OOS folds with train-fold-only
+  preprocessing, unified score output and append-only receipts.
+- Forbidden until later gates: unregistered model or hyperparameter search,
+  PeerLite claims before M6, final-OOS access before M8 freeze, production
+  trading and “top 1%” claims.
 
 ## PIT navigation
 
-- Mode: `VERIFY`
+- Completed mode: `CERTIFY`
 - Target path:
   `sealed DataYes raw daily data -> fixed causal features -> CSI800 PIT universe`
 - Fixed audit: `PASS / QUALIFIED`
 - Behavior audit: `PASS / NOVEL_CANDIDATE`
 - Project M3 decision: `PASS` for controlled development on the exact bound
   pre-OOS data product only
-- Claim ceiling remains: `research mechanics`; no Alpha or investability claim
+- Project M4 decision: `PASS` for Qlib foundation mechanics
+- Claim ceiling remains: `research development`; no Alpha or investability claim

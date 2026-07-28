@@ -6,8 +6,8 @@
 | M1 Source | PASS | Source identity, public semantics, immutable snapshot and universe binding | PIT eligibility of derived values |
 | M2 Contract | PASS | Frozen falsifiable research plan and strict validation | Training-data qualification |
 | M3 PIT data | PASS | Exact full-input fixed audit plus one real-pipeline future-poison replay | Vendor truth, universal cache isolation, Alpha or deployment |
-| M4 Qlib foundation | IN_PROGRESS | Pending reproducible Dataset/Recorder/signal/backtest mechanics | Model edge |
-| M5 Baselines | NOT_RUN | Pending LightGBM/MLP rolling development comparison | PeerLite edge |
+| M4 Qlib foundation | PASS | Exact pre-OOS Dataset, seven rolling folds, Recorder readback and synthetic analysis mechanics | Model edge |
+| M5 Baselines | IN_PROGRESS | Pending LightGBM/MLP rolling development comparison | PeerLite edge |
 | M6 PeerLite | DESIGN_ONLY | Pending mechanics, complexity and ablation gates | Investability |
 | M7 Increments | NOT_RUN | Pending isolated CCC/Gate tests | Guaranteed improvement |
 | M8 Evaluation | NOT_RUN | Pending frozen final OOS and institutional decision package | Production readiness |
@@ -28,3 +28,20 @@ The M3 pass permits controlled M4/M5 work on these exact pre-OOS inputs after
 the empirical guard verifies every hash. It does not permit final-OOS access,
 unregistered features, contract edits, production deployment or performance
 claims beyond the later gates.
+
+## M4 decision boundary
+
+M4 binds:
+
+- real-data foundation receipt
+  `evidence/qlib/foundation_20260728_v2/qlib_foundation_receipt.json`;
+- synthetic analysis-mechanics receipt
+  `evidence/qlib/analysis_mechanics_20260728_v1/analysis_mechanics_receipt.json`;
+- independent project gate
+  `evidence/gates/M4_qlib_foundation_gate.json`.
+
+The real-data run loaded the entire qualified development product and built all
+seven folds, but performed zero model fits, signal evaluations and portfolio
+backtests. Qlib signal-analysis and portfolio mechanics were tested only on
+synthetic data. M4 therefore permits the two registered M5 baselines; it does
+not establish predictive value or authorize final-OOS access.
