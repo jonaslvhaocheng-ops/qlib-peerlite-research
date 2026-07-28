@@ -1,0 +1,29 @@
+{
+  "schema_version": "qlib_peerlite_trial_budget_start_v1",
+  "status": "FROZEN",
+  "stage": "M6-PEERLITE-MSE",
+  "created_at": "2026-07-28T21:55:00+08:00",
+  "family_id": "qlib-peerlite-a-share-daily-v0",
+  "trial_ledger": {
+    "path": "contracts/trial_ledger.jsonl",
+    "sha256_at_freeze": "8d08f39a569d62cf5078368075dce39e94014a4ad3a6095f0b03863baa93f133"
+  },
+  "consumed_before_m6": {
+    "candidate_evaluations": 4,
+    "model_fits": 29
+  },
+  "limits": {
+    "candidate_evaluations": 27,
+    "model_fits": 60
+  },
+  "declared_m6_increment": {
+    "candidate_evaluations": 2,
+    "model_fits": 15
+  },
+  "declared_after_m6_success": {
+    "candidate_evaluations": 6,
+    "model_fits": 44
+  },
+  "failed_and_rejected_trials_included": true,
+  "content_sha256": "1d886cb173f7094b7edda0ab27df8ac5829f143c469b24426d7439c71b52b58a"
+}

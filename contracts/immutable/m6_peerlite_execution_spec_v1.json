@@ -1,0 +1,254 @@
+{
+  "schema_version": "qlib_peerlite_m6_execution_spec_v1",
+  "status": "FROZEN",
+  "stage": "M6-PEERLITE-MSE",
+  "created_at": "2026-07-28T22:00:00+08:00",
+  "claim_ceiling": "PRE_FINAL_OOS_DIAGNOSTIC",
+  "bindings": {
+    "contract": {
+      "path": "contracts/immutable/research_contract_pit_v2.json",
+      "sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c"
+    },
+    "candidate_registry": {
+      "path": "contracts/candidate_registry.json",
+      "sha256": "fb1bcca2df1f4ee1f62f68aa806a85122e423c8fdaf14622b9c0f4766faed1ac"
+    },
+    "model_registry": {
+      "path": "configs/model_registry.yaml",
+      "sha256": "1eb5fcc6e9399b768bd2836bce17bfc7ea4683d1e39f5a319d325ec4ceb792a1"
+    },
+    "feature_spec": {
+      "path": "contracts/feature_spec.json",
+      "sha256": "b35da580ff710f7ca61f174d9f810f327942d190869ed422526e722eaeead12e"
+    },
+    "m3_gate": {
+      "path": "evidence/gates/M3_pit_data_gate.json",
+      "sha256": "ea5341934f14b5617d2c7226e3bc23bfc17c23cdad4677e7d1d2ad2fec0fe1f5"
+    },
+    "m4_gate": {
+      "path": "evidence/gates/M4_qlib_foundation_gate.json",
+      "sha256": "f9f894041748e0991a8d53df2ec0ede682b5b78f10374f71b182c8b27f86c8ca"
+    },
+    "m5_gate": {
+      "path": "evidence/gates/M5_baseline_gate.json",
+      "sha256": "91f24b87fa1d2af7c54e282a58a97e5ee7f13eae7b250bf6c53097c36bcd894d"
+    },
+    "data_product_manifest": {
+      "path": "data/manifests/pit_data_product_2012_2024_v3/data_product_manifest.json",
+      "sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3"
+    },
+    "mechanics_receipt": {
+      "path": "evidence/peerlite/mechanics_20260728_v2/mechanics_receipt.json",
+      "sha256": "2f31f0264bff5b241472278b357e250ef4a11ec5775959d28da868c480c3704f",
+      "content_sha256": "c2fc6d0978a875ed1b2d22052b3bdba7aa686bf13ac945c8982eca88a81336ec"
+    },
+    "trial_budget_start": {
+      "path": "contracts/immutable/m6_trial_budget_start.json",
+      "sha256": "01d32b937c3a8a3c3869b4a44783301cf002ef9299314d0011d3840673e23741",
+      "content_sha256": "1d886cb173f7094b7edda0ab27df8ac5829f143c469b24426d7439c71b52b58a"
+    }
+  },
+  "input_data": {
+    "product_id": "pit_data_product_2012_2024_v3",
+    "rows": 1658525,
+    "feature_count": 50,
+    "feature_spec_version": "daily_raw_50_v1",
+    "date_min": "2012-01-04",
+    "date_max": "2024-12-17",
+    "source_basis": "RAW",
+    "final_oos_market_partitions_opened": false
+  },
+  "schedule": {
+    "fold_ids": [
+      "wf_2018",
+      "wf_2019",
+      "wf_2020",
+      "wf_2021",
+      "wf_2022",
+      "wf_2023",
+      "wf_2024"
+    ],
+    "seed": 7,
+    "embargo_sessions": 5,
+    "candidate_evaluations": 2,
+    "model_fits": 15,
+    "candidate_order": [
+      "PEERLITE_K16_MSE",
+      "PEERLITE_K32_MSE"
+    ],
+    "cumulative_trials_after_success": {
+      "candidate_evaluations": 6,
+      "model_fits": 44,
+      "candidate_evaluation_limit": 27,
+      "model_fit_limit": 60
+    },
+    "failure_policy": "preserve journal and stop the run on the first failed fit",
+    "trial_counting": "each candidate start counts once; each fold or deterministic-refit fit start counts once"
+  },
+  "determinism": {
+    "cublas_workspace_config": ":4096:8",
+    "torch_deterministic_algorithms": "STRICT",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "activation_must_precede_empirical_access": true
+  },
+  "deterministic_refit": {
+    "model_id": "PEERLITE_K16_MSE",
+    "fold_id": "wf_2018",
+    "seed": 7,
+    "exact_score_equality": true,
+    "same_index_required": true,
+    "counts_as_model_fit": true,
+    "receipt_required": true
+  },
+  "architecture": {
+    "sequence": [
+      "MLP encoder",
+      "soft peer assignment",
+      "masked peer prototype aggregation",
+      "single multi-head peer attention",
+      "concatenate self and self-minus-peer state",
+      "scalar score head"
+    ],
+    "complexity": "O(NK) per cross-section",
+    "stock_pair_tensor_materialized": false,
+    "hidden_dim": 64,
+    "num_heads": 4,
+    "peer_candidates": [
+      16,
+      32
+    ],
+    "parameter_limit": 500000,
+    "date_batching": {
+      "cross_section_batch_size": 16,
+      "independent_prototypes_per_date": true,
+      "padding_is_masked": true,
+      "cross_date_information_mixing": false
+    }
+  },
+  "candidates": [
+    {
+      "model_id": "PEERLITE_K16_MSE",
+      "role": "parsimonious_primary",
+      "selection_role": "PREDECLARED_PRIMARY_NOT_RESULT_SELECTED",
+      "parameters": {
+        "input_dim": 50,
+        "hidden_dim": 64,
+        "num_peers": 16,
+        "num_heads": 4,
+        "dropout": 0.1,
+        "market_dim": 0,
+        "market_gate": false,
+        "loss": "mse",
+        "seed": 7,
+        "epochs": 100,
+        "patience": 12,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "cross_section_batch_size": 16,
+        "device": "cuda",
+        "model_id": "PEERLITE_K16_MSE"
+      }
+    },
+    {
+      "model_id": "PEERLITE_K32_MSE",
+      "role": "peer_count_sensitivity",
+      "selection_role": "ABLATION_ONLY_NO_PROMOTION_IN_M6",
+      "parameters": {
+        "input_dim": 50,
+        "hidden_dim": 64,
+        "num_peers": 32,
+        "num_heads": 4,
+        "dropout": 0.1,
+        "market_dim": 0,
+        "market_gate": false,
+        "loss": "mse",
+        "seed": 7,
+        "epochs": 100,
+        "patience": 12,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "cross_section_batch_size": 16,
+        "device": "cuda",
+        "model_id": "PEERLITE_K32_MSE"
+      }
+    }
+  ],
+  "preprocessing": {
+    "method": "mean/std standardization",
+    "fit_scope": "each training fold only",
+    "zero_scale_policy": "replace scale with 1",
+    "checkpoint_must_include_statistics": true
+  },
+  "diagnostics": {
+    "role": "PRE_FINAL_OOS_DIAGNOSTIC_ONLY",
+    "metrics": [
+      "RankIC_mean",
+      "RankIC_std",
+      "RankICIR",
+      "RankIC_positive_fraction",
+      "decile_slope",
+      "top_minus_bottom"
+    ],
+    "aggregation": [
+      "rolling_test_fold",
+      "combined_2018_2024_development_test"
+    ],
+    "selection_allowed": false,
+    "comparison_to_m5_allowed_in_run": false,
+    "portfolio_metrics_allowed": false,
+    "cost_adjusted_metrics_allowed": false
+  },
+  "outputs": {
+    "prediction_filename": "predictions.parquet",
+    "prediction_columns": [
+      "datetime",
+      "instrument",
+      "score",
+      "model_id",
+      "fold_id"
+    ],
+    "fold_receipt_required": true,
+    "candidate_receipt_required": true,
+    "resource_report_required": true,
+    "checkpoint_reload_required": true,
+    "checkpoint_replay_rule": "exact score equality on the same test segment",
+    "qlib_recorder_readback_required": true,
+    "append_only_ledger_events_required": true
+  },
+  "safeguards": {
+    "final_oos_market_partitions_opened": false,
+    "final_oos_metrics_computed": false,
+    "portfolio_backtests": 0,
+    "cost_adjusted_selection": false,
+    "model_selection_performed": false,
+    "ccc_allowed": false,
+    "market_gate_allowed": false,
+    "text_or_llm_allowed": false,
+    "high_frequency_data_allowed": false
+  },
+  "code_binding": {
+    "mode": "EXPLICIT_SHA256",
+    "files": {
+      "scripts/server/run_m6_peerlite.py": "e4c33577dc6c123e9ffa47ad8b79a860ce045ac4af9cb685990f9b343448f870",
+            "src/qlib_peerlite/governance/m6_spec.py": "e63f3ee49450a9ab47f417e64a16263bba16775c80d2391973169a037d46ec68",
+      "src/qlib_peerlite/data/qlib_dataset.py": "095a8f22ee014db37fa374083d73ed859352b4afcb7a5195129204da88ce1081",
+      "src/qlib_peerlite/data/schema.py": "d8c3c1fc83f25bc566fb2c1e186aa2cd639296f65cd29f67e4aaaf6a54f0f3b6",
+      "src/qlib_peerlite/data/splits.py": "ca48941015ad68a41fa489ca6656c38337c33463c8cb60b681b358cf01cf7cf6",
+      "src/qlib_peerlite/evaluation/metrics.py": "54dd8f50c71ae509edb554f51424233dab4d640e607bd541cbb7a7245d496693",
+      "src/qlib_peerlite/models/common.py": "7ad5287a1a409d7c01c020d6b2fef0b286fb35304a35493f03115a144d706b16",
+      "src/qlib_peerlite/models/peerlite.py": "bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a",
+      "src/qlib_peerlite/qlib_integration.py": "9e7c112b6b47107a938068cc649dc5956061734bf12b955c9950779f24947bd4",
+      "uv.lock": "b406234ca9f9533c71425e0874d6b158cc2991f70ed1a3c8c9c9835e7c3c29ef"
+    }
+  },
+  "limitations": [
+    "M6 does not compare cost-adjusted performance or promote a model.",
+    "K16 is the preregistered parsimonious primary; K32 is retained only as a peer-count sensitivity run.",
+    "All diagnostics stop at 2024-12-17 and cannot support a final-OOS claim.",
+    "CCC and market-state gating remain prohibited until their isolated M7 contracts."
+  ],
+    "content_sha256": "e1e651067696dd4fb56d50df393418231001a7c79a8edf1448fa84093ea5f9ef"
+}
