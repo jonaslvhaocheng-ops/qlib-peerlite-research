@@ -124,6 +124,32 @@ def load_and_verify_m6_spec(project_root: Path, spec_path: Path) -> dict[str, An
         "M6 mechanics receipt is not a synthetic-only PASS",
     )
 
+    budget = _load(project_root / expected_paths["trial_budget_start"])
+    budget_unsigned = dict(budget)
+    budget_declared_hash = budget_unsigned.pop("content_sha256", None)
+    budget_actual_hash = hashlib.sha256(
+        _canonical_json(budget_unsigned).encode("utf-8")
+    ).hexdigest()
+    ledger_binding = budget.get("trial_ledger")
+    _require(
+        budget_declared_hash == budget_actual_hash
+        and budget.get("status") == "FROZEN"
+        and budget.get("stage") == "M6-PEERLITE-MSE"
+        and isinstance(ledger_binding, Mapping)
+        and ledger_binding.get("path") == "contracts/trial_ledger.jsonl"
+        and ledger_binding.get("sha256_at_freeze")
+        == sha256_file(project_root / "contracts/trial_ledger.jsonl")
+        and budget.get("consumed_before_m6")
+        == {"candidate_evaluations": 4, "model_fits": 29}
+        and budget.get("declared_m6_increment")
+        == {"candidate_evaluations": 2, "model_fits": 15}
+        and budget.get("declared_after_m6_success")
+        == {"candidate_evaluations": 6, "model_fits": 44}
+        and budget.get("limits")
+        == {"candidate_evaluations": 27, "model_fits": 60},
+        "M6 trial budget or frozen pre-run ledger identity mismatch",
+    )
+
     input_data = spec.get("input_data")
     _require(
         isinstance(input_data, Mapping)

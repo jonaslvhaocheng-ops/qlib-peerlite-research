@@ -233,7 +233,7 @@
     "mode": "EXPLICIT_SHA256",
     "files": {
       "scripts/server/run_m6_peerlite.py": "e4c33577dc6c123e9ffa47ad8b79a860ce045ac4af9cb685990f9b343448f870",
-            "src/qlib_peerlite/governance/m6_spec.py": "e63f3ee49450a9ab47f417e64a16263bba16775c80d2391973169a037d46ec68",
+            "src/qlib_peerlite/governance/m6_spec.py": "b7bc23a645f570e33a3dd8621330f02576b7abe3deaf40bfa5d881d960f437c9",
       "src/qlib_peerlite/data/qlib_dataset.py": "095a8f22ee014db37fa374083d73ed859352b4afcb7a5195129204da88ce1081",
       "src/qlib_peerlite/data/schema.py": "d8c3c1fc83f25bc566fb2c1e186aa2cd639296f65cd29f67e4aaaf6a54f0f3b6",
       "src/qlib_peerlite/data/splits.py": "ca48941015ad68a41fa489ca6656c38337c33463c8cb60b681b358cf01cf7cf6",
@@ -250,5 +250,5 @@
     "All diagnostics stop at 2024-12-17 and cannot support a final-OOS claim.",
     "CCC and market-state gating remain prohibited until their isolated M7 contracts."
   ],
-    "content_sha256": "e1e651067696dd4fb56d50df393418231001a7c79a8edf1448fa84093ea5f9ef"
+    "content_sha256": "60d0cf06307991f1fafea0dd5880b43fb929546c6757040e2c868cbb361f2f69"
 }
