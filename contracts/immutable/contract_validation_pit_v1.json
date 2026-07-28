@@ -1,0 +1,11 @@
+{
+  "canonical_hash": "0e4027198e7c052673bc12c0b10e67e54ad92e93a028371e0bc15c5aba9764dc",
+  "contract_file_sha256": "dc6a34e7fa03891a9767d9c39ef2307398e91666a9049fa7809a20e3b6692fa2",
+  "contract_id": "qrc-v2-0e4027198e7c052673bc12c0b10e67e5",
+  "schema_version": "qrc_validation_receipt_v1",
+  "status": "PASS",
+  "strict": true,
+  "validator": "quant-research-contract.validate_contract",
+  "validator_bundle_sha256": "6dbb4fe1eb929a368b9608a7944c8ba3ae4b14d30cc07d9ff7b091dfefaeeb0b",
+  "validator_version": "quant_contract_v2"
+}

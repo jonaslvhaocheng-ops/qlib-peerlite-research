@@ -1,0 +1,578 @@
+{
+  "schema_version": "quant_contract_v2",
+  "contract": {
+    "status": "PLANNED",
+    "created_at": "2026-07-28T10:11:02+00:00",
+    "contract_id": null,
+    "canonical_hash": null,
+    "parent_contract_id": "qrc-v2-0e4027198e7c052673bc12c0b10e67e5",
+    "change_request_id": "qrc-cr-v2-fc5a4bc41d95295c0871f78b77255c16",
+    "changed_fields": [
+      "data.sources",
+      "data.feature_spec_hash",
+      "scope.universe.universe_version",
+      "scope.universe.universe_hash",
+      "splits.train.end",
+      "splits.selection.start",
+      "splits.selection.end"
+    ],
+    "frozen_at": null
+  },
+  "research": {
+    "title": "Qlib PeerLite A股日频横截面增量研究",
+    "hypothesis": "在完全相同的时点股票池、RAW因果特征、滚动切分、组合映射和成本下，PeerLite相对LightGBM与等容量MLP提供稳定的成本后顺序样本外增量。",
+    "claim_level": "exploratory",
+    "decisive_outcomes_seen": false,
+    "prohibited_actions": [
+      "future_data_use",
+      "final_oos_tuning",
+      "undeclared_metric_selection",
+      "research_family_reset",
+      "empirical_training_before_pit_qualification"
+    ]
+  },
+  "research_family": {
+    "family_id": "qlib-peerlite-a-share-daily-v0",
+    "family_definition": "同一A股CSI800日频信息集、标签、组合、成本和OOS边界下的LightGBM、MLP、PeerLite、CCC与小型市场门控全部属于同一研究家族。",
+    "candidate_definition_version": "qlib_peerlite_candidate_registry_v1",
+    "candidate_definition_hash": "fb1bcca2df1f4ee1f62f68aa806a85122e423c8fdaf14622b9c0f4766faed1ac",
+    "registered_candidate_count": 7,
+    "registry_uri": "contracts/candidate_registry.json",
+    "candidate_registry_policy": "append_only_required",
+    "ledger_snapshot_id": "trial-ledger-initial-20260728",
+    "ledger_snapshot_hash": "462a0bf90c12aa6c8af6fe333a2678bb67ece1391e3d23cc3d1113fbaf63fabb",
+    "ledger_policy": "append_only_required",
+    "prior_search_disclosure": "disclosed",
+    "completed_trials": 0,
+    "manual_trials_included": true,
+    "failed_or_abandoned_trials_included": true,
+    "cumulative_trial_budget": 27,
+    "planned_new_trials": 27
+  },
+  "scope": {
+    "asset_class": "listed_equity",
+    "market": "China A-share XSHG and XSHE",
+    "frequency": "daily",
+    "decision_calendar": "XSHG_XSHE@planned-v1",
+    "timezone": "Asia/Shanghai",
+    "universe": {
+      "definition": "CSI300与CSI500的历史时点有效成分股并集，限定沪深A股；上市满60个有效交易日；使用当时已公告并已生效的成员关系，保留退出与退市历史。",
+      "pit_membership_rule": "prediction_time必须位于成员关系[effective_from,effective_to)内，且announcement_time不晚于prediction_time；不得使用当前成分股回填历史。",
+      "universe_version": "csi800-pit-eligible-development-population-20260728-v2",
+      "universe_hash": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+      "microcap_policy": "不另设市值分位剔除；CSI800 PIT成员资格与上市60日规则构成规模边界。",
+      "breakpoint_rule": "每个预测日只在当日合格股票池内部按score排序，前10%构成候选组合。",
+      "weighting_rule": "周频调仓、候选等权、单股上限2%、20日ADV参与率上限5%，未分配资金留现金。"
+    }
+  },
+  "time_semantics": {
+    "prediction_time": "T日连续竞价收盘且当日全部允许字段达到数据截止后形成信号。",
+    "data_cutoff_rule": "每个输入值的vendor_available_time必须不晚于T日prediction_time；禁止读取T日之后的新版本、成员关系或交易状态。",
+    "availability_rule": "目标声明为MARKET_RECONSTRUCTIBLE；字段需有版本匹配的数据字典和可得时间证据。当前服务器入库时间不能替代历史市场可得时间。",
+    "execution_time_rule": "T之后下一有效交易日T+1开盘执行；停牌、涨跌停或缺少有效开盘价时不得假设成交。",
+    "label_start_rule": "标签从T+1有效交易日开盘价开始。",
+    "label_end_rule": "标签在标签起点后的第5个有效交易日收盘价结束。",
+    "holding_period": "5 eligible trading sessions"
+  },
+  "data": {
+    "sources": [
+      {
+        "source_id": "datayes-daily-raw",
+        "vendor": "DataYes local MySQL",
+        "snapshot_id": "source_snapshot_20260728_v1:mkt_equd",
+        "snapshot_hash": "d3f285c62c405ceed0b05fddc3abaf82f704815216ed42e454eab0e240ad3730",
+        "event_timestamp_field": "TRADE_DATE",
+        "availability_timestamp_field": "DataYes dictionary dataPubTime=15:15 Asia/Shanghai on TRADE_DATE",
+        "availability_evidence_uri": "evidence/data_sources/datayes_public_dictionary_20260728_02/datayes_public_dictionary.json",
+        "availability_evidence_version": "datayes-public-dictionary-eight-table-bundle-fetched-20260728",
+        "availability_evidence_hash": "b7f6cffe8b87b9dcfad6b015c222a9efb032e7dc1974646039c89f4deba0a437",
+        "revision_policy": "DataYes官方字典将mkt_equd定义为沪深京股票未复权日行情、日更、15:15发布，数据源为三地交易所。只使用RAW价量字段；UPDATE_TIME不作为市场可得时间，源快照必须保留修订后的固定内容。",
+        "allowed_fields": [
+          "SECURITY_ID",
+          "TICKER_SYMBOL",
+          "EXCHANGE_CD",
+          "TRADE_DATE",
+          "OPEN_PRICE",
+          "HIGHEST_PRICE",
+          "LOWEST_PRICE",
+          "CLOSE_PRICE",
+          "TURNOVER_VOL",
+          "TURNOVER_VALUE",
+          "TURNOVER_RATE"
+        ]
+      },
+      {
+        "source_id": "datayes-index-constituents",
+        "vendor": "DataYes local MySQL",
+        "snapshot_id": "source_snapshot_20260728_v1:idx_cons_core",
+        "snapshot_hash": "d6c5e5b2acfe2b8b1d354a07a7fed0a3e5b594eaa7dafc2c871fed48a5565667",
+        "event_timestamp_field": "INTO_EFF_DATE / OUT_EFF_DATE",
+        "availability_timestamp_field": "INTO_PUB_DATE / OUT_PUB_DATE",
+        "availability_evidence_uri": "evidence/data_sources/datayes_public_dictionary_20260728_02/datayes_public_dictionary.json",
+        "availability_evidence_version": "datayes-public-dictionary-eight-table-bundle-fetched-20260728",
+        "availability_evidence_hash": "b7f6cffe8b87b9dcfad6b015c222a9efb032e7dc1974646039c89f4deba0a437",
+        "revision_policy": "DataYes官方字典确认idx_cons_core依据中证或国证官方公告提前取得成分调整，包含公告日和生效日。CSI300使用SECURITY_ID=1782，CSI500使用SECURITY_ID=2103，以[INTO_EFF_DATE,OUT_EFF_DATE)重建有效区间，并分别以INTO_PUB_DATE/OUT_PUB_DATE约束可得性；UPDATE_TIME只视为数据库维护时间，源快照必须固定。",
+        "allowed_fields": [
+          "SECURITY_ID",
+          "CONS_ID",
+          "INTO_PUB_DATE",
+          "OUT_PUB_DATE",
+          "INTO_EFF_DATE",
+          "OUT_EFF_DATE",
+          "UPDATE_TIME"
+        ]
+      },
+      {
+        "source_id": "datayes-security-master",
+        "vendor": "DataYes local MySQL",
+        "snapshot_id": "source_snapshot_20260728_v1:md_security",
+        "snapshot_hash": "4eff64dd068d805754cea9d1d9e720c7d7be7a180f6a23686f5434fbe3e03426",
+        "event_timestamp_field": "LIST_DATE / DELIST_DATE",
+        "availability_timestamp_field": "DataYes dictionary dataPubTime=不定时; eligibility begins only after 60 completed eligible sessions",
+        "availability_evidence_uri": "evidence/data_sources/datayes_public_dictionary_20260728_02/datayes_public_dictionary.json",
+        "availability_evidence_version": "datayes-public-dictionary-eight-table-bundle-fetched-20260728",
+        "availability_evidence_hash": "b7f6cffe8b87b9dcfad6b015c222a9efb032e7dc1974646039c89f4deba0a437",
+        "revision_policy": "md_security仅用于SECURITY_ID映射和上市/摘牌有效边界；历史股票池不得使用当前LIST_STATUS_CD回填。上市60个有效交易日缓冲后才允许入池，且必须固定源快照。",
+        "allowed_fields": [
+          "SECURITY_ID",
+          "TICKER_SYMBOL",
+          "EXCHANGE_CD",
+          "ASSET_CLASS",
+          "LIST_DATE",
+          "DELIST_DATE",
+          "PARTY_ID"
+        ]
+      },
+      {
+        "source_id": "datayes-trade-calendar",
+        "vendor": "DataYes local MySQL",
+        "snapshot_id": "source_snapshot_20260728_v1:md_trade_cal",
+        "snapshot_hash": "1aefd73dfd64dc5bdbb4e688e0812f962b191353b8bb5b90a56428472cb7fd0b",
+        "event_timestamp_field": "CALENDAR_DATE",
+        "availability_timestamp_field": "DataYes dictionary update frequency=annual; calendar snapshot frozen before empirical run",
+        "availability_evidence_uri": "evidence/data_sources/datayes_public_dictionary_20260728_02/datayes_public_dictionary.json",
+        "availability_evidence_version": "datayes-public-dictionary-eight-table-bundle-fetched-20260728",
+        "availability_evidence_hash": "b7f6cffe8b87b9dcfad6b015c222a9efb032e7dc1974646039c89f4deba0a437",
+        "revision_policy": "md_trade_cal的XSHG/XSHE日历在实验前固定；任何后续交易日历修订产生新快照和新契约版本，不覆盖旧快照。",
+        "allowed_fields": [
+          "CALENDAR_DATE",
+          "EXCHANGE_CD",
+          "IS_OPEN",
+          "PREV_TRADE_DATE"
+        ]
+      },
+      {
+        "source_id": "datayes-price-limits",
+        "vendor": "DataYes local MySQL",
+        "snapshot_id": "source_snapshot_20260728_v1:mkt_limit",
+        "snapshot_hash": "165afd8e37dd9c6bc52036464b1aac9822f002a1d443ce8a4122db0e9cfc98a2",
+        "event_timestamp_field": "TRADE_DATE",
+        "availability_timestamp_field": "DataYes dictionary dataPubTime=09:00 Asia/Shanghai on TRADE_DATE",
+        "availability_evidence_uri": "evidence/data_sources/datayes_public_dictionary_20260728_02/datayes_public_dictionary.json",
+        "availability_evidence_version": "datayes-public-dictionary-eight-table-bundle-fetched-20260728",
+        "availability_evidence_hash": "b7f6cffe8b87b9dcfad6b015c222a9efb032e7dc1974646039c89f4deba0a437",
+        "revision_policy": "mkt_limit只允许使用09:00已发布的当日涨跌停价格；UP_LIMIT_REACHED_TIMES和DOWN_LIMIT_REACHED_TIMES属于盘后结果，禁止进入信号或盘前可交易判断。",
+        "allowed_fields": [
+          "SECURITY_ID",
+          "TICKER_SYMBOL",
+          "EXCHANGE_CD",
+          "TRADE_DATE",
+          "LIMIT_UP_PRICE",
+          "LIMIT_DOWN_PRICE"
+        ]
+      },
+      {
+        "source_id": "datayes-security-halts",
+        "vendor": "DataYes local MySQL",
+        "snapshot_id": "source_snapshot_20260728_v1:md_sec_halt",
+        "snapshot_hash": "24426f0f46513b565b1b76f3d76abd9fc31ac0e5d9f0a6b31bc80a7a20d25853",
+        "event_timestamp_field": "HALT_BEGIN_TIME / RESUMP_BEGIN_TIME",
+        "availability_timestamp_field": "HALT_BEGIN_TIME / RESUMP_BEGIN_TIME",
+        "availability_evidence_uri": "evidence/data_sources/datayes_public_dictionary_20260728_02/datayes_public_dictionary.json",
+        "availability_evidence_version": "datayes-public-dictionary-eight-table-bundle-fetched-20260728",
+        "availability_evidence_hash": "b7f6cffe8b87b9dcfad6b015c222a9efb032e7dc1974646039c89f4deba0a437",
+        "revision_policy": "md_sec_halt按实际停牌/复牌时刻重建状态；信号只能读取prediction_time前已发生状态，回测执行可在execution_time确认实际状态，但不得反向影响选股。",
+        "allowed_fields": [
+          "SECURITY_ID",
+          "TICKER_SYMBOL",
+          "EXCHANGE_CD",
+          "HALT_BEGIN_TIME",
+          "RESUMP_BEGIN_TIME"
+        ]
+      },
+      {
+        "source_id": "datayes-special-status",
+        "vendor": "DataYes local MySQL",
+        "snapshot_id": "source_snapshot_20260728_v1:equ_inst_sstate",
+        "snapshot_hash": "991212489d58c1ce3dc6aab7b1980774a4f0a80d28775a81bf11f954b811059e",
+        "event_timestamp_field": "EFF_DATE",
+        "availability_timestamp_field": "PUBLISH_DATE",
+        "availability_evidence_uri": "evidence/data_sources/datayes_public_dictionary_20260728_02/datayes_public_dictionary.json",
+        "availability_evidence_version": "datayes-public-dictionary-eight-table-bundle-fetched-20260728",
+        "availability_evidence_hash": "b7f6cffe8b87b9dcfad6b015c222a9efb032e7dc1974646039c89f4deba0a437",
+        "revision_policy": "equ_inst_sstate按上市公司公告的PUBLISH_DATE和EFF_DATE重建ST、*ST、退市整理及状态解除；状态从max(PUBLISH_DATE,EFF_DATE)起才可影响股票池。研究期内缺PUBLISH_DATE的记录必须标为未知并剔除，不得回填。",
+        "allowed_fields": [
+          "SECURITY_ID",
+          "PARTY_ID",
+          "TICKER_SYMBOL",
+          "SEC_SHORT_NAME",
+          "PARTY_STATE",
+          "PUBLISH_DATE",
+          "EFF_DATE"
+        ]
+      },
+      {
+        "source_id": "datayes-corporate-action-mask",
+        "vendor": "DataYes local MySQL",
+        "snapshot_id": "source_snapshot_20260728_v1:mkt_adjf",
+        "snapshot_hash": "e40fb724d9fd2a900921f41206252b758b9bfe311bf143295f7566ebf06831b6",
+        "event_timestamp_field": "EX_DIV_DATE",
+        "availability_timestamp_field": "DataYes dictionary dataPubTime=09:00 Asia/Shanghai on EX_DIV_DATE",
+        "availability_evidence_uri": "evidence/data_sources/datayes_public_dictionary_20260728_02/datayes_public_dictionary.json",
+        "availability_evidence_version": "datayes-public-dictionary-eight-table-bundle-fetched-20260728",
+        "availability_evidence_hash": "b7f6cffe8b87b9dcfad6b015c222a9efb032e7dc1974646039c89f4deba0a437",
+        "revision_policy": "mkt_adjf仅用于定位当日已知的EX_DIV_DATE并触发RAW价格窗口/标签掩码；ADJ_FACTOR_1和ACCUM_ADJ_FACTOR禁止作为模型输入或历史价格重写因子。",
+        "allowed_fields": [
+          "SECURITY_ID",
+          "TICKER_SYMBOL",
+          "EX_DIV_DATE"
+        ]
+      },
+      {
+        "source_id": "qlib-peerlite-derived-features",
+        "vendor": "Qlib PeerLite deterministic project pipeline",
+        "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+        "snapshot_hash": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+        "event_timestamp_field": "event_time",
+        "availability_timestamp_field": "vendor_available_time",
+        "availability_evidence_uri": "data/manifests/pit_consumed_values_full_2012_2024_v2/derived_feature_semantics.json",
+        "availability_evidence_version": "qlib-peerlite-derived-feature-semantics-v1",
+        "availability_evidence_hash": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb",
+        "revision_policy": "派生特征只由冻结RAW源、因果窗口和已声明掩码确定；revision_known_time不得晚于prediction_time。任何源快照、公式或代码变化必须生成新的不可变派生快照，禁止覆盖本快照。",
+        "allowed_fields": [
+          "amihud_mean_10",
+          "amihud_mean_20",
+          "amihud_mean_5",
+          "amihud_mean_60",
+          "close_location",
+          "downside_vol_10",
+          "downside_vol_20",
+          "downside_vol_5",
+          "downside_vol_60",
+          "gap_return",
+          "high_low_range",
+          "intraday_return",
+          "log_amount",
+          "log_amount_mean_10",
+          "log_amount_mean_20",
+          "log_amount_mean_5",
+          "log_amount_mean_60",
+          "log_volume",
+          "log_volume_mean_10",
+          "log_volume_mean_20",
+          "log_volume_mean_5",
+          "log_volume_mean_60",
+          "lower_shadow",
+          "price_volume_corr_10",
+          "price_volume_corr_20",
+          "price_volume_corr_5",
+          "price_volume_corr_60",
+          "range_mean_10",
+          "range_mean_20",
+          "range_mean_5",
+          "range_mean_60",
+          "ret_1d",
+          "ret_mean_10",
+          "ret_mean_20",
+          "ret_mean_5",
+          "ret_mean_60",
+          "ret_std_10",
+          "ret_std_20",
+          "ret_std_5",
+          "ret_std_60",
+          "turnover_mean_10",
+          "turnover_mean_20",
+          "turnover_mean_5",
+          "turnover_mean_60",
+          "turnover_raw",
+          "turnover_std_10",
+          "turnover_std_20",
+          "turnover_std_5",
+          "turnover_std_60",
+          "upper_shadow"
+        ]
+      }
+    ],
+    "feature_spec_version": "daily_raw_50_v1",
+    "feature_spec_hash": "a0305493da95d6b5a7409767e61a6173f8ad727535d3f73a089bf32c11d73542",
+    "code_version": "git:6721c19c556066f8112c26c237738296120ad8a1",
+    "environment_lock_hash": "b406234ca9f9533c71425e0874d6b158cc2991f70ed1a3c8c9c9835e7c3c29ef",
+    "transform_fit_scope": "train_only",
+    "transform_policy": [
+      {
+        "name": "mean_std_standardization",
+        "fit_scope": "each_training_fold",
+        "refit_schedule": "every frozen rolling training fold and scheduled final-OOS quarterly refit",
+        "asof_input_policy": "fit statistics consume only rows assigned to that training fold"
+      }
+    ]
+  },
+  "target": {
+    "label_id": "a_share_open1_close5_raw_v1",
+    "label_spec_version": "1",
+    "label_spec_hash": "3e9ce515583813b0018634abdd14031a00918f6d360a558bc6767ebb84e8029d",
+    "formula": "raw_close(T+5) / raw_open(T+1) - 1",
+    "neutralization_rule": "不对训练标签做结果驱动中性化；组合层使用相同CSI800基准报告超额结果。",
+    "corporate_action_rule": "任何跨越尚未有因果总收益证明的公司行动标签区间均剔除；禁止使用全历史后复权标签伪装为RAW。",
+    "overlap_rule": "同一split内标签重叠允许并在统计依赖中披露；任何标签不得跨入下一split。"
+  },
+  "splits": {
+    "train": {
+      "start": "2012-01-01",
+      "end": "2023-12-22"
+    },
+    "selection": {
+      "start": "2024-01-09",
+      "end": "2024-12-17"
+    },
+    "final_oos": {
+      "start": "2025-01-01",
+      "end": "2026-06-30"
+    },
+    "purge_embargo_rule": "按实际label_end清除所有跨split样本，并在每个右侧split开始前保留5个有效交易日的未分配隔离区。",
+    "retraining_schedule": "开发期使用5年训练、1年验证、1年测试逐年滚动；最终OOS按冻结超参数和算法每季度重训，禁止重新选择。",
+    "oos_history": [],
+    "sample_dependency": {
+      "label_interval_spec": "contracts/label_spec.json定义的显式[prediction,execution,label_start,label_end]日历区间。",
+      "feature_lookback_spec": "固定窗口5、10、20、60个有效交易日，最大回看60日。",
+      "overlap_present": true,
+      "purge_rule": "左侧split中label_end不早于下一split开始的样本全部删除。",
+      "embargo_duration": "5 eligible trading days",
+      "embargo_basis": "versioned XSHG/XSHE eligible-session calendar",
+      "cross_series_alignment_policy": "每个预测日的横截面只使用该日prediction_time前可得且属于PIT股票池的证券；禁止较晚市场行回填较早证券。"
+    },
+    "final_oos_policy": {
+      "access_status": "UNTOUCHED",
+      "access_log_uri": "contracts/oos_access_log.jsonl",
+      "access_log_snapshot_hash": "6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190",
+      "access_count": 0,
+      "selection_uses": 0,
+      "allowed_purpose": "confirmatory_evaluation_only",
+      "replacement_rule": "replace_after_any_selection_threshold_or_slice_use"
+    }
+  },
+  "method_scope": {
+    "allowed_model_families": [
+      "LightGBM regression baseline",
+      "two-layer MLP baseline",
+      "PeerLite K16 or K32 with MSE",
+      "PeerLite K16 with CCC isolated increment",
+      "PeerLite K16 with small market-state gate isolated increment",
+      "CCC plus gate only after both isolated increments pass"
+    ],
+    "preprocessing_rule": "特征集合和公式固定；每折仅用训练集估计均值和标准差；缺失样本在矩阵物化前按固定规则剔除。",
+    "max_candidate_evaluations": 27,
+    "max_model_fits": 60,
+    "model_selection_rule": "筛选期固定种子7和相同滚动区间；候选按成本后净超额IR主指标比较；确认期仅对冻结候选使用7、19、42、73、101五个种子。",
+    "trial_counting_rule": "任何真实标签参与的成功、失败、异常、中止、人工或代理模型配置均计为一次候选评估；每次种子训练计为一次model fit。"
+  },
+  "evaluation": {
+    "primary_metric": {
+      "name": "cost_adjusted_excess_information_ratio",
+      "formula": "annualized mean weekly net excess return divided by weekly net excess return standard deviation",
+      "direction": "higher_is_better",
+      "threshold": 0.0,
+      "threshold_operator": ">"
+    },
+    "secondary_metrics": [
+      {
+        "name": "RankIC_mean",
+        "formula": "mean daily Spearman correlation between score and label",
+        "direction": "higher_is_better",
+        "threshold": 0.0,
+        "threshold_operator": ">",
+        "role": "diagnostic_only"
+      },
+      {
+        "name": "positive_seed_fraction",
+        "formula": "fraction of five confirmation seeds with positive net IR delta versus B0",
+        "direction": "higher_is_better",
+        "threshold": 0.8,
+        "threshold_operator": ">=",
+        "role": "promotion_gate"
+      },
+      {
+        "name": "positive_fold_fraction",
+        "formula": "fraction of rolling test folds with positive net IR delta versus B0",
+        "direction": "higher_is_better",
+        "threshold": 0.6,
+        "threshold_operator": ">=",
+        "role": "promotion_gate"
+      },
+      {
+        "name": "bootstrap_ir_delta_lower_bound",
+        "formula": "2.5 percentile of paired moving-block bootstrap IR delta versus B0",
+        "direction": "higher_is_better",
+        "threshold": 0.0,
+        "threshold_operator": ">",
+        "role": "promotion_gate"
+      }
+    ],
+    "undeclared_metrics_policy": "diagnostic_only_no_selection_or_claim",
+    "predeclared_stability_slices": [
+      "calendar_year",
+      "rolling_test_fold",
+      "confirmation_seed",
+      "market_volatility_tercile",
+      "liquidity_tercile",
+      "base_cost_and_stress_cost"
+    ],
+    "benchmarks": [
+      {
+        "benchmark_id": "CSI800_TOTAL_RETURN_PIT_V1",
+        "spec_hash": "a75fb43de089352fd3fcd424cbb6b91a085751c93bf2681ea64f7e2b75a136c3",
+        "comparison_rule": "所有模型共享相同PIT股票池、调仓、交易限制和成本映射；对基准报告净超额收益与IR。"
+      },
+      {
+        "benchmark_id": "B0_LIGHTGBM",
+        "spec_hash": "1eb5fcc6e9399b768bd2836bce17bfc7ea4683d1e39f5a319d325ec4ceb792a1",
+        "comparison_rule": "同一特征、标签、滚动折和组合规则下的直接模型增量比较。"
+      }
+    ],
+    "incrementality_rule": "PeerLite先相对B0和B1比较；CCC和Gate必须分别相对冻结PeerLite-MSE通过，组合候选才可激活。",
+    "cost_assumption": "contracts/cost_spec.json，SHA256=fc9cdeff2136993538970a71c735b882c390803e9603d4a465079e455e6688eb；正式佣金和法定费用仍需有效费率回执。",
+    "selection_protocol": {
+      "scheme": "chronological rolling walk-forward",
+      "model_class": "cross-sectional supervised prediction",
+      "forecast_horizon": "5 eligible trading sessions",
+      "forecast_origins_rule": "每个测试年度的每个合格交易日独立产生score，组合固定周频消费。",
+      "window_type": "fixed-length rolling training with separate validation and test",
+      "window_length_rule": "5 calendar years train, 1 calendar year validation, 1 calendar year test",
+      "refit_policy": "开发期逐年重训；最终OOS固定算法按季度重训，不改变超参数、门槛或候选。",
+      "temporal_order_preserved": true,
+      "nonstationarity_assessment": "按年度、波动率和流动性预声明切片报告，不允许用切片结果重写模型。",
+      "stationarity_eligibility": "not assumed; random K-fold is prohibited",
+      "residual_dependence_gate": "同日横截面和重叠5日标签视为相关；统计采用日期级聚合和移动区块重采样。",
+      "fallback_policy": "若完整滚动折不可运行则严格轨道HOLD，不用随机K折、缩短OOS或代理标签替代。",
+      "live_operation_mapping": "T收盘后预测、T+1开盘执行、每周调仓；最终OOS季度预定重训。"
+    },
+    "statistical_design": {
+      "evaluation_unit": "weekly rebalance-period net excess return",
+      "aggregation_rule": "先在每个固定fold和seed计算，再报告全期与稳定性分布；不按单股观测伪增样本量。",
+      "dependence_assumptions": "周收益存在序列相关，股票横截面存在共同市场和行业相关，五日标签在日频诊断中重叠。",
+      "uncertainty_method": "paired moving-block bootstrap of candidate and benchmark weekly returns",
+      "resampling_scheme": "circular moving blocks with frozen random seed",
+      "block_length_rule": "base block length 4 weekly observations; any sensitivity is diagnostic only"
+    },
+    "multiplicity": {
+      "hypothesis_family": "qlib-peerlite-a-share-daily-v0",
+      "claim_kind": "exploratory",
+      "claim_scope": "all seven registered model candidates and five predeclared hypotheses",
+      "total_hypotheses": 7,
+      "hypothesis_registry_uri": "contracts/candidate_registry.json",
+      "hypothesis_registry_version": "qlib_peerlite_candidate_registry_v1",
+      "hypothesis_registry_hash": "fb1bcca2df1f4ee1f62f68aa806a85122e423c8fdaf14622b9c0f4766faed1ac",
+      "hypothesis_counting_rule": "one_hypothesis_per_registered_candidate",
+      "method": "exploratory_only",
+      "control_target": "descriptive_only",
+      "error_rate": null,
+      "implementation_spec_version": "not_applicable_for_exploratory_only",
+      "implementation_spec_hash": null,
+      "effective_trials_method": null,
+      "effective_trials_spec_hash": null,
+      "dependence_assumptions": "候选共享数据和折，统计量相关；当前探索契约不输出受控发现声明。"
+    },
+    "negative_controls": [
+      {
+        "name": "random_label",
+        "expected_result": "RankIC和成本后组合增量应退化至无稳定正值",
+        "failure_action": "若仍通过则判定实现或泄漏门FAIL"
+      },
+      {
+        "name": "future_poison_prefix_replay",
+        "expected_result": "严格未来输入扰动不得改变受保护历史特征键和值",
+        "failure_action": "隔离数据路径并返回M3，不得训练"
+      },
+      {
+        "name": "peer_module_disabled",
+        "expected_result": "退化为同容量MLP，用于归因Peer结构的真实增量",
+        "failure_action": "若无差异则不宣称Peer机制增益"
+      }
+    ]
+  },
+  "governance": {
+    "required_evidence": [
+      "pit_audit",
+      "derived_feature_behavior_audit",
+      "experiment_registry_manifest",
+      "oos_access_log",
+      "independent_rerun"
+    ],
+    "change_triggers": [
+      "label",
+      "universe",
+      "data_source",
+      "split",
+      "metric",
+      "threshold",
+      "research_family",
+      "oos_access",
+      "multiplicity",
+      "feature_definition",
+      "portfolio_or_cost_rule"
+    ],
+    "change_policy": "derived_contract_only",
+    "model_risk": {
+      "intended_use": "研究级Alpha候选筛选，不用于实盘订单或资本配置",
+      "materiality_tier": "research_only_high_scrutiny",
+      "materiality_rationale": "模型影响后续研究资源和潜在策略方向，但v0不连接交易系统。",
+      "model_inventory_id": "QLIB-PEERLITE-A-SHARE-V0",
+      "known_limitations": [
+        "PIT数据证书尚未完成",
+        "当前PIT执行器只接受RAW且大矩阵可能需要经验证的流式扩展",
+        "服务器数据库字段名不证明字段语义或历史市场可得时间",
+        "合成测试不支持Alpha结论",
+        "前1%声明不在v0支持范围"
+      ],
+      "validation_plan": "单元、泄漏、置换等变、负对照、滚动OOS、五种子、成本压力、区块Bootstrap和独立重跑。",
+      "monitoring_plan": "v0只记录数据、模型、预测、组合、成本、环境和代码哈希；生产监控属于后续阶段。",
+      "remediation_policy": "失败保留原始证据并返回所属门槛；语义变更必须派生新契约，不覆盖旧文件。",
+      "third_party_review_rule": "Qlib、LightGBM和PyTorch只作实现依赖，必须有固定提交、许可证、沙盒回执和本地回归测试。"
+    },
+    "review": {
+      "developer_owner": "Jonas research / Codex implementation",
+      "validator_owner": "independent reviewer assigned before research_alpha promotion",
+      "effective_challenge_required": true,
+      "independence_rule": "最终研究候选必须由未参与主实现的复核者在独立输出目录重跑并核对哈希。",
+      "review_artifact_uri": "artifacts/review/independent_challenge.json"
+    },
+    "promotion": {
+      "independent_replication_required": true,
+      "external_period_or_market_required": false,
+      "limitations_record_required": true
+    }
+  },
+  "evidence": {
+    "source_ids": [
+      "EC-001",
+      "EC-004",
+      "EC-007",
+      "EC-013",
+      "EC-014",
+      "EC-015"
+    ],
+    "assumptions": [
+      "SOURCE_BACKED: candidate-family completeness affects selection claims.",
+      "ADAPTED: 5-year train, 1-year validation, 1-year test and 5-session embargo are task-specific frozen choices, not universal thresholds.",
+      "ADAPTED: 4/5 seed and 60% fold promotion gates are conservative local governance rules.",
+      "NOVEL_CANDIDATE: PeerLite mechanism is a local implementation inspired by provided materials and has no verified local alpha evidence."
+    ],
+    "research_gaps": [
+      "M1 must identify authoritative field semantics and market availability evidence.",
+      "M1 must prove CSI300/CSI500 historical membership announcements and lifecycle coverage.",
+      "M2 must bind an exact immutable raw-data snapshot and environment lock.",
+      "M3 must certify FULL_TRAINING_INPUT and separately pass derived-feature behavior replay.",
+      "Current cost specification needs a versioned effective commission/statutory fee receipt."
+    ]
+  }
+}

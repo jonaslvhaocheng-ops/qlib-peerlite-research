@@ -1,0 +1,2042 @@
+{
+  "schema_version": "pit_audit_manifest_v1",
+  "request_id": "pit-pit_consumed_values_full_2012_2024_v2-v1",
+  "request_sha256": "8322010de1af090259996379b35027e9726800c260f000db4e5e517a8e1907bb",
+  "run_at": "2026-07-28T18:23:27.403491+08:00",
+  "status": "PASS",
+  "pit_qualification": "QUALIFIED",
+  "claim": "MARKET_RECONSTRUCTIBLE",
+  "evidence_ceiling": "PASS",
+  "status_precedence": "FAIL > NEEDS_EVIDENCE > PASS",
+  "contract_binding": {
+    "adapter": "quant_contract_v2",
+    "test_only_adapter": false,
+    "execution_boundary": "PRODUCTION_CLI",
+    "contract_id": "qrc-v2-5b7353756e0fded36622a6946011f77a",
+    "canonical_hash": "5b7353756e0fded36622a6946011f77a99706ec82a9685cb2dd3c03bba37002d",
+    "file_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+    "label_spec_hash": "3e9ce515583813b0018634abdd14031a00918f6d360a558bc6767ebb84e8029d"
+  },
+  "runtime_trust": {
+    "matched_review_authority_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+    "matched_semantic_review_receipt_sha256": "03c7e25ee57a8f0dd3a3e292a41f5b44bd5c875f37ffe757f7a848e817115362",
+    "matched_interval_authority_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242"
+  },
+  "runtime_execution": {
+    "mode": "GROUPED_RECTANGULAR_EXACT",
+    "executor_sha256": "70439b1ca402cadc5daf126d14ce90ea5b2e0c9876f8945ce2cf84ab9146d23f",
+    "semantic_rule_set": "pit_audit_manifest_v1_17_checks"
+  },
+  "input_artifacts": [
+    "calendar",
+    "contract_validation",
+    "data",
+    "dictionary",
+    "label_definition",
+    "label_interval_authority",
+    "label_schedule",
+    "matrix_manifest",
+    "population_manifest",
+    "population_source",
+    "research_contract",
+    "review_authority",
+    "schema",
+    "time_semantics"
+  ],
+  "lineage": [
+    {
+      "artifact": "calendar",
+      "path": "calendar.csv",
+      "declared_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+      "verified_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+      "version": "planned-v1"
+    },
+    {
+      "artifact": "contract_validation",
+      "path": "contract_validation.json",
+      "declared_sha256": "44d37fc14e33e612e6e33670542ea90b18305ac156eaf0ba2b5f06b5e479de43",
+      "verified_sha256": "44d37fc14e33e612e6e33670542ea90b18305ac156eaf0ba2b5f06b5e479de43",
+      "version": "quant_contract_v2"
+    },
+    {
+      "artifact": "data",
+      "path": "training_evidence.csv",
+      "declared_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+      "verified_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+      "version": "pit_consumed_values_full_2012_2024_v2:training_evidence"
+    },
+    {
+      "artifact": "dictionary",
+      "path": "dictionary.json",
+      "declared_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+      "verified_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+      "version": "qlib-peerlite-derived-feature-semantics-v1"
+    },
+    {
+      "artifact": "label_definition",
+      "path": "label_definition.json",
+      "declared_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+      "verified_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+      "version": null
+    },
+    {
+      "artifact": "label_interval_authority",
+      "path": "label_interval_authority.json",
+      "declared_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+      "verified_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+      "version": "1"
+    },
+    {
+      "artifact": "label_schedule",
+      "path": "label_schedule.json",
+      "declared_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+      "verified_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+      "version": "1"
+    },
+    {
+      "artifact": "matrix_manifest",
+      "path": "matrix_manifest.json",
+      "declared_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+      "verified_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+      "version": "1"
+    },
+    {
+      "artifact": "population_manifest",
+      "path": "population_manifest.json",
+      "declared_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+      "verified_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+      "version": "csi800-pit-eligible-development-population-20260728-v2"
+    },
+    {
+      "artifact": "population_source",
+      "path": "population_source.json",
+      "declared_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+      "verified_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+      "version": "csi800-pit-eligible-development-population-20260728-v2"
+    },
+    {
+      "artifact": "research_contract",
+      "path": "research_contract.json",
+      "declared_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+      "verified_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+      "version": null
+    },
+    {
+      "artifact": "review_authority",
+      "path": "review_authority.json",
+      "declared_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+      "verified_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+      "version": "1"
+    },
+    {
+      "artifact": "schema",
+      "path": "schema.json",
+      "declared_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+      "verified_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+      "version": null
+    },
+    {
+      "artifact": "time_semantics",
+      "path": "time_semantics.json",
+      "declared_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+      "verified_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+      "version": null
+    }
+  ],
+  "time_semantics": {
+    "timezone": "Asia/Shanghai",
+    "tzdb_version": "2025b",
+    "availability_comparison": "LE"
+  },
+  "coverage_matrix": {
+    "scope": "FULL_TRAINING_INPUT",
+    "expected_rows": 82926250,
+    "parsed_rows": 82926250,
+    "expected_security_time_keys": 1658525,
+    "observed_security_time_keys": 1658525,
+    "expected_matrix_cells": 82926250,
+    "observed_matrix_cells": 82926250,
+    "source_id": "qlib-peerlite-derived-features",
+    "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+    "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+    "snapshot_binding_mode": "IDENTITY_SNAPSHOT"
+  },
+  "checks": [
+    {
+      "check_id": "I001",
+      "title": "Input, hash, version, and coverage integrity",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "request_file": "audit_request.json",
+          "request_sha256": "8322010de1af090259996379b35027e9726800c260f000db4e5e517a8e1907bb",
+          "verified_artifact_hashes": {
+            "calendar": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+            "data": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+            "dictionary": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+            "label_definition": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+            "label_interval_authority": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+            "label_schedule": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+            "matrix_manifest": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+            "population_manifest": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+            "population_source": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+            "research_contract": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+            "review_authority": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+            "schema": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+            "time_semantics": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a"
+          },
+          "scope": "FULL_TRAINING_INPUT"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {},
+            "time_roles": {},
+            "feature_policies": {},
+            "external_policies": {
+              "dictionary": "project://qlib-peerlite-derived-feature-semantics-v1"
+            },
+            "binding_sha256": "6377b4246059ad19417a872a8a2e892eda6befa6d3c571465f4ecaa1fd175c01"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "parsed_rows": 82926250,
+        "verified_files": 13
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "78d4734f91a0110cf6a51c5fa14d92b8934ce395048438381465b06c4272f48c"
+    },
+    {
+      "check_id": "I002",
+      "title": "Frozen contract and source/label binding",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "contract_id": "qrc-v2-5b7353756e0fded36622a6946011f77a",
+          "contract_canonical_hash": "5b7353756e0fded36622a6946011f77a99706ec82a9685cb2dd3c03bba37002d",
+          "contract_file_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "validation_receipt_sha256": "44d37fc14e33e612e6e33670542ea90b18305ac156eaf0ba2b5f06b5e479de43",
+          "qrc_strict_revalidation": {
+            "validator_bundle_sha256": "6dbb4fe1eb929a368b9608a7944c8ba3ae4b14d30cc07d9ff7b091dfefaeeb0b",
+            "exit_code": 0,
+            "stdout_sha256": "cbfde4542a542e1edd62800cce1f2a765f40b13c94a0c17b92f88153c5523e69",
+            "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "label_spec_hash": "3e9ce515583813b0018634abdd14031a00918f6d360a558bc6767ebb84e8029d",
+          "label_schedule_id": "qlib-peerlite-open1-close5-schedule-v1",
+          "label_schedule_version": "1",
+          "label_schedule_receipt_hash": "84bfaf984ca1b1b1252aff060419797abde996b4abc3bd44fcc1e7084ffb0e3e",
+          "matrix_feature_spec_hash": "a0305493da95d6b5a7409767e61a6173f8ad727535d3f73a089bf32c11d73542",
+          "matrix_layout_mode": "RECTANGULAR"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "event_time": "project://pit-evidence-schema-v1#event_time",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "split": "project://pit-evidence-schema-v1#split",
+              "vendor_available_time": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "time_roles": {
+              "EVENT_TIME": "project://pit-evidence-schema-v1#event_time",
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time",
+              "VENDOR_AVAILABLE_TIME": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "feature_policies": {},
+            "external_policies": {
+              "contract_validation": "quant-research-contract.validate_contract",
+              "label": "project://frozen-research-contract#target"
+            },
+            "binding_sha256": "75e1909ccfb449528d02951caae086a7eeb6f1d6afad14a056141b841e2f601d"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "used_features": 50
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "9cd1351b9753b526e9363e75d265578a8270851efe71d4df4a60dd62217f9ed9"
+    },
+    {
+      "check_id": "S001",
+      "title": "Exact schema and field-semantic coverage",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "schema_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "field_count": 32,
+          "feature_locators": {
+            "amihud_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10",
+            "amihud_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20",
+            "amihud_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5",
+            "amihud_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60",
+            "close_location": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location",
+            "downside_vol_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10",
+            "downside_vol_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20",
+            "downside_vol_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5",
+            "downside_vol_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60",
+            "gap_return": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return",
+            "high_low_range": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range",
+            "intraday_return": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return",
+            "log_amount": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount",
+            "log_amount_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10",
+            "log_amount_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20",
+            "log_amount_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5",
+            "log_amount_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60",
+            "log_volume": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume",
+            "log_volume_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10",
+            "log_volume_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20",
+            "log_volume_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5",
+            "log_volume_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60",
+            "lower_shadow": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow",
+            "price_volume_corr_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10",
+            "price_volume_corr_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20",
+            "price_volume_corr_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5",
+            "price_volume_corr_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60",
+            "range_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10",
+            "range_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20",
+            "range_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5",
+            "range_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60",
+            "ret_1d": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d",
+            "ret_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10",
+            "ret_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20",
+            "ret_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5",
+            "ret_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60",
+            "ret_std_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10",
+            "ret_std_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20",
+            "ret_std_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5",
+            "ret_std_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60",
+            "turnover_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10",
+            "turnover_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20",
+            "turnover_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5",
+            "turnover_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60",
+            "turnover_raw": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw",
+            "turnover_std_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10",
+            "turnover_std_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20",
+            "turnover_std_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5",
+            "turnover_std_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60",
+            "upper_shadow": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow"
+          }
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "adjustment_invariance_pass": "project://pit-evidence-schema-v1#adjustment_invariance_pass",
+              "adjustment_known_time": "project://pit-evidence-schema-v1#adjustment_known_time",
+              "adjustment_mode": "project://pit-evidence-schema-v1#adjustment_mode",
+              "calendar_session_id": "project://pit-evidence-schema-v1#calendar_session_id",
+              "event_time": "project://pit-evidence-schema-v1#event_time",
+              "feature_name": "project://pit-evidence-schema-v1#feature_name",
+              "feature_value": "project://pit-evidence-schema-v1#feature_value",
+              "halt_time": "project://pit-evidence-schema-v1#halt_time",
+              "identifier_valid_from": "project://pit-evidence-schema-v1#identifier_valid_from",
+              "identifier_valid_to": "project://pit-evidence-schema-v1#identifier_valid_to",
+              "ingested_object_sha256": "project://pit-evidence-schema-v1#ingested_object_sha256",
+              "ingested_time": "project://pit-evidence-schema-v1#ingested_time",
+              "ingestion_batch_id": "project://pit-evidence-schema-v1#ingestion_batch_id",
+              "label_end_time": "project://pit-evidence-schema-v1#label_end_time",
+              "label_start_time": "project://pit-evidence-schema-v1#label_start_time",
+              "parse_ready_time": "project://pit-evidence-schema-v1#parse_ready_time",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "published_time": "project://pit-evidence-schema-v1#published_time",
+              "quote_resume_time": "project://pit-evidence-schema-v1#quote_resume_time",
+              "revision_id": "project://pit-evidence-schema-v1#revision_id",
+              "revision_known_time": "project://pit-evidence-schema-v1#revision_known_time",
+              "row_id": "project://pit-evidence-schema-v1#row_id",
+              "security_id": "project://pit-evidence-schema-v1#security_id",
+              "security_status": "project://pit-evidence-schema-v1#security_status",
+              "split": "project://pit-evidence-schema-v1#split",
+              "tradable_time": "project://pit-evidence-schema-v1#tradable_time",
+              "trade_resume_time": "project://pit-evidence-schema-v1#trade_resume_time",
+              "universe_announced_time": "project://pit-evidence-schema-v1#universe_announced_time",
+              "universe_effective_from": "project://pit-evidence-schema-v1#universe_effective_from",
+              "universe_effective_to": "project://pit-evidence-schema-v1#universe_effective_to",
+              "universe_member": "project://pit-evidence-schema-v1#universe_member",
+              "vendor_available_time": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "time_roles": {
+              "ADJUSTMENT_KNOWN_TIME": "project://pit-evidence-schema-v1#adjustment_known_time",
+              "EVENT_TIME": "project://pit-evidence-schema-v1#event_time",
+              "HALT_TIME": "project://pit-evidence-schema-v1#halt_time",
+              "IDENTIFIER_VALID_FROM": "project://pit-evidence-schema-v1#identifier_valid_from",
+              "IDENTIFIER_VALID_TO": "project://pit-evidence-schema-v1#identifier_valid_to",
+              "INGESTED_TIME": "project://pit-evidence-schema-v1#ingested_time",
+              "LABEL_END_TIME": "project://pit-evidence-schema-v1#label_end_time",
+              "LABEL_START_TIME": "project://pit-evidence-schema-v1#label_start_time",
+              "PARSE_READY_TIME": "project://pit-evidence-schema-v1#parse_ready_time",
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time",
+              "PUBLICATION_TIME": "project://pit-evidence-schema-v1#published_time",
+              "QUOTE_RESUME_TIME": "project://pit-evidence-schema-v1#quote_resume_time",
+              "REVISION_KNOWN_TIME": "project://pit-evidence-schema-v1#revision_known_time",
+              "TRADABLE_TIME": "project://pit-evidence-schema-v1#tradable_time",
+              "TRADE_RESUME_TIME": "project://pit-evidence-schema-v1#trade_resume_time",
+              "UNIVERSE_ANNOUNCED_TIME": "project://pit-evidence-schema-v1#universe_announced_time",
+              "UNIVERSE_EFFECTIVE_FROM": "project://pit-evidence-schema-v1#universe_effective_from",
+              "UNIVERSE_EFFECTIVE_TO": "project://pit-evidence-schema-v1#universe_effective_to",
+              "VENDOR_AVAILABLE_TIME": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "feature_policies": {
+              "amihud_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10",
+              "amihud_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20",
+              "amihud_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5",
+              "amihud_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60",
+              "close_location.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location",
+              "downside_vol_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10",
+              "downside_vol_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20",
+              "downside_vol_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5",
+              "downside_vol_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60",
+              "gap_return.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return",
+              "high_low_range.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range",
+              "intraday_return.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return",
+              "log_amount.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount",
+              "log_amount_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10",
+              "log_amount_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20",
+              "log_amount_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5",
+              "log_amount_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60",
+              "log_volume.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume",
+              "log_volume_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10",
+              "log_volume_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20",
+              "log_volume_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5",
+              "log_volume_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60",
+              "lower_shadow.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow",
+              "price_volume_corr_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10",
+              "price_volume_corr_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20",
+              "price_volume_corr_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5",
+              "price_volume_corr_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60",
+              "range_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10",
+              "range_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20",
+              "range_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5",
+              "range_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60",
+              "ret_1d.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d",
+              "ret_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10",
+              "ret_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20",
+              "ret_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5",
+              "ret_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60",
+              "ret_std_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10",
+              "ret_std_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20",
+              "ret_std_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5",
+              "ret_std_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60",
+              "turnover_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10",
+              "turnover_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20",
+              "turnover_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5",
+              "turnover_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60",
+              "turnover_raw.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw",
+              "turnover_std_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10",
+              "turnover_std_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20",
+              "turnover_std_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5",
+              "turnover_std_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60",
+              "upper_shadow.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow"
+            },
+            "external_policies": {},
+            "binding_sha256": "dedf104bdaf6d9c07556c71c74dc8b46ccea41dc71b16e5d3ba5ff3e03f36564"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "columns": 32,
+        "features": 50,
+        "matrix_features": 50
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "45ce29ad2450e6852a10373d9770cd1d081d464a569edeabcc612abed7bfa23a"
+    },
+    {
+      "check_id": "T001",
+      "title": "Distinct time roles, timezone, and tzdb evidence",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "time_semantics_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "timezone": "Asia/Shanghai",
+          "tzdb_version": "2025b",
+          "role_locators": {
+            "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time",
+            "EVENT_TIME": "project://pit-evidence-schema-v1#event_time",
+            "PUBLICATION_TIME": "project://pit-evidence-schema-v1#published_time",
+            "VENDOR_AVAILABLE_TIME": "project://pit-evidence-schema-v1#vendor_available_time",
+            "INGESTED_TIME": "project://pit-evidence-schema-v1#ingested_time",
+            "PARSE_READY_TIME": "project://pit-evidence-schema-v1#parse_ready_time",
+            "TRADABLE_TIME": "project://pit-evidence-schema-v1#tradable_time",
+            "LABEL_START_TIME": "project://pit-evidence-schema-v1#label_start_time",
+            "LABEL_END_TIME": "project://pit-evidence-schema-v1#label_end_time",
+            "UNIVERSE_ANNOUNCED_TIME": "project://pit-evidence-schema-v1#universe_announced_time",
+            "UNIVERSE_EFFECTIVE_FROM": "project://pit-evidence-schema-v1#universe_effective_from",
+            "UNIVERSE_EFFECTIVE_TO": "project://pit-evidence-schema-v1#universe_effective_to",
+            "REVISION_KNOWN_TIME": "project://pit-evidence-schema-v1#revision_known_time",
+            "ADJUSTMENT_KNOWN_TIME": "project://pit-evidence-schema-v1#adjustment_known_time",
+            "HALT_TIME": "project://pit-evidence-schema-v1#halt_time",
+            "QUOTE_RESUME_TIME": "project://pit-evidence-schema-v1#quote_resume_time",
+            "TRADE_RESUME_TIME": "project://pit-evidence-schema-v1#trade_resume_time",
+            "IDENTIFIER_VALID_FROM": "project://pit-evidence-schema-v1#identifier_valid_from",
+            "IDENTIFIER_VALID_TO": "project://pit-evidence-schema-v1#identifier_valid_to"
+          }
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "adjustment_known_time": "project://pit-evidence-schema-v1#adjustment_known_time",
+              "event_time": "project://pit-evidence-schema-v1#event_time",
+              "halt_time": "project://pit-evidence-schema-v1#halt_time",
+              "identifier_valid_from": "project://pit-evidence-schema-v1#identifier_valid_from",
+              "identifier_valid_to": "project://pit-evidence-schema-v1#identifier_valid_to",
+              "ingested_time": "project://pit-evidence-schema-v1#ingested_time",
+              "label_end_time": "project://pit-evidence-schema-v1#label_end_time",
+              "label_start_time": "project://pit-evidence-schema-v1#label_start_time",
+              "parse_ready_time": "project://pit-evidence-schema-v1#parse_ready_time",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "published_time": "project://pit-evidence-schema-v1#published_time",
+              "quote_resume_time": "project://pit-evidence-schema-v1#quote_resume_time",
+              "revision_known_time": "project://pit-evidence-schema-v1#revision_known_time",
+              "tradable_time": "project://pit-evidence-schema-v1#tradable_time",
+              "trade_resume_time": "project://pit-evidence-schema-v1#trade_resume_time",
+              "universe_announced_time": "project://pit-evidence-schema-v1#universe_announced_time",
+              "universe_effective_from": "project://pit-evidence-schema-v1#universe_effective_from",
+              "universe_effective_to": "project://pit-evidence-schema-v1#universe_effective_to",
+              "vendor_available_time": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "time_roles": {
+              "ADJUSTMENT_KNOWN_TIME": "project://pit-evidence-schema-v1#adjustment_known_time",
+              "EVENT_TIME": "project://pit-evidence-schema-v1#event_time",
+              "HALT_TIME": "project://pit-evidence-schema-v1#halt_time",
+              "IDENTIFIER_VALID_FROM": "project://pit-evidence-schema-v1#identifier_valid_from",
+              "IDENTIFIER_VALID_TO": "project://pit-evidence-schema-v1#identifier_valid_to",
+              "INGESTED_TIME": "project://pit-evidence-schema-v1#ingested_time",
+              "LABEL_END_TIME": "project://pit-evidence-schema-v1#label_end_time",
+              "LABEL_START_TIME": "project://pit-evidence-schema-v1#label_start_time",
+              "PARSE_READY_TIME": "project://pit-evidence-schema-v1#parse_ready_time",
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time",
+              "PUBLICATION_TIME": "project://pit-evidence-schema-v1#published_time",
+              "QUOTE_RESUME_TIME": "project://pit-evidence-schema-v1#quote_resume_time",
+              "REVISION_KNOWN_TIME": "project://pit-evidence-schema-v1#revision_known_time",
+              "TRADABLE_TIME": "project://pit-evidence-schema-v1#tradable_time",
+              "TRADE_RESUME_TIME": "project://pit-evidence-schema-v1#trade_resume_time",
+              "UNIVERSE_ANNOUNCED_TIME": "project://pit-evidence-schema-v1#universe_announced_time",
+              "UNIVERSE_EFFECTIVE_FROM": "project://pit-evidence-schema-v1#universe_effective_from",
+              "UNIVERSE_EFFECTIVE_TO": "project://pit-evidence-schema-v1#universe_effective_to",
+              "VENDOR_AVAILABLE_TIME": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "feature_policies": {},
+            "external_policies": {},
+            "binding_sha256": "49b4c22d24384d84e530306da79e47c62d7b5c0e5e8ce51277c700bf8847386c"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "timestamp_cells": 1575598750
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "339d4c1d324aeb83e75419fbd707bea06a990e796c51f6ba0d6dc41fbd042c31"
+    },
+    {
+      "check_id": "T002",
+      "title": "Feature availability and execution ordering",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "claim": "MARKET_RECONSTRUCTIBLE",
+          "availability_comparison": "LE",
+          "market_predicate": "published_time and vendor_available_time LE prediction_time",
+          "system_extension": "ingested_time and parse_ready_time LE prediction_time",
+          "causal_topology": "published_time <= vendor_available_time <= ingested_time <= parse_ready_time; OBSERVED_BY_PREDICTION also requires event_time <= published_time",
+          "memory_execution_mode": "GROUPED_RECTANGULAR_EXACT"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "ingested_time": "project://pit-evidence-schema-v1#ingested_time",
+              "parse_ready_time": "project://pit-evidence-schema-v1#parse_ready_time",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "published_time": "project://pit-evidence-schema-v1#published_time",
+              "tradable_time": "project://pit-evidence-schema-v1#tradable_time",
+              "vendor_available_time": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "time_roles": {
+              "INGESTED_TIME": "project://pit-evidence-schema-v1#ingested_time",
+              "PARSE_READY_TIME": "project://pit-evidence-schema-v1#parse_ready_time",
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time",
+              "PUBLICATION_TIME": "project://pit-evidence-schema-v1#published_time",
+              "TRADABLE_TIME": "project://pit-evidence-schema-v1#tradable_time",
+              "VENDOR_AVAILABLE_TIME": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "feature_policies": {
+              "amihud_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10",
+              "amihud_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20",
+              "amihud_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5",
+              "amihud_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60",
+              "close_location.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location",
+              "downside_vol_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10",
+              "downside_vol_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20",
+              "downside_vol_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5",
+              "downside_vol_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60",
+              "gap_return.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return",
+              "high_low_range.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range",
+              "intraday_return.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return",
+              "log_amount.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount",
+              "log_amount_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10",
+              "log_amount_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20",
+              "log_amount_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5",
+              "log_amount_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60",
+              "log_volume.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume",
+              "log_volume_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10",
+              "log_volume_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20",
+              "log_volume_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5",
+              "log_volume_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60",
+              "lower_shadow.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow",
+              "price_volume_corr_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10",
+              "price_volume_corr_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20",
+              "price_volume_corr_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5",
+              "price_volume_corr_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60",
+              "range_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10",
+              "range_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20",
+              "range_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5",
+              "range_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60",
+              "ret_1d.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d",
+              "ret_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10",
+              "ret_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20",
+              "ret_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5",
+              "ret_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60",
+              "ret_std_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10",
+              "ret_std_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20",
+              "ret_std_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5",
+              "ret_std_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60",
+              "turnover_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10",
+              "turnover_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20",
+              "turnover_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5",
+              "turnover_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60",
+              "turnover_raw.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw",
+              "turnover_std_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10",
+              "turnover_std_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20",
+              "turnover_std_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5",
+              "turnover_std_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60",
+              "upper_shadow.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow"
+            },
+            "external_policies": {},
+            "binding_sha256": "2747eeaa9d4bdef49ce1b866cd9bee722ff93211e8cde04ac4595556cc63ac71"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "market_reconstructible_rows": 82926250,
+        "system_replayable_rows": 0,
+        "causally_ordered_rows": 82926250
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "5fd27bfe17d784b085aa8b91c8f8d5d6d68171e6b3b8331529d9eea09694633b"
+    },
+    {
+      "check_id": "T003",
+      "title": "Revision and vintage as-of correctness",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "predicate": "revision_known_time LE prediction_time",
+          "semantic_locator": "project://pit-evidence-schema-v1#revision_known_time"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "revision_id": "project://pit-evidence-schema-v1#revision_id",
+              "revision_known_time": "project://pit-evidence-schema-v1#revision_known_time"
+            },
+            "time_roles": {
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time",
+              "REVISION_KNOWN_TIME": "project://pit-evidence-schema-v1#revision_known_time"
+            },
+            "feature_policies": {},
+            "external_policies": {},
+            "binding_sha256": "e0855617b445419b442ab0e3e4c0177d0e615d231e17dbd73634cfaf9e3c192f"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "revision_ids": 1658525
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "23bb54ba57f89b0c3bd38f1024a39276325c6c767f617ec4cf58984e7c3aec92"
+    },
+    {
+      "check_id": "U001",
+      "title": "Point-in-time universe membership",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "announcement_predicate": "universe_announced_time LE prediction_time",
+          "effective_interval": "[effective_from, effective_to)"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "universe_announced_time": "project://pit-evidence-schema-v1#universe_announced_time",
+              "universe_effective_from": "project://pit-evidence-schema-v1#universe_effective_from",
+              "universe_effective_to": "project://pit-evidence-schema-v1#universe_effective_to",
+              "universe_member": "project://pit-evidence-schema-v1#universe_member"
+            },
+            "time_roles": {
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time",
+              "UNIVERSE_ANNOUNCED_TIME": "project://pit-evidence-schema-v1#universe_announced_time",
+              "UNIVERSE_EFFECTIVE_FROM": "project://pit-evidence-schema-v1#universe_effective_from",
+              "UNIVERSE_EFFECTIVE_TO": "project://pit-evidence-schema-v1#universe_effective_to"
+            },
+            "feature_policies": {},
+            "external_policies": {},
+            "binding_sha256": "84035a9e00e7d940d8e715780cb4eb979a76aec4506e51859ca21cbce378f23c"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "membership_rows": 82926250
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "9b6c9ae014462bf20b8cf70a026eb630896466bbd599915c7e7e59eebc172a10"
+    },
+    {
+      "check_id": "U002",
+      "title": "Population, survivor, and delisting coverage",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "scope": "FULL_TRAINING_INPUT",
+          "population_basis_id": "csi800-pit-eligible-development-population-v2",
+          "population_snapshot_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "selection_rule_sha256": "9c13362d8dfaabe226a8d928508f451381d25cb63cd8c93d97e2dc024139f5c0",
+          "population_manifest_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "population_source_receipt_hash": "ef84f0929891491c58400401552206b6780141d19ee8d0d62f08e34cfe3ece2d",
+          "expected_key_set_sha256": "a3968aacf87cd80e5a6b4bdb0a8f2f8b434af5d2709b6e52ea5094987fa12f72",
+          "matrix_population_axis": {
+            "population_manifest_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+            "population_manifest_receipt_hash": "24a0c20a75e06b36bed755aba86465b4f91215d132e3523672d03f9076db6e4f",
+            "population_source_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+            "expected_security_time_keys": 1658525,
+            "expected_key_set_sha256": "a3968aacf87cd80e5a6b4bdb0a8f2f8b434af5d2709b6e52ea5094987fa12f72"
+          }
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "security_id": "project://pit-evidence-schema-v1#security_id",
+              "security_status": "project://pit-evidence-schema-v1#security_status"
+            },
+            "time_roles": {
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time"
+            },
+            "feature_policies": {},
+            "external_policies": {
+              "population": "project://pit-data-product-population/728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3"
+            },
+            "binding_sha256": "2f8d77c668e606eb0f07beb2386855504b33a0f1e0cf0c29e7486683feb354f0"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "security_time_keys": 1658525,
+        "security_status_counts": {
+          "ACTIVE": 82926250
+        }
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "0991cc5cba71d9d7246d356aa8d80e7765c88d2ca7577428d94cab89f412189e"
+    },
+    {
+      "check_id": "C001",
+      "title": "Versioned exchange calendar and session alignment",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "calendar_id": "XSHG_XSHE",
+          "calendar_version": "planned-v1",
+          "calendar_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "timezone": "Asia/Shanghai"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "calendar_session_id": "project://pit-evidence-schema-v1#calendar_session_id",
+              "tradable_time": "project://pit-evidence-schema-v1#tradable_time"
+            },
+            "time_roles": {
+              "TRADABLE_TIME": "project://pit-evidence-schema-v1#tradable_time"
+            },
+            "feature_policies": {},
+            "external_policies": {
+              "calendar": "data/raw/snapshots/source_snapshot_20260728_v1/md_trade_cal.parquet"
+            },
+            "binding_sha256": "84c4262ebe40d38282bf4157c2e0ec42cb80a1742b148ce50ed78c6fdd65f088"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "sessions": 3238
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "5c32817f644ac1d419e709471cca153e8e224e7d4c54afa0c1a1198073f7fc9b"
+    },
+    {
+      "check_id": "M001",
+      "title": "Stable security identity and valid-time mapping",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "identity_stability": "permanent",
+          "identity_source_locator": "project://pit-evidence-schema-v1#security_id",
+          "validity_interval": "[identifier_valid_from, identifier_valid_to)"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "identifier_valid_from": "project://pit-evidence-schema-v1#identifier_valid_from",
+              "identifier_valid_to": "project://pit-evidence-schema-v1#identifier_valid_to",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "security_id": "project://pit-evidence-schema-v1#security_id"
+            },
+            "time_roles": {
+              "IDENTIFIER_VALID_FROM": "project://pit-evidence-schema-v1#identifier_valid_from",
+              "IDENTIFIER_VALID_TO": "project://pit-evidence-schema-v1#identifier_valid_to",
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time"
+            },
+            "feature_policies": {},
+            "external_policies": {},
+            "binding_sha256": "1d94e419ea821f4695cebc5008227830b34f47c6279fcfdc7c4a5a10a113a398"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "security_ids": 1655
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "ef76db81d64015df7a1eeb61b9ae2ef6a51bc2b5b1725d06f9921abe65f52198"
+    },
+    {
+      "check_id": "A001",
+      "title": "Corporate-action adjustment correctness",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "rule": "RAW only; PIT_ADJUSTED and FULL_HISTORY_ADJUSTED are unsupported and fail closed in v1",
+          "memory_execution_mode": "GROUPED_RECTANGULAR_EXACT"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "adjustment_known_time": "project://pit-evidence-schema-v1#adjustment_known_time",
+              "adjustment_mode": "project://pit-evidence-schema-v1#adjustment_mode",
+              "feature_name": "project://pit-evidence-schema-v1#feature_name",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time"
+            },
+            "time_roles": {
+              "ADJUSTMENT_KNOWN_TIME": "project://pit-evidence-schema-v1#adjustment_known_time",
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time"
+            },
+            "feature_policies": {
+              "amihud_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10",
+              "amihud_mean_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10/adjustment",
+              "amihud_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20",
+              "amihud_mean_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20/adjustment",
+              "amihud_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5",
+              "amihud_mean_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5/adjustment",
+              "amihud_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60",
+              "amihud_mean_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60/adjustment",
+              "close_location.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location",
+              "close_location.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location/adjustment",
+              "downside_vol_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10",
+              "downside_vol_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10/adjustment",
+              "downside_vol_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20",
+              "downside_vol_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20/adjustment",
+              "downside_vol_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5",
+              "downside_vol_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5/adjustment",
+              "downside_vol_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60",
+              "downside_vol_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60/adjustment",
+              "gap_return.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return",
+              "gap_return.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return/adjustment",
+              "high_low_range.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range",
+              "high_low_range.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range/adjustment",
+              "intraday_return.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return",
+              "intraday_return.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return/adjustment",
+              "log_amount.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount",
+              "log_amount.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount/adjustment",
+              "log_amount_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10",
+              "log_amount_mean_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10/adjustment",
+              "log_amount_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20",
+              "log_amount_mean_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20/adjustment",
+              "log_amount_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5",
+              "log_amount_mean_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5/adjustment",
+              "log_amount_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60",
+              "log_amount_mean_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60/adjustment",
+              "log_volume.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume",
+              "log_volume.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume/adjustment",
+              "log_volume_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10",
+              "log_volume_mean_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10/adjustment",
+              "log_volume_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20",
+              "log_volume_mean_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20/adjustment",
+              "log_volume_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5",
+              "log_volume_mean_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5/adjustment",
+              "log_volume_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60",
+              "log_volume_mean_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60/adjustment",
+              "lower_shadow.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow",
+              "lower_shadow.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow/adjustment",
+              "price_volume_corr_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10",
+              "price_volume_corr_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10/adjustment",
+              "price_volume_corr_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20",
+              "price_volume_corr_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20/adjustment",
+              "price_volume_corr_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5",
+              "price_volume_corr_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5/adjustment",
+              "price_volume_corr_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60",
+              "price_volume_corr_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60/adjustment",
+              "range_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10",
+              "range_mean_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10/adjustment",
+              "range_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20",
+              "range_mean_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20/adjustment",
+              "range_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5",
+              "range_mean_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5/adjustment",
+              "range_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60",
+              "range_mean_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60/adjustment",
+              "ret_1d.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d",
+              "ret_1d.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d/adjustment",
+              "ret_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10",
+              "ret_mean_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10/adjustment",
+              "ret_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20",
+              "ret_mean_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20/adjustment",
+              "ret_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5",
+              "ret_mean_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5/adjustment",
+              "ret_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60",
+              "ret_mean_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60/adjustment",
+              "ret_std_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10",
+              "ret_std_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10/adjustment",
+              "ret_std_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20",
+              "ret_std_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20/adjustment",
+              "ret_std_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5",
+              "ret_std_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5/adjustment",
+              "ret_std_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60",
+              "ret_std_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60/adjustment",
+              "turnover_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10",
+              "turnover_mean_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10/adjustment",
+              "turnover_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20",
+              "turnover_mean_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20/adjustment",
+              "turnover_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5",
+              "turnover_mean_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5/adjustment",
+              "turnover_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60",
+              "turnover_mean_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60/adjustment",
+              "turnover_raw.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw",
+              "turnover_raw.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw/adjustment",
+              "turnover_std_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10",
+              "turnover_std_10.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10/adjustment",
+              "turnover_std_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20",
+              "turnover_std_20.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20/adjustment",
+              "turnover_std_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5",
+              "turnover_std_5.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5/adjustment",
+              "turnover_std_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60",
+              "turnover_std_60.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60/adjustment",
+              "upper_shadow.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow",
+              "upper_shadow.adjustment_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow/adjustment"
+            },
+            "external_policies": {},
+            "binding_sha256": "92f2ac0d7783ace15b350c9d8e88fda7ab3098f0d552554dce5ca642e3b1a7ea"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "adjustment_modes": {
+          "RAW": 82926250
+        }
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "b94656c14237d4aec0757ed05d8e0a6f2b09f6ce84f560a7a76ffd5d8b955935"
+    },
+    {
+      "check_id": "H001",
+      "title": "Halt, quote-resume, and trade-resume handling",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "predicate": "after halt_time, tradable_time requires trade_resume_time; quote_resume_time is not a proxy",
+          "source_locator": "project://pit-evidence-schema-v1#trade_resume_time"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "halt_time": "project://pit-evidence-schema-v1#halt_time",
+              "quote_resume_time": "project://pit-evidence-schema-v1#quote_resume_time",
+              "tradable_time": "project://pit-evidence-schema-v1#tradable_time",
+              "trade_resume_time": "project://pit-evidence-schema-v1#trade_resume_time"
+            },
+            "time_roles": {
+              "HALT_TIME": "project://pit-evidence-schema-v1#halt_time",
+              "QUOTE_RESUME_TIME": "project://pit-evidence-schema-v1#quote_resume_time",
+              "TRADABLE_TIME": "project://pit-evidence-schema-v1#tradable_time",
+              "TRADE_RESUME_TIME": "project://pit-evidence-schema-v1#trade_resume_time"
+            },
+            "feature_policies": {},
+            "external_policies": {},
+            "binding_sha256": "0830915ce5fde78ae7ed1d03c4d2bd8794c1dfc1a63a3c9faf77e1f7be476043"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "halted_rows": 0
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "e384705f36fc9657e58e3caad700f9258e5eea8facfd7458a1b446d601aabed4"
+    },
+    {
+      "check_id": "Q001",
+      "title": "Primary-key, declared-grain, and matrix completeness",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "primary_key": [
+            "row_id"
+          ],
+          "grain": [
+            "security_id",
+            "prediction_time",
+            "feature_name"
+          ],
+          "matrix_manifest_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "matrix_layout_mode": "RECTANGULAR",
+          "expected_cell_key_set_sha256": "1bb6d5947207e119b47506eddabd8eee5ad6a5909c9c3f47c1c42a5a665fecc2",
+          "memory_execution_mode": "GROUPED_RECTANGULAR_EXACT"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "feature_name": "project://pit-evidence-schema-v1#feature_name",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "row_id": "project://pit-evidence-schema-v1#row_id",
+              "security_id": "project://pit-evidence-schema-v1#security_id"
+            },
+            "time_roles": {
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time"
+            },
+            "feature_policies": {},
+            "external_policies": {},
+            "binding_sha256": "7c5c32d653d1faa3600222452f40801a0d72e0d2d11e69b5f841176726435837"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "unique_primary_keys": 82926250,
+        "unique_grain_keys": 82926250,
+        "expected_matrix_cells": 82926250,
+        "observed_matrix_cells": 82926250
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "84dccd5159c7b1c8b9c95dbdf9cd016b6fafea8af000b1d9387c9526d95fbcba"
+    },
+    {
+      "check_id": "Q002",
+      "title": "Required values, types, and finite numerics",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "schema_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "declared_types": {
+            "row_id": {
+              "type": "string",
+              "nullable": false
+            },
+            "security_id": {
+              "type": "string",
+              "nullable": false
+            },
+            "feature_name": {
+              "type": "string",
+              "nullable": false
+            },
+            "feature_value": {
+              "type": "float",
+              "nullable": false
+            },
+            "prediction_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "event_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "published_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "vendor_available_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "ingested_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "parse_ready_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "ingestion_batch_id": {
+              "type": "string",
+              "nullable": true
+            },
+            "ingested_object_sha256": {
+              "type": "string",
+              "nullable": true
+            },
+            "tradable_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "label_start_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "label_end_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "split": {
+              "type": "string",
+              "nullable": false
+            },
+            "universe_member": {
+              "type": "boolean",
+              "nullable": false
+            },
+            "universe_announced_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "universe_effective_from": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "universe_effective_to": {
+              "type": "timestamp",
+              "nullable": true
+            },
+            "security_status": {
+              "type": "string",
+              "nullable": false
+            },
+            "revision_id": {
+              "type": "string",
+              "nullable": false
+            },
+            "revision_known_time": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "adjustment_mode": {
+              "type": "string",
+              "nullable": false
+            },
+            "adjustment_known_time": {
+              "type": "timestamp",
+              "nullable": true
+            },
+            "adjustment_invariance_pass": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "halt_time": {
+              "type": "timestamp",
+              "nullable": true
+            },
+            "quote_resume_time": {
+              "type": "timestamp",
+              "nullable": true
+            },
+            "trade_resume_time": {
+              "type": "timestamp",
+              "nullable": true
+            },
+            "calendar_session_id": {
+              "type": "string",
+              "nullable": false
+            },
+            "identifier_valid_from": {
+              "type": "timestamp",
+              "nullable": false
+            },
+            "identifier_valid_to": {
+              "type": "timestamp",
+              "nullable": true
+            }
+          },
+          "memory_execution_mode": "GROUPED_RECTANGULAR_EXACT"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "adjustment_invariance_pass": "project://pit-evidence-schema-v1#adjustment_invariance_pass",
+              "adjustment_known_time": "project://pit-evidence-schema-v1#adjustment_known_time",
+              "adjustment_mode": "project://pit-evidence-schema-v1#adjustment_mode",
+              "calendar_session_id": "project://pit-evidence-schema-v1#calendar_session_id",
+              "event_time": "project://pit-evidence-schema-v1#event_time",
+              "feature_name": "project://pit-evidence-schema-v1#feature_name",
+              "feature_value": "project://pit-evidence-schema-v1#feature_value",
+              "halt_time": "project://pit-evidence-schema-v1#halt_time",
+              "identifier_valid_from": "project://pit-evidence-schema-v1#identifier_valid_from",
+              "identifier_valid_to": "project://pit-evidence-schema-v1#identifier_valid_to",
+              "ingested_object_sha256": "project://pit-evidence-schema-v1#ingested_object_sha256",
+              "ingested_time": "project://pit-evidence-schema-v1#ingested_time",
+              "ingestion_batch_id": "project://pit-evidence-schema-v1#ingestion_batch_id",
+              "label_end_time": "project://pit-evidence-schema-v1#label_end_time",
+              "label_start_time": "project://pit-evidence-schema-v1#label_start_time",
+              "parse_ready_time": "project://pit-evidence-schema-v1#parse_ready_time",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "published_time": "project://pit-evidence-schema-v1#published_time",
+              "quote_resume_time": "project://pit-evidence-schema-v1#quote_resume_time",
+              "revision_id": "project://pit-evidence-schema-v1#revision_id",
+              "revision_known_time": "project://pit-evidence-schema-v1#revision_known_time",
+              "row_id": "project://pit-evidence-schema-v1#row_id",
+              "security_id": "project://pit-evidence-schema-v1#security_id",
+              "security_status": "project://pit-evidence-schema-v1#security_status",
+              "split": "project://pit-evidence-schema-v1#split",
+              "tradable_time": "project://pit-evidence-schema-v1#tradable_time",
+              "trade_resume_time": "project://pit-evidence-schema-v1#trade_resume_time",
+              "universe_announced_time": "project://pit-evidence-schema-v1#universe_announced_time",
+              "universe_effective_from": "project://pit-evidence-schema-v1#universe_effective_from",
+              "universe_effective_to": "project://pit-evidence-schema-v1#universe_effective_to",
+              "universe_member": "project://pit-evidence-schema-v1#universe_member",
+              "vendor_available_time": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "time_roles": {
+              "ADJUSTMENT_KNOWN_TIME": "project://pit-evidence-schema-v1#adjustment_known_time",
+              "EVENT_TIME": "project://pit-evidence-schema-v1#event_time",
+              "HALT_TIME": "project://pit-evidence-schema-v1#halt_time",
+              "IDENTIFIER_VALID_FROM": "project://pit-evidence-schema-v1#identifier_valid_from",
+              "IDENTIFIER_VALID_TO": "project://pit-evidence-schema-v1#identifier_valid_to",
+              "INGESTED_TIME": "project://pit-evidence-schema-v1#ingested_time",
+              "LABEL_END_TIME": "project://pit-evidence-schema-v1#label_end_time",
+              "LABEL_START_TIME": "project://pit-evidence-schema-v1#label_start_time",
+              "PARSE_READY_TIME": "project://pit-evidence-schema-v1#parse_ready_time",
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time",
+              "PUBLICATION_TIME": "project://pit-evidence-schema-v1#published_time",
+              "QUOTE_RESUME_TIME": "project://pit-evidence-schema-v1#quote_resume_time",
+              "REVISION_KNOWN_TIME": "project://pit-evidence-schema-v1#revision_known_time",
+              "TRADABLE_TIME": "project://pit-evidence-schema-v1#tradable_time",
+              "TRADE_RESUME_TIME": "project://pit-evidence-schema-v1#trade_resume_time",
+              "UNIVERSE_ANNOUNCED_TIME": "project://pit-evidence-schema-v1#universe_announced_time",
+              "UNIVERSE_EFFECTIVE_FROM": "project://pit-evidence-schema-v1#universe_effective_from",
+              "UNIVERSE_EFFECTIVE_TO": "project://pit-evidence-schema-v1#universe_effective_to",
+              "VENDOR_AVAILABLE_TIME": "project://pit-evidence-schema-v1#vendor_available_time"
+            },
+            "feature_policies": {},
+            "external_policies": {},
+            "binding_sha256": "a7c14badcf764d77d3be7de959a9890748726f988641a436a056cc3ae9806506"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "validated_cells": 2653640000,
+        "malformed_feature_cells": 0
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "34469fbc55d9266dda2c53e008ea9d39ef975a96f1ce3250f1a8b937237d4c6b"
+    },
+    {
+      "check_id": "Q003",
+      "title": "Declared value-domain and anomaly checks",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "policy": "Only sourced semantic bounds can hard-fail; no universal z-score or outlier cutoff is imposed.",
+          "domain_locators": {
+            "amihud_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10/domain",
+            "amihud_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20/domain",
+            "amihud_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5/domain",
+            "amihud_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60/domain",
+            "close_location": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location/domain",
+            "downside_vol_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10/domain",
+            "downside_vol_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20/domain",
+            "downside_vol_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5/domain",
+            "downside_vol_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60/domain",
+            "gap_return": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return/domain",
+            "high_low_range": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range/domain",
+            "intraday_return": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return/domain",
+            "log_amount": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount/domain",
+            "log_amount_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10/domain",
+            "log_amount_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20/domain",
+            "log_amount_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5/domain",
+            "log_amount_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60/domain",
+            "log_volume": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume/domain",
+            "log_volume_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10/domain",
+            "log_volume_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20/domain",
+            "log_volume_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5/domain",
+            "log_volume_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60/domain",
+            "lower_shadow": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow/domain",
+            "price_volume_corr_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10/domain",
+            "price_volume_corr_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20/domain",
+            "price_volume_corr_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5/domain",
+            "price_volume_corr_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60/domain",
+            "range_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10/domain",
+            "range_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20/domain",
+            "range_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5/domain",
+            "range_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60/domain",
+            "ret_1d": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d/domain",
+            "ret_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10/domain",
+            "ret_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20/domain",
+            "ret_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5/domain",
+            "ret_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60/domain",
+            "ret_std_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10/domain",
+            "ret_std_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20/domain",
+            "ret_std_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5/domain",
+            "ret_std_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60/domain",
+            "turnover_mean_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10/domain",
+            "turnover_mean_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20/domain",
+            "turnover_mean_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5/domain",
+            "turnover_mean_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60/domain",
+            "turnover_raw": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw/domain",
+            "turnover_std_10": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10/domain",
+            "turnover_std_20": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20/domain",
+            "turnover_std_5": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5/domain",
+            "turnover_std_60": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60/domain",
+            "upper_shadow": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow/domain"
+          }
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "feature_name": "project://pit-evidence-schema-v1#feature_name",
+              "feature_value": "project://pit-evidence-schema-v1#feature_value"
+            },
+            "time_roles": {},
+            "feature_policies": {
+              "amihud_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10",
+              "amihud_mean_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10/domain",
+              "amihud_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20",
+              "amihud_mean_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20/domain",
+              "amihud_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5",
+              "amihud_mean_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5/domain",
+              "amihud_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60",
+              "amihud_mean_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60/domain",
+              "close_location.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location",
+              "close_location.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location/domain",
+              "downside_vol_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10",
+              "downside_vol_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10/domain",
+              "downside_vol_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20",
+              "downside_vol_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20/domain",
+              "downside_vol_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5",
+              "downside_vol_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5/domain",
+              "downside_vol_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60",
+              "downside_vol_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60/domain",
+              "gap_return.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return",
+              "gap_return.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return/domain",
+              "high_low_range.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range",
+              "high_low_range.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range/domain",
+              "intraday_return.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return",
+              "intraday_return.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return/domain",
+              "log_amount.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount",
+              "log_amount.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount/domain",
+              "log_amount_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10",
+              "log_amount_mean_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10/domain",
+              "log_amount_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20",
+              "log_amount_mean_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20/domain",
+              "log_amount_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5",
+              "log_amount_mean_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5/domain",
+              "log_amount_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60",
+              "log_amount_mean_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60/domain",
+              "log_volume.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume",
+              "log_volume.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume/domain",
+              "log_volume_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10",
+              "log_volume_mean_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10/domain",
+              "log_volume_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20",
+              "log_volume_mean_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20/domain",
+              "log_volume_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5",
+              "log_volume_mean_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5/domain",
+              "log_volume_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60",
+              "log_volume_mean_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60/domain",
+              "lower_shadow.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow",
+              "lower_shadow.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow/domain",
+              "price_volume_corr_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10",
+              "price_volume_corr_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10/domain",
+              "price_volume_corr_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20",
+              "price_volume_corr_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20/domain",
+              "price_volume_corr_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5",
+              "price_volume_corr_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5/domain",
+              "price_volume_corr_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60",
+              "price_volume_corr_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60/domain",
+              "range_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10",
+              "range_mean_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10/domain",
+              "range_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20",
+              "range_mean_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20/domain",
+              "range_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5",
+              "range_mean_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5/domain",
+              "range_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60",
+              "range_mean_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60/domain",
+              "ret_1d.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d",
+              "ret_1d.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d/domain",
+              "ret_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10",
+              "ret_mean_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10/domain",
+              "ret_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20",
+              "ret_mean_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20/domain",
+              "ret_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5",
+              "ret_mean_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5/domain",
+              "ret_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60",
+              "ret_mean_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60/domain",
+              "ret_std_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10",
+              "ret_std_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10/domain",
+              "ret_std_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20",
+              "ret_std_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20/domain",
+              "ret_std_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5",
+              "ret_std_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5/domain",
+              "ret_std_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60",
+              "ret_std_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60/domain",
+              "turnover_mean_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10",
+              "turnover_mean_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10/domain",
+              "turnover_mean_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20",
+              "turnover_mean_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20/domain",
+              "turnover_mean_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5",
+              "turnover_mean_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5/domain",
+              "turnover_mean_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60",
+              "turnover_mean_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60/domain",
+              "turnover_raw.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw",
+              "turnover_raw.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw/domain",
+              "turnover_std_10.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10",
+              "turnover_std_10.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10/domain",
+              "turnover_std_20.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20",
+              "turnover_std_20.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20/domain",
+              "turnover_std_5.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5",
+              "turnover_std_5.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5/domain",
+              "turnover_std_60.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60",
+              "turnover_std_60.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60/domain",
+              "upper_shadow.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow",
+              "upper_shadow.domain_policy.source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow/domain"
+            },
+            "external_policies": {},
+            "binding_sha256": "1f4558621a9f02961d4f6e44ae54dac642eaf9721a062de0c41e408ad38f4ffb"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "feature_values": 82926250
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "106ff102116a2e2bb2f242d0f09689e57c198171593c7f3f0ae529467a311065"
+    },
+    {
+      "check_id": "L001",
+      "title": "Label definition, interval order, and contract hash",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "label_definition_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_spec_hash": "3e9ce515583813b0018634abdd14031a00918f6d360a558bc6767ebb84e8029d",
+          "label_source_locator": "project://frozen-research-contract#target"
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "feature_name": "project://pit-evidence-schema-v1#feature_name",
+              "label_end_time": "project://pit-evidence-schema-v1#label_end_time",
+              "label_start_time": "project://pit-evidence-schema-v1#label_start_time",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "security_id": "project://pit-evidence-schema-v1#security_id",
+              "split": "project://pit-evidence-schema-v1#split"
+            },
+            "time_roles": {
+              "LABEL_END_TIME": "project://pit-evidence-schema-v1#label_end_time",
+              "LABEL_START_TIME": "project://pit-evidence-schema-v1#label_start_time",
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time"
+            },
+            "feature_policies": {},
+            "external_policies": {
+              "label": "project://frozen-research-contract#target"
+            },
+            "binding_sha256": "3dba6756c17e56e4488deaa9df0222920fa54b4d2cf25e59393d9a3596c801a4"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "label_intervals": 82926250,
+        "sample_prediction_labels": 1658525,
+        "label_drift_samples": 0,
+        "label_schedule_mode": "FROZEN_EXACT_INTERVAL_SET",
+        "unique_label_intervals": 1658525
+      },
+      "notes": [],
+      "minimal_remediation": null,
+      "evidence_digest": "d5af2673f5a6806a3147a4ce50efa4a7eccdbdf14fd76a558c00a1988ca849ad"
+    },
+    {
+      "check_id": "L002",
+      "title": "Cross-split label overlap and purge evidence",
+      "status": "PASS",
+      "checked_rows": 82926250,
+      "evidence": [
+        {
+          "source_id": "qlib-peerlite-derived-features",
+          "source_version": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_id": "pit_consumed_values_full_2012_2024_v2:training_evidence",
+          "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+          "source_snapshot_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "data_artifact_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+          "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+          "dictionary_version": "qlib-peerlite-derived-feature-semantics-v1",
+          "dictionary_artifact_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+          "schema_artifact_sha256": "0ab043e50eef4afdcb35de39ce0f9cbb7354f375adc85f1ebcf3d21d36b22e46",
+          "time_semantics_artifact_sha256": "85ac6bbe59f14464d9517edf0c8a44e49e3713372c4223ee39445ae097f4f98a",
+          "contract_artifact_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+          "label_definition_artifact_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+          "label_schedule_artifact_sha256": "9ccaa79abc684cfd768353662ded1474c20ca32ea50ef32517788af3b17a41dd",
+          "review_authority_artifact_sha256": "8d156e0d28cc67a086b7a5fd815de38c4e5deaa1adbb211f4e9dd5c1e0114f9a",
+          "label_interval_authority_artifact_sha256": "1ce3736738c0339d4742d08b6ce6131b3abfe83f52b082b294bda842ca3ba242",
+          "calendar_artifact_sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52",
+          "population_manifest_artifact_sha256": "d4511fb2f8c668ed5d442cc09326d794e4075cb3915f7950ceb5d10caf67218a",
+          "population_source_artifact_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+          "matrix_manifest_artifact_sha256": "40959374b00716c8187020116b2381e24b764c75e3107d7fc7adf5cf88618e21",
+          "semantic_source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+          "semantic_source_document_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb"
+        },
+        {
+          "interval_closure": "BOTH",
+          "overlap_policy": "NO_CROSS_SPLIT_OVERLAP",
+          "purge_rule_sha256": "7857d40ab3c9709929a2c25a82d4d4fbfbe6f9243791e198bfdd2f28787dedae",
+          "contract_purge_rule_sha256": "7857d40ab3c9709929a2c25a82d4d4fbfbe6f9243791e198bfdd2f28787dedae",
+          "split_windows": {
+            "TRAIN": {
+              "start": "2012-01-01",
+              "end": "2023-12-22"
+            },
+            "MODEL_SELECTION": {
+              "start": "2024-01-09",
+              "end": "2024-12-17"
+            },
+            "OOS": {
+              "start": "2025-01-01",
+              "end": "2026-06-30"
+            }
+          }
+        },
+        {
+          "semantic_trace": {
+            "dictionary_fields": {
+              "label_end_time": "project://pit-evidence-schema-v1#label_end_time",
+              "label_start_time": "project://pit-evidence-schema-v1#label_start_time",
+              "prediction_time": "project://pit-evidence-schema-v1#prediction_time",
+              "split": "project://pit-evidence-schema-v1#split"
+            },
+            "time_roles": {
+              "LABEL_END_TIME": "project://pit-evidence-schema-v1#label_end_time",
+              "LABEL_START_TIME": "project://pit-evidence-schema-v1#label_start_time",
+              "PREDICTION_TIME": "project://pit-evidence-schema-v1#prediction_time"
+            },
+            "feature_policies": {},
+            "external_policies": {
+              "label": "project://frozen-research-contract#target"
+            },
+            "binding_sha256": "d7a091d19c2541feed5e760b5a8011dc73a24f6c0ceed297b00db0fe4367384b"
+          }
+        }
+      ],
+      "violation_count": 0,
+      "issue_set_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "violations": [],
+      "violations_truncated": false,
+      "metrics": {
+        "cross_split_overlap_count": 0,
+        "same_split_overlap_count": 1658523
+      },
+      "notes": [
+        "Same-split overlap is reported as dependence, not treated as leakage by itself."
+      ],
+      "minimal_remediation": null,
+      "evidence_digest": "0fb1debc9f30b51b0ddae735f8c391ecf2fca5d9e5a8ac19738e2e58611576c8"
+    }
+  ],
+  "findings": {
+    "fail_check_ids": [],
+    "needs_evidence_check_ids": [],
+    "total_reported_issues": 0
+  },
+  "limitations": [
+    "The audit validates bound evidence; it cannot prove a vendor description is truthful.",
+    "Hashes and receipts cannot prove that no off-system future data was consulted.",
+    "Qualification applies only to the exact claim, consumed-value view, and hashes shown."
+  ],
+  "one_next_action": null,
+  "training_allowed": false,
+  "scope_note": "Data eligibility only: no model training, alpha calculation, deployment approval, or capital decision is performed.",
+  "audit_id": "pit-audit-v1-08e3a3e299b530191bac7169d8b14369",
+  "content_sha256": "08e3a3e299b530191bac7169d8b14369259a6cbc8285918011cc0215c88b16d0",
+  "report_sha256": "925698a81bbd003d4557636f90c687fc323b5239977d72d50341f2d5e18075bd"
+}

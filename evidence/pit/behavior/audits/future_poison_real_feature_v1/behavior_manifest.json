@@ -1,0 +1,120 @@
+{
+  "behavior_id": "pit-behavior-c9a2bdaa48d7e6dc8077",
+  "certification_status": "NOVEL_CANDIDATE",
+  "checks": [
+    {
+      "id": "B001",
+      "messages": [],
+      "name": "Request artifacts and exact hashes",
+      "status": "PASS"
+    },
+    {
+      "id": "B002",
+      "messages": [],
+      "name": "Pipeline receipt and probe construction",
+      "status": "PASS"
+    },
+    {
+      "id": "B003",
+      "messages": [],
+      "name": "Canonical paired-output integrity",
+      "status": "PASS"
+    },
+    {
+      "id": "B004",
+      "messages": [],
+      "name": "Protected-prefix behavior invariant",
+      "status": "PASS"
+    }
+  ],
+  "content_sha256": "c9a2bdaa48d7e6dc8077a2eaaf7ec4c7d66172e98ff8a830df1fd9feebddf8af",
+  "findings": [],
+  "input_lineage": {
+    "baseline_output": {
+      "actual_sha256": "1e61ad01c9d8f65f37f11d8806eec2a267f60febf8318d81ebc795779bdd3a6e",
+      "declared_sha256": "1e61ad01c9d8f65f37f11d8806eec2a267f60febf8318d81ebc795779bdd3a6e",
+      "path": "baseline_output.csv",
+      "size_bytes": 458467
+    },
+    "baseline_raw_snapshot": {
+      "actual_sha256": "784bdb311f40d91c9c102b0cbeb73425934fdab56b87c4ec46680721bfbbd3be",
+      "declared_sha256": "784bdb311f40d91c9c102b0cbeb73425934fdab56b87c4ec46680721bfbbd3be",
+      "path": "raw_before.json",
+      "size_bytes": 112332
+    },
+    "code_or_query": {
+      "actual_sha256": "3e0e5664e5001e63631668f8678d290aab56e19c7ea4c8b0e10e67770c84fa1c",
+      "declared_sha256": "3e0e5664e5001e63631668f8678d290aab56e19c7ea4c8b0e10e67770c84fa1c",
+      "path": "feature_pipeline_code.txt",
+      "size_bytes": 32299
+    },
+    "environment": {
+      "actual_sha256": "c309f5d570cb67c6492bd64582569643faf60f0805a47b801dead043b2f65e4e",
+      "declared_sha256": "c309f5d570cb67c6492bd64582569643faf60f0805a47b801dead043b2f65e4e",
+      "path": "environment.json",
+      "size_bytes": 347
+    },
+    "parameters": {
+      "actual_sha256": "91e5d195fe77f0f3819481e14b2a8d9fdfa4909416dd8bb955b40d58c3a5652b",
+      "declared_sha256": "91e5d195fe77f0f3819481e14b2a8d9fdfa4909416dd8bb955b40d58c3a5652b",
+      "path": "parameters.json",
+      "size_bytes": 3656
+    },
+    "perturbation_ledger": {
+      "actual_sha256": "66e450a193801c7f69371dbff6105f763c5453112eefc2d3440f06ffc11f9431",
+      "declared_sha256": "66e450a193801c7f69371dbff6105f763c5453112eefc2d3440f06ffc11f9431",
+      "path": "perturbation_ledger.json",
+      "size_bytes": 556
+    },
+    "pipeline_receipt": {
+      "actual_sha256": "dce34e6d27b2cb7849e2eddd98a87e7a34eacab62ccf7314e2f16973896414cd",
+      "declared_sha256": "dce34e6d27b2cb7849e2eddd98a87e7a34eacab62ccf7314e2f16973896414cd",
+      "path": "pipeline_receipt.json",
+      "size_bytes": 1550
+    },
+    "pit_audit_manifest": {
+      "actual_sha256": "2c800a67e70e9b8621a974d52b6d4200970dbd18abbe88f3c32b6584226ef0fa",
+      "declared_sha256": "2c800a67e70e9b8621a974d52b6d4200970dbd18abbe88f3c32b6584226ef0fa",
+      "path": "parent_pit_audit_manifest.json",
+      "size_bytes": 146615
+    },
+    "probe_output": {
+      "actual_sha256": "6ce6f540bc59fa30a67b48716a6418c017c5bffa77ddc06e9693c52b6c9419b5",
+      "declared_sha256": "6ce6f540bc59fa30a67b48716a6418c017c5bffa77ddc06e9693c52b6c9419b5",
+      "path": "probe_output.csv",
+      "size_bytes": 458466
+    },
+    "probe_raw_snapshot": {
+      "actual_sha256": "3fc377eca001667ad6e7180f1ee1054bbf9d9dfcb261d292fa707ac5704bb49c",
+      "declared_sha256": "3fc377eca001667ad6e7180f1ee1054bbf9d9dfcb261d292fa707ac5704bb49c",
+      "path": "raw_after.json",
+      "size_bytes": 112338
+    }
+  },
+  "limitations": [
+    "This proves only the supplied hash-bound run pair, not all executions.",
+    "Snapshot time and sample field meanings remain upstream semantic trust roots.",
+    "This does not replace the fixed PIT audit or certify training/deployment."
+  ],
+  "manifest_version": "pit_behavior_manifest_v1",
+  "next_action": "Preserve this pair as supplemental behavior evidence; keep the fixed PIT gate.",
+  "parent_audit": {
+    "audit_id": "pit-audit-v1-08e3a3e299b530191bac7169d8b14369",
+    "content_sha256": "08e3a3e299b530191bac7169d8b14369259a6cbc8285918011cc0215c88b16d0",
+    "status": "PASS"
+  },
+  "probe_type": "FUTURE_POISON",
+  "protection": {
+    "baseline_key_count": 5750,
+    "baseline_keys_sha256": "4fa4d11a5f313ba43ce5c272c50eeed1444c67439348b169b1d9249b2ec9a809",
+    "comparison": "LE",
+    "probe_key_count": 5750,
+    "probe_keys_sha256": "4fa4d11a5f313ba43ce5c272c50eeed1444c67439348b169b1d9249b2ec9a809",
+    "protected_through": "2012-06-27T08:00:00.000000Z"
+  },
+  "receipt_id": "receipt-8640a54353240481438b1485",
+  "report_sha256": "6574bbd215912daf6bf91bb4e9e21e9b915a7253c28effa2299316925fdd565d",
+  "request_id": "qlib-peerlite-future-poison-8640a54353240481438b1485",
+  "spec_version": "pit_behavior_spec_v1",
+  "status": "PASS"
+}

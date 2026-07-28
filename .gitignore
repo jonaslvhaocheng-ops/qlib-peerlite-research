@@ -19,6 +19,13 @@ data/raw/
 data/processed/
 data/qlib/
 
+# Real values used by a behavior replay stay on the research server.  Git keeps
+# their hashes, request, receipt, manifests and reports only.
+evidence/pit/behavior/packages/*/raw_before.json
+evidence/pit/behavior/packages/*/raw_after.json
+evidence/pit/behavior/packages/*/baseline_output.csv
+evidence/pit/behavior/packages/*/probe_output.csv
+
 # Secrets and local environment
 .env
 .env.*

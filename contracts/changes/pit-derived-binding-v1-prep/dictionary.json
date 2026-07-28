@@ -1,0 +1,1474 @@
+{
+  "schema_version": "pit_field_dictionary_v1",
+  "dictionary_id": "qlib-peerlite-derived-feature-dictionary-v1",
+  "version": "qlib-peerlite-derived-feature-semantics-v1",
+  "source_uri": "project://qlib-peerlite-derived-feature-semantics-v1",
+  "semantic_source_document_sha256": "fc6de54a1aa57cec981d865813d1a859740d2f1b2eadbb24c17cb2dcfc9bf46c",
+  "fields": {
+    "row_id": {
+      "semantic_role": "ROW_ID",
+      "definition": "Immutable row locator in the consumed-value snapshot.",
+      "source_locator": "project://pit-evidence-schema-v1#row_id"
+    },
+    "security_id": {
+      "semantic_role": "PERMANENT_SECURITY_ID",
+      "definition": "Permanent DataYes SECURITY_ID, never ticker.",
+      "source_locator": "project://pit-evidence-schema-v1#security_id",
+      "identity_stability": "permanent"
+    },
+    "feature_name": {
+      "semantic_role": "FEATURE_NAME",
+      "definition": "Exact frozen derived-feature identifier.",
+      "source_locator": "project://pit-evidence-schema-v1#feature_name"
+    },
+    "feature_value": {
+      "semantic_role": "FEATURE_VALUE",
+      "definition": "Finite numeric value consumed by the model matrix.",
+      "source_locator": "project://pit-evidence-schema-v1#feature_value"
+    },
+    "prediction_time": {
+      "semantic_role": "PREDICTION_TIME",
+      "definition": "Signal fixation at 16:00 Asia/Shanghai after T close.",
+      "source_locator": "project://pit-evidence-schema-v1#prediction_time"
+    },
+    "event_time": {
+      "semantic_role": "EVENT_TIME",
+      "definition": "T session close represented by the derived feature.",
+      "source_locator": "project://pit-evidence-schema-v1#event_time"
+    },
+    "published_time": {
+      "semantic_role": "PUBLICATION_TIME",
+      "definition": "Public daily-quote dissemination time.",
+      "source_locator": "project://pit-evidence-schema-v1#published_time"
+    },
+    "vendor_available_time": {
+      "semantic_role": "VENDOR_AVAILABLE_TIME",
+      "definition": "First declared DataYes daily-quote availability.",
+      "source_locator": "project://pit-evidence-schema-v1#vendor_available_time"
+    },
+    "ingested_time": {
+      "semantic_role": "INGESTED_TIME",
+      "definition": "Immutable source-snapshot creation time.",
+      "source_locator": "project://pit-evidence-schema-v1#ingested_time"
+    },
+    "parse_ready_time": {
+      "semantic_role": "PARSE_READY_TIME",
+      "definition": "Time the immutable source snapshot was parse-ready.",
+      "source_locator": "project://pit-evidence-schema-v1#parse_ready_time"
+    },
+    "ingestion_batch_id": {
+      "semantic_role": "INGESTION_BATCH_ID",
+      "definition": "Historical system batch; nullable for market claim.",
+      "source_locator": "project://pit-evidence-schema-v1#ingestion_batch_id"
+    },
+    "ingested_object_sha256": {
+      "semantic_role": "INGESTED_OBJECT_SHA256",
+      "definition": "Historical object hash; nullable for market claim.",
+      "source_locator": "project://pit-evidence-schema-v1#ingested_object_sha256"
+    },
+    "tradable_time": {
+      "semantic_role": "TRADABLE_TIME",
+      "definition": "T+1 eligible session open intended for execution.",
+      "source_locator": "project://pit-evidence-schema-v1#tradable_time"
+    },
+    "label_start_time": {
+      "semantic_role": "LABEL_START_TIME",
+      "definition": "Raw-price label interval start at T+1 open.",
+      "source_locator": "project://pit-evidence-schema-v1#label_start_time"
+    },
+    "label_end_time": {
+      "semantic_role": "LABEL_END_TIME",
+      "definition": "Raw-price label interval end at T+5 close.",
+      "source_locator": "project://pit-evidence-schema-v1#label_end_time"
+    },
+    "split": {
+      "semantic_role": "SPLIT",
+      "definition": "Frozen TRAIN or MODEL_SELECTION assignment.",
+      "source_locator": "project://pit-evidence-schema-v1#split"
+    },
+    "universe_member": {
+      "semantic_role": "UNIVERSE_MEMBER",
+      "definition": "Eligibility under the frozen CSI800 PIT rule.",
+      "source_locator": "project://pit-evidence-schema-v1#universe_member"
+    },
+    "universe_announced_time": {
+      "semantic_role": "UNIVERSE_ANNOUNCED_TIME",
+      "definition": "Public inclusion announcement timestamp.",
+      "source_locator": "project://pit-evidence-schema-v1#universe_announced_time"
+    },
+    "universe_effective_from": {
+      "semantic_role": "UNIVERSE_EFFECTIVE_FROM",
+      "definition": "Inclusive membership effective start.",
+      "source_locator": "project://pit-evidence-schema-v1#universe_effective_from"
+    },
+    "universe_effective_to": {
+      "semantic_role": "UNIVERSE_EFFECTIVE_TO",
+      "definition": "Exclusive membership effective end.",
+      "source_locator": "project://pit-evidence-schema-v1#universe_effective_to",
+      "null_semantics": "OPEN_ENDED_POSITIVE_INFINITY"
+    },
+    "security_status": {
+      "semantic_role": "SECURITY_STATUS",
+      "definition": "PIT lifecycle state at prediction.",
+      "source_locator": "project://pit-evidence-schema-v1#security_status"
+    },
+    "revision_id": {
+      "semantic_role": "REVISION_ID",
+      "definition": "Immutable derived-feature snapshot revision identifier.",
+      "source_locator": "project://pit-evidence-schema-v1#revision_id"
+    },
+    "revision_known_time": {
+      "semantic_role": "REVISION_KNOWN_TIME",
+      "definition": "Time the selected derived revision became available.",
+      "source_locator": "project://pit-evidence-schema-v1#revision_known_time"
+    },
+    "adjustment_mode": {
+      "semantic_role": "ADJUSTMENT_MODE",
+      "definition": "RAW/PIT_ADJUSTED/FULL_HISTORY_ADJUSTED basis.",
+      "source_locator": "project://pit-evidence-schema-v1#adjustment_mode"
+    },
+    "adjustment_known_time": {
+      "semantic_role": "ADJUSTMENT_KNOWN_TIME",
+      "definition": "Applied adjustment availability; null for RAW.",
+      "source_locator": "project://pit-evidence-schema-v1#adjustment_known_time"
+    },
+    "adjustment_invariance_pass": {
+      "semantic_role": "ADJUSTMENT_INVARIANCE_TEST",
+      "definition": "Adjustment invariance result; null for RAW.",
+      "source_locator": "project://pit-evidence-schema-v1#adjustment_invariance_pass"
+    },
+    "halt_time": {
+      "semantic_role": "HALT_TIME",
+      "definition": "Execution-overlapping halt start; null when absent.",
+      "source_locator": "project://pit-evidence-schema-v1#halt_time"
+    },
+    "quote_resume_time": {
+      "semantic_role": "QUOTE_RESUME_TIME",
+      "definition": "Quote resume time; null when absent.",
+      "source_locator": "project://pit-evidence-schema-v1#quote_resume_time"
+    },
+    "trade_resume_time": {
+      "semantic_role": "TRADE_RESUME_TIME",
+      "definition": "Trade resume time; null when absent.",
+      "source_locator": "project://pit-evidence-schema-v1#trade_resume_time"
+    },
+    "calendar_session_id": {
+      "semantic_role": "CALENDAR_SESSION_ID",
+      "definition": "Versioned XSHG/XSHE eligible-session key.",
+      "source_locator": "project://pit-evidence-schema-v1#calendar_session_id"
+    },
+    "identifier_valid_from": {
+      "semantic_role": "IDENTIFIER_VALID_FROM",
+      "definition": "Inclusive permanent-ID validity start.",
+      "source_locator": "project://pit-evidence-schema-v1#identifier_valid_from"
+    },
+    "identifier_valid_to": {
+      "semantic_role": "IDENTIFIER_VALID_TO",
+      "definition": "Exclusive permanent-ID validity end.",
+      "source_locator": "project://pit-evidence-schema-v1#identifier_valid_to",
+      "null_semantics": "OPEN_ENDED_POSITIVE_INFINITY"
+    }
+  },
+  "features": {
+    "amihud_mean_10": {
+      "definition": "mean(abs(ret_1d)/abs(raw_turnover_value), trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "amihud_mean_20": {
+      "definition": "mean(abs(ret_1d)/abs(raw_turnover_value), trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "amihud_mean_5": {
+      "definition": "mean(abs(ret_1d)/abs(raw_turnover_value), trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "amihud_mean_60": {
+      "definition": "mean(abs(ret_1d)/abs(raw_turnover_value), trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=amihud_mean_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "close_location": {
+      "definition": "(close(T)-low(T))/(high(T)-low(T))",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=close_location/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "downside_vol_10": {
+      "definition": "population_std(min(ret_1d,0), trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "downside_vol_20": {
+      "definition": "population_std(min(ret_1d,0), trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "downside_vol_5": {
+      "definition": "population_std(min(ret_1d,0), trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "downside_vol_60": {
+      "definition": "population_std(min(ret_1d,0), trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=downside_vol_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "gap_return": {
+      "definition": "open(T)/close(T-1)-1",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return",
+      "use": "RETURN",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=gap_return/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "high_low_range": {
+      "definition": "high(T)/low(T)-1",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range",
+      "use": "RETURN",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=high_low_range/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "intraday_return": {
+      "definition": "close(T)/open(T)-1",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return",
+      "use": "RETURN",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=intraday_return/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_amount": {
+      "definition": "log1p(max(raw_turnover_value(T),0))",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "log CNY",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_amount_mean_10": {
+      "definition": "mean(log_amount, trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_amount_mean_20": {
+      "definition": "mean(log_amount, trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_amount_mean_5": {
+      "definition": "mean(log_amount, trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_amount_mean_60": {
+      "definition": "mean(log_amount, trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_amount_mean_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_volume": {
+      "definition": "log1p(max(raw_volume(T),0))",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume",
+      "use": "VOLUME",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "log shares",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_volume_mean_10": {
+      "definition": "mean(log_volume, trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_volume_mean_20": {
+      "definition": "mean(log_volume, trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_volume_mean_5": {
+      "definition": "mean(log_volume, trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "log_volume_mean_60": {
+      "definition": "mean(log_volume, trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=log_volume_mean_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "lower_shadow": {
+      "definition": "(min(open(T),close(T))-low(T))/open(T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow",
+      "use": "RETURN",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=lower_shadow/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "price_volume_corr_10": {
+      "definition": "Pearson_corr(ret_1d,log_volume, trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "price_volume_corr_20": {
+      "definition": "Pearson_corr(ret_1d,log_volume, trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "price_volume_corr_5": {
+      "definition": "Pearson_corr(ret_1d,log_volume, trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "price_volume_corr_60": {
+      "definition": "Pearson_corr(ret_1d,log_volume, trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=price_volume_corr_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "range_mean_10": {
+      "definition": "mean(high_low_range, trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "range_mean_20": {
+      "definition": "mean(high_low_range, trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "range_mean_5": {
+      "definition": "mean(high_low_range, trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "range_mean_60": {
+      "definition": "mean(high_low_range, trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=range_mean_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "ret_1d": {
+      "definition": "close(T)/close(T-1)-1",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d",
+      "use": "RETURN",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_1d/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "ret_mean_10": {
+      "definition": "mean(ret_1d, trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "ret_mean_20": {
+      "definition": "mean(ret_1d, trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "ret_mean_5": {
+      "definition": "mean(ret_1d, trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "ret_mean_60": {
+      "definition": "mean(ret_1d, trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_mean_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "ret_std_10": {
+      "definition": "population_std(ret_1d, trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "ret_std_20": {
+      "definition": "population_std(ret_1d, trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "ret_std_5": {
+      "definition": "population_std(ret_1d, trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "ret_std_60": {
+      "definition": "population_std(ret_1d, trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=ret_std_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "turnover_mean_10": {
+      "definition": "mean(turnover_raw, trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "turnover_mean_20": {
+      "definition": "mean(turnover_raw, trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "turnover_mean_5": {
+      "definition": "mean(turnover_raw, trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "turnover_mean_60": {
+      "definition": "mean(turnover_raw, trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_mean_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "turnover_raw": {
+      "definition": "raw_turnover_rate(T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "vendor rate",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_raw/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "turnover_std_10": {
+      "definition": "population_std(turnover_raw, trailing 10 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_10/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "turnover_std_20": {
+      "definition": "population_std(turnover_raw, trailing 20 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_20/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "turnover_std_5": {
+      "definition": "population_std(turnover_raw, trailing 5 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_5/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "turnover_std_60": {
+      "definition": "population_std(turnover_raw, trailing 60 sessions including T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60",
+      "use": "OTHER",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=turnover_std_60/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    },
+    "upper_shadow": {
+      "definition": "(high(T)-max(open(T),close(T)))/open(T)",
+      "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow",
+      "use": "RETURN",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "null_semantics": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ],
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow/adjustment"
+      },
+      "domain_policy": {
+        "kind": "UNBOUNDED",
+        "source_locator": "project://qlib-peerlite-derived-feature-semantics-v1#feature=upper_shadow/domain"
+      },
+      "adjustment_invariance": {
+        "claimed": false,
+        "evidence_locator": null
+      }
+    }
+  }
+}

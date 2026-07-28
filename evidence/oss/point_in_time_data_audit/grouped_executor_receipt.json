@@ -1,0 +1,52 @@
+{
+  "schema_version": "qlib_peerlite_executor_optimization_receipt_v1",
+  "component": "point-in-time-data-audit fixed executor",
+  "reason": "The certified reference executor exceeded the server cgroup memory limit while parsing 82,926,250 long-form feature rows.",
+  "reference_executor": {
+    "path": "scripts/vendor/point_in_time_data_audit/audit_pit_reference.py",
+    "sha256": "a617a49ff0f043b7cf7ff74e4843b381b6da7815053bb6ab185ccc3ad6135100",
+    "observed_exit_code": 137,
+    "server_cgroup_memory_limit_bytes": 322122547200,
+    "server_memory_events_oom_kill_observed": 3
+  },
+  "adapted_executor": {
+    "path": "scripts/vendor/point_in_time_data_audit/audit_pit_grouped.py",
+    "sha256": "70439b1ca402cadc5daf126d14ce90ea5b2e0c9876f8945ce2cf84ab9146d23f",
+    "mode": "GROUPED_RECTANGULAR_EXACT",
+    "semantic_rule_set": "pit_audit_manifest_v1_17_checks",
+    "design": "Collapse metadata repeated across each rectangular sample while retaining every feature name, value, row identifier, exact digest and check. Fall back to the reference long-row path when grouping preconditions do not hold."
+  },
+  "validation": {
+    "fixed_adversarial_suite": {
+      "result": "PASS",
+      "passed": 163,
+      "failed": 0,
+      "synthetic_adapter_cases": 117,
+      "qrc_production_cases": 46
+    },
+    "behavior_probe_suite": {
+      "result": "PASS",
+      "passed": 18,
+      "failed": 0
+    },
+    "fixed_check_inventory": 17,
+    "behavior_executor_sha256": "e79a1a2bdae5167ab74db73b14c513877c14e5e8cb191821693c6e804a8954d1"
+  },
+  "production_execution": {
+    "input_sample_count": 1658525,
+    "input_feature_count": 50,
+    "input_cell_count": 82926250,
+    "audit_id": "pit-audit-v1-08e3a3e299b530191bac7169d8b14369",
+    "audit_manifest_sha256": "2c800a67e70e9b8621a974d52b6d4200970dbd18abbe88f3c32b6584226ef0fa",
+    "audit_content_sha256": "08e3a3e299b530191bac7169d8b14369259a6cbc8285918011cc0215c88b16d0",
+    "result": "PASS",
+    "pit_qualification": "QUALIFIED",
+    "approximate_runtime_minutes": 19,
+    "approximate_peak_rss_gib": 25
+  },
+  "limitations": [
+    "This is a project-local optimization, not a new upstream certification.",
+    "The favorable production result remains bounded to the exact request, contract, data, trust roots and executor hashes.",
+    "The original reference executor is preserved byte-for-byte for review."
+  ]
+}

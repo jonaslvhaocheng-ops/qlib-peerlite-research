@@ -1,0 +1,17 @@
+{
+  "schema_version": "qlib_peerlite_pit_contract_change_preparation_v1",
+  "parent_contract_id": "qrc-v2-26151205fba66ab185fe29ea252ecce0",
+  "parent_canonical_hash": "26151205fba66ab185fe29ea252ecce008dd730c8d80cbf29bd2960e81055fa5",
+  "full_training_evidence_sha256": "c8f5591153fe5460df686ff397c46df9cb61d1126d724a3397c7ad4cccd56db1",
+  "derived_semantics_sha256": "fc6de54a1aa57cec981d865813d1a859740d2f1b2eadbb24c17cb2dcfc9bf46c",
+  "dictionary_sha256": "24b1163c8648184b7b2d57a1437e8d1e956afdef6e83c543ec31b1c2a4b29216",
+  "feature_spec_hash": "a0305493da95d6b5a7409767e61a6173f8ad727535d3f73a089bf32c11d73542",
+  "label_definition_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+  "label_spec_hash": "3e9ce515583813b0018634abdd14031a00918f6d360a558bc6767ebb84e8029d",
+  "changed_fields": [
+    "data.sources",
+    "data.feature_spec_hash",
+    "target.label_spec_hash"
+  ],
+  "reason": "Bind the materialized derived-feature snapshot and the exact executable feature/label semantics required by the fixed PIT auditor. No outcome or final-OOS value informed this change."
+}

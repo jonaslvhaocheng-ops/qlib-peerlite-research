@@ -1,0 +1,24 @@
+{
+  "schema_version": "qlib_peerlite_pit_data_product_verification_v1",
+  "verified_at": "2026-07-28T17:50:31.382019+08:00",
+  "product_id": "pit_data_product_2012_2024_v3",
+  "product_manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+  "status": "PASS",
+  "passed": true,
+  "checks": {
+    "manifest_binding": true,
+    "source_snapshot_binding": true,
+    "universe_binding": true,
+    "final_oos_partition_opened": false,
+    "performance_metrics_computed": false,
+    "matrix_rows": 1658525,
+    "matrix_feature_count": 50,
+    "matrix_split_counts": {
+      "TRAIN": 1533222,
+      "MODEL_SELECTION": 125303
+    },
+    "population_rows": 1658525
+  },
+  "failures": [],
+  "interpretation": "This receipt proves product integrity and declared pre-OOS mechanics only. It is not a point-in-time qualification."
+}

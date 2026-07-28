@@ -1,0 +1,22 @@
+{
+  "schema_version": "qlib_peerlite_pit_contract_change_preparation_v1",
+  "parent_contract_id": "qrc-v2-0e4027198e7c052673bc12c0b10e67e5",
+  "parent_canonical_hash": "0e4027198e7c052673bc12c0b10e67e54ad92e93a028371e0bc15c5aba9764dc",
+  "full_training_evidence_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+  "derived_semantics_sha256": "7de9a8db9ce4f3775572b93b11c008b565205f50582c15fbd74b22cd053a2cdb",
+  "dictionary_sha256": "24bb2d713f8260d5b3964b94b4fd97ec212bf51d349d5bebb6049aded7dcec55",
+  "feature_spec_hash": "a0305493da95d6b5a7409767e61a6173f8ad727535d3f73a089bf32c11d73542",
+  "label_definition_sha256": "65a8052043903ef6ca912b933f7ec423033860810d12212482fe8438d9d4f7aa",
+  "label_spec_hash": "3e9ce515583813b0018634abdd14031a00918f6d360a558bc6767ebb84e8029d",
+  "population_source_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+  "changed_fields": [
+    "data.sources",
+    "data.feature_spec_hash",
+    "scope.universe.universe_version",
+    "scope.universe.universe_hash",
+    "splits.train.end",
+    "splits.selection.start",
+    "splits.selection.end"
+  ],
+  "reason": "Bind the corrected materialized evidence, the separately frozen eligible-population authority and calendar-backed split gaps required by the fixed PIT auditor. No outcome or final-OOS value informed this change."
+}

@@ -13,11 +13,13 @@ A 股日频横截面研究框架。第一阶段只产出“研究级 Alpha 候�
 ## 当前研究状态
 
 - 轨道：`STRICT`
-- 当前阶段：`M3-STRICT`
-- 真实数据研究状态：`DESIGN_ONLY`
+- 当前阶段：`M4-STRICT`
+- 真实数据研究状态：`PIT_QUALIFIED_DEVELOPMENT_ONLY`
 - PIT 模式：`VERIFY`
-- 允许：工程实现、合成数据测试、从已封存快照构建待审计数据产品、PIT 固定与行为审计
-- 禁止：PIT 通过前的真实模型训练、真实回测、最终 OOS 访问和 Alpha 结论
+- 允许：在哈希绑定的 2012–2024 开发数据上建设和验证 Qlib 数据、
+  Recorder、信号分析与回测闭环
+- 禁止：M4 通过前晋级基准模型、2025+ 最终 OOS 访问、Alpha/可投资性
+  结论和实盘连接
 
 状态真相以 `docs/STATUS.md` 和 `artifacts/progress/events.jsonl` 为准。
 
@@ -72,3 +74,12 @@ uv run qlib-peerlite synthetic-demo \
 5. 运行派生特征行为审计；两道 PIT 门都通过后才启用真实训练。
 
 具体命令和门槛见 `docs/RUNBOOK.md`。
+
+当前两道 PIT 门均已通过：
+
+- 固定审计：1,658,525 个样本、82,926,250 个特征单元、17/17 检查
+  `PASS / QUALIFIED`。
+- 行为审计：真实特征函数的未来数据扰动测试，保护区 5,750 个键逐键逐值
+  不变，结果 `PASS / NOVEL_CANDIDATE`。
+
+这只放行受控开发，不代表模型已经有效。

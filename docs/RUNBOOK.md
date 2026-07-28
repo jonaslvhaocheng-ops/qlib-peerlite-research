@@ -73,20 +73,52 @@ Never overwrite a frozen artifact.
 
 ## 4. PIT gate
 
-PIT certification uses the installed official executor. Its output directory
-must be new and empty. Runtime trust-anchor hashes must come from governance
-outside the audit request.
+The full consumed-value view has 82,926,250 long-form cells. The certified
+reference executor is preserved at
+`scripts/vendor/point_in_time_data_audit/audit_pit_reference.py`; it exceeded
+the server's 300 GiB cgroup limit on this input. The default vendored entry
+point is therefore the separately hash-pinned grouped exact executor. It keeps
+all feature cells and 17 checks, and only collapses metadata repeated within a
+rectangular sample.
 
 ```bash
-python /Users/jonas/.codex/skills/point-in-time-data-audit/scripts/audit_pit.py \
+python scripts/vendor/point_in_time_data_audit/audit_pit.py \
   evidence/pit/audit_request.json \
   --output-dir evidence/pit/runs/<new-run-id> \
   --trusted-review-authority-sha256 <governance-hash> \
   --trusted-semantic-review-receipt-sha256 <governance-hash>
 ```
 
-For derived features, run the separate behavior audit only after the parent
-fixed PIT audit passes.
+Before production use of the grouped executor:
+
+```bash
+python scripts/vendor/point_in_time_data_audit/run_tests.py
+python scripts/vendor/point_in_time_data_audit/run_behavior_tests.py
+```
+
+Expected results are fixed suite `163/163` and behavior suite `18/18`.
+The adaptation receipt is
+`evidence/oss/point_in_time_data_audit/grouped_executor_receipt.json`.
+
+For derived features, build and audit the separate real-pipeline behavior pair
+only after the parent fixed PIT audit passes:
+
+```bash
+python scripts/server/build_pit_behavior_package.py \
+  --snapshot-dir data/raw/snapshots/source_snapshot_20260728_v1 \
+  --data-product-dir data/processed/pit_data_product_2012_2024_v3 \
+  --parent-audit-manifest evidence/pit/audits/pit_full_2012_2024_v2/audit_manifest.json \
+  --feature-source src/qlib_peerlite/data/features.py \
+  --schema-source src/qlib_peerlite/data/schema.py \
+  --output-dir evidence/pit/behavior/packages/<new-run-id>
+
+python scripts/vendor/point_in_time_data_audit/audit_behavior.py \
+  evidence/pit/behavior/packages/<new-run-id>/behavior_request.json \
+  --output-dir evidence/pit/behavior/audits/<new-run-id>
+```
+
+Every output directory must be new. The behavior result is supplemental
+`NOVEL_CANDIDATE` evidence and never replaces the fixed audit.
 
 ## 5. Real-data enablement
 
@@ -99,3 +131,6 @@ Empirical commands must refuse to run unless all of the following hold:
 - input manifest hashes match the configured dataset
 
 Synthetic mechanics never satisfy these requirements.
+
+Even after enablement, the guard must reject the 2025+ final-OOS partitions
+until the M8 one-time opening procedure.

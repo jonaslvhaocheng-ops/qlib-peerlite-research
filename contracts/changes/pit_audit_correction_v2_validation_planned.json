@@ -1,0 +1,11 @@
+{
+  "canonical_hash": null,
+  "contract_file_sha256": "079b9ef8dae98b6a0079ef0f881edb44fd138f93a5e920600fe9dafc82c265ff",
+  "contract_id": null,
+  "schema_version": "qrc_validation_receipt_v1",
+  "status": "PASS",
+  "strict": false,
+  "validator": "quant-research-contract.validate_contract",
+  "validator_bundle_sha256": "6dbb4fe1eb929a368b9608a7944c8ba3ae4b14d30cc07d9ff7b091dfefaeeb0b",
+  "validator_version": "quant_contract_v2"
+}

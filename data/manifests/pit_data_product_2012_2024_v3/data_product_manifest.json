@@ -1,0 +1,264 @@
+{
+  "schema_version": "qlib_peerlite_pit_data_product_v1",
+  "product_id": "pit_data_product_2012_2024_v3",
+  "created_at": "2026-07-28T17:50:10.319849+08:00",
+  "status": "BUILT_NOT_PIT_QUALIFIED",
+  "contract_id": "qrc-v2-0e4027198e7c052673bc12c0b10e67e5",
+  "parent_contract_file_sha256": "dc6a34e7fa03891a9767d9c39ef2307398e91666a9049fa7809a20e3b6692fa2",
+  "source_snapshot": {
+    "snapshot_id": "source_snapshot_20260728_v1",
+    "bundle_sha256": "2575e52c7375fe28c06ccc6305da34e3328f025e7397ae735264f06cf62dc040",
+    "universe_hash": "4c4fde609a8ee6cf21fdc40114f368fdbb5a102d661d6c630e223a785b7dee97",
+    "sources": {
+      "datayes-daily-raw": {
+        "manifest": "mkt_equd.manifest.json",
+        "manifest_sha256": "d3f285c62c405ceed0b05fddc3abaf82f704815216ed42e454eab0e240ad3730"
+      },
+      "datayes-index-constituents": {
+        "manifest": "idx_cons_core.manifest.json",
+        "manifest_sha256": "d6c5e5b2acfe2b8b1d354a07a7fed0a3e5b594eaa7dafc2c871fed48a5565667"
+      },
+      "datayes-security-master": {
+        "manifest": "md_security.manifest.json",
+        "manifest_sha256": "4eff64dd068d805754cea9d1d9e720c7d7be7a180f6a23686f5434fbe3e03426"
+      },
+      "datayes-trade-calendar": {
+        "manifest": "md_trade_cal.manifest.json",
+        "manifest_sha256": "1aefd73dfd64dc5bdbb4e688e0812f962b191353b8bb5b90a56428472cb7fd0b"
+      },
+      "datayes-price-limits": {
+        "manifest": "mkt_limit.manifest.json",
+        "manifest_sha256": "165afd8e37dd9c6bc52036464b1aac9822f002a1d443ce8a4122db0e9cfc98a2"
+      },
+      "datayes-security-halts": {
+        "manifest": "md_sec_halt.manifest.json",
+        "manifest_sha256": "24426f0f46513b565b1b76f3d76abd9fc31ac0e5d9f0a6b31bc80a7a20d25853"
+      },
+      "datayes-special-status": {
+        "manifest": "equ_inst_sstate.manifest.json",
+        "manifest_sha256": "991212489d58c1ce3dc6aab7b1980774a4f0a80d28775a81bf11f954b811059e"
+      },
+      "datayes-corporate-action-mask": {
+        "manifest": "mkt_adjf.manifest.json",
+        "manifest_sha256": "e40fb724d9fd2a900921f41206252b758b9bfe311bf143295f7566ebf06831b6"
+      }
+    }
+  },
+  "oos_seal": {
+    "final_oos_start": "2025-01-01",
+    "opened_market_partitions": [
+      2011,
+      2024
+    ],
+    "final_oos_market_partitions_opened": false,
+    "performance_metrics_computed": false
+  },
+  "builder": {
+    "path": "scripts/server/build_pit_data_product.py",
+    "sha256": "c6b499ba3037b64026f0784627b745494eca019ae6208ad2dc33c94889ac8d30",
+    "parameters": {
+      "research_start": "2012-01-01",
+      "selection_nominal_boundary": "2024-01-01",
+      "selection_effective_start": "2024-01-09",
+      "train_effective_end": "2023-12-22",
+      "selection_effective_end": "2024-12-17",
+      "selection_latest_label_end": "2024-12-24",
+      "embargo_sessions": 5,
+      "development_end_exclusive": "2025-01-01",
+      "raw_partition_years": [
+        2011,
+        2024
+      ],
+      "minimum_listing_sessions": 60,
+      "prediction_clock": "16:00:00 Asia/Shanghai",
+      "vendor_available_clock": "15:15:00 Asia/Shanghai",
+      "feature_windows": [
+        5,
+        10,
+        20,
+        60
+      ],
+      "feature_count": 50,
+      "source_snapshot": "source_snapshot_20260728_v1"
+    },
+    "parameters_sha256": "f06fb18ebfd2970d51f211056da747dae6758a01e2e6ce7137e97728818ed0d0"
+  },
+  "matrix": {
+    "key": [
+      "datetime",
+      "instrument"
+    ],
+    "features": [
+      "ret_1d",
+      "gap_return",
+      "intraday_return",
+      "high_low_range",
+      "close_location",
+      "upper_shadow",
+      "lower_shadow",
+      "log_volume",
+      "log_amount",
+      "turnover_raw",
+      "ret_mean_5",
+      "ret_std_5",
+      "downside_vol_5",
+      "range_mean_5",
+      "turnover_mean_5",
+      "turnover_std_5",
+      "log_volume_mean_5",
+      "log_amount_mean_5",
+      "amihud_mean_5",
+      "price_volume_corr_5",
+      "ret_mean_10",
+      "ret_std_10",
+      "downside_vol_10",
+      "range_mean_10",
+      "turnover_mean_10",
+      "turnover_std_10",
+      "log_volume_mean_10",
+      "log_amount_mean_10",
+      "amihud_mean_10",
+      "price_volume_corr_10",
+      "ret_mean_20",
+      "ret_std_20",
+      "downside_vol_20",
+      "range_mean_20",
+      "turnover_mean_20",
+      "turnover_std_20",
+      "log_volume_mean_20",
+      "log_amount_mean_20",
+      "amihud_mean_20",
+      "price_volume_corr_20",
+      "ret_mean_60",
+      "ret_std_60",
+      "downside_vol_60",
+      "range_mean_60",
+      "turnover_mean_60",
+      "turnover_std_60",
+      "log_volume_mean_60",
+      "log_amount_mean_60",
+      "amihud_mean_60",
+      "price_volume_corr_60"
+    ],
+    "feature_count": 50,
+    "label": "label",
+    "rows": 1658525,
+    "date_min": "2012-01-04",
+    "date_max": "2024-12-17",
+    "instrument_count": 1655,
+    "split_counts": {
+      "MODEL_SELECTION": 125303,
+      "TRAIN": 1533222
+    },
+    "files": [
+      {
+        "path": "matrix/matrix_2012.parquet",
+        "year": 2012,
+        "rows": 89102,
+        "bytes": 38960995,
+        "sha256": "fc53c7314768cb87be2317d37371c5f129d6fd5345d00e90252e38b1eca23bde"
+      },
+      {
+        "path": "matrix/matrix_2013.parquet",
+        "year": 2013,
+        "rows": 126190,
+        "bytes": 54998433,
+        "sha256": "7ea1c75332296c5f1dec9d81d71acd04595b6a25d5a3d36e146ed980a773dbed"
+      },
+      {
+        "path": "matrix/matrix_2014.parquet",
+        "year": 2014,
+        "rows": 122916,
+        "bytes": 53907982,
+        "sha256": "68a9b27ab24ec6fdf48234f8698f520a94dce5991ed4fce3e00355b89ad1a3f7"
+      },
+      {
+        "path": "matrix/matrix_2015.parquet",
+        "year": 2015,
+        "rows": 103223,
+        "bytes": 46962542,
+        "sha256": "e7009a99af0de1d369d94400c29e06ab312a5259ac23c5f57f4196f94c7d94f1"
+      },
+      {
+        "path": "matrix/matrix_2016.parquet",
+        "year": 2016,
+        "rows": 120354,
+        "bytes": 53612746,
+        "sha256": "beef9ea0845b4efe4d9fc8aa3f69be8209046f703e054220944bbff6ae10ae48"
+      },
+      {
+        "path": "matrix/matrix_2017.parquet",
+        "year": 2017,
+        "rows": 125393,
+        "bytes": 55438856,
+        "sha256": "09d5103baf328df2371d21b35bce12e116ab0912fc178a45890bab0fa016304d"
+      },
+      {
+        "path": "matrix/matrix_2018.parquet",
+        "year": 2018,
+        "rows": 128839,
+        "bytes": 56911701,
+        "sha256": "eea394538d944afb07232f59b739207cd9eea0b5d8ef423dd1e304117580d35b"
+      },
+      {
+        "path": "matrix/matrix_2019.parquet",
+        "year": 2019,
+        "rows": 144807,
+        "bytes": 63038428,
+        "sha256": "978dbfd2b778ad8e3c83ca405d5d75e525765dab22a8c9807d509da696db9eda"
+      },
+      {
+        "path": "matrix/matrix_2020.parquet",
+        "year": 2020,
+        "rows": 143636,
+        "bytes": 63509464,
+        "sha256": "7ba74ac32735a6c7276f9f09b551b3a99ff75c734493a769071a8489ee29a9ef"
+      },
+      {
+        "path": "matrix/matrix_2021.parquet",
+        "year": 2021,
+        "rows": 144500,
+        "bytes": 64602305,
+        "sha256": "2504ff47e3b0ee852d418a563d75b04c77c252b6de685ce580e9be90c7a55b5d"
+      },
+      {
+        "path": "matrix/matrix_2022.parquet",
+        "year": 2022,
+        "rows": 144147,
+        "bytes": 64412911,
+        "sha256": "a30153317ecc39ffa54e8da3d5782f5469f6f61d1e47818fc9c518fa3d31a177"
+      },
+      {
+        "path": "matrix/matrix_2023.parquet",
+        "year": 2023,
+        "rows": 140115,
+        "bytes": 62744770,
+        "sha256": "a4bcb23552d9b084a402916b10eac0add083e08199ffd6b2ee9fba100ca1730d"
+      },
+      {
+        "path": "matrix/matrix_2024.parquet",
+        "year": 2024,
+        "rows": 125303,
+        "bytes": 56694913,
+        "sha256": "290d1fa64e8a370c8a0c37c8f723b06b7c8b584b6a553aced5ad991c839b802e"
+      }
+    ]
+  },
+  "population": {
+    "path": "population.parquet",
+    "rows": 1658525,
+    "bytes": 1979369,
+    "sha256": "15f12fbf48ba6a91ad60a84dd4a379ee34eb94a51f93a123975175acea670960"
+  },
+  "calendar": {
+    "path": "calendar.csv",
+    "rows": 3238,
+    "sha256": "5386ff6e8fd380c891b8e78fbe14677b9cc59dbaabb403c4539c411dccb4be52"
+  },
+  "exclusions": {
+    "path": "exclusion_counts.json",
+    "sha256": "3823339fa6c7561c9e75edf3c5126acc5e60282fce4a36ef0df247862bda4bcd"
+  },
+  "value_exposure": "COUNTS_HASHES_AND_BOUNDS_ONLY",
+  "content_sha256": "6dc4aed91c798cba62f6ac3743e0487d66b3af56596d6e1d744a202090a92d51"
+}

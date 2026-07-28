@@ -18,8 +18,8 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M0 | environment + OSS intake | clean install and smoke tests | PASS |
 | M1 | source certificate | source semantics + immutable snapshot integrity | PASS |
 | M2 | frozen research contract | strict validation receipt | PASS |
-| M3 | PIT data product | fixed audit + behavior audit | IN_PROGRESS |
-| M4 | Qlib research foundation | reproducible data/model/recorder loop | DESIGN_ONLY |
+| M3 | PIT data product | fixed audit + behavior audit | PASS |
+| M4 | Qlib research foundation | reproducible data/model/recorder loop | IN_PROGRESS |
 | M5 | baselines | B0 LightGBM and B1 MLP rolling scores | NOT_RUN |
 | M6 | PeerLite | mechanics and ablation pass | DESIGN_ONLY |
 | M7 | Huatai increments | CCC/Gate isolated comparisons | NOT_RUN |
@@ -35,3 +35,14 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 - Candidate/trial ledger is append-only.
 - Final OOS may not be used for tuning, thresholds or slice selection.
 - A failed upstream gate blocks only its dependent strict branch and is retained.
+
+## Current handoff
+
+M3 passed on the exact pre-final-OOS product under descendant contract
+`qrc-v2-5b7353756e0fded36622a6946011f77a`. The fixed audit covered
+1,658,525 samples and 82,926,250 feature cells; the separate future-poison
+replay kept 5,750 protected feature keys unchanged.
+
+This opens M4 engineering against the bound development product. It does not
+open the 2025+ final OOS, establish Alpha, authorize model selection outside
+the frozen budget, or authorize deployment.

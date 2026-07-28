@@ -1,0 +1,16 @@
+{
+  "schema_version": "qlib_peerlite_population_authority_receipt_v1",
+  "authority_path_on_research_server": "evidence/pit/authorities/csi800_population_authority_2012_2024_v2.json",
+  "authority_file_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f",
+  "authority_id": "csi800-pit-eligible-development-population-v2",
+  "authority_version": "csi800-pit-eligible-development-population-20260728-v2",
+  "schema": "pit_population_source_v1",
+  "source_uri": "project://pit-data-product-population/728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+  "selection_rule_sha256": "9c13362d8dfaabe226a8d928508f451381d25cb63cd8c93d97e2dc024139f5c0",
+  "history_mode": "PIT_HISTORY",
+  "includes_inactive_and_delisted": true,
+  "record_count": 1658525,
+  "receipt_hash": "ef84f0929891491c58400401552206b6780141d19ee8d0d62f08e34cfe3ece2d",
+  "storage_policy": "The 498 MiB authority remains on the research server; Git stores this receipt only.",
+  "limitation": "This separately versioned authority is derived from the verified product population. Exact reconciliation proves consistency, but cannot by itself prove that the upstream vendor universe omitted no eligible security."
+}

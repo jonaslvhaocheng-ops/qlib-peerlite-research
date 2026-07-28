@@ -1,0 +1,21 @@
+{
+  "schema_version": "qlib_peerlite_exclusion_counts_v1",
+  "ordering_rule": "first failing reason in frozen order",
+  "counts": {
+    "before_research_start": 118413,
+    "outside_pit_universe": 2785977,
+    "listing_age_lt_60_sessions": 296,
+    "special_status_forbidden": 2475,
+    "special_status_unknown": 0,
+    "feature_action_mask": 568748,
+    "missing_or_nonfinite_features": 237269,
+    "missing_or_nonfinite_label": 5957,
+    "invalid_raw_price_domain": 0,
+    "execution_at_price_limit": 2490,
+    "execution_halted": 43,
+    "label_crosses_corporate_action": 39107,
+    "purge_or_embargo": 7564,
+    "unassigned_split": 0
+  },
+  "included_rows": 1661627
+}

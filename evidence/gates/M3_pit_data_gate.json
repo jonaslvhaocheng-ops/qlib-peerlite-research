@@ -1,0 +1,102 @@
+{
+  "schema_version": "qlib_peerlite_phase_gate_v1",
+  "gate_id": "M3-STRICT",
+  "status": "PASS",
+  "executed": true,
+  "completed": true,
+  "passed": true,
+  "evaluated_at": "2026-07-28T19:41:00+08:00",
+  "scope": "EXACT_PRE_FINAL_OOS_DEVELOPMENT_INPUT_ONLY",
+  "evidence": {
+    "upstream_contract_gate": {
+      "path": "evidence/gates/M2_contract_gate.json",
+      "status": "PASS"
+    },
+    "active_descendant_contract": {
+      "path": "contracts/immutable/research_contract_pit_v2.json",
+      "sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+      "contract_id": "qrc-v2-5b7353756e0fded36622a6946011f77a",
+      "canonical_hash": "5b7353756e0fded36622a6946011f77a99706ec82a9685cb2dd3c03bba37002d"
+    },
+    "strict_contract_validation": {
+      "path": "contracts/immutable/contract_validation_pit_v2.json",
+      "sha256": "44d37fc14e33e612e6e33670542ea90b18305ac156eaf0ba2b5f06b5e479de43",
+      "status": "PASS"
+    },
+    "data_product": {
+      "path": "data/manifests/pit_data_product_2012_2024_v3/data_product_manifest.json",
+      "sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+      "product_id": "pit_data_product_2012_2024_v3",
+      "samples": 1658525,
+      "features": 50,
+      "train_samples": 1533222,
+      "model_selection_samples": 125303
+    },
+    "data_product_verification": {
+      "path": "evidence/data_products/pit_data_product_verify_20260728_v3/data_product_verification.json",
+      "sha256": "e12321576552edeab191ba5c4ffb02b2b0235a847630b30f43646361a9e3ee4b",
+      "status": "PASS"
+    },
+    "consumed_value_view": {
+      "path": "data/manifests/pit_consumed_values_full_2012_2024_v2/consumed_value_manifest.json",
+      "sha256": "f1a174f68c09fd019c15002074e269dd56d018bc2641272ab7ca5fe5abff9137",
+      "training_evidence_sha256": "1629922761fda6fd4c2a104f652742a201e3d88c7c395fd2a0a52a4b344167b4",
+      "cells": 82926250
+    },
+    "population_authority_receipt": {
+      "path": "evidence/pit/authorities/csi800_population_authority_2012_2024_v2_receipt.json",
+      "sha256": "42f1f024073346a21252ac7909977c4135cf3575bb83d661b99733c7094c907e",
+      "authority_file_sha256": "151ea4f8805458f46ff8f8203d5b013b0d74f9f58790e7b0b83baaa33ee3c41f"
+    },
+    "fixed_pit_audit": {
+      "path": "evidence/pit/audits/pit_full_2012_2024_v2/audit_manifest.json",
+      "sha256": "2c800a67e70e9b8621a974d52b6d4200970dbd18abbe88f3c32b6584226ef0fa",
+      "audit_id": "pit-audit-v1-08e3a3e299b530191bac7169d8b14369",
+      "content_sha256": "08e3a3e299b530191bac7169d8b14369259a6cbc8285918011cc0215c88b16d0",
+      "status": "PASS",
+      "pit_qualification": "QUALIFIED",
+      "fixed_checks_passed": 17
+    },
+    "grouped_executor_receipt": {
+      "path": "evidence/oss/point_in_time_data_audit/grouped_executor_receipt.json",
+      "sha256": "ab332a457c38ed54233f941cfe5f3a925aaa1559e28a3258871d7c4b6073dd65",
+      "executor_sha256": "70439b1ca402cadc5daf126d14ce90ea5b2e0c9876f8945ce2cf84ab9146d23f",
+      "fixed_suite": "163/163 PASS",
+      "behavior_suite": "18/18 PASS"
+    },
+    "behavior_pit_audit": {
+      "path": "evidence/pit/behavior/audits/future_poison_real_feature_v1/behavior_manifest.json",
+      "sha256": "d61d878154ce6027c44f46a658a96d828aa31fe8446a6b9bd38f900e17cf9596",
+      "behavior_id": "pit-behavior-c9a2bdaa48d7e6dc8077",
+      "content_sha256": "c9a2bdaa48d7e6dc8077a2eaaf7ec4c7d66172e98ff8a830df1fd9feebddf8af",
+      "status": "PASS",
+      "certification_status": "NOVEL_CANDIDATE",
+      "protected_keys": 5750,
+      "protected_keys_sha256": "4fa4d11a5f313ba43ce5c272c50eeed1444c67439348b169b1d9249b2ec9a809"
+    }
+  },
+  "findings": [
+    "The complete consumed-value input was parsed: 1,658,525 sample keys and 82,926,250 feature cells.",
+    "All 17 fixed PIT checks passed under the production quant_contract_v2 boundary.",
+    "A real training-population security was replayed through the exact 50-feature function; 7,100 baseline cells matched the sealed training product exactly.",
+    "Poisoning a strictly later raw amount record changed the probe input but left all 5,750 protected feature keys and values unchanged.",
+    "No 2025+ final-OOS market partition was opened and no performance metric was computed."
+  ],
+  "limitations": [
+    "Hashes prove byte identity, not vendor truth or authority completeness.",
+    "The population authority is separately versioned but derived from the verified product population.",
+    "The behavior result is supplemental NOVEL_CANDIDATE evidence for one exact paired replay, not universal proof of every execution.",
+    "M3 does not establish Alpha, investability, capacity, execution quality or production readiness."
+  ],
+  "blocker": null,
+  "next_action": "build and verify the M4 Qlib Dataset, rolling split, Recorder, signal-analysis and portfolio-backtest mechanics on the exact bound pre-OOS product",
+  "authorization_after_pass": [
+    "M4 engineering on the exact bound pre-OOS product after hash-gate verification",
+    "controlled M5 development fitting only after M4 PASS"
+  ],
+  "still_forbidden": [
+    "2025+ final-OOS access before the M8 one-time opening procedure",
+    "unregistered data, features, labels, candidates or contract changes",
+    "Alpha, top-1-percent, investability or production claims"
+  ]
+}

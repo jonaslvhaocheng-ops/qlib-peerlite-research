@@ -1,50 +1,54 @@
 # True Status Card
 
 - Master plan: `docs/MASTER_PLAN.md`
-- Current phase and track: `M3-STRICT`
-- Last actual action: strict research-contract freeze and validation
-- Status: executed=`yes`; completed=`yes`; passed=`M2 PASS`
+- Current phase and track: `M4-STRICT`
+- Last actual action: full-input fixed PIT audit plus real-pipeline future-poison behavior audit
+- Status: executed=`yes`; completed=`yes`; passed=`M3 PASS`
+- Active frozen contract:
+  - `contracts/immutable/research_contract_pit_v2.json`
+  - contract ID `qrc-v2-5b7353756e0fded36622a6946011f77a`
+  - canonical hash
+    `5b7353756e0fded36622a6946011f77a99706ec82a9685cb2dd3c03bba37002d`
 - Strongest current evidence:
-  - `evidence/gates/M0_environment_gate.json`: M0 `PASS`
-  - `evidence/gates/M1_source_gate.json`: M1 terminal `PASS`
-  - `evidence/gates/M2_contract_gate.json`: M2 terminal `PASS`
-  - `contracts/immutable/research_contract.json`: frozen contract
-    `qrc-v2-26151205fba66ab185fe29ea252ecce0`
-  - `contracts/immutable/contract_validation.json`: strict validator `PASS`
-  - `evidence/data_sources/universe_verify_20260728_01/universe_verify.json`:
-    exact CSI300/CSI500 identities and effective intervals are supported
-  - `evidence/data_sources/core_universe_clock_verify_20260728_02/core_universe_clock_verify.json`:
-    announcement/effective clocks supported with zero missing, late or duplicate
-    membership records
-  - `evidence/data_sources/datayes_public_dictionary_20260728_01/datayes_public_dictionary.json`:
-    official public semantics support unadjusted 15:15 daily quotes and
-    announcement/effective constituent clocks
-  - `evidence/data_sources/auxiliary_source_verify_20260728_05/auxiliary_source_verify.json`:
-    auxiliary source candidates, coverage and conservative status clocks pass
-  - `data/manifests/source_snapshot_20260728_v1/snapshot_bundle_manifest.json`:
-    all eight immutable source manifests and the CSI800 universe hash are bound
-  - `evidence/data_sources/sealed_snapshot_verify_20260728_v1/sealed_snapshot_verification.json`:
-    independent file-hash, row-metadata, manifest, universe and read-only checks pass
-  - local and server: Ruff pass, Pytest `19 passed`
-  - server RTX 4090 CUDA forward/backward pass
-- Historical-only evidence: earlier database reports under
-  `/Users/jonas/Documents/预期因子/outputs`; they remain historical until rebound
-  into this project's source certificate.
-- Current blocker: none for M2. M3 requires the exact derived training product,
-  a fixed artifact audit and a behavior-based future-perturbation audit.
-- Risk/ambiguity: DataYes field names, comments, coverage and `UPDATE_TIME` do
-  not prove historical market availability, revision retention or PIT eligibility.
-- Only permitted next action: construct the declared data product from
-  `source_snapshot_20260728_v1`, preserve the final-OOS seal, and execute the
-  point-in-time fixed and behavior audits.
-- Forbidden until M3: empirical fitting, real backtesting, final-OOS opening and
-  performance claims.
+  - `evidence/gates/M0_environment_gate.json`: environment `PASS`
+  - `evidence/gates/M1_source_gate.json`: source/snapshot `PASS`
+  - `evidence/gates/M2_contract_gate.json`: initial contract gate `PASS`
+  - `evidence/gates/M3_pit_data_gate.json`: full PIT data gate `PASS`
+  - `data/manifests/pit_data_product_2012_2024_v3/data_product_manifest.json`:
+    1,658,525 pre-OOS samples and exactly 50 frozen features
+  - `evidence/pit/audits/pit_full_2012_2024_v2/audit_manifest.json`:
+    82,926,250/82,926,250 cells parsed; all 17 fixed checks `PASS`;
+    `QUALIFIED`
+  - `evidence/pit/behavior/audits/future_poison_real_feature_v1/behavior_manifest.json`:
+    all four behavior checks `PASS`; 5,750 protected keys unchanged
+  - local grouped executor validation: fixed suite `163/163`; behavior suite
+    `18/18`
+  - final-OOS market partitions opened: `false`
+  - performance metrics computed: `false`
+- Current blocker: none for M3. M4 must build and independently verify the Qlib
+  data/recorder/backtest mechanics before any baseline is promoted to M5.
+- Risk/ambiguity:
+  - DataYes descriptions and snapshot hashes cannot prove vendor truth or that
+    no off-system future data was consulted.
+  - The separately versioned population authority is reconciled exactly but is
+    derived from the verified product population; it cannot independently
+    prove that the upstream vendor omitted no eligible security.
+  - Behavior status is `NOVEL_CANDIDATE`: it proves this exact hash-bound replay,
+    not every possible execution.
+- Only permitted next action: integrate the qualified pre-OOS product into the
+  Qlib Dataset/Recorder/signal/backtest loop and prove reproducibility without
+  opening final OOS or reporting Alpha.
+- Forbidden until later gates: baseline promotion before M4, PeerLite claims
+  before M6, final-OOS access before M8 freeze, production trading and
+  “top 1%” claims.
 
 ## PIT navigation
 
 - Mode: `VERIFY`
 - Target path:
-  `DataYes/abmdata raw daily data -> fixed causal features -> CSI800 PIT universe`
-- Target claim: eventual `MARKET_RECONSTRUCTIBLE`
-- Positive ceiling now: M1 source/snapshot `PASS`; never PIT `PASS` or
-  `QUALIFIED` until fixed and behavior audits pass on the derived training product
+  `sealed DataYes raw daily data -> fixed causal features -> CSI800 PIT universe`
+- Fixed audit: `PASS / QUALIFIED`
+- Behavior audit: `PASS / NOVEL_CANDIDATE`
+- Project M3 decision: `PASS` for controlled development on the exact bound
+  pre-OOS data product only
+- Claim ceiling remains: `research mechanics`; no Alpha or investability claim

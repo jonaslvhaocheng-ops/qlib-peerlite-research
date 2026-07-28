@@ -1,0 +1,911 @@
+{
+  "schema_version": "qlib_peerlite_derived_feature_semantics_v1",
+  "semantics_id": "qlib-peerlite-daily-raw-50-v1",
+  "version": "1",
+  "source_product_manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+  "prediction_clock": "16:00:00 Asia/Shanghai after 15:15 vendor publication",
+  "availability_rule": "Each feature is a deterministic function of current/past RAW observations whose declared DataYes availability is no later than prediction_time.",
+  "revision_rule": "Every materialization is immutable. A changed source snapshot or feature implementation produces a new snapshot rather than rewriting this one.",
+  "features": [
+    {
+      "feature_name": "ret_1d",
+      "formula": "close(T)/close(T-1)-1",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "RETURN",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "gap_return",
+      "formula": "open(T)/close(T-1)-1",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "RETURN",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "intraday_return",
+      "formula": "close(T)/open(T)-1",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "RETURN",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "high_low_range",
+      "formula": "high(T)/low(T)-1",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "RETURN",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "close_location",
+      "formula": "(close(T)-low(T))/(high(T)-low(T))",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "upper_shadow",
+      "formula": "(high(T)-max(open(T),close(T)))/open(T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "RETURN",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "lower_shadow",
+      "formula": "(min(open(T),close(T))-low(T))/open(T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "RETURN",
+      "unit": "ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_volume",
+      "formula": "log1p(max(raw_volume(T),0))",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "VOLUME",
+      "unit": "log shares",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_amount",
+      "formula": "log1p(max(raw_turnover_value(T),0))",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "log CNY",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "turnover_raw",
+      "formula": "raw_turnover_rate(T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "vendor rate",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "ret_mean_5",
+      "formula": "mean(ret_1d, trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "ret_std_5",
+      "formula": "population_std(ret_1d, trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "downside_vol_5",
+      "formula": "population_std(min(ret_1d,0), trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "range_mean_5",
+      "formula": "mean(high_low_range, trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "turnover_mean_5",
+      "formula": "mean(turnover_raw, trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "turnover_std_5",
+      "formula": "population_std(turnover_raw, trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_volume_mean_5",
+      "formula": "mean(log_volume, trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_amount_mean_5",
+      "formula": "mean(log_amount, trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "amihud_mean_5",
+      "formula": "mean(abs(ret_1d)/abs(raw_turnover_value), trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "price_volume_corr_5",
+      "formula": "Pearson_corr(ret_1d,log_volume, trailing 5 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "ret_mean_10",
+      "formula": "mean(ret_1d, trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "ret_std_10",
+      "formula": "population_std(ret_1d, trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "downside_vol_10",
+      "formula": "population_std(min(ret_1d,0), trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "range_mean_10",
+      "formula": "mean(high_low_range, trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "turnover_mean_10",
+      "formula": "mean(turnover_raw, trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "turnover_std_10",
+      "formula": "population_std(turnover_raw, trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_volume_mean_10",
+      "formula": "mean(log_volume, trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_amount_mean_10",
+      "formula": "mean(log_amount, trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "amihud_mean_10",
+      "formula": "mean(abs(ret_1d)/abs(raw_turnover_value), trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "price_volume_corr_10",
+      "formula": "Pearson_corr(ret_1d,log_volume, trailing 10 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "ret_mean_20",
+      "formula": "mean(ret_1d, trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "ret_std_20",
+      "formula": "population_std(ret_1d, trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "downside_vol_20",
+      "formula": "population_std(min(ret_1d,0), trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "range_mean_20",
+      "formula": "mean(high_low_range, trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "turnover_mean_20",
+      "formula": "mean(turnover_raw, trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "turnover_std_20",
+      "formula": "population_std(turnover_raw, trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_volume_mean_20",
+      "formula": "mean(log_volume, trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_amount_mean_20",
+      "formula": "mean(log_amount, trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "amihud_mean_20",
+      "formula": "mean(abs(ret_1d)/abs(raw_turnover_value), trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "price_volume_corr_20",
+      "formula": "Pearson_corr(ret_1d,log_volume, trailing 20 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "ret_mean_60",
+      "formula": "mean(ret_1d, trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "ret_std_60",
+      "formula": "population_std(ret_1d, trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "downside_vol_60",
+      "formula": "population_std(min(ret_1d,0), trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "range_mean_60",
+      "formula": "mean(high_low_range, trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "turnover_mean_60",
+      "formula": "mean(turnover_raw, trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "turnover_std_60",
+      "formula": "population_std(turnover_raw, trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_volume_mean_60",
+      "formula": "mean(log_volume, trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "log_amount_mean_60",
+      "formula": "mean(log_amount, trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "amihud_mean_60",
+      "formula": "mean(abs(ret_1d)/abs(raw_turnover_value), trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    },
+    {
+      "feature_name": "price_volume_corr_60",
+      "formula": "Pearson_corr(ret_1d,log_volume, trailing 60 sessions including T)",
+      "implementation": "src/qlib_peerlite/data/features.py",
+      "use": "OTHER",
+      "unit": "derived ratio",
+      "basis": "RAW unadjusted OHLCV and turnover",
+      "grain": "permanent security ID and eligible trading session",
+      "event_time_policy": "OBSERVED_BY_PREDICTION",
+      "null_policy": "not nullable after frozen eligibility filters",
+      "adjustment_policy": {
+        "basis": "RAW",
+        "convention": "no price adjustment; event-crossing windows are masked",
+        "allowed_modes": [
+          "RAW"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,697 @@
+evidence_cutoff: "2026-07-27"
+allowed_classifications:
+  - SOURCE_BACKED
+  - ADAPTED
+  - NOVEL_CANDIDATE
+test_reference_policy: >
+  Each tests entry is a normative obligation, not an executable case ID. The exact
+  case IDs and runner-level invariants implementing those obligations are cross-referenced
+  in validation_report.md.
+
+evidence_cards:
+  - id: EC01
+    title: "Bind every conclusion to immutable inputs and provenance"
+    sources:
+      - title: "W3C PROV-DM"
+        url: "https://www.w3.org/TR/2013/REC-prov-dm-20130430/"
+        version: "W3C Recommendation"
+        date: "2013-04-30"
+      - title: "FAIR Guiding Principles"
+        url: "https://doi.org/10.1038/sdata.2016.18"
+        version: "Scientific Data 3:160018"
+        date: "2016"
+    original_claim: >
+      Provenance records the entities, activities and agents that produced data;
+      reusable data need persistent identifiers, rich metadata and detailed provenance.
+    conditions:
+      - "The audited artifact and every declared dependency are identifiable."
+      - "Hashes are computed over exact bytes or a documented canonical serialization."
+    limits:
+      - "Neither source mandates this Skill's hash algorithm or research-contract binding."
+      - "A matching hash proves identity, not semantic correctness."
+    transfer: >
+      Record file hashes, source versions, extraction identifiers and derivations; bind the
+      audit to the frozen research contract, its adapter-authorized validation receipt,
+      the independent population authority, derived manifest, source allowlist and label
+      definition. Bind the executable label schedule plus review and interval authorities;
+      require the review-authority hash and exact semantic-review receipt, plus the
+      applicable interval-authority hash, from runtime governance outside the request.
+      Bind the exact report bytes from the same manifest.
+    checks: [I001, I002, U002]
+    fields:
+      - "inputs[].path"
+      - "inputs[].sha256"
+      - "inputs[].source_version"
+      - "inputs[].snapshot_binding_mode"
+      - "contract.id"
+      - "contract.sha256"
+      - "contract.validation_receipt.sha256"
+      - "contract.allowed_sources"
+      - "contract.data.sources[].snapshot_id"
+      - "contract.scope.decision_calendar"
+      - "label_definition.sha256"
+      - "label_schedule.sha256"
+      - "label_schedule.receipt_hash"
+      - "review_authority.sha256"
+      - "label_interval_authority.sha256"
+      - "runtime.trusted_review_authority_sha256"
+      - "runtime.trusted_semantic_review_receipt_sha256"
+      - "runtime.trusted_interval_authority_sha256"
+      - "population_manifest.sha256"
+      - "population_manifest.receipt_hash"
+      - "population_source.sha256"
+      - "population_source.receipt_hash"
+      - "audit_manifest.content_sha256"
+      - "audit_manifest.report_sha256"
+    tests:
+      - "test_input_hash_mismatch_fails"
+      - "test_consumed_data_bytes_bind_to_frozen_snapshot"
+      - "test_duplicate_csv_headers_and_row_width_mismatch_fail"
+      - "test_unversioned_input_needs_evidence"
+      - "test_contract_or_label_hash_mismatch_fails"
+      - "test_source_outside_frozen_allowlist_fails"
+      - "test_cross_adapter_receipt_fails"
+      - "test_local_qrc_revalidation_fails"
+      - "test_qrc_source_and_calendar_version_bindings"
+      - "test_manifest_report_consistency"
+      - "test_untrusted_review_authority_fails"
+      - "test_forged_authorized_semantic_review_fails"
+      - "test_untrusted_interval_authority_fails"
+      - "test_missing_runtime_authority_anchor_needs_evidence"
+    classification: ADAPTED
+
+  - id: EC02
+    title: "Require exact field semantics; never substitute by resemblance"
+    sources:
+      - title: "FAIR Guiding Principles"
+        url: "https://doi.org/10.1038/sdata.2016.18"
+        version: "Scientific Data 3:160018"
+        date: "2016"
+    original_claim: >
+      Metadata should be rich, use formal vocabularies, include qualified references and
+      meet domain-relevant community standards.
+    conditions:
+      - "A schema and a product/version-matched field dictionary are supplied."
+      - "Units, basis, grain, null semantics and time semantics are explicit."
+    limits:
+      - "FAIR does not prescribe a quant-specific rule forbidding similar-field substitution."
+      - "Vendor terminology may remain ambiguous even with a dictionary."
+    transfer: >
+      Map each used field to one exact dictionary definition. Missing or conflicting
+      semantics produce NEEDS_EVIDENCE or FAIL; a name, dtype or correlation match is not
+      a substitute. Treat null interval ends through an explicit three-state policy rather
+      than assuming that null means infinity.
+    checks: [I002, S001]
+    fields:
+      - "schema.fields[].name"
+      - "schema.fields[].dtype"
+      - "dictionary.fields[].definition"
+      - "dictionary.fields[].unit"
+      - "dictionary.fields[].basis"
+      - "dictionary.fields[].grain"
+      - "dictionary.fields[].null_semantics"
+      - "schema.fields[].nullable"
+      - "dictionary.version"
+      - "matrix_manifest.feature_axis.feature_semantics_sha256"
+      - "contract.target.label_id"
+      - "contract.target.label_spec_version"
+      - "label_definition.contract_bindings.formula_sha256"
+      - "label_definition.contract_bindings.neutralization_rule_sha256"
+    tests:
+      - "test_ambiguous_asof_field_needs_evidence"
+      - "test_similar_field_substitution_fails"
+      - "test_dictionary_version_mismatch_fails"
+      - "test_unknown_null_end_needs_evidence"
+      - "test_forbidden_null_end_fails"
+      - "qrc_feature_semantics_drift"
+      - "qrc_label_id_conflict"
+      - "qrc_label_spec_version_conflict"
+      - "qrc_label_formula_conflict"
+      - "qrc_neutralization_rule_conflict"
+    classification: NOVEL_CANDIDATE
+    research_gap:
+      id: RG01
+      gap: "No universal public ontology resolves vendor-specific financial-field semantics."
+      minimal_candidate: "Exact-name plus exact-version semantic binding with no inferred substitute."
+      fail_condition: "Reject the candidate if a blind test accepts an undocumented alias or changes the audit outcome after dictionary clarification."
+
+  - id: EC03
+    title: "Model clocks as distinct roles, with versioned timezone rules"
+    sources:
+      - title: "SEC Webmaster FAQ — EDGAR timestamps"
+        url: "https://www.sec.gov/about/webmaster-frequently-asked-questions"
+        version: "Living SEC documentation"
+        date: "retrieved 2026-07-26"
+      - title: "IANA Time Zone Database"
+        url: "https://www.iana.org/time-zones"
+        version: "tzdb 2026c"
+        date: "2026-07-08"
+    original_claim: >
+      EDGAR distinguishes reporting period, official filing date, post-acceptance change
+      date and acceptance timestamp. Civil-time offsets and daylight-saving history are
+      versioned and can change.
+    conditions:
+      - "Every timestamp has a role and an IANA timezone or is explicitly UTC."
+      - "The label start/end convention is frozen in the contract."
+    limits:
+      - "EDGAR field meanings do not generalize automatically to other vendors."
+      - "A timezone conversion does not establish publication or tradability."
+    transfer: >
+      Preserve event_time, publication_time, tradable_time, ingestion_time and
+      label_end_time as separate fields; validate ordering only under their declared
+      semantics. Bind canonical event and vendor-availability roles to the raw source
+      fields frozen in the contract. Hash-bind each interpreted contract rule to its exact
+      source text before executing the structured predicate. Execute prediction,
+      tradable/execution, label-start and label-end timestamps through either an
+      independently anchored exact tuple authority or versioned session offsets; require
+      the semantic review to occur after contract freeze and before the audit run.
+    checks: [I002, T001, L001]
+    fields:
+      - "time_roles.event_time"
+      - "time_roles.publication_time"
+      - "time_roles.tradable_time"
+      - "time_roles.ingestion_time"
+      - "time_roles.label_start_time"
+      - "time_roles.label_end_time"
+      - "time_roles.timezone"
+      - "time_roles.tzdb_version"
+      - "time_roles.event_time.source_field"
+      - "time_roles.vendor_available_time.source_field"
+      - "contract_interpretation.source_text_sha256"
+      - "contract_interpretation.resolved"
+      - "label_definition.boundary_convention"
+      - "label_definition.contract_sha256"
+      - "label_schedule.contract_binding.rule_hashes"
+      - "label_schedule.resolver"
+      - "label_schedule.semantic_review.reviewed_at"
+      - "label_interval_authority.expected_interval_set_sha256"
+    tests:
+      - "test_conflated_time_roles_fails"
+      - "test_missing_timezone_or_tzdb_needs_evidence"
+      - "test_label_end_before_start_fails"
+      - "test_label_contract_binding_mismatch_fails"
+      - "test_event_source_field_conflict_fails"
+      - "test_interpretation_hash_mismatch_fails"
+      - "test_label_interval_drift_after_schedule_freeze_fails"
+      - "test_execution_time_drift_after_schedule_freeze_fails"
+      - "test_session_schedule_offsets_and_horizon"
+      - "test_review_before_contract_freeze_fails"
+    classification: SOURCE_BACKED
+
+  - id: EC04
+    title: "Separate market reconstruction from exact system replay"
+    sources:
+      - title: "SEC Webmaster FAQ — EDGAR timestamps"
+        url: "https://www.sec.gov/about/webmaster-frequently-asked-questions"
+        version: "Living SEC documentation"
+        date: "retrieved 2026-07-26"
+      - title: "SEC Accessing EDGAR Data"
+        url: "https://www.sec.gov/search-filings/edgar-search-assistance/accessing-edgar-data"
+        version: "Living SEC documentation"
+        date: "retrieved 2026-07-26"
+      - title: "W3C PROV-DM"
+        url: "https://www.w3.org/TR/2013/REC-prov-dm-20130430/"
+        version: "W3C Recommendation"
+        date: "2013-04-30"
+    original_claim: >
+      SEC acceptance and dissemination have documented timing rules, but SEC explicitly
+      states that it has no timestamp for when filing content first became available on
+      sec.gov. Provenance can record the activity that delivered an entity.
+    conditions:
+      - "The claim level is declared before the check."
+      - "Publication plus documented latency is sufficient only for the market-level claim."
+      - "Exact system replay has immutable ingestion/availability logs for the audited system."
+    limits:
+      - "Public records cannot prove a private vendor feed's exact arrival time."
+      - "A sampled log cannot establish row-complete replayability."
+    transfer: >
+      MARKET_RECONSTRUCTIBLE requires supported public/vendor availability before
+      prediction_time. SYSTEM_REPLAYABLE additionally requires the exact version that the
+      research system had ingested before prediction_time. Every row preserves publication
+      <= vendor availability <= ingestion <= parse readiness; OBSERVED_BY_PREDICTION also
+      requires event <= publication, while KNOWN_FUTURE_OBJECT retains its separate
+      eligibility rule. Never promote the former claim to the latter.
+    checks: [T002]
+    fields:
+      - "claim_level"
+      - "availability.publication_time"
+      - "availability.event_time"
+      - "availability.vendor_available_time"
+      - "availability.documented_latency"
+      - "availability.tradable_time"
+      - "availability.ingestion_time"
+      - "availability.parse_ready_time"
+      - "availability.ingested_object_sha256"
+      - "prediction_time"
+    tests:
+      - "test_feature_available_after_prediction_fails"
+      - "test_tradable_before_information_fails"
+      - "test_market_evidence_cannot_claim_system_replayable"
+      - "test_ingested_version_after_prediction_fails"
+      - "test_availability_pipeline_inversion_fails"
+    classification: NOVEL_CANDIDATE
+    research_gap:
+      id: RG02
+      gap: "Public sources cannot observe a proprietary research system's exact historical state."
+      minimal_candidate: "Two explicit evidence ceilings with separate required fields."
+      fail_condition: "Reject the candidate if MARKET_RECONSTRUCTIBLE passes without market-time evidence or SYSTEM_REPLAYABLE passes without row-complete immutable ingestion/version evidence."
+
+  - id: EC05
+    title: "Select the vintage known at the prediction time"
+    sources:
+      - title: "FRED API Real-Time Periods and vintage dates"
+        url: "https://fred.stlouisfed.org/docs/api/fred/realtime_period.html"
+        version: "FRED API v1 living documentation"
+        date: "retrieved 2026-07-26"
+      - title: "Microsoft Qlib PIT documentation"
+        url: "https://github.com/microsoft/qlib/blob/v0.9.7/docs/advanced/PIT.rst"
+        version: "Qlib v0.9.7"
+        date: "retrieved 2026-07-26"
+      - title: "SEC Correct or Delete a Filing"
+        url: "https://www.sec.gov/submit-filings/filer-support-resources/how-do-i-guides/correct-or-delete-filing"
+        version: "SEC guidance"
+        date: "2024-06-04"
+    original_claim: >
+      Economic observations and financial statements can be revised; vintage/release dates
+      identify what was known at a historical time, and original plus amended SEC filings
+      normally remain separate records.
+    conditions:
+      - "Revision identifiers and publication times are available at the field's declared grain."
+      - "As-of selection is executed before any aggregation using the field."
+    limits:
+      - "Qlib's documented PIT format targets quarterly/annual factors."
+      - "Some vendors overwrite history and cannot support a PASS."
+    transfer: >
+      For each prediction_time, select the latest eligible vintage whose publication and
+      availability precede it; reject latest-only restated values when historical vintages
+      are required.
+    checks: [T003]
+    fields:
+      - "revision.entity_id"
+      - "revision.period"
+      - "revision.publication_time"
+      - "revision.vintage_id"
+      - "revision.value"
+      - "revision.supersedes_id"
+    tests:
+      - "test_latest_restated_value_used_historically_fails"
+      - "test_financial_release_date_shift_fails"
+      - "test_asof_vintage_selection_passes"
+    classification: SOURCE_BACKED
+
+  - id: EC06
+    title: "Reconstruct the universe from announcements and effective intervals"
+    sources:
+      - title: "S&P DJI Index Governance Policies"
+        url: "https://www.spglobal.com/spdji/en/documents/index-policies/sp-index-governance-policies.pdf"
+        version: "May 2026"
+        date: "2026-05"
+      - title: "MSCI Global Investable Market Indexes Methodology"
+        url: "https://www.msci.com/eqb/methodology/meth_docs/MSCI_GIMIMethodology_May2026.pdf"
+        version: "May 2026"
+        date: "2026-05"
+    original_claim: >
+      Index changes have data cutoffs, announcements and later effective dates; review
+      results can be amended before implementation.
+    conditions:
+      - "The exact index methodology/version and announcement record are supplied."
+      - "Membership is represented by validity intervals, not today's constituent list."
+    limits:
+      - "Announcement lead times and exceptional-event rules vary by index."
+      - "A reconstructed eligibility screen is not equivalent to official membership."
+    transfer: >
+      A security is eligible only according to the membership state knowable at
+      prediction_time and applicable at the declared trading time. Future effective members
+      cannot be backfilled into earlier observations.
+    checks: [U001]
+    fields:
+      - "universe.index_id"
+      - "universe.methodology_version"
+      - "universe.announcement_time"
+      - "universe.effective_from"
+      - "universe.effective_to"
+      - "universe.member_security_id"
+      - "contract_interpretation.scope.universe.pit_membership_rule"
+      - "contract_interpretation.resolved.population_history_mode"
+    tests:
+      - "test_future_constituent_backfill_fails"
+      - "test_announcement_after_prediction_fails"
+      - "test_versioned_membership_interval_passes"
+      - "test_population_history_interpretation_conflict_fails"
+    classification: SOURCE_BACKED
+
+  - id: EC07
+    title: "Keep inactive securities and stable lifecycle identifiers"
+    sources:
+      - title: "CRSP Market Indexes Methodology Guide"
+        url: "https://www.crsp.org/wp-content/uploads/guides/CRSP_Market_Indexes_Methodology_Guide.pdf"
+        version: "July 2026"
+        date: "2026-07-01"
+      - title: "Morningstar/CRSP PERMNO & PERMCO"
+        url: "https://indexes.morningstar.com/research-data-products/permno"
+        version: "Living product documentation"
+        date: "retrieved 2026-07-26"
+      - title: "The Delisting Bias in CRSP Data"
+        url: "https://doi.org/10.1111/j.1540-6261.1997.tb03818.x"
+        version: "Journal of Finance 52(1)"
+        date: "1997"
+    original_claim: >
+      CRSP defines PERMNO as permanent across a security's life and explicitly treats
+      delisted securities. Shumway documents material bias when negative delisting returns
+      are missing.
+    conditions:
+      - "The population definition covers active and inactive securities."
+      - "Identifier mappings have valid-from/valid-to intervals."
+    limits:
+      - "PERMNO semantics are CRSP-specific; other markets require equivalent evidence."
+      - "A delisting code alone may not provide a reliable terminal return."
+    transfer: >
+      Audit against the full eligible population, retain delists, and join through stable
+      security identifiers with dated mappings. Require an independent hash-bound PIT
+      authority snapshot, derive the complete expected security-time key list and lifecycle
+      status from it, and match the consumed rows exactly. Metadata, synchronized counts,
+      or an empty eligible source cannot establish coverage. Never use current ticker/name
+      as a timeless key.
+    checks: [U002, M001]
+    fields:
+      - "population.includes_inactive"
+      - "population.delisting_event"
+      - "population.delisting_return"
+      - "population_manifest.expected_key_set_sha256"
+      - "population_manifest.expected_status_counts"
+      - "population_manifest.keys[].source_locator"
+      - "population_manifest.receipt_hash"
+      - "population_source.authority_id"
+      - "population_source.records[].eligible"
+      - "population_source.records[].security_status"
+      - "population_source.records[].source_locator"
+      - "population_source.receipt_hash"
+      - "security_id"
+      - "identifier_type"
+      - "mapping.valid_from"
+      - "mapping.valid_to"
+    tests:
+      - "test_survivor_only_extract_fails"
+      - "test_missing_delist_coverage_needs_evidence"
+      - "test_population_manifest_forgery_fails"
+      - "test_population_authority_mismatch_fails"
+      - "test_empty_authority_population_needs_evidence"
+      - "test_materialized_population_mismatch_fails"
+      - "test_ticker_reuse_or_undated_mapping_fails"
+    classification: SOURCE_BACKED
+
+  - id: EC08
+    title: "Use product-specific calendars and halt/resumption state"
+    sources:
+      - title: "NYSE Holidays & Trading Hours"
+        url: "https://www.nyse.com/trade/hours-calendars"
+        version: "Living exchange calendar"
+        date: "retrieved 2026-07-26"
+      - title: "Nasdaq Current Trading Halts and Halt History"
+        url: "https://www.nasdaqtrader.com/trader.aspx?id=TradingHaltHistory"
+        version: "Living exchange records"
+        date: "retrieved 2026-07-26"
+      - title: "IANA Time Zone Database"
+        url: "https://www.iana.org/time-zones"
+        version: "tzdb 2026c"
+        date: "2026-07-08"
+    original_claim: >
+      Exchange sessions vary by product and include holidays and early closes. Halt records
+      and civil-time rules are separately maintained historical facts.
+    conditions:
+      - "Venue, product/session, calendar version and timezone version are declared."
+      - "Quote-resume and trade-resume semantics come from the relevant feed specification."
+    limits:
+      - "Displayed exchange pages may not be immutable historical datasets."
+      - "Auction, quote and trade eligibility are not interchangeable."
+    transfer: >
+      Align every observation to the applicable session; model closures, early closes,
+      breaks, halts, quote resumption and trade resumption separately. Enforce strict
+      session/break ordering and reject a resume without a halt, a resume before the halt,
+      or trade resumption before quote resumption.
+    checks: [C001, H001]
+    fields:
+      - "calendar.venue"
+      - "calendar.product"
+      - "calendar.version"
+      - "calendar.session_open"
+      - "calendar.session_close"
+      - "calendar.breaks"
+      - "halt.halt_time"
+      - "halt.quote_resume_time"
+      - "halt.trade_resume_time"
+      - "halt.reason_code"
+    tests:
+      - "test_early_close_misalignment_fails"
+      - "test_wrong_venue_calendar_fails"
+      - "test_halt_observation_treated_as_tradable_fails"
+      - "test_quote_resume_used_as_trade_resume_fails"
+      - "test_reversed_session_or_break_fails"
+      - "test_resume_without_or_before_halt_fails"
+    classification: SOURCE_BACKED
+
+  - id: EC09
+    title: "Judge adjustments by declared use, base and known-time"
+    sources:
+      - title: "CRSP Stock and Index Data Descriptions Guide"
+        url: "https://indexes.morningstar.com/research-data-products/document-library"
+        version: "CRSP US Stock Databases Data Descriptions Guide for CRSPAccess FIZ"
+        date: "2026-06-30"
+      - title: "CRSP Market Indexes Methodology Guide"
+        url: "https://www.crsp.org/wp-content/uploads/guides/CRSP_Market_Indexes_Methodology_Guide.pdf"
+        version: "July 2026"
+        date: "2026-07-01"
+    original_claim: >
+      CRSP provides raw and adjusted data, applies event-specific factors, and documents an
+      adjustment base date; monthly adjustment can be less accurate than adjustment from
+      daily data.
+    conditions:
+      - "Raw values, PIT factors, event dates and adjustment base are available."
+      - "PIT factor-known-time is evaluated against prediction time."
+    limits:
+      - "Adjustment conventions differ by vendor, asset class and intended statistic."
+      - "A backward-adjusted level may encode a later event even when a return is invariant."
+    transfer: >
+      V1 accepts only raw data under its declared basis. It fails closed on PIT_ADJUSTED
+      because the consumed view cannot independently recompute raw value, factor, ex-date
+      and base-date lineage, and on FULL_HISTORY_ADJUSTED because a row boolean or arbitrary
+      test digest is not independently executable proof.
+    checks: [A001]
+    fields:
+      - "adjustment.raw_value"
+      - "adjustment.factor"
+      - "adjustment.factor_known_time"
+      - "adjustment.ex_date"
+      - "adjustment.base_date"
+      - "adjustment.convention"
+      - "adjustment.intended_use"
+      - "adjustment.mode"
+    tests:
+      - "test_post_event_factor_visible_pre_event_fails"
+      - "test_wrong_split_factor_fails"
+      - "test_pit_adjusted_fails_closed"
+      - "test_full_history_adjusted_fails_closed"
+    classification: ADAPTED
+
+  - id: EC10
+    title: "Test completeness and uniqueness at the declared training-cell grain"
+    sources:
+      - title: "PostgreSQL 18 Constraints"
+        url: "https://www.postgresql.org/docs/18/ddl-constraints.html"
+        version: "PostgreSQL 18"
+        date: "retrieved 2026-07-26"
+    original_claim: >
+      A primary key can be one column or a column group and requires values that are unique
+      and non-null.
+    conditions:
+      - "The schema declares the observation grain and primary/composite key."
+      - "One eligible vintage is selected before cell materialization; revision identity remains lineage rather than a second final cell."
+      - "An independently bound sample axis, QRC-bound feature axis and global label specification define the expected training cells."
+    limits:
+      - "Database uniqueness does not determine the economically correct grain."
+      - "Null treatment in unique constraints varies by implementation."
+      - "A rectangular Cartesian feature layout is not appropriate when applicability is genuinely sparse; sparse layouts need an ex-ante QRC-bound applicability digest."
+    transfer: >
+      First freeze the economic grain, expected sample×prediction×feature cell set,
+      and global label binding. Reject duplicates, missing expected cells and
+      unexpected cells; never infer the feature axis from observed rows or silently
+      deduplicate. A missing full-input matrix receipt remains NEEDS_EVIDENCE, while
+      a sampled audit may continue to search for hard counterexamples.
+    checks: [Q001]
+    fields:
+      - "schema.grain"
+      - "schema.primary_key"
+      - "quality.duplicate_count"
+      - "quality.duplicate_examples"
+      - "matrix_manifest.layout.mode"
+      - "matrix_manifest.sample_prediction_axis"
+      - "matrix_manifest.feature_axis"
+      - "matrix_manifest.label_axis"
+      - "matrix_manifest.expected_cell_key_set_sha256"
+      - "quality.missing_cell_count"
+      - "quality.unexpected_cell_count"
+    tests:
+      - "duplicate_analytical_grain"
+      - "rectangular_2x2_diagonal_omission"
+      - "full_input_without_matrix_manifest"
+      - "same_instant_different_offset_duplicate"
+      - "sparse_explicit_layout_remains_unresolved"
+      - "same_sample_feature_label_drift"
+    classification: ADAPTED
+
+  - id: EC11
+    title: "Separate hard validity failures from unsupported outlier inference"
+    sources:
+      - title: "TensorFlow Data Validation anomaly reference"
+        url: "https://www.tensorflow.org/tfx/data_validation/anomalies"
+        version: "Living TFX documentation"
+        date: "retrieved 2026-07-26"
+    original_claim: >
+      Schema and statistics can detect missing values, type violations and values outside a
+      declared domain; drift/skew comparisons are configurable.
+    conditions:
+      - "Required/nullability, dtype and hard domains are declared before inspection."
+      - "Any soft anomaly threshold is declared and sourced before inspection."
+    limits:
+      - "Statistical rarity is not proof of error."
+      - "Generic schema tools do not establish financial point-in-time availability."
+    transfer: >
+      Fail required missing/non-finite/type violations, invalid finite domain declarations
+      and hard-domain violations. Do not label a permitted extreme anomalous without a
+      sourced ex-ante rule.
+    checks: [Q002, Q003]
+    fields:
+      - "schema.fields[].required"
+      - "schema.fields[].nullable"
+      - "schema.fields[].dtype"
+      - "schema.fields[].hard_domain"
+      - "quality.missing_count"
+      - "quality.nonfinite_count"
+      - "quality.domain_violation_count"
+    tests:
+      - "test_required_missing_or_nonfinite_fails"
+      - "test_dtype_or_hard_domain_violation_fails"
+      - "test_nonfinite_or_non_numeric_domain_bound_fails"
+      - "test_permitted_extreme_is_not_auto_rejected"
+    classification: ADAPTED
+
+  - id: EC12
+    title: "Purge cross-split label overlap; only report same-split concurrency"
+    sources:
+      - title: "scikit-learn TimeSeriesSplit"
+        url: "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+        version: "scikit-learn 1.9.0 documentation"
+        date: "retrieved 2026-07-26"
+      - title: "Advances in Financial Machine Learning"
+        url: "https://www.oreilly.com/library/view/advances-in-financial/9781119482086/p01.xhtml"
+        version: "Wiley, chapters 4 and 7"
+        date: "2018"
+    original_claim: >
+      Time-series validation must preserve temporal order; a gap can separate train and
+      test. Financial labels can have overlapping outcomes, and purging addresses
+      informational overlap across validation sets.
+    conditions:
+      - "Each row has label_start_time, label_end_time and split/fold identity."
+      - "Overlap is computed on intervals, not inferred from row distance."
+    limits:
+      - "A fixed row-count gap is insufficient for irregular calendars or variable horizons."
+      - "Same-split overlap creates dependence but is not by itself train/test leakage."
+    transfer: >
+      Bind label policy text to the frozen contract, verify every prediction date is inside
+      its assigned split window, and FAIL any label interval that enters a later split.
+      Parse only canonical '<N> eligible trading days' duration text, bind its exact basis,
+      and count eligible sessions in a complete hash-bound calendar gap only after the later
+      of the nominal boundary and the left split's latest consumed label end. Report
+      same-split overlap rates without automatically FAILing them.
+    checks: [L002]
+    fields:
+      - "row_id"
+      - "split_id"
+      - "fold_role"
+      - "label_start_time"
+      - "label_end_time"
+      - "overlap.cross_split_pairs"
+      - "overlap.same_split_rate"
+      - "overlap.purge_receipt"
+      - "contract.splits.train"
+      - "contract.splits.selection"
+      - "contract.splits.final_oos"
+      - "contract.splits.sample_dependency.purge_rule"
+      - "contract.splits.sample_dependency.embargo_duration"
+      - "contract_interpretation.resolved.embargo_sessions"
+      - "contract_interpretation.resolved.embargo_basis_sha256"
+      - "contract_interpretation.resolved.boundary_calendar_sha256"
+    tests:
+      - "test_cross_split_label_interval_overlap_fails"
+      - "test_purged_cross_split_overlap_passes"
+      - "test_same_split_overlap_reports_without_automatic_fail"
+      - "test_prediction_outside_frozen_split_fails"
+      - "test_label_enters_later_split_without_peer_fails"
+      - "test_short_calendar_embargo_gap_fails"
+      - "test_noncanonical_embargo_duration_needs_evidence"
+      - "test_latest_label_end_reduces_clean_gap"
+    classification: ADAPTED
+
+  - id: EC13
+    title: "Challenge derived features with hash-bound counterfactual replay"
+    sources:
+      - title: "Feast point-in-time joins"
+        url: "https://docs.feast.dev/getting-started/concepts/point-in-time-joins"
+        version: "Living official documentation"
+        date: "retrieved 2026-07-27"
+      - title: "OpenLineage object model"
+        url: "https://openlineage.io/docs/1.30.0/spec/object-model"
+        version: "OpenLineage 1.30 object model"
+        date: "retrieved 2026-07-27"
+      - title: "Apache Iceberg time-travel queries"
+        url: "https://iceberg.apache.org/docs/nightly/spark-queries/"
+        version: "Official nightly documentation"
+        date: "retrieved 2026-07-27"
+    original_claim: >
+      Historical feature retrieval must reconstruct the state available at each
+      entity timestamp. Dataset, job, run, code and version identities can record
+      how a feature was produced, while snapshot identifiers can bind historical
+      source state.
+    conditions:
+      - "The fixed PIT audit manifest, source snapshots, code/query, parameters, environment, perturbation ledger and paired outputs are immutable and hash-bound."
+      - "An independently established non-empty protected sample×prediction×feature key set is supplied."
+      - "The perturbation ledger proves that changed inputs fall strictly outside the protected information set."
+    limits:
+      - "The sources support PIT retrieval, lineage and version replay; they do not prescribe this Skill's four counterfactual probes."
+      - "A finite probe cannot prove all pipeline branches or hidden external state are future-independent."
+      - "A caller-built mutation index is not organizational attestation of source completeness."
+    transfer: >
+      Re-run the same feature code and parameters against a bound replay or a
+      future-only, later-revision or future-universe perturbation. FAIL when any
+      protected historical key or value changes. Treat a passing pair as
+      supplemental negative evidence only; never promote it into a universal
+      causal-safety or alpha claim.
+    checks: [B001, B002, B003, B004]
+    fields:
+      - "pit_audit_manifest.sha256"
+      - "baseline_raw_snapshot.sha256"
+      - "probe_raw_snapshot.sha256"
+      - "code_or_query.sha256"
+      - "parameters.sha256"
+      - "environment.sha256"
+      - "perturbation_ledger.sha256"
+      - "baseline_output.sha256"
+      - "probe_output.sha256"
+      - "protection.protected_through"
+      - "protection.expected_keys_sha256"
+    tests:
+      - "prefix_drift"
+      - "future_drift"
+      - "revision_key_drop"
+      - "canary_leak"
+      - "future_missing_scope"
+      - "test_only_parent"
+      - "synthetic_adapter_parent"
+      - "tampered_parent_content"
+      - "incomplete_parent_check_inventory"
+    classification: NOVEL_CANDIDATE
+    research_gap:
+      id: RG03
+      gap: "No cited public source establishes that a finite set of paired perturbation replays is a complete proof of feature-pipeline PIT safety."
+      minimal_candidate: "Use four hash-bound probes only as supplemental falsification tests over an independently frozen protected population."
+      fail_condition: "Reject the candidate if a permitted future-only perturbation changes a protected key/value, a protected canary appears, the mutation scope cannot be verified, or the fixed-audit binding is absent or contradictory."

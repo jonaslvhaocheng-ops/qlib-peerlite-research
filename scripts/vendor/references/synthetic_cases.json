@@ -1,0 +1,1556 @@
+{
+  "schema_version": "pit_synthetic_suite_v1",
+  "purpose": "Deterministic adversarial fixtures for every major PIT boundary. This file contains no real security, capital, or trading decision.",
+  "patch_dialect": {
+    "pointer": "RFC 6901 JSON Pointer within the named artifact",
+    "operations": ["add", "remove", "replace"],
+    "phase": {
+      "before_hash": "Apply before canonical hashes and artifact files are materialized.",
+      "coherent_after_refresh": "Apply after derived bindings are refreshed, then re-seal the changed artifact and update its request hash without re-deriving semantic truth.",
+      "after_hash": "Apply after declared hashes are frozen; used only to test integrity rejection."
+    },
+    "tokens": {
+      "@AUTO_FILE_SHA256:<name>": "SHA-256 of the materialized named artifact",
+      "@AUTO_POPULATION_KEY_SET_SHA256": "Canonical SHA-256 of the sorted population security-time keys",
+      "@AUTO_POPULATION_RECEIPT_HASH": "Canonical SHA-256 of population_manifest excluding receipt_hash",
+      "@AUTO_POPULATION_SOURCE_RECEIPT_HASH": "Canonical SHA-256 of population_source excluding receipt_hash",
+      "@AUTO_LABEL_SPEC_HASH": "Canonical SHA-256 of label_definition excluding label_spec_hash",
+      "@AUTO_FILE_SHA256:label_schedule": "SHA-256 of the separate executable label schedule artifact",
+      "@AUTO_FILE_SHA256:review_authority": "SHA-256 of the independent semantic-review authorization artifact",
+      "@AUTO_FILE_SHA256:label_interval_authority": "SHA-256 of the independent exact-interval authority artifact",
+      "@AUTO_CONTRACT_CANONICAL_HASH": "Canonical SHA-256 of contract excluding canonical_hash",
+      "@AUTO_<POLICY>_SHA256": "SHA-256 of the exact frozen corporate-action, overlap, purge, or embargo policy text",
+      "$copy + $overrides": "Inside an add value, deep-copy the JSON Pointer from the same artifact, then apply the listed top-level field replacements."
+    }
+  },
+  "base_case": {
+    "request": {
+      "request_version": "pit_audit_request_v1",
+      "request_id": "synthetic-clean-v1",
+      "run_at": "2024-04-02T00:00:00Z",
+      "claim": "MARKET_RECONSTRUCTIBLE",
+      "coverage": {
+        "scope": "FULL_TRAINING_INPUT",
+        "expected_row_count": 1,
+        "extraction_query_sha256": "c99a3f1f06c57a8bf4470a3ba7a7ce4d4a6d92b1751d7e4dd2a6677dcf7d9af0",
+        "extraction_receipt_id": "synthetic-population-receipt-v1",
+        "population": {
+          "basis_id": "synthetic-all-listed-pit",
+          "snapshot_sha256": "@AUTO_FILE_SHA256:population_source",
+          "authority_source_sha256": "@AUTO_FILE_SHA256:population_source",
+          "selection_rule_sha256": "ef8e1e7a352f00628f49af0b7c381ff4b92b6f779403e022557280afdd92efda",
+          "universe_history_mode": "PIT_HISTORY",
+          "includes_inactive_and_delisted": true,
+          "expected_security_time_keys": 1,
+          "universe_version": "synthetic-universe-v1",
+          "universe_hash": "@AUTO_FILE_SHA256:population_source"
+        }
+      },
+      "artifacts": {
+        "data": {
+          "path": "training_evidence.csv",
+          "sha256": "@AUTO_FILE_SHA256:data",
+          "format": "csv",
+          "source_id": "SYNTHETIC_SEC_FUNDAMENTALS",
+        "source_version": "2024-04-01.v1",
+        "snapshot_id": "synthetic-snapshot-001",
+        "snapshot_binding_mode": "IDENTITY_SNAPSHOT",
+        "source_snapshot_sha256": "@AUTO_FILE_SHA256:data"
+        },
+        "schema": {
+          "path": "schema.json",
+          "sha256": "@AUTO_FILE_SHA256:schema"
+        },
+        "dictionary": {
+          "path": "dictionary.json",
+          "sha256": "@AUTO_FILE_SHA256:dictionary",
+          "dictionary_id": "synthetic-dictionary",
+          "version": "1.0.0",
+          "source_uri": "synthetic://vendor-manual/v1"
+        },
+        "time_semantics": {
+          "path": "time_semantics.json",
+          "sha256": "@AUTO_FILE_SHA256:time_semantics"
+        },
+        "research_contract": {
+          "path": "research_contract.json",
+          "sha256": "@AUTO_FILE_SHA256:contract",
+          "adapter": "pit_contract_binding_v1",
+          "contract_id": "synthetic-contract-001",
+          "canonical_hash": "@AUTO_CONTRACT_CANONICAL_HASH",
+          "validation_receipt": {
+            "path": "contract_validation.json",
+            "sha256": "@AUTO_FILE_SHA256:contract_validation"
+          }
+        },
+        "label_definition": {
+          "path": "label_definition.json",
+          "sha256": "@AUTO_FILE_SHA256:label_definition",
+          "label_spec_hash": "@AUTO_LABEL_SPEC_HASH"
+        },
+        "label_schedule": {
+          "path": "label_schedule.json",
+          "sha256": "@AUTO_FILE_SHA256:label_schedule",
+          "schedule_id": "synthetic-label-schedule-v1",
+          "version": "1"
+        },
+        "review_authority": {
+          "path": "review_authority.json",
+          "sha256": "@AUTO_FILE_SHA256:review_authority",
+          "authority_id": "synthetic-review-authority-v1",
+          "version": "1"
+        },
+        "label_interval_authority": {
+          "path": "label_interval_authority.json",
+          "sha256": "@AUTO_FILE_SHA256:label_interval_authority",
+          "authority_id": "synthetic-label-interval-authority-v1",
+          "version": "1"
+        },
+        "calendar": {
+          "path": "calendar.csv",
+          "sha256": "@AUTO_FILE_SHA256:calendar",
+          "calendar_id": "XNYS",
+          "version": "synthetic-2024a",
+          "timezone": "America/New_York",
+          "source_uri": "synthetic://exchange-calendar/XNYS/synthetic-2024a"
+        },
+        "population_manifest": {
+          "path": "population_manifest.json",
+          "sha256": "@AUTO_FILE_SHA256:population_manifest",
+          "population_id": "synthetic-all-listed-pit",
+          "version": "synthetic-universe-v1",
+          "source_uri": "synthetic://population-receipt/synthetic-universe-v1"
+        },
+        "population_source": {
+          "path": "population_source.json",
+          "sha256": "@AUTO_FILE_SHA256:population_source",
+          "authority_id": "synthetic-all-listed-pit",
+          "version": "synthetic-universe-v1",
+          "source_uri": "synthetic://population-authority/synthetic-universe-v1"
+        },
+        "matrix_manifest": {
+          "path": "matrix_manifest.json",
+          "sha256": "@AUTO_FILE_SHA256:matrix_manifest",
+          "manifest_id": "synthetic-matrix-v1",
+          "version": "1"
+        }
+      }
+    },
+    "schema": {
+      "schema_version": "pit_evidence_schema_v1",
+      "primary_key": ["row_id"],
+      "grain": ["security_id", "prediction_time", "feature_name"],
+      "columns": {
+        "row_id": {"type": "string", "nullable": false},
+        "security_id": {"type": "string", "nullable": false},
+        "feature_name": {"type": "string", "nullable": false},
+        "feature_value": {"type": "float", "nullable": false},
+        "prediction_time": {"type": "timestamp", "nullable": false},
+        "event_time": {"type": "timestamp", "nullable": false},
+        "published_time": {"type": "timestamp", "nullable": false},
+        "vendor_available_time": {"type": "timestamp", "nullable": false},
+        "ingested_time": {"type": "timestamp", "nullable": false},
+        "parse_ready_time": {"type": "timestamp", "nullable": false},
+        "ingestion_batch_id": {"type": "string", "nullable": true},
+        "ingested_object_sha256": {"type": "string", "nullable": true},
+        "tradable_time": {"type": "timestamp", "nullable": false},
+        "label_start_time": {"type": "timestamp", "nullable": false},
+        "label_end_time": {"type": "timestamp", "nullable": false},
+        "split": {"type": "string", "nullable": false},
+        "universe_member": {"type": "boolean", "nullable": false},
+        "universe_announced_time": {"type": "timestamp", "nullable": false},
+        "universe_effective_from": {"type": "timestamp", "nullable": false},
+        "universe_effective_to": {"type": "timestamp", "nullable": true},
+        "security_status": {"type": "string", "nullable": false},
+        "revision_id": {"type": "string", "nullable": false},
+        "revision_known_time": {"type": "timestamp", "nullable": false},
+        "adjustment_mode": {"type": "string", "nullable": false},
+        "adjustment_known_time": {"type": "timestamp", "nullable": true},
+        "adjustment_invariance_pass": {"type": "boolean", "nullable": true},
+        "halt_time": {"type": "timestamp", "nullable": true},
+        "quote_resume_time": {"type": "timestamp", "nullable": true},
+        "trade_resume_time": {"type": "timestamp", "nullable": true},
+        "calendar_session_id": {"type": "string", "nullable": false},
+        "identifier_valid_from": {"type": "timestamp", "nullable": false},
+        "identifier_valid_to": {"type": "timestamp", "nullable": true}
+      }
+    },
+    "dictionary": {
+      "schema_version": "pit_field_dictionary_v1",
+      "dictionary_id": "synthetic-dictionary",
+      "version": "1.0.0",
+      "source_uri": "synthetic://vendor-manual/v1",
+      "semantic_source_document_sha256": "e553df5ca0f26cc73c9e776213259de2967a7be515ff5b95bc1e91fda45f2f10",
+      "fields": {
+        "row_id": {"semantic_role": "ROW_ID", "definition": "Immutable locator within this snapshot.", "source_locator": "synthetic://vendor-manual/v1#row-id"},
+        "security_id": {"semantic_role": "PERMANENT_SECURITY_ID", "definition": "Permanent issue identifier, not ticker.", "source_locator": "synthetic://vendor-manual/v1#security-id", "identity_stability": "permanent"},
+        "feature_name": {"semantic_role": "FEATURE_NAME", "definition": "Exact consumed feature identifier.", "source_locator": "synthetic://vendor-manual/v1#feature-name"},
+        "feature_value": {"semantic_role": "FEATURE_VALUE", "definition": "Consumed numeric value.", "source_locator": "synthetic://vendor-manual/v1#feature-value"},
+        "prediction_time": {"semantic_role": "PREDICTION_TIME", "definition": "Timestamp when the signal is fixed.", "source_locator": "synthetic://vendor-manual/v1#prediction-time"},
+        "event_time": {"semantic_role": "EVENT_TIME", "definition": "Fiscal period end represented by the observation.", "source_locator": "synthetic://vendor-manual/v1#event-time"},
+        "published_time": {"semantic_role": "PUBLICATION_TIME", "definition": "First public dissemination timestamp.", "source_locator": "synthetic://vendor-manual/v1#published-time"},
+        "vendor_available_time": {"semantic_role": "VENDOR_AVAILABLE_TIME", "definition": "First timestamp exposed in the declared vendor product.", "source_locator": "synthetic://vendor-manual/v1#vendor-available-time"},
+        "ingested_time": {"semantic_role": "INGESTED_TIME", "definition": "Historical landing timestamp in the research store.", "source_locator": "synthetic://vendor-manual/v1#ingested-time"},
+        "parse_ready_time": {"semantic_role": "PARSE_READY_TIME", "definition": "Historical timestamp when parsing completed.", "source_locator": "synthetic://vendor-manual/v1#parse-ready-time"},
+        "ingestion_batch_id": {"semantic_role": "INGESTION_BATCH_ID", "definition": "Immutable historical batch containing the exact consumed object; nullable only for a market-level claim.", "source_locator": "synthetic://vendor-manual/v1#ingestion-batch"},
+        "ingested_object_sha256": {"semantic_role": "INGESTED_OBJECT_SHA256", "definition": "SHA-256 of the exact historical object received by the research system; nullable only for a market-level claim.", "source_locator": "synthetic://vendor-manual/v1#ingested-object-hash"},
+        "tradable_time": {"semantic_role": "TRADABLE_TIME", "definition": "First intended order eligibility timestamp.", "source_locator": "synthetic://vendor-manual/v1#tradable-time"},
+        "label_start_time": {"semantic_role": "LABEL_START_TIME", "definition": "Left endpoint of the label interval.", "source_locator": "synthetic://vendor-manual/v1#label-start-time"},
+        "label_end_time": {"semantic_role": "LABEL_END_TIME", "definition": "Right endpoint of the label interval.", "source_locator": "synthetic://vendor-manual/v1#label-end-time"},
+        "split": {"semantic_role": "SPLIT", "definition": "Frozen research split.", "source_locator": "synthetic://vendor-manual/v1#split"},
+        "universe_member": {"semantic_role": "UNIVERSE_MEMBER", "definition": "Membership under the frozen universe rule.", "source_locator": "synthetic://vendor-manual/v1#universe-member"},
+        "universe_announced_time": {"semantic_role": "UNIVERSE_ANNOUNCED_TIME", "definition": "First public announcement of membership.", "source_locator": "synthetic://vendor-manual/v1#universe-announced-time"},
+        "universe_effective_from": {"semantic_role": "UNIVERSE_EFFECTIVE_FROM", "definition": "Inclusive membership-effective start.", "source_locator": "synthetic://vendor-manual/v1#universe-effective-from"},
+        "universe_effective_to": {"semantic_role": "UNIVERSE_EFFECTIVE_TO", "definition": "Exclusive membership-effective end; null means still effective.", "source_locator": "synthetic://vendor-manual/v1#universe-effective-to", "null_semantics": "OPEN_ENDED_POSITIVE_INFINITY"},
+        "security_status": {"semantic_role": "SECURITY_STATUS", "definition": "PIT active, delisted, or suspended state.", "source_locator": "synthetic://vendor-manual/v1#security-status"},
+        "revision_id": {"semantic_role": "REVISION_ID", "definition": "Selected vintage identifier.", "source_locator": "synthetic://vendor-manual/v1#revision-id"},
+        "revision_known_time": {"semantic_role": "REVISION_KNOWN_TIME", "definition": "First availability of the selected vintage.", "source_locator": "synthetic://vendor-manual/v1#revision-known-time"},
+        "adjustment_mode": {"semantic_role": "ADJUSTMENT_MODE", "definition": "Raw, PIT-adjusted, or full-history-adjusted basis.", "source_locator": "synthetic://vendor-manual/v1#adjustment-mode"},
+        "adjustment_known_time": {"semantic_role": "ADJUSTMENT_KNOWN_TIME", "definition": "First availability of the applied factor; null for RAW.", "source_locator": "synthetic://vendor-manual/v1#adjustment-known-time"},
+        "adjustment_invariance_pass": {"semantic_role": "ADJUSTMENT_INVARIANCE_TEST", "definition": "Result of the declared return-invariance test; null when not applicable.", "source_locator": "synthetic://vendor-manual/v1#adjustment-invariance"},
+        "halt_time": {"semantic_role": "HALT_TIME", "definition": "Start of a trading halt; null when none.", "source_locator": "synthetic://vendor-manual/v1#halt-time"},
+        "quote_resume_time": {"semantic_role": "QUOTE_RESUME_TIME", "definition": "Quote-resumption time; null when none.", "source_locator": "synthetic://vendor-manual/v1#quote-resume-time"},
+        "trade_resume_time": {"semantic_role": "TRADE_RESUME_TIME", "definition": "Trade-resumption time; null when none.", "source_locator": "synthetic://vendor-manual/v1#trade-resume-time"},
+        "calendar_session_id": {"semantic_role": "CALENDAR_SESSION_ID", "definition": "Versioned exchange-session key.", "source_locator": "synthetic://vendor-manual/v1#calendar-session"},
+        "identifier_valid_from": {"semantic_role": "IDENTIFIER_VALID_FROM", "definition": "Inclusive permanent-identifier validity start.", "source_locator": "synthetic://vendor-manual/v1#identifier-valid-from"},
+        "identifier_valid_to": {"semantic_role": "IDENTIFIER_VALID_TO", "definition": "Exclusive validity end; null means open-ended.", "source_locator": "synthetic://vendor-manual/v1#identifier-valid-to", "null_semantics": "OPEN_ENDED_POSITIVE_INFINITY"}
+      },
+      "features": {
+        "revenue_ttm": {
+          "definition": "Trailing-twelve-month revenue from the selected original vintage.",
+          "source_locator": "synthetic://vendor-manual/v1#revenue-ttm",
+          "use": "OTHER",
+          "event_time_policy": "OBSERVED_BY_PREDICTION",
+          "unit": "synthetic-currency-units",
+          "basis": "as-filed trailing twelve months",
+          "grain": "security, fiscal period, and filing vintage",
+          "null_semantics": "not nullable in the consumed-value view",
+          "adjustment_policy": {
+            "basis": "RAW_AS_FILED",
+            "convention": "NONE",
+            "allowed_modes": ["RAW"],
+            "source_locator": "synthetic://vendor-manual/v1#revenue-adjustment"
+          },
+          "domain_policy": {
+            "kind": "MIN",
+            "min": 0.0,
+            "source_locator": "synthetic://vendor-manual/v1#revenue-domain"
+          },
+          "adjustment_invariance": {
+            "claimed": false,
+            "evidence_locator": null
+          }
+        }
+      }
+    },
+    "time_semantics": {
+      "schema_version": "pit_time_semantics_v1",
+      "timezone": "America/New_York",
+      "tzdb_version": "2024a",
+      "availability_comparison": "LE",
+      "roles": {
+        "EVENT_TIME": {"field": "event_time", "source_field": "event_time", "definition": "Underlying event or period timestamp.", "source_locator": "synthetic://vendor-manual/v1#event-time"},
+        "PUBLICATION_TIME": {"field": "published_time", "definition": "First public dissemination.", "source_locator": "synthetic://vendor-manual/v1#published-time"},
+        "VENDOR_AVAILABLE_TIME": {"field": "vendor_available_time", "source_field": "vendor_available_time", "definition": "First declared-source availability.", "source_locator": "synthetic://vendor-manual/v1#vendor-available-time"},
+        "INGESTED_TIME": {"field": "ingested_time", "definition": "Historical local ingest.", "source_locator": "synthetic://vendor-manual/v1#ingested-time"},
+        "PARSE_READY_TIME": {"field": "parse_ready_time", "definition": "Historical parse completion.", "source_locator": "synthetic://vendor-manual/v1#parse-ready-time"},
+        "PREDICTION_TIME": {"field": "prediction_time", "definition": "Signal fixation time.", "source_locator": "synthetic://vendor-manual/v1#prediction-time"},
+        "TRADABLE_TIME": {"field": "tradable_time", "definition": "Order eligibility time.", "source_locator": "synthetic://vendor-manual/v1#tradable-time"},
+        "LABEL_START_TIME": {"field": "label_start_time", "definition": "Label interval start.", "source_locator": "synthetic://vendor-manual/v1#label-start-time"},
+        "LABEL_END_TIME": {"field": "label_end_time", "definition": "Label interval end.", "source_locator": "synthetic://vendor-manual/v1#label-end-time"},
+        "UNIVERSE_ANNOUNCED_TIME": {"field": "universe_announced_time", "definition": "Membership announcement.", "source_locator": "synthetic://vendor-manual/v1#universe-announced-time"},
+        "UNIVERSE_EFFECTIVE_FROM": {"field": "universe_effective_from", "definition": "Membership start.", "source_locator": "synthetic://vendor-manual/v1#universe-effective-from"},
+        "UNIVERSE_EFFECTIVE_TO": {"field": "universe_effective_to", "definition": "Membership end.", "source_locator": "synthetic://vendor-manual/v1#universe-effective-to"},
+        "REVISION_KNOWN_TIME": {"field": "revision_known_time", "definition": "Selected-vintage availability.", "source_locator": "synthetic://vendor-manual/v1#revision-known-time"},
+        "ADJUSTMENT_KNOWN_TIME": {"field": "adjustment_known_time", "definition": "Adjustment-factor availability.", "source_locator": "synthetic://vendor-manual/v1#adjustment-known-time"},
+        "HALT_TIME": {"field": "halt_time", "definition": "Halt start.", "source_locator": "synthetic://vendor-manual/v1#halt-time"},
+        "QUOTE_RESUME_TIME": {"field": "quote_resume_time", "definition": "Quote resumption.", "source_locator": "synthetic://vendor-manual/v1#quote-resume-time"},
+        "TRADE_RESUME_TIME": {"field": "trade_resume_time", "definition": "Trade resumption.", "source_locator": "synthetic://vendor-manual/v1#trade-resume-time"},
+        "IDENTIFIER_VALID_FROM": {"field": "identifier_valid_from", "definition": "Identifier validity start.", "source_locator": "synthetic://vendor-manual/v1#identifier-valid-from"},
+        "IDENTIFIER_VALID_TO": {"field": "identifier_valid_to", "definition": "Identifier validity end.", "source_locator": "synthetic://vendor-manual/v1#identifier-valid-to"}
+      }
+    },
+    "contract": {
+      "schema_version": "pit_contract_binding_v1",
+      "contract_id": "synthetic-contract-001",
+      "canonical_hash": "@AUTO_CONTRACT_CANONICAL_HASH",
+      "status": "FROZEN",
+      "timezone": "America/New_York",
+      "calendar": {"calendar_id": "XNYS", "version": "synthetic-2024a"},
+      "universe": {
+        "universe_id": "synthetic-all-listed-pit",
+        "version": "synthetic-universe-v1",
+        "hash": "@AUTO_FILE_SHA256:population_source",
+        "includes_inactive_and_delisted": true
+      },
+      "data_policy": {
+        "source_id": "SYNTHETIC_SEC_FUNDAMENTALS",
+        "source_version": "2024-04-01.v1",
+        "snapshot_id": "synthetic-snapshot-001",
+        "snapshot_hash": "@AUTO_FILE_SHA256:data",
+        "availability_evidence_version": "1.0.0",
+        "availability_evidence_hash": "e553df5ca0f26cc73c9e776213259de2967a7be515ff5b95bc1e91fda45f2f10",
+        "allowed_features": ["revenue_ttm"],
+        "event_timestamp_field": "event_time",
+        "availability_timestamp_field": "vendor_available_time",
+        "availability_comparison": "LE",
+        "revision_policy": "POINT_IN_TIME_ONLY",
+        "corporate_action_policy": "RAW_OR_KNOWN_PIT",
+        "feature_spec_version": "synthetic-feature-spec-v1",
+        "feature_spec_hash": "@AUTO_MATRIX_FEATURE_SPEC_HASH"
+      },
+      "time_rules": {
+        "prediction_time": "Use the exact consumed prediction_time.",
+        "execution_time": "Use the exact consumed tradable_time.",
+        "label_start_rule": "Use the exact consumed label_start_time at or after prediction_time.",
+        "label_end_rule": "Use the exact consumed label_end_time after label_start_time.",
+        "holding_period": "Use the frozen exact per-sample interval set."
+      },
+      "label_id": "next-session-return",
+      "label_spec_version": "synthetic-label-spec-v1",
+      "label_formula": "Synthetic raw close-to-close return over the declared interval.",
+      "neutralization_rule": "No neutralization is used in this synthetic audit fixture.",
+      "label_spec_hash": "@AUTO_LABEL_SPEC_HASH",
+      "split_policy": {
+        "allowed": ["TRAIN", "MODEL_SELECTION", "OOS"],
+        "cross_split_label_overlap": "FORBIDDEN_AFTER_PURGE"
+      }
+    },
+    "contract_validation": {
+      "schema_version": "pit_contract_validation_receipt_v1",
+      "contract_id": "synthetic-contract-001",
+      "contract_file_sha256": "@AUTO_FILE_SHA256:contract",
+      "canonical_hash": "@AUTO_CONTRACT_CANONICAL_HASH",
+      "status": "PASS",
+      "strict": true,
+      "validator": "point-in-time-data-audit synthetic frozen-contract validator",
+      "validator_version": "synthetic-validator-1.0"
+    },
+    "label_definition": {
+      "schema_version": "pit_label_definition_v1",
+      "label_id": "next-session-return",
+      "label_spec_version": "synthetic-label-spec-v1",
+      "definition": {
+        "target": "raw close-to-close return",
+        "start_field": "label_start_time",
+        "end_field": "label_end_time",
+        "holding_period": "one declared interval"
+      },
+      "label_spec_hash": "@AUTO_LABEL_SPEC_HASH",
+      "interval_closure": "LEFT",
+      "overlap_policy": "NO_CROSS_SPLIT_OVERLAP",
+      "purge_rule": "FORBIDDEN_AFTER_PURGE",
+      "purge_embargo_rule": "FORBIDDEN_AFTER_PURGE",
+      "embargo_duration": "0",
+      "embargo_basis": "not_applicable_test_adapter",
+      "contract_bindings": {
+        "formula_sha256": "@AUTO_FORMULA_SHA256",
+        "neutralization_rule_sha256": "@AUTO_NEUTRALIZATION_RULE_SHA256",
+        "corporate_action_rule_sha256": "@AUTO_CORPORATE_ACTION_RULE_SHA256",
+        "overlap_rule_sha256": "@AUTO_OVERLAP_RULE_SHA256",
+        "purge_rule_sha256": "@AUTO_PURGE_RULE_SHA256",
+        "purge_embargo_rule_sha256": "@AUTO_PURGE_EMBARGO_RULE_SHA256",
+        "embargo_duration_sha256": "@AUTO_EMBARGO_DURATION_SHA256",
+        "embargo_basis_sha256": "@AUTO_EMBARGO_BASIS_SHA256"
+      },
+      "source_locator": "synthetic://research-contract#label"
+    },
+    "label_schedule": {
+      "schema_version": "pit_label_schedule_v1",
+      "schedule_id": "synthetic-label-schedule-v1",
+      "version": "1",
+      "mode": "FROZEN_EXACT_INTERVAL_SET",
+      "contract_binding": {},
+      "label_binding": {},
+      "resolver": {
+        "interval_authority_id": "AUTO",
+        "interval_authority_version": "AUTO",
+        "interval_authority_artifact_sha256": "AUTO",
+        "interval_authority_receipt_hash": "AUTO"
+      },
+      "semantic_review": {},
+      "receipt_hash": "AUTO"
+    },
+    "review_authority": {
+      "schema_version": "pit_semantic_review_authority_v1",
+      "authority_id": "synthetic-review-authority-v1",
+      "version": "1",
+      "source_uri": "synthetic://governance/review-authority/v1",
+      "reviewers": [
+        {
+          "reviewer_id": "synthetic-reviewer-001",
+          "allowed_scopes": ["CONTRACT_PROSE_TO_NORMALIZED_LABEL_SCHEDULE_ONLY"],
+          "valid_from": "2024-01-01T00:00:00Z",
+          "valid_to": "2030-01-01T00:00:00Z"
+        }
+      ],
+      "receipt_hash": "AUTO"
+    },
+    "label_interval_authority": {
+      "schema_version": "pit_label_interval_authority_v1",
+      "authority_id": "synthetic-label-interval-authority-v1",
+      "version": "1",
+      "source_uri": "synthetic://independent-label-interval-authority/v1",
+      "population_manifest_sha256": "AUTO",
+      "expected_sample_count": 1,
+      "expected_interval_set_sha256": "AUTO",
+      "generator": {
+        "code_sha256": "8bca41f669a3dd4b77746164db0204408779003205071e0313282dc137b82f18",
+        "parameters_sha256": "e424742ae0c8a02e290217c62e2f894f48bd82e6add1f5801307333569a8d2bb",
+        "input_snapshot_sha256": "995304f01b3c54e376c49a9aef82a453df999bf5af35f167208284b6e20c5b29",
+        "source_locator": "synthetic://independent-label-interval-authority/v1#generator"
+      },
+      "receipt_hash": "AUTO"
+    },
+    "calendar": [
+      {
+        "session_id": "XNYS-2024-04-01",
+        "open_time": "2024-04-01T13:30:00Z",
+        "close_time": "2024-04-01T20:00:00Z",
+        "break_start": null,
+        "break_end": null
+      }
+    ],
+    "population_manifest": {
+      "schema_version": "pit_population_manifest_v1",
+      "population_id": "synthetic-all-listed-pit",
+      "version": "synthetic-universe-v1",
+      "source_uri": "synthetic://population-receipt/synthetic-universe-v1",
+      "authority_source_sha256": "@AUTO_FILE_SHA256:population_source",
+      "selection_rule_sha256": "ef8e1e7a352f00628f49af0b7c381ff4b92b6f779403e022557280afdd92efda",
+      "history_mode": "PIT_HISTORY",
+      "includes_inactive_and_delisted": true,
+      "expected_security_time_keys": 1,
+      "expected_key_set_sha256": "@AUTO_POPULATION_KEY_SET_SHA256",
+      "expected_status_counts": {"ACTIVE": 1},
+      "keys": [
+        {
+          "security_id": "SYNTH-PERM-001",
+          "prediction_time": "2024-04-01T14:00:00Z",
+          "security_status": "ACTIVE",
+          "source_locator": "synthetic://population-receipt/synthetic-universe-v1#SYNTH-PERM-001@2024-04-01T14:00:00Z"
+        }
+      ],
+      "receipt_hash": "@AUTO_POPULATION_RECEIPT_HASH"
+    },
+    "population_source": {
+      "schema_version": "pit_population_source_v1",
+      "authority_id": "synthetic-all-listed-pit",
+      "version": "synthetic-universe-v1",
+      "source_uri": "synthetic://population-authority/synthetic-universe-v1",
+      "selection_rule_sha256": "ef8e1e7a352f00628f49af0b7c381ff4b92b6f779403e022557280afdd92efda",
+      "history_mode": "PIT_HISTORY",
+      "includes_inactive_and_delisted": true,
+      "records": [
+        {
+          "security_id": "SYNTH-PERM-001",
+          "prediction_time": "2024-04-01T14:00:00Z",
+          "security_status": "ACTIVE",
+          "eligible": true,
+          "source_locator": "synthetic://population-authority/synthetic-universe-v1#SYNTH-PERM-001@2024-04-01T14:00:00Z"
+        }
+      ],
+      "receipt_hash": "@AUTO_POPULATION_SOURCE_RECEIPT_HASH"
+    },
+    "matrix_manifest": {
+      "schema_version": "pit_matrix_manifest_v1",
+      "manifest_id": "synthetic-matrix-v1",
+      "version": "1",
+      "layout": {
+        "mode": "RECTANGULAR",
+        "applicability_rule": "ALL_FEATURES_APPLY_TO_EVERY_POPULATION_KEY",
+        "applicability_rule_sha256": "@AUTO_MATRIX_APPLICABILITY_SHA256"
+      },
+      "sample_prediction_axis": {
+        "population_manifest_sha256": "@AUTO_FILE_SHA256:population_manifest",
+        "population_manifest_receipt_hash": "@AUTO_POPULATION_RECEIPT_HASH",
+        "population_source_sha256": "@AUTO_FILE_SHA256:population_source",
+        "expected_security_time_keys": 1,
+        "expected_key_set_sha256": "@AUTO_POPULATION_KEY_SET_SHA256"
+      },
+      "feature_axis": {
+        "feature_spec_version": "synthetic-feature-spec-v1",
+        "features": ["revenue_ttm"],
+        "expected_feature_count": 1,
+        "feature_set_sha256": "@AUTO_MATRIX_FEATURE_SET_SHA256",
+        "feature_spec_hash": "@AUTO_MATRIX_FEATURE_SPEC_HASH"
+      },
+      "label_axis": {
+        "label_id": "next-session-return",
+        "label_spec_version": "synthetic-label-spec-v1",
+        "label_spec_hash": "@AUTO_LABEL_SPEC_HASH",
+        "label_schedule_id": "synthetic-label-schedule-v1",
+        "label_schedule_version": "1",
+        "label_schedule_receipt_hash": "AUTO",
+        "prediction_time_rule_sha256": "@AUTO_PREDICTION_TIME_RULE_SHA256",
+        "execution_time_rule_sha256": "@AUTO_EXECUTION_TIME_RULE_SHA256",
+        "label_start_rule_sha256": "@AUTO_LABEL_START_RULE_SHA256",
+        "label_end_rule_sha256": "@AUTO_LABEL_END_RULE_SHA256"
+      },
+      "expected_cell_count": 1,
+      "expected_cell_key_set_sha256": "@AUTO_MATRIX_CELL_SET_SHA256",
+      "receipt_hash": "@AUTO_MATRIX_RECEIPT_HASH"
+    },
+    "data_rows": [
+      {
+        "row_id": "row-001",
+        "security_id": "SYNTH-PERM-001",
+        "feature_name": "revenue_ttm",
+        "feature_value": 100.0,
+        "prediction_time": "2024-04-01T14:00:00Z",
+        "event_time": "2023-12-31T23:59:59Z",
+        "published_time": "2024-03-15T13:00:00Z",
+        "vendor_available_time": "2024-03-15T13:05:00Z",
+        "ingested_time": "2024-04-01T14:02:00Z",
+        "parse_ready_time": "2024-04-01T14:03:00Z",
+        "ingestion_batch_id": "synthetic-ingest-batch-001",
+        "ingested_object_sha256": "53664f99a2d74c5677d0c02098ae0fd4a23a6c12bc2e6dcff4ea116bf8b31f69",
+        "tradable_time": "2024-04-01T14:05:00Z",
+        "label_start_time": "2024-04-01T14:05:00Z",
+        "label_end_time": "2024-04-01T19:55:00Z",
+        "split": "TRAIN",
+        "universe_member": true,
+        "universe_announced_time": "2023-12-15T14:00:00Z",
+        "universe_effective_from": "2024-01-02T14:30:00Z",
+        "universe_effective_to": "2025-01-02T14:30:00Z",
+        "security_status": "ACTIVE",
+        "revision_id": "original",
+        "revision_known_time": "2024-03-15T13:05:00Z",
+        "adjustment_mode": "RAW",
+        "adjustment_known_time": null,
+        "adjustment_invariance_pass": null,
+        "halt_time": null,
+        "quote_resume_time": null,
+        "trade_resume_time": null,
+        "calendar_session_id": "XNYS-2024-04-01",
+        "identifier_valid_from": "2020-01-02T14:30:00Z",
+        "identifier_valid_to": null
+      }
+    ]
+  },
+  "cases": [
+    {
+      "case_id": "clean_market_full_pass",
+      "description": "Complete market-reconstructible evidence; later local ingest is disclosed but does not change the claim.",
+      "mutations": [],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {}}
+    },
+    {
+      "case_id": "production_cli_rejects_synthetic_adapter",
+      "description": "The production CLI cannot qualify the deterministic test-only contract adapter.",
+      "execution_path": "production_cli",
+      "mutations": [],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I002": "FAIL"}}
+    },
+    {
+      "case_id": "clean_system_replayable_pass",
+      "description": "Historical ingest and parse-ready timestamps also precede prediction.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/claim", "value": "SYSTEM_REPLAYABLE"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/ingested_time", "value": "2024-04-01T13:50:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/parse_ready_time", "value": "2024-04-01T13:55:00Z"}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"T002": "PASS"}}
+    },
+    {
+      "case_id": "sample_only_ceiling",
+      "description": "A clean sample cannot prove full-input PIT correctness.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/scope", "value": "SAMPLE_ONLY"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"U002": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "future_feature_availability",
+      "description": "The vendor first exposes the feature after prediction.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/vendor_available_time", "value": "2024-04-01T14:01:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"T002": "FAIL"}}
+    },
+    {
+      "case_id": "availability_le_accepts_equal_cutoff",
+      "description": "LE includes a vendor-availability timestamp exactly equal to prediction_time.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/vendor_available_time", "value": "2024-04-01T14:00:00Z"}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"T002": "PASS"}}
+    },
+    {
+      "case_id": "availability_lt_rejects_equal_cutoff",
+      "description": "LT excludes a vendor-availability timestamp exactly equal to prediction_time.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "time_semantics", "pointer": "/availability_comparison", "value": "LT"},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/data_policy/availability_comparison", "value": "LT"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/vendor_available_time", "value": "2024-04-01T14:00:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"T002": "FAIL"}}
+    },
+    {
+      "case_id": "system_claim_with_late_ingest",
+      "description": "Public availability is timely, but the historical system had not ingested or parsed it.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/claim", "value": "SYSTEM_REPLAYABLE"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"T002": "FAIL"}}
+    },
+    {
+      "case_id": "system_claim_missing_object_receipt",
+      "description": "System timestamps alone cannot prove which exact object the historical system held.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/claim", "value": "SYSTEM_REPLAYABLE"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/ingested_time", "value": "2024-04-01T13:50:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/parse_ready_time", "value": "2024-04-01T13:55:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/ingestion_batch_id", "value": null},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/ingested_object_sha256", "value": null}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"T002": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "system_late_ingest_missing_receipt_must_fail",
+      "description": "A missing system receipt cannot downgrade a known late ingest and parse violation from FAIL to NEEDS_EVIDENCE.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/claim", "value": "SYSTEM_REPLAYABLE"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/ingestion_batch_id", "value": null},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/ingested_object_sha256", "value": null}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"T002": "FAIL"}}
+    },
+    {
+      "case_id": "future_universe_announcement",
+      "description": "Current membership is backfilled before the constituent change was announced.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/universe_announced_time", "value": "2024-04-02T14:00:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"U001": "FAIL"}}
+    },
+    {
+      "case_id": "universe_effective_to_equal_prediction_fails",
+      "description": "The PIT membership interval is half-open, so prediction_time equal to effective_to is ineligible.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/universe_effective_to", "value": "2024-04-01T14:00:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"U001": "FAIL"}}
+    },
+    {
+      "case_id": "universe_effective_to_just_after_prediction_passes",
+      "description": "A prediction immediately before the exclusive effective_to endpoint remains eligible.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/universe_effective_to", "value": "2024-04-01T14:00:00.000001Z"}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"U001": "PASS"}}
+    },
+    {
+      "case_id": "filing_period_end_masquerades_as_release",
+      "description": "Fiscal period end is placed in the publication field; old dates must not silently pass availability.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/published_time", "value": "2023-12-31T23:59:59Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/fields/published_time/semantic_role", "value": "EVENT_TIME"},
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/fields/published_time/definition", "value": "Fiscal period end copied into a release field."}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"S001": "FAIL"}}
+    },
+    {
+      "case_id": "later_revision_used_early",
+      "description": "A later filing revision is selected before that revision was known.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/revision_id", "value": "amendment-1"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/revision_known_time", "value": "2024-04-03T13:00:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"T003": "FAIL"}}
+    },
+    {
+      "case_id": "future_full_history_adjustment",
+      "description": "A current full-history factor changes a non-return value before the factor was known.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/adjustment_mode", "value": "FULL_HISTORY_ADJUSTED"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/adjustment_known_time", "value": "2024-06-01T13:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/adjustment_invariance_pass", "value": false}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"A001": "FAIL"}}
+    },
+    {
+      "case_id": "survivor_population_omission",
+      "description": "The extraction receipt expects two population keys but only the surviving key is present.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 2}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"U002": "FAIL"}}
+    },
+    {
+      "case_id": "naive_prediction_timestamp",
+      "description": "A timezone-naive prediction timestamp cannot be aligned safely.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/prediction_time", "value": "2024-04-01T14:00:00"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"T001": "FAIL"}}
+    },
+    {
+      "case_id": "early_close_calendar_violation",
+      "description": "The versioned session closes before the declared tradable time.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "calendar", "pointer": "/0/close_time", "value": "2024-04-01T14:03:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"C001": "FAIL"}}
+    },
+    {
+      "case_id": "session_close_boundary_is_inclusive",
+      "description": "A declared tradable timestamp exactly at the session close remains inside the session boundary.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/tradable_time", "value": "2024-04-01T20:00:00Z"}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"C001": "PASS"}}
+    },
+    {
+      "case_id": "after_session_close_must_fail",
+      "description": "A tradable timestamp immediately after the declared close is outside the session.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/tradable_time", "value": "2024-04-01T20:00:00.000001Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"C001": "FAIL"}}
+    },
+    {
+      "case_id": "quote_resume_is_not_trade_resume",
+      "description": "Quotes resume before the intended trade, but trading resumes afterward.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/halt_time", "value": "2024-04-01T13:59:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/quote_resume_time", "value": "2024-04-01T14:03:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/trade_resume_time", "value": "2024-04-01T14:10:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"H001": "FAIL"}}
+    },
+    {
+      "case_id": "duplicate_analytical_grain",
+      "description": "A second row ID repeats the same security, prediction, and feature grain.",
+      "mutations": [
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "data_rows",
+          "pointer": "/-",
+          "value": {
+            "$copy": "/0",
+            "$overrides": {"row_id": "row-002"}
+          }
+        },
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 2}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"Q001": "FAIL"}}
+    },
+    {
+      "case_id": "cross_split_label_overlap",
+      "description": "An OOS label interval intersects a TRAIN label interval without purge.",
+      "mutations": [
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "data_rows",
+          "pointer": "/-",
+          "value": {
+            "$copy": "/0",
+            "$overrides": {
+              "row_id": "row-002",
+              "security_id": "SYNTH-PERM-002",
+              "prediction_time": "2024-04-01T15:00:00Z",
+              "tradable_time": "2024-04-01T15:05:00Z",
+              "label_start_time": "2024-04-01T15:05:00Z",
+              "label_end_time": "2024-04-01T19:58:00Z",
+              "split": "OOS"
+            }
+          }
+        },
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 2},
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "population_manifest",
+          "pointer": "/keys/-",
+          "value": {
+            "$copy": "/keys/0",
+            "$overrides": {
+              "security_id": "SYNTH-PERM-002",
+              "prediction_time": "2024-04-01T15:00:00Z",
+              "source_locator": "synthetic://population-receipt/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T15:00:00Z"
+            }
+          }
+        },
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "population_source",
+          "pointer": "/records/-",
+          "value": {
+            "$copy": "/records/0",
+            "$overrides": {
+              "security_id": "SYNTH-PERM-002",
+              "prediction_time": "2024-04-01T15:00:00Z",
+              "source_locator": "synthetic://population-authority/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T15:00:00Z"
+            }
+          }
+        },
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts/ACTIVE", "value": 2}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"L002": "FAIL"}}
+    },
+    {
+      "case_id": "same_split_overlap_is_report_only",
+      "description": "Within-split interval dependence is reported but does not become a cross-split failure.",
+      "mutations": [
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "data_rows",
+          "pointer": "/-",
+          "value": {
+            "$copy": "/0",
+            "$overrides": {
+              "row_id": "row-002",
+              "security_id": "SYNTH-PERM-002",
+              "prediction_time": "2024-04-01T15:00:00Z",
+              "tradable_time": "2024-04-01T15:05:00Z",
+              "label_start_time": "2024-04-01T15:05:00Z",
+              "label_end_time": "2024-04-01T19:58:00Z",
+              "split": "TRAIN"
+            }
+          }
+        },
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 2},
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "population_manifest",
+          "pointer": "/keys/-",
+          "value": {
+            "$copy": "/keys/0",
+            "$overrides": {
+              "security_id": "SYNTH-PERM-002",
+              "prediction_time": "2024-04-01T15:00:00Z",
+              "source_locator": "synthetic://population-receipt/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T15:00:00Z"
+            }
+          }
+        },
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "population_source",
+          "pointer": "/records/-",
+          "value": {
+            "$copy": "/records/0",
+            "$overrides": {
+              "security_id": "SYNTH-PERM-002",
+              "prediction_time": "2024-04-01T15:00:00Z",
+              "source_locator": "synthetic://population-authority/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T15:00:00Z"
+            }
+          }
+        },
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts/ACTIVE", "value": 2}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"L002": "PASS"}, "required_observation": "same_split_overlap_count>0"}
+    },
+    {
+      "case_id": "half_open_labels_may_touch",
+      "description": "LEFT label intervals in different splits may touch at one shared boundary without overlapping.",
+      "mutations": [
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "data_rows",
+          "pointer": "/-",
+          "value": {
+            "$copy": "/0",
+            "$overrides": {
+              "row_id": "row-002",
+              "security_id": "SYNTH-PERM-002",
+              "label_start_time": "2024-04-01T19:55:00Z",
+              "label_end_time": "2024-04-01T19:59:00Z",
+              "split": "OOS"
+            }
+          }
+        },
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 2},
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "population_manifest",
+          "pointer": "/keys/-",
+          "value": {
+            "$copy": "/keys/0",
+            "$overrides": {
+              "security_id": "SYNTH-PERM-002",
+              "source_locator": "synthetic://population-receipt/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T14:00:00Z"
+            }
+          }
+        },
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "population_source",
+          "pointer": "/records/-",
+          "value": {
+            "$copy": "/records/0",
+            "$overrides": {
+              "security_id": "SYNTH-PERM-002",
+              "source_locator": "synthetic://population-authority/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T14:00:00Z"
+            }
+          }
+        },
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts/ACTIVE", "value": 2}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"L002": "PASS"}}
+    },
+    {
+      "case_id": "closed_labels_touching_must_fail",
+      "description": "BOTH label intervals in different splits overlap when one ends exactly where the next starts.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "label_definition", "pointer": "/interval_closure", "value": "BOTH"},
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "data_rows",
+          "pointer": "/-",
+          "value": {
+            "$copy": "/0",
+            "$overrides": {
+              "row_id": "row-002",
+              "security_id": "SYNTH-PERM-002",
+              "label_start_time": "2024-04-01T19:55:00Z",
+              "label_end_time": "2024-04-01T19:59:00Z",
+              "split": "OOS"
+            }
+          }
+        },
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 2},
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "population_manifest",
+          "pointer": "/keys/-",
+          "value": {
+            "$copy": "/keys/0",
+            "$overrides": {
+              "security_id": "SYNTH-PERM-002",
+              "source_locator": "synthetic://population-receipt/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T14:00:00Z"
+            }
+          }
+        },
+        {
+          "phase": "before_hash",
+          "op": "add",
+          "artifact": "population_source",
+          "pointer": "/records/-",
+          "value": {
+            "$copy": "/records/0",
+            "$overrides": {
+              "security_id": "SYNTH-PERM-002",
+              "source_locator": "synthetic://population-authority/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T14:00:00Z"
+            }
+          }
+        },
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts/ACTIVE", "value": 2}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"L002": "FAIL"}}
+    },
+    {
+      "case_id": "label_starts_before_prediction",
+      "description": "The target interval begins before the prediction is fixed.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/label_start_time", "value": "2024-04-01T13:55:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"L001": "FAIL"}}
+    },
+    {
+      "case_id": "missing_dictionary_locator",
+      "description": "The semantic assertion exists but is not traceable to a dictionary or vendor location.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "dictionary", "pointer": "/fields/vendor_available_time/source_locator"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"S001": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "nested_dictionary_shape_is_structured_fail",
+      "description": "Valid JSON with an invalid nested feature-map shape emits a structured rejection instead of aborting with exit 64.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/features", "value": []}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"S001": "FAIL"}}
+    },
+    {
+      "case_id": "missing_contract_validation_receipt",
+      "description": "The contract file exists, but its frozen validation cannot be proven.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "request", "pointer": "/artifacts/research_contract/validation_receipt"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"I002": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "post_hash_data_mutation",
+      "description": "A consumed value is changed after the snapshot digest is frozen.",
+      "mutations": [
+        {"phase": "after_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/feature_value", "value": 999.0}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "FAIL"}}
+    },
+    {
+      "case_id": "missing_snapshot_binding_mode",
+      "description": "The audit cannot guess whether the frozen snapshot is the consumed file or an upstream container.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "request", "pointer": "/artifacts/data/snapshot_binding_mode"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"I001": "NEEDS_EVIDENCE"}, "required_issue_locator": {"I001": "request.artifacts.data.snapshot_binding_mode"}}
+    },
+    {
+      "case_id": "derived_extract_without_receipt",
+      "description": "A source-container claim remains unresolved until an independent extraction receipt binds exact output bytes.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/artifacts/data/snapshot_binding_mode", "value": "DERIVED_EXTRACT"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"I001": "NEEDS_EVIDENCE"}, "required_issue_locator": {"I001": "request.artifacts.data.extraction_receipt"}}
+    },
+    {
+      "case_id": "nonfinite_feature_value",
+      "description": "A consumed numeric value is non-finite.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/feature_value", "value": "NaN"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"Q002": "FAIL"}}
+    },
+    {
+      "case_id": "declared_domain_violation",
+      "description": "The feature violates its sourced non-negative hard domain.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/feature_value", "value": -1.0}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"Q003": "FAIL"}}
+    },
+    {
+      "case_id": "ticker_substituted_for_permanent_id",
+      "description": "The dictionary explicitly identifies the key as a changeable ticker.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/fields/security_id/identity_stability", "value": "ticker"},
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/fields/security_id/definition", "value": "Current display ticker."}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"M001": "FAIL"}}
+    },
+    {
+      "case_id": "population_key_is_self_asserted",
+      "description": "A listed population key without an exact external source locator is only self-asserted.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "population_manifest", "pointer": "/keys/0/source_locator"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"U002": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "population_manifest_key_removed",
+      "description": "A materialized training key omitted from an otherwise self-consistent population receipt must fail.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "population_manifest", "pointer": "/keys/0"},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": 0},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts", "value": {}},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 0}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"U002": "FAIL"}}
+    },
+    {
+      "case_id": "null_universe_end_is_unknown",
+      "description": "A null membership end declared UNKNOWN cannot prove an open-ended eligible interval.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/universe_effective_to", "value": null},
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/fields/universe_effective_to/null_semantics", "value": "UNKNOWN"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"U001": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "null_identifier_end_is_unknown",
+      "description": "A null identifier-validity end declared UNKNOWN cannot prove that the identifier is valid at prediction.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/fields/identifier_valid_to/null_semantics", "value": "UNKNOWN"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"M001": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "reversed_calendar_break",
+      "description": "A declared session break ends before it begins.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "calendar", "pointer": "/0/break_start", "value": "2024-04-01T16:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "calendar", "pointer": "/0/break_end", "value": "2024-04-01T15:00:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"C001": "FAIL"}}
+    },
+    {
+      "case_id": "calendar_open_not_before_close",
+      "description": "A session whose open is equal to its close violates strict calendar ordering.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "calendar", "pointer": "/0/open_time", "value": "2024-04-01T20:00:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"C001": "FAIL"}}
+    },
+    {
+      "case_id": "overlapping_calendar_sessions",
+      "description": "Individually valid exchange sessions cannot overlap because session offsets would otherwise be ambiguous.",
+      "mutations": [
+        {"phase": "before_hash", "op": "add", "artifact": "calendar", "pointer": "/-", "value": {"session_id": "XNYS-2024-04-01-shadow", "open_time": "2024-04-01T19:00:00Z", "close_time": "2024-04-01T21:00:00Z", "break_start": null, "break_end": null}}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"C001": "FAIL"}, "required_issue_locator": {"C001": "calendar#session_id=XNYS-2024-04-01-shadow.open_time"}}
+    },
+    {
+      "case_id": "resume_before_halt",
+      "description": "Quote and trade resume timestamps cannot precede the halt they resolve.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/halt_time", "value": "2024-04-01T14:04:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/quote_resume_time", "value": "2024-04-01T14:02:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/trade_resume_time", "value": "2024-04-01T14:03:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"H001": "FAIL"}}
+    },
+    {
+      "case_id": "resume_without_halt",
+      "description": "Resume timestamps without a corresponding halt start are internally inconsistent.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/quote_resume_time", "value": "2024-04-01T14:02:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/trade_resume_time", "value": "2024-04-01T14:03:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"H001": "FAIL"}}
+    },
+    {
+      "case_id": "full_history_arbitrary_invariance_must_fail",
+      "description": "A self-asserted passing invariance boolean cannot make full-history-adjusted values point-in-time safe.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/adjustment_mode", "value": "FULL_HISTORY_ADJUSTED"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/adjustment_known_time", "value": "2024-03-01T13:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/adjustment_invariance_pass", "value": true},
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/features/revenue_ttm/adjustment_policy/allowed_modes", "value": ["RAW", "FULL_HISTORY_ADJUSTED"]},
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/features/revenue_ttm/adjustment_invariance/claimed", "value": true},
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/features/revenue_ttm/adjustment_invariance/evidence_locator", "value": "synthetic://self-asserted/arbitrary-invariance-pass"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"A001": "FAIL"}}
+    },
+    {
+      "case_id": "label_purge_rule_conflict",
+      "description": "The label artifact cannot silently replace the purge rule frozen in the research contract.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "label_definition", "pointer": "/purge_rule", "value": "ALLOW_CROSS_SPLIT_OVERLAP"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"L002": "FAIL"}}
+    },
+    {
+      "case_id": "coordinated_data_manifest_deletion",
+      "description": "Deleting the same eligible key from data and its derived manifest cannot hide it from the independent population source.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "data_rows", "pointer": "/0"},
+        {"phase": "before_hash", "op": "remove", "artifact": "population_manifest", "pointer": "/keys/0"},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": 0},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts", "value": {}},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 0},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 0}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"U002": "FAIL"}}
+    },
+    {
+      "case_id": "pit_adjusted_arbitrary_value_must_fail",
+      "description": "A known-time declaration cannot prove an arbitrary PIT-adjusted value without executable factor provenance.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/feature_value", "value": 123456789.0},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/adjustment_mode", "value": "PIT_ADJUSTED"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/adjustment_known_time", "value": "2024-03-01T13:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/features/revenue_ttm/adjustment_policy/allowed_modes", "value": ["RAW", "PIT_ADJUSTED"]}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"A001": "FAIL"}}
+    },
+    {
+      "case_id": "inverse_availability_pipeline_clocks",
+      "description": "Every clock is before prediction, but vendor, ingestion, and parse times run backward through the causal pipeline.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/vendor_available_time", "value": "2024-03-15T12:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/ingested_time", "value": "2024-03-14T13:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/parse_ready_time", "value": "2024-03-13T13:00:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"T002": "FAIL"}}
+    },
+    {
+      "case_id": "known_future_object_does_not_invert_pipeline",
+      "description": "A genuinely preannounced future object may occur after prediction while its publication-to-parse pipeline remains causal.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/event_time", "value": "2024-04-02T14:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/features/revenue_ttm/event_time_policy", "value": "KNOWN_FUTURE_OBJECT"}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"T002": "PASS"}}
+    },
+    {
+      "case_id": "boolean_domain_bound_cannot_pass",
+      "description": "JSON booleans are not numeric hard-domain bounds even though Python bool is an int subclass.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "dictionary", "pointer": "/features/revenue_ttm/domain_policy/min", "value": true}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"Q003": "FAIL"}}
+    },
+    {
+      "case_id": "boolean_expected_row_count_cannot_pass",
+      "description": "A boolean cannot impersonate the integer row count for a one-row input.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": true}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "FAIL"}}
+    },
+    {
+      "case_id": "boolean_request_population_count_cannot_pass",
+      "description": "A boolean cannot impersonate the request's integer population count.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": true}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"U002": "FAIL"}}
+    },
+    {
+      "case_id": "boolean_manifest_population_count_cannot_pass",
+      "description": "A boolean cannot impersonate the manifest and matrix-axis integer key count.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": true}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"U002": "FAIL"}}
+    },
+    {
+      "case_id": "boolean_lifecycle_count_cannot_pass",
+      "description": "A boolean cannot impersonate a one-security lifecycle count.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts/ACTIVE", "value": true}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"U002": "FAIL"}}
+    },
+    {
+      "case_id": "permitted_extreme_is_not_an_invented_failure",
+      "description": "A finite value inside the sourced hard domain is not failed or labeled anomalous by an undeclared universal outlier rule.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/feature_value", "value": 1e+300}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"Q002": "PASS", "Q003": "PASS"}}
+    },
+    {
+      "case_id": "full_input_without_matrix_manifest",
+      "description": "A legacy FULL request without pit_matrix_manifest_v1 remains unresolved at I001 and Q001.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "request", "pointer": "/artifacts/matrix_manifest"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"I001": "NEEDS_EVIDENCE", "Q001": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "sample_without_matrix_manifest_still_diagnoses",
+      "description": "A sample without a matrix receipt still detects a hard future-availability violation.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/scope", "value": "SAMPLE_ONLY"},
+        {"phase": "before_hash", "op": "remove", "artifact": "request", "pointer": "/artifacts/matrix_manifest"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/vendor_available_time", "value": "2024-04-01T14:01:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"T002": "FAIL", "Q001": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "same_instant_different_offset_duplicate",
+      "description": "Equivalent timestamp offsets cannot evade the normalized analytical-grain uniqueness check.",
+      "mutations": [
+        {"phase": "before_hash", "op": "add", "artifact": "data_rows", "pointer": "/-", "value": {"$copy": "/0", "$overrides": {"row_id": "row-002", "prediction_time": "2024-04-01T10:00:00-04:00"}}},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 2}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"Q001": "FAIL"}}
+    },
+    {
+      "case_id": "sparse_explicit_layout_remains_unresolved",
+      "description": "An audit-side sparse cell list cannot qualify without an independently validated QRC-bound applicability proof.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "matrix_manifest", "pointer": "/layout/mode", "value": "SPARSE_EXPLICIT"},
+        {"phase": "before_hash", "op": "add", "artifact": "matrix_manifest", "pointer": "/expected_cells", "value": [{"security_id": "SYNTH-PERM-001", "prediction_time": "2024-04-01T14:00:00Z", "feature_name": "revenue_ttm"}]}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"I002": "NEEDS_EVIDENCE", "Q001": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "rectangular_2x2_complete_pass",
+      "description": "A complete two-security by two-feature rectangle is the positive control for matrix completeness.",
+      "mutations": [
+        {"phase": "before_hash", "op": "add", "artifact": "dictionary", "pointer": "/features/assets_ttm", "value": {"$copy": "/features/revenue_ttm", "$overrides": {"definition": "Synthetic total assets from the selected vintage.", "source_locator": "synthetic://vendor-manual/v1#assets-ttm"}}},
+        {"phase": "before_hash", "op": "add", "artifact": "contract", "pointer": "/data_policy/allowed_features/0", "value": "assets_ttm"},
+        {"phase": "before_hash", "op": "add", "artifact": "matrix_manifest", "pointer": "/feature_axis/features/0", "value": "assets_ttm"},
+        {"phase": "before_hash", "op": "add", "artifact": "data_rows", "pointer": "/-", "value": {"$copy": "/0", "$overrides": {"row_id": "row-002", "feature_name": "assets_ttm"}}},
+        {"phase": "before_hash", "op": "add", "artifact": "data_rows", "pointer": "/-", "value": {"$copy": "/0", "$overrides": {"row_id": "row-003", "security_id": "SYNTH-PERM-002"}}},
+        {"phase": "before_hash", "op": "add", "artifact": "data_rows", "pointer": "/-", "value": {"$copy": "/0", "$overrides": {"row_id": "row-004", "security_id": "SYNTH-PERM-002", "feature_name": "assets_ttm"}}},
+        {"phase": "before_hash", "op": "add", "artifact": "population_manifest", "pointer": "/keys/-", "value": {"$copy": "/keys/0", "$overrides": {"security_id": "SYNTH-PERM-002", "source_locator": "synthetic://population-receipt/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T14:00:00Z"}}},
+        {"phase": "before_hash", "op": "add", "artifact": "population_source", "pointer": "/records/-", "value": {"$copy": "/records/0", "$overrides": {"security_id": "SYNTH-PERM-002", "source_locator": "synthetic://population-authority/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T14:00:00Z"}}},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 4},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts/ACTIVE", "value": 2}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"I002": "PASS", "S001": "PASS", "U002": "PASS", "Q001": "PASS", "L001": "PASS"}}
+    },
+    {
+      "case_id": "rectangular_2x2_diagonal_omission",
+      "description": "Two observed diagonal cells cannot satisfy the rectangular population-by-feature Cartesian set.",
+      "mutations": [
+        {"phase": "before_hash", "op": "add", "artifact": "dictionary", "pointer": "/features/assets_ttm", "value": {"$copy": "/features/revenue_ttm", "$overrides": {"definition": "Synthetic total assets from the selected vintage.", "source_locator": "synthetic://vendor-manual/v1#assets-ttm"}}},
+        {"phase": "before_hash", "op": "add", "artifact": "contract", "pointer": "/data_policy/allowed_features/0", "value": "assets_ttm"},
+        {"phase": "before_hash", "op": "add", "artifact": "matrix_manifest", "pointer": "/feature_axis/features/0", "value": "assets_ttm"},
+        {"phase": "before_hash", "op": "add", "artifact": "data_rows", "pointer": "/-", "value": {"$copy": "/0", "$overrides": {"row_id": "row-002", "security_id": "SYNTH-PERM-002", "feature_name": "assets_ttm"}}},
+        {"phase": "before_hash", "op": "add", "artifact": "population_manifest", "pointer": "/keys/-", "value": {"$copy": "/keys/0", "$overrides": {"security_id": "SYNTH-PERM-002", "source_locator": "synthetic://population-receipt/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T14:00:00Z"}}},
+        {"phase": "before_hash", "op": "add", "artifact": "population_source", "pointer": "/records/-", "value": {"$copy": "/records/0", "$overrides": {"security_id": "SYNTH-PERM-002", "source_locator": "synthetic://population-authority/synthetic-universe-v1#SYNTH-PERM-002@2024-04-01T14:00:00Z"}}},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": 2},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts/ACTIVE", "value": 2}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"Q001": "FAIL"}}
+    },
+    {
+      "case_id": "same_sample_feature_label_drift",
+      "description": "Features for the same security and prediction cannot silently use different label intervals.",
+      "mutations": [
+        {"phase": "before_hash", "op": "add", "artifact": "dictionary", "pointer": "/features/assets_ttm", "value": {"$copy": "/features/revenue_ttm", "$overrides": {"definition": "Synthetic total assets from the selected vintage.", "source_locator": "synthetic://vendor-manual/v1#assets-ttm"}}},
+        {"phase": "before_hash", "op": "add", "artifact": "contract", "pointer": "/data_policy/allowed_features/0", "value": "assets_ttm"},
+        {"phase": "before_hash", "op": "add", "artifact": "matrix_manifest", "pointer": "/feature_axis/features/0", "value": "assets_ttm"},
+        {"phase": "before_hash", "op": "add", "artifact": "data_rows", "pointer": "/-", "value": {"$copy": "/0", "$overrides": {"row_id": "row-002", "feature_name": "assets_ttm", "label_end_time": "2024-04-01T19:54:00Z"}}},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 2}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"Q001": "PASS", "L001": "FAIL"}}
+    },
+    {
+      "case_id": "empty_population_authority_cannot_qualify",
+      "description": "A coordinated zero-row extract and empty authority remains unresolved rather than becoming a vacuous full-input PASS.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "data_rows", "pointer": "/0"},
+        {"phase": "before_hash", "op": "remove", "artifact": "population_manifest", "pointer": "/keys/0"},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_security_time_keys", "value": 0},
+        {"phase": "before_hash", "op": "replace", "artifact": "population_manifest", "pointer": "/expected_status_counts", "value": {}},
+        {"phase": "before_hash", "op": "remove", "artifact": "population_source", "pointer": "/records/0"},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/expected_row_count", "value": 0},
+        {"phase": "before_hash", "op": "replace", "artifact": "request", "pointer": "/coverage/population/expected_security_time_keys", "value": 0}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"U002": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "schedule_request_identity_mismatch",
+      "description": "A coherently hashed schedule with a foreign immutable ID cannot pass under stale request metadata.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/schedule_id", "value": "foreign-label-schedule-v999"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "FAIL"}, "required_issue_locator": {"I001": "request.artifacts.label_schedule.schedule_id"}}
+    },
+    {
+      "case_id": "matrix_request_identity_mismatch",
+      "description": "A coherently hashed matrix manifest with a foreign immutable ID cannot pass under stale request metadata.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "matrix_manifest", "pointer": "/manifest_id", "value": "foreign-matrix-v999"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "FAIL"}, "required_issue_locator": {"I001": "request.artifacts.matrix_manifest.manifest_id"}}
+    },
+    {
+      "case_id": "coherent_matrix_count_tamper",
+      "description": "Re-signing a false expected matrix count cannot evade the independently recomputed Cartesian cell count.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "replace", "artifact": "matrix_manifest", "pointer": "/expected_cell_count", "value": 999}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "PASS", "Q001": "FAIL"}, "required_issue_locator": {"Q001": "matrix_manifest"}}
+    },
+    {
+      "case_id": "coherent_matrix_feature_semantics_tamper",
+      "description": "Re-signing a foreign feature-semantics digest cannot evade contract and dictionary binding.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "replace", "artifact": "matrix_manifest", "pointer": "/feature_axis/feature_semantics_sha256", "value": "0000000000000000000000000000000000000000000000000000000000000000"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "PASS", "I002": "FAIL"}, "required_issue_locator": {"I002": "matrix_binding.feature_semantics_sha256"}}
+    },
+    {
+      "case_id": "coherent_matrix_sample_axis_tamper",
+      "description": "Re-signing a false population-axis count cannot evade the independently frozen population authority.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "replace", "artifact": "matrix_manifest", "pointer": "/sample_prediction_axis/expected_security_time_keys", "value": 999}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "PASS", "U002": "FAIL"}, "required_issue_locator": {"U002": "matrix_manifest.sample_prediction_axis.expected_security_time_keys"}}
+    },
+    {
+      "case_id": "coherent_matrix_label_schedule_tamper",
+      "description": "Re-signing a foreign label-schedule receipt cannot evade the separate schedule artifact binding.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "replace", "artifact": "matrix_manifest", "pointer": "/label_axis/label_schedule_receipt_hash", "value": "0000000000000000000000000000000000000000000000000000000000000000"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "PASS", "I002": "FAIL"}, "required_issue_locator": {"I002": "matrix_binding.label_schedule_receipt_hash"}}
+    },
+    {
+      "case_id": "coherent_matrix_cell_digest_tamper",
+      "description": "Re-signing a false matrix cell-set digest cannot evade recomputation from independent axes.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "replace", "artifact": "matrix_manifest", "pointer": "/expected_cell_key_set_sha256", "value": "0000000000000000000000000000000000000000000000000000000000000000"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "PASS", "Q001": "FAIL"}, "required_issue_locator": {"Q001": "matrix_manifest"}}
+    },
+    {
+      "case_id": "coherent_exact_schedule_digest_tamper",
+      "description": "A re-signed but false exact-interval digest is rejected by executing the frozen schedule against consumed timestamps.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "replace", "artifact": "label_interval_authority", "pointer": "/expected_interval_set_sha256", "value": "0000000000000000000000000000000000000000000000000000000000000000"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "PASS", "I002": "PASS", "L001": "FAIL"}, "required_issue_locator": {"L001": "label_interval_authority.expected_interval_set_sha256"}}
+    },
+    {
+      "case_id": "semantic_review_after_audit_run",
+      "description": "A semantic review recorded after the audit run cannot authorize the normalized label schedule.",
+      "mutations": [
+        {"phase": "before_hash", "op": "add", "artifact": "label_schedule", "pointer": "/semantic_review/reviewed_at", "value": "2024-04-03T00:00:00Z"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I002": "FAIL"}, "required_issue_locator": {"I002": "label_schedule.semantic_review.reviewed_at"}}
+    },
+    {
+      "case_id": "semantic_reviewer_not_authorized",
+      "description": "A self-asserted reviewer absent from the independently frozen authority registry cannot qualify the schedule.",
+      "mutations": [
+        {"phase": "before_hash", "op": "add", "artifact": "label_schedule", "pointer": "/semantic_review/reviewer_id", "value": "unverified-self-asserted-reviewer"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"I002": "NEEDS_EVIDENCE"}, "required_issue_locator": {"I002": "label_schedule.semantic_review.reviewer_id"}}
+    },
+    {
+      "case_id": "semantic_review_explicitly_rejected",
+      "description": "An explicit reviewer rejection is a contradiction, not merely missing evidence.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "replace", "artifact": "label_schedule", "pointer": "/semantic_review/decision", "value": "REJECTED"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "PASS", "I002": "FAIL"}, "required_issue_locator": {"I002": "label_schedule.semantic_review.decision"}}
+    },
+    {
+      "case_id": "semantic_review_ambiguous",
+      "description": "An explicitly ambiguous semantic review remains unresolved without being converted into a hard contradiction.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "replace", "artifact": "label_schedule", "pointer": "/semantic_review/decision", "value": "AMBIGUOUS"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"I001": "PASS", "I002": "NEEDS_EVIDENCE"}, "required_issue_locator": {"I002": "label_schedule.semantic_review.decision"}}
+    },
+    {
+      "case_id": "review_authority_missing_source_locator",
+      "description": "A reviewer registry without a provenance locator cannot become a complete trust root.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "review_authority", "pointer": "/source_uri"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"I001": "NEEDS_EVIDENCE"}, "required_issue_locator": {"I001": "review_authority.source_uri"}}
+    },
+    {
+      "case_id": "interval_authority_missing_source_locator",
+      "description": "An exact interval registry without a root provenance locator cannot become complete evidence.",
+      "mutations": [
+        {"phase": "before_hash", "op": "remove", "artifact": "label_interval_authority", "pointer": "/source_uri"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"I001": "NEEDS_EVIDENCE"}, "required_issue_locator": {"I001": "label_interval_authority.source_uri"}}
+    },
+    {
+      "case_id": "exact_schedule_unknown_field_rejected",
+      "description": "A re-signed exact resolver cannot smuggle a shadow holding-period field past the closed v1 schema.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "add", "artifact": "label_schedule", "pointer": "/resolver/shadow_holding_period_sessions", "value": 999}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "PASS", "I002": "FAIL"}, "required_issue_locator": {"I002": "label_schedule.resolver.shadow_holding_period_sessions"}}
+    },
+    {
+      "case_id": "review_authority_unknown_field_rejected",
+      "description": "A re-signed reviewer registry cannot add an undeclared authority field to the closed v1 schema.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "add", "artifact": "review_authority", "pointer": "/shadow_scope_override", "value": "ALL"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "FAIL"}, "required_issue_locator": {"I001": "review_authority.shadow_scope_override"}}
+    },
+    {
+      "case_id": "duplicate_reviewer_identity_rejected",
+      "description": "A trusted review registry cannot contain two conflicting authorization records for one reviewer identity.",
+      "mutations": [
+        {"phase": "before_hash", "op": "add", "artifact": "review_authority", "pointer": "/reviewers/-", "value": {"reviewer_id": "synthetic-reviewer-001", "allowed_scopes": [], "valid_from": "2099-01-01T00:00:00Z", "valid_to": "2100-01-01T00:00:00Z"}}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "FAIL"}, "required_issue_locator": {"I001": "review_authority.reviewers[1].reviewer_id"}}
+    },
+    {
+      "case_id": "interval_generator_unknown_field_rejected",
+      "description": "A re-signed exact-interval generator cannot hide a second input provenance field in the closed v1 schema.",
+      "mutations": [
+        {"phase": "coherent_after_refresh", "op": "add", "artifact": "label_interval_authority", "pointer": "/generator/shadow_input_snapshot_sha256", "value": "0000000000000000000000000000000000000000000000000000000000000000"}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I001": "FAIL"}, "required_issue_locator": {"I001": "label_interval_authority.generator.shadow_input_snapshot_sha256"}}
+    },
+    {
+      "case_id": "session_schedule_pass",
+      "description": "A two-session calendar exactly executes prediction, execution, label start, and one-session horizon offsets.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/prediction_time", "value": "Base session open plus 1800 seconds."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/execution_time", "value": "Base session open plus 2100 seconds."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/label_start_rule", "value": "Close of the base session."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/label_end_rule", "value": "Close one eligible session after label start."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/holding_period", "value": "One eligible trading session."},
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/mode", "value": "SESSION_CLOSE_OFFSETS"},
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/resolver", "value": {"base_session_field": "calendar_session_id", "prediction_offset_from_session_open_seconds": 1800, "execution_offset_sessions": 0, "execution_offset_from_session_open_seconds": 2100, "start_offset_sessions": 0, "horizon_sessions": 1}},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/label_start_time", "value": "2024-04-01T20:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/label_end_time", "value": "2024-04-02T20:00:00Z"},
+        {"phase": "before_hash", "op": "add", "artifact": "calendar", "pointer": "/-", "value": {"session_id": "XNYS-2024-04-02", "open_time": "2024-04-02T13:30:00Z", "close_time": "2024-04-02T20:00:00Z", "break_start": null, "break_end": null}}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"I002": "PASS", "C001": "PASS", "L001": "PASS"}}
+    },
+    {
+      "case_id": "session_schedule_next_session_execution_pass",
+      "description": "A close-time prediction can resolve execution at the next eligible session open without widening the schedule language.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/prediction_time", "value": "Base session open plus 1800 seconds."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/execution_time", "value": "Next eligible session open."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/label_start_rule", "value": "Close of the execution session."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/label_end_rule", "value": "Close one eligible session after label start."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/holding_period", "value": "One eligible trading session after execution."},
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/mode", "value": "SESSION_CLOSE_OFFSETS"},
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/resolver", "value": {"base_session_field": "calendar_session_id", "prediction_offset_from_session_open_seconds": 1800, "execution_offset_sessions": 1, "execution_offset_from_session_open_seconds": 0, "start_offset_sessions": 1, "horizon_sessions": 1}},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/tradable_time", "value": "2024-04-02T13:30:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/label_start_time", "value": "2024-04-02T20:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/label_end_time", "value": "2024-04-03T20:00:00Z"},
+        {"phase": "before_hash", "op": "add", "artifact": "calendar", "pointer": "/-", "value": {"session_id": "XNYS-2024-04-02", "open_time": "2024-04-02T13:30:00Z", "close_time": "2024-04-02T20:00:00Z", "break_start": null, "break_end": null}},
+        {"phase": "before_hash", "op": "add", "artifact": "calendar", "pointer": "/-", "value": {"session_id": "XNYS-2024-04-03", "open_time": "2024-04-03T13:30:00Z", "close_time": "2024-04-03T20:00:00Z", "break_start": null, "break_end": null}}
+      ],
+      "expected": {"status": "PASS", "pit_qualification": "TEST_ONLY", "required_check_status": {"T002": "PASS", "C001": "PASS", "L001": "PASS"}}
+    },
+    {
+      "case_id": "session_schedule_wrong_execution_offset",
+      "description": "A tradable timestamp one minute away from the frozen session offset is rejected even though it remains inside the session.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/prediction_time", "value": "Base session open plus 1800 seconds."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/execution_time", "value": "Base session open plus 2100 seconds."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/label_start_rule", "value": "Close of the base session."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/label_end_rule", "value": "Close one eligible session after label start."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/holding_period", "value": "One eligible trading session."},
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/mode", "value": "SESSION_CLOSE_OFFSETS"},
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/resolver", "value": {"base_session_field": "calendar_session_id", "prediction_offset_from_session_open_seconds": 1800, "execution_offset_sessions": 0, "execution_offset_from_session_open_seconds": 2100, "start_offset_sessions": 0, "horizon_sessions": 1}},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/tradable_time", "value": "2024-04-01T14:06:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/label_start_time", "value": "2024-04-01T20:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/label_end_time", "value": "2024-04-02T20:00:00Z"},
+        {"phase": "before_hash", "op": "add", "artifact": "calendar", "pointer": "/-", "value": {"session_id": "XNYS-2024-04-02", "open_time": "2024-04-02T13:30:00Z", "close_time": "2024-04-02T20:00:00Z", "break_start": null, "break_end": null}}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"C001": "PASS", "L001": "FAIL"}, "required_issue_locator": {"L001": "data#row_id=row-001.tradable_time"}}
+    },
+    {
+      "case_id": "session_schedule_horizon_incomplete",
+      "description": "A session schedule remains unresolved when the audited calendar does not cover the full label horizon.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/prediction_time", "value": "Base session open plus 1800 seconds."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/execution_time", "value": "Base session open plus 2100 seconds."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/label_start_rule", "value": "Close of the base session."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/label_end_rule", "value": "Close one eligible session after label start."},
+        {"phase": "before_hash", "op": "replace", "artifact": "contract", "pointer": "/time_rules/holding_period", "value": "One eligible trading session."},
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/mode", "value": "SESSION_CLOSE_OFFSETS"},
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/resolver", "value": {"base_session_field": "calendar_session_id", "prediction_offset_from_session_open_seconds": 1800, "execution_offset_sessions": 0, "execution_offset_from_session_open_seconds": 2100, "start_offset_sessions": 0, "horizon_sessions": 1}},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/label_start_time", "value": "2024-04-01T20:00:00Z"},
+        {"phase": "before_hash", "op": "replace", "artifact": "data_rows", "pointer": "/0/label_end_time", "value": "2024-04-02T20:00:00Z"}
+      ],
+      "expected": {"status": "NEEDS_EVIDENCE", "pit_qualification": "UNRESOLVED", "required_check_status": {"C001": "PASS", "L001": "NEEDS_EVIDENCE"}}
+    },
+    {
+      "case_id": "session_schedule_forbids_exact_fields",
+      "description": "Mode-specific schedule keys are exclusive; a session resolver cannot carry a second exact-interval oracle.",
+      "mutations": [
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/mode", "value": "SESSION_CLOSE_OFFSETS"},
+        {"phase": "before_hash", "op": "replace", "artifact": "label_schedule", "pointer": "/resolver", "value": {"base_session_field": "calendar_session_id", "prediction_offset_from_session_open_seconds": 1800, "execution_offset_sessions": 0, "execution_offset_from_session_open_seconds": 2100, "start_offset_sessions": 0, "horizon_sessions": 1, "expected_sample_count": 1}}
+      ],
+      "expected": {"status": "FAIL", "pit_qualification": "NOT_QUALIFIED", "required_check_status": {"I002": "FAIL"}, "required_issue_locator": {"I002": "label_schedule.resolver.expected_sample_count"}}
+    }
+  ]
+}

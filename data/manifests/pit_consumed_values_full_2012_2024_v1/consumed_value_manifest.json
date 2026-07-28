@@ -1,0 +1,77 @@
+{
+  "schema_version": "qlib_peerlite_consumed_value_manifest_v1",
+  "evidence_id": "pit_consumed_values_full_2012_2024_v1",
+  "created_at": "2026-07-28T17:31:32.315562+08:00",
+  "status": "MATERIALIZED_NOT_PIT_QUALIFIED",
+  "scope": "FULL_TRAINING_INPUT",
+  "source_product_manifest": {
+    "path": "data/processed/pit_data_product_2012_2024_v2/data_product_manifest.json",
+    "sha256": "a3a65e7c7ef64f89a7fa3ea26119f4e1a4275fc0b9d7d88bc609ba842146eac6"
+  },
+  "feature_semantics": {
+    "path": "derived_feature_semantics.json",
+    "sha256": "fc6de54a1aa57cec981d865813d1a859740d2f1b2eadbb24c17cb2dcfc9bf46c",
+    "version": "1"
+  },
+  "training_evidence": {
+    "path": "training_evidence.csv",
+    "sha256": "c8f5591153fe5460df686ff397c46df9cb61d1126d724a3397c7ad4cccd56db1",
+    "bytes": 43025726157,
+    "sample_rows": 1661627,
+    "feature_count": 50,
+    "evidence_rows": 83081350
+  },
+  "materializer": {
+    "path": "scripts/server/materialize_pit_consumed_values.py",
+    "sha256": "5523a4b6fb6ff75a842d6c03ed41dbd848dcb2352f0022a2a5c822ef6e75fe91",
+    "parameters": {
+      "product_id": "pit_data_product_2012_2024_v2",
+      "sample_start": null,
+      "sample_end": null,
+      "chunk_samples": 20000,
+      "workers": 13,
+      "feature_count": 50,
+      "field_order": [
+        "row_id",
+        "security_id",
+        "feature_name",
+        "feature_value",
+        "prediction_time",
+        "event_time",
+        "published_time",
+        "vendor_available_time",
+        "ingested_time",
+        "parse_ready_time",
+        "ingestion_batch_id",
+        "ingested_object_sha256",
+        "tradable_time",
+        "label_start_time",
+        "label_end_time",
+        "split",
+        "universe_member",
+        "universe_announced_time",
+        "universe_effective_from",
+        "universe_effective_to",
+        "security_status",
+        "revision_id",
+        "revision_known_time",
+        "adjustment_mode",
+        "adjustment_known_time",
+        "adjustment_invariance_pass",
+        "halt_time",
+        "quote_resume_time",
+        "trade_resume_time",
+        "calendar_session_id",
+        "identifier_valid_from",
+        "identifier_valid_to"
+      ]
+    },
+    "parameters_sha256": "e19862f2d063e6fb7a3049a027209844ee28c5af73fed794e49fdea893e01435"
+  },
+  "oos_seal": {
+    "final_oos_start": "2025-01-01",
+    "final_oos_rows_included": false,
+    "performance_metrics_computed": false
+  },
+  "content_sha256": "004b7928aa4c896d007ff720451d8ef51dfc967f195baa5d88d0e4d4e831873e"
+}

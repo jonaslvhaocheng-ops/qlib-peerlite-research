@@ -1,0 +1,31 @@
+{
+  "schema_version": "pit_label_definition_v1",
+  "label_id": "a_share_open1_close5_raw_v1",
+  "label_spec_version": "1",
+  "definition": {
+    "target": "raw open-to-close forward return",
+    "formula": "raw_close(T+5) / raw_open(T+1) - 1",
+    "start_field": "label_start_time",
+    "end_field": "label_end_time",
+    "holding_period": "5 eligible trading sessions",
+    "price_basis": "RAW"
+  },
+  "interval_closure": "BOTH",
+  "overlap_policy": "NO_CROSS_SPLIT_OVERLAP",
+  "purge_rule": "左侧split中label_end不早于下一split开始的样本全部删除。",
+  "purge_embargo_rule": "按实际label_end清除所有跨split样本，并在每个右侧split开始前保留5个有效交易日的未分配隔离区。",
+  "embargo_duration": "5 eligible trading days",
+  "embargo_basis": "versioned XSHG/XSHE eligible-session calendar",
+  "contract_bindings": {
+    "formula_sha256": "a06307da1bcac3d28cbd27791e6f4cd08d28428e55c2f21b1fea096ae9f77611",
+    "neutralization_rule_sha256": "b69d9c6cef5d12d4b46f228b7056a1a8fb59784c8754f5a5ab6cd9a5930188d9",
+    "corporate_action_rule_sha256": "d228cc3e2ae3c6892fcb45d835355cb970c9314c7baa87b1f7669b8d2c4d5124",
+    "overlap_rule_sha256": "50b80eb85c7f5236a2719370ddb1945abee8461d4392f2e6984fde5b97fbd400",
+    "purge_rule_sha256": "7857d40ab3c9709929a2c25a82d4d4fbfbe6f9243791e198bfdd2f28787dedae",
+    "purge_embargo_rule_sha256": "e5587f806fbd14f976d6e90fbd885ac34d911f937e3e3aa56c869cf69be3c469",
+    "embargo_duration_sha256": "ea4f67201987816d2a48285e084711eefbc35455fe5fe6cac3d1ab50c2845575",
+    "embargo_basis_sha256": "96f1baf276390c06a3d4553dfca2b19157ce3fc001e459d082141270ee25bbe9"
+  },
+  "source_locator": "project://frozen-research-contract#target",
+  "label_spec_hash": "3e9ce515583813b0018634abdd14031a00918f6d360a558bc6767ebb84e8029d"
+}
