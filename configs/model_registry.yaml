@@ -1,0 +1,40 @@
+schema_version: qlib_peerlite_model_registry_v1
+policy:
+  maximum_screening_trials: 27
+  confirmation_seeds: [7, 19, 42, 73, 101]
+  combined_gate_ccc_allowed_only_after_isolated_pass: true
+families:
+  - model_id: B0_LIGHTGBM
+    family: lightgbm
+    role: baseline
+  - model_id: B1_MLP
+    family: mlp
+    role: neural_baseline
+  - model_id: PEERLITE_K16_MSE
+    family: peerlite
+    role: primary
+    num_peers: 16
+    loss: mse
+    market_gate: false
+  - model_id: PEERLITE_K32_MSE
+    family: peerlite
+    role: primary_candidate
+    num_peers: 32
+    loss: mse
+    market_gate: false
+  - model_id: PEERLITE_K16_CCC
+    family: peerlite
+    role: isolated_increment
+    num_peers: 16
+    loss: ccc
+    market_gate: false
+  - model_id: PEERLITE_K16_MSE_GATE
+    family: peerlite
+    role: isolated_increment
+    num_peers: 16
+    loss: mse
+    market_gate: true
+  - model_id: PEERLITE_K16_CCC_GATE
+    family: peerlite
+    role: conditional_combination
+    eligibility: CCC_and_GATE_must_each_pass_in_isolation

@@ -1,0 +1,6 @@
+{
+  "schema_version": "qlib_peerlite_evidence_manifest_v1",
+  "files": {
+    "core_universe_clock_verify.json": "d6666fdc972fbfa0ad5f0ac61fae93bcd943307a6eaa22da873a5f4db9c5156a"
+  }
+}

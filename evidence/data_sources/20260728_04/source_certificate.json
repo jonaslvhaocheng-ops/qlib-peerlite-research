@@ -1,0 +1,2086 @@
+{
+  "schema_version": "qlib_peerlite_source_certificate_v1",
+  "generated_at": "2026-07-28T15:06:12.780166+08:00",
+  "mode": "DISCOVER",
+  "target_claim": "MARKET_RECONSTRUCTIBLE",
+  "positive_ceiling": "CANDIDATE_PATH_ONLY",
+  "status": "NEEDS_EVIDENCE",
+  "runtime": {
+    "hostname": "k8s-master04",
+    "python": "3.14.0 (main, Oct 10 2025, 12:47:49) [Clang 20.1.4 ]",
+    "platform": "Linux-6.8.0-106-generic-x86_64-with-glibc2.39"
+  },
+  "tables": [
+    {
+      "schema": "datayes",
+      "table": "mkt_equd",
+      "role": "raw_daily_market",
+      "exists": true,
+      "date_field": "TRADE_DATE",
+      "date_min": "1990-12-19",
+      "date_max": "2026-07-27",
+      "table_metadata": {
+        "engine": "InnoDB",
+        "table_rows": 16673469,
+        "create_time": "2024-01-14T01:31:24",
+        "update_time": "2026-07-27T15:08:41",
+        "table_collation": "utf8mb3_general_ci",
+        "table_comment": "股票日行情"
+      },
+      "columns": [
+        {
+          "column_name": "ID",
+          "ordinal_position": 1,
+          "column_type": "bigint",
+          "is_nullable": "NO",
+          "column_default": null,
+          "column_comment": "自增ID"
+        },
+        {
+          "column_name": "SECURITY_ID",
+          "ordinal_position": 2,
+          "column_type": "bigint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券内部ID"
+        },
+        {
+          "column_name": "TICKER_SYMBOL",
+          "ordinal_position": 3,
+          "column_type": "varchar(20)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券代码"
+        },
+        {
+          "column_name": "EXCHANGE_CD",
+          "ordinal_position": 4,
+          "column_type": "char(4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易市场代码"
+        },
+        {
+          "column_name": "TRADE_DATE",
+          "ordinal_position": 5,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易日"
+        },
+        {
+          "column_name": "PRE_CLOSE_PRICE",
+          "ordinal_position": 6,
+          "column_type": "decimal(9,3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "昨收盘"
+        },
+        {
+          "column_name": "ACT_PRE_CLOSE_PRICE",
+          "ordinal_position": 7,
+          "column_type": "decimal(9,3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "实际昨收盘"
+        },
+        {
+          "column_name": "OPEN_PRICE",
+          "ordinal_position": 8,
+          "column_type": "decimal(9,3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "今开盘"
+        },
+        {
+          "column_name": "HIGHEST_PRICE",
+          "ordinal_position": 9,
+          "column_type": "decimal(9,3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "最高价"
+        },
+        {
+          "column_name": "LOWEST_PRICE",
+          "ordinal_position": 10,
+          "column_type": "decimal(9,3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "最低价"
+        },
+        {
+          "column_name": "CLOSE_PRICE",
+          "ordinal_position": 11,
+          "column_type": "decimal(9,3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "今收盘"
+        },
+        {
+          "column_name": "TURNOVER_VOL",
+          "ordinal_position": 12,
+          "column_type": "decimal(20,0)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "成交量"
+        },
+        {
+          "column_name": "TURNOVER_VALUE",
+          "ordinal_position": 13,
+          "column_type": "decimal(20,3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "成交金额"
+        },
+        {
+          "column_name": "DEAL_AMOUNT",
+          "ordinal_position": 14,
+          "column_type": "int",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "成交笔数"
+        },
+        {
+          "column_name": "PE",
+          "ordinal_position": 15,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "市盈率TTM"
+        },
+        {
+          "column_name": "PE1",
+          "ordinal_position": 16,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "动态市盈率"
+        },
+        {
+          "column_name": "PB",
+          "ordinal_position": 17,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "市净率"
+        },
+        {
+          "column_name": "NEG_MARKET_VALUE",
+          "ordinal_position": 18,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "流通市值"
+        },
+        {
+          "column_name": "MARKET_VALUE",
+          "ordinal_position": 19,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "总市值"
+        },
+        {
+          "column_name": "CHG_PCT",
+          "ordinal_position": 20,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "涨跌幅"
+        },
+        {
+          "column_name": "TURNOVER_RATE",
+          "ordinal_position": 21,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "日换手率"
+        },
+        {
+          "column_name": "UPDATE_TIME",
+          "ordinal_position": 22,
+          "column_type": "datetime",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "更新时间"
+        }
+      ],
+      "indexes": [
+        {
+          "index_name": "idx_mkt_equd1",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd1",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd2",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TICKER_SYMBOL",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd2",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd3",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd4",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "UPDATE_TIME",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd5",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "PRIMARY",
+          "non_unique": 0,
+          "seq_in_index": 1,
+          "column_name": "ID",
+          "index_type": "BTREE"
+        }
+      ],
+      "sample_rows": [
+        {
+          "id": 1,
+          "security_id": 2,
+          "ticker_symbol": "000001",
+          "exchange_cd": "XSHE",
+          "trade_date": "2014-06-11",
+          "pre_close_price": 11.75,
+          "act_pre_close_price": 11.75,
+          "open_price": 11.68,
+          "highest_price": 11.84,
+          "lowest_price": 11.63,
+          "close_price": 11.78,
+          "turnover_vol": 43323328.0,
+          "turnover_value": 509141984.0,
+          "deal_amount": 16034,
+          "pe": 6.7174,
+          "pe1": 5.5478,
+          "pb": 0.9561,
+          "neg_market_value": 65684124087.5,
+          "market_value": 112154383827.68,
+          "chg_pct": 0.0026,
+          "turnover_rate": 0.0078,
+          "update_time": "2015-10-09T12:47:06"
+        },
+        {
+          "id": 2,
+          "security_id": 2,
+          "ticker_symbol": "000001",
+          "exchange_cd": "XSHE",
+          "trade_date": "2014-06-06",
+          "pre_close_price": 11.43,
+          "act_pre_close_price": 11.43,
+          "open_price": 11.44,
+          "highest_price": 11.48,
+          "lowest_price": 11.29,
+          "close_price": 11.38,
+          "turnover_vol": 18643556.0,
+          "turnover_value": 212129088.0,
+          "deal_amount": 10865,
+          "pe": 6.4893,
+          "pe1": 5.3594,
+          "pb": 0.9237,
+          "neg_market_value": 63453763337.5,
+          "market_value": 108346085565.28,
+          "chg_pct": -0.0044,
+          "turnover_rate": 0.0033,
+          "update_time": "2015-10-09T12:47:06"
+        },
+        {
+          "id": 3,
+          "security_id": 2,
+          "ticker_symbol": "000001",
+          "exchange_cd": "XSHE",
+          "trade_date": "2014-06-03",
+          "pre_close_price": 11.5,
+          "act_pre_close_price": 11.5,
+          "open_price": 11.5,
+          "highest_price": 11.69,
+          "lowest_price": 11.5,
+          "close_price": 11.51,
+          "turnover_vol": 27811388.0,
+          "turnover_value": 322371200.0,
+          "deal_amount": 10119,
+          "pe": 6.5635,
+          "pe1": 5.4206,
+          "pb": 0.9342,
+          "neg_market_value": 64178630581.25,
+          "market_value": 109583782500.56,
+          "chg_pct": 0.0009,
+          "turnover_rate": 0.005,
+          "update_time": "2015-10-09T12:47:06"
+        }
+      ]
+    },
+    {
+      "schema": "datayes",
+      "table": "md_security",
+      "role": "security_master",
+      "exists": true,
+      "date_field": "LIST_DATE",
+      "date_min": "1870-05-30",
+      "date_max": "2026-08-03",
+      "table_metadata": {
+        "engine": "InnoDB",
+        "table_rows": 2097847,
+        "create_time": "2024-01-13T23:52:35",
+        "update_time": "2026-07-28T09:27:23",
+        "table_collation": "utf8mb3_general_ci",
+        "table_comment": "证券主表"
+      },
+      "columns": [
+        {
+          "column_name": "SECURITY_ID",
+          "ordinal_position": 1,
+          "column_type": "bigint",
+          "is_nullable": "NO",
+          "column_default": null,
+          "column_comment": "证券内部ID"
+        },
+        {
+          "column_name": "TICKER_SYMBOL",
+          "ordinal_position": 2,
+          "column_type": "varchar(50)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易代码"
+        },
+        {
+          "column_name": "EXCHANGE_CD",
+          "ordinal_position": 3,
+          "column_type": "char(4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易市场代码"
+        },
+        {
+          "column_name": "SEC_FULL_NAME",
+          "ordinal_position": 4,
+          "column_type": "varchar(200)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券全称"
+        },
+        {
+          "column_name": "SEC_SHORT_NAME",
+          "ordinal_position": 5,
+          "column_type": "varchar(200)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券简称"
+        },
+        {
+          "column_name": "CN_SPELL",
+          "ordinal_position": 6,
+          "column_type": "varchar(20)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "简称拼音"
+        },
+        {
+          "column_name": "SEC_FULL_NAME_EN",
+          "ordinal_position": 7,
+          "column_type": "varchar(200)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券英文全称"
+        },
+        {
+          "column_name": "SEC_SHORT_NAME_EN",
+          "ordinal_position": 8,
+          "column_type": "varchar(200)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券英文简称"
+        },
+        {
+          "column_name": "DYID",
+          "ordinal_position": 9,
+          "column_type": "varchar(50)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券展示代码"
+        },
+        {
+          "column_name": "EX_COUNTRY_CD",
+          "ordinal_position": 10,
+          "column_type": "char(3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易市场所属地区"
+        },
+        {
+          "column_name": "TRANS_CURR_CD",
+          "ordinal_position": 11,
+          "column_type": "char(3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易货币代码"
+        },
+        {
+          "column_name": "ASSET_CLASS",
+          "ordinal_position": 12,
+          "column_type": "varchar(4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券类型"
+        },
+        {
+          "column_name": "LIST_STATUS_CD",
+          "ordinal_position": 13,
+          "column_type": "varchar(4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "上市状态"
+        },
+        {
+          "column_name": "LIST_DATE",
+          "ordinal_position": 14,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "上市日期"
+        },
+        {
+          "column_name": "DELIST_DATE",
+          "ordinal_position": 15,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "摘牌日期"
+        },
+        {
+          "column_name": "PARTY_ID",
+          "ordinal_position": 16,
+          "column_type": "bigint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "机构内部ID"
+        },
+        {
+          "column_name": "DY_USE_FLG",
+          "ordinal_position": 17,
+          "column_type": "tinyint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "DY使用标识"
+        },
+        {
+          "column_name": "UPDATE_TIME",
+          "ordinal_position": 18,
+          "column_type": "datetime",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "更新时间"
+        }
+      ],
+      "indexes": [
+        {
+          "index_name": "idx_md_security1",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "ASSET_CLASS",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security1",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "LIST_STATUS_CD",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security1",
+          "non_unique": 1,
+          "seq_in_index": 3,
+          "column_name": "EXCHANGE_CD",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security2",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "DYID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security3",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "EXCHANGE_CD",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security3",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "ASSET_CLASS",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security3",
+          "non_unique": 1,
+          "seq_in_index": 3,
+          "column_name": "DY_USE_FLG",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security5",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "PARTY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security5",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "DY_USE_FLG",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security5",
+          "non_unique": 1,
+          "seq_in_index": 3,
+          "column_name": "EXCHANGE_CD",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security5",
+          "non_unique": 1,
+          "seq_in_index": 4,
+          "column_name": "ASSET_CLASS",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security5",
+          "non_unique": 1,
+          "seq_in_index": 5,
+          "column_name": "TICKER_SYMBOL",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security6",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security7",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TICKER_SYMBOL",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security7",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "EXCHANGE_CD",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security7",
+          "non_unique": 1,
+          "seq_in_index": 3,
+          "column_name": "ASSET_CLASS",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security8",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TICKER_SYMBOL",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security8",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security9k",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security9k",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "LIST_STATUS_CD",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_security9k",
+          "non_unique": 1,
+          "seq_in_index": 3,
+          "column_name": "PARTY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "PRIMARY",
+          "non_unique": 0,
+          "seq_in_index": 1,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        }
+      ],
+      "sample_rows": [
+        {
+          "security_id": 1,
+          "ticker_symbol": "000001",
+          "exchange_cd": "XSHG",
+          "sec_full_name": "上证综合指数",
+          "sec_short_name": "上证综指",
+          "cn_spell": "SZZZ",
+          "sec_full_name_en": "SSE Composite Index",
+          "sec_short_name_en": "SSE Index",
+          "dyid": "000001.ZICN",
+          "ex_country_cd": "CHN",
+          "trans_curr_cd": "CNY",
+          "asset_class": "IDX",
+          "list_status_cd": "L",
+          "list_date": "1991-07-15",
+          "delist_date": null,
+          "party_id": 17764,
+          "dy_use_flg": 1,
+          "update_time": "2022-10-11T09:07:38"
+        },
+        {
+          "security_id": 2,
+          "ticker_symbol": "000001",
+          "exchange_cd": "XSHE",
+          "sec_full_name": "平安银行股份有限公司",
+          "sec_short_name": "平安银行",
+          "cn_spell": "PAYH",
+          "sec_full_name_en": "Ping An Bank Co., Ltd.",
+          "sec_short_name_en": "PAB",
+          "dyid": "000001.XSHE",
+          "ex_country_cd": "CHN",
+          "trans_curr_cd": "CNY",
+          "asset_class": "E",
+          "list_status_cd": "L",
+          "list_date": "1991-04-03",
+          "delist_date": null,
+          "party_id": 2,
+          "dy_use_flg": 1,
+          "update_time": "2017-03-17T09:12:31"
+        },
+        {
+          "security_id": 3,
+          "ticker_symbol": "000002",
+          "exchange_cd": "XSHG",
+          "sec_full_name": "上证A股指数",
+          "sec_short_name": "上证A股",
+          "cn_spell": "SZAG",
+          "sec_full_name_en": "SSE A Share Index",
+          "sec_short_name_en": "A Share Index",
+          "dyid": "000002.ZICN",
+          "ex_country_cd": "CHN",
+          "trans_curr_cd": "CNY",
+          "asset_class": "IDX",
+          "list_status_cd": "L",
+          "list_date": "1992-02-21",
+          "delist_date": null,
+          "party_id": 17764,
+          "dy_use_flg": 1,
+          "update_time": "2020-11-20T17:50:33"
+        }
+      ]
+    },
+    {
+      "schema": "datayes",
+      "table": "md_trade_cal",
+      "role": "trade_calendar",
+      "exists": true,
+      "date_field": "CALENDAR_DATE",
+      "date_min": "1990-12-19",
+      "date_max": "2027-12-31",
+      "table_metadata": {
+        "engine": "InnoDB",
+        "table_rows": 171824,
+        "create_time": "2024-01-13T23:55:50",
+        "update_time": null,
+        "table_collation": "utf8mb3_general_ci",
+        "table_comment": "交易日历"
+      },
+      "columns": [
+        {
+          "column_name": "ID",
+          "ordinal_position": 1,
+          "column_type": "bigint",
+          "is_nullable": "NO",
+          "column_default": null,
+          "column_comment": "自增ID"
+        },
+        {
+          "column_name": "CALENDAR_DATE",
+          "ordinal_position": 2,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "日期"
+        },
+        {
+          "column_name": "EXCHANGE_CD",
+          "ordinal_position": 3,
+          "column_type": "varchar(10)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易市场代码"
+        },
+        {
+          "column_name": "IS_OPEN",
+          "ordinal_position": 4,
+          "column_type": "smallint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "是否开市"
+        },
+        {
+          "column_name": "WEEK_START_DATE",
+          "ordinal_position": 5,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "本周开始日"
+        },
+        {
+          "column_name": "WEEK_END_DATE",
+          "ordinal_position": 6,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "本周结束日"
+        },
+        {
+          "column_name": "MONTH_START_DATE",
+          "ordinal_position": 7,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "本月开始日"
+        },
+        {
+          "column_name": "MONTH_END_DATE",
+          "ordinal_position": 8,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "本月结束日"
+        },
+        {
+          "column_name": "QUARTER_START_DATE",
+          "ordinal_position": 9,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "本季开始日"
+        },
+        {
+          "column_name": "QUARTER_END_DATE",
+          "ordinal_position": 10,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "本季结束日"
+        },
+        {
+          "column_name": "YEAR_START_DATE",
+          "ordinal_position": 11,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "本年开始日"
+        },
+        {
+          "column_name": "YEAR_END_DATE",
+          "ordinal_position": 12,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "本年结束日"
+        },
+        {
+          "column_name": "PREV_TRADE_DATE",
+          "ordinal_position": 13,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "前一个交易日"
+        },
+        {
+          "column_name": "UPDATE_TIME",
+          "ordinal_position": 14,
+          "column_type": "datetime",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "更新时间"
+        }
+      ],
+      "indexes": [
+        {
+          "index_name": "idx_md_trade_cal1",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "CALENDAR_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_trade_cal1",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "EXCHANGE_CD",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_trade_cal2",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "IS_OPEN",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_md_trade_cal3",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "PREV_TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "PRIMARY",
+          "non_unique": 0,
+          "seq_in_index": 1,
+          "column_name": "ID",
+          "index_type": "BTREE"
+        }
+      ],
+      "sample_rows": [
+        {
+          "id": 1,
+          "calendar_date": "1990-12-19",
+          "exchange_cd": "XSHG",
+          "is_open": 1,
+          "week_start_date": "1990-12-19",
+          "week_end_date": "1990-12-21",
+          "month_start_date": "1990-12-19",
+          "month_end_date": "1990-12-31",
+          "quarter_start_date": "1990-12-19",
+          "quarter_end_date": "1990-12-31",
+          "year_start_date": "1990-12-19",
+          "year_end_date": "1990-12-31",
+          "prev_trade_date": "1990-12-18",
+          "update_time": "2018-08-22T10:56:57"
+        },
+        {
+          "id": 2,
+          "calendar_date": "1990-12-20",
+          "exchange_cd": "XSHG",
+          "is_open": 1,
+          "week_start_date": "1990-12-19",
+          "week_end_date": "1990-12-21",
+          "month_start_date": "1990-12-19",
+          "month_end_date": "1990-12-31",
+          "quarter_start_date": "1990-12-19",
+          "quarter_end_date": "1990-12-31",
+          "year_start_date": "1990-12-19",
+          "year_end_date": "1990-12-31",
+          "prev_trade_date": "1990-12-19",
+          "update_time": "2014-06-13T09:42:33"
+        },
+        {
+          "id": 3,
+          "calendar_date": "1990-12-21",
+          "exchange_cd": "XSHG",
+          "is_open": 1,
+          "week_start_date": "1990-12-19",
+          "week_end_date": "1990-12-21",
+          "month_start_date": "1990-12-19",
+          "month_end_date": "1990-12-31",
+          "quarter_start_date": "1990-12-19",
+          "quarter_end_date": "1990-12-31",
+          "year_start_date": "1990-12-19",
+          "year_end_date": "1990-12-31",
+          "prev_trade_date": "1990-12-20",
+          "update_time": "2014-06-13T09:42:33"
+        }
+      ]
+    },
+    {
+      "schema": "datayes",
+      "table": "mkt_equd_eval_new",
+      "role": "valuation_liquidity_candidate",
+      "exists": true,
+      "date_field": "TRADE_DATE",
+      "date_min": "2007-04-06",
+      "date_max": "2026-07-27",
+      "table_metadata": {
+        "engine": "InnoDB",
+        "table_rows": 12285251,
+        "create_time": "2024-01-14T07:25:31",
+        "update_time": "2026-07-27T15:34:50",
+        "table_collation": "utf8mb3_general_ci",
+        "table_comment": "股票估值指标(新)"
+      },
+      "columns": [
+        {
+          "column_name": "ID",
+          "ordinal_position": 1,
+          "column_type": "bigint",
+          "is_nullable": "NO",
+          "column_default": null,
+          "column_comment": "自增ID"
+        },
+        {
+          "column_name": "SECURITY_ID",
+          "ordinal_position": 2,
+          "column_type": "bigint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券内部ID"
+        },
+        {
+          "column_name": "TICKER_SYMBOL",
+          "ordinal_position": 3,
+          "column_type": "varchar(20)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券代码"
+        },
+        {
+          "column_name": "TRADE_DATE",
+          "ordinal_position": 4,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易日"
+        },
+        {
+          "column_name": "MARKET_VALUE",
+          "ordinal_position": 5,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "总市值"
+        },
+        {
+          "column_name": "NEG_MARKET_VALUE",
+          "ordinal_position": 6,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "流通市值"
+        },
+        {
+          "column_name": "FREE_MARKET_VALUE",
+          "ordinal_position": 7,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "自由流通市值"
+        },
+        {
+          "column_name": "FREE_TURNOVER_RATE",
+          "ordinal_position": 8,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "自由流通换手率"
+        },
+        {
+          "column_name": "PE_LYR",
+          "ordinal_position": 9,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "静态市盈率"
+        },
+        {
+          "column_name": "PE_CLYR",
+          "ordinal_position": 10,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "静态市盈率(扣非)"
+        },
+        {
+          "column_name": "PE_CTTM",
+          "ordinal_position": 11,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "市盈率(扣非TTM)"
+        },
+        {
+          "column_name": "PB_LYR",
+          "ordinal_position": 12,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "市净率(按年报公告日)"
+        },
+        {
+          "column_name": "PB_LYDGW",
+          "ordinal_position": 13,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "市净率(扣除商誉年报公告日)"
+        },
+        {
+          "column_name": "PB_DGW",
+          "ordinal_position": 14,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "市净率(扣除商誉最新公告日)"
+        },
+        {
+          "column_name": "PS_LYR",
+          "ordinal_position": 15,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "静态市销率"
+        },
+        {
+          "column_name": "PCF_LYR",
+          "ordinal_position": 16,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "市现率(净额静态)"
+        },
+        {
+          "column_name": "PCF_OLYR",
+          "ordinal_position": 17,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "市现率(经营静态)"
+        },
+        {
+          "column_name": "PRR_LYR",
+          "ordinal_position": 18,
+          "column_type": "decimal(19,4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "静态市研率"
+        },
+        {
+          "column_name": "UPDATE_TIME",
+          "ordinal_position": 19,
+          "column_type": "datetime",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "更新时间"
+        }
+      ],
+      "indexes": [
+        {
+          "index_name": "idx_mkt_equd_eval_new1",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd_eval_new1",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd_eval_new2",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TICKER_SYMBOL",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd_eval_new2",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "PRIMARY",
+          "non_unique": 0,
+          "seq_in_index": 1,
+          "column_name": "ID",
+          "index_type": "BTREE"
+        }
+      ],
+      "sample_rows": [
+        {
+          "id": 1,
+          "security_id": 30011880,
+          "ticker_symbol": "002965",
+          "trade_date": "2023-01-12",
+          "market_value": 11980953600.0,
+          "neg_market_value": 7764657600.0,
+          "free_market_value": 7311060153.6,
+          "free_turnover_rate": 0.0564,
+          "pe_lyr": 186.9588,
+          "pe_clyr": 337.6114,
+          "pe_cttm": 76.6114,
+          "pb_lyr": 6.8118,
+          "pb_lydgw": 6.8118,
+          "pb_dgw": 4.5794,
+          "ps_lyr": 5.0536,
+          "pcf_lyr": -22.6001,
+          "pcf_olyr": -832.4585,
+          "prr_lyr": 125.4411,
+          "update_time": "2023-01-17T15:29:24"
+        },
+        {
+          "id": 2,
+          "security_id": 30011879,
+          "ticker_symbol": "603679",
+          "trade_date": "2023-01-12",
+          "market_value": 2090307618.0,
+          "neg_market_value": 1813548849.0,
+          "free_market_value": 1028006009.94,
+          "free_turnover_rate": 0.0132,
+          "pe_lyr": -38.1323,
+          "pe_clyr": -30.3683,
+          "pe_cttm": -22.1042,
+          "pb_lyr": 3.0489,
+          "pb_lydgw": 3.0489,
+          "pb_dgw": 3.0977,
+          "ps_lyr": 3.5424,
+          "pcf_lyr": -41.5839,
+          "pcf_olyr": 21.0032,
+          "prr_lyr": 71.1087,
+          "update_time": "2023-01-17T15:29:24"
+        },
+        {
+          "id": 3,
+          "security_id": 30011877,
+          "ticker_symbol": "603488",
+          "trade_date": "2023-01-12",
+          "market_value": 1979694912.0,
+          "neg_market_value": 1979694912.0,
+          "free_market_value": 991850681.58,
+          "free_turnover_rate": 0.0059,
+          "pe_lyr": 27.4794,
+          "pe_clyr": 31.8464,
+          "pe_cttm": 33.7044,
+          "pb_lyr": 2.02,
+          "pb_lydgw": 2.02,
+          "pb_dgw": 2.0498,
+          "ps_lyr": 4.0798,
+          "pcf_lyr": -113.1831,
+          "pcf_olyr": 35.6454,
+          "prr_lyr": 107.9998,
+          "update_time": "2023-03-23T18:07:09"
+        }
+      ]
+    },
+    {
+      "schema": "datayes",
+      "table": "mkt_equd_ind",
+      "role": "daily_trade_state_candidate",
+      "exists": true,
+      "date_field": "TRADE_DATE",
+      "date_min": "2007-01-04",
+      "date_max": "2026-07-27",
+      "table_metadata": {
+        "engine": "InnoDB",
+        "table_rows": 12568576,
+        "create_time": "2024-01-14T07:40:34",
+        "update_time": "2026-07-27T15:49:36",
+        "table_collation": "utf8mb3_general_ci",
+        "table_comment": "股票日行情指标"
+      },
+      "columns": [
+        {
+          "column_name": "ID",
+          "ordinal_position": 1,
+          "column_type": "bigint",
+          "is_nullable": "NO",
+          "column_default": null,
+          "column_comment": "自增ID"
+        },
+        {
+          "column_name": "SECURITY_ID",
+          "ordinal_position": 2,
+          "column_type": "bigint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券ID"
+        },
+        {
+          "column_name": "TICKER_SYMBOL",
+          "ordinal_position": 3,
+          "column_type": "varchar(20)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易代码"
+        },
+        {
+          "column_name": "TRADE_DATE",
+          "ordinal_position": 4,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易日期"
+        },
+        {
+          "column_name": "EXCHANGE_CD",
+          "ordinal_position": 5,
+          "column_type": "varchar(4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易市场"
+        },
+        {
+          "column_name": "CHG_STATUS",
+          "ordinal_position": 6,
+          "column_type": "smallint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "涨跌状态"
+        },
+        {
+          "column_name": "CON_CHG",
+          "ordinal_position": 7,
+          "column_type": "smallint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "连续涨跌"
+        },
+        {
+          "column_name": "CON_LIMIT",
+          "ordinal_position": 8,
+          "column_type": "smallint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "连续涨跌停"
+        },
+        {
+          "column_name": "DAYS_1",
+          "ordinal_position": 9,
+          "column_type": "int",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "最高天数"
+        },
+        {
+          "column_name": "DAYS_2",
+          "ordinal_position": 10,
+          "column_type": "int",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "新高天数"
+        },
+        {
+          "column_name": "DAYS_3",
+          "ordinal_position": 11,
+          "column_type": "int",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "最低天数"
+        },
+        {
+          "column_name": "DAYS_4",
+          "ordinal_position": 12,
+          "column_type": "int",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "新低天数"
+        },
+        {
+          "column_name": "CHG_PCT_3",
+          "ordinal_position": 13,
+          "column_type": "decimal(12,6)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "三日涨跌幅"
+        },
+        {
+          "column_name": "TURN_RATE_3",
+          "ordinal_position": 14,
+          "column_type": "decimal(12,6)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "三日换手"
+        },
+        {
+          "column_name": "UPDATE_TIME",
+          "ordinal_position": 15,
+          "column_type": "datetime",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "更新时间"
+        },
+        {
+          "column_name": "DEAL_VALUE",
+          "ordinal_position": 16,
+          "column_type": "decimal(15,2)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "笔均额"
+        },
+        {
+          "column_name": "DEAL_VALUE_20",
+          "ordinal_position": 17,
+          "column_type": "decimal(15,2)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "20日笔均额"
+        }
+      ],
+      "indexes": [
+        {
+          "index_name": "idx_mkt_equd_ind1",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_equd_ind1",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "PRIMARY",
+          "non_unique": 0,
+          "seq_in_index": 1,
+          "column_name": "ID",
+          "index_type": "BTREE"
+        }
+      ],
+      "sample_rows": [
+        {
+          "id": 41,
+          "security_id": 2,
+          "ticker_symbol": "000001",
+          "trade_date": "2019-05-06",
+          "exchange_cd": "XSHE",
+          "chg_status": 4,
+          "con_chg": -2,
+          "con_limit": 0,
+          "days_1": 530,
+          "days_2": 1,
+          "days_3": 10105,
+          "days_4": 36,
+          "chg_pct_3": -0.066715,
+          "turn_rate_3": 0.0248,
+          "update_time": "2019-05-20T15:16:19",
+          "deal_value": 30376.71,
+          "deal_value_20": 30937.84
+        },
+        {
+          "id": 42,
+          "security_id": 4,
+          "ticker_symbol": "000002",
+          "trade_date": "2019-05-06",
+          "exchange_cd": "XSHE",
+          "chg_status": 4,
+          "con_chg": -2,
+          "con_limit": 0,
+          "days_1": 468,
+          "days_2": 1,
+          "days_3": 10102,
+          "days_4": 56,
+          "chg_pct_3": -0.068088,
+          "turn_rate_3": 0.0175,
+          "update_time": "2019-05-17T12:12:43",
+          "deal_value": 26445.65,
+          "deal_value_20": 29782.01
+        },
+        {
+          "id": 43,
+          "security_id": 8,
+          "ticker_symbol": "000004",
+          "trade_date": "2019-05-06",
+          "exchange_cd": "XSHE",
+          "chg_status": 5,
+          "con_chg": -1,
+          "con_limit": -1,
+          "days_1": 1231,
+          "days_2": 1,
+          "days_3": 10155,
+          "days_4": 7,
+          "chg_pct_3": 0.025699,
+          "turn_rate_3": 0.0935,
+          "update_time": "2019-05-17T12:12:43",
+          "deal_value": 15533.46,
+          "deal_value_20": 15226.57
+        }
+      ]
+    },
+    {
+      "schema": "datayes",
+      "table": "mkt_limit",
+      "role": "price_limit_state",
+      "exists": true,
+      "date_field": "TRADE_DATE",
+      "date_min": "2007-01-04",
+      "date_max": "2026-07-28",
+      "table_metadata": {
+        "engine": "InnoDB",
+        "table_rows": 13115236,
+        "create_time": "2024-01-14T23:03:24",
+        "update_time": "2026-07-28T08:38:05",
+        "table_collation": "utf8mb3_general_ci",
+        "table_comment": "股票涨跌停限制"
+      },
+      "columns": [
+        {
+          "column_name": "ID",
+          "ordinal_position": 1,
+          "column_type": "bigint",
+          "is_nullable": "NO",
+          "column_default": null,
+          "column_comment": "信息编码"
+        },
+        {
+          "column_name": "SECURITY_ID",
+          "ordinal_position": 2,
+          "column_type": "int",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券内部ID"
+        },
+        {
+          "column_name": "TICKER_SYMBOL",
+          "ordinal_position": 3,
+          "column_type": "varchar(30)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易代码"
+        },
+        {
+          "column_name": "EXCHANGE_CD",
+          "ordinal_position": 4,
+          "column_type": "char(4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易市场代码"
+        },
+        {
+          "column_name": "TRADE_DATE",
+          "ordinal_position": 5,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "交易日期"
+        },
+        {
+          "column_name": "LIMIT_UP_PRICE",
+          "ordinal_position": 6,
+          "column_type": "decimal(9,3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "涨停价"
+        },
+        {
+          "column_name": "LIMIT_DOWN_PRICE",
+          "ordinal_position": 7,
+          "column_type": "decimal(9,3)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "跌停价"
+        },
+        {
+          "column_name": "UP_LIMIT_REACHED_TIMES",
+          "ordinal_position": 8,
+          "column_type": "int",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "达到涨停次数"
+        },
+        {
+          "column_name": "DOWN_LIMIT_REACHED_TIMES",
+          "ordinal_position": 9,
+          "column_type": "int",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "达到跌停次数"
+        },
+        {
+          "column_name": "INFO_SOURCE_CD",
+          "ordinal_position": 10,
+          "column_type": "varchar(30)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "信息来源代码"
+        },
+        {
+          "column_name": "UPDATE_TIME",
+          "ordinal_position": 11,
+          "column_type": "datetime",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "更新时间"
+        }
+      ],
+      "indexes": [
+        {
+          "index_name": "idx_mkt_limit1",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_limit1",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_limit2",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TICKER_SYMBOL",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_limit2",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_mkt_limit3",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "PRIMARY",
+          "non_unique": 0,
+          "seq_in_index": 1,
+          "column_name": "ID",
+          "index_type": "BTREE"
+        }
+      ],
+      "sample_rows": [
+        {
+          "id": 1,
+          "security_id": 584,
+          "ticker_symbol": "600000",
+          "exchange_cd": "XSHG",
+          "trade_date": "2015-03-03",
+          "limit_up_price": 15.93,
+          "limit_down_price": 13.03,
+          "up_limit_reached_times": 0,
+          "down_limit_reached_times": 0,
+          "info_source_cd": "1030",
+          "update_time": "2016-01-29T13:39:13"
+        },
+        {
+          "id": 2,
+          "security_id": 588,
+          "ticker_symbol": "600004",
+          "exchange_cd": "XSHG",
+          "trade_date": "2015-03-03",
+          "limit_up_price": 12.53,
+          "limit_down_price": 10.25,
+          "up_limit_reached_times": 0,
+          "down_limit_reached_times": 0,
+          "info_source_cd": "1030",
+          "update_time": "2016-01-29T13:39:13"
+        },
+        {
+          "id": 3,
+          "security_id": 590,
+          "ticker_symbol": "600005",
+          "exchange_cd": "XSHG",
+          "trade_date": "2015-03-03",
+          "limit_up_price": 4.59,
+          "limit_down_price": 3.75,
+          "up_limit_reached_times": 0,
+          "down_limit_reached_times": 0,
+          "info_source_cd": "1030",
+          "update_time": "2016-01-29T13:39:13"
+        }
+      ]
+    },
+    {
+      "schema": "datayes",
+      "table": "abm_stock_pool",
+      "role": "daily_stock_pool_candidate",
+      "exists": true,
+      "date_field": "TRADE_DATE",
+      "date_min": "1990-12-19",
+      "date_max": "2026-07-28",
+      "table_metadata": {
+        "engine": "InnoDB",
+        "table_rows": 13594982,
+        "create_time": "2024-02-29T18:00:00",
+        "update_time": "2026-07-28T00:01:06",
+        "table_collation": "utf8mb4_0900_ai_ci",
+        "table_comment": ""
+      },
+      "columns": [
+        {
+          "column_name": "TICKER_SYMBOL",
+          "ordinal_position": 1,
+          "column_type": "varchar(20)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": ""
+        },
+        {
+          "column_name": "EXCHANGE_CD",
+          "ordinal_position": 2,
+          "column_type": "varchar(20)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": ""
+        },
+        {
+          "column_name": "SEC_SHORT_NAME",
+          "ordinal_position": 3,
+          "column_type": "varchar(20)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": ""
+        },
+        {
+          "column_name": "TRADE_DATE",
+          "ordinal_position": 4,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": ""
+        },
+        {
+          "column_name": "LIST_DATE",
+          "ordinal_position": 5,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": ""
+        },
+        {
+          "column_name": "LIST_DAY",
+          "ordinal_position": 6,
+          "column_type": "varchar(20)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": ""
+        }
+      ],
+      "indexes": [
+        {
+          "index_name": "idx_abm_stock_pool_1",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TICKER_SYMBOL",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_abm_stock_pool_1",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_abm_stock_pool_2",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TICKER_SYMBOL",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_abm_stock_pool_2",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "EXCHANGE_CD",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_abm_stock_pool_3",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_abm_stock_pool_4",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "LIST_DAY",
+          "index_type": "BTREE"
+        }
+      ],
+      "sample_rows": [
+        {
+          "ticker_symbol": "000001",
+          "exchange_cd": "XSHE",
+          "sec_short_name": "平安银行",
+          "trade_date": "1991-04-03",
+          "list_date": null,
+          "list_day": "0"
+        },
+        {
+          "ticker_symbol": "000001",
+          "exchange_cd": "XSHE",
+          "sec_short_name": "平安银行",
+          "trade_date": "1991-04-04",
+          "list_date": null,
+          "list_day": "1"
+        },
+        {
+          "ticker_symbol": "000001",
+          "exchange_cd": "XSHE",
+          "sec_short_name": "平安银行",
+          "trade_date": "1991-04-05",
+          "list_date": null,
+          "list_day": "2"
+        }
+      ]
+    },
+    {
+      "schema": "datayes",
+      "table": "abm_is_ST",
+      "role": "daily_st_state_candidate",
+      "exists": true,
+      "date_field": "TRADE_DATE",
+      "date_min": "1990-12-19",
+      "date_max": "2024-01-26",
+      "table_metadata": {
+        "engine": "InnoDB",
+        "table_rows": 15000627,
+        "create_time": "2024-01-29T11:11:19",
+        "update_time": null,
+        "table_collation": "utf8mb4_0900_ai_ci",
+        "table_comment": ""
+      },
+      "columns": [
+        {
+          "column_name": "TICKER_SYMBOL",
+          "ordinal_position": 1,
+          "column_type": "varchar(20)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": ""
+        },
+        {
+          "column_name": "TRADE_DATE",
+          "ordinal_position": 2,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": ""
+        },
+        {
+          "column_name": "ST",
+          "ordinal_position": 3,
+          "column_type": "char(4)",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": ""
+        }
+      ],
+      "indexes": [
+        {
+          "index_name": "idx_abm_is_ST_1",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "TICKER_SYMBOL",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_abm_is_ST_1",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "TRADE_DATE",
+          "index_type": "BTREE"
+        }
+      ],
+      "sample_rows": [
+        {
+          "ticker_symbol": "000001",
+          "trade_date": "1991-04-03",
+          "st": null
+        },
+        {
+          "ticker_symbol": "000001",
+          "trade_date": "1991-04-04",
+          "st": null
+        },
+        {
+          "ticker_symbol": "000001",
+          "trade_date": "1991-04-05",
+          "st": null
+        }
+      ]
+    },
+    {
+      "schema": "datayes",
+      "table": "idx_cons",
+      "role": "historical_index_membership_candidate",
+      "exists": true,
+      "date_field": "INTO_DATE",
+      "date_min": "1964-07-31",
+      "date_max": "2026-08-03",
+      "table_metadata": {
+        "engine": "InnoDB",
+        "table_rows": 14872278,
+        "create_time": "2024-01-13T21:37:00",
+        "update_time": "2026-07-28T09:19:40",
+        "table_collation": "utf8mb3_general_ci",
+        "table_comment": "指数成分"
+      },
+      "columns": [
+        {
+          "column_name": "ID",
+          "ordinal_position": 1,
+          "column_type": "bigint",
+          "is_nullable": "NO",
+          "column_default": null,
+          "column_comment": "自增ID"
+        },
+        {
+          "column_name": "SECURITY_ID",
+          "ordinal_position": 2,
+          "column_type": "bigint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "证券内部编码"
+        },
+        {
+          "column_name": "CONS_ID",
+          "ordinal_position": 3,
+          "column_type": "bigint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "成分股内部编码"
+        },
+        {
+          "column_name": "INTO_DATE",
+          "ordinal_position": 4,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "入选日期"
+        },
+        {
+          "column_name": "OUT_DATE",
+          "ordinal_position": 5,
+          "column_type": "date",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "剔除日期"
+        },
+        {
+          "column_name": "IS_NEW",
+          "ordinal_position": 6,
+          "column_type": "tinyint",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "是否最新"
+        },
+        {
+          "column_name": "UPDATE_TIME",
+          "ordinal_position": 7,
+          "column_type": "datetime",
+          "is_nullable": "YES",
+          "column_default": null,
+          "column_comment": "更新时间"
+        }
+      ],
+      "indexes": [
+        {
+          "index_name": "idx_idx_cons1",
+          "non_unique": 1,
+          "seq_in_index": 1,
+          "column_name": "SECURITY_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_idx_cons1",
+          "non_unique": 1,
+          "seq_in_index": 2,
+          "column_name": "CONS_ID",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "idx_idx_cons1",
+          "non_unique": 1,
+          "seq_in_index": 3,
+          "column_name": "INTO_DATE",
+          "index_type": "BTREE"
+        },
+        {
+          "index_name": "PRIMARY",
+          "non_unique": 0,
+          "seq_in_index": 1,
+          "column_name": "ID",
+          "index_type": "BTREE"
+        }
+      ],
+      "sample_rows": [
+        {
+          "id": 351952,
+          "security_id": 1,
+          "cons_id": 584,
+          "into_date": "1999-11-10",
+          "out_date": null,
+          "is_new": 1,
+          "update_time": "2017-11-30T14:01:13"
+        },
+        {
+          "id": 351953,
+          "security_id": 1,
+          "cons_id": 585,
+          "into_date": "1998-01-22",
+          "out_date": "2009-12-30",
+          "is_new": 0,
+          "update_time": "2016-01-13T17:20:12"
+        },
+        {
+          "id": 351954,
+          "security_id": 1,
+          "cons_id": 586,
+          "into_date": "1998-04-08",
+          "out_date": "2006-04-25",
+          "is_new": 0,
+          "update_time": "2016-01-13T17:20:12"
+        }
+      ]
+    },
+    {
+      "schema": "abmdata",
+      "table": "qt_idx_constituents",
+      "role": "historical_index_membership_candidate",
+      "exists": false,
+      "date_field": "into_date",
+      "date_min": null,
+      "date_max": null,
+      "table_metadata": null,
+      "columns": [],
+      "indexes": [],
+      "sample_rows": []
+    }
+  ],
+  "universe_probe": {
+    "status": "EXACT_TABLE_MISSING",
+    "exact_table": "abmdata.qt_idx_constituents",
+    "candidate_tables": [
+      {
+        "table_schema": "abmdata",
+        "table_name": "qt_indus_constituents",
+        "table_rows": 86651,
+        "table_comment": ""
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_cons",
+        "table_rows": 14872278,
+        "table_comment": "指数成分"
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_cons_cbond",
+        "table_rows": 7493012,
+        "table_comment": "中债指数成分"
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_cons_citic",
+        "table_rows": 23934,
+        "table_comment": "中信指数成分"
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_cons_cni",
+        "table_rows": 238626,
+        "table_comment": "国证指数成分"
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_cons_core",
+        "table_rows": 16374,
+        "table_comment": "重点指数成分"
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_cons_csi",
+        "table_rows": 5129289,
+        "table_comment": "中证指数成分"
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_cons_dy",
+        "table_rows": 67566,
+        "table_comment": "通联指数成分"
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_cons_hsi",
+        "table_rows": 19652,
+        "table_comment": "恒生指数成分"
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_cons_sw",
+        "table_rows": 116553,
+        "table_comment": "申万指数成分"
+      },
+      {
+        "table_schema": "datayes",
+        "table_name": "idx_pre_cons",
+        "table_rows": 5425,
+        "table_comment": "指数备选成分"
+      }
+    ],
+    "rows": []
+  },
+  "evidence_gaps": [
+    "version-matched authoritative field dictionary and source locators",
+    "historical vendor_available_time or equivalent market-availability evidence",
+    "revision-retention policy for every consumed raw field",
+    "independent CSI300/CSI500 announcement/effective-date authority including exits and delistings",
+    "immutable full extraction snapshot and receipt",
+    "current statutory/broker fee receipt"
+  ],
+  "next_action": "Review qt_idx_constituents index-code coverage and the DataYes raw-field dictionary; then decide whether the candidate universe and daily RAW path are eligible to enter VERIFY.",
+  "content_sha256": "08ac586302564cdfc66e031652911d325cfefda6c23f72e98fd9eeaf8fcbe3b3"
+}

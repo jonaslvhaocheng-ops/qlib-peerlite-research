@@ -1,0 +1,23 @@
+{
+  "schema_version": "qlib_peerlite_source_snapshot_v1",
+  "source_id": "datayes-security-halts",
+  "table": "datayes.md_sec_halt",
+  "snapshot_time": "2026-07-28T15:56:25.231948+08:00",
+  "query_bounds": {
+    "start_date": "2011-09-01",
+    "prediction_end": "2026-06-30",
+    "support_end": "2026-07-10",
+    "oos_start": "2025-01-01"
+  },
+  "files": [
+    {
+      "path": "md_sec_halt.parquet",
+      "rows": 14996,
+      "bytes": 213617,
+      "sha256": "2fa598004a56599889ab58baa9302192fcfac073684cd154538772626057d57a"
+    }
+  ],
+  "read_only": true,
+  "value_exposure": "NONE_COUNTS_AND_HASHES_ONLY",
+  "content_sha256": "452369a3578d3e5413f8216cd86196225be191ed4a37fd89b769fac4457acc30"
+}

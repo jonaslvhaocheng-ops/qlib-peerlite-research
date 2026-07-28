@@ -1,0 +1,6 @@
+{
+  "schema_version": "qlib_peerlite_evidence_manifest_v1",
+  "files": {
+    "sealed_snapshot_verification.json": "8041b7213787dd084673dfa37f1d67ed6240e343c77e7b2fda3bc7c1b6d8a0e0"
+  }
+}

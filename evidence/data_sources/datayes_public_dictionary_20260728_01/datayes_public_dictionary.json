@@ -1,0 +1,289 @@
+{
+  "schema_version": "qlib_peerlite_datayes_public_dictionary_v1",
+  "fetched_at": "2026-07-28T15:42:35.213284+08:00",
+  "publisher": "DataYes",
+  "dictionary_home": "https://datadic.datayes.com/",
+  "api_base": "https://gw.datayes.com/data_dic/es/searchAll",
+  "transport": "public HTTPS read-only GET",
+  "entries": {
+    "mkt_equd": {
+      "request_url": "https://gw.datayes.com/data_dic/es/searchAll?text=mkt_equd&from=0&size=50",
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "api_success": true,
+      "api_message": "查询成功!",
+      "api_total_matches": 21,
+      "exact_entry": {
+        "flg": 1,
+        "descriptionEn": "Get the stock market information of shanghai,shenzhen and beijing stock market, including fields such as previous closing price, opening price, highest price, lowest price, closing price, trading volume and transaction amount.",
+        "nodeCd": "N020101",
+        "dataPubTime": "15:15",
+        "fullNameEs": "stock daily quotes",
+        "dataBeginDate": "1990-12-19",
+        "nameCn": "股票日行情",
+        "description": "获取沪深京股票未复权日行情信息，包含昨收价、开盘价、最高价、最低价、收盘价、成交量、成交金额等字段。",
+        "nameEn": "mkt_equd",
+        "nameEnEs": "mkt_equd",
+        "fullNameEn": "Stock Daily Quotes",
+        "descriptionEs": "获取沪深京股票未复权日行情信息，包含昨收价、开盘价、最高价、最低价、收盘价、成交量、成交金额等字段。",
+        "isPub": 1,
+        "descriptionEnEs": "Get the stock market information of shanghai,shenzhen and beijing stock market, including fields such as previous closing price, opening price, highest price, lowest price, closing price, trading volume and transaction amount.",
+        "isPubEn": 1,
+        "tableId": 526,
+        "flgEn": 1,
+        "dataSourceEn": "Shanghai Stock Exchange,Shenzhen Stock Exchange,Beijing Stock Exchange",
+        "dataSource": "上海证券交易所,深圳证券交易所,北京证券交易所",
+        "fieldsList": [
+          {
+            "flgColEn": 1,
+            "nameCn": "自增ID",
+            "shortNameEn": "id",
+            "fullNameEn": "id",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "证券内部ID",
+            "shortNameEn": "security_id",
+            "fullNameEn": "security id",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "证券代码",
+            "shortNameEn": "ticker_symbol",
+            "fullNameEn": "ticker symbol",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "交易市场代码",
+            "shortNameEn": "exchange_cd",
+            "fullNameEn": "exchange market code",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "交易日",
+            "shortNameEn": "trade_date",
+            "fullNameEn": "trading date",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "昨收盘",
+            "shortNameEn": "pre_close_price",
+            "fullNameEn": "previous close price",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "实际昨收盘",
+            "shortNameEn": "act_pre_close_price",
+            "fullNameEn": "actual previous close price",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "今开盘",
+            "shortNameEn": "open_price",
+            "fullNameEn": "open price",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "最高价",
+            "shortNameEn": "highest_price",
+            "fullNameEn": "highest price",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "最低价",
+            "shortNameEn": "lowest_price",
+            "fullNameEn": "lowest price",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "今收盘",
+            "shortNameEn": "close_price",
+            "fullNameEn": "close price",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "成交量",
+            "shortNameEn": "turnover_vol",
+            "fullNameEn": "turnover volume",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "成交金额",
+            "shortNameEn": "turnover_value",
+            "fullNameEn": "turnover value",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "成交笔数",
+            "shortNameEn": "deal_amount",
+            "fullNameEn": "deal amount",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "市盈率TTM",
+            "shortNameEn": "pe",
+            "fullNameEn": "price earnings ratio",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "流通市值",
+            "shortNameEn": "neg_market_value",
+            "fullNameEn": "negotiable market value",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "总市值",
+            "shortNameEn": "market_value",
+            "fullNameEn": "market value",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "涨跌幅",
+            "shortNameEn": "chg_pct",
+            "fullNameEn": "change percent",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "日换手率",
+            "shortNameEn": "turnover_rate",
+            "fullNameEn": "turnover rate",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "更新时间",
+            "shortNameEn": "update_time",
+            "fullNameEn": "update time",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "市净率",
+            "shortNameEn": "pb",
+            "fullNameEn": "pb",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "动态市盈率",
+            "shortNameEn": "pe1",
+            "fullNameEn": "dynamic p/e ratio",
+            "flgCol": 1
+          }
+        ],
+        "dataOpsFreq": "日"
+      }
+    },
+    "idx_cons_core": {
+      "request_url": "https://gw.datayes.com/data_dic/es/searchAll?text=idx_cons_core&from=0&size=50",
+      "http_status": 200,
+      "content_type": "application/json;charset=UTF-8",
+      "api_success": true,
+      "api_message": "查询成功!",
+      "api_total_matches": 1,
+      "exact_entry": {
+        "flg": 1,
+        "descriptionEn": "According to the official announcement,The core index of the CSRC is adjusted in advance,Including the internal code of the index,The internal code of the constituent,The date of inclusion in the announcement,The date of exclusion in the announcement,The date of inclusion,The date of exclusion.The core indexes covered CSI 300(000300),CSI 100(000903),CSI 500(000905),SSE 50(000016),SSE 180(000010),SSE 380(000009),Kecho 50(000688),STAR Next Generation IT(000682),BSE 50(899050),CSI 1000(000852),CSI 800(000906),Shenzhen Index(399001),ChiNext(399006), Shenzhen 100(399330),CSI 2000(932000),Shenzhen 50(399850) and SSE Dividend(000015).",
+        "nodeCd": "N1105",
+        "dataPubTime": "不定时",
+        "fullNameEs": "the core index constituents",
+        "dataBeginDate": "1995-01-23",
+        "nameCn": "重点指数成分",
+        "description": "根据中证或国证指数公司官方公告提前获取重点指数的成分调整情况，包括指数内部编码、成分券内部编码、纳入公告日期、剔除公告日期、纳入生效日期、剔除生效日期。目前涵盖的重点指数包括沪深300(000300)、中证100(000903)、中证500(000905)、上证50(000016)、上证180(000010)、上证380(000009)、科创50(000688)、科创信息(000682)、北证50(899050)、中证1000(000852)、中证800(000906)、深证成指(399001)、创业板指(399006)、深证100(399330)、中证2000(932000)、深证50(399850)、上证红利(000015)。",
+        "nameEn": "idx_cons_core",
+        "nameEnEs": "idx_cons_core",
+        "fullNameEn": "The Core Index Constituents",
+        "descriptionEs": "根据中证或国证指数公司官方公告提前获取重点指数的成分调整情况，包括指数内部编码、成分券内部编码、纳入公告日期、剔除公告日期、纳入生效日期、剔除生效日期。目前涵盖的重点指数包括沪深300(000300)、中证100(000903)、中证500(000905)、上证50(000016)、上证180(000010)、上证380(000009)、科创50(000688)、科创信息(000682)、北证50(899050)、中证1000(000852)、中证800(000906)、深证成指(399001)、创业板指(399006)、深证100(399330)、中证2000(932000)、深证50(399850)、上证红利(000015)。",
+        "isPub": 1,
+        "descriptionEnEs": "According to the official announcement,The core index of the CSRC is adjusted in advance,Including the internal code of the index,The internal code of the constituent,The date of inclusion in the announcement,The date of exclusion in the announcement,The date of inclusion,The date of exclusion.The core indexes covered CSI 300(000300),CSI 100(000903),CSI 500(000905),SSE 50(000016),SSE 180(000010),SSE 380(000009),Kecho 50(000688),STAR Next Generation IT(000682),BSE 50(899050),CSI 1000(000852),CSI 800(000906),Shenzhen Index(399001),ChiNext(399006), Shenzhen 100(399330),CSI 2000(932000),Shenzhen 50(399850) and SSE Dividend(000015).",
+        "isPubEn": 1,
+        "tableId": 10410,
+        "flgEn": 1,
+        "dataSourceEn": "China Securities Index Co., Ltd,Shenzhen Securities Information Co., Ltd.",
+        "dataSource": "中证指数有限公司,深圳证券信息有限公司",
+        "fieldsList": [
+          {
+            "flgColEn": 1,
+            "nameCn": "信息编码",
+            "shortNameEn": "id",
+            "fullNameEn": "id",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "证券内部编码",
+            "shortNameEn": "security_id",
+            "fullNameEn": "security id",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "成分编码",
+            "shortNameEn": "cons_id",
+            "fullNameEn": "constituent id",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "纳入公告日",
+            "shortNameEn": "into_pub_date",
+            "fullNameEn": "into publish date",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "剔除公告日",
+            "shortNameEn": "out_pub_date",
+            "fullNameEn": "out publish date",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "纳入生效日",
+            "shortNameEn": "into_eff_date",
+            "fullNameEn": "into effective date",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "剔除生效日",
+            "shortNameEn": "out_eff_date",
+            "fullNameEn": "out effective date",
+            "flgCol": 1
+          },
+          {
+            "flgColEn": 1,
+            "nameCn": "更新时间",
+            "shortNameEn": "update_time",
+            "fullNameEn": "update time",
+            "flgCol": 1
+          }
+        ],
+        "dataOpsFreq": "不定期"
+      }
+    }
+  },
+  "interpretation_limits": [
+    "The captured response proves the public dictionary content at fetch time.",
+    "It does not prove that the vendor retains all historical revisions.",
+    "UPDATE_TIME is not reinterpreted as a market-availability timestamp."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "oss_candidate_manifest_v1",
+  "candidate_id": "qlib",
+  "canonical_url": "https://github.com/microsoft/qlib",
+  "route_id": "06",
+  "intended_mode": "SANDBOX",
+  "intended_scope": [
+    "Qlib-compatible model interface",
+    "rolling workflow",
+    "Recorder and signal analysis"
+  ],
+  "revision": {
+    "tag": "v0.9.7",
+    "commit": "da920b7f954f48ab1bb64117c976710de198373e"
+  },
+  "identity": {
+    "official_or_maintainer_verified": true
+  },
+  "license": {
+    "spdx": "MIT",
+    "decision": "APPROVED",
+    "evidence": "LICENSE at Git commit da920b7f954f48ab1bb64117c976710de198373e"
+  },
+  "maintainability": {
+    "release_or_commit_evidence": "https://github.com/microsoft/qlib/releases/tag/v0.9.7",
+    "tests_documented": true,
+    "docs_reviewed": true
+  },
+  "risk": {
+    "network_or_data_access_review": "PASS",
+    "private_data_policy": "PASS"
+  },
+  "semantic_compatibility": {
+    "status": "NEEDS_EVIDENCE",
+    "contract_pit_impact": "MATERIAL",
+    "known_assumptions": [
+      "Qlib default labels are not used",
+      "Qlib public data is not used as institutional PIT evidence",
+      "Qlib default fills, costs and benchmark are not used"
+    ]
+  },
+  "validation": {
+    "sandbox_status": "PASS",
+    "target_skill_regression_status": "NOT_APPLICABLE",
+    "evidence_paths": [
+      "evidence/oss/qlib/sandbox_receipt.md"
+    ]
+  },
+  "decision": {
+    "status": "APPROVED_SANDBOX",
+    "rationale": "Synthetic/Qlib-interface sandbox passed; real-data semantics remain external."
+  }
+}

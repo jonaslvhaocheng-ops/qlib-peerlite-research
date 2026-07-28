@@ -1,0 +1,15 @@
+{
+  "schema_version": "qlib_peerlite_label_spec_v1",
+  "label_id": "a_share_open1_close5_raw_v1",
+  "label_spec_version": "1",
+  "prediction_time": "after T close",
+  "execution_time": "T+1 eligible trading session open",
+  "formula": "raw_close(T+5) / raw_open(T+1) - 1",
+  "interval": "[T+1 open, T+5 close]",
+  "corporate_action_policy": "drop target intervals crossing an unresolved corporate-action event",
+  "cross_split_overlap_policy": "NO_CROSS_SPLIT_OVERLAP",
+  "purge_rule": "drop every left-split sample whose label_end reaches the next split",
+  "embargo_duration": "5 eligible trading days",
+  "embargo_basis": "versioned XSHG/XSHE eligible-session calendar",
+  "same_split_overlap": "allowed and disclosed as dependence"
+}

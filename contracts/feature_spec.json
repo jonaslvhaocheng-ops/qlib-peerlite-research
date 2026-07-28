@@ -1,0 +1,50 @@
+{
+  "schema_version": "qlib_peerlite_feature_spec_v1",
+  "feature_spec_version": "daily_raw_50_v1",
+  "source_basis": "RAW",
+  "prediction_clock": "after T close",
+  "raw_fields": [
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume",
+    "amount",
+    "turnover"
+  ],
+  "daily_features": [
+    "ret_1d",
+    "gap_return",
+    "intraday_return",
+    "high_low_range",
+    "close_location",
+    "upper_shadow",
+    "lower_shadow",
+    "log_volume",
+    "log_amount",
+    "turnover_raw"
+  ],
+  "rolling_windows_sessions": [5, 10, 20, 60],
+  "rolling_families": [
+    "ret_mean",
+    "ret_std",
+    "downside_vol",
+    "range_mean",
+    "turnover_mean",
+    "turnover_std",
+    "log_volume_mean",
+    "log_amount_mean",
+    "amihud_mean",
+    "price_volume_corr"
+  ],
+  "expected_feature_count": 50,
+  "missing_value_policy": "drop sample before rectangular training matrix materialization",
+  "corporate_action_policy": "mask any sample whose trailing 60-session lookback crosses a known corporate-action boundary",
+  "preprocessing": {
+    "method": "mean/std standardization",
+    "fit_scope": "each_training_fold",
+    "zero_scale_policy": "replace scale with 1"
+  },
+  "behavior_audit_required": true,
+  "implementation": "src/qlib_peerlite/data/features.py"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "qlib_peerlite_source_snapshot_v1",
+  "source_id": "datayes-special-status",
+  "table": "datayes.equ_inst_sstate",
+  "snapshot_time": "2026-07-28T15:56:25.231948+08:00",
+  "query_bounds": {
+    "start_date": "2011-09-01",
+    "prediction_end": "2026-06-30",
+    "support_end": "2026-07-10",
+    "oos_start": "2025-01-01"
+  },
+  "files": [
+    {
+      "path": "equ_inst_sstate.parquet",
+      "rows": 1774,
+      "bytes": 49350,
+      "sha256": "0d40fcf6f8a002945ac774cab0af37430c61fdc7deeae601db543976cfff81db"
+    }
+  ],
+  "read_only": true,
+  "value_exposure": "NONE_COUNTS_AND_HASHES_ONLY",
+  "content_sha256": "604eaee5b8d101415180bd2cd654f220dec2e0692d063bac80f1940304b5094e"
+}

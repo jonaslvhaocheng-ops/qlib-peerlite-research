@@ -1,0 +1,23 @@
+{
+  "schema_version": "qlib_peerlite_source_snapshot_v1",
+  "source_id": "datayes-trade-calendar",
+  "table": "datayes.md_trade_cal",
+  "snapshot_time": "2026-07-28T15:56:25.231948+08:00",
+  "query_bounds": {
+    "start_date": "2011-09-01",
+    "prediction_end": "2026-06-30",
+    "support_end": "2026-07-10",
+    "oos_start": "2025-01-01"
+  },
+  "files": [
+    {
+      "path": "md_trade_cal.parquet",
+      "rows": 10854,
+      "bytes": 52412,
+      "sha256": "b5e91cc78d950af9e44beede5f7bfc4f7bab190fd5a141947db7ba9716ebee8e"
+    }
+  ],
+  "read_only": true,
+  "value_exposure": "NONE_COUNTS_AND_HASHES_ONLY",
+  "content_sha256": "9f865661c79da1f962b5c23ad6b3a70e94830a0445bc76b4bd90a61ea97e9c2b"
+}

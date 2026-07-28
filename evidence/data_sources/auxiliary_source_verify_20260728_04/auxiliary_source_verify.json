@@ -1,0 +1,2980 @@
+{
+  "schema_version": "qlib_peerlite_auxiliary_source_verify_v1",
+  "created_at": "2026-07-28T15:52:22.247064+08:00",
+  "mode": "VERIFY",
+  "target_claim": "MARKET_RECONSTRUCTIBLE",
+  "status": "NEEDS_EVIDENCE",
+  "positive_ceiling": "SOURCE_CANDIDATES_ONLY_NEVER_PIT_PASS",
+  "checks": {
+    "all_required_tables_present": true,
+    "special_state_publication_clock_supported": false,
+    "coverage_through_final_oos": {
+      "mkt_limit": true,
+      "md_sec_halt": true,
+      "equ_inst_sstate": true,
+      "mkt_adjf": true
+    },
+    "unique_operational_keys": true,
+    "xshg_xshe_calendar_mismatch_count_capped": 0
+  },
+  "columns": [
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 1,
+      "column_name": "ID",
+      "column_type": "bigint",
+      "is_nullable": "NO",
+      "column_comment": "自增ID"
+    },
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 2,
+      "column_name": "PARTY_ID",
+      "column_type": "bigint",
+      "is_nullable": "YES",
+      "column_comment": "机构内部ID"
+    },
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 3,
+      "column_name": "TICKER_SYMBOL",
+      "column_type": "varchar(20)",
+      "is_nullable": "YES",
+      "column_comment": "交易代码"
+    },
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 4,
+      "column_name": "SEC_SHORT_NAME",
+      "column_type": "varchar(100)",
+      "is_nullable": "YES",
+      "column_comment": "变更后证券简称"
+    },
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 5,
+      "column_name": "PARTY_STATE",
+      "column_type": "int",
+      "is_nullable": "YES",
+      "column_comment": "公司状态"
+    },
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 6,
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "生效日期"
+    },
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 7,
+      "column_name": "REASON",
+      "column_type": "int",
+      "is_nullable": "YES",
+      "column_comment": "原因"
+    },
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 8,
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "is_nullable": "YES",
+      "column_comment": "更新时间"
+    },
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 9,
+      "column_name": "SECURITY_ID",
+      "column_type": "bigint",
+      "is_nullable": "YES",
+      "column_comment": "证券内部ID"
+    },
+    {
+      "table_name": "equ_inst_sstate",
+      "ordinal_position": 10,
+      "column_name": "PUBLISH_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": ""
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 1,
+      "column_name": "ID",
+      "column_type": "bigint",
+      "is_nullable": "NO",
+      "column_comment": "自增ID"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 2,
+      "column_name": "SECURITY_ID",
+      "column_type": "bigint",
+      "is_nullable": "YES",
+      "column_comment": "证券内部ID"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 3,
+      "column_name": "TICKER_SYMBOL",
+      "column_type": "varchar(20)",
+      "is_nullable": "YES",
+      "column_comment": "交易代码"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 4,
+      "column_name": "EXCHANGE_CD",
+      "column_type": "char(4)",
+      "is_nullable": "YES",
+      "column_comment": "交易市场代码"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 5,
+      "column_name": "SEC_SHORT_NAME",
+      "column_type": "varchar(100)",
+      "is_nullable": "YES",
+      "column_comment": "证券简称"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 6,
+      "column_name": "HALT_BEGIN_TIME",
+      "column_type": "datetime",
+      "is_nullable": "YES",
+      "column_comment": "停牌时间"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 7,
+      "column_name": "RESUMP_BEGIN_TIME",
+      "column_type": "datetime",
+      "is_nullable": "YES",
+      "column_comment": "复牌时间"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 8,
+      "column_name": "HALT_REASON",
+      "column_type": "varchar(50)",
+      "is_nullable": "YES",
+      "column_comment": "原因"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 9,
+      "column_name": "HALT_PERIOD_DESC",
+      "column_type": "varchar(200)",
+      "is_nullable": "YES",
+      "column_comment": "期限说明"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 10,
+      "column_name": "REMARK",
+      "column_type": "varchar(500)",
+      "is_nullable": "YES",
+      "column_comment": "备注"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 11,
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "is_nullable": "YES",
+      "column_comment": "更新时间"
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 12,
+      "column_name": "HERMES_CREATETIME",
+      "column_type": "timestamp",
+      "is_nullable": "YES",
+      "column_comment": ""
+    },
+    {
+      "table_name": "md_sec_halt",
+      "ordinal_position": 13,
+      "column_name": "HERMES_UPDATETIME",
+      "column_type": "timestamp",
+      "is_nullable": "YES",
+      "column_comment": ""
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 1,
+      "column_name": "SECURITY_ID",
+      "column_type": "bigint",
+      "is_nullable": "NO",
+      "column_comment": "证券内部ID"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 2,
+      "column_name": "TICKER_SYMBOL",
+      "column_type": "varchar(50)",
+      "is_nullable": "YES",
+      "column_comment": "交易代码"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 3,
+      "column_name": "EXCHANGE_CD",
+      "column_type": "char(4)",
+      "is_nullable": "YES",
+      "column_comment": "交易市场代码"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 4,
+      "column_name": "SEC_FULL_NAME",
+      "column_type": "varchar(200)",
+      "is_nullable": "YES",
+      "column_comment": "证券全称"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 5,
+      "column_name": "SEC_SHORT_NAME",
+      "column_type": "varchar(200)",
+      "is_nullable": "YES",
+      "column_comment": "证券简称"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 6,
+      "column_name": "CN_SPELL",
+      "column_type": "varchar(20)",
+      "is_nullable": "YES",
+      "column_comment": "简称拼音"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 7,
+      "column_name": "SEC_FULL_NAME_EN",
+      "column_type": "varchar(200)",
+      "is_nullable": "YES",
+      "column_comment": "证券英文全称"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 8,
+      "column_name": "SEC_SHORT_NAME_EN",
+      "column_type": "varchar(200)",
+      "is_nullable": "YES",
+      "column_comment": "证券英文简称"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 9,
+      "column_name": "DYID",
+      "column_type": "varchar(50)",
+      "is_nullable": "YES",
+      "column_comment": "证券展示代码"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 10,
+      "column_name": "EX_COUNTRY_CD",
+      "column_type": "char(3)",
+      "is_nullable": "YES",
+      "column_comment": "交易市场所属地区"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 11,
+      "column_name": "TRANS_CURR_CD",
+      "column_type": "char(3)",
+      "is_nullable": "YES",
+      "column_comment": "交易货币代码"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 12,
+      "column_name": "ASSET_CLASS",
+      "column_type": "varchar(4)",
+      "is_nullable": "YES",
+      "column_comment": "证券类型"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 13,
+      "column_name": "LIST_STATUS_CD",
+      "column_type": "varchar(4)",
+      "is_nullable": "YES",
+      "column_comment": "上市状态"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 14,
+      "column_name": "LIST_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "上市日期"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 15,
+      "column_name": "DELIST_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "摘牌日期"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 16,
+      "column_name": "PARTY_ID",
+      "column_type": "bigint",
+      "is_nullable": "YES",
+      "column_comment": "机构内部ID"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 17,
+      "column_name": "DY_USE_FLG",
+      "column_type": "tinyint",
+      "is_nullable": "YES",
+      "column_comment": "DY使用标识"
+    },
+    {
+      "table_name": "md_security",
+      "ordinal_position": 18,
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "is_nullable": "YES",
+      "column_comment": "更新时间"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 1,
+      "column_name": "ID",
+      "column_type": "bigint",
+      "is_nullable": "NO",
+      "column_comment": "自增ID"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 2,
+      "column_name": "CALENDAR_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "日期"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 3,
+      "column_name": "EXCHANGE_CD",
+      "column_type": "varchar(10)",
+      "is_nullable": "YES",
+      "column_comment": "交易市场代码"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 4,
+      "column_name": "IS_OPEN",
+      "column_type": "smallint",
+      "is_nullable": "YES",
+      "column_comment": "是否开市"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 5,
+      "column_name": "WEEK_START_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "本周开始日"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 6,
+      "column_name": "WEEK_END_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "本周结束日"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 7,
+      "column_name": "MONTH_START_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "本月开始日"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 8,
+      "column_name": "MONTH_END_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "本月结束日"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 9,
+      "column_name": "QUARTER_START_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "本季开始日"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 10,
+      "column_name": "QUARTER_END_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "本季结束日"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 11,
+      "column_name": "YEAR_START_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "本年开始日"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 12,
+      "column_name": "YEAR_END_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "本年结束日"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 13,
+      "column_name": "PREV_TRADE_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "前一个交易日"
+    },
+    {
+      "table_name": "md_trade_cal",
+      "ordinal_position": 14,
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "is_nullable": "YES",
+      "column_comment": "更新时间"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 1,
+      "column_name": "ID",
+      "column_type": "bigint",
+      "is_nullable": "NO",
+      "column_comment": "信息编码"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 2,
+      "column_name": "SECURITY_ID",
+      "column_type": "bigint",
+      "is_nullable": "YES",
+      "column_comment": "证券内部ID"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 3,
+      "column_name": "TICKER_SYMBOL",
+      "column_type": "varchar(20)",
+      "is_nullable": "YES",
+      "column_comment": "交易代码"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 4,
+      "column_name": "EX_DIV_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "除权除息日"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 5,
+      "column_name": "PER_CASH_DIV",
+      "column_type": "decimal(15,8)",
+      "is_nullable": "YES",
+      "column_comment": "每股派现"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 6,
+      "column_name": "PER_SHARE_DIV_RATIO",
+      "column_type": "decimal(15,8)",
+      "is_nullable": "YES",
+      "column_comment": "每股送股比例"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 7,
+      "column_name": "PER_SHARE_TRANS_RATIO",
+      "column_type": "decimal(15,8)",
+      "is_nullable": "YES",
+      "column_comment": "每股转增股比例"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 8,
+      "column_name": "ALLOTMENT_RATIO",
+      "column_type": "decimal(15,8)",
+      "is_nullable": "YES",
+      "column_comment": "每股配股比例"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 9,
+      "column_name": "ALLOTMENT_PRICE",
+      "column_type": "decimal(10,4)",
+      "is_nullable": "YES",
+      "column_comment": "配股价"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 10,
+      "column_name": "PRE_CLOSE_PRICE",
+      "column_type": "decimal(10,4)",
+      "is_nullable": "YES",
+      "column_comment": "昨收盘"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 11,
+      "column_name": "ACT_PRE_CLOSE_PRICE",
+      "column_type": "decimal(10,4)",
+      "is_nullable": "YES",
+      "column_comment": "实际昨收盘"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 12,
+      "column_name": "ADJ_FACTOR_1",
+      "column_type": "decimal(15,10)",
+      "is_nullable": "YES",
+      "column_comment": "复权因子(前复权)"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 13,
+      "column_name": "ACCUM_ADJ_FACTOR",
+      "column_type": "decimal(15,10)",
+      "is_nullable": "YES",
+      "column_comment": "累积复权因子"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 14,
+      "column_name": "END_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "累积复权因子截止日期"
+    },
+    {
+      "table_name": "mkt_adjf",
+      "ordinal_position": 15,
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "is_nullable": "YES",
+      "column_comment": "更新时间"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 1,
+      "column_name": "ID",
+      "column_type": "bigint",
+      "is_nullable": "NO",
+      "column_comment": "信息编码"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 2,
+      "column_name": "SECURITY_ID",
+      "column_type": "int",
+      "is_nullable": "YES",
+      "column_comment": "证券内部ID"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 3,
+      "column_name": "TICKER_SYMBOL",
+      "column_type": "varchar(30)",
+      "is_nullable": "YES",
+      "column_comment": "交易代码"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 4,
+      "column_name": "EXCHANGE_CD",
+      "column_type": "char(4)",
+      "is_nullable": "YES",
+      "column_comment": "交易市场代码"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 5,
+      "column_name": "TRADE_DATE",
+      "column_type": "date",
+      "is_nullable": "YES",
+      "column_comment": "交易日期"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 6,
+      "column_name": "LIMIT_UP_PRICE",
+      "column_type": "decimal(9,3)",
+      "is_nullable": "YES",
+      "column_comment": "涨停价"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 7,
+      "column_name": "LIMIT_DOWN_PRICE",
+      "column_type": "decimal(9,3)",
+      "is_nullable": "YES",
+      "column_comment": "跌停价"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 8,
+      "column_name": "UP_LIMIT_REACHED_TIMES",
+      "column_type": "int",
+      "is_nullable": "YES",
+      "column_comment": "达到涨停次数"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 9,
+      "column_name": "DOWN_LIMIT_REACHED_TIMES",
+      "column_type": "int",
+      "is_nullable": "YES",
+      "column_comment": "达到跌停次数"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 10,
+      "column_name": "INFO_SOURCE_CD",
+      "column_type": "varchar(30)",
+      "is_nullable": "YES",
+      "column_comment": "信息来源代码"
+    },
+    {
+      "table_name": "mkt_limit",
+      "ordinal_position": 11,
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "is_nullable": "YES",
+      "column_comment": "更新时间"
+    }
+  ],
+  "security_summary": [
+    {
+      "a_share_rows": 8109,
+      "distinct_security_ids": 8109,
+      "distinct_exchange_tickers": 8109,
+      "first_list_date": "1990-12-01",
+      "last_list_date": "2026-07-27",
+      "delisted_rows": 374.0
+    }
+  ],
+  "security_duplicate_keys": [],
+  "calendar_summary": [
+    {
+      "exchange_cd": "XSHE",
+      "first_date": "1991-07-03",
+      "last_date": "2027-12-31",
+      "open_days": 8904.0,
+      "rows_total": 13331
+    },
+    {
+      "exchange_cd": "XSHG",
+      "first_date": "1990-12-19",
+      "last_date": "2027-12-31",
+      "open_days": 9040.0,
+      "rows_total": 13527
+    }
+  ],
+  "calendar_mismatches_capped": [],
+  "limit_summary": [
+    {
+      "first_date": "2007-01-04",
+      "last_date": "2026-07-28",
+      "row_count": 18675303,
+      "distinct_security_ids": 8290,
+      "missing_limit_prices": 0.0
+    }
+  ],
+  "limit_duplicate_keys": [],
+  "halt_summary": [
+    {
+      "first_halt_time": "2002-12-02T09:30:00",
+      "last_halt_time": "2026-08-07T09:30:00",
+      "last_resumption_time": "2026-07-28T10:30:00",
+      "row_count": 110050,
+      "distinct_security_ids": 8967,
+      "missing_halt_begin": 0.0,
+      "open_ended_halts": 1748.0
+    }
+  ],
+  "special_state_summary": [
+    {
+      "first_publish_date": "1998-04-27",
+      "last_publish_date": "2026-07-25",
+      "first_effective_date": "1998-04-28",
+      "last_effective_date": "2026-07-29",
+      "row_count": 3952,
+      "distinct_security_ids": 1232,
+      "missing_publish_date": 7.0,
+      "missing_effective_date": 0.0,
+      "publish_after_effective": 14.0
+    }
+  ],
+  "special_state_values": [
+    {
+      "party_state": 2,
+      "row_count": 1628
+    },
+    {
+      "party_state": 1,
+      "row_count": 1274
+    },
+    {
+      "party_state": 5,
+      "row_count": 373
+    },
+    {
+      "party_state": 4,
+      "row_count": 219
+    },
+    {
+      "party_state": 6,
+      "row_count": 163
+    },
+    {
+      "party_state": 7,
+      "row_count": 163
+    },
+    {
+      "party_state": 3,
+      "row_count": 132
+    }
+  ],
+  "special_state_samples": [
+    {
+      "id": 4035,
+      "security_id": 79856,
+      "ticker_symbol": "688089",
+      "sec_short_name": "ST嘉必优",
+      "party_state": 2,
+      "publish_date": "2026-07-25",
+      "eff_date": "2026-07-28",
+      "reason": 25.0,
+      "update_time": "2026-07-24T18:32:11"
+    },
+    {
+      "id": 4034,
+      "security_id": 2367,
+      "ticker_symbol": "002199",
+      "sec_short_name": "东晶电子",
+      "party_state": 1,
+      "publish_date": "2026-07-22",
+      "eff_date": "2026-07-23",
+      "reason": null,
+      "update_time": "2026-07-21T20:13:19"
+    },
+    {
+      "id": 4033,
+      "security_id": 4160,
+      "ticker_symbol": "002656",
+      "sec_short_name": "摩登大道",
+      "party_state": 1,
+      "publish_date": "2026-07-17",
+      "eff_date": "2026-07-20",
+      "reason": null,
+      "update_time": "2026-07-16T22:24:23"
+    },
+    {
+      "id": 4032,
+      "security_id": 4696,
+      "ticker_symbol": "002713",
+      "sec_short_name": "东易日盛",
+      "party_state": 1,
+      "publish_date": "2026-07-17",
+      "eff_date": "2026-07-20",
+      "reason": null,
+      "update_time": "2026-07-16T22:18:15"
+    },
+    {
+      "id": 4031,
+      "security_id": 75246,
+      "ticker_symbol": "002898",
+      "sec_short_name": "赛隆退",
+      "party_state": 5,
+      "publish_date": "2026-07-17",
+      "eff_date": "2026-07-17",
+      "reason": 32.0,
+      "update_time": "2026-07-16T18:15:39"
+    },
+    {
+      "id": 4030,
+      "security_id": 30018,
+      "ticker_symbol": "002759",
+      "sec_short_name": "ST天际",
+      "party_state": 2,
+      "publish_date": "2026-07-14",
+      "eff_date": "2026-07-15",
+      "reason": 20.0,
+      "update_time": "2026-07-13T22:42:51"
+    },
+    {
+      "id": 4029,
+      "security_id": 8,
+      "ticker_symbol": "000004",
+      "sec_short_name": "国华退",
+      "party_state": 5,
+      "publish_date": "2026-07-14",
+      "eff_date": "2026-07-14",
+      "reason": 40.0,
+      "update_time": "2026-07-13T19:45:12"
+    },
+    {
+      "id": 4028,
+      "security_id": 3159,
+      "ticker_symbol": "002808",
+      "sec_short_name": "恒久退",
+      "party_state": 5,
+      "publish_date": "2026-07-14",
+      "eff_date": "2026-07-14",
+      "reason": 32.0,
+      "update_time": "2026-07-13T17:37:28"
+    },
+    {
+      "id": 4027,
+      "security_id": 1701,
+      "ticker_symbol": "002005",
+      "sec_short_name": "德豪润达",
+      "party_state": 1,
+      "publish_date": "2026-07-11",
+      "eff_date": "2026-07-14",
+      "reason": null,
+      "update_time": "2026-07-12T16:39:54"
+    },
+    {
+      "id": 4026,
+      "security_id": 2845,
+      "ticker_symbol": "300029",
+      "sec_short_name": "天龙退",
+      "party_state": 5,
+      "publish_date": "2026-07-10",
+      "eff_date": "2026-07-10",
+      "reason": 32.0,
+      "update_time": "2026-07-09T17:36:24"
+    },
+    {
+      "id": 4025,
+      "security_id": 78567,
+      "ticker_symbol": "688121",
+      "sec_short_name": "*ST卓然",
+      "party_state": 2,
+      "publish_date": "2026-07-06",
+      "eff_date": "2026-07-07",
+      "reason": 44.0,
+      "update_time": "2026-07-16T13:16:39"
+    },
+    {
+      "id": 4024,
+      "security_id": 79384,
+      "ticker_symbol": "920305",
+      "sec_short_name": "云创退",
+      "party_state": 7,
+      "publish_date": "2026-07-01",
+      "eff_date": "2026-07-29",
+      "reason": null,
+      "update_time": "2026-07-01T18:27:00"
+    },
+    {
+      "id": 4023,
+      "security_id": 79384,
+      "ticker_symbol": "920305",
+      "sec_short_name": "云创退",
+      "party_state": 1,
+      "publish_date": "2026-07-01",
+      "eff_date": "2026-07-09",
+      "reason": null,
+      "update_time": "2026-07-01T18:26:59"
+    },
+    {
+      "id": 4022,
+      "security_id": 79384,
+      "ticker_symbol": "920305",
+      "sec_short_name": "云创退",
+      "party_state": 6,
+      "publish_date": "2026-07-01",
+      "eff_date": "2026-07-09",
+      "reason": null,
+      "update_time": "2026-07-01T18:26:59"
+    },
+    {
+      "id": 4021,
+      "security_id": 281,
+      "ticker_symbol": "000656",
+      "sec_short_name": "金科股份",
+      "party_state": 1,
+      "publish_date": "2026-07-01",
+      "eff_date": "2026-07-02",
+      "reason": null,
+      "update_time": "2026-06-30T22:23:14"
+    },
+    {
+      "id": 4020,
+      "security_id": 234,
+      "ticker_symbol": "000595",
+      "sec_short_name": "宝塔实业",
+      "party_state": 1,
+      "publish_date": "2026-07-01",
+      "eff_date": "2026-07-02",
+      "reason": null,
+      "update_time": "2026-06-30T20:58:56"
+    },
+    {
+      "id": 4019,
+      "security_id": 30805,
+      "ticker_symbol": "603559",
+      "sec_short_name": "中通国脉",
+      "party_state": 1,
+      "publish_date": "2026-07-01",
+      "eff_date": "2026-07-02",
+      "reason": null,
+      "update_time": "2026-06-30T18:33:24"
+    },
+    {
+      "id": 4018,
+      "security_id": 29096,
+      "ticker_symbol": "603389",
+      "sec_short_name": "亚振家居",
+      "party_state": 1,
+      "publish_date": "2026-06-30",
+      "eff_date": "2026-07-01",
+      "reason": null,
+      "update_time": "2026-06-29T19:44:10"
+    },
+    {
+      "id": 4017,
+      "security_id": 1546,
+      "ticker_symbol": "600892",
+      "sec_short_name": "大晟文化",
+      "party_state": 1,
+      "publish_date": "2026-06-30",
+      "eff_date": "2026-07-01",
+      "reason": null,
+      "update_time": "2026-06-29T19:32:51"
+    },
+    {
+      "id": 4016,
+      "security_id": 72737,
+      "ticker_symbol": "603580",
+      "sec_short_name": "艾艾精工",
+      "party_state": 1,
+      "publish_date": "2026-06-30",
+      "eff_date": "2026-07-01",
+      "reason": null,
+      "update_time": "2026-06-29T19:30:06"
+    },
+    {
+      "id": 4015,
+      "security_id": 77257,
+      "ticker_symbol": "605081",
+      "sec_short_name": "退市太和",
+      "party_state": 5,
+      "publish_date": "2026-06-30",
+      "eff_date": "2026-07-03",
+      "reason": 32.0,
+      "update_time": "2026-07-16T09:53:58"
+    },
+    {
+      "id": 4014,
+      "security_id": 1244,
+      "ticker_symbol": "600608",
+      "sec_short_name": "退市沪科",
+      "party_state": 5,
+      "publish_date": "2026-06-30",
+      "eff_date": "2026-07-03",
+      "reason": 32.0,
+      "update_time": "2026-07-16T09:55:50"
+    },
+    {
+      "id": 4013,
+      "security_id": 761,
+      "ticker_symbol": "600193",
+      "sec_short_name": "退市创兴",
+      "party_state": 5,
+      "publish_date": "2026-06-30",
+      "eff_date": "2026-07-06",
+      "reason": 32.0,
+      "update_time": "2026-07-16T09:56:31"
+    },
+    {
+      "id": 4012,
+      "security_id": 4153,
+      "ticker_symbol": "300290",
+      "sec_short_name": "ST荣科",
+      "party_state": 2,
+      "publish_date": "2026-06-27",
+      "eff_date": "2026-06-30",
+      "reason": 20.0,
+      "update_time": "2026-06-28T16:39:26"
+    },
+    {
+      "id": 4011,
+      "security_id": 3176,
+      "ticker_symbol": "300087",
+      "sec_short_name": "ST荃银",
+      "party_state": 2,
+      "publish_date": "2026-06-27",
+      "eff_date": "2026-06-30",
+      "reason": 29.0,
+      "update_time": "2026-06-26T20:30:51"
+    },
+    {
+      "id": 4010,
+      "security_id": 516,
+      "ticker_symbol": "000972",
+      "sec_short_name": "中基健康",
+      "party_state": 1,
+      "publish_date": "2026-06-26",
+      "eff_date": "2026-06-29",
+      "reason": null,
+      "update_time": "2026-06-25T22:37:10"
+    },
+    {
+      "id": 4009,
+      "security_id": 2494,
+      "ticker_symbol": "002289",
+      "sec_short_name": "宇顺电子",
+      "party_state": 1,
+      "publish_date": "2026-06-25",
+      "eff_date": "2026-06-26",
+      "reason": null,
+      "update_time": "2026-06-24T21:46:50"
+    },
+    {
+      "id": 4008,
+      "security_id": 2429,
+      "ticker_symbol": "002253",
+      "sec_short_name": "川大智胜",
+      "party_state": 1,
+      "publish_date": "2026-06-25",
+      "eff_date": "2026-06-26",
+      "reason": null,
+      "update_time": "2026-06-24T19:56:13"
+    },
+    {
+      "id": 4007,
+      "security_id": 1343,
+      "ticker_symbol": "600696",
+      "sec_short_name": "退市岩石",
+      "party_state": 5,
+      "publish_date": "2026-06-23",
+      "eff_date": "2026-06-29",
+      "reason": 13.0,
+      "update_time": "2026-06-22T21:44:24"
+    },
+    {
+      "id": 4006,
+      "security_id": 1280,
+      "ticker_symbol": "600636",
+      "sec_short_name": "退市国化",
+      "party_state": 5,
+      "publish_date": "2026-06-23",
+      "eff_date": "2026-06-29",
+      "reason": 13.0,
+      "update_time": "2026-06-22T21:45:32"
+    },
+    {
+      "id": 4005,
+      "security_id": 1233,
+      "ticker_symbol": "600599",
+      "sec_short_name": "退市熊猫",
+      "party_state": 5,
+      "publish_date": "2026-06-23",
+      "eff_date": "2026-06-26",
+      "reason": 32.0,
+      "update_time": "2026-06-22T21:06:11"
+    },
+    {
+      "id": 4004,
+      "security_id": 994,
+      "ticker_symbol": "600421",
+      "sec_short_name": "退市华嵘",
+      "party_state": 5,
+      "publish_date": "2026-06-23",
+      "eff_date": "2026-06-26",
+      "reason": 43.0,
+      "update_time": "2026-06-22T18:06:43"
+    },
+    {
+      "id": 4003,
+      "security_id": 2406,
+      "ticker_symbol": "002217",
+      "sec_short_name": "ST合力泰",
+      "party_state": 2,
+      "publish_date": "2026-06-19",
+      "eff_date": "2026-06-23",
+      "reason": 20.0,
+      "update_time": "2026-06-18T20:35:45"
+    },
+    {
+      "id": 4002,
+      "security_id": 1424,
+      "ticker_symbol": "600777",
+      "sec_short_name": "新潮能源",
+      "party_state": 1,
+      "publish_date": "2026-06-19",
+      "eff_date": "2026-06-23",
+      "reason": null,
+      "update_time": "2026-06-18T18:02:57"
+    },
+    {
+      "id": 4001,
+      "security_id": 75246,
+      "ticker_symbol": "002898",
+      "sec_short_name": "赛隆退",
+      "party_state": 1,
+      "publish_date": "2026-06-18",
+      "eff_date": "2026-06-26",
+      "reason": null,
+      "update_time": "2026-06-17T20:44:31"
+    },
+    {
+      "id": 4000,
+      "security_id": 75246,
+      "ticker_symbol": "002898",
+      "sec_short_name": "赛隆退",
+      "party_state": 6,
+      "publish_date": "2026-06-18",
+      "eff_date": "2026-06-26",
+      "reason": null,
+      "update_time": "2026-06-17T20:44:31"
+    },
+    {
+      "id": 3999,
+      "security_id": 75246,
+      "ticker_symbol": "002898",
+      "sec_short_name": "赛隆退",
+      "party_state": 7,
+      "publish_date": "2026-06-18",
+      "eff_date": "2026-07-16",
+      "reason": null,
+      "update_time": "2026-06-17T20:44:31"
+    },
+    {
+      "id": 3998,
+      "security_id": 4540,
+      "ticker_symbol": "300313",
+      "sec_short_name": "天山生物",
+      "party_state": 1,
+      "publish_date": "2026-06-18",
+      "eff_date": "2026-06-22",
+      "reason": null,
+      "update_time": "2026-06-17T20:27:56"
+    },
+    {
+      "id": 3997,
+      "security_id": 29718,
+      "ticker_symbol": "002762",
+      "sec_short_name": "金发拉比",
+      "party_state": 1,
+      "publish_date": "2026-06-18",
+      "eff_date": "2026-06-22",
+      "reason": null,
+      "update_time": "2026-06-17T19:47:07"
+    },
+    {
+      "id": 3996,
+      "security_id": 3513,
+      "ticker_symbol": "300159",
+      "sec_short_name": "新研股份",
+      "party_state": 1,
+      "publish_date": "2026-06-18",
+      "eff_date": "2026-06-22",
+      "reason": null,
+      "update_time": "2026-06-17T19:42:11"
+    },
+    {
+      "id": 3995,
+      "security_id": 2055,
+      "ticker_symbol": "002076",
+      "sec_short_name": "星光股份",
+      "party_state": 1,
+      "publish_date": "2026-06-18",
+      "eff_date": "2026-06-22",
+      "reason": null,
+      "update_time": "2026-06-17T19:13:00"
+    },
+    {
+      "id": 3994,
+      "security_id": 3323,
+      "ticker_symbol": "002496",
+      "sec_short_name": "辉丰股份",
+      "party_state": 1,
+      "publish_date": "2026-06-17",
+      "eff_date": "2026-06-18",
+      "reason": null,
+      "update_time": "2026-06-16T20:02:17"
+    },
+    {
+      "id": 3993,
+      "security_id": 30197,
+      "ticker_symbol": "300506",
+      "sec_short_name": "名家汇",
+      "party_state": 1,
+      "publish_date": "2026-06-15",
+      "eff_date": "2026-06-16",
+      "reason": null,
+      "update_time": "2026-06-14T16:42:17"
+    },
+    {
+      "id": 3992,
+      "security_id": 8,
+      "ticker_symbol": "000004",
+      "sec_short_name": "国华退",
+      "party_state": 1,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-06-23",
+      "reason": null,
+      "update_time": "2026-06-12T20:38:07"
+    },
+    {
+      "id": 3991,
+      "security_id": 8,
+      "ticker_symbol": "000004",
+      "sec_short_name": "国华退",
+      "party_state": 6,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-06-23",
+      "reason": null,
+      "update_time": "2026-06-12T20:38:06"
+    },
+    {
+      "id": 3990,
+      "security_id": 8,
+      "ticker_symbol": "000004",
+      "sec_short_name": "国华退",
+      "party_state": 7,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-07-13",
+      "reason": null,
+      "update_time": "2026-06-12T20:38:06"
+    },
+    {
+      "id": 3989,
+      "security_id": 484,
+      "ticker_symbol": "000929",
+      "sec_short_name": "兰州黄河",
+      "party_state": 1,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-06-16",
+      "reason": null,
+      "update_time": "2026-06-12T20:19:43"
+    },
+    {
+      "id": 3988,
+      "security_id": 3159,
+      "ticker_symbol": "002808",
+      "sec_short_name": "恒久退",
+      "party_state": 1,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-06-23",
+      "reason": null,
+      "update_time": "2026-06-12T19:46:15"
+    },
+    {
+      "id": 3987,
+      "security_id": 3159,
+      "ticker_symbol": "002808",
+      "sec_short_name": "恒久退",
+      "party_state": 6,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-06-23",
+      "reason": null,
+      "update_time": "2026-06-12T19:46:15"
+    },
+    {
+      "id": 3986,
+      "security_id": 3159,
+      "ticker_symbol": "002808",
+      "sec_short_name": "恒久退",
+      "party_state": 7,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-07-13",
+      "reason": null,
+      "update_time": "2026-06-12T19:46:15"
+    },
+    {
+      "id": 3985,
+      "security_id": 4677,
+      "ticker_symbol": "300343",
+      "sec_short_name": "联创股份",
+      "party_state": 1,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-06-16",
+      "reason": null,
+      "update_time": "2026-06-12T19:34:23"
+    },
+    {
+      "id": 3984,
+      "security_id": 77336,
+      "ticker_symbol": "603261",
+      "sec_short_name": "立航科技",
+      "party_state": 1,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-06-16",
+      "reason": null,
+      "update_time": "2026-06-12T19:29:04"
+    },
+    {
+      "id": 3983,
+      "security_id": 41166,
+      "ticker_symbol": "603813",
+      "sec_short_name": "原尚股份",
+      "party_state": 1,
+      "publish_date": "2026-06-13",
+      "eff_date": "2026-06-16",
+      "reason": null,
+      "update_time": "2026-06-12T18:56:26"
+    },
+    {
+      "id": 3982,
+      "security_id": 3280,
+      "ticker_symbol": "002529",
+      "sec_short_name": "海源复材",
+      "party_state": 1,
+      "publish_date": "2026-06-12",
+      "eff_date": "2026-06-15",
+      "reason": null,
+      "update_time": "2026-06-11T22:15:27"
+    },
+    {
+      "id": 3981,
+      "security_id": 1977,
+      "ticker_symbol": "002058",
+      "sec_short_name": "威尔泰",
+      "party_state": 1,
+      "publish_date": "2026-06-12",
+      "eff_date": "2026-06-15",
+      "reason": null,
+      "update_time": "2026-06-11T19:36:22"
+    },
+    {
+      "id": 3980,
+      "security_id": 143,
+      "ticker_symbol": "000504",
+      "sec_short_name": "南华生物",
+      "party_state": 1,
+      "publish_date": "2026-06-11",
+      "eff_date": "2026-06-12",
+      "reason": null,
+      "update_time": "2026-06-10T20:43:42"
+    },
+    {
+      "id": 3979,
+      "security_id": 3296,
+      "ticker_symbol": "300093",
+      "sec_short_name": "金刚光伏",
+      "party_state": 1,
+      "publish_date": "2026-06-11",
+      "eff_date": "2026-06-12",
+      "reason": null,
+      "update_time": "2026-06-10T20:40:19"
+    },
+    {
+      "id": 3978,
+      "security_id": 2845,
+      "ticker_symbol": "300029",
+      "sec_short_name": "天龙退",
+      "party_state": 1,
+      "publish_date": "2026-06-11",
+      "eff_date": "2026-06-18",
+      "reason": null,
+      "update_time": "2026-06-10T20:27:49"
+    },
+    {
+      "id": 3977,
+      "security_id": 2845,
+      "ticker_symbol": "300029",
+      "sec_short_name": "天龙退",
+      "party_state": 6,
+      "publish_date": "2026-06-11",
+      "eff_date": "2026-06-18",
+      "reason": null,
+      "update_time": "2026-06-10T20:27:49"
+    },
+    {
+      "id": 3976,
+      "security_id": 2845,
+      "ticker_symbol": "300029",
+      "sec_short_name": "天龙退",
+      "party_state": 7,
+      "publish_date": "2026-06-11",
+      "eff_date": "2026-07-09",
+      "reason": null,
+      "update_time": "2026-06-10T20:27:48"
+    },
+    {
+      "id": 3975,
+      "security_id": 465,
+      "ticker_symbol": "000908",
+      "sec_short_name": "景峰医药",
+      "party_state": 1,
+      "publish_date": "2026-06-11",
+      "eff_date": "2026-06-12",
+      "reason": null,
+      "update_time": "2026-06-10T20:23:49"
+    },
+    {
+      "id": 3974,
+      "security_id": 77489,
+      "ticker_symbol": "003032",
+      "sec_short_name": "传智教育",
+      "party_state": 1,
+      "publish_date": "2026-06-10",
+      "eff_date": "2026-06-11",
+      "reason": null,
+      "update_time": "2026-06-09T20:37:00"
+    },
+    {
+      "id": 3973,
+      "security_id": 77901,
+      "ticker_symbol": "688189",
+      "sec_short_name": "ST南新",
+      "party_state": 2,
+      "publish_date": "2026-06-10",
+      "eff_date": "2026-06-11",
+      "reason": 20.0,
+      "update_time": "2026-06-09T19:20:48"
+    },
+    {
+      "id": 3972,
+      "security_id": 3662,
+      "ticker_symbol": "300225",
+      "sec_short_name": "金力泰",
+      "party_state": 1,
+      "publish_date": "2026-06-10",
+      "eff_date": "2026-06-11",
+      "reason": null,
+      "update_time": "2026-06-09T18:51:00"
+    },
+    {
+      "id": 3971,
+      "security_id": 79940,
+      "ticker_symbol": "688287",
+      "sec_short_name": "退市观典",
+      "party_state": 5,
+      "publish_date": "2026-06-09",
+      "eff_date": "2026-06-10",
+      "reason": 32.0,
+      "update_time": "2026-06-08T18:57:24"
+    },
+    {
+      "id": 3970,
+      "security_id": 76981,
+      "ticker_symbol": "300831",
+      "sec_short_name": "ST派瑞",
+      "party_state": 2,
+      "publish_date": "2026-06-08",
+      "eff_date": "2026-06-09",
+      "reason": 20.0,
+      "update_time": "2026-06-07T19:04:52"
+    },
+    {
+      "id": 3969,
+      "security_id": 793,
+      "ticker_symbol": "600228",
+      "sec_short_name": "返利科技",
+      "party_state": 1,
+      "publish_date": "2026-06-06",
+      "eff_date": "2026-06-09",
+      "reason": null,
+      "update_time": "2026-06-05T17:10:54"
+    },
+    {
+      "id": 3968,
+      "security_id": 275,
+      "ticker_symbol": "000638",
+      "sec_short_name": "*ST万方",
+      "party_state": 5,
+      "publish_date": "2026-06-03",
+      "eff_date": "2026-06-03",
+      "reason": 13.0,
+      "update_time": "2026-06-02T19:38:44"
+    },
+    {
+      "id": 3967,
+      "security_id": 290,
+      "ticker_symbol": "000668",
+      "sec_short_name": "荣丰控股",
+      "party_state": 1,
+      "publish_date": "2026-06-02",
+      "eff_date": "2026-06-03",
+      "reason": null,
+      "update_time": "2026-06-01T20:50:30"
+    },
+    {
+      "id": 3966,
+      "security_id": 2366,
+      "ticker_symbol": "002200",
+      "sec_short_name": "交投生态",
+      "party_state": 1,
+      "publish_date": "2026-06-02",
+      "eff_date": "2026-06-03",
+      "reason": null,
+      "update_time": "2026-06-01T20:46:59"
+    },
+    {
+      "id": 3965,
+      "security_id": 3536,
+      "ticker_symbol": "300175",
+      "sec_short_name": "朗源股份",
+      "party_state": 1,
+      "publish_date": "2026-06-02",
+      "eff_date": "2026-06-03",
+      "reason": null,
+      "update_time": "2026-06-01T20:25:23"
+    },
+    {
+      "id": 3964,
+      "security_id": 348,
+      "ticker_symbol": "000736",
+      "sec_short_name": "中交地产",
+      "party_state": 1,
+      "publish_date": "2026-06-02",
+      "eff_date": "2026-06-03",
+      "reason": null,
+      "update_time": "2026-06-01T19:46:57"
+    },
+    {
+      "id": 3963,
+      "security_id": 77257,
+      "ticker_symbol": "605081",
+      "sec_short_name": "退市太和",
+      "party_state": 7,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-29",
+      "reason": null,
+      "update_time": "2026-05-29T20:51:25"
+    },
+    {
+      "id": 3962,
+      "security_id": 77257,
+      "ticker_symbol": "605081",
+      "sec_short_name": "退市太和",
+      "party_state": 6,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-08",
+      "reason": null,
+      "update_time": "2026-05-29T20:51:25"
+    },
+    {
+      "id": 3961,
+      "security_id": 77257,
+      "ticker_symbol": "605081",
+      "sec_short_name": "退市太和",
+      "party_state": 1,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-08",
+      "reason": null,
+      "update_time": "2026-05-29T20:51:24"
+    },
+    {
+      "id": 3960,
+      "security_id": 761,
+      "ticker_symbol": "600193",
+      "sec_short_name": "退市创兴",
+      "party_state": 7,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-29",
+      "reason": null,
+      "update_time": "2026-05-29T20:30:29"
+    },
+    {
+      "id": 3959,
+      "security_id": 761,
+      "ticker_symbol": "600193",
+      "sec_short_name": "退市创兴",
+      "party_state": 6,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-08",
+      "reason": null,
+      "update_time": "2026-05-29T20:30:29"
+    },
+    {
+      "id": 3958,
+      "security_id": 761,
+      "ticker_symbol": "600193",
+      "sec_short_name": "退市创兴",
+      "party_state": 1,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-08",
+      "reason": null,
+      "update_time": "2026-05-29T20:30:29"
+    },
+    {
+      "id": 3957,
+      "security_id": 1244,
+      "ticker_symbol": "600608",
+      "sec_short_name": "退市沪科",
+      "party_state": 1,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-08",
+      "reason": null,
+      "update_time": "2026-05-29T20:27:37"
+    },
+    {
+      "id": 3956,
+      "security_id": 1244,
+      "ticker_symbol": "600608",
+      "sec_short_name": "退市沪科",
+      "party_state": 7,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-29",
+      "reason": null,
+      "update_time": "2026-05-29T20:27:37"
+    },
+    {
+      "id": 3955,
+      "security_id": 1244,
+      "ticker_symbol": "600608",
+      "sec_short_name": "退市沪科",
+      "party_state": 6,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-08",
+      "reason": null,
+      "update_time": "2026-05-29T20:27:36"
+    },
+    {
+      "id": 3954,
+      "security_id": 35362,
+      "ticker_symbol": "002848",
+      "sec_short_name": "高斯贝尔",
+      "party_state": 1,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-02",
+      "reason": null,
+      "update_time": "2026-05-29T17:25:04"
+    },
+    {
+      "id": 3953,
+      "security_id": 609349,
+      "ticker_symbol": "603721",
+      "sec_short_name": "中广天择",
+      "party_state": 1,
+      "publish_date": "2026-05-30",
+      "eff_date": "2026-06-02",
+      "reason": null,
+      "update_time": "2026-05-29T16:15:16"
+    },
+    {
+      "id": 3952,
+      "security_id": 309,
+      "ticker_symbol": "000691",
+      "sec_short_name": "亚太实业",
+      "party_state": 1,
+      "publish_date": "2026-05-29",
+      "eff_date": "2026-06-01",
+      "reason": null,
+      "update_time": "2026-05-28T19:53:32"
+    },
+    {
+      "id": 3951,
+      "security_id": 30833,
+      "ticker_symbol": "300561",
+      "sec_short_name": "汇金科技",
+      "party_state": 1,
+      "publish_date": "2026-05-27",
+      "eff_date": "2026-05-28",
+      "reason": null,
+      "update_time": "2026-05-26T21:22:10"
+    },
+    {
+      "id": 3950,
+      "security_id": 994,
+      "ticker_symbol": "600421",
+      "sec_short_name": "退市华嵘",
+      "party_state": 7,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-22",
+      "reason": null,
+      "update_time": "2026-05-24T15:55:11"
+    },
+    {
+      "id": 3949,
+      "security_id": 994,
+      "ticker_symbol": "600421",
+      "sec_short_name": "退市华嵘",
+      "party_state": 6,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-01",
+      "reason": null,
+      "update_time": "2026-05-24T15:55:11"
+    },
+    {
+      "id": 3948,
+      "security_id": 994,
+      "ticker_symbol": "600421",
+      "sec_short_name": "退市华嵘",
+      "party_state": 1,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-01",
+      "reason": null,
+      "update_time": "2026-05-24T15:55:10"
+    },
+    {
+      "id": 3947,
+      "security_id": 1280,
+      "ticker_symbol": "600636",
+      "sec_short_name": "退市国化",
+      "party_state": 1,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-01",
+      "reason": null,
+      "update_time": "2026-05-24T14:40:31"
+    },
+    {
+      "id": 3946,
+      "security_id": 1280,
+      "ticker_symbol": "600636",
+      "sec_short_name": "退市国化",
+      "party_state": 6,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-01",
+      "reason": null,
+      "update_time": "2026-05-24T14:40:30"
+    },
+    {
+      "id": 3945,
+      "security_id": 1280,
+      "ticker_symbol": "600636",
+      "sec_short_name": "退市国化",
+      "party_state": 7,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-22",
+      "reason": null,
+      "update_time": "2026-05-24T14:40:30"
+    },
+    {
+      "id": 3944,
+      "security_id": 1343,
+      "ticker_symbol": "600696",
+      "sec_short_name": "退市岩石",
+      "party_state": 7,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-22",
+      "reason": null,
+      "update_time": "2026-05-22T20:40:36"
+    },
+    {
+      "id": 3943,
+      "security_id": 1343,
+      "ticker_symbol": "600696",
+      "sec_short_name": "退市岩石",
+      "party_state": 6,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-01",
+      "reason": null,
+      "update_time": "2026-05-22T20:40:36"
+    },
+    {
+      "id": 3942,
+      "security_id": 1343,
+      "ticker_symbol": "600696",
+      "sec_short_name": "退市岩石",
+      "party_state": 1,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-01",
+      "reason": null,
+      "update_time": "2026-05-25T07:10:44"
+    },
+    {
+      "id": 3941,
+      "security_id": 1233,
+      "ticker_symbol": "600599",
+      "sec_short_name": "退市熊猫",
+      "party_state": 7,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-22",
+      "reason": null,
+      "update_time": "2026-05-22T20:24:01"
+    },
+    {
+      "id": 3940,
+      "security_id": 1233,
+      "ticker_symbol": "600599",
+      "sec_short_name": "退市熊猫",
+      "party_state": 6,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-01",
+      "reason": null,
+      "update_time": "2026-05-22T20:24:01"
+    },
+    {
+      "id": 3939,
+      "security_id": 1233,
+      "ticker_symbol": "600599",
+      "sec_short_name": "退市熊猫",
+      "party_state": 1,
+      "publish_date": "2026-05-23",
+      "eff_date": "2026-06-01",
+      "reason": null,
+      "update_time": "2026-05-25T07:11:27"
+    },
+    {
+      "id": 3938,
+      "security_id": 4680,
+      "ticker_symbol": "002693",
+      "sec_short_name": "双成药业",
+      "party_state": 1,
+      "publish_date": "2026-05-22",
+      "eff_date": "2026-05-25",
+      "reason": null,
+      "update_time": "2026-05-21T21:28:09"
+    },
+    {
+      "id": 3937,
+      "security_id": 247,
+      "ticker_symbol": "000608",
+      "sec_short_name": "阳光股份",
+      "party_state": 1,
+      "publish_date": "2026-05-20",
+      "eff_date": "2026-05-21",
+      "reason": null,
+      "update_time": "2026-05-19T21:09:11"
+    },
+    {
+      "id": 3936,
+      "security_id": 1787,
+      "ticker_symbol": "002047",
+      "sec_short_name": "宝鹰股份",
+      "party_state": 1,
+      "publish_date": "2026-05-20",
+      "eff_date": "2026-05-21",
+      "reason": null,
+      "update_time": "2026-05-19T21:07:18"
+    },
+    {
+      "id": 3935,
+      "security_id": 79168,
+      "ticker_symbol": "001270",
+      "sec_short_name": "铖昌科技",
+      "party_state": 1,
+      "publish_date": "2026-05-19",
+      "eff_date": "2026-05-20",
+      "reason": null,
+      "update_time": "2026-05-18T21:03:07"
+    },
+    {
+      "id": 3934,
+      "security_id": 76355,
+      "ticker_symbol": "003004",
+      "sec_short_name": "声迅股份",
+      "party_state": 1,
+      "publish_date": "2026-05-19",
+      "eff_date": "2026-05-20",
+      "reason": null,
+      "update_time": "2026-05-18T19:57:24"
+    },
+    {
+      "id": 3932,
+      "security_id": 158,
+      "ticker_symbol": "000518",
+      "sec_short_name": "四环生物",
+      "party_state": 1,
+      "publish_date": "2026-05-19",
+      "eff_date": "2026-05-20",
+      "reason": null,
+      "update_time": "2026-05-18T19:20:48"
+    },
+    {
+      "id": 3931,
+      "security_id": 930,
+      "ticker_symbol": "600360",
+      "sec_short_name": "华微电子",
+      "party_state": 1,
+      "publish_date": "2026-05-19",
+      "eff_date": "2026-05-20",
+      "reason": null,
+      "update_time": "2026-05-18T17:41:40"
+    },
+    {
+      "id": 3930,
+      "security_id": 136,
+      "ticker_symbol": "000430",
+      "sec_short_name": "张家界",
+      "party_state": 1,
+      "publish_date": "2026-05-15",
+      "eff_date": "2026-05-18",
+      "reason": null,
+      "update_time": "2026-05-14T19:52:20"
+    },
+    {
+      "id": 3929,
+      "security_id": 77797,
+      "ticker_symbol": "300899",
+      "sec_short_name": "上海凯鑫",
+      "party_state": 1,
+      "publish_date": "2026-05-13",
+      "eff_date": "2026-05-14",
+      "reason": null,
+      "update_time": "2026-05-12T20:36:03"
+    },
+    {
+      "id": 3928,
+      "security_id": 79940,
+      "ticker_symbol": "688287",
+      "sec_short_name": "退市观典",
+      "party_state": 1,
+      "publish_date": "2026-05-12",
+      "eff_date": "2026-05-19",
+      "reason": null,
+      "update_time": "2026-05-12T08:18:45"
+    },
+    {
+      "id": 3927,
+      "security_id": 456617,
+      "ticker_symbol": "002868",
+      "sec_short_name": "绿康生化",
+      "party_state": 1,
+      "publish_date": "2026-05-12",
+      "eff_date": "2026-05-13",
+      "reason": null,
+      "update_time": "2026-05-11T22:30:18"
+    },
+    {
+      "id": 3926,
+      "security_id": 3819,
+      "ticker_symbol": "300268",
+      "sec_short_name": "佳沃食品",
+      "party_state": 1,
+      "publish_date": "2026-05-12",
+      "eff_date": "2026-05-13",
+      "reason": null,
+      "update_time": "2026-05-11T20:56:08"
+    },
+    {
+      "id": 3925,
+      "security_id": 78732,
+      "ticker_symbol": "301288",
+      "sec_short_name": "清研环境",
+      "party_state": 1,
+      "publish_date": "2026-05-12",
+      "eff_date": "2026-05-13",
+      "reason": null,
+      "update_time": "2026-05-11T20:48:23"
+    },
+    {
+      "id": 3924,
+      "security_id": 79940,
+      "ticker_symbol": "688287",
+      "sec_short_name": "退市观典",
+      "party_state": 7,
+      "publish_date": "2026-05-12",
+      "eff_date": "2026-06-08",
+      "reason": null,
+      "update_time": "2026-05-11T19:36:51"
+    },
+    {
+      "id": 3923,
+      "security_id": 79940,
+      "ticker_symbol": "688287",
+      "sec_short_name": "退市观典",
+      "party_state": 6,
+      "publish_date": "2026-05-12",
+      "eff_date": "2026-05-19",
+      "reason": null,
+      "update_time": "2026-05-11T19:36:51"
+    },
+    {
+      "id": 3922,
+      "security_id": 78249,
+      "ticker_symbol": "301139",
+      "sec_short_name": "*ST元道",
+      "party_state": 2,
+      "publish_date": "2026-05-09",
+      "eff_date": "2026-05-12",
+      "reason": 49.0,
+      "update_time": "2026-05-08T21:36:35"
+    },
+    {
+      "id": 3921,
+      "security_id": 4461,
+      "ticker_symbol": "002667",
+      "sec_short_name": "*ST威领",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-30T07:44:32"
+    },
+    {
+      "id": 3920,
+      "security_id": 2734,
+      "ticker_symbol": "300010",
+      "sec_short_name": "ST豆神",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-30T07:42:14"
+    },
+    {
+      "id": 3919,
+      "security_id": 29202,
+      "ticker_symbol": "300430",
+      "sec_short_name": "*ST益通",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-30T07:39:23"
+    },
+    {
+      "id": 3918,
+      "security_id": 92,
+      "ticker_symbol": "000078",
+      "sec_short_name": "ST海王",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T23:56:46"
+    },
+    {
+      "id": 3917,
+      "security_id": 2063,
+      "ticker_symbol": "002082",
+      "sec_short_name": "ST万邦",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T23:46:55"
+    },
+    {
+      "id": 3916,
+      "security_id": 77856,
+      "ticker_symbol": "301030",
+      "sec_short_name": "*ST仕净",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T23:43:20"
+    },
+    {
+      "id": 3915,
+      "security_id": 754,
+      "ticker_symbol": "600187",
+      "sec_short_name": "*ST国中",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 20.0,
+      "update_time": "2026-04-29T23:42:12"
+    },
+    {
+      "id": 3914,
+      "security_id": 904,
+      "ticker_symbol": "600340",
+      "sec_short_name": "*ST华幸",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 20.0,
+      "update_time": "2026-04-29T23:36:24"
+    },
+    {
+      "id": 3913,
+      "security_id": 79808,
+      "ticker_symbol": "688022",
+      "sec_short_name": "ST瀚川",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T23:32:08"
+    },
+    {
+      "id": 3911,
+      "security_id": 608872,
+      "ticker_symbol": "603378",
+      "sec_short_name": "*ST亚士",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 24.0,
+      "update_time": "2026-04-29T23:29:35"
+    },
+    {
+      "id": 3910,
+      "security_id": 1392,
+      "ticker_symbol": "600745",
+      "sec_short_name": "*ST闻泰",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T23:17:07"
+    },
+    {
+      "id": 3909,
+      "security_id": 901,
+      "ticker_symbol": "600337",
+      "sec_short_name": "ST美克",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 20.0,
+      "update_time": "2026-04-29T23:12:04"
+    },
+    {
+      "id": 3908,
+      "security_id": 867,
+      "ticker_symbol": "600302",
+      "sec_short_name": "ST标准",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T23:07:28"
+    },
+    {
+      "id": 3907,
+      "security_id": 3462,
+      "ticker_symbol": "002514",
+      "sec_short_name": "*ST宝馨",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 48.0,
+      "update_time": "2026-04-29T22:33:40"
+    },
+    {
+      "id": 3906,
+      "security_id": 39918,
+      "ticker_symbol": "002883",
+      "sec_short_name": "*ST中设",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 20.0,
+      "update_time": "2026-04-29T22:28:17"
+    },
+    {
+      "id": 3905,
+      "security_id": 4709,
+      "ticker_symbol": "300352",
+      "sec_short_name": "ST信源",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T22:24:18"
+    },
+    {
+      "id": 3904,
+      "security_id": 29471,
+      "ticker_symbol": "002742",
+      "sec_short_name": "三圣股份",
+      "party_state": 1,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": null,
+      "update_time": "2026-04-29T22:17:04"
+    },
+    {
+      "id": 3903,
+      "security_id": 297,
+      "ticker_symbol": "000677",
+      "sec_short_name": "ST海龙",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T22:11:17"
+    },
+    {
+      "id": 3902,
+      "security_id": 79828,
+      "ticker_symbol": "688033",
+      "sec_short_name": "*ST天宜",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T22:07:02"
+    },
+    {
+      "id": 3901,
+      "security_id": 79827,
+      "ticker_symbol": "688066",
+      "sec_short_name": "*ST航图",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T22:05:00"
+    },
+    {
+      "id": 3900,
+      "security_id": 2368,
+      "ticker_symbol": "002198",
+      "sec_short_name": "ST嘉应",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T21:50:38"
+    },
+    {
+      "id": 3899,
+      "security_id": 1744,
+      "ticker_symbol": "600965",
+      "sec_short_name": "*ST福成",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T21:42:10"
+    },
+    {
+      "id": 3898,
+      "security_id": 29823,
+      "ticker_symbol": "603189",
+      "sec_short_name": "*ST网达",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 20.0,
+      "update_time": "2026-04-29T21:32:27"
+    },
+    {
+      "id": 3897,
+      "security_id": 2094,
+      "ticker_symbol": "002109",
+      "sec_short_name": "ST兴化",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T21:24:53"
+    },
+    {
+      "id": 3896,
+      "security_id": 29847,
+      "ticker_symbol": "603718",
+      "sec_short_name": "*ST海利",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 20.0,
+      "update_time": "2026-04-29T21:21:03"
+    },
+    {
+      "id": 3895,
+      "security_id": 3214,
+      "ticker_symbol": "300076",
+      "sec_short_name": "*ST宁视",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 20.0,
+      "update_time": "2026-04-29T21:16:19"
+    },
+    {
+      "id": 3894,
+      "security_id": 4774,
+      "ticker_symbol": "300396",
+      "sec_short_name": "ST迪瑞",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 23.0,
+      "update_time": "2026-04-29T20:49:27"
+    },
+    {
+      "id": 3893,
+      "security_id": 314,
+      "ticker_symbol": "000697",
+      "sec_short_name": "炼石航空",
+      "party_state": 1,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": null,
+      "update_time": "2026-04-29T20:45:11"
+    },
+    {
+      "id": 3892,
+      "security_id": 3298,
+      "ticker_symbol": "601718",
+      "sec_short_name": "ST际华",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 29.0,
+      "update_time": "2026-04-29T20:43:15"
+    },
+    {
+      "id": 3891,
+      "security_id": 2323,
+      "ticker_symbol": "002193",
+      "sec_short_name": "ST如意",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 20.0,
+      "update_time": "2026-04-29T20:34:20"
+    },
+    {
+      "id": 3890,
+      "security_id": 1076,
+      "ticker_symbol": "600491",
+      "sec_short_name": "ST龙元",
+      "party_state": 2,
+      "publish_date": "2026-04-30",
+      "eff_date": "2026-05-06",
+      "reason": 20.0,
+      "update_time": "2026-04-29T19:45:02"
+    },
+    {
+      "id": 3912,
+      "security_id": 80124,
+      "ticker_symbol": "920575",
+      "sec_short_name": "*ST康乐",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-05-06",
+      "reason": 24.0,
+      "update_time": "2026-04-29T23:30:00"
+    },
+    {
+      "id": 3889,
+      "security_id": 4926,
+      "ticker_symbol": "002726",
+      "sec_short_name": "ST龙大",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-29T08:17:25"
+    },
+    {
+      "id": 3888,
+      "security_id": 19,
+      "ticker_symbol": "000010",
+      "sec_short_name": "*ST美丽",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-29T08:15:18"
+    },
+    {
+      "id": 3887,
+      "security_id": 30592,
+      "ticker_symbol": "002856",
+      "sec_short_name": "*ST美芝",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 24.0,
+      "update_time": "2026-04-29T08:13:27"
+    },
+    {
+      "id": 3886,
+      "security_id": 2080,
+      "ticker_symbol": "002102",
+      "sec_short_name": "ST能特",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-29T08:10:52"
+    },
+    {
+      "id": 3885,
+      "security_id": 2772,
+      "ticker_symbol": "002323",
+      "sec_short_name": "*ST雅博",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-29T08:04:43"
+    },
+    {
+      "id": 3884,
+      "security_id": 3489,
+      "ticker_symbol": "002547",
+      "sec_short_name": "*ST春兴",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 24.0,
+      "update_time": "2026-04-29T07:58:26"
+    },
+    {
+      "id": 3883,
+      "security_id": 2767,
+      "ticker_symbol": "300027",
+      "sec_short_name": "ST华谊",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 51.0,
+      "update_time": "2026-04-29T07:54:09"
+    },
+    {
+      "id": 3882,
+      "security_id": 3185,
+      "ticker_symbol": "300068",
+      "sec_short_name": "ST南都",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-29T00:05:39"
+    },
+    {
+      "id": 3881,
+      "security_id": 76349,
+      "ticker_symbol": "300594",
+      "sec_short_name": "ST朗进",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-29T00:03:43"
+    },
+    {
+      "id": 3880,
+      "security_id": 3442,
+      "ticker_symbol": "002501",
+      "sec_short_name": "*ST利源",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-29T00:01:24"
+    },
+    {
+      "id": 3879,
+      "security_id": 270,
+      "ticker_symbol": "000632",
+      "sec_short_name": "ST三木",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T23:53:32"
+    },
+    {
+      "id": 3878,
+      "security_id": 276,
+      "ticker_symbol": "000639",
+      "sec_short_name": "ST西王",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T23:50:43"
+    },
+    {
+      "id": 3877,
+      "security_id": 468,
+      "ticker_symbol": "000911",
+      "sec_short_name": "*ST广糖",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T23:48:25"
+    },
+    {
+      "id": 3876,
+      "security_id": 746,
+      "ticker_symbol": "600180",
+      "sec_short_name": "*ST瑞茂",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T23:28:23"
+    },
+    {
+      "id": 3875,
+      "security_id": 628,
+      "ticker_symbol": "600053",
+      "sec_short_name": "*ST九鼎",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T23:20:46"
+    },
+    {
+      "id": 3874,
+      "security_id": 804,
+      "ticker_symbol": "600239",
+      "sec_short_name": "ST云城",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 51.0,
+      "update_time": "2026-04-28T23:02:32"
+    },
+    {
+      "id": 3873,
+      "security_id": 4641,
+      "ticker_symbol": "002694",
+      "sec_short_name": "*ST顾地",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T22:45:44"
+    },
+    {
+      "id": 3871,
+      "security_id": 4613,
+      "ticker_symbol": "002691",
+      "sec_short_name": "*ST冀凯",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T22:29:43"
+    },
+    {
+      "id": 3870,
+      "security_id": 412,
+      "ticker_symbol": "000826",
+      "sec_short_name": "*ST启环",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 24.0,
+      "update_time": "2026-04-28T22:20:09"
+    },
+    {
+      "id": 3869,
+      "security_id": 77641,
+      "ticker_symbol": "688622",
+      "sec_short_name": "*ST禾信",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T22:08:43"
+    },
+    {
+      "id": 3868,
+      "security_id": 4477,
+      "ticker_symbol": "603729",
+      "sec_short_name": "ST龙韵",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T22:02:46"
+    },
+    {
+      "id": 3867,
+      "security_id": 3652,
+      "ticker_symbol": "300212",
+      "sec_short_name": "*ST易录",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T21:47:03"
+    },
+    {
+      "id": 3866,
+      "security_id": 1321,
+      "ticker_symbol": "600678",
+      "sec_short_name": "ST金顶",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T21:33:36"
+    },
+    {
+      "id": 3865,
+      "security_id": 4505,
+      "ticker_symbol": "603359",
+      "sec_short_name": "*ST东珠",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T21:20:26"
+    },
+    {
+      "id": 3864,
+      "security_id": 79495,
+      "ticker_symbol": "688496",
+      "sec_short_name": "ST清越",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T21:11:01"
+    },
+    {
+      "id": 3863,
+      "security_id": 655,
+      "ticker_symbol": "600080",
+      "sec_short_name": "ST金花",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T21:07:19"
+    },
+    {
+      "id": 3862,
+      "security_id": 1381,
+      "ticker_symbol": "600734",
+      "sec_short_name": "*ST实达",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T21:20:50"
+    },
+    {
+      "id": 3861,
+      "security_id": 30,
+      "ticker_symbol": "200016",
+      "sec_short_name": "*ST康佳B",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T20:14:16"
+    },
+    {
+      "id": 3860,
+      "security_id": 29,
+      "ticker_symbol": "000016",
+      "sec_short_name": "*ST康佳A",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T20:12:17"
+    },
+    {
+      "id": 3859,
+      "security_id": 75247,
+      "ticker_symbol": "603922",
+      "sec_short_name": "ST金鸿顺",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T19:52:15"
+    },
+    {
+      "id": 3858,
+      "security_id": 3166,
+      "ticker_symbol": "601010",
+      "sec_short_name": "ST文峰",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T18:53:45"
+    },
+    {
+      "id": 3857,
+      "security_id": 939,
+      "ticker_symbol": "600370",
+      "sec_short_name": "*ST三房",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T18:41:03"
+    },
+    {
+      "id": 3856,
+      "security_id": 2289,
+      "ticker_symbol": "002175",
+      "sec_short_name": "*ST东智",
+      "party_state": 2,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": 20.0,
+      "update_time": "2026-04-28T18:16:00"
+    },
+    {
+      "id": 3855,
+      "security_id": 705,
+      "ticker_symbol": "600130",
+      "sec_short_name": "波导股份",
+      "party_state": 1,
+      "publish_date": "2026-04-29",
+      "eff_date": "2026-04-30",
+      "reason": null,
+      "update_time": "2026-04-28T18:08:33"
+    },
+    {
+      "id": 3872,
+      "security_id": 80306,
+      "ticker_symbol": "920023",
+      "sec_short_name": "*ST田野",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-30",
+      "reason": 23.0,
+      "update_time": "2026-04-28T22:33:12"
+    },
+    {
+      "id": 3854,
+      "security_id": 4754,
+      "ticker_symbol": "002719",
+      "sec_short_name": "ST麦趣",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 20.0,
+      "update_time": "2026-04-28T00:06:43"
+    },
+    {
+      "id": 3853,
+      "security_id": 1407,
+      "ticker_symbol": "600759",
+      "sec_short_name": "ST洲际",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 23.0,
+      "update_time": "2026-04-28T00:01:48"
+    },
+    {
+      "id": 3852,
+      "security_id": 3316,
+      "ticker_symbol": "300245",
+      "sec_short_name": "ST天玑",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 23.0,
+      "update_time": "2026-04-27T23:27:59"
+    },
+    {
+      "id": 3851,
+      "security_id": 1052,
+      "ticker_symbol": "600476",
+      "sec_short_name": "*ST湘邮",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 24.0,
+      "update_time": "2026-04-27T23:16:38"
+    },
+    {
+      "id": 3850,
+      "security_id": 2896,
+      "ticker_symbol": "002360",
+      "sec_short_name": "ST同德",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 23.0,
+      "update_time": "2026-04-27T22:43:09"
+    },
+    {
+      "id": 3849,
+      "security_id": 2381,
+      "ticker_symbol": "002207",
+      "sec_short_name": "*ST准油",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 20.0,
+      "update_time": "2026-04-27T22:40:15"
+    },
+    {
+      "id": 3848,
+      "security_id": 1464,
+      "ticker_symbol": "900915",
+      "sec_short_name": "ST中路B",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 23.0,
+      "update_time": "2026-04-27T22:16:58"
+    },
+    {
+      "id": 3847,
+      "security_id": 1463,
+      "ticker_symbol": "600818",
+      "sec_short_name": "ST中路",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 23.0,
+      "update_time": "2026-04-27T22:15:21"
+    },
+    {
+      "id": 3846,
+      "security_id": 77668,
+      "ticker_symbol": "688201",
+      "sec_short_name": "ST信安",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 23.0,
+      "update_time": "2026-04-27T21:35:41"
+    },
+    {
+      "id": 3845,
+      "security_id": 78913,
+      "ticker_symbol": "603272",
+      "sec_short_name": "*ST联翔",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 22.0,
+      "update_time": "2026-04-27T21:10:30"
+    },
+    {
+      "id": 3844,
+      "security_id": 659,
+      "ticker_symbol": "600084",
+      "sec_short_name": "*ST尼雅",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 22.0,
+      "update_time": "2026-04-27T20:02:39"
+    },
+    {
+      "id": 3843,
+      "security_id": 1139,
+      "ticker_symbol": "600537",
+      "sec_short_name": "*ST亿晶",
+      "party_state": 2,
+      "publish_date": "2026-04-28",
+      "eff_date": "2026-04-29",
+      "reason": 24.0,
+      "update_time": "2026-04-27T19:01:47"
+    },
+    {
+      "id": 3841,
+      "security_id": 695,
+      "ticker_symbol": "600119",
+      "sec_short_name": "*ST长投",
+      "party_state": 2,
+      "publish_date": "2026-04-27",
+      "eff_date": "2026-04-28",
+      "reason": 20.0,
+      "update_time": "2026-04-26T15:55:27"
+    },
+    {
+      "id": 3840,
+      "security_id": 4090,
+      "ticker_symbol": "002634",
+      "sec_short_name": "*ST棒杰",
+      "party_state": 2,
+      "publish_date": "2026-04-25",
+      "eff_date": "2026-04-28",
+      "reason": 20.0,
+      "update_time": "2026-04-24T22:07:26"
+    },
+    {
+      "id": 3839,
+      "security_id": 3196,
+      "ticker_symbol": "002431",
+      "sec_short_name": "ST棕榈",
+      "party_state": 2,
+      "publish_date": "2026-04-25",
+      "eff_date": "2026-04-28",
+      "reason": 20.0,
+      "update_time": "2026-04-24T21:51:09"
+    },
+    {
+      "id": 3838,
+      "security_id": 29459,
+      "ticker_symbol": "603959",
+      "sec_short_name": "ST百利",
+      "party_state": 2,
+      "publish_date": "2026-04-25",
+      "eff_date": "2026-04-28",
+      "reason": 23.0,
+      "update_time": "2026-04-24T20:21:41"
+    },
+    {
+      "id": 3837,
+      "security_id": 4625,
+      "ticker_symbol": "603008",
+      "sec_short_name": "ST喜临门",
+      "party_state": 2,
+      "publish_date": "2026-04-25",
+      "eff_date": "2026-04-28",
+      "reason": 23.0,
+      "update_time": "2026-04-24T19:34:38"
+    },
+    {
+      "id": 3836,
+      "security_id": 997,
+      "ticker_symbol": "600423",
+      "sec_short_name": "*ST柳化",
+      "party_state": 2,
+      "publish_date": "2026-04-25",
+      "eff_date": "2026-04-28",
+      "reason": 20.0,
+      "update_time": "2026-04-24T18:42:08"
+    },
+    {
+      "id": 3835,
+      "security_id": 1377,
+      "ticker_symbol": "600730",
+      "sec_short_name": "*ST高科",
+      "party_state": 2,
+      "publish_date": "2026-04-25",
+      "eff_date": "2026-04-28",
+      "reason": 20.0,
+      "update_time": "2026-04-24T18:34:55"
+    },
+    {
+      "id": 3834,
+      "security_id": 79,
+      "ticker_symbol": "200056",
+      "sec_short_name": "*ST皇庭B",
+      "party_state": 2,
+      "publish_date": "2026-04-24",
+      "eff_date": "2026-04-27",
+      "reason": 20.0,
+      "update_time": "2026-04-23T22:31:39"
+    }
+  ],
+  "corporate_action_summary": [
+    {
+      "first_ex_div_date": "1991-02-26",
+      "last_ex_div_date": "2026-07-28",
+      "row_count": 61659,
+      "distinct_security_ids": 5867,
+      "missing_ex_div_date": 0.0
+    }
+  ],
+  "corporate_action_duplicate_keys": [],
+  "interpretation_limits": [
+    "The result selects source candidates and checks clocks/coverage only.",
+    "Portfolio execution may use realized halt and limit state at execution time; signal construction may not read future execution state.",
+    "mkt_adjf is permitted only to locate ex-dividend event dates for masking; cumulative adjustment factors are forbidden model inputs.",
+    "A fixed source snapshot and full PIT plus behavior audits remain mandatory."
+  ]
+}

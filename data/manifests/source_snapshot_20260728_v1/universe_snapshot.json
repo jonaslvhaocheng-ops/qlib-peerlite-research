@@ -1,0 +1,10 @@
+{
+  "schema_version": "qlib_peerlite_universe_snapshot_v1",
+  "definition": "CSI300 SECURITY_ID=1782 union CSI500 SECURITY_ID=2103",
+  "membership_rule": "announcement <= prediction_time and prediction_time in [effective_from,effective_to)",
+  "source_manifest": {
+    "manifest": "idx_cons_core.manifest.json",
+    "manifest_sha256": "d6c5e5b2acfe2b8b1d354a07a7fed0a3e5b594eaa7dafc2c871fed48a5565667"
+  },
+  "universe_hash": "4c4fde609a8ee6cf21fdc40114f368fdbb5a102d661d6c630e223a785b7dee97"
+}

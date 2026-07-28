@@ -1,0 +1,37 @@
+{
+  "schema_version": "qlib_peerlite_oos_sealed_ingestion_policy_v1",
+  "policy_id": "oos-sealed-ingestion-v1",
+  "final_oos_start": "2025-01-01",
+  "final_oos_prediction_end": "2026-06-30",
+  "raw_label_support_end": "2026-07-10",
+  "pre_freeze_allowed_operations": [
+    "automated source copy into a new immutable snapshot directory",
+    "schema capture",
+    "row-count accounting",
+    "partition and manifest SHA-256 computation"
+  ],
+  "pre_freeze_forbidden_operations": [
+    "display or export final-OOS price or label values to an analyst",
+    "compute returns, labels, features, predictions, metrics or slices on final OOS",
+    "choose a source, model, parameter, threshold or rule from final-OOS outcomes",
+    "modify or replace an existing snapshot in place"
+  ],
+  "access_accounting": {
+    "automated_sealed_ingestion": "does not increment analytical access_count because no outcome-bearing values or statistics are exposed",
+    "human_or_model_value_inspection": "increments access_count and invalidates UNTOUCHED",
+    "metric_or_slice_computation": "increments access_count and selection_uses and requires replacement OOS"
+  },
+  "storage_rule": "raw snapshot files are read-only; development products must be generated from pre-2025 rows only until the final-OOS opening ceremony",
+  "opening_gate": [
+    "frozen contract strict validation PASS",
+    "fixed PIT audit PASS/QUALIFIED",
+    "derived-feature behavior audit PASS",
+    "candidate selection and parameters frozen",
+    "append-only OOS access receipt written before evaluation"
+  ],
+  "limitations": [
+    "POSIX read-only permissions provide integrity friction, not independent access control",
+    "local logs cannot prove that no off-system access occurred",
+    "hashes prove content identity, not that vendor history is complete or revision-safe"
+  ]
+}

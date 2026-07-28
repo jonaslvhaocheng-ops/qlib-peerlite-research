@@ -1,0 +1,1023 @@
+{
+  "schema_version": "qlib_peerlite_universe_clock_discovery_v1",
+  "created_at": "2026-07-28T15:30:40.928490+08:00",
+  "mode": "VERIFY",
+  "target_claim": "MARKET_RECONSTRUCTIBLE",
+  "positive_ceiling": "CANDIDATE_DISCOVERY_ONLY_NEVER_PIT_PASS",
+  "table_candidates": [
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons",
+      "table_rows": 14872278,
+      "table_comment": "指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_cbond",
+      "table_rows": 7493012,
+      "table_comment": "中债指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_citic",
+      "table_rows": 23934,
+      "table_comment": "中信指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_cni",
+      "table_rows": 238626,
+      "table_comment": "国证指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_core",
+      "table_rows": 16374,
+      "table_comment": "重点指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_csi",
+      "table_rows": 5129289,
+      "table_comment": "中证指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_dy",
+      "table_rows": 67566,
+      "table_comment": "通联指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_hsi",
+      "table_rows": 19652,
+      "table_comment": "恒生指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_sw",
+      "table_rows": 116553,
+      "table_comment": "申万指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_pre_cons",
+      "table_rows": 5425,
+      "table_comment": "指数备选成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_exchange",
+      "table_rows": 2370108,
+      "table_comment": "交易所指数日行情"
+    }
+  ],
+  "clock_candidates": [
+    {
+      "table_schema": "abmdata",
+      "table_name": "bas_idx_information",
+      "column_name": "publish_date",
+      "column_type": "date",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "bas_idx_information",
+      "column_name": "entrytime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "bas_idx_information",
+      "column_name": "updatetime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "con_forecast_idx",
+      "column_name": "entrytime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "con_forecast_idx",
+      "column_name": "updatetime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "con_forecast_roll_idx",
+      "column_name": "entrytime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "con_forecast_roll_idx",
+      "column_name": "updatetime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "der_adjust_speed_idx",
+      "column_name": "entrytime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "der_adjust_speed_idx",
+      "column_name": "updatetime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "der_rating_strength_idx",
+      "column_name": "entrytime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "der_rating_strength_idx",
+      "column_name": "updatetime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "qt_indus_constituents",
+      "column_name": "entrytime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "abmdata",
+      "table_name": "qt_indus_constituents",
+      "column_name": "updatetime",
+      "column_type": "datetime",
+      "column_comment": "",
+      "table_comment": ""
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "cb_idxm_weight_0",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "中债指数月度权重(2002-2021)"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "cb_idxm_weight_0",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中债指数月度权重(2002-2021)"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "cb_idxm_weight_1",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "中债指数月度权重(2022-2031)"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "cb_idxm_weight_1",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中债指数月度权重(2022-2031)"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "cni_idxm_weight",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "国证月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "cni_idxm_weight",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "国证月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "con_index",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数一致预期数据表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "con_index_fy12",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数一致预期动态预测数据表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "csi_idx_weight",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "中证A股权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "csi_idx_weight",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中证A股权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "csi_idxm_wt_ashare",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "中证A股月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "csi_idxm_wt_ashare",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中证A股月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "csi_idxm_wt_bond",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "中证债券月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "csi_idxm_wt_bond",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中证债券月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "csi_idxm_wt_other",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "中证其他月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "csi_idxm_wt_other",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中证其他月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "esg_data_csi300",
+      "column_name": "PUBLISH_DATE",
+      "column_type": "date",
+      "column_comment": "发布日期",
+      "table_comment": "沪深300成分股社会责任数据汇总"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "esg_data_csi300",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "沪深300成分股社会责任数据汇总"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "esg_data_csi500",
+      "column_name": "PUBLISH_DATE",
+      "column_type": "date",
+      "column_comment": "发布日期",
+      "table_comment": "中证500成分股社会责任数据汇总"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "esg_data_csi500",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中证500成分股社会责任数据汇总"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "esg_rating_csi300",
+      "column_name": "PUBLISH_DATE",
+      "column_type": "date",
+      "column_comment": "数据发布日期",
+      "table_comment": "沪深300成分股ESG评级数据"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "esg_rating_csi300",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "沪深300成分股ESG评级数据"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "esg_rating_csi500",
+      "column_name": "PUBLISH_DATE",
+      "column_type": "date",
+      "column_comment": "数据发布日期",
+      "table_comment": "中证500成分股ESG评级数据"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "esg_rating_csi500",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中证500成分股ESG评级数据"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "fdmt_bs_idx",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数资产负债表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "fdmt_cf_idx",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数现金流量表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "fdmt_is_idx",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数利润表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "fund_etf_cons",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "ETF申购赎回成份券信息"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "hk_consl_shareholder",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "港股大股东综合名单"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "hk_shsz_cons",
+      "column_name": "PUBLISH_BEGIN_DATE",
+      "column_type": "date",
+      "column_comment": "起始日期发布时间",
+      "table_comment": "沪深港通证券名单"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "hk_shsz_cons",
+      "column_name": "PUBLISH_END_DATE",
+      "column_type": "date",
+      "column_comment": "截止日期发布时间",
+      "table_comment": "沪深港通证券名单"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "hk_shsz_cons",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "沪深港通证券名单"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "hsi_idxm_weight",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "恒生月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "hsi_idxm_weight",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "恒生月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx",
+      "column_name": "PUBLISH_DATE",
+      "column_type": "date",
+      "column_comment": "发布日期",
+      "table_comment": "指数基本情况"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数基本情况"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_cbond",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中债指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_citic",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中信指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_cni",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "国证指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_core",
+      "column_name": "INTO_PUB_DATE",
+      "column_type": "date",
+      "column_comment": "纳入公告日",
+      "table_comment": "重点指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_core",
+      "column_name": "OUT_PUB_DATE",
+      "column_type": "date",
+      "column_comment": "剔除公告日",
+      "table_comment": "重点指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_core",
+      "column_name": "INTO_EFF_DATE",
+      "column_type": "date",
+      "column_comment": "纳入生效日",
+      "table_comment": "重点指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_core",
+      "column_name": "OUT_EFF_DATE",
+      "column_type": "date",
+      "column_comment": "剔除生效日",
+      "table_comment": "重点指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_core",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "重点指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_csi",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中证指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_dy",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "通联指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_hsi",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "恒生指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_cons_sw",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "申万指数成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_opn_wt_aa_hs",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "通联全A(沪深)开盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_opn_wt_aa_hs",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "通联全A(沪深)开盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_opn_wt_aa_hsj",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "通联全A(沪深京)开盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_opn_wt_aa_hsj",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "通联全A(沪深京)开盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_opn_wt_mc_hs",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "通联微盘股(沪深)开盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_opn_wt_mc_hs",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "通联微盘股(沪深)开盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_pre_cons",
+      "column_name": "FIRST_PUBLISH_DATE",
+      "column_type": "date",
+      "column_comment": "首次公告日期",
+      "table_comment": "指数备选成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_pre_cons",
+      "column_name": "EFFE_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "指数备选成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_pre_cons",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数备选成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_pub_channel",
+      "column_name": "CHANNEL",
+      "column_type": "varchar(50)",
+      "column_comment": "行情发布渠道",
+      "table_comment": "指数发布渠道"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_pub_channel",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数发布渠道"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_rel",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数关联信息"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_weight",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "null"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_weight",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "null"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_wt_aa_hs",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "通联全A(沪深)收盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_wt_aa_hs",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "通联全A(沪深)收盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_wt_aa_hsj",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "通联全A(沪深京)收盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "idx_wt_aa_hsj",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "通联全A(沪深京)收盘权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "index_guide",
+      "column_name": "IS_ACTIVE",
+      "column_type": "bit(1)",
+      "column_comment": "是否生效",
+      "table_comment": "指数数据索引"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "index_guide",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数数据索引"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "md_inst_type",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "行业成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "md_sec_type",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "证券板块成分"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_com_idxd",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "商品指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_fut_idx_basis",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "股指期货升贴水"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idx_eval_ashare",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "沪深指数估值信息"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idx_int_perf",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数区间涨跌幅"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idx_mf",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数资金流向"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idx_mf_new",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数资金流向(新)"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idx_perf",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数最新表现"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idx_performance",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "股票指数业绩表现"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idx_ret",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数年收益率"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_cbond",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中债指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_citic",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中信指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_cni",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "国证指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_csi",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "中证指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_dy",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "通联指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_eval",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数估值信息"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_eval_stats",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数估值统计信息"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_exchange",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "交易所指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_hsi",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "恒生指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_msci",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "明晟指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_oth",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "其他指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_sch",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "上清所指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxd_sw",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "申万指数日行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxn",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数区间行情"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_idxn_ind",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "指数区间行情指标"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "mkt_inst_cons_v1",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "行业板块贡献度及权重信息(新)"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "news_stock_index_v2",
+      "column_name": "NEWS_EFFECTIVE_DATE",
+      "column_type": "date",
+      "column_comment": "新闻生效日期",
+      "table_comment": "公司新闻指数统计表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "news_stock_index_v2",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "公司新闻指数统计表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "sw_idxm_weight",
+      "column_name": "EFF_DATE",
+      "column_type": "date",
+      "column_comment": "生效日期",
+      "table_comment": "申万月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "sw_idxm_weight",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "申万月度权重"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "tkg_theme_market_v1",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "更新时间",
+      "table_comment": "主题市场指数新表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "vtkg_theme_hot",
+      "column_name": "EFFECTIVE_TIME",
+      "column_type": "datetime",
+      "column_comment": "计算热度的时间",
+      "table_comment": "主题热度指数表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "vtkg_theme_hot",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "最后更新日期",
+      "table_comment": "主题热度指数表"
+    },
+    {
+      "table_schema": "datayes",
+      "table_name": "vtkg_theme_market",
+      "column_name": "UPDATE_TIME",
+      "column_type": "datetime",
+      "column_comment": "最后更新日期",
+      "table_comment": "主题市场指数表"
+    }
+  ],
+  "status": "CANDIDATES_FOUND",
+  "interpretation_rule": "A name or comment match is not availability evidence. Each candidate requires an authoritative dictionary, revision semantics and sampled historical proof before selection."
+}

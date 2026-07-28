@@ -1,0 +1,34 @@
+{
+  "schema_version": "qlib_peerlite_phase_gate_v1",
+  "gate_id": "M0-STRICT",
+  "status": "PASS",
+  "executed": true,
+  "completed": true,
+  "passed": true,
+  "accepted_at": "2026-07-28T15:25:15+08:00",
+  "inputs": {
+    "uv_lock_sha256": "b406234ca9f9533c71425e0874d6b158cc2991f70ed1a3c8c9c9835e7c3c29ef",
+    "qlib_tag_commit": "v0.9.7@da920b7f954f48ab1bb64117c976710de198373e",
+    "lightgbm_tag_commit": "v4.6.0@d02a01ac6f51d36c9e62388243bcb75c3b1b1774",
+    "pytorch_tag_commit": "v2.7.1@e2d141dbde55c2a4370fac5165b0561b6af4798b"
+  },
+  "evidence": {
+    "local_environment": {
+      "path": "evidence/environment/local_v3.json",
+      "sha256": "eefe5eef5e202d3cf7d504778fe087e2c2c9570fb24efc880a910fbc8cd9a348"
+    },
+    "server_environment": {
+      "path": "evidence/environment/server.json",
+      "sha256": "e1905f20c9f6cf8991839a16097143bfa25102c0c6050dcf734975629c140e7c"
+    },
+    "local_tests": "ruff PASS; pytest 19 passed",
+    "server_tests": "ruff PASS; pytest 19 passed",
+    "cuda_smoke": "RTX 4090 forward/backward PASS, parameter_count=27089"
+  },
+  "limitations": [
+    "M0 proves environment and mechanics only",
+    "no data PIT, model performance or alpha claim is supported",
+    "local standalone LightGBM import still depends on macOS OpenMP; formal training target is Linux"
+  ],
+  "next_gate": "M1-STRICT data source eligibility"
+}

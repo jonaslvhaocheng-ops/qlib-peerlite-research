@@ -1,0 +1,129 @@
+{
+  "schema_version": "qlib_peerlite_source_snapshot_v1",
+  "source_id": "datayes-price-limits",
+  "table": "datayes.mkt_limit",
+  "snapshot_time": "2026-07-28T15:56:25.231948+08:00",
+  "query_bounds": {
+    "start_date": "2011-09-01",
+    "prediction_end": "2026-06-30",
+    "support_end": "2026-07-10",
+    "oos_start": "2025-01-01"
+  },
+  "files": [
+    {
+      "path": "mkt_limit_2011.parquet",
+      "rows": 118353,
+      "bytes": 1071930,
+      "sha256": "6f591c2f625dbe939c3f6f2eb4b0417346540ac05bcab40ab8397f23bda3530c",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2012.parquet",
+      "rows": 364858,
+      "bytes": 3238822,
+      "sha256": "0e23ed5279b32c2bec93f3b23e3a87140035158285e9ef60da76a8a88e936cc5",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2013.parquet",
+      "rows": 361754,
+      "bytes": 3216186,
+      "sha256": "aca4171f5c6b6f1cc56725fd5b19d6d8427a1e7314c985a730782919de9b85b8",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2014.parquet",
+      "rows": 376755,
+      "bytes": 2925066,
+      "sha256": "0243cbe16cc85fa389f8d921c116fadf339a5cccaf183fd38907471a6c854d5f",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2015.parquet",
+      "rows": 385876,
+      "bytes": 3345358,
+      "sha256": "0be641fd626e7c10f4488d2b4ad1b076874d879fb8c9c5b2476291bed501f609",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2016.parquet",
+      "rows": 393266,
+      "bytes": 3563770,
+      "sha256": "938d703ccdef743885b6797a59726646819aa4225e65fe305c418ac0731f886d",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2017.parquet",
+      "rows": 409650,
+      "bytes": 3764765,
+      "sha256": "299b85bb68dae9ba51b126e9b753f760f09ade2629b3ceed7b3da565d1f99c53",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2018.parquet",
+      "rows": 417752,
+      "bytes": 3661098,
+      "sha256": "e77a1986c838d9305f76b7cb8fa7bbc1736dcbddf8b2880d1edfcdf7fd69cc9a",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2019.parquet",
+      "rows": 429282,
+      "bytes": 3864225,
+      "sha256": "a4a0b063b33938e78311367256f3a0f1980ab3045015babfcdf8979780b5fac0",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2020.parquet",
+      "rows": 439384,
+      "bytes": 4139298,
+      "sha256": "99318293a03aaccc8d39260229ddea56a8d2c9a892746e928ad83c0379e9f6ef",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2021.parquet",
+      "rows": 450181,
+      "bytes": 4275297,
+      "sha256": "f691826053cf2c0ced839fd319e709937cedbde1e647e4d7dc879e52ace6cb1a",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2022.parquet",
+      "rows": 456151,
+      "bytes": 4291777,
+      "sha256": "6739e3b872fb0d008db617023883597e5cdc5606d4144ea234b3514a43e2acae",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2023.parquet",
+      "rows": 459367,
+      "bytes": 4307141,
+      "sha256": "a6cc56463dac84f6774af38c95866a3657bc28d811740ed045d89b911e01a032",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2024.parquet",
+      "rows": 456684,
+      "bytes": 4185655,
+      "sha256": "773aa52eeada8abe124de975f15f1ff956cdc56bf6f4fc687d5d867e38ef6f78",
+      "sealed_final_oos_partition": false
+    },
+    {
+      "path": "mkt_limit_2025.parquet",
+      "rows": 455495,
+      "bytes": 4247611,
+      "sha256": "456f0914d787422a307acf1d4059e871d8a1b9d4fadd77ee14571f6b5ff8f2a5",
+      "sealed_final_oos_partition": true
+    },
+    {
+      "path": "mkt_limit_2026.parquet",
+      "rows": 232139,
+      "bytes": 2156363,
+      "sha256": "7dd547910e71ea75a77290cc8bce99f084f9ed549dafc0d136e34b095875af62",
+      "sealed_final_oos_partition": true
+    }
+  ],
+  "read_only": true,
+  "value_exposure": "NONE_COUNTS_AND_HASHES_ONLY",
+  "content_sha256": "da3d92f508cf8ec9408d946c9fa80048564a4ba677a1ceaf9b78189ae9b1e4bc"
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": "qlib_peerlite_benchmark_spec_v1",
+  "benchmark_id": "CSI800_TOTAL_RETURN_PIT_V1",
+  "definition": "PIT historical CSI300 plus CSI500 constituents and weights",
+  "return_basis": "total return if an independently sourced causal constituent return series is available; otherwise benchmark path remains NEEDS_EVIDENCE",
+  "rebalance_alignment": "same weekly signal and T+1 execution calendar as candidate portfolio",
+  "cost_policy": "benchmark return is reported both gross and under the same turnover-cost convention when a replicating portfolio is used",
+  "status": "PLANNED_NEEDS_SOURCE_CERTIFICATE"
+}

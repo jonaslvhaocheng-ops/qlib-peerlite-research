@@ -1,0 +1,23 @@
+{
+  "schema_version": "qlib_peerlite_source_snapshot_v1",
+  "source_id": "datayes-security-master",
+  "table": "datayes.md_security",
+  "snapshot_time": "2026-07-28T15:56:25.231948+08:00",
+  "query_bounds": {
+    "start_date": "2011-09-01",
+    "prediction_end": "2026-06-30",
+    "support_end": "2026-07-10",
+    "oos_start": "2025-01-01"
+  },
+  "files": [
+    {
+      "path": "md_security.parquet",
+      "rows": 2027,
+      "bytes": 32001,
+      "sha256": "e9d01c2f0c6df452971626fed8e4b728dc1f90c57467764a8e8e66bfb99733f3"
+    }
+  ],
+  "read_only": true,
+  "value_exposure": "NONE_COUNTS_AND_HASHES_ONLY",
+  "content_sha256": "fdee2cec57a1b74281d624a73b5c059a6b21467d1cd492066c0755eaa7b289b7"
+}

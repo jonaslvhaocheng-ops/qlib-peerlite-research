@@ -1,0 +1,13 @@
+{
+  "schema_version": "qlib_peerlite_dependency_receipt_v1",
+  "candidate": "pytorch",
+  "canonical_url": "https://github.com/pytorch/pytorch",
+  "tag": "v2.7.1",
+  "commit": "e2d141dbde55c2a4370fac5165b0561b6af4798b",
+  "license": "BSD-3-Clause",
+  "intended_scope": "local neural-network tensor/training runtime only",
+  "server_target": "Linux x86_64, RTX 4090, driver 535.288.01",
+  "wheel_policy": "use torch 2.7.1; choose the official CUDA wheel compatible with the installed driver after smoke testing",
+  "financial_semantics": "none inherited",
+  "status": "PROPOSED"
+}

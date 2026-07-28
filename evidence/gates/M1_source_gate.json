@@ -1,0 +1,107 @@
+{
+  "schema_version": "qlib_peerlite_phase_gate_v1",
+  "gate_id": "M1-STRICT",
+  "status": "PASS",
+  "executed": true,
+  "completed": true,
+  "passed": true,
+  "evaluated_at": "2026-07-28T17:20:00+08:00",
+  "evidence": {
+    "source_certificate": {
+      "path": "evidence/data_sources/20260728_04/source_certificate.json",
+      "sha256": "c4d4c63312c952d143919fefa9d24e9c26d4681a061347b0714924f1488c6b01"
+    },
+    "source_certificate_manifest": {
+      "path": "evidence/data_sources/20260728_04/manifest.json",
+      "sha256": "fcf0ca155d369ec459fead7f8bd34f45b4da7d2a96ede652729de821598d09d8"
+    },
+    "universe_verify": {
+      "path": "evidence/data_sources/universe_verify_20260728_01/universe_verify.json",
+      "sha256": "adb502556e198fa74c9a2909e3ae8844f6b7495c656c8fec6f714e862e1c8be7"
+    },
+    "universe_verify_manifest": {
+      "path": "evidence/data_sources/universe_verify_20260728_01/manifest.json",
+      "sha256": "b2b6466d6f6794fb355c950b63499692aa7f2312f177796cb3a713058d252deb"
+    },
+    "universe_clock_discovery": {
+      "path": "evidence/data_sources/universe_clock_discovery_20260728_01/universe_clock_discovery.json",
+      "sha256": "164b100d9fff30be268806b12007774918ce5f0b971edcdebec702c06fb53521"
+    },
+    "core_universe_clock_verify": {
+      "path": "evidence/data_sources/core_universe_clock_verify_20260728_02/core_universe_clock_verify.json",
+      "sha256": "d6666fdc972fbfa0ad5f0ac61fae93bcd943307a6eaa22da873a5f4db9c5156a"
+    },
+    "core_universe_clock_verify_manifest": {
+      "path": "evidence/data_sources/core_universe_clock_verify_20260728_02/manifest.json",
+      "sha256": "d83bea92f6c3c1f6537dee6b71bd35c76470eacec7604afb0c9de6aa7c868561"
+    },
+    "datayes_public_dictionary": {
+      "path": "evidence/data_sources/datayes_public_dictionary_20260728_01/datayes_public_dictionary.json",
+      "sha256": "7313040c28f0b2c96e26d21cf97d8aa7f0136e16d97e7111bb8db4f1e1031f31"
+    },
+    "datayes_public_dictionary_manifest": {
+      "path": "evidence/data_sources/datayes_public_dictionary_20260728_01/manifest.json",
+      "sha256": "fbe060175312ffd207675a458eb2644f055a3bef24cca33f81ca3e3e1252a37c"
+    },
+    "datayes_public_dictionary_eight_table_bundle": {
+      "path": "evidence/data_sources/datayes_public_dictionary_20260728_02/datayes_public_dictionary.json",
+      "sha256": "b7f6cffe8b87b9dcfad6b015c222a9efb032e7dc1974646039c89f4deba0a437"
+    },
+    "auxiliary_source_verify": {
+      "path": "evidence/data_sources/auxiliary_source_verify_20260728_05/auxiliary_source_verify.json",
+      "sha256": "897ee90450d129cae41bbedf59d60fc112824263bcf54b84a26f367e072d9fc9"
+    },
+    "auxiliary_source_verify_manifest": {
+      "path": "evidence/data_sources/auxiliary_source_verify_20260728_05/manifest.json",
+      "sha256": "e49b191f0e343b938cf8f1c6010c5807ac548c7e425528fa715f9055be7ac8d2"
+    },
+    "sealed_snapshot_bundle": {
+      "path": "data/manifests/source_snapshot_20260728_v1/snapshot_bundle_manifest.json",
+      "sha256": "2575e52c7375fe28c06ccc6305da34e3328f025e7397ae735264f06cf62dc040"
+    },
+    "sealed_snapshot_verification": {
+      "path": "evidence/data_sources/sealed_snapshot_verify_20260728_v1/sealed_snapshot_verification.json",
+      "sha256": "8041b7213787dd084673dfa37f1d67ed6240e343c77e7b2fda3bc7c1b6d8a0e0"
+    },
+    "sealed_snapshot_verification_manifest": {
+      "path": "evidence/data_sources/sealed_snapshot_verify_20260728_v1/manifest.json",
+      "sha256": "6167a0fa38673d0b9db83b3908bb0fdf049fecc2ed622b1cd94524f666fcf00a"
+    },
+    "universe_snapshot": {
+      "path": "data/manifests/source_snapshot_20260728_v1/universe_snapshot.json",
+      "sha256": "0544cc5ca9551b4d161069bbacd1700d7cb0a3a87a3aa9c40217c8f9bc44ebdb",
+      "universe_hash": "4c4fde609a8ee6cf21fdc40114f368fdbb5a102d661d6c630e223a785b7dee97"
+    }
+  },
+  "findings": [
+    "datayes.mkt_equd exists with RAW OHLCV candidate fields and coverage 1990-12-19 through 2026-07-27",
+    "datayes.md_trade_cal exists through 2027-12-31",
+    "abmdata.qt_idx_constituents is absent in the current live source despite historical reports",
+    "datayes.idx_cons is the selected live effective-interval candidate; datayes.idx_cons_csi remains corroborating only",
+    "CSI300 identity is XSHG IDX SECURITY_ID=1782 and CSI500 identity is XSHG IDX SECURITY_ID=2103; ticker-only filtering is forbidden because duplicate fund/equity tickers exist",
+    "CSI300 has 1,226 interval rows from 2005-04-08 with 300 open memberships; CSI500 has 2,468 interval rows from 2007-01-15 with 500 open memberships",
+    "historical inactive rows and INTO_DATE/OUT_DATE intervals are observed",
+    "datayes.idx_cons_core exposes INTO_PUB_DATE, OUT_PUB_DATE, INTO_EFF_DATE and OUT_EFF_DATE with explicit Chinese field comments",
+    "idx_cons_core contains the same 1,226 CSI300 and 2,468 CSI500 intervals as idx_cons, with 100% exact interval matches",
+    "all 3,694 inclusion publication dates are present and not later than effective dates; all completed exclusions have publication dates not later than effective dates",
+    "no duplicate (SECURITY_ID, CONS_ID, INTO_EFF_DATE) membership keys were found",
+    "the public DataYes dictionary defines mkt_equd as unadjusted daily quotes sourced from the three exchanges, updated daily at 15:15",
+    "the public DataYes dictionary defines idx_cons_core as official-announcement-based membership changes with announcement and effective dates",
+    "the official public dictionary response is frozen locally with fetch metadata and SHA-256",
+    "md_security identifies 8,109 unique XSHG/XSHE equities with no duplicate exchange-ticker keys",
+    "XSHG and XSHE calendars have zero open-session mismatches over 2012-01-01 through 2026-06-30",
+    "mkt_limit, md_sec_halt, equ_inst_sstate and mkt_adjf all cover through the final-OOS support horizon and their tested operational keys are unique",
+    "equ_inst_sstate has 21 lifetime clock anomalies, but no missing publication date in the research period; the single late research-period publication is handled by max(PUBLISH_DATE,EFF_DATE)",
+    "all eight source candidates are bound to immutable per-source manifest hashes in source_snapshot_20260728_v1",
+    "the independent sealed-snapshot verification passed file hashes, Parquet metadata row counts, manifest bindings, universe binding and read-only checks",
+    "the CSI800 universe content hash is 4c4fde609a8ee6cf21fdc40114f368fdbb5a102d661d6c630e223a785b7dee97",
+    "M1 establishes source identity, semantics and immutable snapshot integrity only; it does not establish PIT qualification"
+  ],
+  "blocker": null,
+  "next_action": "record the immutable code version, strictly validate and freeze the research contract, then submit the exact derived training product to fixed and behavior PIT audits",
+  "safeguards_after_pass": [
+    "construct certified FULL_TRAINING_INPUT",
+    "real model training or backtest",
+    "final OOS access"
+  ]
+}

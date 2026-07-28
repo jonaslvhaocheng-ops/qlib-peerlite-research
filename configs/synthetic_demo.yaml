@@ -1,0 +1,37 @@
+experiment_id: synthetic_peerlite_mse
+track: SYNTHETIC
+data:
+  feature_columns: []
+  label_column: label
+  market_columns:
+    - market_ret
+    - market_vol
+    - market_turnover
+  min_listing_sessions: 60
+  embargo_sessions: 5
+  raw_prices_only: true
+model:
+  family: peerlite
+  input_dim: 12
+  hidden_dim: 64
+  num_peers: 16
+  num_heads: 4
+  dropout: 0.1
+  loss: mse
+  market_gate: false
+  market_dim: 0
+training:
+  seed: 7
+  epochs: 20
+  patience: 5
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  device: auto
+  gradient_clip_norm: 1.0
+portfolio:
+  rebalance_weekday: 4
+  top_fraction: 0.10
+  max_name_weight: 0.02
+  adv_participation_limit: 0.05
+  base_cost_bps_per_side: 10.0
+  stress_cost_bps_per_side: 20.0

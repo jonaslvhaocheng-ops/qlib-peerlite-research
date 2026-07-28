@@ -1,0 +1,27 @@
+{
+  "schema_version": "qlib_peerlite_hypothesis_registry_v1",
+  "registry_id": "qlib-peerlite-v0-hypotheses",
+  "append_only": true,
+  "hypotheses": [
+    {
+      "id": "H1",
+      "claim": "PeerLite-MSE improves cost-adjusted rolling OOS performance relative to LightGBM"
+    },
+    {
+      "id": "H2",
+      "claim": "PeerLite-MSE improves relative to an equal-capacity MLP"
+    },
+    {
+      "id": "H3",
+      "claim": "CCC adds incremental performance to frozen PeerLite-MSE"
+    },
+    {
+      "id": "H4",
+      "claim": "the small market-state gate adds incremental performance to frozen PeerLite-MSE"
+    },
+    {
+      "id": "H5",
+      "claim": "CCC plus gate is evaluated only if H3 and H4 pass independently"
+    }
+  ]
+}

@@ -1,0 +1,440 @@
+{
+  "schema_version": "qlib_peerlite_sealed_snapshot_verification_v1",
+  "created_at": "2026-07-28T16:02:28.108679+08:00",
+  "snapshot_manifest": "qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/snapshot_bundle_manifest.json",
+  "snapshot_manifest_sha256": "2575e52c7375fe28c06ccc6305da34e3328f025e7397ae735264f06cf62dc040",
+  "status": "PASS",
+  "value_access": "PARQUET_METADATA_AND_FILE_BYTES_ONLY",
+  "checks": {
+    "overall_content_hash": true,
+    "overall_manifest_read_only": true,
+    "all_source_manifests_and_files": true,
+    "universe_file_hash": true,
+    "universe_content_hash": true,
+    "universe_source_binding": true,
+    "universe_manifest_read_only": true,
+    "snapshot_directory_read_only": true,
+    "not_claimed_pit_qualified": true
+  },
+  "sources": {
+    "datayes-daily-raw": {
+      "manifest": "mkt_equd.manifest.json",
+      "manifest_locator_hash_ok": true,
+      "manifest_content_hash_ok": true,
+      "manifest_read_only": true,
+      "files": [
+        {
+          "path": "mkt_equd_2011.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2012.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2013.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2014.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2015.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2016.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2017.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2018.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2019.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2020.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2021.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2022.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2023.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2024.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2025.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_equd_2026.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "datayes-index-constituents": {
+      "manifest": "idx_cons_core.manifest.json",
+      "manifest_locator_hash_ok": true,
+      "manifest_content_hash_ok": true,
+      "manifest_read_only": true,
+      "files": [
+        {
+          "path": "idx_cons_core.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "datayes-security-master": {
+      "manifest": "md_security.manifest.json",
+      "manifest_locator_hash_ok": true,
+      "manifest_content_hash_ok": true,
+      "manifest_read_only": true,
+      "files": [
+        {
+          "path": "md_security.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "datayes-trade-calendar": {
+      "manifest": "md_trade_cal.manifest.json",
+      "manifest_locator_hash_ok": true,
+      "manifest_content_hash_ok": true,
+      "manifest_read_only": true,
+      "files": [
+        {
+          "path": "md_trade_cal.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "datayes-price-limits": {
+      "manifest": "mkt_limit.manifest.json",
+      "manifest_locator_hash_ok": true,
+      "manifest_content_hash_ok": true,
+      "manifest_read_only": true,
+      "files": [
+        {
+          "path": "mkt_limit_2011.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2012.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2013.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2014.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2015.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2016.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2017.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2018.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2019.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2020.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2021.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2022.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2023.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2024.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2025.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        },
+        {
+          "path": "mkt_limit_2026.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "datayes-security-halts": {
+      "manifest": "md_sec_halt.manifest.json",
+      "manifest_locator_hash_ok": true,
+      "manifest_content_hash_ok": true,
+      "manifest_read_only": true,
+      "files": [
+        {
+          "path": "md_sec_halt.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "datayes-special-status": {
+      "manifest": "equ_inst_sstate.manifest.json",
+      "manifest_locator_hash_ok": true,
+      "manifest_content_hash_ok": true,
+      "manifest_read_only": true,
+      "files": [
+        {
+          "path": "equ_inst_sstate.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "datayes-corporate-action-mask": {
+      "manifest": "mkt_adjf.manifest.json",
+      "manifest_locator_hash_ok": true,
+      "manifest_content_hash_ok": true,
+      "manifest_read_only": true,
+      "files": [
+        {
+          "path": "mkt_adjf.parquet",
+          "exists": true,
+          "sha256_matches": true,
+          "bytes_match": true,
+          "rows_match": true,
+          "read_only": true,
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  },
+  "limitations": [
+    "This receipt proves snapshot integrity and binding only.",
+    "It does not prove historical vendor revision retention or PIT eligibility.",
+    "It does not inspect data values, calculate labels or evaluate final OOS."
+  ]
+}

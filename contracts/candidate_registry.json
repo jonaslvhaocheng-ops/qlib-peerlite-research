@@ -1,0 +1,43 @@
+{
+  "schema_version": "qlib_peerlite_candidate_registry_v1",
+  "registry_id": "qlib-peerlite-v0-candidates",
+  "append_only": true,
+  "registered_candidates": [
+    {
+      "candidate_id": "B0_LIGHTGBM",
+      "role": "baseline",
+      "eligible_for_selection": true
+    },
+    {
+      "candidate_id": "B1_MLP",
+      "role": "neural_baseline",
+      "eligible_for_selection": true
+    },
+    {
+      "candidate_id": "PEERLITE_K16_MSE",
+      "role": "primary",
+      "eligible_for_selection": true
+    },
+    {
+      "candidate_id": "PEERLITE_K32_MSE",
+      "role": "peer_count_candidate",
+      "eligible_for_selection": true
+    },
+    {
+      "candidate_id": "PEERLITE_K16_CCC",
+      "role": "isolated_increment",
+      "eligible_for_selection": true
+    },
+    {
+      "candidate_id": "PEERLITE_K16_MSE_GATE",
+      "role": "isolated_increment",
+      "eligible_for_selection": true
+    },
+    {
+      "candidate_id": "PEERLITE_K16_CCC_GATE",
+      "role": "conditional_combination",
+      "eligible_for_selection": false,
+      "activation_rule": "CCC and Market Gate must each pass in isolation"
+    }
+  ]
+}

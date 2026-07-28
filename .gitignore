@@ -1,0 +1,29 @@
+.DS_Store
+.venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.coverage
+htmlcov/
+
+# Large and mutable research outputs
+artifacts/runs/*
+!artifacts/runs/.gitkeep
+artifacts/checkpoints/*
+!artifacts/checkpoints/.gitkeep
+artifacts/*.tar.gz
+data/raw/
+data/processed/
+data/qlib/
+
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Keep immutable governance files, manifests and receipts trackable.

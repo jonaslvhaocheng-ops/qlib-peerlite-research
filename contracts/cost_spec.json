@@ -1,0 +1,10 @@
+{
+  "schema_version": "qlib_peerlite_cost_spec_v1",
+  "status": "PLANNED_NEEDS_CURRENT_FEE_RECEIPT",
+  "base_slippage_bps_per_side": 10.0,
+  "stress_slippage_bps_per_side": 20.0,
+  "commission_and_statutory_fees": "freeze from an effective official/broker fee receipt before contract freeze",
+  "adv_participation_limit": 0.05,
+  "turnover_definition": "sum absolute change in portfolio weights",
+  "unfilled_order_policy": "retain existing position; do not assume a fill at an unavailable price"
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "qlib_peerlite_sealed_snapshot_bundle_v1",
+  "snapshot_time": "2026-07-28T15:56:25.231948+08:00",
+  "bounds": {
+    "start_date": "2011-09-01",
+    "prediction_end": "2026-06-30",
+    "support_end": "2026-07-10",
+    "oos_start": "2025-01-01"
+  },
+  "policy": "contracts/oos_sealed_ingestion_policy.json",
+  "sources": {
+    "datayes-daily-raw": {
+      "manifest": "mkt_equd.manifest.json",
+      "manifest_sha256": "d3f285c62c405ceed0b05fddc3abaf82f704815216ed42e454eab0e240ad3730"
+    },
+    "datayes-index-constituents": {
+      "manifest": "idx_cons_core.manifest.json",
+      "manifest_sha256": "d6c5e5b2acfe2b8b1d354a07a7fed0a3e5b594eaa7dafc2c871fed48a5565667"
+    },
+    "datayes-security-master": {
+      "manifest": "md_security.manifest.json",
+      "manifest_sha256": "4eff64dd068d805754cea9d1d9e720c7d7be7a180f6a23686f5434fbe3e03426"
+    },
+    "datayes-trade-calendar": {
+      "manifest": "md_trade_cal.manifest.json",
+      "manifest_sha256": "1aefd73dfd64dc5bdbb4e688e0812f962b191353b8bb5b90a56428472cb7fd0b"
+    },
+    "datayes-price-limits": {
+      "manifest": "mkt_limit.manifest.json",
+      "manifest_sha256": "165afd8e37dd9c6bc52036464b1aac9822f002a1d443ce8a4122db0e9cfc98a2"
+    },
+    "datayes-security-halts": {
+      "manifest": "md_sec_halt.manifest.json",
+      "manifest_sha256": "24426f0f46513b565b1b76f3d76abd9fc31ac0e5d9f0a6b31bc80a7a20d25853"
+    },
+    "datayes-special-status": {
+      "manifest": "equ_inst_sstate.manifest.json",
+      "manifest_sha256": "991212489d58c1ce3dc6aab7b1980774a4f0a80d28775a81bf11f954b811059e"
+    },
+    "datayes-corporate-action-mask": {
+      "manifest": "mkt_adjf.manifest.json",
+      "manifest_sha256": "e40fb724d9fd2a900921f41206252b758b9bfe311bf143295f7566ebf06831b6"
+    }
+  },
+  "universe": {
+    "path": "universe_snapshot.json",
+    "sha256": "0544cc5ca9551b4d161069bbacd1700d7cb0a3a87a3aa9c40217c8f9bc44ebdb",
+    "universe_hash": "4c4fde609a8ee6cf21fdc40114f368fdbb5a102d661d6c630e223a785b7dee97"
+  },
+  "value_exposure": "NONE_COUNTS_AND_HASHES_ONLY",
+  "status": "SEALED_NOT_PIT_QUALIFIED",
+  "content_sha256": "7a3829de386c915c5d2646f5fb89c3470753be8c27a46df4786f12896d04cf65"
+}

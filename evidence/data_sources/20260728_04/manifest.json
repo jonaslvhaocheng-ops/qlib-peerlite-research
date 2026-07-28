@@ -1,0 +1,8 @@
+{
+  "schema_version": "qlib_peerlite_source_certificate_manifest_v1",
+  "generated_at": "2026-07-28T15:06:12.780166+08:00",
+  "files": {
+    "source_certificate.json": "c4d4c63312c952d143919fefa9d24e9c26d4681a061347b0714924f1488c6b01",
+    "source_certificate.md": "2ed4fcc1ad0a35d7213f3231204d0a7f71aded6393c77d11cc77bce61531b1bd"
+  }
+}
