@@ -21,7 +21,7 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M3 | PIT data product | fixed audit + behavior audit | PASS |
 | M4 | Qlib research foundation | reproducible data/model/recorder loop | PASS |
 | M5 | baselines | B0 LightGBM and B1 MLP rolling scores | PASS |
-| M6 | PeerLite | mechanics and ablation pass | IN_PROGRESS |
+| M6 | PeerLite | mechanics, frozen MSE runs and independent verification | PASS |
 | M7 | Huatai increments | CCC/Gate isolated comparisons | NOT_RUN |
 | M8 | institutional evaluation | final OOS and decision package | NOT_RUN |
 
@@ -38,14 +38,15 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 
 ## Current handoff
 
-M5 passed on the exact M3-qualified pre-final-OOS product. B0 LightGBM and B1
-MLP each completed all seven frozen rolling folds. All 14 checkpoints replayed
-exactly; the additional B1 deterministic refit also reproduced its 125,413
-scores exactly. An independent verifier rehashed 1,898,028 predictions and
-redownloaded both Qlib Recorder artifact sets. The rejected v1 run remains in
-the append-only budget, so cumulative consumption is 4 candidate evaluations
-and 29 model fits.
+M6 passed on the exact M3-qualified pre-final-OOS product. K16 and K32 PeerLite
+MSE each completed all seven frozen rolling folds. All 14 checkpoints replayed
+exactly; the additional K16 deterministic refit reproduced its 125,413 scores
+exactly. An independent verifier rehashed 1,898,028 predictions and redownloaded
+both Qlib Recorder artifact sets. The cumulative append-only budget is now 6
+candidate evaluations and 44 model fits.
 
-This opens M6 PeerLite mechanism implementation, invariant tests and a separately
-frozen execution specification. It does not open 2025+ final OOS, establish
-Alpha, authorize CCC/Gate, promote PeerLite, or authorize deployment.
+M6 deliberately performed no K selection, baseline comparison, portfolio
+backtest or cost-adjusted evaluation. It opens only M7 preparation: CCC and the
+small market-state Gate must be frozen and tested separately before any combined
+run is allowed. It does not open 2025+ final OOS, establish Alpha, promote
+PeerLite, or authorize deployment.

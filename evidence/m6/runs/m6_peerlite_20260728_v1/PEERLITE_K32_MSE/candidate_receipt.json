@@ -1,0 +1,72 @@
+{
+  "content_sha256": "1eed0bdb569b468e6bef990f3dc6d415a9413f5e7849fd22e9f155983447c20f",
+  "cost_adjusted_metrics_computed": false,
+  "deterministic_refit": null,
+  "diagnostic_metrics_computed": true,
+  "evaluation_id": "m6_peerlite_20260728_v1:PEERLITE_K32_MSE:seed7",
+  "final_oos_market_partitions_opened": false,
+  "final_oos_metrics_computed": false,
+  "fold_receipts": [
+    {
+      "content_sha256": "ef6e301576500296f4e194dab7dcfa84fa5a2c6860fa624f50471a05a9a3ac30",
+      "fold_id": "wf_2018",
+      "path": "PEERLITE_K32_MSE/folds/wf_2018/fold_receipt.json",
+      "sha256": "e8de7a3c6a045c38a8c49a6d13e7f5a11c04ca0ea83f0c8e60d758000cc8663a"
+    },
+    {
+      "content_sha256": "5e68f23662660a3155295461936770a03f9d38a99fbbed384899756222c28f59",
+      "fold_id": "wf_2019",
+      "path": "PEERLITE_K32_MSE/folds/wf_2019/fold_receipt.json",
+      "sha256": "1f35556c66c4fbd315b9c6cd4798815b30bcad9fc68b9f1c39c0f7068adf38a6"
+    },
+    {
+      "content_sha256": "4bf9bb7f58be3884cb31fbf2d993eac8dde928882b86f6a1b5dca38ccc5ad4a7",
+      "fold_id": "wf_2020",
+      "path": "PEERLITE_K32_MSE/folds/wf_2020/fold_receipt.json",
+      "sha256": "171b34d4c11781ef5ab4ecd54e468fb858902329a5f72b248815429f87b5c445"
+    },
+    {
+      "content_sha256": "b203e2a3a5e93d13055d79543916e4933fbd79c27d641beb9d1d31455c24084e",
+      "fold_id": "wf_2021",
+      "path": "PEERLITE_K32_MSE/folds/wf_2021/fold_receipt.json",
+      "sha256": "60119e69c54d118fe299a3c1d939bf9c26b31b152c4050e40945f112fcfd8116"
+    },
+    {
+      "content_sha256": "fc8543b1d4beb3cff94424075155d957adf5fa7a86289a754cf5b296bebf83ab",
+      "fold_id": "wf_2022",
+      "path": "PEERLITE_K32_MSE/folds/wf_2022/fold_receipt.json",
+      "sha256": "9d7e15c372be3c85d3ffeb97b98bbd7a016c258a165008eaa4940ddd0e98b711"
+    },
+    {
+      "content_sha256": "43c3f5d58a69b12fc08badde8799c4d60150cd6c506849042337990e48956117",
+      "fold_id": "wf_2023",
+      "path": "PEERLITE_K32_MSE/folds/wf_2023/fold_receipt.json",
+      "sha256": "fabc680a899d6c14cd5e1b3bee9808c366fb6e8675de0eedd44b25d74cc03422"
+    },
+    {
+      "content_sha256": "a043dec1e599e5c3bcb574a92e1aa75ffff848c68e9b9bcf042f05e7dbc9e05d",
+      "fold_id": "wf_2024",
+      "path": "PEERLITE_K32_MSE/folds/wf_2024/fold_receipt.json",
+      "sha256": "3ae047e2108a019be70b57d21ccf95d631928be7662d5ec0df5c5b75de6e49a6"
+    }
+  ],
+  "metrics_sha256": "6beec2e06a8c95143f2599aaa71d5787579a33ae47b49b9df4235c09afdabf99",
+  "model_fits": 7,
+  "model_id": "PEERLITE_K32_MSE",
+  "portfolio_backtests": 0,
+  "prediction_columns": [
+    "datetime",
+    "instrument",
+    "score",
+    "model_id",
+    "fold_id"
+  ],
+  "prediction_rows": 949014,
+  "prediction_sha256": "008fd6cb2889efaa702313544feef00a35c5826ad130c347e8e1894e83722d55",
+  "product_manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+  "schema_version": "qlib_peerlite_m6_candidate_receipt_v1",
+  "seed": 7,
+  "selection_allowed": false,
+  "spec_content_sha256": "60d0cf06307991f1fafea0dd5880b43fb929546c6757040e2c868cbb361f2f69",
+  "status": "PASS"
+}

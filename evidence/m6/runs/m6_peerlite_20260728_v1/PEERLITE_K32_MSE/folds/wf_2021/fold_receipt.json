@@ -1,0 +1,65 @@
+{
+  "checkpoint": {
+    "metadata.json": "4b43656bf2d6f79c92c219af1decbbdc337fe65c0f99e26e901db055f6d18d8f",
+    "state_dict.pt": "b16f1d45cc459fcc9ff49033c13b4d21a3de5790d07b6a4161f25d7ef0e94fba"
+  },
+  "checkpoint_replay": "PASS_EXACT",
+  "content_sha256": "b203e2a3a5e93d13055d79543916e4933fbd79c27d641beb9d1d31455c24084e",
+  "cost_adjusted_metrics_computed": false,
+  "diagnostic_metrics": {
+    "dates": 238.0,
+    "decile_slope": 0.0005181918789888774,
+    "observations": 140695.0,
+    "rank_ic_mean": 0.03311067707748173,
+    "rank_ic_positive_fraction": 0.5882352941176471,
+    "rank_ic_std": 0.13965068231334116,
+    "rank_icir": 0.23709642179326887,
+    "top_minus_bottom": 0.004277587524373029
+  },
+  "evaluation_id": "m6_peerlite_20260728_v1:PEERLITE_K32_MSE:seed7",
+  "feature_count": 50,
+  "final_oos_market_partitions_opened": false,
+  "fit_id": "m6_peerlite_20260728_v1:PEERLITE_K32_MSE:seed7:wf_2021",
+  "fold_id": "wf_2021",
+  "key_sha256": {
+    "test": "44c1710b8bd1d8478fc052762123172af4921f74e1bc155f329e74e7201c38b1",
+    "train": "48bb7904ce4dfdd751f5b86782e1eb24872299998024da4af7462dd149711c9f",
+    "valid": "f84072c692894081b3f428695dad3e9a1d2991fb39f1c8d610eccbff4bbc0d03"
+  },
+  "model_id": "PEERLITE_K32_MSE",
+  "portfolio_backtests": 0,
+  "resources": {
+    "elapsed_seconds": 36.53542507602833,
+    "gpu_peak_allocated_bytes": 135403520,
+    "process_max_rss": 5544744,
+    "process_max_rss_unit": "KiB_ON_LINUX"
+  },
+  "row_counts": {
+    "test": 140695,
+    "train": 618857,
+    "valid": 136071
+  },
+  "schema_version": "qlib_peerlite_m6_fold_receipt_v1",
+  "seed": 7,
+  "segments": {
+    "test": [
+      "2021-01-11",
+      "2021-12-31"
+    ],
+    "train": [
+      "2015-01-05",
+      "2019-12-24"
+    ],
+    "valid": [
+      "2020-01-09",
+      "2020-12-24"
+    ]
+  },
+  "status": "PASS",
+  "training_summary": {
+    "best_epoch": 7,
+    "best_valid_loss": 0.004184516336640958,
+    "epochs_completed": 20,
+    "parameter_count": 30561
+  }
+}

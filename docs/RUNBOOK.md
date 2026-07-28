@@ -220,3 +220,48 @@ uv run python scripts/server/verify_m5_baselines.py \
 
 Only JSON receipts and hashes are copied back into Git. Predictions and learned
 checkpoints remain server-side artifacts.
+
+## 8. M6 frozen PeerLite-MSE
+
+M6 is frozen in:
+
+```text
+contracts/immutable/m6_peerlite_execution_spec_v1.json
+```
+
+Validate the exact spec, upstream gates, mechanics receipt, pre-run ledger and
+code bindings:
+
+```bash
+uv run python -c \
+  'from pathlib import Path; from qlib_peerlite.governance.m6_spec import load_and_verify_m6_spec; load_and_verify_m6_spec(Path.cwd(), Path("contracts/immutable/m6_peerlite_execution_spec_v1.json"))'
+```
+
+Run the 15-fit job on the server. The fifteenth fit is the counted K16 exact
+deterministic refit:
+
+```bash
+CUBLAS_WORKSPACE_CONFIG=:4096:8 \
+QLIB_PEERLITE_ALLOW_EMPIRICAL=true \
+uv run python scripts/server/run_m6_peerlite.py \
+  --project-root /home/lvhc/abama/研究沙盒/qlib模型框架 \
+  --product-dir /home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3 \
+  --spec /home/lvhc/abama/研究沙盒/qlib模型框架/contracts/immutable/m6_peerlite_execution_spec_v1.json \
+  --output-dir /home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/runs/m6_peerlite_<new-run-id> \
+  --tracking-dir /home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/tracking/m6_peerlite_<new-run-id>
+```
+
+Independently verify all receipts, checkpoint inventories, prediction files,
+trial counts, exact refit and Recorder artifacts:
+
+```bash
+uv run python scripts/server/verify_m6_peerlite.py \
+  --project-root /home/lvhc/abama/研究沙盒/qlib模型框架 \
+  --run-dir /home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/runs/m6_peerlite_20260728_v1 \
+  --tracking-dir /home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/tracking/m6_peerlite_20260728_v1 \
+  --receipt /home/lvhc/abama/研究沙盒/qlib模型框架/evidence/m6/verifications/m6_peerlite_20260728_v1/verification_receipt.json
+```
+
+M6 computes pre-final-OOS signal diagnostics only. It performs no K selection,
+baseline comparison, portfolio backtest, cost-adjusted selection, CCC, market
+Gate or final-OOS access. Only JSON receipts and hashes are committed.

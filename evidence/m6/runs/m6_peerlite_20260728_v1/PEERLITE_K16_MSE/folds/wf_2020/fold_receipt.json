@@ -1,0 +1,65 @@
+{
+  "checkpoint": {
+    "metadata.json": "70f82bfdfccfdceaa27604591b1d862827df0a58fed7fb9d8a37efcb898138ea",
+    "state_dict.pt": "eba8e59c2c0812e33674c80258329d8b216a829fa5efcabe6495a3d07d225751"
+  },
+  "checkpoint_replay": "PASS_EXACT",
+  "content_sha256": "4f65dca61ade1fd848e06b25136d9e0a0e8db52c38e7b6b0ae92e1f4c935e5ca",
+  "cost_adjusted_metrics_computed": false,
+  "diagnostic_metrics": {
+    "dates": 238.0,
+    "decile_slope": -6.116829106628125e-05,
+    "observations": 139855.0,
+    "rank_ic_mean": 0.04035517020825215,
+    "rank_ic_positive_fraction": 0.6134453781512605,
+    "rank_ic_std": 0.13949012076486259,
+    "rank_icir": 0.28930486250190107,
+    "top_minus_bottom": 0.00012927915291229128
+  },
+  "evaluation_id": "m6_peerlite_20260728_v1:PEERLITE_K16_MSE:seed7",
+  "feature_count": 50,
+  "final_oos_market_partitions_opened": false,
+  "fit_id": "m6_peerlite_20260728_v1:PEERLITE_K16_MSE:seed7:wf_2020",
+  "fold_id": "wf_2020",
+  "key_sha256": {
+    "test": "8b64dde27efea2699e8cb7a428043466c0ea2625480d2aa80bd53ce6c44df447",
+    "train": "e37b113699d0d759887608856b684e94db112a5022d8fd5f51d5ef36bd5f2c32",
+    "valid": "58c5c4bfc4a2e6ea08057f64c72584e2d47f6a82fef184f0dd5967804f127945"
+  },
+  "model_id": "PEERLITE_K16_MSE",
+  "portfolio_backtests": 0,
+  "resources": {
+    "elapsed_seconds": 54.84238851512782,
+    "gpu_peak_allocated_bytes": 121384960,
+    "process_max_rss": 5184132,
+    "process_max_rss_unit": "KiB_ON_LINUX"
+  },
+  "row_counts": {
+    "test": 139855,
+    "train": 597086,
+    "valid": 137382
+  },
+  "schema_version": "qlib_peerlite_m6_fold_receipt_v1",
+  "seed": 7,
+  "segments": {
+    "test": [
+      "2020-01-09",
+      "2020-12-31"
+    ],
+    "train": [
+      "2014-01-02",
+      "2018-12-21"
+    ],
+    "valid": [
+      "2019-01-09",
+      "2019-12-24"
+    ]
+  },
+  "status": "PASS",
+  "training_summary": {
+    "best_epoch": 17,
+    "best_valid_loss": 0.003068215335106366,
+    "epochs_completed": 30,
+    "parameter_count": 29521
+  }
+}

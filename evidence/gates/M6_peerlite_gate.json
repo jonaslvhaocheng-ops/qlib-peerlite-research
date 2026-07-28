@@ -1,0 +1,134 @@
+{
+  "schema_version": "qlib_peerlite_gate_v1",
+  "gate_id": "M6-PEERLITE",
+  "status": "PASS",
+  "passed": true,
+  "executed": true,
+  "completed": true,
+  "created_at": "2026-07-28T23:20:00+08:00",
+  "track": "STRICT_PRE_FINAL_OOS_PEERLITE_MSE",
+  "claim_ceiling": "PRE_FINAL_OOS_DIAGNOSTIC",
+  "acceptance_checks": [
+    {
+      "check": "frozen_execution_spec_and_budget",
+      "status": "PASS",
+      "evidence": "M6 spec content 60d0cf06...; pre-run ledger fixed at 4 candidate evaluations and 29 fits; declared increment 2 and 15"
+    },
+    {
+      "check": "qualified_input_and_final_oos_boundary",
+      "status": "PASS",
+      "evidence": "1,658,525 rows; 50 features; 2012-01-04 through 2024-12-17; 2025+ unopened"
+    },
+    {
+      "check": "peerlite_mechanics_and_complexity",
+      "status": "PASS",
+      "evidence": "permutation equivariance, variable cross-section, single-stock, missing-mask and batched-date isolation passed; no stock-pair tensor; O(NK)"
+    },
+    {
+      "check": "rolling_peerlite_execution",
+      "status": "PASS",
+      "evidence": "K16 MSE and K32 MSE completed all seven frozen development folds; K16 exact deterministic refit also completed"
+    },
+    {
+      "check": "strict_determinism",
+      "status": "PASS",
+      "evidence": "CUBLAS :4096:8; strict torch algorithms; two-process RTX 4090 probe exact; K16 wf_2018 refit scores bitwise exact"
+    },
+    {
+      "check": "checkpoint_replay",
+      "status": "PASS",
+      "evidence": "all 14 rolling fold checkpoints reproduced their test scores exactly"
+    },
+    {
+      "check": "prediction_integrity",
+      "status": "PASS",
+      "evidence": "1,898,028 rows independently hashed; exact score schema; unique keys; no null or non-finite score; max date 2024-12-17"
+    },
+    {
+      "check": "qlib_recorder_independent_readback",
+      "status": "PASS",
+      "evidence": "candidate receipt, metrics and prediction artifact for both PeerLite recorders redownloaded with exact hashes"
+    },
+    {
+      "check": "trial_accounting",
+      "status": "PASS",
+      "evidence": "M6 counted 2 candidate evaluations and 15 fits; cumulative ledger is now 6 candidate evaluations and 44 fits"
+    },
+    {
+      "check": "research_boundary",
+      "status": "PASS",
+      "evidence": "zero model selection, zero portfolio backtests, zero cost-adjusted comparison, CCC and Gate prohibited, zero final-OOS access"
+    }
+  ],
+  "evidence": {
+    "execution_spec": {
+      "path": "contracts/immutable/m6_peerlite_execution_spec_v1.json",
+      "sha256": "469d67be0812e1acfa53301907f94c85bea2e799d17f2699edd8d508a2df20f8",
+      "content_sha256": "60d0cf06307991f1fafea0dd5880b43fb929546c6757040e2c868cbb361f2f69"
+    },
+    "mechanics": {
+      "path": "evidence/peerlite/mechanics_20260728_v2/mechanics_receipt.json",
+      "sha256": "2f31f0264bff5b241472278b357e250ef4a11ec5775959d28da868c480c3704f",
+      "content_sha256": "c2fc6d0978a875ed1b2d22052b3bdba7aa686bf13ac945c8982eca88a81336ec"
+    },
+    "run_manifest": {
+      "path": "evidence/m6/runs/m6_peerlite_20260728_v1/run_manifest.json",
+      "sha256": "ac70c08e721adf4ec3b559aaf8306f58debfebee8fadcf2f286bb001dd05c569",
+      "content_sha256": "8083b1c2bb431d63b1962e34c457bed67a28b398f4d617882b10c1f731459e94"
+    },
+    "verification": {
+      "path": "evidence/m6/verifications/m6_peerlite_20260728_v1/verification_receipt.json",
+      "sha256": "b605db0f43bf571f5f1cebaf1733b4801e2ea6fb944c65e35e4f6b85325c2d6e",
+      "content_sha256": "853b9341c4b2c8a156a5d50265465ed134c4d843c5516105452f0704f8a27613",
+      "verifier_path": "scripts/server/verify_m6_peerlite.py",
+      "verifier_sha256": "44744eb15fce490aca33d8921f998e105deb09617b862e447791e8c38fc4794c"
+    },
+    "run_journal": {
+      "path": "evidence/m6/runs/m6_peerlite_20260728_v1/ledger_events.jsonl",
+      "sha256": "48d930427867d4b99021f22e043925ae6c88d4777f284747304fc4d8fa4a7f02"
+    },
+    "cumulative_trial_ledger": {
+      "path": "contracts/trial_ledger.jsonl",
+      "sha256": "31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93",
+      "candidate_evaluations": 6,
+      "model_fits": 44,
+      "candidate_evaluation_limit": 27,
+      "model_fit_limit": 60
+    },
+    "pre_run_code_commit": "0af4572",
+    "verifier_fix_commit": "12e6bf5"
+  },
+  "verification": {
+    "candidate_evaluations_this_run": 2,
+    "model_fits_this_run": 15,
+    "cumulative_candidate_evaluations": 6,
+    "cumulative_model_fits": 44,
+    "rolling_folds_per_candidate": 7,
+    "prediction_rows_total": 1898028,
+    "checkpoint_exact_replays": 14,
+    "deterministic_refits": 1,
+    "qlib_recorders_independently_read": 2,
+    "parameter_counts": {
+      "PEERLITE_K16_MSE": 29521,
+      "PEERLITE_K32_MSE": 30561
+    },
+    "portfolio_backtests": 0,
+    "cost_adjusted_metrics_computed": false,
+    "model_selection_performed": false,
+    "ccc_used": false,
+    "market_gate_used": false,
+    "final_oos_market_partitions_opened": false
+  },
+  "what_it_proves": [
+    "The small O(NK) PeerLite architecture can train, checkpoint, predict and record reproducibly across all seven frozen development folds.",
+    "Both registered peer counts preserve the unified (datetime, instrument) to score interface and remain below the 500,000-parameter ceiling.",
+    "The exact M3-qualified input, frozen M6 spec, code hashes, outputs and cumulative trial ledger form a traceable engineering base for isolated M7 increments."
+  ],
+  "what_it_does_not_prove": [
+    "M6 deliberately performs no result-based K selection and does not establish that PeerLite beats LightGBM, MLP or any investable benchmark.",
+    "No cost-adjusted performance, capacity, portfolio robustness, final out-of-sample Alpha or production readiness is established.",
+    "M6 does not authorize combined CCC plus Gate testing, 2025+ access, text, LLM, high-frequency data or live trading."
+  ],
+  "next_gate": "M7-ISOLATED-CCC-AND-MARKET-GATE",
+  "content_sha256": "937bcb7811dffcd64b2be42661bf990d8bccf93c036bee0ad3e5623f661a9862"
+}

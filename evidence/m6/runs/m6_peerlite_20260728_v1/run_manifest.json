@@ -1,0 +1,92 @@
+{
+  "candidate_evaluations": 2,
+  "candidates": [
+    {
+      "candidate_receipt": {
+        "content_sha256": "493a0d7045b9936f8855dbbdf6f28fb2dc9f5e766d5df5e5d28dd8c4dd74389c",
+        "path": "PEERLITE_K16_MSE/candidate_receipt.json",
+        "sha256": "406e5710f8af13bc58c42401a5985209915728cfe8ef61d2690d6ef17334ccf8"
+      },
+      "evaluation_id": "m6_peerlite_20260728_v1:PEERLITE_K16_MSE:seed7",
+      "metrics": {
+        "path": "PEERLITE_K16_MSE/metrics.json",
+        "sha256": "c948ae89a55ea3964839b4a0dd62e265336b1d2aabd7bd05e41bc513fd8a88ac"
+      },
+      "model_fits": 8,
+      "model_id": "PEERLITE_K16_MSE",
+      "predictions": {
+        "path": "PEERLITE_K16_MSE/predictions.parquet",
+        "rows": 949014,
+        "sha256": "559968e710e269775c67afa26f0e4f04713e43f3c5e07f877337a947a5fc99e3"
+      },
+      "qlib_recorder": {
+        "artifact_readback": "PASS",
+        "experiment_name": "qlib_peerlite_m6_peerlite_mse",
+        "recorder_id": "a23e488147464c92815144b2eaa3b0e7"
+      }
+    },
+    {
+      "candidate_receipt": {
+        "content_sha256": "1eed0bdb569b468e6bef990f3dc6d415a9413f5e7849fd22e9f155983447c20f",
+        "path": "PEERLITE_K32_MSE/candidate_receipt.json",
+        "sha256": "ebb32c7ee01b80b9c07703eac357c8cd23cc9d089437f594750bec75569c8503"
+      },
+      "evaluation_id": "m6_peerlite_20260728_v1:PEERLITE_K32_MSE:seed7",
+      "metrics": {
+        "path": "PEERLITE_K32_MSE/metrics.json",
+        "sha256": "6beec2e06a8c95143f2599aaa71d5787579a33ae47b49b9df4235c09afdabf99"
+      },
+      "model_fits": 7,
+      "model_id": "PEERLITE_K32_MSE",
+      "predictions": {
+        "path": "PEERLITE_K32_MSE/predictions.parquet",
+        "rows": 949014,
+        "sha256": "008fd6cb2889efaa702313544feef00a35c5826ad130c347e8e1894e83722d55"
+      },
+      "qlib_recorder": {
+        "artifact_readback": "PASS",
+        "experiment_name": "qlib_peerlite_m6_peerlite_mse",
+        "recorder_id": "fac86370cf144d58a9de0586a6cb1a6b"
+      }
+    }
+  ],
+  "claim_ceiling": "PRE_FINAL_OOS_DIAGNOSTIC",
+  "content_sha256": "8083b1c2bb431d63b1962e34c457bed67a28b398f4d617882b10c1f731459e94",
+  "created_at": "2026-07-28T23:08:52.886581+08:00",
+  "ledger_events": {
+    "path": "ledger_events.jsonl",
+    "sha256_before_terminal_event": "5e548c2e59f9946fceeed0ded3e4391847cc9e40413b710e2957ea00bc656974"
+  },
+  "limitations": [
+    "M6 diagnostics stop before final OOS and cannot establish Alpha.",
+    "K16 remains the parsimonious registered primary; M6 performs no model selection.",
+    "CCC, market gating, portfolios and costs are prohibited in this run."
+  ],
+  "model_fits": 15,
+  "product": {
+    "date_max": "2024-12-17",
+    "feature_count": 50,
+    "manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+    "product_id": "pit_data_product_2012_2024_v3",
+    "rows": 1658525
+  },
+  "safeguards": {
+    "ccc_allowed": false,
+    "cost_adjusted_selection": false,
+    "final_oos_market_partitions_opened": false,
+    "final_oos_metrics_computed": false,
+    "high_frequency_data_allowed": false,
+    "market_gate_allowed": false,
+    "model_selection_performed": false,
+    "portfolio_backtests": 0,
+    "text_or_llm_allowed": false
+  },
+  "schema_version": "qlib_peerlite_m6_run_manifest_v1",
+  "spec": {
+    "content_sha256": "60d0cf06307991f1fafea0dd5880b43fb929546c6757040e2c868cbb361f2f69",
+    "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/contracts/immutable/m6_peerlite_execution_spec_v1.json",
+    "sha256": "469d67be0812e1acfa53301907f94c85bea2e799d17f2699edd8d508a2df20f8"
+  },
+  "stage": "M6-PEERLITE-MSE",
+  "status": "PASS"
+}

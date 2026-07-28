@@ -1,0 +1,90 @@
+{
+  "by_fold": {
+    "wf_2018": {
+      "dates": 238.0,
+      "decile_slope": 0.0005668484375588218,
+      "observations": 125413.0,
+      "rank_ic_mean": 0.03679522556854088,
+      "rank_ic_positive_fraction": 0.6218487394957983,
+      "rank_ic_std": 0.13438367595650463,
+      "rank_icir": 0.27380725602751205,
+      "top_minus_bottom": 0.005277022915732397
+    },
+    "wf_2019": {
+      "dates": 239.0,
+      "decile_slope": 0.00017015365420090252,
+      "observations": 141141.0,
+      "rank_ic_mean": 0.027995229560164883,
+      "rank_ic_positive_fraction": 0.5941422594142259,
+      "rank_ic_std": 0.14138962748475967,
+      "rank_icir": 0.19800058928072697,
+      "top_minus_bottom": 0.002576871570859677
+    },
+    "wf_2020": {
+      "dates": 238.0,
+      "decile_slope": -6.116829106628125e-05,
+      "observations": 139855.0,
+      "rank_ic_mean": 0.04035517020825215,
+      "rank_ic_positive_fraction": 0.6134453781512605,
+      "rank_ic_std": 0.13949012076486259,
+      "rank_icir": 0.28930486250190107,
+      "top_minus_bottom": 0.00012927915291229128
+    },
+    "wf_2021": {
+      "dates": 238.0,
+      "decile_slope": 0.0006241681887056963,
+      "observations": 140695.0,
+      "rank_ic_mean": 0.04266037965506409,
+      "rank_ic_positive_fraction": 0.6218487394957983,
+      "rank_ic_std": 0.14492654625895576,
+      "rank_icir": 0.29435863032876136,
+      "top_minus_bottom": 0.006392846170673796
+    },
+    "wf_2022": {
+      "dates": 237.0,
+      "decile_slope": 0.00027749872194753186,
+      "observations": 140319.0,
+      "rank_ic_mean": 0.02626198316664486,
+      "rank_ic_positive_fraction": 0.6075949367088608,
+      "rank_ic_std": 0.14164982930388062,
+      "rank_icir": 0.18540073994939427,
+      "top_minus_bottom": 0.003937800515490447
+    },
+    "wf_2023": {
+      "dates": 232.0,
+      "decile_slope": -0.00010212174122051659,
+      "observations": 136288.0,
+      "rank_ic_mean": -0.006176945672376017,
+      "rank_ic_positive_fraction": 0.4870689655172414,
+      "rank_ic_std": 0.10235272952679102,
+      "rank_icir": -0.060349594006276014,
+      "top_minus_bottom": -0.0002634518790352665
+    },
+    "wf_2024": {
+      "dates": 227.0,
+      "decile_slope": 4.581549342606573e-05,
+      "observations": 125303.0,
+      "rank_ic_mean": 0.012746205461945954,
+      "rank_ic_positive_fraction": 0.5110132158590308,
+      "rank_ic_std": 0.18217890554425623,
+      "rank_icir": 0.0699653202101906,
+      "top_minus_bottom": 0.0005432665565547074
+    }
+  },
+  "cost_adjusted_metrics_computed": false,
+  "final_oos_metrics_computed": false,
+  "model_id": "PEERLITE_K16_MSE",
+  "overall": {
+    "dates": 1649.0,
+    "decile_slope": 0.00021611402394765505,
+    "observations": 949014.0,
+    "rank_ic_mean": 0.02600985547121087,
+    "rank_ic_positive_fraction": 0.5803517283201941,
+    "rank_ic_std": 0.14301499250354474,
+    "rank_icir": 0.1818680336648355,
+    "top_minus_bottom": 0.0026627119109009934
+  },
+  "role": "PRE_FINAL_OOS_DIAGNOSTIC_ONLY",
+  "schema_version": "qlib_peerlite_m6_diagnostic_metrics_v1",
+  "selection_allowed": false
+}

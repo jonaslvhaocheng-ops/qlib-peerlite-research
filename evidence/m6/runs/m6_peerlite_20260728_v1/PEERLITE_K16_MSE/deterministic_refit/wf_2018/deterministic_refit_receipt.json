@@ -1,0 +1,26 @@
+{
+  "content_sha256": "2b0276e6e56cedb49d48d8a76879868ce92d1b1fa58eb89c563ccf4907f77264",
+  "evaluation_id": "m6_peerlite_20260728_v1:PEERLITE_K16_MSE:seed7",
+  "final_oos_market_partitions_opened": false,
+  "fit_id": "m6_peerlite_20260728_v1:PEERLITE_K16_MSE:seed7:wf_2018:deterministic_refit",
+  "fold_id": "wf_2018",
+  "model_id": "PEERLITE_K16_MSE",
+  "reference_score_sha256": "bd6ab23502be9e33298513bcb7dd1ccbf307265d5630e43fb649008278d38932",
+  "refit_score_sha256": "bd6ab23502be9e33298513bcb7dd1ccbf307265d5630e43fb649008278d38932",
+  "resources": {
+    "elapsed_seconds": 36.36592013319023,
+    "gpu_peak_allocated_bytes": 121113088,
+    "process_max_rss": 5544744,
+    "process_max_rss_unit": "KiB_ON_LINUX"
+  },
+  "schema_version": "qlib_peerlite_m6_deterministic_refit_v1",
+  "score_rows": 125413,
+  "seed": 7,
+  "status": "PASS_EXACT",
+  "training_summary": {
+    "best_epoch": 7,
+    "best_valid_loss": 0.0019422126752344302,
+    "epochs_completed": 20,
+    "parameter_count": 29521
+  }
+}
