@@ -1,0 +1,163 @@
+{
+  "claim_ceiling": "MECHANICS_ONLY",
+  "code": {
+    "scripts/run_m6_mechanics.py": "d08af05aabcbc119be7c671a8b6e1c42932fe5d7fab77a49e210d7b75afc3afb",
+    "src/qlib_peerlite/models/common.py": "7ad5287a1a409d7c01c020d6b2fef0b286fb35304a35493f03115a144d706b16",
+    "src/qlib_peerlite/models/peerlite.py": "bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a",
+    "tests/test_peerlite.py": "ee724364b3b5705d52255569cddcae142087b9518c3d29bf054e18eacb74c72b"
+  },
+  "content_sha256": "c2fc6d0978a875ed1b2d22052b3bdba7aa686bf13ac945c8982eca88a81336ec",
+  "counts_as_candidate_evaluation": false,
+  "counts_as_model_fit": false,
+  "created_at": "2026-07-28T21:55:28.270736+08:00",
+  "environment": {
+    "device": "cpu",
+    "python": "3.11.15",
+    "torch": "2.7.1"
+  },
+  "final_oos_market_partitions_opened": false,
+  "model_checks": {
+    "checkpoint_inventory": {
+      "metadata.json": "ab5d20ed94e46084cd50a2a0aa5bd60f81224bb021ad5216ec837c71218e6a2c",
+      "state_dict.pt": "3ced2b42c447dc843262d9c67a648117217c4c73e36b317acf3c5e897bdb918e"
+    },
+    "checkpoint_replay": "PASS_EXACT",
+    "finite_scores": true,
+    "fixed_seed_refit": "PASS_EXACT",
+    "score_rows": 160,
+    "training_summary": {
+      "best_epoch": 2,
+      "best_valid_loss": 0.4315205386706761,
+      "epochs_completed": 3,
+      "parameter_count": 2113
+    },
+    "unified_interface": "(datetime, instrument) -> score"
+  },
+  "network_checks": [
+    {
+      "batched_dates": {
+        "assignment_shape": [
+          3,
+          11,
+          16
+        ],
+        "attention_shape": [
+          3,
+          4,
+          11,
+          16
+        ],
+        "cross_date_information_mixing": false,
+        "max_separate_execution_error": 1.4901161193847656e-07,
+        "status": "PASS",
+        "valid_stock_counts": [
+          11,
+          7,
+          1
+        ]
+      },
+      "complexity_witness": {
+        "assignment_shape": [
+          12,
+          16
+        ],
+        "attention_shape": [
+          4,
+          12,
+          16
+        ],
+        "expected_order": "O(NK)",
+        "stock_pair_tensor_materialized": false
+      },
+      "masked_missing_row": {
+        "invalid_score": 0.0,
+        "max_valid_score_error": 1.043081283569336e-07,
+        "status": "PASS"
+      },
+      "num_peers": 16,
+      "parameter_count": 29521,
+      "permutation_equivariance": {
+        "max_absolute_error": 1.7881393432617188e-07,
+        "status": "PASS",
+        "tolerance": 1e-05
+      },
+      "single_stock": "PASS",
+      "variable_cross_section_shapes": {
+        "1": [
+          1
+        ],
+        "37": [
+          37
+        ],
+        "7": [
+          7
+        ]
+      }
+    },
+    {
+      "batched_dates": {
+        "assignment_shape": [
+          3,
+          11,
+          32
+        ],
+        "attention_shape": [
+          3,
+          4,
+          11,
+          32
+        ],
+        "cross_date_information_mixing": false,
+        "max_separate_execution_error": 2.682209014892578e-07,
+        "status": "PASS",
+        "valid_stock_counts": [
+          11,
+          7,
+          1
+        ]
+      },
+      "complexity_witness": {
+        "assignment_shape": [
+          12,
+          32
+        ],
+        "attention_shape": [
+          4,
+          12,
+          32
+        ],
+        "expected_order": "O(NK)",
+        "stock_pair_tensor_materialized": false
+      },
+      "masked_missing_row": {
+        "invalid_score": 0.0,
+        "max_valid_score_error": 1.1920928955078125e-07,
+        "status": "PASS"
+      },
+      "num_peers": 32,
+      "parameter_count": 30561,
+      "permutation_equivariance": {
+        "max_absolute_error": 1.7881393432617188e-07,
+        "status": "PASS",
+        "tolerance": 1e-05
+      },
+      "single_stock": "PASS",
+      "variable_cross_section_shapes": {
+        "1": [
+          1
+        ],
+        "37": [
+          37
+        ],
+        "7": [
+          7
+        ]
+      }
+    }
+  ],
+  "real_data_accessed": false,
+  "real_labels_accessed": false,
+  "schema_version": "qlib_peerlite_m6_mechanics_receipt_v1",
+  "status": "PASS",
+  "track": "SYNTHETIC_ONLY"
+}

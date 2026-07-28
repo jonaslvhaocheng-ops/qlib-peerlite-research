@@ -78,12 +78,39 @@ def mechanics(project_root: Path, output_path: Path) -> dict[str, Any]:
                 return_attention=True,
             )
             max_mask_error = float((base_score - masked_score[:-1]).abs().max())
+            batched_values = torch.randn(3, 11, 50)
+            batched_mask = torch.tensor(
+                [
+                    [True] * 11,
+                    [True] * 7 + [False] * 4,
+                    [True] + [False] * 10,
+                ]
+            )
+            batched_values[~batched_mask] = float("nan")
+            batched_score, batched_assignment, batched_attention = network(
+                batched_values,
+                valid_mask=batched_mask,
+                return_attention=True,
+            )
+            batched_errors = [
+                float(
+                    (
+                        batched_score[index][batched_mask[index]]
+                        - network(batched_values[index][batched_mask[index]])
+                    )
+                    .abs()
+                    .max()
+                )
+                for index in range(len(batched_values))
+            ]
         if max_permutation_error > 1e-5:
             raise RuntimeError("PeerLite permutation equivariance tolerance failed")
         if max_mask_error > 1e-6 or masked_score[-1].item() != 0.0:
             raise RuntimeError("PeerLite missing-row isolation failed")
         if torch.count_nonzero(assignment[-1]) or torch.count_nonzero(attention[:, -1]):
             raise RuntimeError("PeerLite missing-row masks are not zero")
+        if max(batched_errors) > 1e-5:
+            raise RuntimeError("PeerLite batched dates do not remain independent")
         if network.parameter_count >= 500_000:
             raise RuntimeError("PeerLite parameter budget exceeded")
         network_results.append(
@@ -107,6 +134,14 @@ def mechanics(project_root: Path, output_path: Path) -> dict[str, Any]:
                     "attention_shape": list(attention.shape),
                     "expected_order": "O(NK)",
                     "stock_pair_tensor_materialized": False,
+                },
+                "batched_dates": {
+                    "status": "PASS",
+                    "valid_stock_counts": batched_mask.sum(dim=1).tolist(),
+                    "max_separate_execution_error": max(batched_errors),
+                    "assignment_shape": list(batched_assignment.shape),
+                    "attention_shape": list(batched_attention.shape),
+                    "cross_date_information_mixing": False,
                 },
             }
         )

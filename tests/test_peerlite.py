@@ -126,6 +126,39 @@ def test_attention_storage_scales_with_stocks_times_peers() -> None:
     assert attention_large.numel() == 4 * 31 * 16
 
 
+def test_batched_dates_preserve_independent_cross_sections() -> None:
+    model = network()
+    values = torch.randn(3, 11, 12)
+    mask = torch.tensor(
+        [
+            [True] * 11,
+            [True] * 7 + [False] * 4,
+            [True] + [False] * 10,
+        ]
+    )
+    values[~mask] = float("nan")
+    with torch.no_grad():
+        batched, assignment, attention = model(
+            values,
+            valid_mask=mask,
+            return_attention=True,
+        )
+        separate = [
+            model(values[index][mask[index]]) for index in range(len(values))
+        ]
+    assert batched.shape == (3, 11)
+    assert assignment.shape == (3, 11, 16)
+    assert attention.shape == (3, 4, 11, 16)
+    for index, expected in enumerate(separate):
+        torch.testing.assert_close(
+            batched[index][mask[index]],
+            expected,
+            rtol=1e-5,
+            atol=1e-6,
+        )
+        assert torch.count_nonzero(batched[index][~mask[index]]).item() == 0
+
+
 def test_model_seed_reproducibility_and_checkpoint_reload(tmp_path) -> None:
     dataset = make_synthetic_dataset(n_dates=36, n_instruments=20, n_features=8)
     config = {

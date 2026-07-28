@@ -63,6 +63,7 @@ class PeerLiteNetwork(nn.Module):
         self.hidden_dim = hidden_dim
         self.num_peers = num_peers
         self.num_heads = num_heads
+        self.market_dim = market_dim
         self.market_gate_enabled = market_gate
         self.encoder = nn.Sequential(
             nn.Linear(input_dim, hidden_dim),
@@ -98,61 +99,85 @@ class PeerLiteNetwork(nn.Module):
         *,
         return_attention: bool = False,
     ) -> torch.Tensor | tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        if features.ndim != 2:
-            raise ValueError("features must have shape [stocks, features]")
-        n_stocks = features.shape[0]
+        unbatched = features.ndim == 2
+        if unbatched:
+            features = features.unsqueeze(0)
+        elif features.ndim != 3:
+            raise ValueError(
+                "features must have shape [stocks, features] or "
+                "[dates, stocks, features]"
+            )
+        n_dates, n_stocks, input_dim = features.shape
         if n_stocks == 0:
             raise ValueError("cross-section cannot be empty")
+        if input_dim != self.input_dim:
+            raise ValueError("feature dimension does not match PeerLite input_dim")
         if valid_mask is None:
-            valid_mask = torch.ones(n_stocks, dtype=torch.bool, device=features.device)
-        if valid_mask.shape != (n_stocks,):
-            raise ValueError("valid_mask must have shape [stocks]")
+            valid_mask = torch.ones(
+                n_dates,
+                n_stocks,
+                dtype=torch.bool,
+                device=features.device,
+            )
+        elif unbatched and valid_mask.shape == (n_stocks,):
+            valid_mask = valid_mask.unsqueeze(0)
+        if valid_mask.shape != (n_dates, n_stocks):
+            raise ValueError(
+                "valid_mask must have shape [stocks] or [dates, stocks]"
+            )
         valid_mask = valid_mask.to(device=features.device, dtype=torch.bool)
-        if not valid_mask.any():
-            raise ValueError("cross-section must contain at least one valid stock")
+        if not valid_mask.any(dim=1).all():
+            raise ValueError("each cross-section must contain at least one valid stock")
         if not torch.isfinite(features[valid_mask]).all():
             raise ValueError("valid stock features must be finite")
 
-        hidden = self.encoder(features)
+        safe_features = torch.where(
+            valid_mask.unsqueeze(-1),
+            features,
+            torch.zeros_like(features),
+        )
+        hidden = self.encoder(safe_features)
         if self.market_gate_enabled:
             if market_state is None:
                 raise ValueError("market_state is required for the enabled market gate")
-            if market_state.ndim == 1:
+            if unbatched and market_state.ndim == 1:
                 market_state = market_state.unsqueeze(0)
-            gate = self.market_gate(market_state).reshape(1, self.hidden_dim)
+            if market_state.shape != (n_dates, self.market_dim):
+                raise ValueError(
+                    "market_state must have shape [market_features] or "
+                    "[dates, market_features]"
+                )
+            gate = self.market_gate(market_state).reshape(
+                n_dates,
+                1,
+                self.hidden_dim,
+            )
             hidden = hidden * gate
 
-        valid_hidden = hidden[valid_mask]
-        assignment = torch.softmax(self.assignment(valid_hidden), dim=-1)
-        denominator = assignment.sum(dim=0).clamp_min(1e-8).unsqueeze(-1)
-        prototypes = assignment.transpose(0, 1) @ valid_hidden / denominator
+        assignment = torch.softmax(self.assignment(hidden), dim=-1)
+        assignment = assignment * valid_mask.unsqueeze(-1)
+        denominator = assignment.sum(dim=1).clamp_min(1e-8).unsqueeze(-1)
+        prototypes = torch.einsum("bnk,bnh->bkh", assignment, hidden) / denominator
         context, attention = self.attention(
-            hidden.unsqueeze(0),
-            prototypes.unsqueeze(0),
-            prototypes.unsqueeze(0),
+            hidden,
+            prototypes,
+            prototypes,
             need_weights=True,
             average_attn_weights=False,
         )
-        context = context.squeeze(0)
         relative = torch.cat([hidden, hidden - context], dim=-1)
         score = self.head(relative).squeeze(-1)
         score = torch.where(valid_mask, score, torch.zeros_like(score))
         if return_attention:
-            full_assignment = torch.zeros(
-                n_stocks,
-                self.num_peers,
-                dtype=assignment.dtype,
-                device=assignment.device,
-            )
-            full_assignment[valid_mask] = assignment
-            attention = attention.squeeze(0)
             attention = torch.where(
-                valid_mask.reshape(1, n_stocks, 1),
+                valid_mask.reshape(n_dates, 1, n_stocks, 1),
                 attention,
                 torch.zeros_like(attention),
             )
-            return score, full_assignment, attention
-        return score
+            if unbatched:
+                return score.squeeze(0), assignment.squeeze(0), attention.squeeze(0)
+            return score, assignment, attention
+        return score.squeeze(0) if unbatched else score
 
 
 class PeerLiteModel:
@@ -175,11 +200,14 @@ class PeerLiteModel:
         learning_rate: float = 1e-3,
         weight_decay: float = 1e-4,
         gradient_clip_norm: float = 1.0,
+        cross_section_batch_size: int = 16,
         device: str = "auto",
         model_id: str | None = None,
     ) -> None:
         if loss not in {"mse", "ccc"}:
             raise ValueError("loss must be mse or ccc")
+        if cross_section_batch_size <= 0:
+            raise ValueError("cross_section_batch_size must be positive")
         seed_everything(seed)
         self.input_dim = input_dim
         self.loss_name = loss
@@ -189,6 +217,7 @@ class PeerLiteModel:
         self.learning_rate = learning_rate
         self.weight_decay = weight_decay
         self.gradient_clip_norm = gradient_clip_norm
+        self.cross_section_batch_size = cross_section_batch_size
         self.device = resolve_device(device)
         self.model_id = model_id or (
             f"PEERLITE_K{num_peers}_{loss.upper()}" + ("_GATE" if market_gate else "")
@@ -208,6 +237,7 @@ class PeerLiteModel:
             "learning_rate": learning_rate,
             "weight_decay": weight_decay,
             "gradient_clip_norm": gradient_clip_norm,
+            "cross_section_batch_size": cross_section_batch_size,
             "model_id": self.model_id,
         }
         self.network = PeerLiteNetwork(
@@ -262,6 +292,52 @@ class PeerLiteModel:
             return ConcordanceCorrelationLoss()(prediction, target)
         return nn.functional.mse_loss(prediction, target)
 
+    @staticmethod
+    def _pack_date_batches(
+        batches: list[
+            tuple[pd.MultiIndex, np.ndarray, np.ndarray | None, np.ndarray | None]
+        ],
+    ) -> tuple[np.ndarray, np.ndarray | None, np.ndarray | None, np.ndarray]:
+        if not batches:
+            raise ValueError("cannot pack an empty date batch")
+        max_stocks = max(len(item[1]) for item in batches)
+        feature_dim = batches[0][1].shape[1]
+        features = np.zeros((len(batches), max_stocks, feature_dim), dtype=np.float32)
+        valid_mask = np.zeros((len(batches), max_stocks), dtype=bool)
+        has_target = batches[0][2] is not None
+        targets = (
+            np.zeros((len(batches), max_stocks), dtype=np.float32)
+            if has_target
+            else None
+        )
+        has_market = batches[0][3] is not None
+        market = (
+            np.stack([item[3] for item in batches]).astype(np.float32)
+            if has_market
+            else None
+        )
+        for batch_index, (_, x, y, _) in enumerate(batches):
+            size = len(x)
+            features[batch_index, :size] = x
+            valid_mask[batch_index, :size] = True
+            if targets is not None:
+                if y is None:
+                    raise ValueError("date batch target presence is inconsistent")
+                targets[batch_index, :size] = y
+        return features, targets, market, valid_mask
+
+    def _batched_objective(
+        self,
+        prediction: torch.Tensor,
+        target: torch.Tensor,
+        valid_mask: torch.Tensor,
+    ) -> torch.Tensor:
+        losses = [
+            self._loss(prediction[index][valid_mask[index]], target[index][valid_mask[index]])
+            for index in range(len(prediction))
+        ]
+        return torch.stack(losses).mean()
+
     def _validation_loss(
         self,
         features: pd.DataFrame,
@@ -270,15 +346,37 @@ class PeerLiteModel:
     ) -> float:
         self.network.eval()
         values: list[float] = []
+        date_batches = list(self._date_batches(features, target, market))
         with torch.no_grad():
-            for _, x, y, market_row in self._date_batches(features, target, market):
+            for start in range(0, len(date_batches), self.cross_section_batch_size):
+                packed = self._pack_date_batches(
+                    date_batches[start : start + self.cross_section_batch_size]
+                )
+                x, y, market_rows, valid_mask = packed
+                if y is None:
+                    raise RuntimeError("validation targets are missing")
                 x_tensor = torch.as_tensor(x, device=self.device)
                 y_tensor = torch.as_tensor(y, device=self.device)
+                mask_tensor = torch.as_tensor(valid_mask, device=self.device)
                 market_tensor = (
-                    None if market_row is None else torch.as_tensor(market_row, device=self.device)
+                    None
+                    if market_rows is None
+                    else torch.as_tensor(market_rows, device=self.device)
                 )
-                prediction = self.network(x_tensor, market_tensor)
-                values.append(float(nn.functional.mse_loss(prediction, y_tensor).cpu()))
+                prediction = self.network(
+                    x_tensor,
+                    market_tensor,
+                    valid_mask=mask_tensor,
+                )
+                values.extend(
+                    float(
+                        nn.functional.mse_loss(
+                            prediction[index][mask_tensor[index]],
+                            y_tensor[index][mask_tensor[index]],
+                        ).cpu()
+                    )
+                    for index in range(len(prediction))
+                )
         return float(np.mean(values))
 
     def fit(self, dataset: object, **kwargs: Any) -> PeerLiteModel:
@@ -309,15 +407,31 @@ class PeerLiteModel:
             batches = list(self._date_batches(x_train, y_train, market_train))
             rng.shuffle(batches)
             train_losses: list[float] = []
-            for _, x, y, market_row in batches:
+            for start in range(0, len(batches), self.cross_section_batch_size):
+                x, y, market_rows, valid_mask = self._pack_date_batches(
+                    batches[start : start + self.cross_section_batch_size]
+                )
+                if y is None:
+                    raise RuntimeError("training targets are missing")
                 x_tensor = torch.as_tensor(x, device=self.device)
                 y_tensor = torch.as_tensor(y, device=self.device)
+                mask_tensor = torch.as_tensor(valid_mask, device=self.device)
                 market_tensor = (
-                    None if market_row is None else torch.as_tensor(market_row, device=self.device)
+                    None
+                    if market_rows is None
+                    else torch.as_tensor(market_rows, device=self.device)
                 )
                 optimizer.zero_grad(set_to_none=True)
-                prediction = self.network(x_tensor, market_tensor)
-                objective = self._loss(prediction, y_tensor)
+                prediction = self.network(
+                    x_tensor,
+                    market_tensor,
+                    valid_mask=mask_tensor,
+                )
+                objective = self._batched_objective(
+                    prediction,
+                    y_tensor,
+                    mask_tensor,
+                )
                 objective.backward()
                 torch.nn.utils.clip_grad_norm_(
                     self.network.parameters(), self.gradient_clip_norm
