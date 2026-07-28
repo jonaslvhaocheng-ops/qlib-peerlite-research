@@ -1,0 +1,121 @@
+{
+  "claim_ceiling": "MECHANICS_ONLY",
+  "code": {
+    "scripts/run_m6_mechanics.py": "ff68199f70a2e0de3f61e22700da56b8f66e167fd4859e10921b117336a2662b",
+    "src/qlib_peerlite/models/common.py": "7ad5287a1a409d7c01c020d6b2fef0b286fb35304a35493f03115a144d706b16",
+    "src/qlib_peerlite/models/peerlite.py": "b242235c8b2474ce3a0e5c110c893b3052495c24ad7f4b17438cbebd4cf3841b",
+    "tests/test_peerlite.py": "1462f2e360e357ab3f81d893a146b0e8e25c84ec105b94ea02227653f518e143"
+  },
+  "content_sha256": "bea6f68942b07150585fa34c1834804f286554f048c8f0139eb8defcf45a744d",
+  "counts_as_candidate_evaluation": false,
+  "counts_as_model_fit": false,
+  "created_at": "2026-07-28T21:52:30.354384+08:00",
+  "environment": {
+    "device": "cpu",
+    "python": "3.11.15",
+    "torch": "2.7.1"
+  },
+  "final_oos_market_partitions_opened": false,
+  "model_checks": {
+    "checkpoint_inventory": {
+      "metadata.json": "7e6f1d4e30fd79e289275f1e9b63161c6ef7c5577fe2573d91a5f7a927c01e91",
+      "state_dict.pt": "10b5d2d7fd00d3c7ca9845207c87a32a16753fae7671b13346cf614ab182fdc6"
+    },
+    "checkpoint_replay": "PASS_EXACT",
+    "finite_scores": true,
+    "fixed_seed_refit": "PASS_EXACT",
+    "score_rows": 160,
+    "training_summary": {
+      "best_epoch": 2,
+      "best_valid_loss": 0.2488984614610672,
+      "epochs_completed": 3,
+      "parameter_count": 2113
+    },
+    "unified_interface": "(datetime, instrument) -> score"
+  },
+  "network_checks": [
+    {
+      "complexity_witness": {
+        "assignment_shape": [
+          12,
+          16
+        ],
+        "attention_shape": [
+          4,
+          12,
+          16
+        ],
+        "expected_order": "O(NK)",
+        "stock_pair_tensor_materialized": false
+      },
+      "masked_missing_row": {
+        "invalid_score": 0.0,
+        "max_valid_score_error": 1.4901161193847656e-08,
+        "status": "PASS"
+      },
+      "num_peers": 16,
+      "parameter_count": 29521,
+      "permutation_equivariance": {
+        "max_absolute_error": 1.7881393432617188e-07,
+        "status": "PASS",
+        "tolerance": 1e-05
+      },
+      "single_stock": "PASS",
+      "variable_cross_section_shapes": {
+        "1": [
+          1
+        ],
+        "37": [
+          37
+        ],
+        "7": [
+          7
+        ]
+      }
+    },
+    {
+      "complexity_witness": {
+        "assignment_shape": [
+          12,
+          32
+        ],
+        "attention_shape": [
+          4,
+          12,
+          32
+        ],
+        "expected_order": "O(NK)",
+        "stock_pair_tensor_materialized": false
+      },
+      "masked_missing_row": {
+        "invalid_score": 0.0,
+        "max_valid_score_error": 8.940696716308594e-08,
+        "status": "PASS"
+      },
+      "num_peers": 32,
+      "parameter_count": 30561,
+      "permutation_equivariance": {
+        "max_absolute_error": 1.862645149230957e-07,
+        "status": "PASS",
+        "tolerance": 1e-05
+      },
+      "single_stock": "PASS",
+      "variable_cross_section_shapes": {
+        "1": [
+          1
+        ],
+        "37": [
+          37
+        ],
+        "7": [
+          7
+        ]
+      }
+    }
+  ],
+  "real_data_accessed": false,
+  "real_labels_accessed": false,
+  "schema_version": "qlib_peerlite_m6_mechanics_receipt_v1",
+  "status": "PASS",
+  "track": "SYNTHETIC_ONLY"
+}

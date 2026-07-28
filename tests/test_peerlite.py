@@ -3,10 +3,12 @@ from __future__ import annotations
 import copy
 
 import numpy as np
+import pytest
 import torch
 
+from qlib_peerlite.data.synthetic import make_synthetic_dataset
 from qlib_peerlite.models.losses import ConcordanceCorrelationLoss
-from qlib_peerlite.models.peerlite import PeerLiteNetwork
+from qlib_peerlite.models.peerlite import PeerLiteModel, PeerLiteNetwork
 
 
 def network() -> PeerLiteNetwork:
@@ -35,8 +37,12 @@ def test_peer_network_is_permutation_equivariant() -> None:
 def test_variable_cross_section_single_stock_and_mask() -> None:
     model = network()
     with torch.no_grad():
-        assert model(torch.randn(1, 12)).shape == (1,)
-        score = model(torch.randn(9, 12), valid_mask=torch.tensor([True] * 8 + [False]))
+        for size in (1, 7, 37):
+            assert model(torch.randn(size, 12)).shape == (size,)
+        score = model(
+            torch.randn(9, 12),
+            valid_mask=torch.tensor([True] * 8 + [False]),
+        )
     assert score.shape == (9,)
     assert score[-1].item() == 0.0
 
@@ -73,3 +79,72 @@ def test_attention_shapes_and_mass() -> None:
     np.testing.assert_allclose(
         attention.sum(dim=-1).numpy(), np.ones((4, 23)), rtol=1e-5, atol=1e-6
     )
+
+
+def test_masked_missing_row_cannot_change_valid_scores() -> None:
+    model = network()
+    values = torch.randn(11, 12)
+    extended = torch.cat([values, torch.full((1, 12), float("nan"))])
+    valid_mask = torch.tensor([True] * 11 + [False])
+    with torch.no_grad():
+        expected = model(values)
+        actual, assignment, attention = model(
+            extended,
+            valid_mask=valid_mask,
+            return_attention=True,
+        )
+    torch.testing.assert_close(actual[:-1], expected, rtol=1e-5, atol=1e-6)
+    assert actual[-1].item() == 0.0
+    assert torch.count_nonzero(assignment[-1]).item() == 0
+    assert torch.count_nonzero(attention[:, -1]).item() == 0
+
+
+def test_valid_non_finite_features_and_empty_mask_fail_closed() -> None:
+    model = network()
+    values = torch.randn(4, 12)
+    values[0, 0] = float("nan")
+    with pytest.raises(ValueError, match="must be finite"):
+        model(values)
+    with pytest.raises(ValueError, match="at least one valid"):
+        model(torch.randn(4, 12), valid_mask=torch.zeros(4, dtype=torch.bool))
+
+
+def test_attention_storage_scales_with_stocks_times_peers() -> None:
+    model = network()
+    with torch.no_grad():
+        _, assignment_small, attention_small = model(
+            torch.randn(17, 12),
+            return_attention=True,
+        )
+        _, assignment_large, attention_large = model(
+            torch.randn(31, 12),
+            return_attention=True,
+        )
+    assert assignment_small.numel() == 17 * 16
+    assert assignment_large.numel() == 31 * 16
+    assert attention_small.numel() == 4 * 17 * 16
+    assert attention_large.numel() == 4 * 31 * 16
+
+
+def test_model_seed_reproducibility_and_checkpoint_reload(tmp_path) -> None:
+    dataset = make_synthetic_dataset(n_dates=36, n_instruments=20, n_features=8)
+    config = {
+        "hidden_dim": 16,
+        "num_peers": 16,
+        "num_heads": 4,
+        "dropout": 0.1,
+        "epochs": 3,
+        "patience": 2,
+        "device": "cpu",
+        "seed": 7,
+    }
+    first = PeerLiteModel(8, **config).fit(dataset)
+    second = PeerLiteModel(8, **config).fit(dataset)
+    expected = first.predict(dataset)
+    np.testing.assert_allclose(second.predict(dataset), expected, rtol=0, atol=0)
+
+    checkpoint = tmp_path / "peerlite"
+    first.save_checkpoint(checkpoint)
+    restored = PeerLiteModel.load_checkpoint(checkpoint, device="cpu")
+    np.testing.assert_allclose(restored.predict(dataset), expected, rtol=0, atol=0)
+    assert restored.training_summary() == first.training_summary()
