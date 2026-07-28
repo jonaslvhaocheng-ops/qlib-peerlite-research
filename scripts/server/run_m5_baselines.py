@@ -7,7 +7,9 @@ import argparse
 import gc
 import hashlib
 import json
+import os
 import resource
+import tempfile
 import time
 import traceback
 from datetime import datetime
@@ -31,6 +33,7 @@ from qlib_peerlite.governance.artifacts import (
 )
 from qlib_peerlite.governance.gates import EmpiricalEvidence, assert_empirical_ready
 from qlib_peerlite.governance.m5_spec import load_and_verify_m5_spec
+from qlib_peerlite.models.common import seed_everything
 from qlib_peerlite.models.lightgbm_model import LightGBMBaseline
 from qlib_peerlite.models.mlp import MLPBaseline
 from qlib_peerlite.qlib_integration import (
@@ -39,6 +42,7 @@ from qlib_peerlite.qlib_integration import (
 )
 
 SHANGHAI = ZoneInfo("Asia/Shanghai")
+CUBLAS_WORKSPACE_CONFIG = ":4096:8"
 
 
 def now() -> str:
@@ -115,6 +119,18 @@ def checkpoint_inventory(path: Path) -> dict[str, str]:
     return {str(item.relative_to(path)): sha256_file(item) for item in files}
 
 
+def score_digest(scores: pd.Series) -> str:
+    digest = hashlib.sha256()
+    for (timestamp, instrument), value in scores.items():
+        digest.update(pd.Timestamp(timestamp).isoformat().encode("utf-8"))
+        digest.update(b"\x1f")
+        digest.update(str(instrument).encode("utf-8"))
+        digest.update(b"\x1f")
+        digest.update(float(value).hex().encode("ascii"))
+        digest.update(b"\n")
+    return digest.hexdigest()
+
+
 def recorder_readback(
     *,
     recorder_id: str,
@@ -128,12 +144,13 @@ def recorder_readback(
         experiment_name=experiment_name,
     )
     available = set(recorder.list_artifacts())
-    for name, expected_hash in expected.items():
-        if name not in available:
-            raise RuntimeError(f"Qlib Recorder artifact missing: {name}")
-        downloaded = Path(recorder.download_artifact(name))
-        if sha256_file(downloaded) != expected_hash:
-            raise RuntimeError(f"Qlib Recorder artifact hash mismatch: {name}")
+    with tempfile.TemporaryDirectory(prefix=f"qlib-readback-{recorder_id}-") as directory:
+        for name, expected_hash in expected.items():
+            if name not in available:
+                raise RuntimeError(f"Qlib Recorder artifact missing: {name}")
+            downloaded = Path(recorder.download_artifact(name, dst_path=directory))
+            if sha256_file(downloaded) != expected_hash:
+                raise RuntimeError(f"Qlib Recorder artifact hash mismatch: {name}")
 
 
 def run(
@@ -166,7 +183,12 @@ def run(
     active_model_id: str | None = None
     active_fold_id: str | None = None
     try:
+        if os.environ.get("CUBLAS_WORKSPACE_CONFIG") != CUBLAS_WORKSPACE_CONFIG:
+            raise RuntimeError(
+                f"CUBLAS_WORKSPACE_CONFIG must equal {CUBLAS_WORKSPACE_CONFIG}"
+            )
         spec = load_and_verify_m5_spec(project_root, spec_path)
+        seed_everything(spec["schedule"]["seed"])
         assert_empirical_ready(evidence_paths(project_root, product_dir))
         m4 = json.loads(
             (project_root / "evidence/gates/M4_qlib_foundation_gate.json").read_text(
@@ -184,7 +206,25 @@ def run(
             provider_dir=tracking_dir / "empty_provider",
             tracking_dir=tracking_dir / "mlflow",
         )
-        atomic_write_json(output_dir / "environment.json", environment_report(project_root))
+        environment = environment_report(project_root)
+        environment["determinism"] = {
+            "cublas_workspace_config": os.environ.get("CUBLAS_WORKSPACE_CONFIG"),
+            "deterministic_algorithms": torch.are_deterministic_algorithms_enabled(),
+            "deterministic_algorithms_warn_only": (
+                torch.is_deterministic_algorithms_warn_only_enabled()
+            ),
+            "cudnn_benchmark": torch.backends.cudnn.benchmark,
+            "cudnn_deterministic": torch.backends.cudnn.deterministic,
+        }
+        if environment["determinism"] != {
+            "cublas_workspace_config": CUBLAS_WORKSPACE_CONFIG,
+            "deterministic_algorithms": True,
+            "deterministic_algorithms_warn_only": False,
+            "cudnn_benchmark": False,
+            "cudnn_deterministic": True,
+        }:
+            raise RuntimeError("strict CUDA determinism controls are not active")
+        atomic_write_json(output_dir / "environment.json", environment)
 
         fold_specs = {fold.fold_id: fold for fold in annual_folds()}
         candidate_results: list[dict[str, Any]] = []
@@ -212,6 +252,7 @@ def run(
             score_parts: list[pd.Series] = []
             label_parts: list[pd.Series] = []
             fold_receipts: list[dict[str, Any]] = []
+            deterministic_reference: pd.Series | None = None
 
             for fold_id in spec["schedule"]["fold_ids"]:
                 fold_dir = candidate_dir / "folds" / fold_id
@@ -271,6 +312,12 @@ def run(
                 prediction_tables.append(table)
                 score_parts.append(scores)
                 label_parts.append(labels)
+                replay_spec = spec["deterministic_refit"]
+                if (
+                    model_id == replay_spec["model_id"]
+                    and fold_id == replay_spec["fold_id"]
+                ):
+                    deterministic_reference = scores.copy()
                 elapsed = time.monotonic() - started
                 gpu_peak = (
                     int(torch.cuda.max_memory_allocated()) if torch.cuda.is_available() else 0
@@ -339,6 +386,109 @@ def run(
                 if torch.cuda.is_available():
                     torch.cuda.empty_cache()
 
+            deterministic_refit_receipt: dict[str, Any] | None = None
+            replay_spec = spec["deterministic_refit"]
+            if model_id == replay_spec["model_id"]:
+                replay_fold_id = replay_spec["fold_id"]
+                if deterministic_reference is None:
+                    raise RuntimeError("deterministic-refit reference scores are missing")
+                replay_dir = candidate_dir / "deterministic_refit" / replay_fold_id
+                replay_dir.mkdir(parents=True)
+                replay_fit_id = f"{evaluation_id}:{replay_fold_id}:deterministic_refit"
+                active_fit_id = replay_fit_id
+                active_fold_id = replay_fold_id
+                append_jsonl(
+                    journal_path,
+                    {
+                        "event": "MODEL_FIT_STARTED",
+                        "timestamp": now(),
+                        "family_id": "qlib-peerlite-a-share-daily-v0",
+                        "evaluation_id": evaluation_id,
+                        "fit_id": replay_fit_id,
+                        "model_id": model_id,
+                        "fold_id": replay_fold_id,
+                        "purpose": "DETERMINISTIC_REFIT",
+                        "seed": 7,
+                        "counts_as_candidate_evaluation": False,
+                        "counts_as_model_fit": True,
+                    },
+                )
+                replay_started = time.monotonic()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+                    torch.cuda.reset_peak_memory_stats()
+                replay_fold = build_qlib_fold(
+                    product,
+                    fold_specs[replay_fold_id],
+                    embargo_sessions=spec["schedule"]["embargo_sessions"],
+                )
+                replay_model = build_model(candidate)
+                replay_model.fit(replay_fold.dataset)
+                refit_scores = replay_model.predict(replay_fold.dataset, segment="test")
+                same_index = deterministic_reference.index.equals(refit_scores.index)
+                same_values = np.array_equal(
+                    deterministic_reference.to_numpy(dtype=float),
+                    refit_scores.to_numpy(dtype=float),
+                )
+                if not same_index or not same_values:
+                    raise RuntimeError("B1 deterministic refit score mismatch")
+                deterministic_refit = {
+                    "schema_version": "qlib_peerlite_m5_deterministic_refit_v1",
+                    "status": "PASS_EXACT",
+                    "evaluation_id": evaluation_id,
+                    "fit_id": replay_fit_id,
+                    "model_id": model_id,
+                    "fold_id": replay_fold_id,
+                    "seed": 7,
+                    "reference_score_sha256": score_digest(deterministic_reference),
+                    "refit_score_sha256": score_digest(refit_scores),
+                    "score_rows": len(refit_scores),
+                    "training_summary": replay_model.training_summary(),
+                    "resources": {
+                        "elapsed_seconds": time.monotonic() - replay_started,
+                        "process_max_rss": int(
+                            resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+                        ),
+                        "process_max_rss_unit": "KiB_ON_LINUX",
+                        "gpu_peak_allocated_bytes": (
+                            int(torch.cuda.max_memory_allocated())
+                            if torch.cuda.is_available()
+                            else 0
+                        ),
+                    },
+                    "final_oos_market_partitions_opened": False,
+                }
+                deterministic_refit["content_sha256"] = content_hash(deterministic_refit)
+                deterministic_refit_path = replay_dir / "deterministic_refit_receipt.json"
+                atomic_write_json(deterministic_refit_path, deterministic_refit)
+                deterministic_refit_receipt = {
+                    "path": str(deterministic_refit_path.relative_to(output_dir)),
+                    "sha256": sha256_file(deterministic_refit_path),
+                    "content_sha256": deterministic_refit["content_sha256"],
+                }
+                append_jsonl(
+                    journal_path,
+                    {
+                        "event": "MODEL_FIT_COMPLETED",
+                        "timestamp": now(),
+                        "evaluation_id": evaluation_id,
+                        "fit_id": replay_fit_id,
+                        "model_id": model_id,
+                        "fold_id": replay_fold_id,
+                        "purpose": "DETERMINISTIC_REFIT",
+                        "status": "PASS_EXACT",
+                        "receipt_sha256": sha256_file(deterministic_refit_path),
+                        "counts_as_candidate_evaluation": False,
+                        "counts_as_model_fit": False,
+                    },
+                )
+                active_fit_id = None
+                active_fold_id = None
+                del replay_model, replay_fold, refit_scores
+                gc.collect()
+                if torch.cuda.is_available():
+                    torch.cuda.empty_cache()
+
             predictions = pd.concat(prediction_tables, ignore_index=True)
             predictions = predictions.sort_values(
                 ["datetime", "instrument"], ignore_index=True
@@ -380,7 +530,9 @@ def run(
                 "prediction_sha256": sha256_file(prediction_path),
                 "metrics_sha256": sha256_file(metrics_path),
                 "fold_receipts": fold_receipts,
-                "model_fits": len(fold_receipts),
+                "deterministic_refit": deterministic_refit_receipt,
+                "model_fits": len(fold_receipts)
+                + (1 if deterministic_refit_receipt is not None else 0),
                 "diagnostic_metrics_computed": True,
                 "cost_adjusted_metrics_computed": False,
                 "portfolio_backtests": 0,
@@ -441,6 +593,7 @@ def run(
                         "recorder_id": recorder_id,
                         "artifact_readback": "PASS",
                     },
+                    "model_fits": candidate_receipt["model_fits"],
                 }
             )
             append_jsonl(
@@ -453,7 +606,7 @@ def run(
                     "model_id": model_id,
                     "seed": 7,
                     "status": "PASS",
-                    "model_fits": len(fold_receipts),
+                    "model_fits": candidate_receipt["model_fits"],
                     "candidate_receipt_sha256": sha256_file(candidate_receipt_path),
                     "counts_as_candidate_evaluation": False,
                     "counts_as_model_fit": False,
@@ -483,7 +636,7 @@ def run(
                 ),
             },
             "candidate_evaluations": len(candidate_results),
-            "model_fits": len(candidate_results) * len(spec["schedule"]["fold_ids"]),
+            "model_fits": sum(item["model_fits"] for item in candidate_results),
             "candidates": candidate_results,
             "ledger_events": {
                 "path": journal_path.name,

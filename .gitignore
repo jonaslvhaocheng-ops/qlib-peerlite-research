@@ -28,6 +28,10 @@ evidence/pit/behavior/packages/*/raw_after.json
 evidence/pit/behavior/packages/*/baseline_output.csv
 evidence/pit/behavior/packages/*/probe_output.csv
 
+# Empirical checkpoints remain local/server artifacts.  Git keeps only their
+# receipts and hashes, not learned weights or train-fold preprocessing values.
+evidence/m5/runs/*/*/folds/*/checkpoint/
+
 # Secrets and local environment
 .env
 .env.*

@@ -1,0 +1,58 @@
+{
+  "schema_version": "qlib_peerlite_m5_incident_review_v1",
+  "run_id": "m5_baselines_20260728_v1",
+  "reviewed_at": "2026-07-28T20:32:00+08:00",
+  "status": "REJECTED",
+  "failure_class": [
+    "environment_determinism",
+    "recorder_readback"
+  ],
+  "bindings": {
+    "execution_spec": {
+      "path": "contracts/immutable/m5_baseline_execution_spec_v1.json",
+      "sha256": "5ae86e9674e1d02a9ac28fc6efc04f8ab0b5b9c1c03ff272d0a765c0692edaff",
+      "content_sha256": "d2db54c783406f4bce92f6399c6358fe90cad94d145551dea3ff37865eddcfe1"
+    },
+    "failure_receipt": {
+      "path": "evidence/m5/runs/m5_baselines_20260728_v1/failure_receipt.json",
+      "sha256": "5bb9a084c12ee9eb841807fcbca83ae955f9c300cb05c12add73429cbb5169a0"
+    },
+    "ledger_events": {
+      "path": "evidence/m5/runs/m5_baselines_20260728_v1/ledger_events.jsonl",
+      "sha256": "26b8b46f7a7eba67f757d4f50e70d0a13d3a3349d3b147a84e57c23aa0efbf1e"
+    },
+    "pre_outcome_code_commit": "4c706b7"
+  },
+  "observations": [
+    {
+      "finding": "The CUDA run emitted PyTorch warnings that CuBLAS operations were not deterministic because CUBLAS_WORKSPACE_CONFIG was unset.",
+      "impact": "Fixed-seed reproducibility was not established; all v1 model outcomes are ineligible for M5 promotion."
+    },
+    {
+      "finding": "The second Qlib Recorder run listed all three artifacts, but default-path download of candidate_receipt.json failed.",
+      "impact": "The terminal run manifest was not published and the required Recorder readback gate failed."
+    }
+  ],
+  "trial_accounting": {
+    "candidate_evaluations_counted": 2,
+    "model_fits_counted": 14,
+    "budget_after_v1": {
+      "candidate_evaluations_used": 2,
+      "candidate_evaluations_limit": 27,
+      "model_fits_used": 14,
+      "model_fits_limit": 60
+    }
+  },
+  "repair_scope": [
+    "Set and verify CUBLAS_WORKSPACE_CONFIG=:4096:8 before importing torch.",
+    "Use strict deterministic algorithms instead of warn-only mode.",
+    "Download each Recorder artifact into a run-unique temporary directory.",
+    "Add one counted B1 wf_2018 refit and require exact score equality."
+  ],
+  "prohibited_use": [
+    "Do not use v1 metrics, predictions or checkpoints for model selection.",
+    "Do not reinterpret completed fold receipts as an M5 pass."
+  ],
+  "final_oos_market_partitions_opened": false,
+  "content_sha256": "b5a671108ee14427ad980764ac2bfaacaff0ef65770eabe495d483c088072919"
+}

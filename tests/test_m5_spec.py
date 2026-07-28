@@ -8,7 +8,7 @@ import pytest
 from qlib_peerlite.governance.m5_spec import M5SpecError, load_and_verify_m5_spec
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-SPEC_PATH = PROJECT_ROOT / "contracts/immutable/m5_baseline_execution_spec_v1.json"
+SPEC_PATH = PROJECT_ROOT / "contracts/immutable/m5_baseline_execution_spec_v2.json"
 
 
 def test_frozen_m5_baseline_spec_is_fully_bound() -> None:
@@ -18,7 +18,14 @@ def test_frozen_m5_baseline_spec_is_fully_bound() -> None:
         "B0_LIGHTGBM",
         "B1_MLP",
     ]
-    assert spec["schedule"]["model_fits"] == 14
+    assert spec["schedule"]["model_fits"] == 15
+    assert spec["schedule"]["cumulative_trials_after_success"] == {
+        "candidate_evaluations": 4,
+        "model_fits": 29,
+        "candidate_evaluation_limit": 27,
+        "model_fit_limit": 60,
+    }
+    assert spec["deterministic_refit"]["exact_score_equality"] is True
     assert spec["diagnostics"]["selection_allowed"] is False
     assert spec["safeguards"]["final_oos_market_partitions_opened"] is False
 

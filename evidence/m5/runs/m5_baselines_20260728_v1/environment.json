@@ -1,0 +1,26 @@
+{
+  "created_at": "2026-07-28T20:28:06.700063+08:00",
+  "git": {
+    "branch": null,
+    "commit": null,
+    "dirty": null
+  },
+  "machine": "x86_64",
+  "packages": {
+    "lightgbm": "4.6.0",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "pyarrow": "22.0.0",
+    "qlib": "0.9.7",
+    "torch": "2.7.1+cu126"
+  },
+  "platform": "Linux-6.8.0-106-generic-x86_64-with-glibc2.39",
+  "python": "3.11.14 (main, Oct 10 2025, 12:48:11) [Clang 20.1.4 ]",
+  "schema_version": "qlib_peerlite_environment_v1",
+  "torch": {
+    "cuda_available": true,
+    "cuda_version": "12.6",
+    "device_count": 1,
+    "mps_available": false
+  }
+}

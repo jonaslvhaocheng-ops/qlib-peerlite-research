@@ -119,9 +119,56 @@ def load_and_verify_m5_spec(project_root: Path, spec_path: Path) -> dict[str, An
         and schedule.get("seed") == 7
         and schedule.get("embargo_sessions") == 5
         and schedule.get("candidate_evaluations") == 2
-        and schedule.get("model_fits") == 14,
+        and schedule.get("model_fits") == 15,
         "M5 fold schedule, seed or trial budget mismatch",
     )
+    cumulative_trials = schedule.get("cumulative_trials_after_success")
+    _require(
+        isinstance(cumulative_trials, Mapping)
+        and cumulative_trials.get("candidate_evaluations") == 4
+        and cumulative_trials.get("model_fits") == 29
+        and cumulative_trials.get("candidate_evaluation_limit") == 27
+        and cumulative_trials.get("model_fit_limit") == 60,
+        "M5 cumulative trial accounting is incomplete",
+    )
+    deterministic_refit = spec.get("deterministic_refit")
+    _require(
+        isinstance(deterministic_refit, Mapping)
+        and deterministic_refit.get("model_id") == "B1_MLP"
+        and deterministic_refit.get("fold_id") == "wf_2018"
+        and deterministic_refit.get("seed") == 7
+        and deterministic_refit.get("exact_score_equality") is True
+        and deterministic_refit.get("counts_as_model_fit") is True,
+        "M5 deterministic refit contract is incomplete",
+    )
+
+    repair_lineage = spec.get("repair_lineage")
+    _require(isinstance(repair_lineage, Mapping), "M5 repair lineage is missing")
+    expected_repair_paths = {
+        "parent_spec": "contracts/immutable/m5_baseline_execution_spec_v1.json",
+        "incident_review": (
+            "evidence/m5/runs/m5_baselines_20260728_v1/incident_review.json"
+        ),
+        "failure_receipt": (
+            "evidence/m5/runs/m5_baselines_20260728_v1/failure_receipt.json"
+        ),
+        "run_journal": (
+            "evidence/m5/runs/m5_baselines_20260728_v1/ledger_events.jsonl"
+        ),
+    }
+    for name, expected_relative_path in expected_repair_paths.items():
+        item = repair_lineage.get(name)
+        _require(isinstance(item, Mapping), f"M5 repair binding is missing: {name}")
+        _require(
+            item.get("path") == expected_relative_path,
+            f"M5 repair binding path mismatch: {name}",
+        )
+        path = project_root / expected_relative_path
+        _require(path.is_file(), f"M5 repair artifact is missing: {expected_relative_path}")
+        _require(
+            item.get("sha256") == sha256_file(path),
+            f"M5 repair artifact changed: {name}",
+        )
 
     candidates = spec.get("candidates")
     _require(
@@ -156,6 +203,15 @@ def load_and_verify_m5_spec(project_root: Path, spec_path: Path) -> dict[str, An
         and safeguards.get("portfolio_backtests") == 0
         and safeguards.get("cost_adjusted_selection") is False,
         "M5 spec crosses a prohibited research boundary",
+    )
+    determinism = spec.get("determinism")
+    _require(
+        isinstance(determinism, Mapping)
+        and determinism.get("cublas_workspace_config") == ":4096:8"
+        and determinism.get("torch_deterministic_algorithms") == "STRICT"
+        and determinism.get("cudnn_benchmark") is False
+        and determinism.get("cudnn_deterministic") is True,
+        "M5 strict determinism contract is incomplete",
     )
 
     code_binding = spec.get("code_binding")

@@ -1,0 +1,70 @@
+{
+  "content_sha256": "02af5942239c13beac0d5c9c13932bd2d7f6e012ede1d12f826ef9ff577eae41",
+  "cost_adjusted_metrics_computed": false,
+  "diagnostic_metrics_computed": true,
+  "evaluation_id": "m5_baselines_20260728_v1:B0_LIGHTGBM:seed7",
+  "final_oos_market_partitions_opened": false,
+  "final_oos_metrics_computed": false,
+  "fold_receipts": [
+    {
+      "content_sha256": "16267d2658db65dcbf66203a579c3ddce935c03544c3ca3aac97257240afa47b",
+      "fold_id": "wf_2018",
+      "path": "B0_LIGHTGBM/folds/wf_2018/fold_receipt.json",
+      "sha256": "6abf3cae5a492bedb54f38a9a0c1e75bc98cf213f1c65654da7dbc49c4c7d8ee"
+    },
+    {
+      "content_sha256": "ab11c27bf7a3bb50cda19a240774ff918ee664e6d03e86dd0be2752f5cdd5653",
+      "fold_id": "wf_2019",
+      "path": "B0_LIGHTGBM/folds/wf_2019/fold_receipt.json",
+      "sha256": "e2ded867381537e4703ac2fa44cc906bf4669c31dc05605e8f8e1488686431bb"
+    },
+    {
+      "content_sha256": "b9d5d94ec362e0280467ad588e9051040ef1e82b380b3e862b153310addf25c3",
+      "fold_id": "wf_2020",
+      "path": "B0_LIGHTGBM/folds/wf_2020/fold_receipt.json",
+      "sha256": "5bd6b54ac8098c759aa8a88ba3edc90a87fbbe7d95e066b4ad4a34ba4d3e931d"
+    },
+    {
+      "content_sha256": "82ca1d69159695af98ccab7fadb24f3bc3b3f6530762d1dd342dc292b130b37e",
+      "fold_id": "wf_2021",
+      "path": "B0_LIGHTGBM/folds/wf_2021/fold_receipt.json",
+      "sha256": "6dad3b4d02dd0542bc6621293675e729c6e4c96e60981cb8a47f6be33028ce3a"
+    },
+    {
+      "content_sha256": "79e76fd6f4b2523c8aff6db3907f7244a506685be3680fceb6ee686829d45987",
+      "fold_id": "wf_2022",
+      "path": "B0_LIGHTGBM/folds/wf_2022/fold_receipt.json",
+      "sha256": "f3989691d6d2bdd8a069afa390f5f1ffb4f6cde4ecc8759809af36c18ee02360"
+    },
+    {
+      "content_sha256": "24ff01d45456dce40ffffd07b12dfa65490bc0b1b50c4178a75778dc57864e50",
+      "fold_id": "wf_2023",
+      "path": "B0_LIGHTGBM/folds/wf_2023/fold_receipt.json",
+      "sha256": "a528b4c02e0f61f553e4cfed3389829632bb148f4cc74c2888ce7bba4e46b30f"
+    },
+    {
+      "content_sha256": "b5442f1564a73cb1d379b613d98b0993e77d695c5d07ca1b8b62a442ca50c977",
+      "fold_id": "wf_2024",
+      "path": "B0_LIGHTGBM/folds/wf_2024/fold_receipt.json",
+      "sha256": "49ae9ba407e912a5c93bbf09fbd95f0a78e98e145c1adf364c63fb62717fd335"
+    }
+  ],
+  "metrics_sha256": "14dccb86268297caa68286ccbe949b0e262f9424c8791ebbfa15dcc5ca85ac96",
+  "model_fits": 7,
+  "model_id": "B0_LIGHTGBM",
+  "portfolio_backtests": 0,
+  "prediction_columns": [
+    "datetime",
+    "instrument",
+    "score",
+    "model_id",
+    "fold_id"
+  ],
+  "prediction_rows": 949014,
+  "prediction_sha256": "363ffc3d31d1b9e6d6db378c5c1adcc1831ced0c8b65c538d7f872ac9758e045",
+  "product_manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+  "schema_version": "qlib_peerlite_m5_candidate_receipt_v1",
+  "seed": 7,
+  "spec_content_sha256": "d2db54c783406f4bce92f6399c6358fe90cad94d145551dea3ff37865eddcfe1",
+  "status": "PASS"
+}
