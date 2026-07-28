@@ -1,13 +1,14 @@
 {
   "schema_version": "quant_contract_v2",
   "contract": {
-    "status": "PLANNED",
+    "status": "FROZEN",
     "created_at": "2026-07-28T13:26:53+08:00",
-    "contract_id": null,
-    "canonical_hash": null,
+    "contract_id": "qrc-v2-26151205fba66ab185fe29ea252ecce0",
+    "canonical_hash": "26151205fba66ab185fe29ea252ecce008dd730c8d80cbf29bd2960e81055fa5",
     "parent_contract_id": null,
     "change_request_id": null,
-    "changed_fields": []
+    "changed_fields": [],
+    "frozen_at": "2026-07-28T08:12:54+00:00"
   },
   "research": {
     "title": "Qlib PeerLite A股日频横截面增量研究",

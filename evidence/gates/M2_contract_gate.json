@@ -1,0 +1,51 @@
+{
+  "schema_version": "qlib_peerlite_phase_gate_v1",
+  "gate_id": "M2-STRICT",
+  "status": "PASS",
+  "executed": true,
+  "completed": true,
+  "passed": true,
+  "evaluated_at": "2026-07-28T17:30:00+08:00",
+  "evidence": {
+    "upstream_source_gate": {
+      "path": "evidence/gates/M1_source_gate.json",
+      "status": "PASS"
+    },
+    "frozen_contract": {
+      "path": "contracts/immutable/research_contract.json",
+      "sha256": "6ccbf08a41c7567027385f186add31dfd9b38f1e56838afa4ef3547aa0031698",
+      "contract_id": "qrc-v2-26151205fba66ab185fe29ea252ecce0",
+      "canonical_hash": "26151205fba66ab185fe29ea252ecce008dd730c8d80cbf29bd2960e81055fa5"
+    },
+    "strict_validation_receipt": {
+      "path": "contracts/immutable/contract_validation.json",
+      "sha256": "56ab5572b1a2a515655ff6afacb7277445d394acc5f5df603dbed23b90ee8ae6",
+      "status": "PASS"
+    },
+    "code_version": {
+      "git_commit": "6721c19c556066f8112c26c237738296120ad8a1"
+    },
+    "environment_lock": {
+      "path": "uv.lock",
+      "sha256": "b406234ca9f9533c71425e0874d6b158cc2991f70ed1a3c8c9c9835e7c3c29ef"
+    },
+    "source_snapshot": {
+      "snapshot_id": "source_snapshot_20260728_v1",
+      "manifest_sha256": "2575e52c7375fe28c06ccc6305da34e3328f025e7397ae735264f06cf62dc040",
+      "universe_hash": "4c4fde609a8ee6cf21fdc40114f368fdbb5a102d661d6c630e223a785b7dee97"
+    }
+  },
+  "findings": [
+    "the contract was frozen through the quant-research-contract canonicalizer without overwriting the PLANNED source",
+    "strict validation passed against the immutable FROZEN artifact",
+    "the contract binds the exact code commit, dependency lock, eight source manifests, universe hash, label, feature, split, cost, candidate and final-OOS policies",
+    "contract freeze authorizes construction and audit of the declared data product; it does not authorize empirical fitting before M3 PIT PASS"
+  ],
+  "blocker": null,
+  "next_action": "construct the exact declared data product from source_snapshot_20260728_v1 and run fixed plus behavior point-in-time audits",
+  "safeguards_after_pass": [
+    "real model fitting or backtesting before M3 PIT PASS",
+    "manual final-OOS inspection",
+    "changing frozen fields without a formal descendant contract"
+  ]
+}

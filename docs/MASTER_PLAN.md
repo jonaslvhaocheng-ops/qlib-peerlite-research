@@ -17,8 +17,8 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | --- | --- | --- | --- |
 | M0 | environment + OSS intake | clean install and smoke tests | PASS |
 | M1 | source certificate | source semantics + immutable snapshot integrity | PASS |
-| M2 | frozen research contract | strict validation receipt | IN_PROGRESS |
-| M3 | PIT data product | fixed audit + behavior audit | NOT_RUN |
+| M2 | frozen research contract | strict validation receipt | PASS |
+| M3 | PIT data product | fixed audit + behavior audit | IN_PROGRESS |
 | M4 | Qlib research foundation | reproducible data/model/recorder loop | DESIGN_ONLY |
 | M5 | baselines | B0 LightGBM and B1 MLP rolling scores | NOT_RUN |
 | M6 | PeerLite | mechanics and ablation pass | DESIGN_ONLY |

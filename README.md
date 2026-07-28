@@ -13,10 +13,10 @@ A 股日频横截面研究框架。第一阶段只产出“研究级 Alpha 候�
 ## 当前研究状态
 
 - 轨道：`STRICT`
-- 当前阶段：`M2-STRICT`
+- 当前阶段：`M3-STRICT`
 - 真实数据研究状态：`DESIGN_ONLY`
 - PIT 模式：`VERIFY`
-- 允许：工程实现、合成数据测试、冻结研究契约、从已封存快照构建待审计数据产品
+- 允许：工程实现、合成数据测试、从已封存快照构建待审计数据产品、PIT 固定与行为审计
 - 禁止：PIT 通过前的真实模型训练、真实回测、最终 OOS 访问和 Alpha 结论
 
 状态真相以 `docs/STATUS.md` 和 `artifacts/progress/events.jsonl` 为准。

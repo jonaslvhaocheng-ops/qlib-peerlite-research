@@ -1,12 +1,16 @@
 # True Status Card
 
 - Master plan: `docs/MASTER_PLAN.md`
-- Current phase and track: `M2-STRICT`
-- Last actual action: immutable eight-source snapshot verification and contract binding
-- Status: executed=`yes`; completed=`yes`; passed=`M1 PASS`
+- Current phase and track: `M3-STRICT`
+- Last actual action: strict research-contract freeze and validation
+- Status: executed=`yes`; completed=`yes`; passed=`M2 PASS`
 - Strongest current evidence:
   - `evidence/gates/M0_environment_gate.json`: M0 `PASS`
   - `evidence/gates/M1_source_gate.json`: M1 terminal `PASS`
+  - `evidence/gates/M2_contract_gate.json`: M2 terminal `PASS`
+  - `contracts/immutable/research_contract.json`: frozen contract
+    `qrc-v2-26151205fba66ab185fe29ea252ecce0`
+  - `contracts/immutable/contract_validation.json`: strict validator `PASS`
   - `evidence/data_sources/universe_verify_20260728_01/universe_verify.json`:
     exact CSI300/CSI500 identities and effective intervals are supported
   - `evidence/data_sources/core_universe_clock_verify_20260728_02/core_universe_clock_verify.json`:
@@ -26,13 +30,13 @@
 - Historical-only evidence: earlier database reports under
   `/Users/jonas/Documents/预期因子/outputs`; they remain historical until rebound
   into this project's source certificate.
-- Current blocker: none for M1. M2 still requires an immutable Git code version,
-  strict contract validation and a new frozen contract artifact.
+- Current blocker: none for M2. M3 requires the exact derived training product,
+  a fixed artifact audit and a behavior-based future-perturbation audit.
 - Risk/ambiguity: DataYes field names, comments, coverage and `UPDATE_TIME` do
   not prove historical market availability, revision retention or PIT eligibility.
-- Only permitted next action: commit the pre-freeze code baseline, bind that commit
-  into the planned contract, strictly validate, and create the immutable frozen
-  contract plus receipt.
+- Only permitted next action: construct the declared data product from
+  `source_snapshot_20260728_v1`, preserve the final-OOS seal, and execute the
+  point-in-time fixed and behavior audits.
 - Forbidden until M3: empirical fitting, real backtesting, final-OOS opening and
   performance claims.
 
