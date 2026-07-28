@@ -21,6 +21,7 @@ from qlib_peerlite.qlib_integration import initialize_qlib
 SHANGHAI = ZoneInfo("Asia/Shanghai")
 PREDICTION_COLUMNS = ["datetime", "instrument", "score", "model_id", "fold_id"]
 MODEL_FITS = {"PEERLITE_K16_MSE": 8, "PEERLITE_K32_MSE": 7}
+PARAMETER_COUNTS = {"PEERLITE_K16_MSE": 29_521, "PEERLITE_K32_MSE": 30_561}
 FOLD_IDS = [f"wf_{year}" for year in range(2018, 2025)]
 EXPECTED_SAFEGUARDS = {
     "final_oos_market_partitions_opened": False,
@@ -216,11 +217,11 @@ def verify_fold(
         or fold.get("cost_adjusted_metrics_computed") is not False
         or fold.get("portfolio_backtests") != 0
         or summary.get("best_epoch", 0) < 1
-        or summary.get("epochs_ran", 0) < summary.get("best_epoch", 0)
+        or summary.get("epochs_completed", 0) < summary.get("best_epoch", 0)
     ):
         raise RuntimeError(f"M6 fold receipt mismatch: {model_id}/{binding['fold_id']}")
     parameter_count = summary.get("parameter_count")
-    if not isinstance(parameter_count, int) or not 0 < parameter_count < 500_000:
+    if parameter_count != PARAMETER_COUNTS[model_id]:
         raise RuntimeError(f"M6 parameter budget mismatch: {model_id}")
     checkpoint_dir = path.parent / "checkpoint"
     for relative_path, expected_hash in fold["checkpoint"].items():
