@@ -1,0 +1,89 @@
+{
+  "by_fold": {
+    "wf_2018": {
+      "dates": 238.0,
+      "decile_slope": 0.0006519175185040145,
+      "observations": 125413.0,
+      "rank_ic_mean": 0.021177592363574454,
+      "rank_ic_positive_fraction": 0.5336134453781513,
+      "rank_ic_std": 0.15085255131979414,
+      "rank_icir": 0.140386040397022,
+      "top_minus_bottom": 0.006028512312523327
+    },
+    "wf_2019": {
+      "dates": 239.0,
+      "decile_slope": 0.00012215419740360707,
+      "observations": 141141.0,
+      "rank_ic_mean": -0.025112481642088586,
+      "rank_ic_positive_fraction": 0.46443514644351463,
+      "rank_ic_std": 0.12662981882763336,
+      "rank_icir": -0.19831412438701604,
+      "top_minus_bottom": 0.0018499484153493666
+    },
+    "wf_2020": {
+      "dates": 238.0,
+      "decile_slope": 0.0005868043179177378,
+      "observations": 139855.0,
+      "rank_ic_mean": 0.009638561094092881,
+      "rank_ic_positive_fraction": 0.5672268907563025,
+      "rank_ic_std": 0.12225106065106704,
+      "rank_icir": 0.07884235149176805,
+      "top_minus_bottom": 0.003864898496034263
+    },
+    "wf_2021": {
+      "dates": 238.0,
+      "decile_slope": 0.0001528041612228692,
+      "observations": 140695.0,
+      "rank_ic_mean": -0.006952322353372235,
+      "rank_ic_positive_fraction": 0.49159663865546216,
+      "rank_ic_std": 0.09378390773912725,
+      "rank_icir": -0.07413129310746007,
+      "top_minus_bottom": 0.004265996029071012
+    },
+    "wf_2022": {
+      "dates": 237.0,
+      "decile_slope": 0.0005710763027747699,
+      "observations": 140319.0,
+      "rank_ic_mean": 0.02931547969098118,
+      "rank_ic_positive_fraction": 0.5780590717299579,
+      "rank_ic_std": 0.12874105856514917,
+      "rank_icir": 0.22770886007703703,
+      "top_minus_bottom": 0.006260523267769777
+    },
+    "wf_2023": {
+      "dates": 232.0,
+      "decile_slope": -4.626641156081104e-05,
+      "observations": 136288.0,
+      "rank_ic_mean": -0.01294879065018857,
+      "rank_ic_positive_fraction": 0.4396551724137931,
+      "rank_ic_std": 0.11135831109237851,
+      "rank_icir": -0.11628041520355636,
+      "top_minus_bottom": -0.0003582621717924336
+    },
+    "wf_2024": {
+      "dates": 227.0,
+      "decile_slope": 4.314628027519553e-05,
+      "observations": 125303.0,
+      "rank_ic_mean": 0.0006987828544238815,
+      "rank_ic_positive_fraction": 0.4581497797356828,
+      "rank_ic_std": 0.14114058594375747,
+      "rank_icir": 0.004950970337492693,
+      "top_minus_bottom": -0.002523422232096107
+    }
+  },
+  "cost_adjusted_metrics_computed": false,
+  "final_oos_metrics_computed": false,
+  "model_id": "B0_LIGHTGBM",
+  "overall": {
+    "dates": 1649.0,
+    "decile_slope": 0.00029689884028994795,
+    "observations": 949014.0,
+    "rank_ic_mean": 0.0022922872372565656,
+    "rank_ic_positive_fraction": 0.5051546391752577,
+    "rank_ic_std": 0.12714053796527197,
+    "rank_icir": 0.018029554333667333,
+    "top_minus_bottom": 0.002814208976965346
+  },
+  "role": "PRE_FINAL_OOS_DIAGNOSTIC_ONLY",
+  "schema_version": "qlib_peerlite_m5_diagnostic_metrics_v1"
+}

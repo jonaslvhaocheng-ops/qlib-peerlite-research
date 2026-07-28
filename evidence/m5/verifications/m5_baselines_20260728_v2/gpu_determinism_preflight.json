@@ -1,0 +1,18 @@
+{
+  "schema_version": "qlib_peerlite_gpu_determinism_preflight_v1",
+  "status": "PASS_EXACT",
+  "recorded_at": "2026-07-28T21:40:35.446893+08:00",
+  "device": "NVIDIA GeForce RTX 4090",
+  "cublas_workspace_config": ":4096:8",
+  "torch_deterministic_algorithms": true,
+  "separate_processes": true,
+  "probe_runs": 2,
+  "run_digests": [
+    "cfa9b88a3f1fbb12c3c7c39aecb9b1def5f6e4f4ecc2d942f593cb690098a3fa",
+    "cfa9b88a3f1fbb12c3c7c39aecb9b1def5f6e4f4ecc2d942f593cb690098a3fa"
+  ],
+  "real_data_accessed": false,
+  "counts_as_candidate_evaluation": false,
+  "counts_as_model_fit": false,
+  "content_sha256": "bb397a1d8c84c290096158ce09618fbbd950ffce9516c76cc23cbd7ae858e237"
+}

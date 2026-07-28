@@ -20,8 +20,8 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M2 | frozen research contract | strict validation receipt | PASS |
 | M3 | PIT data product | fixed audit + behavior audit | PASS |
 | M4 | Qlib research foundation | reproducible data/model/recorder loop | PASS |
-| M5 | baselines | B0 LightGBM and B1 MLP rolling scores | IN_PROGRESS |
-| M6 | PeerLite | mechanics and ablation pass | DESIGN_ONLY |
+| M5 | baselines | B0 LightGBM and B1 MLP rolling scores | PASS |
+| M6 | PeerLite | mechanics and ablation pass | IN_PROGRESS |
 | M7 | Huatai increments | CCC/Gate isolated comparisons | NOT_RUN |
 | M8 | institutional evaluation | final OOS and decision package | NOT_RUN |
 
@@ -38,13 +38,14 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 
 ## Current handoff
 
-M4 passed on the exact M3-qualified pre-final-OOS product. Qlib loaded all
-1,658,525 rows and 50 frozen features, constructed the seven declared rolling
-folds, reproduced `wf_2018` exactly, and retained the foundation receipt through
-SQLite-backed Recorder with byte-identical readback. Signal-analysis and
-portfolio mechanics were verified separately on synthetic data only.
+M5 passed on the exact M3-qualified pre-final-OOS product. B0 LightGBM and B1
+MLP each completed all seven frozen rolling folds. All 14 checkpoints replayed
+exactly; the additional B1 deterministic refit also reproduced its 125,413
+scores exactly. An independent verifier rehashed 1,898,028 predictions and
+redownloaded both Qlib Recorder artifact sets. The rejected v1 run remains in
+the append-only budget, so cumulative consumption is 4 candidate evaluations
+and 29 model fits.
 
-This opens M5 B0 LightGBM and B1 MLP training on the seven frozen development
-folds under the append-only trial ledger. It does not open 2025+ final OOS,
-establish Alpha, authorize unregistered tuning, promote PeerLite, or authorize
-deployment.
+This opens M6 PeerLite mechanism implementation, invariant tests and a separately
+frozen execution specification. It does not open 2025+ final OOS, establish
+Alpha, authorize CCC/Gate, promote PeerLite, or authorize deployment.

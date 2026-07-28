@@ -1,0 +1,62 @@
+{
+  "checkpoint": {
+    "metadata.json": "28a9f4040359386530aedf73e585c948be55d1dff93116cff0967a917f5ac265",
+    "model.txt": "c1b1a721f5e4b0534b078a28ef9d11cbc556cb29782c298ea7f2ab7cb6eb1e5c"
+  },
+  "checkpoint_replay": "PASS_EXACT",
+  "content_sha256": "1e5094817ecc954c60d7b45925ca7af499b6bfd4650355eb7be1003f405c4a75",
+  "cost_adjusted_metrics_computed": false,
+  "diagnostic_metrics": {
+    "dates": 239.0,
+    "decile_slope": 0.00012215419740360707,
+    "observations": 141141.0,
+    "rank_ic_mean": -0.025112481642088586,
+    "rank_ic_positive_fraction": 0.46443514644351463,
+    "rank_ic_std": 0.12662981882763336,
+    "rank_icir": -0.19831412438701604,
+    "top_minus_bottom": 0.0018499484153493666
+  },
+  "evaluation_id": "m5_baselines_20260728_v2:B0_LIGHTGBM:seed7",
+  "feature_count": 50,
+  "final_oos_market_partitions_opened": false,
+  "fit_id": "m5_baselines_20260728_v2:B0_LIGHTGBM:seed7:wf_2019",
+  "fold_id": "wf_2019",
+  "key_sha256": {
+    "test": "a7f4982933d2677725187dba329c28635ee8cc1ca58a0e6113e623f2dd070a87",
+    "train": "6f9acfb2769b4975126278d84ae65ed1d7048f00f3bdf12a503d1e1a82219897",
+    "valid": "a36fd84b5bec7916b2ee3b34fded6a4bff0b113d9b3e709dd82b69d46c134ffc"
+  },
+  "model_id": "B0_LIGHTGBM",
+  "resources": {
+    "elapsed_seconds": 6.946975008118898,
+    "gpu_peak_allocated_bytes": 0,
+    "process_max_rss": 4416588,
+    "process_max_rss_unit": "KiB_ON_LINUX"
+  },
+  "row_counts": {
+    "test": 141141,
+    "train": 594667,
+    "valid": 121774
+  },
+  "schema_version": "qlib_peerlite_m5_fold_receipt_v1",
+  "seed": 7,
+  "segments": {
+    "test": [
+      "2019-01-09",
+      "2019-12-31"
+    ],
+    "train": [
+      "2013-01-04",
+      "2017-12-22"
+    ],
+    "valid": [
+      "2018-01-09",
+      "2018-12-21"
+    ]
+  },
+  "status": "PASS",
+  "training_summary": {
+    "best_iteration": 37,
+    "best_valid_l2": 0.0030777923386133515
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "content_sha256": "134c44653d076eefb3c9161dceec613e13dba52281a11752e3d40e286973cbdb",
+  "evaluation_id": "m5_baselines_20260728_v2:B1_MLP:seed7",
+  "final_oos_market_partitions_opened": false,
+  "fit_id": "m5_baselines_20260728_v2:B1_MLP:seed7:wf_2018:deterministic_refit",
+  "fold_id": "wf_2018",
+  "model_id": "B1_MLP",
+  "reference_score_sha256": "905149e1118fcc42b1d48662f74f86d9f9be9476b73d7fa3418b8d857dec40fa",
+  "refit_score_sha256": "905149e1118fcc42b1d48662f74f86d9f9be9476b73d7fa3418b8d857dec40fa",
+  "resources": {
+    "elapsed_seconds": 9.602469518082216,
+    "gpu_peak_allocated_bytes": 267227648,
+    "process_max_rss": 4920664,
+    "process_max_rss_unit": "KiB_ON_LINUX"
+  },
+  "schema_version": "qlib_peerlite_m5_deterministic_refit_v1",
+  "score_rows": 125413,
+  "seed": 7,
+  "status": "PASS_EXACT",
+  "training_summary": {
+    "best_epoch": 15,
+    "best_valid_loss": 0.0018507969798520207,
+    "epochs_completed": 28
+  }
+}

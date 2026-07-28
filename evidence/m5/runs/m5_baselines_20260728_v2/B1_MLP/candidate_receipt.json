@@ -1,0 +1,75 @@
+{
+  "content_sha256": "5e72bf1210fc93d52fe45db7ba01cbf01e6fb6388d317fa509700485781d102a",
+  "cost_adjusted_metrics_computed": false,
+  "deterministic_refit": {
+    "content_sha256": "134c44653d076eefb3c9161dceec613e13dba52281a11752e3d40e286973cbdb",
+    "path": "B1_MLP/deterministic_refit/wf_2018/deterministic_refit_receipt.json",
+    "sha256": "e3bfbb9ae8036094d927f392c91b627c9fee01766c438d09b464daba233a2fbe"
+  },
+  "diagnostic_metrics_computed": true,
+  "evaluation_id": "m5_baselines_20260728_v2:B1_MLP:seed7",
+  "final_oos_market_partitions_opened": false,
+  "final_oos_metrics_computed": false,
+  "fold_receipts": [
+    {
+      "content_sha256": "856c2041616217dc23750e4789cc15e64cf67e16de1c50c4d49e4d143cafe341",
+      "fold_id": "wf_2018",
+      "path": "B1_MLP/folds/wf_2018/fold_receipt.json",
+      "sha256": "8cd99d53d39f6f1efd5bfcfe5266341d9c40e13442f7c61c9f36e3e8991e59a8"
+    },
+    {
+      "content_sha256": "2c0d9a3535d7a495427ccdc4eabf88e24a5d4b03d414965b75342c0d46ce716a",
+      "fold_id": "wf_2019",
+      "path": "B1_MLP/folds/wf_2019/fold_receipt.json",
+      "sha256": "3232382c5b4628fb23bdb137985fcfbf9d0ac611b2e4bc4158f3508b89129b5e"
+    },
+    {
+      "content_sha256": "dfa48f08efba232bfdf3c7f13436de36db06c7458bebfeaa4abec5c4ccf99e49",
+      "fold_id": "wf_2020",
+      "path": "B1_MLP/folds/wf_2020/fold_receipt.json",
+      "sha256": "e06f853a778536cd4ee0ae783e1d547c38668f75d953b86ce5023606d0e6f121"
+    },
+    {
+      "content_sha256": "a5f230e1dd5c06c29e4b5d6942c8233ff05cafc905f90d20b668c375d77781a2",
+      "fold_id": "wf_2021",
+      "path": "B1_MLP/folds/wf_2021/fold_receipt.json",
+      "sha256": "b62f2dbbb2df4c2173e7d9617d4528e9b84fa311ad5fa1e5ab71cf5d4f56ebeb"
+    },
+    {
+      "content_sha256": "3a707fa091fb150cf3b0f05e9d971230e63a7e68b7e2e9ad7d6d2cb2647f2ab1",
+      "fold_id": "wf_2022",
+      "path": "B1_MLP/folds/wf_2022/fold_receipt.json",
+      "sha256": "2c6527337bdcd95f42dc8d47128aa64bb03648e087271fb82318faf440562172"
+    },
+    {
+      "content_sha256": "db1dab1e35abbf7e510ebb6d978d555cd42493910c45b602d74417bfb56ff30a",
+      "fold_id": "wf_2023",
+      "path": "B1_MLP/folds/wf_2023/fold_receipt.json",
+      "sha256": "457abbbea7b33fa1d82c6b25a7aae9bdc44951eee8716cd8f7f288e01983bfa2"
+    },
+    {
+      "content_sha256": "a32d6101b57eb242eff20c3c08db6fd59f01c3867cfefc985373b40822004b08",
+      "fold_id": "wf_2024",
+      "path": "B1_MLP/folds/wf_2024/fold_receipt.json",
+      "sha256": "92c3d827cec157b05f07803772ce2b8d58320e1390fe32f267a2ca5303118cf7"
+    }
+  ],
+  "metrics_sha256": "a5ed3d00cda44f63cc837c8d732341b84f17dcd31b69da34611ee45ef0ad7fb4",
+  "model_fits": 8,
+  "model_id": "B1_MLP",
+  "portfolio_backtests": 0,
+  "prediction_columns": [
+    "datetime",
+    "instrument",
+    "score",
+    "model_id",
+    "fold_id"
+  ],
+  "prediction_rows": 949014,
+  "prediction_sha256": "dfedb2dc40dbaf239fa97dce4150e93ddf1a2cc2b72de2efbcc8d3f44850ba83",
+  "product_manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+  "schema_version": "qlib_peerlite_m5_candidate_receipt_v1",
+  "seed": 7,
+  "spec_content_sha256": "fa8fb630fe3c1ea733d9f105ef3f7875f3b50e9fda4d6f57948dbdde46552904",
+  "status": "PASS"
+}

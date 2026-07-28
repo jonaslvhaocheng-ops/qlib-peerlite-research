@@ -7,8 +7,8 @@
 | M2 Contract | PASS | Frozen falsifiable research plan and strict validation | Training-data qualification |
 | M3 PIT data | PASS | Exact full-input fixed audit plus one real-pipeline future-poison replay | Vendor truth, universal cache isolation, Alpha or deployment |
 | M4 Qlib foundation | PASS | Exact pre-OOS Dataset, seven rolling folds, Recorder readback and synthetic analysis mechanics | Model edge |
-| M5 Baselines | IN_PROGRESS | Pending LightGBM/MLP rolling development comparison | PeerLite edge |
-| M6 PeerLite | DESIGN_ONLY | Pending mechanics, complexity and ablation gates | Investability |
+| M5 Baselines | PASS | Frozen LightGBM/MLP rolling scores, exact replay and independent Recorder/output verification | PeerLite edge |
+| M6 PeerLite | IN_PROGRESS | Pending mechanics, complexity and ablation gates | Investability |
 | M7 Increments | NOT_RUN | Pending isolated CCC/Gate tests | Guaranteed improvement |
 | M8 Evaluation | NOT_RUN | Pending frozen final OOS and institutional decision package | Production readiness |
 
@@ -45,3 +45,22 @@ seven folds, but performed zero model fits, signal evaluations and portfolio
 backtests. Qlib signal-analysis and portfolio mechanics were tested only on
 synthetic data. M4 therefore permits the two registered M5 baselines; it does
 not establish predictive value or authorize final-OOS access.
+
+## M5 decision boundary
+
+M5 binds:
+
+- repaired frozen execution spec
+  `contracts/immutable/m5_baseline_execution_spec_v2.json`;
+- complete JSON receipt set
+  `evidence/m5/runs/m5_baselines_20260728_v2`;
+- independent verification
+  `evidence/m5/verifications/m5_baselines_20260728_v2`;
+- project gate `evidence/gates/M5_baseline_gate.json`.
+
+The pass covers 2 registered candidates, 15 counted v2 fits, 14 exact checkpoint
+replays, one exact deterministic refit, 1,898,028 verified score rows and two
+independent Qlib Recorder readbacks. The rejected v1 run remains counted, making
+the cumulative budget 4 candidate evaluations and 29 fits. M5 authorizes only
+M6 PeerLite mechanics and frozen pre-final-OOS research preparation; it does not
+establish predictive edge, costs, capacity, final-OOS validity or investability.

@@ -1,0 +1,88 @@
+{
+  "candidate_evaluations": 2,
+  "candidates": [
+    {
+      "candidate_receipt": {
+        "content_sha256": "f8349c0aedd2b744399d83def284a6d347c13c83ddacc7d7909c38efda5ac908",
+        "path": "B0_LIGHTGBM/candidate_receipt.json",
+        "sha256": "e05969fc45797f22c191555ef0c17b1d088ea73b894cb81e27ba8a8ddd825298"
+      },
+      "evaluation_id": "m5_baselines_20260728_v2:B0_LIGHTGBM:seed7",
+      "metrics": {
+        "path": "B0_LIGHTGBM/metrics.json",
+        "sha256": "14dccb86268297caa68286ccbe949b0e262f9424c8791ebbfa15dcc5ca85ac96"
+      },
+      "model_fits": 7,
+      "model_id": "B0_LIGHTGBM",
+      "predictions": {
+        "path": "B0_LIGHTGBM/predictions.parquet",
+        "rows": 949014,
+        "sha256": "363ffc3d31d1b9e6d6db378c5c1adcc1831ced0c8b65c538d7f872ac9758e045"
+      },
+      "qlib_recorder": {
+        "artifact_readback": "PASS",
+        "experiment_name": "qlib_peerlite_m5_baselines",
+        "recorder_id": "89375efd92e04cfbb34f508d09b9e30d"
+      }
+    },
+    {
+      "candidate_receipt": {
+        "content_sha256": "5e72bf1210fc93d52fe45db7ba01cbf01e6fb6388d317fa509700485781d102a",
+        "path": "B1_MLP/candidate_receipt.json",
+        "sha256": "e676b8fc3081765a0755306b5fd5fd43ac6368b236667512f1067a267a2c5228"
+      },
+      "evaluation_id": "m5_baselines_20260728_v2:B1_MLP:seed7",
+      "metrics": {
+        "path": "B1_MLP/metrics.json",
+        "sha256": "a5ed3d00cda44f63cc837c8d732341b84f17dcd31b69da34611ee45ef0ad7fb4"
+      },
+      "model_fits": 8,
+      "model_id": "B1_MLP",
+      "predictions": {
+        "path": "B1_MLP/predictions.parquet",
+        "rows": 949014,
+        "sha256": "dfedb2dc40dbaf239fa97dce4150e93ddf1a2cc2b72de2efbcc8d3f44850ba83"
+      },
+      "qlib_recorder": {
+        "artifact_readback": "PASS",
+        "experiment_name": "qlib_peerlite_m5_baselines",
+        "recorder_id": "6618bcc3fb0a4a77af8dfeb56cb59238"
+      }
+    }
+  ],
+  "claim_ceiling": "PRE_FINAL_OOS_DIAGNOSTIC",
+  "content_sha256": "ff4a23a871f613eca7df1fd8ca718803086407ef4a844d986c45d1ebf2220795",
+  "created_at": "2026-07-28T21:33:57.645343+08:00",
+  "ledger_events": {
+    "path": "ledger_events.jsonl",
+    "sha256_before_terminal_event": "4f71d10887eb5cf4fab455220b498860f3356c30ae41d80c5463a357ab9809eb"
+  },
+  "limitations": [
+    "M5 results are pre-final-OOS development diagnostics, not final evidence.",
+    "No portfolio or cost-adjusted comparison was run because the fee receipt is unresolved.",
+    "The two baselines establish references; they do not promote PeerLite."
+  ],
+  "model_fits": 15,
+  "product": {
+    "date_max": "2024-12-17",
+    "feature_count": 50,
+    "manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+    "product_id": "pit_data_product_2012_2024_v3",
+    "rows": 1658525
+  },
+  "safeguards": {
+    "cost_adjusted_metrics_computed": false,
+    "final_oos_market_partitions_opened": false,
+    "final_oos_metrics_computed": false,
+    "model_selection_performed": false,
+    "portfolio_backtests": 0
+  },
+  "schema_version": "qlib_peerlite_m5_run_manifest_v1",
+  "spec": {
+    "content_sha256": "fa8fb630fe3c1ea733d9f105ef3f7875f3b50e9fda4d6f57948dbdde46552904",
+    "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/contracts/immutable/m5_baseline_execution_spec_v2.json",
+    "sha256": "b51e6a5ec57564409d8bd906457617c5590a5eaa0bb74b77f4e6032427d7d86b"
+  },
+  "stage": "M5-STRICT_BASELINES",
+  "status": "PASS"
+}

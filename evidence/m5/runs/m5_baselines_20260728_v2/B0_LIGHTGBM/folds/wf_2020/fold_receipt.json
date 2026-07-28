@@ -1,0 +1,62 @@
+{
+  "checkpoint": {
+    "metadata.json": "a0e9982ff75d9c6dbca088efd0d4fe143ef9abfbb056501d9a58b76dd983b320",
+    "model.txt": "ae927424ca31afd540dd48b68b0a87366083280fd3377a47c194b41f6674ec4a"
+  },
+  "checkpoint_replay": "PASS_EXACT",
+  "content_sha256": "ed4d211637546fe5253b6f7337dcbfe2ebe991c250e078ef1d22a0198f04dbda",
+  "cost_adjusted_metrics_computed": false,
+  "diagnostic_metrics": {
+    "dates": 238.0,
+    "decile_slope": 0.0005868043179177378,
+    "observations": 139855.0,
+    "rank_ic_mean": 0.009638561094092881,
+    "rank_ic_positive_fraction": 0.5672268907563025,
+    "rank_ic_std": 0.12225106065106704,
+    "rank_icir": 0.07884235149176805,
+    "top_minus_bottom": 0.003864898496034263
+  },
+  "evaluation_id": "m5_baselines_20260728_v2:B0_LIGHTGBM:seed7",
+  "feature_count": 50,
+  "final_oos_market_partitions_opened": false,
+  "fit_id": "m5_baselines_20260728_v2:B0_LIGHTGBM:seed7:wf_2020",
+  "fold_id": "wf_2020",
+  "key_sha256": {
+    "test": "8b64dde27efea2699e8cb7a428043466c0ea2625480d2aa80bd53ce6c44df447",
+    "train": "e37b113699d0d759887608856b684e94db112a5022d8fd5f51d5ef36bd5f2c32",
+    "valid": "58c5c4bfc4a2e6ea08057f64c72584e2d47f6a82fef184f0dd5967804f127945"
+  },
+  "model_id": "B0_LIGHTGBM",
+  "resources": {
+    "elapsed_seconds": 6.500511778052896,
+    "gpu_peak_allocated_bytes": 0,
+    "process_max_rss": 4416588,
+    "process_max_rss_unit": "KiB_ON_LINUX"
+  },
+  "row_counts": {
+    "test": 139855,
+    "train": 597086,
+    "valid": 137382
+  },
+  "schema_version": "qlib_peerlite_m5_fold_receipt_v1",
+  "seed": 7,
+  "segments": {
+    "test": [
+      "2020-01-09",
+      "2020-12-31"
+    ],
+    "train": [
+      "2014-01-02",
+      "2018-12-21"
+    ],
+    "valid": [
+      "2019-01-09",
+      "2019-12-24"
+    ]
+  },
+  "status": "PASS",
+  "training_summary": {
+    "best_iteration": 1,
+    "best_valid_l2": 0.0032506922651146593
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "schema_version": "qlib_peerlite_m5_verification_receipt_v1",
+  "status": "PASS",
+  "created_at": "2026-07-28T21:39:56.948682+08:00",
+  "verifier": {
+    "path": "scripts/server/verify_m5_baselines.py",
+    "sha256": "2bfaeae31d04caf2632699d1c936c4a5e0d0a221096fd3589af855eefba9deff"
+  },
+  "run_manifest": {
+    "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/runs/m5_baselines_20260728_v2/run_manifest.json",
+    "sha256": "e92b5930502f46f2d1a643294a3aa5378423df8ec0dc63f747090b89c778814e",
+    "content_sha256": "ff4a23a871f613eca7df1fd8ca718803086407ef4a844d986c45d1ebf2220795"
+  },
+  "spec_content_sha256": "fa8fb630fe3c1ea733d9f105ef3f7875f3b50e9fda4d6f57948dbdde46552904",
+  "environment_sha256": "779136208794464693f177b7ae6617ab5df4f64000392675d30bc49f4ec334f4",
+  "candidate_checks": [
+    {
+      "model_id": "B0_LIGHTGBM",
+      "model_fits": 7,
+      "folds": [
+        {
+          "fold_id": "wf_2018",
+          "receipt_sha256": "93436118b0ea3a4743dff0233c4c2d38abc728a1084ced90d9dee61e4e35f603",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2019",
+          "receipt_sha256": "32241ec1d932069948fd9681a2ccae264a9cf3be485e85eb9365965adc9a74bf",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2020",
+          "receipt_sha256": "50c859a44989b886511ff395d011ade48df33e64ba39d5b6a1cd64a40991f8f1",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2021",
+          "receipt_sha256": "94aff47d43db53bb135eb91f8c85d3c5277ae2a0f91cb4b910a89d3dc33d18ae",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2022",
+          "receipt_sha256": "86705f950631dd618f4953d6ddb47ad8e6127920c9dc5cf5163e0c3a177e5fac",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2023",
+          "receipt_sha256": "c5bdb918930112704f65e1a88140f4348ee52c9f89782c9d1d48449c3748f573",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2024",
+          "receipt_sha256": "c46d0adfa18a693aa41941a371bed6db97170adad558fc49033122237df62ccc",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        }
+      ],
+      "predictions": {
+        "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/runs/m5_baselines_20260728_v2/B0_LIGHTGBM/predictions.parquet",
+        "sha256": "363ffc3d31d1b9e6d6db378c5c1adcc1831ced0c8b65c538d7f872ac9758e045",
+        "rows": 949014,
+        "columns": [
+          "datetime",
+          "instrument",
+          "score",
+          "model_id",
+          "fold_id"
+        ],
+        "date_min": "2018-01-09",
+        "date_max": "2024-12-17",
+        "duplicate_keys": 0,
+        "null_values": 0,
+        "non_finite_scores": 0,
+        "final_oos_market_partitions_opened": false
+      },
+      "metrics_sha256": "14dccb86268297caa68286ccbe949b0e262f9424c8791ebbfa15dcc5ca85ac96",
+      "qlib_recorder": {
+        "experiment_name": "qlib_peerlite_m5_baselines",
+        "recorder_id": "89375efd92e04cfbb34f508d09b9e30d",
+        "artifact_names": [
+          "candidate_receipt.json",
+          "metrics.json",
+          "predictions.parquet"
+        ],
+        "artifact_readback": "PASS_INDEPENDENT"
+      }
+    },
+    {
+      "model_id": "B1_MLP",
+      "model_fits": 8,
+      "folds": [
+        {
+          "fold_id": "wf_2018",
+          "receipt_sha256": "8cd99d53d39f6f1efd5bfcfe5266341d9c40e13442f7c61c9f36e3e8991e59a8",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2019",
+          "receipt_sha256": "3232382c5b4628fb23bdb137985fcfbf9d0ac611b2e4bc4158f3508b89129b5e",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2020",
+          "receipt_sha256": "e06f853a778536cd4ee0ae783e1d547c38668f75d953b86ce5023606d0e6f121",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2021",
+          "receipt_sha256": "b62f2dbbb2df4c2173e7d9617d4528e9b84fa311ad5fa1e5ab71cf5d4f56ebeb",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2022",
+          "receipt_sha256": "2c6527337bdcd95f42dc8d47128aa64bb03648e087271fb82318faf440562172",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2023",
+          "receipt_sha256": "457abbbea7b33fa1d82c6b25a7aae9bdc44951eee8716cd8f7f288e01983bfa2",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        },
+        {
+          "fold_id": "wf_2024",
+          "receipt_sha256": "92c3d827cec157b05f07803772ce2b8d58320e1390fe32f267a2ca5303118cf7",
+          "checkpoint_replay": "PASS_EXACT",
+          "checkpoint_inventory": 2
+        }
+      ],
+      "predictions": {
+        "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/runs/m5_baselines_20260728_v2/B1_MLP/predictions.parquet",
+        "sha256": "dfedb2dc40dbaf239fa97dce4150e93ddf1a2cc2b72de2efbcc8d3f44850ba83",
+        "rows": 949014,
+        "columns": [
+          "datetime",
+          "instrument",
+          "score",
+          "model_id",
+          "fold_id"
+        ],
+        "date_min": "2018-01-09",
+        "date_max": "2024-12-17",
+        "duplicate_keys": 0,
+        "null_values": 0,
+        "non_finite_scores": 0,
+        "final_oos_market_partitions_opened": false
+      },
+      "metrics_sha256": "a5ed3d00cda44f63cc837c8d732341b84f17dcd31b69da34611ee45ef0ad7fb4",
+      "qlib_recorder": {
+        "experiment_name": "qlib_peerlite_m5_baselines",
+        "recorder_id": "6618bcc3fb0a4a77af8dfeb56cb59238",
+        "artifact_names": [
+          "candidate_receipt.json",
+          "metrics.json",
+          "predictions.parquet"
+        ],
+        "artifact_readback": "PASS_INDEPENDENT"
+      }
+    }
+  ],
+  "deterministic_refit": {
+    "path": "B1_MLP/deterministic_refit/wf_2018/deterministic_refit_receipt.json",
+    "sha256": "e3bfbb9ae8036094d927f392c91b627c9fee01766c438d09b464daba233a2fbe",
+    "status": "PASS_EXACT",
+    "score_sha256": "905149e1118fcc42b1d48662f74f86d9f9be9476b73d7fa3418b8d857dec40fa",
+    "score_rows": 125413
+  },
+  "journal": {
+    "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/runs/m5_baselines_20260728_v2/ledger_events.jsonl",
+    "sha256": "58a1262424bf81f95c586fd0d05c9ef28f07eb9176d3dfe8ec310657aed06a1d",
+    "event_counts": {
+      "M5_RUN_STARTED": 1,
+      "CANDIDATE_EVALUATION_STARTED": 2,
+      "MODEL_FIT_STARTED": 15,
+      "MODEL_FIT_COMPLETED": 15,
+      "CANDIDATE_EVALUATION_COMPLETED": 2,
+      "M5_RUN_COMPLETED": 1
+    },
+    "counted_candidate_evaluations": 2,
+    "counted_model_fits": 15,
+    "failed_events": 0,
+    "pre_terminal_sha256": "4f71d10887eb5cf4fab455220b498860f3356c30ae41d80c5463a357ab9809eb"
+  },
+  "safeguards": {
+    "cost_adjusted_metrics_computed": false,
+    "final_oos_market_partitions_opened": false,
+    "final_oos_metrics_computed": false,
+    "model_selection_performed": false,
+    "portfolio_backtests": 0
+  },
+  "prediction_rows_total": 1898028,
+  "final_oos_market_partitions_opened": false,
+  "selection_performed": false,
+  "portfolio_backtests": 0,
+  "cost_adjusted_metrics_computed": false,
+  "claim_ceiling": "PRE_FINAL_OOS_DIAGNOSTIC",
+  "content_sha256": "b8d9643f7b9eda2211e852da1f07cf0cf6e5b97646aa760356be4751f91268e6"
+}

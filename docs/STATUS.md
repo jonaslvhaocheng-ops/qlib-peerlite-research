@@ -2,11 +2,11 @@
 
 - Master plan: `docs/MASTER_PLAN.md`
 - Master plan SHA256:
-  `42d9506377ad057e9246d2323e9b58cb98a40eed1d746a08160159520c19d367`
-- Current phase and track: `M5-STRICT`
-- Last actual action: froze and locally validated the M5 B0/B1 execution
-  specification, deterministic preprocessing and checkpoint-reload path
-- Status: executed=`yes`; completed=`yes`; passed=`M4 PASS / M5 PREFLIGHT PASS`
+  `03fb43a94ae3bd0af7ba84ee9e22fba5f164f67158f88798d42c1a9e1111aeb8`
+- Current phase and track: `M6-PEERLITE-PREFLIGHT`
+- Last actual action: completed and independently verified the repaired M5 v2
+  LightGBM/MLP rolling baseline run
+- Status: executed=`yes`; completed=`yes`; passed=`M5 PASS`
 - Active frozen contract:
   - `contracts/immutable/research_contract_pit_v2.json`
   - contract ID `qrc-v2-5b7353756e0fded36622a6946011f77a`
@@ -18,6 +18,7 @@
   - `evidence/gates/M2_contract_gate.json`: initial contract gate `PASS`
   - `evidence/gates/M3_pit_data_gate.json`: full PIT data gate `PASS`
   - `evidence/gates/M4_qlib_foundation_gate.json`: Qlib foundation gate `PASS`
+  - `evidence/gates/M5_baseline_gate.json`: strict baseline gate `PASS`
   - `data/manifests/pit_data_product_2012_2024_v3/data_product_manifest.json`:
     1,658,525 pre-OOS samples and exactly 50 frozen features
   - `evidence/pit/audits/pit_full_2012_2024_v2/audit_manifest.json`:
@@ -32,17 +33,22 @@
   - Qlib Recorder: foundation and synthetic-analysis receipts downloaded with
     byte-identical hashes
   - Qlib signal/portfolio mechanics: synthetic track only
-  - real-data model fits, signal evaluations and portfolio backtests: `0 / 0 / 0`
+  - M5 v2: 2 candidate evaluations, 15 fits, 14 exact checkpoint replays and
+    one exact B1 deterministic refit
+  - verified predictions: 1,898,028 rows; unique keys; no null/non-finite score;
+    latest date 2024-12-17
+  - cumulative family budget including rejected v1: 4 candidate evaluations,
+    29 model fits
+  - real-data portfolio backtests and cost-adjusted selections: `0 / 0`
   - M5 immutable execution spec:
-    `contracts/immutable/m5_baseline_execution_spec_v1.json`,
+    `contracts/immutable/m5_baseline_execution_spec_v2.json`,
     content SHA256
-    `d2db54c783406f4bce92f6399c6358fe90cad94d145551dea3ff37865eddcfe1`
-  - M5 local regression: 32 tests pass, including exact B0/B1 checkpoint replay
-    and direct Qlib DatasetH fitting
+    `fa8fb630fe3c1ea733d9f105ef3f7875f3b50e9fda4d6f57948dbdde46552904`
+  - M5 independent verification content SHA256:
+    `b8d9643f7b9eda2211e852da1f07cf0cf6e5b97646aa760356be4751f91268e6`
   - final-OOS market partitions opened: `false`
-  - performance metrics computed: `false`
-- Current blocker: none for M5 execution. The 14 declared server fits have not
-  started.
+  - only pre-final-OOS signal diagnostics computed: `true`
+- Current blocker: none for M6 engineering preflight.
 - Risk/ambiguity:
   - DataYes descriptions and snapshot hashes cannot prove vendor truth or that
     no off-system future data was consulted.
@@ -51,9 +57,10 @@
     prove that the upstream vendor omitted no eligible security.
   - Behavior status is `NOVEL_CANDIDATE`: it proves this exact hash-bound replay,
     not every possible execution.
-- Only permitted next action: execute the frozen B0 LightGBM and B1 MLP runner
-  on the seven fixed pre-OOS folds and retain every started/completed/failed fit
-  in the append-only journal.
+- Only permitted next action: implement the small O(NK) PeerLite mechanism,
+  pass permutation/variable-universe/mask/single-stock/checkpoint tests, and
+  freeze a separately hash-bound M6 execution specification before empirical
+  comparison.
 - Forbidden until later gates: unregistered model or hyperparameter search,
   PeerLite claims before M6, final-OOS access before M8 freeze, production
   trading and “top 1%” claims.
@@ -68,4 +75,6 @@
 - Project M3 decision: `PASS` for controlled development on the exact bound
   pre-OOS data product only
 - Project M4 decision: `PASS` for Qlib foundation mechanics
+- Project M5 decision: `PASS` for reproducible pre-final-OOS engineering
+  baselines only
 - Claim ceiling remains: `research development`; no Alpha or investability claim

@@ -1,0 +1,124 @@
+{
+  "schema_version": "qlib_peerlite_gate_v1",
+  "gate_id": "M5-STRICT_BASELINES",
+  "status": "PASS",
+  "passed": true,
+  "executed": true,
+  "completed": true,
+  "created_at": "2026-07-28T21:42:00+08:00",
+  "track": "STRICT_PRE_FINAL_OOS_BASELINES",
+  "claim_ceiling": "PRE_FINAL_OOS_DIAGNOSTIC",
+  "acceptance_checks": [
+    {
+      "check": "frozen_v2_execution_spec",
+      "status": "PASS",
+      "evidence": "v2 content fa8fb630...; repair lineage binds rejected v1; pre-run commit 81a1c46"
+    },
+    {
+      "check": "qualified_input_and_final_oos_boundary",
+      "status": "PASS",
+      "evidence": "1,658,525 rows; 50 features; 2012-01-04 through 2024-12-17; 2025+ unopened"
+    },
+    {
+      "check": "rolling_baseline_execution",
+      "status": "PASS",
+      "evidence": "B0 LightGBM 7/7 folds and B1 MLP 7/7 folds completed"
+    },
+    {
+      "check": "strict_determinism",
+      "status": "PASS",
+      "evidence": "CUBLAS :4096:8; strict torch algorithms; two-process GPU probe exact; B1 wf_2018 exact refit"
+    },
+    {
+      "check": "checkpoint_replay",
+      "status": "PASS",
+      "evidence": "all 14 rolling fold checkpoints reproduced their test scores exactly"
+    },
+    {
+      "check": "prediction_integrity",
+      "status": "PASS",
+      "evidence": "1,898,028 rows independently hashed; exact schema; unique keys; no null/non-finite score; max date before 2025"
+    },
+    {
+      "check": "qlib_recorder_independent_readback",
+      "status": "PASS",
+      "evidence": "candidate receipt, metrics and prediction artifact for both recorders redownloaded with exact hashes"
+    },
+    {
+      "check": "trial_accounting",
+      "status": "PASS",
+      "evidence": "v2 counted 2 candidate evaluations and 15 fits; cumulative ledger includes rejected v1 for 4 evaluations and 29 fits"
+    },
+    {
+      "check": "research_boundary",
+      "status": "PASS",
+      "evidence": "zero portfolio backtests, zero cost-adjusted selection, zero model selection and zero final-OOS access"
+    }
+  ],
+  "evidence": {
+    "execution_spec": {
+      "path": "contracts/immutable/m5_baseline_execution_spec_v2.json",
+      "sha256": "b51e6a5ec57564409d8bd906457617c5590a5eaa0bb74b77f4e6032427d7d86b",
+      "content_sha256": "fa8fb630fe3c1ea733d9f105ef3f7875f3b50e9fda4d6f57948dbdde46552904"
+    },
+    "run_manifest": {
+      "path": "evidence/m5/runs/m5_baselines_20260728_v2/run_manifest.json",
+      "sha256": "e92b5930502f46f2d1a643294a3aa5378423df8ec0dc63f747090b89c778814e",
+      "content_sha256": "ff4a23a871f613eca7df1fd8ca718803086407ef4a844d986c45d1ebf2220795"
+    },
+    "verification": {
+      "path": "evidence/m5/verifications/m5_baselines_20260728_v2/verification_receipt.json",
+      "sha256": "590e7b469b9d4c3d5fbeb05065c4a31376a011df2795dc2695786c27df71108f",
+      "content_sha256": "b8d9643f7b9eda2211e852da1f07cf0cf6e5b97646aa760356be4751f91268e6",
+      "verifier_path": "scripts/server/verify_m5_baselines.py",
+      "verifier_sha256": "2bfaeae31d04caf2632699d1c936c4a5e0d0a221096fd3589af855eefba9deff"
+    },
+    "gpu_preflight": {
+      "path": "evidence/m5/verifications/m5_baselines_20260728_v2/gpu_determinism_preflight.json",
+      "sha256": "d9822c3e3f530b3a92ff970499eabe303d98e96b98a4d470acd1cb9f965bb86b",
+      "content_sha256": "bb397a1d8c84c290096158ce09618fbbd950ffce9516c76cc23cbd7ae858e237"
+    },
+    "run_journal": {
+      "path": "evidence/m5/runs/m5_baselines_20260728_v2/ledger_events.jsonl",
+      "sha256": "58a1262424bf81f95c586fd0d05c9ef28f07eb9176d3dfe8ec310657aed06a1d"
+    },
+    "cumulative_trial_ledger": {
+      "path": "contracts/trial_ledger.jsonl",
+      "sha256": "8d08f39a569d62cf5078368075dce39e94014a4ad3a6095f0b03863baa93f133",
+      "candidate_evaluations": 4,
+      "model_fits": 29
+    },
+    "rejected_v1": {
+      "path": "evidence/m5/runs/m5_baselines_20260728_v1/incident_review.json",
+      "sha256": "dffc1fc127f9fe33d83ec6b0855577f24fd8202fe7b1cc38ae66b3eed26729f9",
+      "disposition": "COMPLETED_REJECTED_OPERATIONAL_RUN"
+    }
+  },
+  "verification": {
+    "candidate_evaluations_this_run": 2,
+    "model_fits_this_run": 15,
+    "cumulative_candidate_evaluations": 4,
+    "cumulative_model_fits": 29,
+    "rolling_folds_per_baseline": 7,
+    "prediction_rows_total": 1898028,
+    "checkpoint_exact_replays": 14,
+    "deterministic_refits": 1,
+    "qlib_recorders_independently_read": 2,
+    "portfolio_backtests": 0,
+    "cost_adjusted_metrics_computed": false,
+    "model_selection_performed": false,
+    "final_oos_market_partitions_opened": false
+  },
+  "what_it_proves": [
+    "The two registered baselines can train, checkpoint, predict and record reproducibly across all seven frozen development folds.",
+    "The exact M3-qualified input, frozen M5 spec, code hashes, outputs and trial counts form a traceable engineering baseline for M6.",
+    "M6 PeerLite mechanics and pre-final-OOS comparison may begin without changing the data, split or score interfaces."
+  ],
+  "what_it_does_not_prove": [
+    "No baseline or PeerLite Alpha edge, investability, capacity, cost-adjusted performance or production readiness is established.",
+    "The diagnostic metrics stop before 2025 and cannot be presented as final out-of-sample evidence.",
+    "M5 does not authorize CCC, market-state gating, model selection, final-OOS opening or live trading."
+  ],
+  "next_gate": "M6-PEERLITE",
+  "content_sha256": "25f43f8b82f9e5bba3275d71e4bfd2572c7be508dfd112f130e12fa730f78ad3"
+}
