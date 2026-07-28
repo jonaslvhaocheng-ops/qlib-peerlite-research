@@ -15,6 +15,8 @@ from qlib_peerlite.data.qlib_dataset import (
     load_bound_product_frame,
 )
 from qlib_peerlite.data.splits import FoldSpec
+from qlib_peerlite.models.lightgbm_model import LightGBMBaseline
+from qlib_peerlite.models.mlp import MLPBaseline
 
 
 def _sha(path: Path) -> str:
@@ -112,3 +114,36 @@ def test_bound_product_rejects_partition_hash_drift(tmp_path: Path) -> None:
     path.write_bytes(path.read_bytes() + b"tamper")
     with pytest.raises(QlibDataProductError, match="hash mismatch"):
         load_bound_product_frame(product_dir)
+
+
+@pytest.mark.qlib
+def test_registered_baselines_fit_qlib_dataseth(tmp_path: Path) -> None:
+    pytest.importorskip("qlib")
+    product = load_bound_product_frame(_product(tmp_path))
+    fold = FoldSpec(
+        fold_id="wf_2022",
+        train_start=pd.Timestamp("2019-10-01"),
+        train_end=pd.Timestamp("2020-12-31"),
+        valid_start=pd.Timestamp("2021-01-01"),
+        valid_end=pd.Timestamp("2021-12-31"),
+        test_start=pd.Timestamp("2022-01-01"),
+        test_end=pd.Timestamp("2022-12-31"),
+    )
+    qlib_fold = build_qlib_fold(product, fold, embargo_sessions=5)
+    lightgbm = LightGBMBaseline(
+        n_estimators=5,
+        early_stopping_rounds=2,
+        n_jobs=1,
+    ).fit(qlib_fold.dataset)
+    mlp = MLPBaseline(
+        50,
+        hidden_dim=8,
+        dropout=0.0,
+        epochs=1,
+        patience=1,
+        batch_size=512,
+        device="cpu",
+    ).fit(qlib_fold.dataset)
+
+    assert np.isfinite(lightgbm.predict(qlib_fold.dataset)).all()
+    assert np.isfinite(mlp.predict(qlib_fold.dataset)).all()

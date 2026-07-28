@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import random
 from dataclasses import dataclass
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -46,6 +47,40 @@ class TrainOnlyStandardizer:
 
     def fit_transform(self, frame: pd.DataFrame) -> pd.DataFrame:
         return self.fit(frame).transform(frame)
+
+    def to_payload(self) -> dict[str, Any]:
+        if self.mean_ is None or self.scale_ is None:
+            raise RuntimeError("standardizer is not fitted")
+        return {
+            "columns": [str(column) for column in self.mean_.index],
+            "mean": [float(value) for value in self.mean_.to_numpy()],
+            "scale": [float(value) for value in self.scale_.to_numpy()],
+        }
+
+    @classmethod
+    def from_payload(cls, payload: dict[str, Any]) -> TrainOnlyStandardizer:
+        columns = payload.get("columns")
+        mean = payload.get("mean")
+        scale = payload.get("scale")
+        if (
+            not isinstance(columns, list)
+            or not isinstance(mean, list)
+            or not isinstance(scale, list)
+            or not columns
+            or len(columns) != len(mean)
+            or len(columns) != len(scale)
+            or len(set(columns)) != len(columns)
+        ):
+            raise ValueError("invalid standardizer payload")
+        mean_series = pd.Series(np.asarray(mean, dtype=float), index=columns)
+        scale_series = pd.Series(np.asarray(scale, dtype=float), index=columns)
+        if (
+            not np.isfinite(mean_series.to_numpy()).all()
+            or not np.isfinite(scale_series.to_numpy()).all()
+            or (scale_series <= 0).any()
+        ):
+            raise ValueError("standardizer payload contains invalid statistics")
+        return cls(mean_=mean_series, scale_=scale_series)
 
 
 def dataset_xy(dataset: object, segment: str) -> tuple[pd.DataFrame, pd.Series]:

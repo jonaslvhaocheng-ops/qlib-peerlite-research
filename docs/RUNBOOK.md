@@ -170,3 +170,37 @@ uv run python scripts/verify_m4_evidence.py
 The verifier creates `evidence/gates/M4_qlib_foundation_gate.json` exclusively;
 it refuses to overwrite an existing gate. Only an M4 `PASS` permits M5 baseline
 training. Synthetic metrics must never be reported as empirical results.
+
+## 7. M5 frozen baselines
+
+The two baseline candidates and all runtime parameters are frozen before any
+real-label fit in:
+
+```text
+contracts/immutable/m5_baseline_execution_spec_v1.json
+```
+
+Validate the exact spec and code bindings locally:
+
+```bash
+uv run python -c \
+  'from pathlib import Path; from qlib_peerlite.governance.m5_spec import load_and_verify_m5_spec; load_and_verify_m5_spec(Path.cwd(), Path("contracts/immutable/m5_baseline_execution_spec_v1.json"))'
+```
+
+Run the full 14-fit job on the server:
+
+```bash
+QLIB_PEERLITE_ALLOW_EMPIRICAL=true \
+uv run python scripts/server/run_m5_baselines.py \
+  --project-root /home/lvhc/abama/研究沙盒/qlib模型框架 \
+  --product-dir /home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3 \
+  --spec /home/lvhc/abama/研究沙盒/qlib模型框架/contracts/immutable/m5_baseline_execution_spec_v1.json \
+  --output-dir /home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/runs/m5_baselines_<new-run-id> \
+  --tracking-dir /home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/qlib_tracking
+```
+
+The output directory must be new. `ledger_events.jsonl` is created before the
+first empirical fit and records starts as budget-consuming events, so a failed
+or interrupted fit still counts. M5 computes only pre-final-OOS signal
+diagnostics. It performs no portfolio backtest, cost-adjusted selection or
+final-OOS access.

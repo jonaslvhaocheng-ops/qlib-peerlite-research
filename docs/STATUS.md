@@ -4,9 +4,9 @@
 - Master plan SHA256:
   `42d9506377ad057e9246d2323e9b58cb98a40eed1d746a08160159520c19d367`
 - Current phase and track: `M5-STRICT`
-- Last actual action: full-data Qlib foundation run, synthetic analysis-mechanics
-  run and independent downloaded-evidence verification
-- Status: executed=`yes`; completed=`yes`; passed=`M4 PASS`
+- Last actual action: froze and locally validated the M5 B0/B1 execution
+  specification, deterministic preprocessing and checkpoint-reload path
+- Status: executed=`yes`; completed=`yes`; passed=`M4 PASS / M5 PREFLIGHT PASS`
 - Active frozen contract:
   - `contracts/immutable/research_contract_pit_v2.json`
   - contract ID `qrc-v2-5b7353756e0fded36622a6946011f77a`
@@ -33,11 +33,16 @@
     byte-identical hashes
   - Qlib signal/portfolio mechanics: synthetic track only
   - real-data model fits, signal evaluations and portfolio backtests: `0 / 0 / 0`
+  - M5 immutable execution spec:
+    `contracts/immutable/m5_baseline_execution_spec_v1.json`,
+    content SHA256
+    `d2db54c783406f4bce92f6399c6358fe90cad94d145551dea3ff37865eddcfe1`
+  - M5 local regression: 32 tests pass, including exact B0/B1 checkpoint replay
+    and direct Qlib DatasetH fitting
   - final-OOS market partitions opened: `false`
   - performance metrics computed: `false`
-- Current blocker: M5 needs one frozen, resource-bounded baseline runner that
-  records every B0/B1 fold outcome, including failures and interruptions, in
-  the append-only ledger.
+- Current blocker: none for M5 execution. The 14 declared server fits have not
+  started.
 - Risk/ambiguity:
   - DataYes descriptions and snapshot hashes cannot prove vendor truth or that
     no off-system future data was consulted.
@@ -46,9 +51,9 @@
     prove that the upstream vendor omitted no eligible security.
   - Behavior status is `NOVEL_CANDIDATE`: it proves this exact hash-bound replay,
     not every possible execution.
-- Only permitted next action: implement and verify B0 LightGBM and B1 MLP
-  rolling baseline training on the seven fixed pre-OOS folds with train-fold-only
-  preprocessing, unified score output and append-only receipts.
+- Only permitted next action: execute the frozen B0 LightGBM and B1 MLP runner
+  on the seven fixed pre-OOS folds and retain every started/completed/failed fit
+  in the append-only journal.
 - Forbidden until later gates: unregistered model or hyperparameter search,
   PeerLite claims before M6, final-OOS access before M8 freeze, production
   trading and “top 1%” claims.

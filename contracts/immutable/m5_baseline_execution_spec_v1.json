@@ -1,0 +1,191 @@
+{
+  "schema_version": "qlib_peerlite_m5_baseline_execution_spec_v1",
+  "status": "FROZEN",
+  "stage": "M5-STRICT_BASELINES",
+  "created_at": "2026-07-28T20:22:07+08:00",
+  "claim_ceiling": "PRE_FINAL_OOS_DIAGNOSTIC",
+  "bindings": {
+    "contract": {
+      "path": "contracts/immutable/research_contract_pit_v2.json",
+      "sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+      "contract_id": "qrc-v2-5b7353756e0fded36622a6946011f77a",
+      "canonical_hash": "5b7353756e0fded36622a6946011f77a99706ec82a9685cb2dd3c03bba37002d"
+    },
+    "candidate_registry": {
+      "path": "contracts/candidate_registry.json",
+      "sha256": "fb1bcca2df1f4ee1f62f68aa806a85122e423c8fdaf14622b9c0f4766faed1ac"
+    },
+    "model_registry": {
+      "path": "configs/model_registry.yaml",
+      "sha256": "1eb5fcc6e9399b768bd2836bce17bfc7ea4683d1e39f5a319d325ec4ceb792a1"
+    },
+    "feature_spec": {
+      "path": "contracts/feature_spec.json",
+      "sha256": "b35da580ff710f7ca61f174d9f810f327942d190869ed422526e722eaeead12e"
+    },
+    "m3_gate": {
+      "path": "evidence/gates/M3_pit_data_gate.json",
+      "sha256": "ea5341934f14b5617d2c7226e3bc23bfc17c23cdad4677e7d1d2ad2fec0fe1f5"
+    },
+    "m4_gate": {
+      "path": "evidence/gates/M4_qlib_foundation_gate.json",
+      "sha256": "f9f894041748e0991a8d53df2ec0ede682b5b78f10374f71b182c8b27f86c8ca"
+    },
+    "data_product_manifest": {
+      "path": "data/manifests/pit_data_product_2012_2024_v3/data_product_manifest.json",
+      "sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3"
+    },
+    "trial_ledger_start": {
+      "path": "contracts/immutable/trial_ledger_initial_20260728.jsonl",
+      "sha256": "462a0bf90c12aa6c8af6fe333a2678bb67ece1391e3d23cc3d1113fbaf63fabb"
+    }
+  },
+  "input_data": {
+    "product_id": "pit_data_product_2012_2024_v3",
+    "rows": 1658525,
+    "feature_count": 50,
+    "feature_spec_version": "daily_raw_50_v1",
+    "date_min": "2012-01-04",
+    "date_max": "2024-12-17",
+    "source_basis": "RAW",
+    "final_oos_market_partitions_opened": false
+  },
+  "schedule": {
+    "fold_ids": [
+      "wf_2018",
+      "wf_2019",
+      "wf_2020",
+      "wf_2021",
+      "wf_2022",
+      "wf_2023",
+      "wf_2024"
+    ],
+    "seed": 7,
+    "embargo_sessions": 5,
+    "candidate_evaluations": 2,
+    "model_fits": 14,
+    "candidate_order": [
+      "B0_LIGHTGBM",
+      "B1_MLP"
+    ],
+    "failure_policy": "preserve journal and stop the run on the first failed fit",
+    "trial_counting": "each candidate start counts once; each fold fit start counts once"
+  },
+  "candidates": [
+    {
+      "model_id": "B0_LIGHTGBM",
+      "family": "lightgbm",
+      "role": "baseline",
+      "parameters": {
+        "seed": 7,
+        "learning_rate": 0.03,
+        "n_estimators": 500,
+        "num_leaves": 31,
+        "max_depth": -1,
+        "min_child_samples": 50,
+        "subsample": 0.9,
+        "subsample_freq": 1,
+        "colsample_bytree": 0.9,
+        "reg_alpha": 0.0,
+        "reg_lambda": 0.0,
+        "early_stopping_rounds": 50,
+        "n_jobs": 16,
+        "model_id": "B0_LIGHTGBM"
+      }
+    },
+    {
+      "model_id": "B1_MLP",
+      "family": "mlp",
+      "role": "neural_baseline",
+      "parameters": {
+        "input_dim": 50,
+        "hidden_dim": 64,
+        "dropout": 0.1,
+        "seed": 7,
+        "epochs": 100,
+        "patience": 12,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "batch_size": 8192,
+        "gradient_clip_norm": 1.0,
+        "device": "cuda",
+        "model_id": "B1_MLP"
+      }
+    }
+  ],
+  "preprocessing": {
+    "method": "mean/std standardization",
+    "fit_scope": "each training fold only",
+    "zero_scale_policy": "replace scale with 1",
+    "applies_to": [
+      "B0_LIGHTGBM",
+      "B1_MLP"
+    ],
+    "checkpoint_must_include_statistics": true
+  },
+  "diagnostics": {
+    "role": "PRE_FINAL_OOS_DIAGNOSTIC_ONLY",
+    "metrics": [
+      "RankIC_mean",
+      "RankIC_std",
+      "RankICIR",
+      "RankIC_positive_fraction",
+      "decile_slope",
+      "top_minus_bottom"
+    ],
+    "aggregation": [
+      "rolling_test_fold",
+      "combined_2018_2024_development_test"
+    ],
+    "selection_allowed": false,
+    "portfolio_metrics_allowed": false,
+    "cost_adjusted_metrics_allowed": false
+  },
+  "outputs": {
+    "prediction_filename": "predictions.parquet",
+    "prediction_columns": [
+      "datetime",
+      "instrument",
+      "score",
+      "model_id",
+      "fold_id"
+    ],
+    "fold_receipt_required": true,
+    "candidate_receipt_required": true,
+    "resource_report_required": true,
+    "checkpoint_reload_required": true,
+    "checkpoint_replay_rule": "exact score equality on the same test segment",
+    "qlib_recorder_readback_required": true,
+    "append_only_ledger_events_required": true
+  },
+  "safeguards": {
+    "final_oos_market_partitions_opened": false,
+    "final_oos_metrics_computed": false,
+    "portfolio_backtests": 0,
+    "cost_adjusted_selection": false,
+    "model_selection_performed": false,
+    "peer_models_allowed": false
+  },
+  "code_binding": {
+    "mode": "EXPLICIT_SHA256",
+    "files": {
+      "scripts/server/run_m5_baselines.py": "c232de41f95e17abd78d8848cd230b3fa531bf1843eab8f551943f8ccc10e4d0",
+      "src/qlib_peerlite/governance/m5_spec.py": "0d5f1c4cbcc19e3465a5270550a6e17ab51b3c78f8ebb7a40e1befe503785a8a",
+      "src/qlib_peerlite/data/qlib_dataset.py": "095a8f22ee014db37fa374083d73ed859352b4afcb7a5195129204da88ce1081",
+      "src/qlib_peerlite/data/schema.py": "d8c3c1fc83f25bc566fb2c1e186aa2cd639296f65cd29f67e4aaaf6a54f0f3b6",
+      "src/qlib_peerlite/data/splits.py": "ca48941015ad68a41fa489ca6656c38337c33463c8cb60b681b358cf01cf7cf6",
+      "src/qlib_peerlite/evaluation/metrics.py": "54dd8f50c71ae509edb554f51424233dab4d640e607bd541cbb7a7245d496693",
+      "src/qlib_peerlite/models/common.py": "5cc8c3810528190a5434841a7c0220b20c8f839bdb974266e267723c405cfbb5",
+      "src/qlib_peerlite/models/lightgbm_model.py": "7dae33ea919d47e5546600882f45e79c878640065363fbc90bdb632754ea1ce7",
+      "src/qlib_peerlite/models/mlp.py": "247166ee0fc4b276b2fff61ca9071ef807c5c53a71de376927bda482efee86bb",
+      "src/qlib_peerlite/qlib_integration.py": "9e7c112b6b47107a938068cc649dc5956061734bf12b955c9950779f24947bd4",
+      "uv.lock": "b406234ca9f9533c71425e0874d6b158cc2991f70ed1a3c8c9c9835e7c3c29ef"
+    }
+  },
+  "limitations": [
+    "The fee and statutory-cost receipt remains unresolved, so M5 does not run portfolio or cost-adjusted selection.",
+    "All diagnostics stop at 2024-12-17 and cannot support a final-OOS claim.",
+    "The frozen defaults are baseline references, not tuned best-in-class parameters."
+  ],
+  "content_sha256": "d2db54c783406f4bce92f6399c6358fe90cad94d145551dea3ff37865eddcfe1"
+}
