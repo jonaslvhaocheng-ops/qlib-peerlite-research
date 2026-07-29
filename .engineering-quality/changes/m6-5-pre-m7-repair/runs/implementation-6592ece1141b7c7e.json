@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 324,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_FULL_HISTORY_FIX",
+  "summary": "Corrected the external runner's shallow-checkout mismatch by fetching complete Git history, preserving the commit-bound M6 archive verification without weakening tests or expanding into M7.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -c \"from pathlib import Path; import yaml; d=yaml.load(Path('.github/workflows/m65-external-quality-gate.yml').read_text(), Loader=yaml.BaseLoader); steps=d['jobs']['m6-5-external-quality-gate']['steps']; primary=steps[0]; assert primary['name']=='Check out exact revision'; assert primary['with']['fetch-depth']=='0'; assert primary['with']['persist-credentials']=='false'\"",
+      "executed_at": "2026-07-29T14:32:00+00:00",
+      "exit_code": 0,
+      "summary": "The primary external checkout is full-history and still disables persisted credentials."
+    }
+  ],
+  "subject_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+  "blockers": [],
+  "recorded_at": "2026-07-29T14:32:38+00:00",
+  "source_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_fetch_depth_fix.md",
+      "sha256": "sha256:fb916a907f661a24fcfae70363523af46da3178d80b93aa40ae67a898510254c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/external_ci_run1_failure.md",
+      "sha256": "sha256:13f6f5bf3ebab937b1356938dd9a5492408eed43c53e672ff56eb8e45f4da527"
+    },
+    {
+      "path": ".github/workflows/m65-external-quality-gate.yml",
+      "sha256": "sha256:111038cdc4f5d10acfe7128493caa29c44c087befc26975cb8750b56d3f6d9bb"
+    }
+  ],
+  "run_id": "implementation-6592ece1141b7c7e"
+}

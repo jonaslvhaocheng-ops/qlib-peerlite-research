@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 328,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_FULL_HISTORY_REVIEW_PASS",
+  "summary": "Independent read-only review found no P0-P3 issue: full-history checkout precisely closes the historical-object failure while all pins, permissions, quality commands, archive tests, and research boundaries remain unchanged.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only review; no repository, ledger, remote, or GitHub settings were modified.",
+      "No M7 execution, model fit, real-data access, budget mutation, or final-OOS access was performed.",
+      "A fresh terminal external GitHub Actions PASS remains required."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-29T14:35:16+00:00",
+  "source_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v3_independent.md",
+      "sha256": "sha256:a3eee170b130367e7767767c90e2209086fa61310a8b18b656757f500cece8ce"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/external_ci_run1_failure.md",
+      "sha256": "sha256:13f6f5bf3ebab937b1356938dd9a5492408eed43c53e672ff56eb8e45f4da527"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_fetch_depth_fix.md",
+      "sha256": "sha256:fb916a907f661a24fcfae70363523af46da3178d80b93aa40ae67a898510254c"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v3.md",
+      "sha256": "sha256:f45fdbc73b0946178d2264b3aa7af7dc5000a4e893a10b47e6adbe3a0f633818"
+    },
+    {
+      "path": ".github/workflows/m65-external-quality-gate.yml",
+      "sha256": "sha256:111038cdc4f5d10acfe7128493caa29c44c087befc26975cb8750b56d3f6d9bb"
+    }
+  ],
+  "run_id": "code-review-9d4e794e0a726d76"
+}
