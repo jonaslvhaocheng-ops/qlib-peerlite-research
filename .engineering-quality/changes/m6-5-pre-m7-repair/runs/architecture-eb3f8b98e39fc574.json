@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 46,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_RESEARCH_GOVERNANCE_ARCHITECTURE_READY",
+  "summary": "Architecture v9 restores the mandatory verified M6 6/44 genesis and freezes a proportional research-governance threat model: it retains PIT, ledger, result-publishing and replay evidence gates while explicitly deferring hostile-host security to productionization.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T17:23:59+00:00",
+  "source_digest": "sha256:d9787db69630dcf396185bbee2d078ed06f21397788c82d9e326a9a2046d9372",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v9.md",
+      "sha256": "sha256:e4e0bb71e12dea48d6fa3db4bb0331804240f55d505771810dfa3befbd312598"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v5.md",
+      "sha256": "sha256:a10812792dae28bca1dc51c7c8b6eaf5533ffed71ce117c9e36947ca3a4d2d67"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v5_adversarial.md",
+      "sha256": "sha256:52ff6eb6d013f8954cfdfb54a5a06c52b92218407cba688d704e13fbd96fe160"
+    },
+    {
+      "path": "contracts/immutable/m6_trial_budget_start.json",
+      "sha256": "sha256:01d32b937c3a8a3c3869b4a44783301cf002ef9299314d0011d3840673e23741"
+    },
+    {
+      "path": "contracts/trial_ledger.jsonl",
+      "sha256": "sha256:31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93"
+    },
+    {
+      "path": "evidence/gates/M6_peerlite_gate.json",
+      "sha256": "sha256:83cdc68597e6b3bddc79fe366d71d9c4cc08398d88f06c94087d4b56bbf8ae86"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:87af67ecc0ff470d2e3d66516035a073e3bc55d2990e806451f6f3b58c02fe8f"
+    }
+  ],
+  "run_id": "architecture-eb3f8b98e39fc574"
+}

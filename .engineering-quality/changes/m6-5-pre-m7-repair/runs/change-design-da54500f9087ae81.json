@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 221,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V39_LEASE_CONTENT_SANDBOX_LINEAGE_READY",
+  "summary": "The v39 exact bundle closes v38 with provisional RESERVED-temp slot charging, root disjointness, a one-way precreated-lock to lease-grant to claim chain, a closed lease inventory and commit schema, typed result content objects, a locked reconciler interruption sequence, a supervisor-issued closed sandbox receipt and full deny set, exact trusted-input equality and publication paths, field-and-revision locators, closed Evidence V4 and ObservationManifestV2, and an independent immutable replay identity specification. No implementation, replay, fit, budget mutation, real-data access or final-OOS access is authorized.",
+  "commands": [],
+  "subject_digest": "sha256:1407085f50888501327a8398ef0e6dd1e15ad870f5fa93db34273321129aeb75",
+  "blockers": [],
+  "recorded_at": "2026-07-29T09:43:19+00:00",
+  "source_digest": "sha256:534a02ec69e9821f3b25c4b1b4caf318f229d44ea22c36c1afa35c48bbbc66ff",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v39.md",
+      "sha256": "sha256:1407085f50888501327a8398ef0e6dd1e15ad870f5fa93db34273321129aeb75"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v38.md",
+      "sha256": "sha256:707abeffc088b49549b8711ac73df69a18281fd0fad0171d0e57768b1beeade3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v38.md",
+      "sha256": "sha256:0f714e6aa4f900ac949236018121e4d30bf66dcd1cdc88abb575959a329ed402"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v38_adversarial.md",
+      "sha256": "sha256:8aaa59d689ba4706bf43e77c77f3c1f3512c8d51bc32ef6ec947b0758f76cfb1"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v38_consolidated_result.json",
+      "sha256": "sha256:6a7b29988379b7308ff5a38e5f47fa5421ebcbb1d1ab693ef2d943e60b59f580"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v10.md",
+      "sha256": "sha256:4cd04aaa213ecf4f5f97850df8a87d17936bff398ee65a2b5752b9769250b72d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+      "sha256": "sha256:57a46db7a4f4e2b142efbb5bbd0b3ea2dfa461a8817c8d675fa855d9f2760632"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v9.md",
+      "sha256": "sha256:265962b0972dd3c38221b80e540f9ca28c3b454c68262fb3068d7a5d504cab2d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v17.md",
+      "sha256": "sha256:b776b3e05abccb9a8aaf2a72190c9defcb48f4815a326823f2283897f9a1337c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v17.md",
+      "sha256": "sha256:a82bab91d7b555161fb2b96f14ba337bdd9497a7d57a90b90f4c83254948f112"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/score_replay_identity_v1.md",
+      "sha256": "sha256:ed803a7df33eb3286d28a70ecd051c11d00911f1a1535d895eac9b580843d79f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v17.md",
+      "sha256": "sha256:f1c7479a110bcc61109c235ce36431d80bce958cab19120bcc61fd2fb66b5cb3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v17.json",
+      "sha256": "sha256:81c7f22dd5674e1f9040e3a9820ee30cfc5c1a91447ec03e1ccdb7a1b6538c9b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:d6a54eb2acede1c4633f730a3ad0460866d47dfa94758b82aa0df6582b3b3971"
+    }
+  ],
+  "run_id": "change-design-da54500f9087ae81"
+}

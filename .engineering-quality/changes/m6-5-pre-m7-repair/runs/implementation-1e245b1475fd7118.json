@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 299,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "CONSTRUCTOR_AND_READONLY_PROPERTY_TYPES_ALIGNED",
+  "summary": "The sole code-review finding is repaired within RunIntent: a custom frozen-dataclass initializer declares exact dict authority inputs, while private immutable snapshots are exposed through read-only Mapping properties. Canonicalization, cached V2 identity and byte-exact V1 behavior remain unchanged; no caller or execution surface was added.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_run_intent_v2.py::test_constructor_declares_exact_dict_inputs_and_exposes_read_only_mappings",
+      "executed_at": "2026-07-29T20:23:47+08:00",
+      "exit_code": 0,
+      "summary": "Constructor/property API regression passed."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m65_expected_red.py tests/test_run_intent_v2.py tests/test_trial_ledger.py tests/test_reconcile_trial_ledger_cli.py",
+      "executed_at": "2026-07-29T20:23:47+08:00",
+      "exit_code": 0,
+      "summary": "34 focused RunIntent, ledger and CLI tests passed."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T20:23:47+08:00",
+      "exit_code": 0,
+      "summary": "Full repository suite passed: 86 tests."
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src/qlib_peerlite/governance/trial_ledger.py tests/test_m65_expected_red.py tests/test_run_intent_v2.py",
+      "executed_at": "2026-07-29T20:23:47+08:00",
+      "exit_code": 0,
+      "summary": "Ruff passed."
+    }
+  ],
+  "subject_digest": "sha256:8968e7b8e172ceea730e4251cb90a8d902e46ffa406da3fb4fe47b32e950f477",
+  "blockers": [],
+  "recorded_at": "2026-07-29T12:24:17+00:00",
+  "source_digest": "sha256:8968e7b8e172ceea730e4251cb90a8d902e46ffa406da3fb4fe47b32e950f477",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_constructor_api_repair.md",
+      "sha256": "sha256:ecec416ff785ac68b656f5a12b6f1b0efbf249f020cee5afd0f1797afbf3e3a4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_run_intent_v2_independent.md",
+      "sha256": "sha256:8a7b21ca94411c87460dc156f819b875b3a8c7b54ec6a29d0e12b866a52d2e76"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_red_constructor_api_v4.md",
+      "sha256": "sha256:0eaf446cff956143fa8eba45f9536f96a9952883eb383c3a842d477819191735"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:5ae99fc9f870937b2db518703e07d18db9bbf7dac8facbdca0432ade07b5de94"
+    },
+    {
+      "path": "tests/test_run_intent_v2.py",
+      "sha256": "sha256:84265bc443db7a4b405d54610c131db311128f1750bdbd0c2900379383aaef66"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+      "sha256": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e"
+    }
+  ],
+  "run_id": "implementation-1e245b1475fd7118"
+}

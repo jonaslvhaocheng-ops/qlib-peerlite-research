@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 189,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V31_RECOMPUTABLE_PREFIX_AND_RESERVATION_LIFECYCLE_READY",
+  "summary": "The v31 exact replacement closes the v30 findings with official scalar output mapped only to existing behavior slots, recomputable per-product aux/population/state prefix records and digests, a non-overcommitting append-only reservation/orphan lifecycle, a closed security-lifecycle authority/rows/validation receipt, a review hash DAG without unverifiable publication-time claims, an exact authority-file hash boundary, and a self-contained score replay canonicalization. M7 v9 remains design-only and no implementation, replay, fit, budget change or final-OOS is authorized.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v31.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v30.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v30.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v30_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v30_consolidated_result.json",
+    "evidence/m6_5_pre_m7/m7_change_design_v9.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v9.md",
+    "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v9.md",
+    "evidence/m6_5_pre_m7/current_control_pointer_v9.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:f83f2b51861c55f2abd96b051ef6e5546a43c5eff47128aa69c4125f9c28ca87",
+  "blockers": []
+}

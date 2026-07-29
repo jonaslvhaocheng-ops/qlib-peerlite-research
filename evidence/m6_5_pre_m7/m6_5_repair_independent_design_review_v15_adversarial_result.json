@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 102,
+  "source_digest_observed": "sha256:9fec867cd4cac8c88b893aeb76df938df26f807cff8cca815e94dca60ef5b0cf",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "independent-adversarial-read-only-r3-review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M6_REPLAY_AUTHORITY_BINDING_NOT_CLOSED_ACROSS_POLICY_PROFILE_NAMESPACE_AND_INPUTS",
+  "summary": "v18 closes P v2 migration, coordinate uniqueness and S0…S6 lineage, but the new M6 policy is not yet a closed authority binding: its exact M6 provenance/gate/producer and P template are not machine-bound, and those facts are not role-equal to the V inventory. Valid historical objects can therefore be cross-spliced under normal configuration/recovery error.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 1,
+    "P2": 0,
+    "P3": 0
+  },
+  "subject_digest": "sha256:b376d221fc2273d83db4aa608f031b8f8254789ea29ca6d10e6b3b34c23bc1b1",
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v15.md",
+    "sha256": "sha256:b376d221fc2273d83db4aa608f031b8f8254789ea29ca6d10e6b3b34c23bc1b1"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v18.md",
+    "sha256": "sha256:690484697271b00795a26f9e22bc04704114617a567f840fc3293ef40241715b"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:51fed21186ee2686f755722de00ff73f3f830991d561df2d97970a16654c5e26"
+  },
+  "review_report": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v15_adversarial.md",
+    "sha256": "sha256:ac19c9f6e5b8782da1deb5171e97ed62fc0c7d7ad70c72773df65e75020fc4d3"
+  },
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v15_adversarial.md"
+  ],
+  "commands": [
+    "read-only rg --files/rg/nl/sed/shasum/git status",
+    "quality_ledger.py next --ledger .engineering-quality/changes/m6-5-pre-m7-repair/ledger.json --repo . (route inspection only)",
+    "read-only inspection of v14/v16/v17 retained M6 replay inventory and actor/ACL controls"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_adversary",
+    "limitations": [
+      "No product/test/contract/gate/ledger/historical-evidence implementation changes.",
+      "No training, M6 replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "Bind Policy/Profile/A/V to one exact M6 evidence set and an immutable M6.5 quality-gate PASS receipt.",
+    "Define one producer/actor/ACL/slot relation and a policy-owned P template/allow-list, including nested M6-only schema roles.",
+    "Re-run independent design review before test design or implementation."
+  ],
+  "next_route": "architecture"
+}

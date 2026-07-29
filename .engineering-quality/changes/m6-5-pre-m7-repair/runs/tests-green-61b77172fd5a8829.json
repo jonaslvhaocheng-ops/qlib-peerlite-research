@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 311,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_GATE_GREEN",
+  "summary": "The complete repository test suite, bounded Ruff scopes, CI-verifier lint and GitHub Actions structure checks pass against the exact current source digest. The gate includes source/evidence binding, full tests and M6 archival replay without starting M7.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T14:10:16+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:2e92888d0eaa7dbb5cfae844101253e865fc045757b453ad3d04888391f3044c; stdout_bytes=179; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T14:10:23+00:00",
+      "stdout_sha256": "sha256:2e92888d0eaa7dbb5cfae844101253e865fc045757b453ad3d04888391f3044c",
+      "stdout_bytes": 179,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+      "source_digest_after": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde"
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-29T14:10:23+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts",
+        "--exclude",
+        "scripts/vendor"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T14:10:23+00:00",
+      "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stdout_bytes": 19,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+      "source_digest_after": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde"
+    },
+    {
+      "command": ".venv/bin/python -m ruff check docs/quality/changes/m6-5-pre-m7-repair/evidence/ci_verify_m65.py",
+      "executed_at": "2026-07-29T14:10:23+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "docs/quality/changes/m6-5-pre-m7-repair/evidence/ci_verify_m65.py"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T14:10:23+00:00",
+      "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stdout_bytes": 19,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+      "source_digest_after": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde"
+    },
+    {
+      "command": ".venv/bin/python -c \"from pathlib import Path; import yaml; d=yaml.load(Path('.github/workflows/m65-external-quality-gate.yml').read_text(), Loader=yaml.BaseLoader); assert 'pull_request' in d['on']; j=d['jobs']['m6-5-external-quality-gate']; r=[s.get('run','') for s in j['steps']]; assert all(any(t in c for c in r) for t in ('ci_verify_m65.py','ruff check src tests scripts --exclude scripts/vendor','pytest -q','verify_m6_peerlite_archival_replay.py'))\"",
+      "executed_at": "2026-07-29T14:10:23+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-c",
+        "from pathlib import Path; import yaml; d=yaml.load(Path('.github/workflows/m65-external-quality-gate.yml').read_text(), Loader=yaml.BaseLoader); assert 'pull_request' in d['on']; j=d['jobs']['m6-5-external-quality-gate']; r=[s.get('run','') for s in j['steps']]; assert all(any(t in c for c in r) for t in ('ci_verify_m65.py','ruff check src tests scripts --exclude scripts/vendor','pytest -q','verify_m6_peerlite_archival_replay.py'))"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T14:10:23+00:00",
+      "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+      "source_digest_after": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde"
+    }
+  ],
+  "subject_digest": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+  "blockers": [],
+  "recorded_at": "2026-07-29T14:10:23+00:00",
+  "source_digest": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate.md",
+      "sha256": "sha256:a03b009c7ff8aed26faf3d5f309c52d51bc039fabc959b55f8e50b8e11915891"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".github/workflows/m65-external-quality-gate.yml",
+      "sha256": "sha256:43f4eef87a5857e66d468949b0658a76dc356b32db5a4bf2a6d1731b09a82735"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/ci_verify_m65.py",
+      "sha256": "sha256:ae17e452bde0838d4a388bb95f59057ae2ed65207108db171daaab6dcd44c236"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_gate.md",
+      "sha256": "sha256:dee8f6b867595ad98d5c637e6001144a4210bbe7346e567d70309781f83f15cc"
+    }
+  ],
+  "run_id": "tests-green-61b77172fd5a8829"
+}

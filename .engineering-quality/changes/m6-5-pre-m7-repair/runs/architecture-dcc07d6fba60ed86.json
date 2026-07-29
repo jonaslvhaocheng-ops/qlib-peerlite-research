@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 85,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "FRESH_OUTPUT_RESERVATION_ARCHITECTURE_READY",
+  "summary": "Architecture v15 distinguishes existing hashed replay inputs from a future output root. It preserves v14 controls and replaces only replay output handling with a policy-bound namespace, non-content reservation, atomic mkdirat claim, reservation receipt and quarantine/no-reuse lifecycle.",
+  "commands": [],
+  "subject_digest": "sha256:f6dd3a7d92007cfdc8a2b863be95b9c2bd3204305d63ee5ae849f3d22776fafd",
+  "blockers": [],
+  "recorded_at": "2026-07-28T18:23:30+00:00",
+  "source_digest": "sha256:14f1bd9d53535f218bcb20b44486bf229555b9ac607030d5e99823ead7cf1661",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v15.md",
+      "sha256": "sha256:f6dd3a7d92007cfdc8a2b863be95b9c2bd3204305d63ee5ae849f3d22776fafd"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v14.md",
+      "sha256": "sha256:148490b9933be0311ff7c0b8626cdc5c3c268a2070cf6a6f49e9e26ac2af410f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v11.md",
+      "sha256": "sha256:c30cdb5ec08ca8f963903c552efe6b082afc5332266b0101c4e5a93afafcc811"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v11_adversarial.md",
+      "sha256": "sha256:871be3b485640836d45f60331816697e70e428a66837e4e23bd8edcee6e5b72c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    }
+  ],
+  "run_id": "architecture-dcc07d6fba60ed86"
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 127,
+  "source_digest_observed": "sha256:d1caef8e5831d12b68ba1094808a5556032576c815720e768572acd72d4ab5b9",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "distinct-subagent-independent-read-only-r3-review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "PRE_E_TOPOLOGY_AND_FORK_SAFE_LOCK_LIFECYCLE_NOT_CLOSED",
+  "summary": "v22/v19 materially close the observed PASS-byte chain, writer matrix, post-Bootstrap slot topology, held-lock R/V lifecycle and official-result resolver. However, the pre-Bootstrap release policy does not declare the D-v2 topology it claims to compare, OFD+CLOEXEC does not by itself invalidate a lock capability after fork, and P/F/A/B plus partial E/C recovery lack a stable materialization interface.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 1,
+    "P3": 0
+  },
+  "subject_digest": "sha256:c6788d62318141b3a5f16e09f69e185303247910946582cb6501fad6b7b963a0",
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v19.md",
+    "sha256": "sha256:c6788d62318141b3a5f16e09f69e185303247910946582cb6501fad6b7b963a0"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v22.md",
+    "sha256": "sha256:389ccd530c7705244e9025ef72efd891527a55a97286f14293e4912f12af49e9"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:0df94baf38b64030bf34a45eba8531bb87081cbef19f5e74308918480b41ab42"
+  },
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19_result.json"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v22.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v19.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v18.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v18_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md",
+    "src/qlib_peerlite/governance/artifacts.py",
+    "src/qlib_peerlite/governance/m6_archive.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py"
+  ],
+  "commands": [
+    "read-only rg --files/rg/nl/sed/shasum/git status/python JSON inspection",
+    "read-only local fcntl(2) semantic inspection",
+    "read-only inspection of v22/v19, prior v18 reviews, frozen threat model, current source and quality ledger"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-independent-read-only-r3-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v18_lead",
+    "limitations": [
+      "No product, test, contract, gate, ledger, status, or historical-evidence changes were made.",
+      "No project-code execution, training, M6 replay, budget consumption, PIT certification, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Define a closed pre-E quality-release topology with sealed-anchor/root/quality-parent D-v2 identity chains and exact Bootstrap/PASS slot specifications; do not rely on the later Bootstrap binding to authenticate Bootstrap itself.",
+    "Make LockedVerifiedControlTopology genuinely process-bound across fork: owner-PID/generation checks, at-fork poison/close, explicit child FD allow-list, writable lock-FD contract and fork fixtures are required.",
+    "Specify locked supervisor materialization and deterministic recovery for E/C and C-to-P/F-to-A-to-B-to-Q partial states before implementation.",
+    "Reissue architecture and change-design evidence, then obtain a new independent R3 design review before test design, implementation, code review, replay, M7, CCC/Gate, or final-OOS work."
+  ],
+  "next_route": "architecture"
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 270,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "RUN_INTENT_V2_IDENTITY_IS_SHALLOWLY_MUTABLE",
+  "summary": "The bounded dual-authority rule is directionally correct, but caller-owned mutable containers allow one RunIntent to produce changing V2 hashes; V2 canonicalization is not guaranteed at construction; and the design overstates the currently landed caller and verification surface.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:bac89c843cbb394240c852015b2eb910f5249f95564e231edd2d25dd13fadf4a",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v45_adversarial_retry",
+    "limitations": [
+      "Read-only review; no production, design or ledger edits.",
+      "No replay, fit, PIT, real-data access, CCC or Gate execution."
+    ]
+  },
+  "blockers": [
+    "Take and validate an owned immutable V2 canonical snapshot at construction while preserving V1 byte identity.",
+    "Specify V2-only recursive JSON/NFC validation and reject invalid binding content before side effects.",
+    "Describe the current state as a RunIntent-class-only partial slice until caller and verification obligations land."
+  ],
+  "recorded_at": "2026-07-29T11:53:35+00:00",
+  "source_digest": "sha256:2f343feb17cd2c3cbd1d7e1b0b3d30f5a347a321558304f0c0932a28650f5ca3",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v49_independent_b.md",
+      "sha256": "sha256:300b5d766b5f7b073c78458a1f1c0240e69caddadded6d7f999ecbda300af3dd"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v49.md",
+      "sha256": "sha256:bac89c843cbb394240c852015b2eb910f5249f95564e231edd2d25dd13fadf4a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v48.md",
+      "sha256": "sha256:4c3ae229338deed3b32722b9933a100688c9fb1ff3463c55dc65fc70522bc6c7"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v6.json",
+      "sha256": "sha256:bfd161ae21c8e81948c5d58e99103742397f47aa43a02be0d063cd83513385c2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v29.md",
+      "sha256": "sha256:d59ca3e2fcf5d627ba2459a530070d30d3acf499cd862400854b2ba2916e6b60"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:127ecbfb9cf2f7a89302e6d917bef5ac99b8ffe4f6cd21b90bc50a4822d489a4"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/artifacts.py",
+      "sha256": "sha256:31a3f8351cce18dc1a9af1e763d6da96ff59daab4a2621dd92375256c5f297af"
+    },
+    {
+      "path": "scripts/reconcile_trial_ledger.py",
+      "sha256": "sha256:cf518a8435b0c882a49d005d95a7a9435ec3486e3a4a341e5be83d87bf35a8e9"
+    },
+    {
+      "path": "tests/test_m65_expected_red.py",
+      "sha256": "sha256:9e1b63f2f7c23d3deabd8c0e8e48fbd0d5cae1d0140d0de4aec21abcf93c21bf"
+    }
+  ],
+  "run_id": "design-review-0d4e7320b2bcfd25"
+}

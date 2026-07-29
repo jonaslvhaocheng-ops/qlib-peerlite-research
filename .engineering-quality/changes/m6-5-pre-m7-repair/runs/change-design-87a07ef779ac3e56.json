@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 100,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M6_ONLY_LINEAR_RESERVATION_CHANGE_DESIGN_READY",
+  "summary": "Design v15 maps v18 to concrete versioned implementation commitments: M6-only policy/profile/P-v2 validation, one O_EXCL coordinate claim prior to V, anchored registry/lock resolution, phase-specific S0…S6 records and receipt matrix, strict actor roles, and synthetic-only test commitments.",
+  "commands": [],
+  "subject_digest": "sha256:b376d221fc2273d83db4aa608f031b8f8254789ea29ca6d10e6b3b34c23bc1b1",
+  "blockers": [],
+  "recorded_at": "2026-07-28T19:08:45+00:00",
+  "source_digest": "sha256:9fec867cd4cac8c88b893aeb76df938df26f807cff8cca815e94dca60ef5b0cf",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v15.md",
+      "sha256": "sha256:b376d221fc2273d83db4aa608f031b8f8254789ea29ca6d10e6b3b34c23bc1b1"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v18.md",
+      "sha256": "sha256:690484697271b00795a26f9e22bc04704114617a567f840fc3293ef40241715b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14.md",
+      "sha256": "sha256:c76c84b4246000e7b1432962c5de0fa1ffb8cf95dc832bf3957d984a82f75495"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14_adversarial.md",
+      "sha256": "sha256:47d78fc8905db0eb5433dd1a53a67f7e262575fd9a5a0a1ff673115515b1505f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:51fed21186ee2686f755722de00ff73f3f830991d561df2d97970a16654c5e26"
+    }
+  ],
+  "run_id": "change-design-87a07ef779ac3e56"
+}

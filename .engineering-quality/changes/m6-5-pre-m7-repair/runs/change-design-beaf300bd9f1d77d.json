@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 21,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_DENY_CERTIFY_GRANT_AND_LAUNCH_DESIGN_READY",
+  "summary": "Design v3 translates all v2 review findings into explicit fail-closed APIs, construction-versus-CERTIFY state evidence, close-proof and external authority grants, and a runtime-bound independently attested replay launcher. It remains synthetic-only until later gates.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T16:55:44+00:00",
+  "source_digest": "sha256:dc9feb1689a555417fdb9835d29ee2eaaccc76346bbf7ead79cb88ca7bace47c",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v3.md",
+      "sha256": "sha256:9ac6394aa68deee9a0572e081bdfd500b9de5b4ddfd778bd31222e1efc564ad6"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v5.md",
+      "sha256": "sha256:60f9352e394cd413e628ddcc02455e6112738281a25a04f4cddce62bd837bec0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v6.md",
+      "sha256": "sha256:6ed8486527e49e25fc32cfaca1fcf88c8dc4978cbdcc76439f112137e08b7a68"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v2.md",
+      "sha256": "sha256:e1d537506c7cda076f17420caca18b02eec6f7ba9b370d5547e536b3d6b6a77e"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:038644456597b218016147b13eeb6d1a983c19dfcfe3f57f8c043cca39620985"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a"
+    },
+    {
+      "path": "src/qlib_peerlite/data/qlib_dataset.py",
+      "sha256": "sha256:095a8f22ee014db37fa374083d73ed859352b4afcb7a5195129204da88ce1081"
+    },
+    {
+      "path": "src/qlib_peerlite/data/market_state.py",
+      "sha256": "sha256:b9b8b1052ae32bf3812a06b42d83520a089cbb9bb3604cc755362375fc470706"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    }
+  ],
+  "run_id": "change-design-beaf300bd9f1d77d"
+}

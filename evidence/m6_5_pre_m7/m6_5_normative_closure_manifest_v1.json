@@ -1,0 +1,68 @@
+{
+  "schema_version": "qlib_peerlite_m6_5_normative_closure_manifest_v1",
+  "classification": "NORMATIVE_DESIGN_CLOSURE",
+  "architecture": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "sha256": "87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+  },
+  "entries": [
+    {
+      "role": "MAINLINE_SCOPE",
+      "path": "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+      "sha256": "694fb03169dac8be9c3992a6cd39634a4f0300e5ea638d5b8fedd589e30d226b"
+    },
+    {
+      "role": "ARCHITECTURE",
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "role": "CHANGE_AUTHORITY",
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "role": "CURRENT_GATE",
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "role": "BOUNDED_COMPONENT_DESIGN",
+      "path": "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v1.md",
+      "sha256": "48ff7e36c02d9019dd6807ccdd01820f9cef483c47868781dbe0740503ccb8d7"
+    },
+    {
+      "role": "ARCHIVAL_REPLAY_CONTRACT",
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_contract_v1.md",
+      "sha256": "d10272b383f3d61d565292470755bb1ae23c751c47858c92fb036d180ab2d9e8"
+    },
+    {
+      "role": "M7_BOUNDED_DESIGN",
+      "path": "evidence/m6_5_pre_m7/m7_bounded_design_v1.md",
+      "sha256": "9c6c2b71441b63a364f636a57e938942cbc6b883ed115a1b994af4a921d78113"
+    },
+    {
+      "role": "M7_BEHAVIOR_MATRIX",
+      "path": "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v1.md",
+      "sha256": "0d03cc8d1ab187d4f74fdb17ec44f33267fb7b8487c1d4e118f9e9a1eda4014a"
+    }
+  ],
+  "deferred_patterns": [
+    "capacity_reservation_protocol_v*.md",
+    "nested_directory_recovery_v*.md",
+    "run_authority_generation_v*.md",
+    "m7_change_design_v*.md",
+    "score_replay_identity_v*.md",
+    "score_replay_plan_v*.md"
+  ],
+  "deferred_classification": "HISTORICAL_OR_DEFERRED_PRODUCTION_HARDENING_NON_NORMATIVE_FOR_M6_5",
+  "m6_prefix": {
+    "candidate_evaluations": 6,
+    "model_fits": 44
+  },
+  "m7_status": "NOT_RUN",
+  "execution_authorized": false,
+  "replay_authorized": false,
+  "real_fit_authorized": false,
+  "final_oos_access_authorized": false
+}

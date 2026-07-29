@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 115,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "CLOSED_AUTHORITY_CONTEXT_AND_SINGLE_ROOT_ARCHITECTURE_READY",
+  "summary": "Architecture v21 replaces the ambiguous six-role evidence key with one canonical, complete authority context; binds the quality-gate Bootstrap, E, A, registry and transaction lock to one FD-derived topology; and retains the complete DirectoryIdentity v2 including opaque file handle in K v4. The retained PTemplate materialization, Q-before-R V precommit and state lineage remain acyclic.",
+  "commands": [],
+  "subject_digest": "sha256:7e14a5b8a5cbdb1d1bc3e44fa7bb623ce9c5c8bba20cd1efe8ca418618b66881",
+  "blockers": [],
+  "recorded_at": "2026-07-28T19:43:06+00:00",
+  "source_digest": "sha256:c77c358e473839881ec3e6082952f46d22ac45312cad41ec4464dba8d4e6b1bd",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v21.md",
+      "sha256": "sha256:7e14a5b8a5cbdb1d1bc3e44fa7bb623ce9c5c8bba20cd1efe8ca418618b66881"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v20.md",
+      "sha256": "sha256:d944ab700454dbc22515a779366a60e09337efb9b69b2365c0608f08441528e0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17.md",
+      "sha256": "sha256:402ad122b65c99aab6cab1a9a6a9f309a864329d26323a65af55ebd05cefc0c8"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17_adversarial.md",
+      "sha256": "sha256:aa9c2c9ee9aa6d4f8c543a3042ab88bf859f47e9eeb3a4f7d138302611543c9d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v17_consolidated_result.json",
+      "sha256": "sha256:b096923c4212ae9d741bcdc93342108fe39714ba9fc55c3ef2832138a081a62a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:bac4a1bd31b2310c8070eb4eb8d489bcb655d3ba26ed8cd105300f8d1d406d7f"
+    }
+  ],
+  "run_id": "architecture-a428e02054c1c90d"
+}

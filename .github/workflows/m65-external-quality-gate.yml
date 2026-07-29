@@ -1,0 +1,68 @@
+name: M6.5 External Quality Gate
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: m65-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  m6-5-external-quality-gate:
+    name: m6-5-external-quality-gate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+
+      - name: Check out pinned engineering-quality controller
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: jonaslvhaocheng-ops/engineering-quality-skills
+          ref: ecab972eb859044bb7545d43b6da8114b74b6fec
+          path: .engineering-quality/controller
+          persist-credentials: false
+
+      - name: Install Python 3.11
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
+        with:
+          enable-cache: true
+          version: "0.11.14"
+
+      - name: Restore locked environment
+        run: uv sync --frozen --extra dev
+
+      - name: Verify canonical M6.5 ledger and source binding
+        run: >-
+          uv run python
+          .engineering-quality/controller/scripts/quality/quality_ledger.py
+          check-ci
+          --pre-merge
+          --root .engineering-quality/changes
+          --repo .
+
+      - name: Run static checks
+        run: uv run ruff check src tests scripts --exclude scripts/vendor
+
+      - name: Run complete test suite
+        run: uv run pytest -q
+
+      - name: Verify M6 archival evidence and replay mechanics
+        run: >-
+          uv run pytest -q
+          tests/test_m6_evidence.py
+          tests/test_m6_archive.py
+          tests/test_m6_archival_replay_script.py

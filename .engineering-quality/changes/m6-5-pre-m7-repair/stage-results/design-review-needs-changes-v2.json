@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 13,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "GATE_BYPASS_PIT_AUTHORITY_REPLAY_TRUST_GAPS",
+  "summary": "Independent review found that the proposed repair still permits the legacy PeerLite Gate to consume future-conditioned M3 market columns, incorrectly treats PIT VERIFY as a positive training gate, lacks an external RunAuthority grant, and relies on verifier self-attestation for replay. The genesis archive-proof schema also remains incomplete.",
+  "issue_type": "architecture",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v2.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v2.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v4.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "evidence/gates/M6_peerlite_gate.json",
+    "contracts/immutable/m6_trial_budget_start.json",
+    "contracts/trial_ledger.jsonl",
+    "evidence/m6_5_pre_m7/m6_archival_replay_server_receipt_v2.json",
+    "src/qlib_peerlite/data/market_state.py",
+    "src/qlib_peerlite/data/qlib_dataset.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "src/qlib_peerlite/governance/m6_archive.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:0550c0330add31ea9327f0d99a43832d14b295bae9d03f9bc8d274d4b7581d7a",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m6_5_design_review_v2",
+    "limitations": [
+      "Read-only design review; no production, test, contract, ledger, server, training, or final-OOS mutation."
+    ]
+  },
+  "blockers": [
+    "M7 derived-contract freeze, real M7 fit, CCC/Gate experiments, and final OOS remain prohibited until the design defects are resolved and re-reviewed."
+  ]
+}

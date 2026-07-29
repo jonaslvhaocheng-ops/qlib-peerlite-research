@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 77,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "CLOSURE_MIGRATION_AND_REPLAY_BINDING_INCOMPLETE",
+  "summary": "Independent v10 reviews confirm the exact-envp/-s -S -P effective-hash fix, but found two P1 architecture gaps: retained admission schema still expects RunnerExecutionClosure v1 while the fixed policy exists only in v2, and complete replay-section replacement omitted the full M6 input inventory/no-free-path contract. The adversarial review also found umask was declared as environment data rather than an observed pre-exec process state.",
+  "issue_type": "architecture",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v10.md",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v13.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:a1ef1422e0d4c247396a2b900bec60291ba4cb3b9399762755b51d204ca4f3e3",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "Independent reviewers were read-only and made no product, test, contract, gate, ledger, or historical-evidence changes.",
+      "No training, replay, PIT certification, budget consumption, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Test design, implementation, M7 contract freeze/fit, archival replay, CCC/Gate experiments, and final-OOS access remain prohibited until the revised architecture/design passes independent review."
+  ]
+}

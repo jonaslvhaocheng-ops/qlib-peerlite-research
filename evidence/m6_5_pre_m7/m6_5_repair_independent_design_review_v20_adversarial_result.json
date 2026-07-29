@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 140,
+  "source_digest_observed": "sha256:5c89a379284e0f7397fa6a3fdabcfbb1d19187cb79fe20a999aa27527d074bd2",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "independent-adversarial-read-only-r3-review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "RUNTIME_BINDING_AND_LEDGER_AUTHORITY_NOT_CLOSED",
+  "summary": "v24/v20 materially improve the release DAG, Linux control primitives, fork-safe process graph, authenticated child attestation, legacy-worker staging and archive continuation. But the executing inner runtime is not yet self-bound to the RuntimeCandidate named by Pin/Policy, and the M6 6/44 authority prefix is not mechanically bound through the observed live ledger snapshot into staged worker bytes. Immutable rejection-slot conflicts and P1 liveness/cancellation also remain unresolved deterministic recovery decisions.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 2,
+    "P3": 0
+  },
+  "subject_digest": "sha256:5c89a379284e0f7397fa6a3fdabcfbb1d19187cb79fe20a999aa27527d074bd2",
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v20.md",
+    "sha256": "sha256:5c89a379284e0f7397fa6a3fdabcfbb1d19187cb79fe20a999aa27527d074bd2"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v24.md",
+    "sha256": "sha256:d637bc6555a27898516271e831d519226a7539be7b11342c31ec5d0513daf2e9"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:0df94baf38b64030bf34a45eba8531bb87081cbef19f5e74308918480b41ab42"
+  },
+  "review_report": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v20_adversarial.md",
+    "sha256": "sha256:c1b6a4257078d9424982b09f23b9a25464121b4807d18750f85c2142a5e29ad4"
+  },
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v20_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v20_adversarial_result.json"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v24.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v20.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "scripts/server/verify_m6_peerlite_archival_replay.py",
+    "src/qlib_peerlite/governance/m6_archive.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "docs/STATUS.md"
+  ],
+  "commands": [
+    "read-only sed/rg/nl/wc/sha256sum/json validation/git status inspection",
+    "read-only inspection of v24/v20, frozen threat model, gate/contract, raw worker, historical M6 verifier and current trial ledger"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v20_adversary",
+    "limitations": [
+      "No product/test/contract/gate/ledger/status/historical-evidence implementation changes.",
+      "No project-code execution, training, archival replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "Introduce an observed inner-runtime capability and exact RuntimeClosure/AuthorizedEntrypoint equality before Bootstrap/PASS/E/C.",
+    "Define a 6/44 ledger authority-prefix to observed snapshot to staged-ledger byte-equality chain that tolerates legitimate atomic ledger replacement without accepting legacy 4/29 inputs.",
+    "Resolve occupied-malformed archive rejection slots without overwriting immutable evidence or pretending a canonical rejection was published.",
+    "Define P1 idle/worker deadlines, cancellation/reap and pre-lock teardown before tests or implementation.",
+    "Reissue architecture and change design, then obtain fresh independent R3 design reviews before test design, implementation, replay, M7 or final-OOS work."
+  ],
+  "next_route": "architecture"
+}

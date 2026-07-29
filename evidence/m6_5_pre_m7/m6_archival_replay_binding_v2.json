@@ -1,0 +1,83 @@
+{
+  "schema_version": "qlib_peerlite_m6_archival_replay_binding_v2",
+  "classification": "NORMATIVE_EXTERNAL_REPLAY_IDENTITY",
+  "status": "FROZEN_DESIGN_INPUT",
+  "transfer_manifest": {
+    "path": "evidence/m6_5_pre_m7/m6_frozen_source_0af4572_manifest.json",
+    "file_sha256": "104740de8bb55b9ec07706f836e764cd40c45931516e43ab361de74861c6bd2c"
+  },
+  "frozen_source": {
+    "git_commit": "0af45727d7f51af1c5a597d4a06fa5f95e34f758",
+    "source_tree_sha256_before_manifest": "07200079f33e27f5d1f9f69e57449b570b037810ac1dffe09cbcfec901f20af9",
+    "source_file_count_before_manifest": 260,
+    "archive_filename": "m6_frozen_source_0af4572_clean.tar.gz",
+    "archive_sha256": "d49a15fd5f90fb9bafac19052b826657f81be1c51295ef21b172a1fd80420a1d",
+    "archive_bytes": 664406,
+    "internal_manifest_sha256": "d2ba56f9d9f5361e09389d22c51522693760eacd9a4bc9cfc7bce51eaddd73ad"
+  },
+  "m6_execution_spec": {
+    "path": "contracts/immutable/m6_peerlite_execution_spec_v1.json",
+    "file_sha256": "469d67be0812e1acfa53301907f94c85bea2e799d17f2699edd8d508a2df20f8",
+    "content_sha256": "60d0cf06307991f1fafea0dd5880b43fb929546c6757040e2c868cbb361f2f69"
+  },
+  "historical_environment": {
+    "path": "evidence/m6/runs/m6_peerlite_20260728_v1/environment.json",
+    "file_sha256": "e4e6168405cc34ae20c21f8f883a326b8d4508115495b7a1a13460ba1659d870",
+    "python_version": "3.11.14",
+    "platform": "Linux-6.8.0-106-generic-x86_64-with-glibc2.39",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "2.3.3",
+      "pyarrow": "22.0.0",
+      "qlib": "0.9.7",
+      "torch": "2.7.1+cu126"
+    },
+    "cuda_runtime_version": "12.6",
+    "deterministic_algorithms": true,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "cublas_workspace_config": ":4096:8"
+  },
+  "dependency_lock": {
+    "project": {
+      "path": "pyproject.toml",
+      "file_sha256": "effa8e50b1a197bce98a34fd7559026ee792901e12a562453162881ce0b62d9b"
+    },
+    "lock": {
+      "path": "uv.lock",
+      "file_sha256": "b406234ca9f9533c71425e0874d6b158cc2991f70ed1a3c8c9c9835e7c3c29ef"
+    },
+    "python_marker": "==3.11.*",
+    "platform_marker": "linux_x86_64",
+    "extras": [
+      "qlib"
+    ],
+    "policy": "EVERY_IMPORTED_NON_STDLIB_DISTRIBUTION_MUST_RESOLVE_TO_THIS_LOCK_WITH_EXACT_VERSION"
+  },
+  "server_environment": {
+    "path": "evidence/environment/server.json",
+    "file_sha256": "e1905f20c9f6cf8991839a16097143bfa25102c0c6050dcf734975629c140e7c",
+    "device_name": "NVIDIA GeForce RTX 4090",
+    "compute_capability": [
+      8,
+      9
+    ],
+    "device_count": 1
+  },
+  "historical_verification": {
+    "path": "evidence/m6/verifications/m6_peerlite_20260728_v1/verification_receipt.json",
+    "file_sha256": "b605db0f43bf571f5f1cebaf1733b4801e2ea6fb944c65e35e4f6b85325c2d6e",
+    "content_sha256": "853b9341c4b2c8a156a5d50265465ed134c4d843c5516105452f0704f8a27613"
+  },
+  "historical_archival_replay": {
+    "path": "evidence/m6_5_pre_m7/m6_archival_replay_server_receipt_v2.json",
+    "file_sha256": "851b37e6ff9f66e804ccb1bae23df1f190b22019cdae38f7b99e4033ad72208e",
+    "content_sha256": "4bfb21b472e116e2b9f9dcb8cc686f336cea9de3d37d05d3763b2eb1b9617938",
+    "checkpoint_replays": 14,
+    "model_fit_calls": 0
+  },
+  "allowed_project_module_prefix": "qlib_peerlite.",
+  "external_dependency_policy": "EXACT_LOCKED_IMPORTED_DISTRIBUTIONS_ONLY",
+  "replay_authorized": false,
+  "content_sha256": "a0620acceaa641a94f4e701d928c667c6025fde26d7ca3b0142d46887c35c17a"
+}

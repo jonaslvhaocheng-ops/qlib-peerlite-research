@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 177,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V28_TERMINAL_BEHAVIOR_AND_M7_CONTRACT_UNCLOSED",
+  "summary": "Two independent R3 reviews agree that v28 closes the per-T projection, nullable sort, nested transaction core, generation activation, no-replacement budget, exact check IDs and clean-environment direction, but it omits canonical event artifacts and live guards, lacks an idempotent terminal reconciler and two-branch generation mapping, mismatches official single-horizon behavior manifests, regresses M7 loader/checkpoint/CCC details, uses -I despite PYTHONHASHSEED, and leaves final directory durability, marker mode and private TMPDIR incomplete.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:d9851b71e2688645538b03eadc282480add1706329db0583e66bd5a064f6db39",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "CANONICAL_EVENT_ARTIFACTS_AND_LIVE_GUARD",
+    "IDEMPOTENT_RUN_TERMINAL_RECONCILER",
+    "TWO_ISOLATED_GENERATION_MAPPING",
+    "OFFICIAL_SINGLE_HORIZON_BEHAVIOR_BINDING",
+    "SELF_CONTAINED_M7_LOADER_AND_CCC_CONTRACT",
+    "EFFECTIVE_HASH_SEED_AND_PRIVATE_TMPDIR",
+    "DURABLE_DIRECTORY_COMMIT_MARKER"
+  ],
+  "recorded_at": "2026-07-29T07:24:50+00:00",
+  "source_digest": "sha256:8019c4a3bd24cf5731d7efce2c70ff24c7369396299f6a15d5968997464d555e",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v28.md",
+      "sha256": "sha256:040973585e4214d11c208403b19e28bec0e3b9d7ace280408a9852f8d63ea7f6"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v28_adversarial.md",
+      "sha256": "sha256:6ff59e634bf3e8466940cbead296c5fbfdf2ad293c82242578cc8d96aad945b0"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v28.md",
+      "sha256": "sha256:d9851b71e2688645538b03eadc282480add1706329db0583e66bd5a064f6db39"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v27.md",
+      "sha256": "sha256:1517a81b731444e5c9a8528566d1e2fe97da9f183b9838441d6706a68051ced9"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v6.md",
+      "sha256": "sha256:a2614e2050abf9e51e945ff33c37fedab7f1bca00e1142a46c5313d056231238"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v6.md",
+      "sha256": "sha256:6d04df448757519596fd57a27dff47050bfd89a6a6ad8440eee59b512b66c984"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_design_review_v6.md",
+      "sha256": "sha256:eca08da2fc020638e0f1cbe898999b7489464677643517ad8d8e0d21d3903328"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:6e2205cbacdfdfd42d404dfb2c10113d84fb8b5eaf2900445bdce25afb35bf8f"
+    }
+  ],
+  "run_id": "design-review-4e613baf6b0e69ea"
+}

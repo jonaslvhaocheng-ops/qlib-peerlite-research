@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 94,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "CANONICAL_RESERVATION_GRAPH_ARCHITECTURE_READY",
+  "summary": "Architecture v17 closes the v13 review findings with a typed, acyclic replay-control graph; a single canonical leaf authority; mandatory cross-object equality; full typed receipts; and a lock-held, sync-FD, durable no-reuse reservation transaction. It preserves prior M6/PIT/M7 boundaries and does not authorize empirical execution.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v17.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v16.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v13.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v13_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:2079525e3f0c9e6746d2047da3dd201f3d2a360cbc7bcb6bb1db9759037620f8",
+  "blockers": []
+}

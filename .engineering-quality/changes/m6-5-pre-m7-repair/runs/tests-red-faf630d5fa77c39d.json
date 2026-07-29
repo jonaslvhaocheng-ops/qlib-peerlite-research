@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 289,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "COMPLETE_V50_MATRIX_FAILS_FOR_APPROVED_PRODUCT_GAPS",
+  "summary": "The complete bounded v50 test portfolio fails only on the intended missing behaviors: owned nested snapshots, cached immutable identity, recursive NFC/collision rules, and construction-time rejection of unsupported, cyclic and nonfinite JSON values. Existing binding-pair/type rejection, known ASCII V2 identity, authority sensitivity, shared noncyclic values and exact historical V1 identity already pass.",
+  "issue_type": "product-code",
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m65_expected_red.py tests/test_run_intent_v2.py",
+      "executed_at": "2026-07-29T12:05:59+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:364a6cfd7f2d8fca32237e981eaae9f55403938aa0922c035f6759f7709308ab; stdout_bytes=11193; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m65_expected_red.py",
+        "tests/test_run_intent_v2.py"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-29T12:06:00+00:00",
+      "stdout_sha256": "sha256:364a6cfd7f2d8fca32237e981eaae9f55403938aa0922c035f6759f7709308ab",
+      "stdout_bytes": 11193,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:a50b730d92db422825da06a4d1ff410570b31d901a48b821179ddd5dabc20092",
+      "source_digest_after": "sha256:a50b730d92db422825da06a4d1ff410570b31d901a48b821179ddd5dabc20092"
+    }
+  ],
+  "subject_digest": "sha256:44c3fbdddc9788dd86d734327d082dab1b373c2b1dc1099faf0f32dcff625a45",
+  "blockers": [],
+  "recorded_at": "2026-07-29T12:06:00+00:00",
+  "source_digest": "sha256:a50b730d92db422825da06a4d1ff410570b31d901a48b821179ddd5dabc20092",
+  "artifacts": [
+    {
+      "path": "tests/test_m65_expected_red.py",
+      "sha256": "sha256:0cf121359cc0ff317f9667ffae507249469a44258f7c28487308347fdcb0639f"
+    },
+    {
+      "path": "tests/test_run_intent_v2.py",
+      "sha256": "sha256:44c3fbdddc9788dd86d734327d082dab1b373c2b1dc1099faf0f32dcff625a45"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_tests_red_v3.md",
+      "sha256": "sha256:25df0f4c70830a7bc2cc9476865699b0331cefa4f2b562f17ce9fda4c9c3e80a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_test_design_v2.md",
+      "sha256": "sha256:fb62c1a0655769d6502b184918bce2a8ee869f095020b5b9eee70e1822a6979d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md",
+      "sha256": "sha256:8c9bb077e26d95de71793ae7f373ed11d8986b4571f072afee1af551ef327d19"
+    }
+  ],
+  "run_id": "tests-red-faf630d5fa77c39d"
+}

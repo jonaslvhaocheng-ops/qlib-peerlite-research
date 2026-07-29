@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 4,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "LEDGER_GENESIS_PIT_PROVENANCE_AND_REPLAY_TRUST_ROOT_UNSPECIFIED",
+  "summary": "The repair direction is sound, but it lacks a server authority genesis for the verified M6 6/44 close state, an auditable and contract-anchored state provenance chain, a semantic event plan, and an immutable replay-input/verifier trust root.",
+  "issue_type": "architecture",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v1.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v1.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v3.md",
+    "evidence/m6_5_pre_m7/m6_5_remediation_independent_code_review.md",
+    "evidence/m6_5_pre_m7/m6_5_independent_test_coverage_audit.md",
+    "contracts/immutable/m6_trial_budget_start.json",
+    "evidence/gates/M6_peerlite_gate.json",
+    "contracts/trial_ledger.jsonl",
+    "evidence/m6_5_pre_m7/m6_archival_replay_server_receipt_v2.json",
+    "src/qlib_peerlite/data/market_state.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:27a88f08714c91d5097ef876b1200c3391503b595d119bf87730f53177f6bd53",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m6_5_design_review_v3",
+    "limitations": [
+      "Read-only design review; no production, test, contract, ledger, server, training, or final-OOS mutation."
+    ]
+  },
+  "blockers": []
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": "qlib_peerlite_m6_frozen_source_transfer_v1",
+  "purpose": "M6.5 archival checkpoint replay only; no model fitting or final-OOS access",
+  "git_commit": "0af45727d7f51af1c5a597d4a06fa5f95e34f758",
+  "m6_execution_spec_sha256": "469d67be0812e1acfa53301907f94c85bea2e799d17f2699edd8d508a2df20f8",
+  "source_tree_sha256_before_manifest": "07200079f33e27f5d1f9f69e57449b570b037810ac1dffe09cbcfec901f20af9",
+  "source_file_count_before_manifest": 260,
+  "transfer_archive_filename": "m6_frozen_source_0af4572_clean.tar.gz",
+  "transfer_archive_sha256": "d49a15fd5f90fb9bafac19052b826657f81be1c51295ef21b172a1fd80420a1d",
+  "transfer_archive_bytes": 664406,
+  "rejected_initial_archive": {
+    "sha256": "7faf4e752d9d4ca6d272c970c61c63eec607daf3581b3f95ab2e709bd1574a09",
+    "reason": "macOS AppleDouble sidecar entries; not used for the archival replay"
+  },
+  "server_execution": {
+    "product_max_date_must_be_before": "2025-01-01",
+    "expected_checkpoint_replays": 14,
+    "model_fit_calls": 0,
+    "trial_ledger_mutation": false
+  }
+}

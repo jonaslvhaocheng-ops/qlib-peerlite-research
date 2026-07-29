@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 97,
+  "source_digest_observed": "sha256:a27ae6ddeb3af142ad65a6528fbfee747a1734419f53502164628cf7fb5a2b6b",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "REPLAY_ROOT_AUTHORITY_AND_RESERVATION_TRANSITION_DAG_NOT_CLOSED",
+  "summary": "v17/v14 repair the prior leaf grammar and sync-FD transaction, but A depends on an undefined pre-M7 replay authority, P v1 cannot legally satisfy the new fields and does not bind R/V output schema, and S has no phase-specific immutable lineage. M6/M7 isolation and reservation acceptance therefore remain architecture-blocked.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 0,
+    "P3": 0
+  },
+  "subject_digest": "sha256:69e8373b847854e382ea4b3443eaecbeb52cca60d56210dd924173b59d2195a6",
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v14.md",
+    "sha256": "sha256:69e8373b847854e382ea4b3443eaecbeb52cca60d56210dd924173b59d2195a6"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v17.md",
+    "sha256": "sha256:2079525e3f0c9e6746d2047da3dd201f3d2a360cbc7bcb6bb1db9759037620f8"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:fd2373ef53f061b45e1ac19bf90c86b4298f81863a88c66fe19acd9aa6bbe2d3"
+  },
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14_result.json"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v17.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v14.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-independent-read-only-r3-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead",
+    "limitations": [
+      "No product, test, contract, gate, ledger, or historical-evidence changes.",
+      "No training, M6 replay, PIT certification, budget consumption, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "Define a replay-only typed pre-M7 profile/policy root, version P so every required P field has a legal schema, and bind P=R=V output schema authority.",
+    "Define a phase-specific immutable S0…S6 transition DAG, B-to-R/leaf one-time issuance mapping, typed predecessor references, exact receipt-to-state binding, and fail-closed recovery/head rules.",
+    "Reissue architecture/change-design evidence and obtain a fresh independent R3 review before test design or implementation."
+  ],
+  "next_route": "architecture"
+}

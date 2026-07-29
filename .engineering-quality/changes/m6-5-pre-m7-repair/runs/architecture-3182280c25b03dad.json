@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 78,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "SELF_CONTAINED_GOVERNANCE_ARCHITECTURE_READY",
+  "summary": "Architecture v14 replaces layered amendments with one self-contained control-plane contract. It explicitly migrates M7 admission to descriptor v5/runner closure v2, makes umask an observed pre-exec process state, preserves the full replay input universe as binding v6, and retains M6/PIT/authority/dispatch/ACL/publisher boundaries.",
+  "commands": [],
+  "subject_digest": "sha256:2e619ad430703b7069a5e82162458769082e419ecb303bdb806d77bf2f7e4564",
+  "blockers": [],
+  "recorded_at": "2026-07-28T18:15:28+00:00",
+  "source_digest": "sha256:c360bff43cd9dbf22fbe77f996f649a46f11d442f89b71e91e6410e7ca814aad",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v14.md",
+      "sha256": "sha256:2e619ad430703b7069a5e82162458769082e419ecb303bdb806d77bf2f7e4564"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10.md",
+      "sha256": "sha256:25d63ba434246ec57d398821953c833a65501409cce0610db954514029cc0aa3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10_adversarial.md",
+      "sha256": "sha256:7cf84e6292c3eef36473bb64887e175a736de9bcca3a86ccb1e890cdf0b22a2c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "sha256:effa8e50b1a197bce98a34fd7559026ee792901e12a562453162881ce0b62d9b"
+    }
+  ],
+  "run_id": "architecture-3182280c25b03dad"
+}

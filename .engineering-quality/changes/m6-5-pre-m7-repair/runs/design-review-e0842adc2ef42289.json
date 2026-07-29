@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 239,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V43_TKNOWN_AND_EXECUTABLE_CONTRACT_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm that v43 correctly restores the architecture-v28 bounded mainline and exact closure, but require a self-contained T-known server-builder and source-manifest contract, a current gate with correct review-first routing, exact ledger and replay schemas and crash rules, frozen runtime and CUDA evidence, complete-date CCC batching, deterministic Gate statistics, executable screening formulas, and expanded bounded tests. No production control plane is required.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:04e1b8e1cdc1744e63afb4b3d5a0c3da09245c547ca8d31e54c89cf08d647016",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or ledger.",
+      "No replay, training, real data, PIT, budget or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "CURRENT_REVIEW_FIRST_GATE",
+    "TKNOWN_BUILDER_AND_SOURCE_MANIFEST",
+    "SELF_CONTAINED_LEDGER_AND_REPLAY_SCHEMAS",
+    "ATOMIC_LEDGER_CRASH_AND_CONCURRENCY",
+    "FROZEN_IMPORT_RUNTIME_CUDA_EVIDENCE",
+    "COMPLETE_DATE_CCC_AND_GATE_NUMERICS",
+    "SCREEN_ONLY_REFIT_AND_PROMOTION_FORMULAS",
+    "BOUNDED_NEGATIVE_TEST_COVERAGE"
+  ],
+  "recorded_at": "2026-07-29T10:38:28+00:00",
+  "source_digest": "sha256:61255f2169eaa17ff3083f6a7d34b9ab0ba122cd05a37ffb41e7fa4c62ef8bda",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v43.md",
+      "sha256": "sha256:7f916ee620a4bfaa442a72366205f1b5afb41a3d821e7671cfcf401398cfc456"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v43_adversarial.md",
+      "sha256": "sha256:1c04b0753fffafb6257063b50824f619725ae2700b4096aa9853e024b98ebea2"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v43.md",
+      "sha256": "sha256:04e1b8e1cdc1744e63afb4b3d5a0c3da09245c547ca8d31e54c89cf08d647016"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v1.md",
+      "sha256": "sha256:48ff7e36c02d9019dd6807ccdd01820f9cef483c47868781dbe0740503ccb8d7"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_contract_v1.md",
+      "sha256": "sha256:d10272b383f3d61d565292470755bb1ae23c751c47858c92fb036d180ab2d9e8"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_bounded_design_v1.md",
+      "sha256": "sha256:9c6c2b71441b63a364f636a57e938942cbc6b883ed115a1b994af4a921d78113"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v1.md",
+      "sha256": "sha256:0d03cc8d1ab187d4f74fdb17ec44f33267fb7b8487c1d4e118f9e9a1eda4014a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v1.json",
+      "sha256": "sha256:7611bbb5ce01bf9e163fa80d823029f4dac97b4fc9fb139dddb79a4d6eeb7b8c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v21.json",
+      "sha256": "sha256:e05f7da7371b2dabd888328f02e852b04bc8a64f3a8f09f6c6797110be4c22cc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:24fef20b37726d1bac81583d50a3f6e321f4424903dcd1b737aabf0a3f6929d7"
+    }
+  ],
+  "run_id": "design-review-e0842adc2ef42289"
+}

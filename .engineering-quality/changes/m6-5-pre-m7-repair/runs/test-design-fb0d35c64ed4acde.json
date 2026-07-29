@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 276,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "V50_RUN_INTENT_TEST_PORTFOLIO_COMPLETE",
+  "summary": "The v2 test design maps every v50 class-seam obligation to deterministic unit, contract, regression or static coverage: dual binding rejection, owned nested immutability, cached V2 identity, recursive NFC and JSON validation, collision/cycle/nonfinite failures, material binding sensitivity, exact V1 compatibility and an explicitly class-only synthetic acceptance journey.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:fb62c1a0655769d6502b184918bce2a8ee869f095020b5b9eee70e1822a6979d",
+  "blockers": [],
+  "recorded_at": "2026-07-29T11:59:53+00:00",
+  "source_digest": "sha256:77193d6c88bf847181dda5c4636b4a54318c6c5966c6a4c7b31607beeb36c5fb",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_test_design_v2.md",
+      "sha256": "sha256:fb62c1a0655769d6502b184918bce2a8ee869f095020b5b9eee70e1822a6979d"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+      "sha256": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md",
+      "sha256": "sha256:8c9bb077e26d95de71793ae7f373ed11d8986b4571f072afee1af551ef327d19"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_test_design_v1.md",
+      "sha256": "sha256:f298d0474ba9a80b355ead7e88c29f83061acda89a8f990c3b2ee1c96f253909"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:127ecbfb9cf2f7a89302e6d917bef5ac99b8ffe4f6cd21b90bc50a4822d489a4"
+    },
+    {
+      "path": "tests/test_trial_ledger.py",
+      "sha256": "sha256:a22443f9d01c2c47d0b4a315116dba5c545bcc226bdd562f524a1cb7c3506242"
+    },
+    {
+      "path": "tests/test_reconcile_trial_ledger_cli.py",
+      "sha256": "sha256:6d010d7a6854acc1c2cdd6dbce24773d4e56c221686ee95791a9f8f01ed17809"
+    },
+    {
+      "path": "tests/test_m65_expected_red.py",
+      "sha256": "sha256:9e1b63f2f7c23d3deabd8c0e8e48fbd0d5cae1d0140d0de4aec21abcf93c21bf"
+    }
+  ],
+  "run_id": "test-design-fb0d35c64ed4acde"
+}

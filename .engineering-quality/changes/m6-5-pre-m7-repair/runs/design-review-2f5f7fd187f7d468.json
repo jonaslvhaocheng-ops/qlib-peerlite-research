@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 235,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V42_ARCHITECTURE_AND_STATE_MACHINE_CONFLICT",
+  "summary": "Two independent read-only R3 reviews find that v42 closes several local identity issues but violates the approved architecture-v28 boundary by expanding a trusted single-process archival verifier into a multi-process FD, sandbox and capacity control plane. The resulting schemas are also internally non-composable for generated output admission, policy ref types, supervisor crash recovery, runtime evidence binding and pipe completion. The required redirect is a mainline-preserving simplification back to one trusted command, read-only frozen inputs and one previously absent output directory.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:50fe02263d2cb0aa181aed97b217b4c742fa998b4a50d32172257041a4101978",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or ledger.",
+      "No replay, training, real data, PIT, budget or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "ARCHITECTURE_V28_SCOPE_CONFLICT",
+    "GENERATED_OUTPUT_CAPACITY_MISMATCH",
+    "TYPED_POLICY_REF_MISMATCH",
+    "SUPERVISOR_RECOVERY_AND_PIPE_COMPLETION",
+    "INDEPENDENT_RUNTIME_EVIDENCE_BINDING",
+    "CANONICAL_JSON_SAME_FD_CONSUMPTION",
+    "TRANSITIVE_CLOSURE_MANIFEST"
+  ],
+  "recorded_at": "2026-07-29T10:29:02+00:00",
+  "source_digest": "sha256:40e2d04c89bdb2658479f6d5d5db7c9fb1a332c3fca6e2964de89d2a872f3ad6",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v42.md",
+      "sha256": "sha256:e1c00753e2af73ed4231d728fce992a656fab89498d7501c2a36a048f2614bb0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v42_adversarial.md",
+      "sha256": "sha256:ab46a0d677e967571908599f1a992d3fb5e4090ccf68697153c5774b85460c89"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v42.md",
+      "sha256": "sha256:50fe02263d2cb0aa181aed97b217b4c742fa998b4a50d32172257041a4101978"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v11.md",
+      "sha256": "sha256:209368c0dfe0d13f5471ada6d381ac5aec7e37ff06fb68442d379e196b05e252"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+      "sha256": "sha256:57a46db7a4f4e2b142efbb5bbd0b3ea2dfa461a8817c8d675fa855d9f2760632"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v12.md",
+      "sha256": "sha256:69d52a04891ba3d00b2d1c8df944ebcf5ee0989690505e9a297696a4f0cfaa7b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v20.md",
+      "sha256": "sha256:5bc043ab057d718fa8a6583dce3809771347b2e50b51261226c621b67aef4752"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v20.md",
+      "sha256": "sha256:b2e79191c159c93fa9e4dbff23e76adce269ffa78b0abfb7016f01803b199970"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/score_replay_identity_v3.md",
+      "sha256": "sha256:90c169d7ac4b7001fad2b3ffcc867ced240e2f8b77614adcf01fdee957f3c7bf"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/score_replay_plan_v3.md",
+      "sha256": "sha256:8b70a5afc2201244bda854b0623fbfa8bed8c699a10194e14d0ec704589d87ef"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v20.json",
+      "sha256": "sha256:4a5046ebeb52892a96eef564cbbe7bd9d3d774deed0c3482f47c29ef956aea29"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+      "sha256": "sha256:694fb03169dac8be9c3992a6cd39634a4f0300e5ea638d5b8fedd589e30d226b"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:54a8f37d1d278c865d34c41fe5a9e7dfc6ac76e156c6f33c73703ea7e136aedc"
+    }
+  ],
+  "run_id": "design-review-2f5f7fd187f7d468"
+}

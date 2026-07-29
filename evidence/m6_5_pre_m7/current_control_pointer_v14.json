@@ -1,0 +1,51 @@
+{
+  "schema_version": "qlib_peerlite_m6_5_control_pointer_v2",
+  "classification": "INFORMATIONAL_NAVIGATION",
+  "status": "M6_5_CHANGE_DESIGN_REPAIR",
+  "current_phase": "M6.5-PRE-M7-ENGINEERING-QUALITY",
+  "canonical_change_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v36.md",
+    "sha256": "291d9edca6b69bcc9004c51ddf4ffcfe59b6c196d2367bc9a648815ab1b728a7"
+  },
+  "superseded_base": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v35.md",
+    "sha256": "46add10c455daf6e9c705e18dd5d2357e58a4b143ea5fd805a82195866ecd1c4"
+  },
+  "normative_bundle": [
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v7.md",
+      "sha256": "79696cfa6b071c29673a44fb85456b484fdbc5ee7eb28f65f8ba0abeb8717fbf"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/nested_directory_recovery_v3.md",
+      "sha256": "0e527f208826a99d04e92a4710887a2d10a4501dcf1bfbde82d494dd4f714f83"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v6.md",
+      "sha256": "fd3f6b5b53c6c3c5d4587626953ed6a0753579e457ab0280fb06b70256346ca2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v14.md",
+      "sha256": "7fa0a3798047b1427d978bdcc238f04a8afa84ff64318b1d4b9b2abcccb8100b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v14.md",
+      "sha256": "641a8560ec704908976023ea2bc37b5c2e1cd1605f38872ae2a9ec5f41087c76"
+    }
+  ],
+  "transitive_bundle_location": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v36.md#12-transitive-immutable-bases",
+  "compatibility_note": {
+    "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v14.md",
+    "classification": "INFORMATIONAL_NAVIGATION"
+  },
+  "latest_completed_review": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v35_consolidated_result.json",
+  "latest_review_verdict": "NEEDS_CHANGES",
+  "next_stage": "independent-r3-design-review-v36-bundle",
+  "m6_status": "PASS",
+  "m6_5_status": "NEEDS_CHANGES",
+  "m7_status": "NOT_RUN",
+  "live_run_authority_available": false,
+  "real_fit_authorized": false,
+  "final_oos_access_authorized": false,
+  "trial_budget_change_authorized": false
+}

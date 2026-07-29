@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 67,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "AUTHORITY_EXECUTION_BOUNDARIES_UNRESOLVED",
+  "summary": "Independent v8 reviews found four in-scope P1 architecture defects: a Plan/QRC hash-cycle contradiction, incompatible fresh-exec/claim sequencing with no closure-versus-permit linearization, no observed execution closure for the authoritative M7 runner, and no non-alias Unix identity/ACL policy. M7, replay, and OOS remain sealed.",
+  "issue_type": "architecture",
+  "commands": [],
+  "subject_digest": "sha256:c903ec58a789607cc1f7202f8279a4c1d0d58ac786157afd1116a34666b643cf",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "Both reviewers were read-only and did not mutate product code, tests, immutable contracts, gates, ledgers, or historical evidence.",
+      "No training, server replay, budget consumption, PIT certification, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "No test design, implementation, M7 derived-contract freeze, real fit, archival replay, CCC/Gate experiment, or final-OOS access is permitted before a replacement architecture and independent review pass."
+  ],
+  "recorded_at": "2026-07-28T17:54:08+00:00",
+  "source_digest": "sha256:ac7444ae516412640cadff85072225f734fddd3bce70cb4c9a86a472df082574",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v8.md",
+      "sha256": "sha256:c74d7caeee387dece9c8313e180a194c0cf422df12151e9874e784e0534706ba"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v8_adversarial.md",
+      "sha256": "sha256:bd47e3b1c45d2ac3e5810e52a07c8c89c49d30b9b84e5409c1e05e06fabe8ec2"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v8.md",
+      "sha256": "sha256:c903ec58a789607cc1f7202f8279a4c1d0d58ac786157afd1116a34666b643cf"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v11.md",
+      "sha256": "sha256:c3766c6aa50da57d0c0866d4f5542d1e227283da6a4abe5d2a15c2b67736d5f3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    }
+  ],
+  "run_id": "design-review-1c57ba2343aa3359"
+}

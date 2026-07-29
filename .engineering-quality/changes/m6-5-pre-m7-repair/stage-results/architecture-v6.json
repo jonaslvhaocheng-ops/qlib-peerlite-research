@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 19,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_CONTROL_PLANE_AND_REPLAY_LAUNCH_ARCHITECTURE_READY",
+  "summary": "Architecture v6 completes the existing trust-boundary design with a governance-owned content-addressed authority control plane, distinct registry/grant objects, a runtime-bound replay launch grant, and signed exported replay acceptance evidence.",
+  "issue_type": null,
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v6.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v5.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v2.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v3.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

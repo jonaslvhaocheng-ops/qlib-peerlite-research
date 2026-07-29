@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 229,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V41_EVENT_AUTHORITY_REPLAY_CLOSED",
+  "summary": "The v41 exact bundle repairs the v40 findings with event-local typed artifact refs and fixed inner schemas, a one-way checkpoint-to-receipt DAG and exact content equality, continuous worker flock ownership, collision-safe LP execution identities and digest-derived receipt directories, an output-FD-only write oracle, distinct canonical-JSON/file-manifest/output-slot replay identities, and exact output-root, transaction, pair-receipt, aggregate-result, coverage and crash-recovery rules. This registers design evidence only and authorizes no implementation, tests, replay, fitting, real-data access, PIT access, budget mutation or final-OOS access.",
+  "commands": [],
+  "subject_digest": "sha256:a9724a5dc98a27710f7724aa306e25dd710b3135fa12133a56b1bbf8ae3ead4f",
+  "blockers": [],
+  "recorded_at": "2026-07-29T10:12:21+00:00",
+  "source_digest": "sha256:50a2fc6aafa2ec553f7af1b422b2a69fa386b23bf5190886da015a8d128966d8",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v41.md",
+      "sha256": "sha256:a9724a5dc98a27710f7724aa306e25dd710b3135fa12133a56b1bbf8ae3ead4f"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v40.md",
+      "sha256": "sha256:a4f4a6539225c4ac02d4dcfa0971593d72c7e226dc69c683a58b2e2819c4076b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v40.md",
+      "sha256": "sha256:7df2b91484c70817d3abf8b3788188df31b00bac76a9e79693503f9dc3348974"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v40_adversarial.md",
+      "sha256": "sha256:92e422c6777f4fb4d8ea7994818fc51855e69b718b1bb4a26ba7df793d59cd51"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v40_consolidated_result.json",
+      "sha256": "sha256:387d0b930b85f623f43e4a7c6f3b26e93750d25f74fc20cc2fc4dda20e77f4e6"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v11.md",
+      "sha256": "sha256:209368c0dfe0d13f5471ada6d381ac5aec7e37ff06fb68442d379e196b05e252"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+      "sha256": "sha256:57a46db7a4f4e2b142efbb5bbd0b3ea2dfa461a8817c8d675fa855d9f2760632"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v11.md",
+      "sha256": "sha256:9bf0fd64c8397e2630773fe9e029043d69c4ab020e123092cf7438aa49685b2e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v19.md",
+      "sha256": "sha256:0a0bb3e6e17e98b52cc2e384743541fe30d7529e89a9f5eb1d295062d6cd7f09"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v19.md",
+      "sha256": "sha256:dab4f6fbb2627064de80ec26b3920f5f78de0c196efacf1429bce93b0003f82a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/score_replay_identity_v2.md",
+      "sha256": "sha256:135344637dd0694526f657996a2ebd957f9a93951ad528c088d1401faef3e3c6"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/score_replay_plan_v2.md",
+      "sha256": "sha256:f2d4fb763e744f2569f1cdd7689e0c959fdf1ae899381586317de5a9bbc6e589"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v19.json",
+      "sha256": "sha256:0a84866af6c5fb8a5da658128bb2cd7ba42395e6fd660ed7c8f849d5996670b8"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:d82ff8eab7ee105760c08af3c9947cab8221e02f62a106dee3ce5cc9fef1e7f2"
+    }
+  ],
+  "run_id": "change-design-7b5da1be26fe02f1"
+}

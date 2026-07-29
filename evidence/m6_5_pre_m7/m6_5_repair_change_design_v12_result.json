@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 86,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "V12_OUTPUT_RESERVATION_READY",
+  "summary": "Design v12 preserves self-contained v11 and fully replaces replay output handling with a strict namespace/reservation schema, binding v7 full inventory, atomic absence claim, reservation receipt, receipt equality and quarantined no-reuse failure behavior.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v12.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v15.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v11.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v11.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v11_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:4798192f857896147774e269900db72777ec01dd75fa1b82fc354262a12753f4",
+  "blockers": []
+}

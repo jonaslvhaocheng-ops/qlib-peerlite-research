@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 167,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V26_LIFECYCLE_AND_M7_BUNDLE_READY",
+  "summary": "The canonical v26 composite closes the v25 findings with exact PIT table schemas and daily event lifecycles that distinguish missing from known post-cutoff clocks, separate event outcomes from run terminals, hold an execution lease from claim through durable outcome, seal replay inputs before prepared publication and publish outputs separately, and bind current M7 v4 to a V2 qualification envelope, a capability-scoped fixed Gate, first-fit screening prerequisites, float64 CCC semantics and stage-owned tests. It remains design-only and does not authorize implementation, replay, M7 fits, budget changes or final-OOS.",
+  "commands": [],
+  "subject_digest": "sha256:44e9a2bbf1bce5c7fbd3cc691925c072b2a78e7642e4ba578a3ae1da7b3d81f8",
+  "blockers": [],
+  "recorded_at": "2026-07-29T04:07:35+00:00",
+  "source_digest": "sha256:388cf7a37bb6e61c9a9014711e67586cffb942d2d0579143b48f4b51f02b7cd7",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v26.md",
+      "sha256": "sha256:44e9a2bbf1bce5c7fbd3cc691925c072b2a78e7642e4ba578a3ae1da7b3d81f8"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v25.md",
+      "sha256": "sha256:f59698a1e76b8bcf9e23895b39222f1abc151c7b36e4cf189d1632d1b9f3f3c2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v25.md",
+      "sha256": "sha256:0468bc1281fa6510a5ab9e3f05894b7266d138bf77d290099625cee418c68cd2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v25_adversarial.md",
+      "sha256": "sha256:ba6655f61f3a3222bafa72bca3c6a6fa28bc0233e2758128c7b609643fa1c1f1"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v25_consolidated_result.json",
+      "sha256": "sha256:55b9fb94fe194d660fbb31c48a4f8207771add947ec46e617855371084d9bd8f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v4.md",
+      "sha256": "sha256:c4c6144ad23cbf8f7f534ff1b2c3116be3f74fd872a70cec688a09a35a7a469d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v4.md",
+      "sha256": "sha256:c02684727b45596cb3fa5cd7ca3c04d15d3f2b948d80e9beda00fb3aac58e89a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v4.md",
+      "sha256": "sha256:3cb201eb896fab2577f714225cdc3558e054c25c0d4dc920f7b37bf6869176c8"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v4.json",
+      "sha256": "sha256:fa9776c5eca76d232c4e5bb7dca487d33d0093f3b74fd524a6a26955afea1991"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+      "sha256": "sha256:694fb03169dac8be9c3992a6cd39634a4f0300e5ea638d5b8fedd589e30d226b"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "contracts/immutable/research_contract_pit_v2.json",
+      "sha256": "sha256:2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c"
+    },
+    {
+      "path": "contracts/cost_spec.json",
+      "sha256": "sha256:fc9cdeff2136993538970a71c735b882c390803e9603d4a465079e455e6688eb"
+    },
+    {
+      "path": "contracts/benchmark_spec.json",
+      "sha256": "sha256:a75fb43de089352fd3fcd424cbb6b91a085751c93bf2681ea64f7e2b75a136c3"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:cbf07dc85879feeb909d81b2f12ed530e9c7c37ed5f4ed217f48c8b759abbfc9"
+    }
+  ],
+  "run_id": "change-design-fb16681fac3d81ca"
+}

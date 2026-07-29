@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 119,
+  "source_digest_observed": "sha256:60032bf6729373ca70471e2e083a34bd53244531b9329fe7914dec1b24631f23",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "independent-adversarial-read-only-r3-review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "AUTHORITY_ISSUANCE_TRUST_CHAIN_AND_LOCK_LIFECYCLE_NOT_CLOSED",
+  "summary": "v21/v18 correctly close the complete Context key, E-to-A single-root binding and opaque-handle identity. But v18 conflicts with the v21 Bootstrap/E/C writer matrix and lacks an E publication path, supplies only a QualityPass ref rather than trusted PASS-byte observation, and does not make lock ownership an unavoidable registry mutation capability. The component-address base is also ambiguous.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 3,
+    "P2": 1,
+    "P3": 0
+  },
+  "subject_digest": "sha256:60032bf6729373ca70471e2e083a34bd53244531b9329fe7914dec1b24631f23",
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v18.md",
+    "sha256": "sha256:60032bf6729373ca70471e2e083a34bd53244531b9329fe7914dec1b24631f23"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v21.md",
+    "sha256": "sha256:7e14a5b8a5cbdb1d1bc3e44fa7bb623ce9c5c8bba20cd1efe8ca418618b66881"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:bac4a1bd31b2310c8070eb4eb8d489bcb655d3ba26ed8cd105300f8d1d406d7f"
+  },
+  "review_report": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v18_adversarial.md",
+    "sha256": "sha256:0cf5f44b5ecc334c7e937b97cd12342f432a39e222b93b43cc0bf053f9b1440b"
+  },
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v18_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v21.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v18.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [
+    "read-only rg --files/rg/nl/sed/wc/python3 SHA inspection/git status",
+    "read-only review of v19/v20 and retained M6 replay inventory contracts"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v18_adversary",
+    "limitations": [
+      "No product/test/contract/gate/ledger/status/historical-evidence implementation changes.",
+      "No training, archival replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "Restore one exact Bootstrap/E/C writer and durable publisher path consistent with v21, including actual identity/ACL checks.",
+    "Make QualityPass-to-Bootstrap verification consume observed trusted bytes and a parsed PASS record, not only a typed ref.",
+    "Make a verified held lock capability mandatory for R/V/terminal mutation and specify its concurrency/crash lifecycle.",
+    "Define the anchor basis and no-follow resolver contract for every root/registry-relative component list.",
+    "Re-run independent R3 design review before test design or implementation."
+  ],
+  "next_route": "architecture"
+}

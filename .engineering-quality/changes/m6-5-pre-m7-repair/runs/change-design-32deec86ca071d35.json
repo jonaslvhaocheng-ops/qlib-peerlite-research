@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 184,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V30_CLOSED_QUALIFICATION_STARTUP_AND_STATE_CONTRACT",
+  "summary": "The v30 exact replacement closes all seven v29 review blockers with an acyclic registration-to-generation-commit DAG, a -S stdlib-only trusted bootstrap, exact Gate state join and population-standardizer rules, an executable AP001-AP004 aux-prefix proof, strict supplement/review schemas, a fail-closed security-lifecycle availability authority slot, and bounded staging cleanup/capacity plus a 0440 sibling COMMITTED marker. M7 v8 remains design-only and no implementation, replay, fit, budget change or final-OOS is authorized.",
+  "commands": [],
+  "subject_digest": "sha256:28bab313bc07f4d9ffc838a0256f8dbc8f71fb86df320dc31f206c87e7f1746b",
+  "blockers": [],
+  "recorded_at": "2026-07-29T07:43:27+00:00",
+  "source_digest": "sha256:9e50cf8db726726ec8d57824c38eb8fa1de050f3f64073fd1cc5897fa9f565e8",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v30.md",
+      "sha256": "sha256:28bab313bc07f4d9ffc838a0256f8dbc8f71fb86df320dc31f206c87e7f1746b"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v29.md",
+      "sha256": "sha256:be21d2301fd8911f1dcc620ade824d4e6e2fc6b0dcc9ddb85965024836fc4d1e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v29.md",
+      "sha256": "sha256:ea682d564aef9ecda2a0759453fdc7f9e55c99896de3f29ed444e086d0004a95"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v29_adversarial.md",
+      "sha256": "sha256:3328409a839482f1d6d82d47265505cfc3c60034620920e8ee87558516219aaf"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v29_consolidated_result.json",
+      "sha256": "sha256:43a6d5afef2b7621abf7ed746ac81a39fd05f7d3b0964943381ab04b24d70d2e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v8.md",
+      "sha256": "sha256:9a5a3c5d1034efdb947f744d124a80e8657ee9c303f6021ffaff02dc77ebbebc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v8.md",
+      "sha256": "sha256:932ac1b4dc61e58bf1fd860402d64c5e7d39eafceb37b3563c61c6cd281a7d89"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v8.md",
+      "sha256": "sha256:7b2f52b69d806e1aa9f7e740b5bcbb3f776ce8fa2e31d2767d3e4a6cefaf789c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v8.json",
+      "sha256": "sha256:46be0ec8c3add71c8fdc438b4330f21132a6731a49483c171d63dc2759956f2c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:50ed9537e62d10950b8dcc70718d7cc6a9d48337078100396873d1795765594d"
+    }
+  ],
+  "run_id": "change-design-32deec86ca071d35"
+}

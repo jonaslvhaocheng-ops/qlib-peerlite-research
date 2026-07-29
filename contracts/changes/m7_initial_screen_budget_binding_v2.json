@@ -1,0 +1,150 @@
+{
+  "schema_version": "qlib_peerlite_budget_limit_binding_v2",
+  "status": "DESIGN_ONLY_NOT_EXECUTION_AUTHORITY",
+  "family_id": "QLIB_PEERLITE_M7_INITIAL_SCREEN_V1",
+  "research_contract": {
+    "path": "contracts/immutable/research_contract_pit_v2.json",
+    "file_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c"
+  },
+  "m6_execution_spec": {
+    "path": "contracts/immutable/m6_peerlite_execution_spec_v1.json",
+    "file_sha256": "469d67be0812e1acfa53301907f94c85bea2e799d17f2699edd8d508a2df20f8",
+    "content_sha256": "60d0cf06307991f1fafea0dd5880b43fb929546c6757040e2c868cbb361f2f69"
+  },
+  "m6_gate": {
+    "path": "evidence/gates/M6_peerlite_gate.json",
+    "file_sha256": "83cdc68597e6b3bddc79fe366d71d9c4cc08398d88f06c94087d4b56bbf8ae86",
+    "content_sha256": "937bcb7811dffcd64b2be42661bf990d8bccf93c036bee0ad3e5623f661a9862"
+  },
+  "m6_close": {
+    "ledger_path": "contracts/trial_ledger.jsonl",
+    "prefix_sha256": "31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93",
+    "prefix_bytes": 14328,
+    "candidate_evaluations": 6,
+    "model_fits": 44
+  },
+  "screening_increment": {
+    "candidate_evaluations": 2,
+    "model_fits": 16,
+    "replacement_fits": 0
+  },
+  "screening_ceiling": {
+    "candidate_evaluations": 8,
+    "model_fits": 60
+  },
+  "candidates": [
+    {
+      "model_id": "PEERLITE_K16_CCC",
+      "seed": 7,
+      "evaluation_id": "PEERLITE_K16_CCC:screen:seed7",
+      "evaluation_purpose": "M7_INITIAL_SCREEN",
+      "candidate_evaluations": 1,
+      "fits": [
+        {
+          "fit_id": "PEERLITE_K16_CCC:screen:seed7:wf_2018",
+          "fold_id": "wf_2018",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_CCC:screen:seed7:wf_2019",
+          "fold_id": "wf_2019",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_CCC:screen:seed7:wf_2020",
+          "fold_id": "wf_2020",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_CCC:screen:seed7:wf_2021",
+          "fold_id": "wf_2021",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_CCC:screen:seed7:wf_2022",
+          "fold_id": "wf_2022",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_CCC:screen:seed7:wf_2023",
+          "fold_id": "wf_2023",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_CCC:screen:seed7:wf_2024",
+          "fold_id": "wf_2024",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_CCC:deterministic_refit:seed7:wf_2018",
+          "fold_id": "wf_2018",
+          "purpose": "DETERMINISTIC_REFIT"
+        }
+      ],
+      "model_fits": 8
+    },
+    {
+      "model_id": "PEERLITE_K16_MSE_GATE",
+      "seed": 7,
+      "evaluation_id": "PEERLITE_K16_MSE_GATE:screen:seed7",
+      "evaluation_purpose": "M7_INITIAL_SCREEN",
+      "candidate_evaluations": 1,
+      "fits": [
+        {
+          "fit_id": "PEERLITE_K16_MSE_GATE:screen:seed7:wf_2018",
+          "fold_id": "wf_2018",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_MSE_GATE:screen:seed7:wf_2019",
+          "fold_id": "wf_2019",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_MSE_GATE:screen:seed7:wf_2020",
+          "fold_id": "wf_2020",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_MSE_GATE:screen:seed7:wf_2021",
+          "fold_id": "wf_2021",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_MSE_GATE:screen:seed7:wf_2022",
+          "fold_id": "wf_2022",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_MSE_GATE:screen:seed7:wf_2023",
+          "fold_id": "wf_2023",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_MSE_GATE:screen:seed7:wf_2024",
+          "fold_id": "wf_2024",
+          "purpose": "ROLLING_SCREEN_FIT"
+        },
+        {
+          "fit_id": "PEERLITE_K16_MSE_GATE:deterministic_refit:seed7:wf_2018",
+          "fold_id": "wf_2018",
+          "purpose": "DETERMINISTIC_REFIT"
+        }
+      ],
+      "model_fits": 8
+    }
+  ],
+  "allowed_terminal_decisions": [
+    "SCREEN_PASS",
+    "HOLD"
+  ],
+  "forbidden_actions": [
+    "PROMOTE",
+    "COMBINATION_ELIGIBLE",
+    "REPLACEMENT_FIT",
+    "FIVE_SEED_CONFIRMATION",
+    "FINAL_OOS_ACCESS"
+  ],
+  "execution_authorized": false,
+  "content_sha256": "5fb21bae3c9cf14312bbc7d4605df55642fc4873d4ce5eb0e01826aec044a626"
+}

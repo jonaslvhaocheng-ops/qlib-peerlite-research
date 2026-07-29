@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 108,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "AUTHORITY_CONTEXT_CONTROL_ROOT_AND_DIRECTORY_IDENTITY_NOT_CLOSED",
+  "summary": "Two independent read-only R3 design reviews agree that the v20/v17 materialization, Q-before-R precommit, and pre-S0 lifecycle can be retained, but the authority-context derivation/validation set, E-to-A control-root identity chain, and complete DirectoryIdentity v2 field set are not yet mechanically closed.",
+  "issue_type": "architecture",
+  "subject_digest": "sha256:e83b5f20971c4813307a561e3beb4b62737e9d6c46e000fa534eefd8096ce9fc",
+  "commands": [],
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "The consolidated result records, but does not alter, the two independent review verdicts.",
+      "No product/test/contract/gate/historical-evidence implementation changed; no training, replay, PIT certification, budget consumption, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Define one complete typed authority-context preimage and require every C/P/F/A/Q/V and V historical-inventory validator to resolve and compare its exact family, scope, verifier, runtime, startup, fixed argv/cwd/import and six evidence-role values.",
+    "Bind E's closed replay control root through A to exact registry, transaction-lock, claim, binding and pre-S0 terminal paths using no-follow FD-derived equality; reject a same-ACL alternate root before R publication.",
+    "Retain every DirectoryIdentity v2 field, including opaque_file_handle_sha256 obtained with name_to_handle_at(AT_EMPTY_PATH), in D serialization, K derivation and each phase comparison; fail closed if unsupported.",
+    "Reissue architecture and bounded change design, then obtain a fresh independent R3 design-review PASS before test design, red tests, implementation, code review, replay, M7, CCC/Gate or final-OOS work."
+  ],
+  "recorded_at": "2026-07-28T19:36:04+00:00",
+  "source_digest": "sha256:733fd5ab2fd8482388dfcc450591e3877fd1d10957fd23ef1224e686bbf04048",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17.md",
+      "sha256": "sha256:402ad122b65c99aab6cab1a9a6a9f309a864329d26323a65af55ebd05cefc0c8"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17_adversarial.md",
+      "sha256": "sha256:aa9c2c9ee9aa6d4f8c543a3042ab88bf859f47e9eeb3a4f7d138302611543c9d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v17_consolidated_result.json",
+      "sha256": "sha256:b096923c4212ae9d741bcdc93342108fe39714ba9fc55c3ef2832138a081a62a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v20.md",
+      "sha256": "sha256:d944ab700454dbc22515a779366a60e09337efb9b69b2365c0608f08441528e0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v17.md",
+      "sha256": "sha256:e83b5f20971c4813307a561e3beb4b62737e9d6c46e000fa534eefd8096ce9fc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:16e558a7c2bc8e175207f9eea7383bc1305762d4cd2511574941e6b183b96667"
+    }
+  ],
+  "run_id": "design-review-35febe0030da570f"
+}

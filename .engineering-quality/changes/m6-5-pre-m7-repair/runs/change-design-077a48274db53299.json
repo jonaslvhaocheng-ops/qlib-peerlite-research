@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 79,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "SELF_CONTAINED_V11_DESIGN_READY",
+  "summary": "Self-contained v11 is the sole implementation contract: it carries M6/PIT/public-Gate requirements, explicitly migrates M7 admission to v5/v2 closure receipts, turns umask into measured pre-exec process state, and restates the full v6 archive inventory/no-free-path rule. It keeps all empirical work sealed.",
+  "commands": [],
+  "subject_digest": "sha256:a9935b108a7544084aef9cab9ef7b4f854e7fda13c9ca25dc6169180beaeec5b",
+  "blockers": [],
+  "recorded_at": "2026-07-28T18:15:46+00:00",
+  "source_digest": "sha256:712b7be8a8b307ed5071934e0b7f390e7b912a7d7ec24c8cde4f58a5dd9058ba",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v11.md",
+      "sha256": "sha256:a9935b108a7544084aef9cab9ef7b4f854e7fda13c9ca25dc6169180beaeec5b"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v14.md",
+      "sha256": "sha256:2e619ad430703b7069a5e82162458769082e419ecb303bdb806d77bf2f7e4564"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10.md",
+      "sha256": "sha256:25d63ba434246ec57d398821953c833a65501409cce0610db954514029cc0aa3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10_adversarial.md",
+      "sha256": "sha256:7cf84e6292c3eef36473bb64887e175a736de9bcca3a86ccb1e890cdf0b22a2c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:4df5da18d2d722f9788d067f4846b4b23e8a4a29f8743a1ba8f152cc11dc7cd6"
+    }
+  ],
+  "run_id": "change-design-077a48274db53299"
+}

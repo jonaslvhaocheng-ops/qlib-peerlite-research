@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 311,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_GATE_GREEN",
+  "summary": "The complete repository test suite, bounded Ruff scopes, CI-verifier lint and GitHub Actions structure checks pass against the exact current source digest. The gate includes source/evidence binding, full tests and M6 archival replay without starting M7.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate.md"
+  ],
+  "evidence_paths": [
+    ".github/workflows/m65-external-quality-gate.yml",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/ci_verify_m65.py",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_gate.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T14:09:58+00:00",
+      "exit_code": 0,
+      "summary": "Expected complete suite result: 86 passed."
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-29T14:09:58+00:00",
+      "exit_code": 0,
+      "summary": "Expected self-authored project Ruff result: PASS."
+    },
+    {
+      "command": ".venv/bin/python -m ruff check docs/quality/changes/m6-5-pre-m7-repair/evidence/ci_verify_m65.py",
+      "executed_at": "2026-07-29T14:09:58+00:00",
+      "exit_code": 0,
+      "summary": "Expected CI verifier Ruff result: PASS."
+    },
+    {
+      "command": ".venv/bin/python -c \"from pathlib import Path; import yaml; d=yaml.load(Path('.github/workflows/m65-external-quality-gate.yml').read_text(), Loader=yaml.BaseLoader); assert 'pull_request' in d['on']; j=d['jobs']['m6-5-external-quality-gate']; r=[s.get('run','') for s in j['steps']]; assert all(any(t in c for c in r) for t in ('ci_verify_m65.py','ruff check src tests scripts --exclude scripts/vendor','pytest -q','verify_m6_peerlite_archival_replay.py'))\"",
+      "executed_at": "2026-07-29T14:09:58+00:00",
+      "exit_code": 0,
+      "summary": "Expected workflow contract result: PASS."
+    }
+  ],
+  "subject_digest": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+  "blockers": []
+}

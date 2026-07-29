@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 34,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "BEHAVIOR_FIT_OUTPUT_DISPATCH_AND_LAUNCH_GAPS",
+  "summary": "Two independent R3 reviews find five P1 design gaps: derived-state behavior coverage is underspecified, FitAdmission lacks crash-safe output publication and exact state-to-fit binding, dispatch is not fork-safe/single-winner, and the replay launch/acceptance chain does not bind the actual launcher identity.",
+  "issue_type": "architecture",
+  "commands": [],
+  "subject_digest": "sha256:16ac80ae172cbedf077d9c2f3c4b74a89c6298303f8d17f30fdc14f28e0ad810",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v4_lead,/root/design_review_v4_adversary",
+    "limitations": [
+      "Read-only independent reviews; no product/test/contract/gate/ledger mutation, training, server replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "M7 derived-contract freeze, real M7 fit, CCC/Gate experiments, server replay, and final OOS remain prohibited."
+  ],
+  "recorded_at": "2026-07-28T17:11:41+00:00",
+  "source_digest": "sha256:3337a5c1383eee683c2650af7897425926c224640ad7013214d5041038d3594b",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v4.md",
+      "sha256": "sha256:16ac80ae172cbedf077d9c2f3c4b74a89c6298303f8d17f30fdc14f28e0ad810"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v4.md",
+      "sha256": "sha256:680170ffe7a095684693fd21fa1ec47d51fb4c87f1326b4e1061e68dabceaf39"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v4_adversarial.md",
+      "sha256": "sha256:ab5acaebb2587f6adfd74fa6b7370234df17214d623aa4fcef4ffe25cc4e8105"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v7.md",
+      "sha256": "sha256:db91fab06cb271e9431de02491cae7c151e3d36c47edd7e3d093a0ad16ccb6b4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v3.md",
+      "sha256": "sha256:0fe6a5c589811d55fb4456f300d1d6491afe8207987e60c3e70b455719a6ae70"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:d001a40132117f19e6fe996dd16b60ef49e41a570930286b594aae00c8d4d922"
+    }
+  ],
+  "run_id": "design-review-9007e73414b0ecf3"
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 117,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "CLOSED_AUTHORITY_CONTEXT_CHANGE_DESIGN_READY",
+  "summary": "Design v18 implements v21 through isolated FD-identity, authority-graph and registry-lifecycle modules, a validate-only server entry, explicit fail-closed Linux capability boundaries and retained M6/ledger regression constraints. It defines no replay, model fit, M7 or OOS execution.",
+  "commands": [],
+  "subject_digest": "sha256:60032bf6729373ca70471e2e083a34bd53244531b9329fe7914dec1b24631f23",
+  "blockers": [],
+  "recorded_at": "2026-07-28T19:43:21+00:00",
+  "source_digest": "sha256:5bee6b88559b125cc1f8579cfe728c5b16907aa91960de7dad06bdf274d82eba",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v18.md",
+      "sha256": "sha256:60032bf6729373ca70471e2e083a34bd53244531b9329fe7914dec1b24631f23"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v21.md",
+      "sha256": "sha256:7e14a5b8a5cbdb1d1bc3e44fa7bb623ce9c5c8bba20cd1efe8ca418618b66881"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v21_result.json",
+      "sha256": "sha256:e7cc3052d3be05c1565ac06e3126aff401b2dfee7e8e05748267b4093119bd9a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17.md",
+      "sha256": "sha256:402ad122b65c99aab6cab1a9a6a9f309a864329d26323a65af55ebd05cefc0c8"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17_adversarial.md",
+      "sha256": "sha256:aa9c2c9ee9aa6d4f8c543a3042ab88bf859f47e9eeb3a4f7d138302611543c9d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v17_consolidated_result.json",
+      "sha256": "sha256:b096923c4212ae9d741bcdc93342108fe39714ba9fc55c3ef2832138a081a62a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:bac4a1bd31b2310c8070eb4eb8d489bcb655d3ba26ed8cd105300f8d1d406d7f"
+    }
+  ],
+  "run_id": "change-design-bf81fe66c63e2165"
+}

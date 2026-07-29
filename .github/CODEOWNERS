@@ -1,0 +1,5 @@
+# Quality-gate and governance changes require the repository owner's review.
+/.github/workflows/ @jonaslvhaocheng-ops
+/.engineering-quality/ @jonaslvhaocheng-ops
+/docs/quality/ @jonaslvhaocheng-ops
+

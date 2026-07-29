@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 171,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V27_SELF_CONTAINED_DESIGN_READY",
+  "summary": "The self-contained v27 design closes the v26 findings without normative inheritance: it freezes exact policy identities and dates, per-table availability-projected PIT payloads and nullable-status behavior, the complete prepared directory transaction and executable cleanup permissions, immutable one-run authority generations, an actual-worker-held execution lease with predecessor outcomes, safely retryable read-only replay attempts, and current M7 v5 with full fixed/behavior qualification predicates, complete CCC math and a capability-scoped checkpoint loader. It remains design-only and authorizes no implementation, replay, M7 fit, budget change or final-OOS.",
+  "commands": [],
+  "subject_digest": "sha256:1517a81b731444e5c9a8528566d1e2fe97da9f183b9838441d6706a68051ced9",
+  "blockers": [],
+  "recorded_at": "2026-07-29T04:45:51+00:00",
+  "source_digest": "sha256:25650c4a692e6a2600c1906cff25561b6f5aa7f9253c4e3140ae4c0db4eb04ef",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v27.md",
+      "sha256": "sha256:1517a81b731444e5c9a8528566d1e2fe97da9f183b9838441d6706a68051ced9"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v26.md",
+      "sha256": "sha256:92a5437f72e9e61601661ebffccb0deba8d927cf318028c27783d8797ab958b5"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v26_adversarial.md",
+      "sha256": "sha256:622f3d0cf94fb27d90908d745a9d7fc900a1c4bc3085a8fe1a32c0e1c4cd6538"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v26_consolidated_result.json",
+      "sha256": "sha256:0d7eb0cfcb29f51d401554b6d6d44e6be8e147b60e18d99b237e22e6c8ee4624"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v5.md",
+      "sha256": "sha256:59f24bbe0c6ae9568889518fd6c329420b4823306a715c6da5a565edf34fb2ad"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v5.md",
+      "sha256": "sha256:d149922b2d0536d284442142a90b25052e300a900a0a14ce15d690a5ef462992"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v5.md",
+      "sha256": "sha256:a993e96c12c8c5ea73050456651125afb107ee48751ffa28a1ef8b3f578b0fa4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v5.json",
+      "sha256": "sha256:c72776fde400ee71e15af4d8af642d329a56daa9ad6537182b38b30b4ca9f793"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "contracts/immutable/research_contract_pit_v2.json",
+      "sha256": "sha256:2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c"
+    },
+    {
+      "path": "contracts/cost_spec.json",
+      "sha256": "sha256:fc9cdeff2136993538970a71c735b882c390803e9603d4a465079e455e6688eb"
+    },
+    {
+      "path": "contracts/benchmark_spec.json",
+      "sha256": "sha256:a75fb43de089352fd3fcd424cbb6b91a085751c93bf2681ea64f7e2b75a136c3"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:bc836535b81027f8106a8b4a4c02991c0a00d8d18c59c6e0bd8103ca57452866"
+    }
+  ],
+  "run_id": "change-design-d31779e05844ade3"
+}

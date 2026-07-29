@@ -1,0 +1,42 @@
+{
+  "schema_version": "qlib_peerlite_change_request_v1",
+  "change_id": "m6_5_pre_m7_quality_gate_v1",
+  "status": "APPROVED_BY_USER",
+  "created_at": "2026-07-28T23:30:00+08:00",
+  "authority": {
+    "source": "user directive",
+    "directive": "第七步之前先做测试比如说design review和code review"
+  },
+  "parent_master_plan": {
+    "path": "docs/MASTER_PLAN.md",
+    "sha256_before_change": "d44077728a1692eb0a3a6a95fb9308c8524161c0341b6531361790cf67707665"
+  },
+  "trigger": "在冻结 M7 实证前增加设计审查、代码审查、测试审查和修复验收，以防止未来泄漏、账本漏计和不可复现的模型增量。",
+  "change": {
+    "inserted_gate": "M6.5-PRE-M7-ENGINEERING-QUALITY",
+    "ordering": "M6 PASS -> M6.5 PASS -> M7 contract/data/code/execution",
+    "required_artifacts": [
+      "independent M6 code review",
+      "M6 test revalidation and archival verification design",
+      "independent M7 design review",
+      "M7 behavior-to-test matrix",
+      "M6.5 gate receipt"
+    ]
+  },
+  "non_changes": [
+    "research family and registered candidates",
+    "A-share daily market, label, primary 50 features, rolling split and final-OOS boundary",
+    "M3 PIT product and M6 historical MSE evidence",
+    "final-OOS seal and current 44 recorded model fits"
+  ],
+  "acceptance": {
+    "pass_condition": "All M6.5 P0/P1/P2 findings are fixed, independently re-reviewed, and have fresh test/evidence receipts before any M7 real fit.",
+    "failure_retention": "Every review finding and failed receipt remains in evidence/m6_5_pre_m7; M7 remains NOT_RUN."
+  },
+  "impact": {
+    "real_data_training_authorized": false,
+    "final_oos_access_authorized": false,
+    "trial_budget_change": false,
+    "research_semantics_change": false
+  }
+}

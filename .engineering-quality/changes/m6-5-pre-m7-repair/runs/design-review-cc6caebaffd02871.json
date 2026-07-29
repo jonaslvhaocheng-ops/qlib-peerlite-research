@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 223,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V39_SCHEMA_SANDBOX_MANIFEST_PLAN_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm v39's root, reservation, lease, reconciler, field-clock and full replay-identity repairs, but require distinct typed-content schema IDs and inner contracts, a one-way trusted-policy equality, path-mutation syscall denial, a closed observation evidence and digest model, execution-specific sandbox receipt slots, a closed replay plan, duplicate-before-promotion reservation ordering and LP-framed lease inventory digests.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:1407085f50888501327a8398ef0e6dd1e15ad870f5fa93db34273321129aeb75",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or ledger.",
+      "No replay, training, real data, PIT, budget or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "DISTINCT_CONTENT_SCHEMAS_AND_INNER_CONTRACTS",
+    "ONE_WAY_TRUSTED_POLICY_EQUALITY",
+    "FILESYSTEM_MUTATION_SANDBOX_DENY",
+    "OBSERVATION_EVIDENCE_DIGEST_COVERAGE",
+    "EXECUTION_SPECIFIC_SANDBOX_RECEIPTS",
+    "CLOSED_REPLAY_PLAN",
+    "DUPLICATE_BEFORE_PROMOTION_AND_LP_LEASE_DIGEST"
+  ],
+  "recorded_at": "2026-07-29T10:00:08+00:00",
+  "source_digest": "sha256:2a7bfcbb60c1e7ddec81d39643eff277a281b74097b9f1c14524108419078655",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v39.md",
+      "sha256": "sha256:66eecb124656ec5e11e1d76e394d00b493fd82064daf089afa79d1f4062d7afc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v39_adversarial.md",
+      "sha256": "sha256:a650d8e04bddd0a3e1d5baac8c79ea5f535630f70132ab302d1e1e03262e390d"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v39.md",
+      "sha256": "sha256:1407085f50888501327a8398ef0e6dd1e15ad870f5fa93db34273321129aeb75"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v10.md",
+      "sha256": "sha256:4cd04aaa213ecf4f5f97850df8a87d17936bff398ee65a2b5752b9769250b72d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v9.md",
+      "sha256": "sha256:265962b0972dd3c38221b80e540f9ca28c3b454c68262fb3068d7a5d504cab2d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v17.md",
+      "sha256": "sha256:b776b3e05abccb9a8aaf2a72190c9defcb48f4815a326823f2283897f9a1337c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v17.md",
+      "sha256": "sha256:a82bab91d7b555161fb2b96f14ba337bdd9497a7d57a90b90f4c83254948f112"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/score_replay_identity_v1.md",
+      "sha256": "sha256:ed803a7df33eb3286d28a70ecd051c11d00911f1a1535d895eac9b580843d79f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v17.json",
+      "sha256": "sha256:81c7f22dd5674e1f9040e3a9820ee30cfc5c1a91447ec03e1ccdb7a1b6538c9b"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:d6a54eb2acede1c4633f730a3ad0460866d47dfa94758b82aa0df6582b3b3971"
+    }
+  ],
+  "run_id": "design-review-cc6caebaffd02871"
+}

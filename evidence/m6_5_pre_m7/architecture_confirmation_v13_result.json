@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 73,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "EFFECTIVE_HASH_STARTUP_POLICY_CLOSED",
+  "summary": "Architecture v13 replaces the invalid -I/-E environment-only seed contract with a CPython 3.11 FD-executed exact-envp startup policy: -s -S -P, the sole allowed PYTHONHASHSEED=0, observed sys.flags and hash probe, and receipt binding. It retains v12 authority, dispatch, ACL, publication and replay-input boundaries.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v13.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v12.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v9.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v9_adversarial.md",
+    "pyproject.toml",
+    "uv.lock",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:54d8ca248206a1c702ac3fe84f708edb5223a82ae6b9c44ef67396a5f0bc0bc4",
+  "blockers": []
+}

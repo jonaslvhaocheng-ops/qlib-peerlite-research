@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 74,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "V10_EFFECTIVE_STARTUP_POLICY_READY",
+  "summary": "Canonical v10 retains v9's repaired authority, dispatch, execution-closure, ACL and publication design, and replaces only M7/replay Python startup with an exact CPython 3.11 envp plus -s -S -P effective-hash-policy contract. It binds observed flags/probe to receipts and defines fail-closed behavior without authorizing empirical work.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v10.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v13.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v9.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v9.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v9_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:a1ef1422e0d4c247396a2b900bec60291ba4cb3b9399762755b51d204ca4f3e3",
+  "blockers": []
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 142,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "DEPLOYMENT_IDENTITY_RUNTIME_AND_RECOVERY_NOT_CLOSED",
+  "summary": "Two independent R3 reviews and a separate protocol graph audit agree that v24/v20 retain the strengthened Pin, Linux FD/OFD and post-S5 foundations, but official admission remains architecture-blocked by deployable cross-identity actor launch and lease handoff, frozen P2 execution/path provenance, runtime self-binding, 6/44 ledger snapshot authority, durable invocation/result evidence, immutable-slot HARD_HOLD behavior, and cancellation/finalization semantics.",
+  "issue_type": "architecture",
+  "subject_digest": "sha256:5c89a379284e0f7397fa6a3fdabcfbb1d19187cb79fe20a999aa27527d074bd2",
+  "commands": [],
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v20_lead,/root/design_review_v20_adversary,/root/v20_protocol_graph_audit",
+    "limitations": [
+      "The consolidated result only records independent read-only findings and does not change the reviewed design.",
+      "No product/test/contract/gate/ledger/status/historical-evidence implementation changed; no project-code execution, training, archival replay, budget consumption, PIT certification, M7 or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Freeze a trusted outer-dispatcher launch graph for distinct P0 supervisor, P1 verifier and archive-acceptor identities, including READY handshake, descriptor allow-list, separate OFD lease acquisition and S5 handoff/crash behavior.",
+    "Replace the same-process raw call with P0-to-P1-to-P2 execution: P2 must receive no P0 IPC/control FD, run a fixed isolated interpreter/import root, and terminate with its P1 parent.",
+    "Define a verified child-visible staging path/namespace that the unchanged Path.resolve worker can traverse without gaining control-root access, and prove staged qlib_peerlite import provenance.",
+    "Bind the actual inner runtime to Pin/Policy RuntimeClosure and AuthorizedEntrypoint refs before Bootstrap/PASS/E/C, and bind the exact M6 6/44 authority prefix through observed live snapshot bytes into staged ledger bytes.",
+    "Give StagedMechanicsInvocationV1 and NormalizedMechanicsResultV1 durable no-replace slots or explicitly frozen inline bytes so archive recovery can independently re-open them after job quarantine.",
+    "Define absent/exact/malformed immutable decision-slot handling as publish/idempotent/HARD_HOLD, resolver PENDING versus REJECTED outcomes, and policy-bound P1/P2 deadlines, cancel/kill/reap/finalization order.",
+    "Reissue architecture and change design, then obtain fresh independent R3 design-review PASS before test design, red tests, implementation, code review, replay, M7, CCC/Gate, PIT certification or final-OOS work."
+  ],
+  "recorded_at": "2026-07-28T20:26:04+00:00",
+  "source_digest": "sha256:62d2c84b21339c3b375c3ac9f00baa22635b2a5f07c2201a90658376f8bd77d1",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v20.md",
+      "sha256": "sha256:cb8c71feda5f893838bfda27475ec9119806f44912afca54ccc161d088f444be"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v20_adversarial.md",
+      "sha256": "sha256:c1b6a4257078d9424982b09f23b9a25464121b4807d18750f85c2142a5e29ad4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v20_consolidated_result.json",
+      "sha256": "sha256:89b925df2e33d83b4c1559e205f1c79aee6855b95733e26c6149032c2e13fbc6"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v24.md",
+      "sha256": "sha256:d637bc6555a27898516271e831d519226a7539be7b11342c31ec5d0513daf2e9"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v20.md",
+      "sha256": "sha256:5c89a379284e0f7397fa6a3fdabcfbb1d19187cb79fe20a999aa27527d074bd2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/artifacts.py",
+      "sha256": "sha256:31a3f8351cce18dc1a9af1e763d6da96ff59daab4a2621dd92375256c5f297af"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "sha256:effa8e50b1a197bce98a34fd7559026ee792901e12a562453162881ce0b62d9b"
+    }
+  ],
+  "run_id": "design-review-9664d4e5d94aac67"
+}

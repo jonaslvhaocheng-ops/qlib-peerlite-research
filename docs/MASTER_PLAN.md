@@ -22,6 +22,7 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M4 | Qlib research foundation | reproducible data/model/recorder loop | PASS |
 | M5 | baselines | B0 LightGBM and B1 MLP rolling scores | PASS |
 | M6 | PeerLite | mechanics, frozen MSE runs and independent verification | PASS |
+| M6.5 | pre-M7 engineering quality | independent design/code/test review and remediation | NEEDS_CHANGES |
 | M7 | Huatai increments | CCC/Gate isolated comparisons | NOT_RUN |
 | M8 | institutional evaluation | final OOS and decision package | NOT_RUN |
 
@@ -46,7 +47,10 @@ both Qlib Recorder artifact sets. The cumulative append-only budget is now 6
 candidate evaluations and 44 model fits.
 
 M6 deliberately performed no K selection, baseline comparison, portfolio
-backtest or cost-adjusted evaluation. It opens only M7 preparation: CCC and the
-small market-state Gate must be frozen and tested separately before any combined
-run is allowed. It does not open 2025+ final OOS, establish Alpha, promote
-PeerLite, or authorize deployment.
+backtest or cost-adjusted evaluation. User-authorized CR
+`contracts/changes/m6_5_pre_m7_quality_gate_v1.json` inserts M6.5 before M7:
+independent review found a Gate future-label path, a future-conditioned state
+population risk, an append-only-ledger lifecycle defect, and incomplete
+checkpoint-verification evidence. M7 cannot be frozen or run until M6.5 passes.
+It does not open 2025+ final OOS, establish Alpha, promote PeerLite, or
+authorize deployment.

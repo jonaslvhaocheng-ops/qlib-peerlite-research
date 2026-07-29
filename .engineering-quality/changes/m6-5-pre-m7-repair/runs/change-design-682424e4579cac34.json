@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 151,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_BOUNDED_REMEDIATION_DESIGN_READY",
+  "summary": "The canonical M6.5 design closes the audited state provenance, current-ledger head/run-identity, archive-to-import-tree and legacy Gate boundaries using ordinary data/governance/server composition roots. It preserves immutable M6 history and makes M7 design-only artifacts explicit dependencies rather than implementing or authorizing M7.",
+  "commands": [],
+  "subject_digest": "sha256:92ee9aab598c38d3f9d00d8d6ab4a2bfa444b08c7da5da99c7b70e6d616d28a6",
+  "blockers": [],
+  "recorded_at": "2026-07-28T21:16:46+00:00",
+  "source_digest": "sha256:80cf8784aa8bcf305ebe9f4855776f70150933c4b5f2139cdb918c70a3c51a1a",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v22.md",
+      "sha256": "sha256:92ee9aab598c38d3f9d00d8d6ab4a2bfa444b08c7da5da99c7b70e6d616d28a6"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+      "sha256": "sha256:694fb03169dac8be9c3992a6cd39634a4f0300e5ea638d5b8fedd589e30d226b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_remediation_independent_code_review.md",
+      "sha256": "sha256:472472cd2fe0f276cceb6e02f98f28f73dfdecc67c8aa81730f1adbe4fb1b423"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_independent_code_review.md",
+      "sha256": "sha256:eb7e88f4078516423026f8be5626d83ce17429f73b1f5779ce4d32ce61f0fd50"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_test_revalidation.md",
+      "sha256": "sha256:b3ef8f8d8f9e97c445344c01b971454064282b56d7e45b4281c4ce5e39be6e78"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v2.md",
+      "sha256": "sha256:3cd5189092ed0e51fcb150c1c3cb51efe3d50fb0b8f4d9c4c2cc24b34aacf3d5"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_test_plan_v2.md",
+      "sha256": "sha256:093290798a07b3eb9d742e7567f11ff1e8f4093cfe1c114d7f43af5a62e46ea2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_design_review_v2.md",
+      "sha256": "sha256:4e62043c77434852a203a22030167f87b656f7abdd6a40ba287ccd93cf7f55db"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "src/qlib_peerlite/data/market_state.py",
+      "sha256": "sha256:b9b8b1052ae32bf3812a06b42d83520a089cbb9bb3604cc755362375fc470706"
+    },
+    {
+      "path": "src/qlib_peerlite/data/qlib_dataset.py",
+      "sha256": "sha256:095a8f22ee014db37fa374083d73ed859352b4afcb7a5195129204da88ce1081"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    },
+    {
+      "path": "scripts/reconcile_trial_ledger.py",
+      "sha256": "sha256:cf518a8435b0c882a49d005d95a7a9435ec3486e3a4a341e5be83d87bf35a8e9"
+    },
+    {
+      "path": "scripts/server/build_pit_data_product.py",
+      "sha256": "sha256:c6b499ba3037b64026f0784627b745494eca019ae6208ad2dc33c94889ac8d30"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    }
+  ],
+  "run_id": "change-design-682424e4579cac34"
+}

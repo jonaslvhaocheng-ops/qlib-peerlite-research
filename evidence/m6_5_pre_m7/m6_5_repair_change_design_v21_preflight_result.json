@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 147,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "ACTOR_ISSUER_RUNTIME_AND_RECOVERY_ARCHITECTURE_INCOMPLETE",
+  "summary": "v25 cannot safely enter bounded implementation design: it lacks a physical quality issuer, a deployable one-shot privilege/permit path, non-cyclic runtime descriptor binding, P2 same-uid proc isolation, OD-owned descendant drain evidence, and exact snapshot/output state ordering.",
+  "issue_type": "architecture",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v21_preflight.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v25.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v20.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v20_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "src/qlib_peerlite/__init__.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py"
+  ],
+  "commands": [],
+  "blockers": []
+}

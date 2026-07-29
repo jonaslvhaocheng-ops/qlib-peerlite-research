@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 90,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "BOUND_NAMESPACE_PARENT_CHANGE_DESIGN_READY",
+  "summary": "Design v13 translates architecture v16 into a versioned, fail-closed implementation contract: NamespaceParentBinding v1 precedes reservation v2 and binding v8, equality is checked at freeze/prelaunch/under-lock/post-mkdir/handoff/archive, and test design is explicitly blocked pending fresh independent review.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v13.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v16.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v12.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v12_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:fdba160c3e22680b3ba20844966fef0e673cbcb66b9ad1a3b51b0f283dba9e8a",
+  "blockers": []
+}

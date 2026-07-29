@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 89,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "BOUND_NAMESPACE_PARENT_ARCHITECTURE_READY",
+  "summary": "Architecture v16 repairs the v12 review P1 by introducing a sealed, hash-bound NamespaceParentBinding v1, threading it through reservation v2 and replay binding v8, and requiring exact root/chain/parent equality at freeze, execution, handoff and archive acceptance. It retains v15 controls and leaves M7/replay/OOS sealed.",
+  "commands": [],
+  "subject_digest": "sha256:4a245590e8cc2a30610376167c67cbf3054d039a70fa2c7d410711f4d05992a4",
+  "blockers": [],
+  "recorded_at": "2026-07-28T18:36:41+00:00",
+  "source_digest": "sha256:df0184c467aa90e2c36c273205941a350bb5416f790dc886b486e096f70dabce",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v16.md",
+      "sha256": "sha256:4a245590e8cc2a30610376167c67cbf3054d039a70fa2c7d410711f4d05992a4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v15.md",
+      "sha256": "sha256:f6dd3a7d92007cfdc8a2b863be95b9c2bd3204305d63ee5ae849f3d22776fafd"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v12.md",
+      "sha256": "sha256:bb872a600101c5d0d577e82508e9038240fe4c7d6971141058fc1946dc314c54"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v12_adversarial.md",
+      "sha256": "sha256:5b94a26d13ec1096e26309fb19bf2e99d784a667c21332733a16397dd9b1fa8a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:0c625bb4dd01ab585bf825f3e52296520141dabdf34260dc9af6888ed476d7c5"
+    }
+  ],
+  "run_id": "architecture-602ecd1547bd018c"
+}

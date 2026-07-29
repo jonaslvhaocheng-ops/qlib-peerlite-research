@@ -1,0 +1,54 @@
+{
+  "schema_version": "qlib_peerlite_static_m6_archive_binding_v1",
+  "classification": "NORMATIVE_EXTERNAL_ARCHIVE_IDENTITY",
+  "status": "FROZEN_DESIGN_INPUT",
+  "m6_gate": {
+    "path": "evidence/gates/M6_peerlite_gate.json",
+    "file_sha256": "83cdc68597e6b3bddc79fe366d71d9c4cc08398d88f06c94087d4b56bbf8ae86",
+    "content_sha256": "937bcb7811dffcd64b2be42661bf990d8bccf93c036bee0ad3e5623f661a9862"
+  },
+  "mechanics_receipt": {
+    "path": "evidence/peerlite/mechanics_20260728_v2/mechanics_receipt.json",
+    "file_sha256": "2f31f0264bff5b241472278b357e250ef4a11ec5775959d28da868c480c3704f",
+    "content_sha256": "c2fc6d0978a875ed1b2d22052b3bdba7aa686bf13ac945c8982eca88a81336ec"
+  },
+  "run_manifest": {
+    "path": "evidence/m6/runs/m6_peerlite_20260728_v1/run_manifest.json",
+    "file_sha256": "ac70c08e721adf4ec3b559aaf8306f58debfebee8fadcf2f286bb001dd05c569",
+    "content_sha256": "8083b1c2bb431d63b1962e34c457bed67a28b398f4d617882b10c1f731459e94"
+  },
+  "verification_receipt": {
+    "path": "evidence/m6/verifications/m6_peerlite_20260728_v1/verification_receipt.json",
+    "file_sha256": "b605db0f43bf571f5f1cebaf1733b4801e2ea6fb944c65e35e4f6b85325c2d6e",
+    "content_sha256": "853b9341c4b2c8a156a5d50265465ed134c4d843c5516105452f0704f8a27613"
+  },
+  "journal": {
+    "path": "evidence/m6/runs/m6_peerlite_20260728_v1/ledger_events.jsonl",
+    "file_sha256": "48d930427867d4b99021f22e043925ae6c88d4777f284747304fc4d8fa4a7f02"
+  },
+  "ledger": {
+    "path": "contracts/trial_ledger.jsonl",
+    "file_sha256_at_m6_close": "31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93",
+    "pre_run_prefix": {
+      "sha256": "8d08f39a569d62cf5078368075dce39e94014a4ad3a6095f0b03863baa93f133",
+      "bytes": 9324,
+      "jsonl_lines": 34,
+      "candidate_evaluations": 4,
+      "model_fits": 29
+    },
+    "m6_close_prefix": {
+      "sha256": "31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93",
+      "bytes": 14328,
+      "jsonl_lines": 51,
+      "candidate_evaluations": 6,
+      "model_fits": 44
+    }
+  },
+  "m6_execution_spec": {
+    "path": "contracts/immutable/m6_peerlite_execution_spec_v1.json",
+    "file_sha256": "469d67be0812e1acfa53301907f94c85bea2e799d17f2699edd8d508a2df20f8",
+    "content_sha256": "60d0cf06307991f1fafea0dd5880b43fb929546c6757040e2c868cbb361f2f69"
+  },
+  "execution_authorized": false,
+  "content_sha256": "e6b20902dbf20715ae5c385e5434cc37ad19fec0794d73a1a4044d0302530dbe"
+}

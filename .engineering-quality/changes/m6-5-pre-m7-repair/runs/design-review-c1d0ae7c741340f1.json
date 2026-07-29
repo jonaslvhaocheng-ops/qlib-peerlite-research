@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 130,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "PRE_E_PROVENANCE_FORK_CHILD_RECOVERY_AND_ADAPTER_NOT_CLOSED",
+  "summary": "Two independent R3 design reviews agree that v22/v19 preserve the repaired post-Bootstrap slot, held-lock, and official-result foundations, but six remaining normal-failure paths are still implementation-blocking: pre-E quality policy provenance/topology, fork-safe held-lock lifetime, control-chain materialization and partial recovery, ChildReceipt author-versus-publisher handoff, post-S5 acceptance recovery, and the sealed adapter for the unchanged path-only mechanics worker.",
+  "issue_type": "architecture",
+  "subject_digest": "sha256:c6788d62318141b3a5f16e09f69e185303247910946582cb6501fad6b7b963a0",
+  "commands": [],
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v18_lead,/root/design_review_v18_adversary,/root/reservation_graph_audit",
+    "limitations": [
+      "The consolidated result only records independent read-only findings and does not change the reviewed design.",
+      "No product/test/contract/gate/ledger/status/historical-evidence implementation changed; no project-code execution, training, archival replay, budget consumption, PIT certification, M7 or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Make the pre-E release policy an observed immutable root with a fixed quality-slot topology, anchor/root/parent D-v2 identity chains, policy bytes/ref equality, and an exact M6.5 gate-evidence role map before Bootstrap/PASS publication.",
+    "Make the held control lock process-bound across fork with owner PID/generation checks, child at-fork poison/close, and an explicit close-all plus FD allow-list launch protocol.",
+    "Specify a locked replay-supervisor materialization/recovery API for E/C and C-to-P/F-to-A-to-B-to-Q partial chains, with deterministic byte-equality and no generic publisher.",
+    "Replace the contradictory ChildReceipt writer rule with a frozen child-attestation / supervisor-durable-envelope handoff, including kernel-authenticated IPC, raw-receipt binding, lock ownership, and crash behavior.",
+    "Define deterministic lock-held recovery for ArchiveAcceptanceReceipt, S6, and FinalIndex partial-publication windows.",
+    "Define a SlotSpec-bound scratch/staging adapter that supplies the unchanged mechanics worker only an adapter-derived path, never arbitrary caller paths or the official output root.",
+    "Reissue architecture and change design, then obtain fresh independent R3 design-review PASS before test design, red tests, implementation, code review, replay, M7, CCC/Gate, or final-OOS work."
+  ],
+  "recorded_at": "2026-07-28T20:00:12+00:00",
+  "source_digest": "sha256:71b09cb23c3e02b709370d5f82f02c4f59f45394b752999581a8090eea318b1d",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19.md",
+      "sha256": "sha256:e8aacd8e56aafb10a98c01c143e32626f6d750f6d431c42954d7d16d7f85f8a9"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19_adversarial.md",
+      "sha256": "sha256:ce8e70223b8fc623c8bd311a36a71edd9dc19ea5b59b1ec05bed53143c221b34"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v19_consolidated_result.json",
+      "sha256": "sha256:53c97722bd68a00da263de3c820a34e0e0db5d5fe1ee74978e2e08c0dadf2a8f"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v22.md",
+      "sha256": "sha256:389ccd530c7705244e9025ef72efd891527a55a97286f14293e4912f12af49e9"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v19.md",
+      "sha256": "sha256:c6788d62318141b3a5f16e09f69e185303247910946582cb6501fad6b7b963a0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:0df94baf38b64030bf34a45eba8531bb87081cbef19f5e74308918480b41ab42"
+    }
+  ],
+  "run_id": "design-review-c1d0ae7c741340f1"
+}

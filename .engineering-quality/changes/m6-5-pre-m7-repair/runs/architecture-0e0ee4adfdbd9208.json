@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 26,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_SINGLE_USE_AUTHORITY_AND_RUNTIME_ARCHITECTURE_READY",
+  "summary": "Architecture v7 closes the second-round review directions with no-Gate public M6 APIs, an audit-only candidate-input issuance order, an acyclic plan-to-activation authority chain, durable at-most-once FitAdmission, and independently signed runtime-bound replay evidence.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T17:04:36+00:00",
+  "source_digest": "sha256:7d4cab56e3dc2f21d06ae21938bc5522b7f2a514d6aca750c2d699127d814e39",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v7.md",
+      "sha256": "sha256:db91fab06cb271e9431de02491cae7c151e3d36c47edd7e3d093a0ad16ccb6b4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v3.md",
+      "sha256": "sha256:0fe6a5c589811d55fb4456f300d1d6491afe8207987e60c3e70b455719a6ae70"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v3_adversarial.md",
+      "sha256": "sha256:eba3b4772f636b2cca9a99ed3337f8e3b11b277238b10c316eeb47def65d4d1f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v3.md",
+      "sha256": "sha256:9ac6394aa68deee9a0572e081bdfd500b9de5b4ddfd778bd31222e1efc564ad6"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:fc7061d3100c82553f9f7a35b6e3ef219e160a076c120cba1160b67790b28199"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    }
+  ],
+  "run_id": "architecture-0e0ee4adfdbd9208"
+}

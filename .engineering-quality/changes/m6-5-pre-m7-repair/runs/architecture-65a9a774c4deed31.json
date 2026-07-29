@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 56,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_REPLAY_INPUT_AND_EXECUTION_ARCHITECTURE_READY",
+  "summary": "Architecture v10 closes the remaining normal-operations replay boundary by binding every historical product/run/checkpoint/prediction input and executing only a supervisor-measured immutable staged tree with fixed import/environment policy.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T17:35:11+00:00",
+  "source_digest": "sha256:e2cb07fea92ef97022a1d475a8097ef2ee02d3341e15bdda05fe337b2d3ae88f",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v10.md",
+      "sha256": "sha256:e47c62a359a81b1c9f12c4946c8b1b2a4ea223f7b04b2fb76a9cf6fd87c4db13"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v9.md",
+      "sha256": "sha256:e4e0bb71e12dea48d6fa3db4bb0331804240f55d505771810dfa3befbd312598"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v6_adversarial.md",
+      "sha256": "sha256:8adf9c288e87f8acf7abf08b123c3dccd2276529f2795625edae7ea71892b279"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v7.md",
+      "sha256": "sha256:b2fcfad0f3e0a3fdf7a82680d5d60c38e08bb000a2f59e0e25f0093b7f55b2a4"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:c8afb0a1eef9715bf220316340ce7d53c0ff4323e7355a4e8005e1809fb5d7d5"
+    }
+  ],
+  "run_id": "architecture-65a9a774c4deed31"
+}

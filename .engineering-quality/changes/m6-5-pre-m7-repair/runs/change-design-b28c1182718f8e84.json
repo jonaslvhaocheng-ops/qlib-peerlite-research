@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 86,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "V12_OUTPUT_RESERVATION_READY",
+  "summary": "Design v12 preserves self-contained v11 and fully replaces replay output handling with a strict namespace/reservation schema, binding v7 full inventory, atomic absence claim, reservation receipt, receipt equality and quarantined no-reuse failure behavior.",
+  "commands": [],
+  "subject_digest": "sha256:4798192f857896147774e269900db72777ec01dd75fa1b82fc354262a12753f4",
+  "blockers": [],
+  "recorded_at": "2026-07-28T18:24:35+00:00",
+  "source_digest": "sha256:511a211bb4cfdf5fad857d82e6b519ac5aacb0cf6b990f047b18748f1f161845",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v12.md",
+      "sha256": "sha256:4798192f857896147774e269900db72777ec01dd75fa1b82fc354262a12753f4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v15.md",
+      "sha256": "sha256:f6dd3a7d92007cfdc8a2b863be95b9c2bd3204305d63ee5ae849f3d22776fafd"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v11.md",
+      "sha256": "sha256:cdbcbff655d7e8de152d62e1d4aa33a1fa145ebb43ad8f7efde555ac39c52a21"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v11.md",
+      "sha256": "sha256:c30cdb5ec08ca8f963903c552efe6b082afc5332266b0101c4e5a93afafcc811"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v11_adversarial.md",
+      "sha256": "sha256:871be3b485640836d45f60331816697e70e428a66837e4e23bd8edcee6e5b72c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:5db8aa7431243826db5a5fd0856c1146e33cf8a5e1d6da933000ca7d97d3dc06"
+    }
+  ],
+  "run_id": "change-design-b28c1182718f8e84"
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision_observed": 88,
+  "source_digest_observed": "sha256:511a211bb4cfdf5fad857d82e6b519ac5aacb0cf6b990f047b18748f1f161845",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "independent-adversarial-read-only-r3-review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "FROZEN_REPLAY_NAMESPACE_PARENT_IDENTITY_NOT_BOUND_TO_RESERVATION",
+  "summary": "v12/v15 correctly split a future output root from existing ArtifactRef inputs and add atomic mkdirat reservation. However, FreshOutputReservation binds only the namespace-policy digest: the parent FD identity is observed only after execution mkdirat, not frozen and compared across freeze/execution/acceptance. A same-path, same-ACL parent replacement can therefore be accepted despite the promised parent-substitution rejection.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 1,
+    "P2": 0,
+    "P3": 0
+  },
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v12.md",
+    "sha256": "sha256:4798192f857896147774e269900db72777ec01dd75fa1b82fc354262a12753f4"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v15.md",
+    "sha256": "sha256:f6dd3a7d92007cfdc8a2b863be95b9c2bd3204305d63ee5ae849f3d22776fafd"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:5db8aa7431243826db5a5fd0856c1146e33cf8a5e1d6da933000ca7d97d3dc06"
+  },
+  "review_report": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v12_adversarial.md",
+    "sha256": "sha256:5b94a26d13ec1096e26309fb19bf2e99d784a667c21332733a16397dd9b1fa8a"
+  },
+  "commands": [
+    "read-only rg --files/rg/nl/sed/shasum/git status",
+    "quality_ledger.py next --ledger .engineering-quality/changes/m6-5-pre-m7-repair/ledger.json --repo . (route inspection only)",
+    "read-only inspection of retained v11/v14 design, current replay/governance source and status evidence"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_adversary",
+    "limitations": [
+      "No product/test/contract/gate/ledger/historical-evidence implementation changes.",
+      "No training, M6 replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "Freeze and compare namespace-parent identity across binding, reservation, execution and archive acceptance, then re-run independent design review.",
+    "M7 derived-contract freeze, real M7 fit, CCC/Gate experiments, server replay, and final OOS remain prohibited."
+  ],
+  "next_route": "architecture"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 305,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "PUBLIC_RUN_INTENT_V2_ACCEPTANCE_PASSES_WITH_ZERO_EFFECTS",
+  "summary": "A clean-process public Python journey constructed a fully bound M7 RunIntent, proved caller-alias mutation isolation, recursively read-only snapshots and NFC-equivalent identity, and exercised unbound-M7 and cyclic-input rejection. It terminated with deterministic PASS JSON and zero persistent effects.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/e2e_run_intent_v2_acceptance.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_run_intent_v2_r2_independent.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_constructor_api_repair.md",
+    "evidence/m6_5_pre_m7/m6_5_test_design_v2.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+      "executed_at": "2026-07-29T20:30:39+08:00",
+      "exit_code": 0,
+      "summary": "Public RunIntent V2 acceptance returned PASS with persistent_effects=0."
+    }
+  ],
+  "subject_digest": "sha256:8968e7b8e172ceea730e4251cb90a8d902e46ffa406da3fb4fe47b32e950f477",
+  "blockers": []
+}

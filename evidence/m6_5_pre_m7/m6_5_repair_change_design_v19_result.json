@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 125,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "QUALITY_ISSUANCE_LOCKED_LIFECYCLE_DESIGN_READY",
+  "summary": "Design v19 maps v22 to a bounded five-module control plane: observed-byte quality issuance, pure authority schemas, exhaustive FD-bound slots and OFD lock capability, complete lifecycle/controlled launcher, and final-index-only official resolution. Existing M6 proof, raw worker and trial ledger remain non-authoritative inputs.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v19.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v22.md",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v22_result.json",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v18.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v18_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v18_consolidated_result.json",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "src/qlib_peerlite/governance/m6_archive.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:c6788d62318141b3a5f16e09f69e185303247910946582cb6501fad6b7b963a0",
+  "blockers": []
+}

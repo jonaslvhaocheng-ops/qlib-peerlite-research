@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 219,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V38_LEASE_CONTENT_SANDBOX_LINEAGE_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm v38's device, block, reservation, staging-inode, issuer direction and high-level replay repairs, but require a one-way execution-lease chain and closed lease inventory, provisional RESERVED-temp binding, typed result contents, a mechanical sandbox receipt, field-revision locators and complete observation rows, exact trusted-input equalities, complete replay windows and pair identities, and root/reconciler crash closure.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:707abeffc088b49549b8711ac73df69a18281fd0fad0171d0e57768b1beeade3",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "ONE_WAY_EVENT_LEASE_AND_CLOSED_INVENTORY",
+    "PROVISIONAL_RESERVED_TEMP_BINDING",
+    "TYPED_RESULT_CONTENT",
+    "MECHANICAL_SANDBOX_RECEIPT",
+    "FIELD_LOCATOR_AND_OBSERVATION_LINEAGE",
+    "COMPLETE_REPLAY_IDENTITY",
+    "ROOT_RECONCILER_AND_TRUSTED_INPUT_CRASH_CLOSURE"
+  ],
+  "recorded_at": "2026-07-29T09:40:26+00:00",
+  "source_digest": "sha256:db273c5f70820d8b427a82131387aaa214bcea68f8fcb5626ef6a4ef20ade184",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v38.md",
+      "sha256": "sha256:0f714e6aa4f900ac949236018121e4d30bf66dcd1cdc88abb575959a329ed402"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v38_adversarial.md",
+      "sha256": "sha256:8aaa59d689ba4706bf43e77c77f3c1f3512c8d51bc32ef6ec947b0758f76cfb1"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v38.md",
+      "sha256": "sha256:707abeffc088b49549b8711ac73df69a18281fd0fad0171d0e57768b1beeade3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v9.md",
+      "sha256": "sha256:32f6110dd10c7b6e80da922a8c934ba4032548e97528f88ea4bb6a61599d025f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+      "sha256": "sha256:57a46db7a4f4e2b142efbb5bbd0b3ea2dfa461a8817c8d675fa855d9f2760632"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v8.md",
+      "sha256": "sha256:c5772d9f298ac6a3833fc0206f06844cffb3a7d5aa9cedf38e02d0c13d5c888e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v16.md",
+      "sha256": "sha256:637b167fdb651f10112971a0b4d41c86e9f5f868d427429bc6dda01e3857a978"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v16.md",
+      "sha256": "sha256:40767b2765d5e7e1a9b37acc8d232108275af5170b82d7d870443e23f65c7a4e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v16.json",
+      "sha256": "sha256:0ccbdcf35fc38009e4a5aec64d6a1bc3ded90482ba8825a55c18814520fc201b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:f9b6972ddc8f7d5ab8cce8b2d6783090e7ef186a89c6df074adf9bdeaaa750ec"
+    }
+  ],
+  "run_id": "design-review-ed98ed79efa026fc"
+}

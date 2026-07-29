@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 293,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "RUN_INTENT_V2_GREEN_WITH_PROTECTED_BRANCH_COVERAGE",
+  "summary": "The complete v50 matrix, focused ledger/CLI regressions, full repository suite and Ruff all pass. A deterministic coverage-run plus verifier proves 100% line and branch coverage over the newly introduced V2 normalizer/freezer and RunIntent construction/cache ranges. No empirical or execution boundary was crossed.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": "env PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 COVERAGE_FILE=/tmp/qlib_m65_green.coverage .venv/bin/python -m coverage run --branch -m pytest -q tests/test_m65_expected_red.py tests/test_run_intent_v2.py docs/quality/changes/m6-5-pre-m7-repair/evidence/test_run_intent_v2_coverage_edges.py",
+      "executed_at": "2026-07-29T12:12:56+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:90ccfaafb43759f488cd65a680334152e0c8d68d8e15d5c1580f4c20255aa1e7; stdout_bytes=99; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        "env",
+        "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1",
+        "COVERAGE_FILE=/tmp/qlib_m65_green.coverage",
+        ".venv/bin/python",
+        "-m",
+        "coverage",
+        "run",
+        "--branch",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m65_expected_red.py",
+        "tests/test_run_intent_v2.py",
+        "docs/quality/changes/m6-5-pre-m7-repair/evidence/test_run_intent_v2_coverage_edges.py"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T12:12:57+00:00",
+      "stdout_sha256": "sha256:90ccfaafb43759f488cd65a680334152e0c8d68d8e15d5c1580f4c20255aa1e7",
+      "stdout_bytes": 99,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7",
+      "source_digest_after": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7"
+    },
+    {
+      "command": "env COVERAGE_FILE=/tmp/qlib_m65_green.coverage .venv/bin/python -m coverage json --pretty-print -o docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_coverage.json",
+      "executed_at": "2026-07-29T12:12:57+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:86715ab7adcf3cac4d8438e7daa242fab7d4011b7953b6e58f6f454f9d94bd7c; stderr_bytes=98",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        "env",
+        "COVERAGE_FILE=/tmp/qlib_m65_green.coverage",
+        ".venv/bin/python",
+        "-m",
+        "coverage",
+        "json",
+        "--pretty-print",
+        "-o",
+        "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_coverage.json"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T12:12:57+00:00",
+      "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_sha256": "sha256:86715ab7adcf3cac4d8438e7daa242fab7d4011b7953b6e58f6f454f9d94bd7c",
+      "stderr_bytes": 98,
+      "source_digest_before": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7",
+      "source_digest_after": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7"
+    },
+    {
+      "command": ".venv/bin/python docs/quality/changes/m6-5-pre-m7-repair/evidence/verify_run_intent_v2_coverage.py",
+      "executed_at": "2026-07-29T12:12:57+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:2d6b3715b787baa6907144f6e2f1ef93ca7a6f5d8c855182fc2ca15cd917d9a8; stdout_bytes=71; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "docs/quality/changes/m6-5-pre-m7-repair/evidence/verify_run_intent_v2_coverage.py"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T12:12:57+00:00",
+      "stdout_sha256": "sha256:2d6b3715b787baa6907144f6e2f1ef93ca7a6f5d8c855182fc2ca15cd917d9a8",
+      "stdout_bytes": 71,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7",
+      "source_digest_after": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m65_expected_red.py tests/test_run_intent_v2.py tests/test_trial_ledger.py tests/test_reconcile_trial_ledger_cli.py",
+      "executed_at": "2026-07-29T12:12:57+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:24fb94a04fdd4871394406489495618e0bdb8c2ef56b2444a554280b7f6c6093; stdout_bytes=99; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m65_expected_red.py",
+        "tests/test_run_intent_v2.py",
+        "tests/test_trial_ledger.py",
+        "tests/test_reconcile_trial_ledger_cli.py"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T12:13:00+00:00",
+      "stdout_sha256": "sha256:24fb94a04fdd4871394406489495618e0bdb8c2ef56b2444a554280b7f6c6093",
+      "stdout_bytes": 99,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7",
+      "source_digest_after": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T12:13:00+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:83b51de22e70ecc566450c5d6ef035eac7d4fa922beff970e567e1ba832b7c8e; stdout_bytes=179; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T12:13:07+00:00",
+      "stdout_sha256": "sha256:83b51de22e70ecc566450c5d6ef035eac7d4fa922beff970e567e1ba832b7c8e",
+      "stdout_bytes": 179,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7",
+      "source_digest_after": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7"
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src/qlib_peerlite/governance/trial_ledger.py tests/test_m65_expected_red.py tests/test_run_intent_v2.py",
+      "executed_at": "2026-07-29T12:13:07+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src/qlib_peerlite/governance/trial_ledger.py",
+        "tests/test_m65_expected_red.py",
+        "tests/test_run_intent_v2.py"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T12:13:07+00:00",
+      "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stdout_bytes": 19,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7",
+      "source_digest_after": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7"
+    }
+  ],
+  "subject_digest": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7",
+  "blockers": [],
+  "recorded_at": "2026-07-29T12:13:07+00:00",
+  "source_digest": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_run_intent_v2.md",
+      "sha256": "sha256:cbac8c5cd32054ee8cbe65bb15246b0fabac35a6a31f6bc829c90f3549003b6f"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_coverage.json",
+      "sha256": "sha256:4763f878c9da952ac11af59c00a94fe3ec436a8a210c4478eddd3c8a814e34aa"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/verify_run_intent_v2_coverage.py",
+      "sha256": "sha256:466e74b013687e66b32b53a40ca13c5304223daf2b5db7bf1b40e0501ae316cf"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/test_run_intent_v2_coverage_edges.py",
+      "sha256": "sha256:06c50afaf16b93f9eb43babde974b9a80a834bc42efcaa2f40f5f1916645f9ba"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_run_intent_v2.md",
+      "sha256": "sha256:9e986de90e7a511173f0683f4a5fcf27f8d09d0287e0b11cc48705b7f16ccd4a"
+    },
+    {
+      "path": "tests/test_m65_expected_red.py",
+      "sha256": "sha256:0cf121359cc0ff317f9667ffae507249469a44258f7c28487308347fdcb0639f"
+    },
+    {
+      "path": "tests/test_run_intent_v2.py",
+      "sha256": "sha256:44c3fbdddc9788dd86d734327d082dab1b373c2b1dc1099faf0f32dcff625a45"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:f550bc9aa57c76b4683adff47a4f896a9b156b365c9672c5645f800c79b015eb"
+    }
+  ],
+  "run_id": "tests-green-f0f16b6a4e9effd1"
+}

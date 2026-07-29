@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 98,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "REPLAY_ROOT_AUTHORITY_AND_RESERVATION_TRANSITION_DAG_NOT_CLOSED",
+  "summary": "Both independent R3 reviews found two P1s. First, v17 assumes an undefined replay-control profile and upgrades ReplayOutputNamespace v1 fields implicitly, risking forbidden M7 authority or untyped policy selection; output schema authority is not exactly bound. Second, generic S is an interleaved transition family without immutable phase-specific predecessor/receipt mapping, permitting recovery forks, stale selection or cycles. The specialized audit also confirms coordinate uniqueness and anchored registry resolution must be explicit. Architecture must be repaired before test design or implementation.",
+  "issue_type": "architecture",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v17.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v14.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:69e8373b847854e382ea4b3443eaecbeb52cca60d56210dd924173b59d2195a6",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "Reviews were read-only and made no product, test, contract, gate, ledger, or historical-evidence changes.",
+      "No empirical training, M6 replay, PIT certification, budget consumption, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Define a M6-only typed replay-control policy/profile and ReplayOutputNamespace v2; prohibit M7 authority reuse and implicit P v1 upgrade.",
+    "Define a unique coordinate claim and an immutable S0…S6 transition DAG with fixed paths, predecessor refs, receipt-phase mapping and archive ordering.",
+    "Anchor/resolve registry and transaction lock through the same trusted root equality checks, then obtain fresh independent design PASS before test design or implementation."
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 104,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "AUTHORITY_BUNDLE_AND_PRECOMMIT_ARCHITECTURE_READY",
+  "summary": "Architecture v20 makes the complete V payload immutable before coordinate claim, derives K from canonical observed DirectoryIdentity v2, carries six exact M6 evidence roles and a derived evidence key through C/P/F/A/Q/V, fixes one issuer/writer matrix, and defines deterministic pre-S0 recovery without cycles.",
+  "commands": [],
+  "subject_digest": "sha256:d944ab700454dbc22515a779366a60e09337efb9b69b2365c0608f08441528e0",
+  "blockers": [],
+  "recorded_at": "2026-07-28T19:25:22+00:00",
+  "source_digest": "sha256:26cefdd521fb6f40be8e753e17ac0e73e011bc3ac169020d74b007a3f9626fe6",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v20.md",
+      "sha256": "sha256:d944ab700454dbc22515a779366a60e09337efb9b69b2365c0608f08441528e0"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v19.md",
+      "sha256": "sha256:073f5b150a5d6ab5978a84ac1ef0d39793780688a3557479583081b0bcb1db52"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v15.md",
+      "sha256": "sha256:4914b93e634457376108b6f490cc906e7a061d2c4be5eb63a73ebcf628c7bfae"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v15_adversarial.md",
+      "sha256": "sha256:ac19c9f6e5b8782da1deb5171e97ed62fc0c7d7ad70c72773df65e75020fc4d3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:16e558a7c2bc8e175207f9eea7383bc1305762d4cd2511574941e6b183b96667"
+    }
+  ],
+  "run_id": "architecture-72723031b8e305a7"
+}

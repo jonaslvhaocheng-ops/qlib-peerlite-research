@@ -1,0 +1,36 @@
+{
+  "schema_version": "qlib_peerlite_m6_5_control_pointer_v2",
+  "classification": "INFORMATIONAL_NAVIGATION",
+  "status": "M6_5_CHANGE_DESIGN_REPAIR",
+  "current_phase": "M6.5-PRE-M7-ENGINEERING-QUALITY",
+  "canonical_change_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v38.md",
+    "sha256": "707abeffc088b49549b8711ac73df69a18281fd0fad0171d0e57768b1beeade3"
+  },
+  "superseded_base": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v37.md",
+    "sha256": "ab3d455f308d108b86a9ced8dd6b4db27eba354d6ace94d5d438e2126ff74bb5"
+  },
+  "normative_bundle": [
+    {"path":"evidence/m6_5_pre_m7/capacity_reservation_protocol_v9.md","sha256":"32f6110dd10c7b6e80da922a8c934ba4032548e97528f88ea4bb6a61599d025f"},
+    {"path":"evidence/m6_5_pre_m7/nested_directory_recovery_v4.md","sha256":"57a46db7a4f4e2b142efbb5bbd0b3ea2dfa461a8817c8d675fa855d9f2760632"},
+    {"path":"evidence/m6_5_pre_m7/run_authority_generation_v8.md","sha256":"c5772d9f298ac6a3833fc0206f06844cffb3a7d5aa9cedf38e02d0c13d5c888e"},
+    {"path":"evidence/m6_5_pre_m7/m7_change_design_v16.md","sha256":"637b167fdb651f10112971a0b4d41c86e9f5f868d427429bc6dda01e3857a978"},
+    {"path":"evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v16.md","sha256":"40767b2765d5e7e1a9b37acc8d232108275af5170b82d7d870443e23f65c7a4e"}
+  ],
+  "transitive_bundle_location": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v38.md#1-exact-bundle",
+  "compatibility_note": {
+    "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v16.md",
+    "classification": "INFORMATIONAL_NAVIGATION"
+  },
+  "latest_completed_review": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v37_consolidated_result.json",
+  "latest_review_verdict": "NEEDS_CHANGES",
+  "next_stage": "independent-r3-design-review-v38-bundle",
+  "m6_status": "PASS",
+  "m6_5_status": "NEEDS_CHANGES",
+  "m7_status": "NOT_RUN",
+  "live_run_authority_available": false,
+  "real_fit_authorized": false,
+  "final_oos_access_authorized": false,
+  "trial_budget_change_authorized": false
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 73,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "EFFECTIVE_HASH_STARTUP_POLICY_CLOSED",
+  "summary": "Architecture v13 replaces the invalid -I/-E environment-only seed contract with a CPython 3.11 FD-executed exact-envp startup policy: -s -S -P, the sole allowed PYTHONHASHSEED=0, observed sys.flags and hash probe, and receipt binding. It retains v12 authority, dispatch, ACL, publication and replay-input boundaries.",
+  "commands": [],
+  "subject_digest": "sha256:54d8ca248206a1c702ac3fe84f708edb5223a82ae6b9c44ef67396a5f0bc0bc4",
+  "blockers": [],
+  "recorded_at": "2026-07-28T18:06:46+00:00",
+  "source_digest": "sha256:7f878b1c61fb90be448cabe8d1de98001d8c60f183e58811ea1ce73cd56cf146",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v13.md",
+      "sha256": "sha256:54d8ca248206a1c702ac3fe84f708edb5223a82ae6b9c44ef67396a5f0bc0bc4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v12.md",
+      "sha256": "sha256:f80ca2a93ecca804f0c8c7ecc604eee26d0ad2b08f93d5b8bbf71afc26aa38ad"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v9.md",
+      "sha256": "sha256:e251130d893cee26572b1548c282687c271db8437893386e3c30f4b222c06f8e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v9_adversarial.md",
+      "sha256": "sha256:d5d9c611ff15a4f998ae7b3440e003d7c51fd09abc22e253d6bc027da130d406"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "sha256:effa8e50b1a197bce98a34fd7559026ee792901e12a562453162881ce0b62d9b"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "sha256:b406234ca9f9533c71425e0874d6b158cc2991f70ed1a3c8c9c9835e7c3c29ef"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    }
+  ],
+  "run_id": "architecture-846f59fff74d18e3"
+}

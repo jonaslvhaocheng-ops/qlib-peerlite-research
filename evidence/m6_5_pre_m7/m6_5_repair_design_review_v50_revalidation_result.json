@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 283,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "INDEPENDENT_V50_PASS_REMAINS_BOUND_AFTER_RED_TEST",
+  "summary": "The independently reviewed v50 design artifact is byte-unchanged, and the new expected-red test exercises its approved caller-mutation invariant without introducing a new interface or decision. The independent R3 PASS therefore remains applicable with no P0-P3 finding.",
+  "issue_type": null,
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50_revalidation_result.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v30.md",
+    "evidence/m6_5_pre_m7/m6_5_tests_red_v2.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v45_adversarial_retry",
+    "limitations": [
+      "The independent review applies to the unchanged v50 design artifact.",
+      "No replay, fit, PIT, real-data access, CCC or Gate execution."
+    ]
+  },
+  "blockers": []
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 140,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "PROCESS_IDENTITY_AND_WORKER_PROVENANCE_NOT_CLOSED",
+  "summary": "v24/v20 preserve the repaired Pin/evidence closure, Linux FD/OFD boundary, child IPC and post-S5 continuation, but still leave three architecture-level normal-failure gaps: no deployable cross-identity P0/P1/archive-acceptor process graph, a path-only worker adapter incompatible with both its ACL and Python import-provenance model, and no durable canonical target for staged invocation/normalized-result evidence that archive recovery must re-open.",
+  "issue_type": "architecture",
+  "subject_digest": "sha256:5c89a379284e0f7397fa6a3fdabcfbb1d19187cb79fe20a999aa27527d074bd2",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v20.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v20_result.json"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v24.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v20.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "src/qlib_peerlite/governance/artifacts.py",
+    "src/qlib_peerlite/governance/m6_archive.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py",
+    "pyproject.toml"
+  ],
+  "commands": [],
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v20_lead",
+    "limitations": [
+      "No product, test, contract, gate, ledger, status, or historical-evidence changes were made.",
+      "No project-code execution, training, archival replay, budget consumption, PIT certification, M7, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Freeze a deployable outer-dispatcher actor-launch and S5-to-archive-acceptor handoff protocol, including UID/GID/capability transition, fixed helper/runtime binding, FD/socket allow-list, separate lease acquisition and crash behavior.",
+    "Freeze an executable legacy-worker adapter that reconciles resolved pathname ACLs with worker-job isolation and proves every imported qlib_peerlite module comes from the staged frozen inventory.",
+    "Define durable immutable persistence and archive-reopen semantics for StagedMechanicsInvocationV1 and NormalizedMechanicsResultV1; a job/scratch object cannot be an implicit long-term official dependency.",
+    "Resolve the m6_replay_fs SlotSpec upward-import contradiction through a lower-layer publication DTO/protocol before implementation.",
+    "Reissue architecture and change design, then obtain a new independent R3 design-review PASS before test design, implementation, code review, replay, M7, CCC/Gate, PIT certification, or final-OOS work."
+  ]
+}

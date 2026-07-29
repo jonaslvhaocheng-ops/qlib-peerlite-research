@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 253,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V47_EXACT_SLOTS_ROSTER_AND_OBJECT_GRAPH_READY",
+  "summary": "The v47 self-contained bounded bundle closes only the four narrow v46 findings. Snapshot and receipt slots now have exact paths and preimages plus pre-commit and missing-event identities; the external budget owns evaluation IDs and purposes; source timestamps reject sub-microsecond precision before comparison; and no-fit proof traverses the complete reachable Python object graph fail-closed. The recovery state machine distinguishes append, recovery and immutable no-op under later suffixes. No model, service, production control plane or research direction was added. This is design evidence only.",
+  "commands": [],
+  "subject_digest": "sha256:2620ce69e1beae901a41f27f22515d51921a2300d24fdca52ff642f867f6807c",
+  "blockers": [],
+  "recorded_at": "2026-07-29T11:27:04+00:00",
+  "source_digest": "sha256:a2733395b23308309e8a182aaae3978183c771a5b9f8bfe1edbc2f74ee02776c",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v47.md",
+      "sha256": "sha256:2620ce69e1beae901a41f27f22515d51921a2300d24fdca52ff642f867f6807c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v46.md",
+      "sha256": "sha256:05f21bf9b15497e85b16538c8497495440d6216246642af318b113f2e55df37f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v46.md",
+      "sha256": "sha256:d2d127b827c899e93d7a1e6ec62f7a25b8a8a1c4efc3c30fa9d7d0491852a1c5"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v46_adversarial.md",
+      "sha256": "sha256:c1e4a9263451012337b5848a5d400d65e050eace1cb1b8b899e5f38df4856c1f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v46_consolidated_result.json",
+      "sha256": "sha256:5ddda6445eab7c341e19d4eb25aa02ac585650614e2b121523ae766a06d36c54"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+      "sha256": "sha256:609297714b832136a242cb07981e7493ec9780f49caa6f5bd6c2c3f84a0f1d13"
+    },
+    {
+      "path": "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+      "sha256": "sha256:dd162de1565f887261cebbaef3eeec50c83697125a2acf5adb1546e8e819fcf4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/static_m6_archive_binding_v2.json",
+      "sha256": "sha256:a12cebd94a1bf0da6bbd607f7e95227de3573bd409d16a41ad84711faf5dfad1"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_binding_v2.json",
+      "sha256": "sha256:0c01c5eb95e71ad8644df09e2eba8d56fc8cb694f8e41ace0021e7f51913aa01"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v5.md",
+      "sha256": "sha256:ed8b669af6f9d300b11e22e31c21b5d69e8bdf9c1b1eb4efa701b11b833b0e8d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_contract_v5.md",
+      "sha256": "sha256:524d182fbc701cc15be6e47b8c7d7d5043991d347a53538eb5e285eda1499146"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_bounded_design_v5.md",
+      "sha256": "sha256:de4aa33331443f7e7e97470d401a79d8d8b1e631163800c36a2ddabffe9f6715"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v5.md",
+      "sha256": "sha256:c964e2a0cad1e088817c30e974600cf7928b1ff59594508143a4ffc32c837fe9"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v5.json",
+      "sha256": "sha256:a2a2cc541133f255d1197b1c9af28c7e5f30e6841fecdb672ff5873280487973"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v25.json",
+      "sha256": "sha256:ceaa13596318500164a371c7eaf91be137b206f5a3e4d67fc8296c527f1c8082"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+      "sha256": "sha256:694fb03169dac8be9c3992a6cd39634a4f0300e5ea638d5b8fedd589e30d226b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:dffe9e6a2ad5850a9a54b2eaaa51a977a136f89e0d36cd9a8e927b0a12a0c793"
+    }
+  ],
+  "run_id": "change-design-def0f529474d316a"
+}

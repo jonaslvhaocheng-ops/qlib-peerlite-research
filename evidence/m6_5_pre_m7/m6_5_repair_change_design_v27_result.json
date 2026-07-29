@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 171,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V27_SELF_CONTAINED_DESIGN_READY",
+  "summary": "The self-contained v27 design closes the v26 findings without normative inheritance: it freezes exact policy identities and dates, per-table availability-projected PIT payloads and nullable-status behavior, the complete prepared directory transaction and executable cleanup permissions, immutable one-run authority generations, an actual-worker-held execution lease with predecessor outcomes, safely retryable read-only replay attempts, and current M7 v5 with full fixed/behavior qualification predicates, complete CCC math and a capability-scoped checkpoint loader. It remains design-only and authorizes no implementation, replay, M7 fit, budget change or final-OOS.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v27.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v26.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v26_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v26_consolidated_result.json",
+    "evidence/m6_5_pre_m7/m7_change_design_v5.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v5.md",
+    "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v5.md",
+    "evidence/m6_5_pre_m7/current_control_pointer_v5.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "contracts/immutable/research_contract_pit_v2.json",
+    "contracts/cost_spec.json",
+    "contracts/benchmark_spec.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:1517a81b731444e5c9a8528566d1e2fe97da9f183b9838441d6706a68051ced9",
+  "blockers": []
+}

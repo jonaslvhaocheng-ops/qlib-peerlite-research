@@ -2,8 +2,9 @@ from __future__ import annotations
 
 import hashlib
 import json
-from collections import Counter
 from pathlib import Path
+
+from qlib_peerlite.governance.m6_archive import verify_archived_m6_evidence
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 GATE_PATH = PROJECT_ROOT / "evidence/gates/M6_peerlite_gate.json"
@@ -42,7 +43,6 @@ def test_m6_gate_binds_verified_receipts_and_trial_ledger() -> None:
         "run_manifest",
         "verification",
         "run_journal",
-        "cumulative_trial_ledger",
     ):
         binding = gate["evidence"][name]
         path = PROJECT_ROOT / binding["path"]
@@ -53,9 +53,7 @@ def test_m6_gate_binds_verified_receipts_and_trial_ledger() -> None:
             assert receipt["content_sha256"] == binding["content_sha256"], name
             assert receipt["content_sha256"] == content_hash(receipt), name
 
-    verification = load_json(
-        PROJECT_ROOT / gate["evidence"]["verification"]["path"]
-    )
+    verification = load_json(PROJECT_ROOT / gate["evidence"]["verification"]["path"])
     assert verification["prediction_rows_total"] == 1_898_028
     assert verification["journal"]["counted_candidate_evaluations"] == 2
     assert verification["journal"]["counted_model_fits"] == 15
@@ -70,32 +68,14 @@ def test_m6_gate_binds_verified_receipts_and_trial_ledger() -> None:
         == verification["verifier"]["sha256"]
     )
 
-    ledger_path = PROJECT_ROOT / gate["evidence"]["cumulative_trial_ledger"]["path"]
-    events = [
-        json.loads(line)
-        for line in ledger_path.read_text(encoding="utf-8").splitlines()
-    ]
-    counts = Counter(
-        "candidate"
-        if event.get("counts_as_candidate_evaluation") is True
-        else "fit"
-        if event.get("counts_as_model_fit") is True
-        else "other"
-        for event in events
-    )
-    assert counts == Counter({"candidate": 6, "fit": 44, "other": 1})
-    assert len({event.get("evaluation_id") for event in events if event.get(
-        "counts_as_candidate_evaluation"
-    )}) == 6
-    assert len({event.get("fit_id") for event in events if event.get(
-        "counts_as_model_fit"
-    )}) == 44
+    archived = verify_archived_m6_evidence(PROJECT_ROOT)
+    assert archived.status == "PASS"
+    assert archived.ledger_candidate_evaluations == 6
+    assert archived.ledger_model_fits == 44
 
 
 def test_m6_ledger_preserves_frozen_pre_run_prefix_and_no_large_artifacts() -> None:
-    budget = load_json(
-        PROJECT_ROOT / "contracts/immutable/m6_trial_budget_start.json"
-    )
+    budget = load_json(PROJECT_ROOT / "contracts/immutable/m6_trial_budget_start.json")
     expected_prefix_hash = budget["trial_ledger"]["sha256_at_freeze"]
     digest = hashlib.sha256()
     matched_prefix_bytes: int | None = None

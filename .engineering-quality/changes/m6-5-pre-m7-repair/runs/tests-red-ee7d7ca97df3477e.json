@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 263,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "UNBOUND_RUN_INTENT_FAILS_EXPECTED_RED",
+  "summary": "The smallest approved behavioral test was added and fails for the intended product gap: the current legacy RunIntent accepts construction without the frozen budget and market-state authority bindings. The failure is DID NOT RAISE TypeError, not a syntax, import, harness or environment error. No production code changed.",
+  "issue_type": "product-code",
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m65_expected_red.py",
+      "executed_at": "2026-07-29T11:40:42+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:70c29773317376d4e3119967e9d039671db3752d82eb50a635e7e65b2632402a; stdout_bytes=755; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m65_expected_red.py"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-29T11:40:43+00:00",
+      "stdout_sha256": "sha256:70c29773317376d4e3119967e9d039671db3752d82eb50a635e7e65b2632402a",
+      "stdout_bytes": 755,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:86e1cf647b52f9911342b44d762720463af4e8b8114ba7aa110cf3fff98cd123",
+      "source_digest_after": "sha256:86e1cf647b52f9911342b44d762720463af4e8b8114ba7aa110cf3fff98cd123"
+    }
+  ],
+  "subject_digest": "sha256:9e1b63f2f7c23d3deabd8c0e8e48fbd0d5cae1d0140d0de4aec21abcf93c21bf",
+  "blockers": [],
+  "recorded_at": "2026-07-29T11:40:43+00:00",
+  "source_digest": "sha256:86e1cf647b52f9911342b44d762720463af4e8b8114ba7aa110cf3fff98cd123",
+  "artifacts": [
+    {
+      "path": "tests/test_m65_expected_red.py",
+      "sha256": "sha256:9e1b63f2f7c23d3deabd8c0e8e48fbd0d5cae1d0140d0de4aec21abcf93c21bf"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_tests_red_v1.md",
+      "sha256": "sha256:73a02ed3ebdb6cfeab866cd8dee7b8513091fce0bec6b68887d2ea36281cf7b3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_test_design_v1.md",
+      "sha256": "sha256:f298d0474ba9a80b355ead7e88c29f83061acda89a8f990c3b2ee1c96f253909"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v48_consolidated_result.json",
+      "sha256": "sha256:74dc3e40e35f2c38b5e6c4af186d2857176a3f45439efe73b5be0e2da8e5597c"
+    }
+  ],
+  "run_id": "tests-red-ee7d7ca97df3477e"
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 54,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "REPLAY_INPUT_AND_EXECUTION_CLOSURE_INCOMPLETE",
+  "summary": "The lead review passes v6 under the frozen research-governance boundary, but the adversarial review identifies two in-scope replay P1s: the binding does not enumerate all historical product/run/checkpoint/prediction inputs, and measured bytes are not closed to the actual verifier/runtime import execution. The stricter result governs.",
+  "issue_type": "architecture",
+  "commands": [],
+  "subject_digest": "sha256:2130f8659f132fb637898d6ddfb78f8af4ccab1c7b4b52c12899111643a95f78",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v6_lead,/root/design_review_v6_adversary",
+    "limitations": [
+      "Read-only independent reviews; no product/test/contract/gate/ledger mutation, training, server replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "M7 derived-contract freeze, real M7 fit, CCC/Gate experiments, server replay, and final OOS remain prohibited."
+  ],
+  "recorded_at": "2026-07-28T17:33:49+00:00",
+  "source_digest": "sha256:8f1cbf4690da1eab8bf33c04584215497870f412d681a3b8df8648a401a36a02",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v6.md",
+      "sha256": "sha256:2130f8659f132fb637898d6ddfb78f8af4ccab1c7b4b52c12899111643a95f78"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v6.md",
+      "sha256": "sha256:2f74662f2af2af5eac52d0c2961b33e3b45bb3ced157943960474b2e118294b0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v6_adversarial.md",
+      "sha256": "sha256:8adf9c288e87f8acf7abf08b123c3dccd2276529f2795625edae7ea71892b279"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v9.md",
+      "sha256": "sha256:e4e0bb71e12dea48d6fa3db4bb0331804240f55d505771810dfa3befbd312598"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_server_receipt_v2.json",
+      "sha256": "sha256:851b37e6ff9f66e804ccb1bae23df1f190b22019cdae38f7b99e4033ad72208e"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:eea60f09cc4e3404215068d69444e8935166ac5f81b8b30098e7f810d996960f"
+    }
+  ],
+  "run_id": "design-review-cba0939062a74fa9"
+}

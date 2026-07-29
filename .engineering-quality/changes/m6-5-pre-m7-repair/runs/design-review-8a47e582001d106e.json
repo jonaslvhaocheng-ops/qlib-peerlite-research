@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 191,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V31_INPUT_LINEAGE_LIFECYCLE_AND_ABORT_LOCKING_UNCLOSED",
+  "summary": "Two independent R3 reviews confirm the main registration DAG, official scalar mapping and active-reservation accounting, but v31 still rejects or under-validates the frozen five-column M6 predictions, does not cross-bind official state CSV to AP state records or freeze AP input lineage/coverage, under-specifies initial attempt leasing and owner-abort publish locking, allows malformed RELEASED accounting, leaves generation commit fields implicit, and lacks mechanically closed lifecycle row evidence, role-DAG, session boundaries and whole-record FUTURE_POISON construction.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:f83f2b51861c55f2abd96b051ef6e5546a43c5eff47128aa69c4125f9c28ca87",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "M6_FIVE_COLUMN_FOLD_IDENTITY_BINDING",
+    "AP_CLOSED_INPUT_LINEAGE_COVERAGE_AND_CROSSCHECK",
+    "ATTEMPT_LEASE_AND_OWNER_ABORT_PUBLISH_LOCKING",
+    "RELEASED_CHAIN_ACCOUNTING",
+    "GENERATION_COMMIT_EXACT_SCHEMA",
+    "LIFECYCLE_POSITIVE_EVIDENCE_AND_ROLE_DAG",
+    "OFFICIAL_WHOLE_RECORD_FUTURE_POISON_ADAPTER"
+  ],
+  "recorded_at": "2026-07-29T08:03:12+00:00",
+  "source_digest": "sha256:9ea841ead7b6083c2853bc51e797dfbc81782725ea7e26eee79b6ab2cbf44f3b",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v31.md",
+      "sha256": "sha256:eb62ed238da4b8eab861b63d15f9c2bc5c6da1c115af5bc05614587b21014bd0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v31_adversarial.md",
+      "sha256": "sha256:e7c631c3ef1c127412efe25d09325377cc71e972a46e29b5ee43ad9d4f682387"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v31.md",
+      "sha256": "sha256:f83f2b51861c55f2abd96b051ef6e5546a43c5eff47128aa69c4125f9c28ca87"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v30.md",
+      "sha256": "sha256:28bab313bc07f4d9ffc838a0256f8dbc8f71fb86df320dc31f206c87e7f1746b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v9.md",
+      "sha256": "sha256:ad5ae903ea4eed4593fbb33a33723dea4c653b54cef20519209c5925b315af94"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v9.md",
+      "sha256": "sha256:0088cf25f5328b4c128d42d4b51772c21648609c41bfaf419fefb19c58841d58"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v9.md",
+      "sha256": "sha256:074c2e9ca3af254c8704f3b6ba153f832a6dba067f5a582aeeb2820a28a72a26"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:11deffa3e336c60e331f61c8b265ce2f8226eb4a0cc2e75e41e5584747ab2983"
+    }
+  ],
+  "run_id": "design-review-8a47e582001d106e"
+}

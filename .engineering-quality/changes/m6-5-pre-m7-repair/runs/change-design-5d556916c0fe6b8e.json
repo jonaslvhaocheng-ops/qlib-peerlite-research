@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 281,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "V50_UNCHANGED_AFTER_EXPECTED_RED",
+  "summary": "The expected-red test implements exactly v50 RI-U3 and does not alter any design decision. V50 remains the smallest coherent repair: construction-time V2 validation, owned immutable snapshots and cached identity, with exact V1 compatibility and no caller/event/execution claim.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e",
+  "blockers": [],
+  "recorded_at": "2026-07-29T12:02:12+00:00",
+  "source_digest": "sha256:d51604202701480308cfd572ea4035a841c296acc0b0f24eb168ee836a734d07",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+      "sha256": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v30.md",
+      "sha256": "sha256:6601afd992b9d6f417da907f9c95a25aa5a0eac870159b4a9037b29d500342c7"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md",
+      "sha256": "sha256:8c9bb077e26d95de71793ae7f373ed11d8986b4571f072afee1af551ef327d19"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_test_design_v2.md",
+      "sha256": "sha256:fb62c1a0655769d6502b184918bce2a8ee869f095020b5b9eee70e1822a6979d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_tests_red_v2.md",
+      "sha256": "sha256:4a47835700e6efa6070145b5f72d75143be6f7bb0b4cc3e3ebdd9c296adc6ab1"
+    }
+  ],
+  "run_id": "change-design-5d556916c0fe6b8e"
+}

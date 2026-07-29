@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 97,
+  "source_digest_observed": "sha256:a27ae6ddeb3af142ad65a6528fbfee747a1734419f53502164628cf7fb5a2b6b",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "independent-adversarial-read-only-r3-review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "REPLAY_ROOT_AUTHORITY_AND_RESERVATION_TRANSITION_DAG_NOT_CLOSED",
+  "summary": "v17 fixes leaf grammar and many durability controls, but its A root depends on an undefined replay profile/incompatible P v1 and leaves P's output-schema authority unbound. Its generic S transition family has no phase-specific immutable predecessor graph, so receipt/archive lineage is not uniquely acyclic.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 0,
+    "P3": 0
+  },
+  "subject_digest": "sha256:69e8373b847854e382ea4b3443eaecbeb52cca60d56210dd924173b59d2195a6",
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v14.md",
+    "sha256": "sha256:69e8373b847854e382ea4b3443eaecbeb52cca60d56210dd924173b59d2195a6"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v17.md",
+    "sha256": "sha256:2079525e3f0c9e6746d2047da3dd201f3d2a360cbc7bcb6bb1db9759037620f8"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:fd2373ef53f061b45e1ac19bf90c86b4298f81863a88c66fe19acd9aa6bbe2d3"
+  },
+  "review_report": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14_adversarial.md",
+    "sha256": "sha256:47d78fc8905db0eb5433dd1a53a67f7e262575fd9a5a0a1ff673115515b1505f"
+  },
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14_adversarial.md"
+  ],
+  "commands": [
+    "read-only rg --files/rg/nl/sed/shasum/git status",
+    "quality_ledger.py next --ledger .engineering-quality/changes/m6-5-pre-m7-repair/ledger.json --repo . (route inspection only)",
+    "read-only inspection of v12/v13/v14/v16 retained contracts, status evidence, and current replay/governance source interfaces"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_adversary",
+    "limitations": [
+      "No product/test/contract/gate/ledger/historical-evidence implementation changes.",
+      "No training, M6 replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "Define a replay-only, typed pre-M7 profile/policy root and version P to a schema that can satisfy every A/B/R/V equation.",
+    "Define a phase-specific immutable S0…S6 transition DAG with typed predecessor references and archive acceptance ordering.",
+    "Re-run independent design review before test design or implementation."
+  ],
+  "next_route": "architecture"
+}

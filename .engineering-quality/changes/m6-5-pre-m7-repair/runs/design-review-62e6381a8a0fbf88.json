@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 84,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "FRESH_REPLAY_OUTPUT_RESERVATION_UNSPECIFIED",
+  "summary": "One independent v11 review passed the self-contained design, but the lead review found an unresolved P1: M6ReplayInputBinding v6 treats every entry as an existing hashed ArtifactRef while also requiring a fresh non-existent output root. A distinct output namespace/reservation and atomic absence-claim contract is needed; the stricter finding controls routing.",
+  "issue_type": "architecture",
+  "commands": [],
+  "subject_digest": "sha256:cdbcbff655d7e8de152d62e1d4aa33a1fa145ebb43ad8f7efde555ac39c52a21",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "Reviews were read-only and made no product, test, contract, gate, ledger, or historical-evidence changes.",
+      "No empirical training, replay, PIT certification, budget consumption, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Do not enter test design or implementation until a fresh replay-output reservation contract passes independent review; M7, replay, CCC/Gate, and final OOS remain sealed."
+  ],
+  "recorded_at": "2026-07-28T18:22:03+00:00",
+  "source_digest": "sha256:19208f19acc30635f2f4402699376d6281149d685077529adbda7e87abfbf608",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v11.md",
+      "sha256": "sha256:c30cdb5ec08ca8f963903c552efe6b082afc5332266b0101c4e5a93afafcc811"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v11_adversarial.md",
+      "sha256": "sha256:871be3b485640836d45f60331816697e70e428a66837e4e23bd8edcee6e5b72c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v11.md",
+      "sha256": "sha256:cdbcbff655d7e8de152d62e1d4aa33a1fa145ebb43ad8f7efde555ac39c52a21"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v14.md",
+      "sha256": "sha256:148490b9933be0311ff7c0b8626cdc5c3c268a2070cf6a6f49e9e26ac2af410f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    }
+  ],
+  "run_id": "design-review-62e6381a8a0fbf88"
+}

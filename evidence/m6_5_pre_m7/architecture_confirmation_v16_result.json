@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 89,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "BOUND_NAMESPACE_PARENT_ARCHITECTURE_READY",
+  "summary": "Architecture v16 repairs the v12 review P1 by introducing a sealed, hash-bound NamespaceParentBinding v1, threading it through reservation v2 and replay binding v8, and requiring exact root/chain/parent equality at freeze, execution, handoff and archive acceptance. It retains v15 controls and leaves M7/replay/OOS sealed.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v16.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v15.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v12.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v12_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:4a245590e8cc2a30610376167c67cbf3054d039a70fa2c7d410711f4d05992a4",
+  "blockers": []
+}

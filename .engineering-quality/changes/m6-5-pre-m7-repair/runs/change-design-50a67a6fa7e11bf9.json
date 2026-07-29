@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 209,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V36_TRANSIENT_LEDGER_PARSER_LINEAGE_READY",
+  "summary": "The v36 exact direct and transitive bundle closes v35 with a logical/physical payload split, worst-case transient and persistent control capacity, exact source-staging-final bijection, implementable directory inode semantics, closed event claims/outcomes/terminals and digest preimages, unique registration scans, deterministic temp recovery, corrected zero-integer fractions, parser closure binding, a contract-bound append-only issuer trust anchor, per-observation historical source lineage, explicit adversarial fixtures, and an informational-only pointer. Replay remains exactly two merged expected plus fourteen per-fold artifacts. No implementation, replay, fit, budget mutation, real-data access or final-OOS access is authorized.",
+  "commands": [],
+  "subject_digest": "sha256:291d9edca6b69bcc9004c51ddf4ffcfe59b6c196d2367bc9a648815ab1b728a7",
+  "blockers": [],
+  "recorded_at": "2026-07-29T09:11:20+00:00",
+  "source_digest": "sha256:5e95f0e5319bdf8bea8a5c931f1601fbc2e45133050f4e56e8bc6d0fed369ae2",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v36.md",
+      "sha256": "sha256:291d9edca6b69bcc9004c51ddf4ffcfe59b6c196d2367bc9a648815ab1b728a7"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v35.md",
+      "sha256": "sha256:46add10c455daf6e9c705e18dd5d2357e58a4b143ea5fd805a82195866ecd1c4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v35.md",
+      "sha256": "sha256:da417b4468ef12d2f2b51415314620e8aaa6ce697978b89f91a4401a6544d3b7"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v35_adversarial.md",
+      "sha256": "sha256:737606c8d5d89b1c31c5114d1828991adfc55558bc246f85a4d22a66b3d64996"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v35_consolidated_result.json",
+      "sha256": "sha256:07b8e08f37dccb7851d58ccc675a7c83647eff4067b41022b3472d109132974d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v7.md",
+      "sha256": "sha256:79696cfa6b071c29673a44fb85456b484fdbc5ee7eb28f65f8ba0abeb8717fbf"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/nested_directory_recovery_v3.md",
+      "sha256": "sha256:0e527f208826a99d04e92a4710887a2d10a4501dcf1bfbde82d494dd4f714f83"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v6.md",
+      "sha256": "sha256:fd3f6b5b53c6c3c5d4587626953ed6a0753579e457ab0280fb06b70256346ca2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v14.md",
+      "sha256": "sha256:7fa0a3798047b1427d978bdcc238f04a8afa84ff64318b1d4b9b2abcccb8100b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v14.md",
+      "sha256": "sha256:641a8560ec704908976023ea2bc37b5c2e1cd1605f38872ae2a9ec5f41087c76"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v14.md",
+      "sha256": "sha256:9049970c23430ada195cfb04fc34618ca4a8907daa9f3b0d65801e40bee9afb2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v14.json",
+      "sha256": "sha256:ea4b9a05c98413f838dbca113c9414fb5aebc69f10bdd8ed9bf1eadabbf71654"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:bb19e2d4ba10559cc8568eb67960e6199895f6eaf79e3b9b8cd34b04a7b86fe8"
+    }
+  ],
+  "run_id": "change-design-50a67a6fa7e11bf9"
+}

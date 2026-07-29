@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 173,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V27_POISON_GENERATION_AND_M7_CHECKSET_UNCLOSED",
+  "summary": "Two independent R3 reviews agree that v27 is self-contained and closes prior policy, projection, status, transaction, lease, replay-retry, cleanup, Gate-loader and CCC gaps, but still mixes cutoff-wide and per-T future-poison oracles, lacks nested-directory publication rules, has no crash-commit protocol for authority generations, does not durably resolve conditional retry events, conflicts M7 replacement retries with the remaining 16-fit budget, fails to bind exact 17+4 check identities to the official behavior schema, and omits nullable sort and clean launcher environment rules.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v27.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v27_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v27.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v5.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v5.md",
+    "evidence/m6_5_pre_m7/m7_design_review_v5.md",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "contracts/immutable/research_contract_pit_v2.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:1517a81b731444e5c9a8528566d1e2fe97da9f183b9838441d6706a68051ced9",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "SINGLE_PIT_POISON_HORIZON",
+    "NESTED_DIRECTORY_TRANSACTION",
+    "AUTHORITY_GENERATION_CRASH_COMMIT",
+    "CONDITIONAL_EVENT_SKIP_RESOLUTION",
+    "M7_NO_REPLACEMENT_WITHIN_16_FIT_CAP",
+    "EXACT_OFFICIAL_PIT_BEHAVIOR_CHECKSET",
+    "NULLABLE_CANONICAL_SORT",
+    "CLEAN_REPLAY_ENVIRONMENT"
+  ]
+}

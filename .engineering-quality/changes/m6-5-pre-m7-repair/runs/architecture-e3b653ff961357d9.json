@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 99,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M6_ONLY_LINEAR_RESERVATION_ARCHITECTURE_READY",
+  "summary": "Architecture v18 replaces the ambiguous replay root with a typed M6-only policy/P-v2/profile/anchor chain and replaces generic state with a unique coordinate claim and explicit S0…S6 immutable predecessor lineage. It binds schema, ACL, writer, registry and receipt authority without M7 references or empirical authorization.",
+  "commands": [],
+  "subject_digest": "sha256:690484697271b00795a26f9e22bc04704114617a567f840fc3293ef40241715b",
+  "blockers": [],
+  "recorded_at": "2026-07-28T19:08:28+00:00",
+  "source_digest": "sha256:5d98fb9e298256a3043a9e3e098a8c155aa7c81431e61b4859dbb398ff3383a3",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v18.md",
+      "sha256": "sha256:690484697271b00795a26f9e22bc04704114617a567f840fc3293ef40241715b"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v17.md",
+      "sha256": "sha256:2079525e3f0c9e6746d2047da3dd201f3d2a360cbc7bcb6bb1db9759037620f8"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14.md",
+      "sha256": "sha256:c76c84b4246000e7b1432962c5de0fa1ffb8cf95dc832bf3957d984a82f75495"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v14_adversarial.md",
+      "sha256": "sha256:47d78fc8905db0eb5433dd1a53a67f7e262575fd9a5a0a1ff673115515b1505f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:51fed21186ee2686f755722de00ff73f3f830991d561df2d97970a16654c5e26"
+    }
+  ],
+  "run_id": "architecture-e3b653ff961357d9"
+}

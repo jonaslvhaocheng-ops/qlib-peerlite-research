@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 92,
+  "source_digest_observed": "sha256:60240c73fbb786c03434fd97e80b6935be0bb9729e811f3cbcf94356581eedd0",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "independent-adversarial-read-only-r3-review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "REPLAY_RESERVATION_ASSOCIATION_AND_DURABILITY_NOT_CLOSED",
+  "summary": "v16 correctly adds parent identity binding, but the acceptance contract does not require B/R/policy/name equality or a safe one-component leaf. The post-mkdir FD/lock/durability transaction and typed control-root digest edge remain implementation-ambiguous.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 1,
+    "P2": 2,
+    "P3": 0
+  },
+  "subject_digest": "sha256:fdba160c3e22680b3ba20844966fef0e673cbcb66b9ad1a3b51b0f283dba9e8a",
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v13.md",
+    "sha256": "sha256:fdba160c3e22680b3ba20844966fef0e673cbcb66b9ad1a3b51b0f283dba9e8a"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v16.md",
+    "sha256": "sha256:4a245590e8cc2a30610376167c67cbf3054d039a70fa2c7d410711f4d05992a4"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:0c625bb4dd01ab585bf825f3e52296520141dabdf34260dc9af6888ed476d7c5"
+  },
+  "review_report": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v13_adversarial.md",
+    "sha256": "sha256:379842ab2bc66a501452477a128865d5b20315f2cf60d2f93fd6560dc6a00132"
+  },
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v13_adversarial.md"
+  ],
+  "commands": [
+    "read-only rg --files/rg/nl/sed/shasum/git status",
+    "quality_ledger.py next --ledger .engineering-quality/changes/m6-5-pre-m7-repair/ledger.json --repo . (route inspection only)",
+    "read-only inspection of v11/v12/v14/v15 retained contracts and current replay/governance source interfaces",
+    "read-only consultation of Linux open(2), openat2(2), and mkdirat(2) semantics"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_adversary",
+    "limitations": [
+      "No product/test/contract/gate/ledger/historical-evidence implementation changes.",
+      "No training, M6 replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "Define and validate one canonical reservation-name/policy/parent-binding relation, including a non-escaping one-component leaf.",
+    "Specify a lock-held, sync-capable, durable post-mkdir reservation-state protocol before implementation.",
+    "Define a typed, pre-existing, acyclic control-root binding edge, then obtain a fresh independent design review."
+  ],
+  "next_route": "architecture"
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 245,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V45_EXTERNAL_BINDINGS_AND_BIT_DETERMINISM_READY",
+  "summary": "The v45 self-contained bounded bundle closes the v44 review findings with three hash-bound external authorities, a stable sidecar reconciliation lock, typed commit-prefix recovery receipts, latest-eligible T-close state revision selection, bit-exact state reducers, full frozen-tree/import and no-fit replay proof, and one-complete-date-per-optimizer-step CCC/refit semantics. The expanded matrix binds every new failure mode. This is design evidence only and authorizes no test execution, implementation, replay, fitting, PIT rerun, real-data access, budget mutation or final-OOS access.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v45.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v44.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v44.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v44_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v44_consolidated_result.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+    "contracts/changes/m7_initial_screen_budget_binding_v1.json",
+    "evidence/m6_5_pre_m7/static_m6_archive_binding_v1.json",
+    "evidence/m6_5_pre_m7/m6_archival_replay_binding_v1.json",
+    "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v3.md",
+    "evidence/m6_5_pre_m7/m6_archival_replay_contract_v3.md",
+    "evidence/m6_5_pre_m7/m7_bounded_design_v3.md",
+    "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v3.md",
+    "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v3.json",
+    "evidence/m6_5_pre_m7/current_control_pointer_v23.json",
+    "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:5eeb0350583d349f27f8eddb55c9fa502681dc74e7323020f83512cee1d066d3",
+  "blockers": []
+}
