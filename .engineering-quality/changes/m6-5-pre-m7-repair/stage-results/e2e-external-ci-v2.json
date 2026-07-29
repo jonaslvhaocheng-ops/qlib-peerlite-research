@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 320,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_V2_PUBLIC_BOUNDARIES_PASS",
+  "summary": "Clean-process acceptance proves the public RunIntent boundary rejects unbound and cyclic M7 requests with zero persistent effects, while seven M6 archival-evidence and replay-mechanics tests verify the frozen historical boundary. No M7 dispatch, fit, budget mutation, real-data or final-OOS access occurred.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/e2e_external_ci_v2_acceptance.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v2_independent.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v2.md",
+    "tests/test_m6_evidence.py",
+    "tests/test_m6_archive.py",
+    "tests/test_m6_archival_replay_script.py"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+      "executed_at": "2026-07-29T14:22:00+00:00",
+      "exit_code": 0,
+      "summary": "Expected bound/unbound RunIntent acceptance PASS with persistent_effects=0."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py",
+      "executed_at": "2026-07-29T14:22:00+00:00",
+      "exit_code": 0,
+      "summary": "Expected clean-checkout M6 archival boundary result: 7 passed."
+    }
+  ],
+  "subject_digest": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+  "blockers": []
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 227,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V40_INNER_AUTHORITY_REPLAY_CLOSURE_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm that v40 closes the one-way trust relation, reservation ordering, LP lease digest and observation-manifest evidence model, but the design is not mechanically closed. Required repairs are event-local typed inner artifacts and receipt equality, collision-safe execution identity and output-root containment, continuous worker lock ownership, explicit output-FD write authority, unambiguous immutable reference types, and exact replay transaction, pair-receipt and aggregate-result schemas consistent with pre-execution slot binding.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v40.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v40_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v40.md",
+    "evidence/m6_5_pre_m7/capacity_reservation_protocol_v11.md",
+    "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+    "evidence/m6_5_pre_m7/run_authority_generation_v10.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v18.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v18.md",
+    "evidence/m6_5_pre_m7/score_replay_identity_v1.md",
+    "evidence/m6_5_pre_m7/score_replay_plan_v1.md",
+    "evidence/m6_5_pre_m7/current_control_pointer_v18.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:a4f4a6539225c4ac02d4dcfa0971593d72c7e226dc69c683a58b2e2819c4076b",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or ledger.",
+      "No replay, training, real data, PIT, budget or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "EVENT_LOCAL_TYPED_INNER_ARTIFACTS",
+    "COLLISION_SAFE_EXECUTION_AND_RECEIPT_PATHS",
+    "CONTINUOUS_WORKER_LOCK_OWNERSHIP",
+    "OUTPUT_FD_WRITE_AUTHORITY",
+    "UNAMBIGUOUS_IMMUTABLE_REFERENCE_TYPES",
+    "CLOSED_REPLAY_TRANSACTION_AND_RECEIPTS",
+    "ADVERSARIAL_MATRIX_COVERAGE_AND_BASE_PATH"
+  ]
+}

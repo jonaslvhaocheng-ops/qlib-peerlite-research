@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 63,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "V8_CANONICAL_REPAIR_READY",
+  "summary": "Canonical v8 retains v6 sections 1-4 and 7 by exact hash and replaces the previously incomplete fit/publication and replay sections with explicit schemas, state transitions, failure behavior, platform limits, observability, and an ordered synthetic-only implementation plan. No M7, archival replay, or OOS execution is authorized.",
+  "commands": [],
+  "subject_digest": "sha256:c903ec58a789607cc1f7202f8279a4c1d0d58ac786157afd1116a34666b643cf",
+  "blockers": [],
+  "recorded_at": "2026-07-28T17:48:46+00:00",
+  "source_digest": "sha256:2c57d159053be1edeea00aaaafa7cf702a297124fbc50bbd3ed482e58296b983",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v8.md",
+      "sha256": "sha256:c903ec58a789607cc1f7202f8279a4c1d0d58ac786157afd1116a34666b643cf"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v11.md",
+      "sha256": "sha256:c3766c6aa50da57d0c0866d4f5542d1e227283da6a4abe5d2a15c2b67736d5f3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v6.md",
+      "sha256": "sha256:2130f8659f132fb637898d6ddfb78f8af4ccab1c7b4b52c12899111643a95f78"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v7.md",
+      "sha256": "sha256:8196f820e4407d0e907a04dcae997e9442f81a5a7877348c29cbedae7cae9b83"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v7_adversarial.md",
+      "sha256": "sha256:1f682193cecd9e4bc7d7c9f4c34e139b8cc42583bec283baa1c0b0fc89bc54dc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:08beadb575031595a0ec295004182dd878e274f5dc52f078ca2a2c514c1e2a54"
+    }
+  ],
+  "run_id": "change-design-d3df54b751ff922c"
+}

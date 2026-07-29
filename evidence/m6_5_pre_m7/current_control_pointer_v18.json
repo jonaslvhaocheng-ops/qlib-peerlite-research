@@ -1,0 +1,32 @@
+{
+  "schema_version": "qlib_peerlite_m6_5_control_pointer_v2",
+  "classification": "INFORMATIONAL_NAVIGATION",
+  "status": "M6_5_CHANGE_DESIGN_REPAIR",
+  "canonical_change_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v40.md",
+    "sha256": "a4f4a6539225c4ac02d4dcfa0971593d72c7e226dc69c683a58b2e2819c4076b"
+  },
+  "superseded_base": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v39.md",
+    "sha256": "1407085f50888501327a8398ef0e6dd1e15ad870f5fa93db34273321129aeb75"
+  },
+  "normative_bundle": [
+    {"path":"evidence/m6_5_pre_m7/capacity_reservation_protocol_v11.md","sha256":"209368c0dfe0d13f5471ada6d381ac5aec7e37ff06fb68442d379e196b05e252"},
+    {"path":"evidence/m6_5_pre_m7/nested_directory_recovery_v4.md","sha256":"57a46db7a4f4e2b142efbb5bbd0b3ea2dfa461a8817c8d675fa855d9f2760632"},
+    {"path":"evidence/m6_5_pre_m7/run_authority_generation_v10.md","sha256":"8a86443ea68582d84a69f5194b64a6d07ce7081f1f392e66b9905954b06371a8"},
+    {"path":"evidence/m6_5_pre_m7/m7_change_design_v18.md","sha256":"3b82fb2c5518f2765505169697fe139ffa4165751a0675e0607293fe0319d37a"},
+    {"path":"evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v18.md","sha256":"5ff12c3a924bdd4308eb8b69f76ea72a35db2be5dd935635a4f1b015da8b59f7"},
+    {"path":"evidence/m6_5_pre_m7/score_replay_identity_v1.md","sha256":"ed803a7df33eb3286d28a70ecd051c11d00911f1a1535d895eac9b580843d79f"},
+    {"path":"evidence/m6_5_pre_m7/score_replay_plan_v1.md","sha256":"96949101947b63b6d57d3ba963d7b7e95acc5513313eea5384f5b4418e43e145"}
+  ],
+  "latest_completed_review": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v39_consolidated_result.json",
+  "latest_review_verdict": "NEEDS_CHANGES",
+  "next_stage": "independent-r3-design-review-v40-bundle",
+  "m6_status": "PASS",
+  "m6_5_status": "NEEDS_CHANGES",
+  "m7_status": "NOT_RUN",
+  "live_run_authority_available": false,
+  "real_fit_authorized": false,
+  "final_oos_access_authorized": false,
+  "trial_budget_change_authorized": false
+}

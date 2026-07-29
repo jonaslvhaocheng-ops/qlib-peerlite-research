@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 261,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "V48_EXECUTABLE_TEST_PORTFOLIO_COMPLETE",
+  "summary": "The R3 test design maps every approved v48 behavior to deterministic unit, integration, contract, static or synthetic E2E coverage with exact fixtures, oracles, fault seams and 100% line/branch obligations. It covers T-close state and numeric edges, exact budget roster, all snapshot/receipt recovery and rebase transitions, cooperative concurrency, static archive identity, exhaustive no-fit/dependency replay proof, CCC/checkpoint/Gate mechanics and screen-only boundaries. No test code was written or executed.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:f298d0474ba9a80b355ead7e88c29f83061acda89a8f990c3b2ee1c96f253909",
+  "blockers": [],
+  "recorded_at": "2026-07-29T11:38:03+00:00",
+  "source_digest": "sha256:9dbe7b7bdd01b64507dbb5b1d1c33b1d5f18d8bcf7ca46b7fd4a905dfb916915",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_test_design_v1.md",
+      "sha256": "sha256:f298d0474ba9a80b355ead7e88c29f83061acda89a8f990c3b2ee1c96f253909"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v48.md",
+      "sha256": "sha256:4c3ae229338deed3b32722b9933a100688c9fb1ff3463c55dc65fc70522bc6c7"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v48_consolidated_result.json",
+      "sha256": "sha256:74dc3e40e35f2c38b5e6c4af186d2857176a3f45439efe73b5be0e2da8e5597c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v6.json",
+      "sha256": "sha256:bfd161ae21c8e81948c5d58e99103742397f47aa43a02be0d063cd83513385c2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v6.md",
+      "sha256": "sha256:b7f8b475d8aeaa152eaae45fee54711e1246ebcc6b2eff85d763a627739870af"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+      "sha256": "sha256:609297714b832136a242cb07981e7493ec9780f49caa6f5bd6c2c3f84a0f1d13"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    }
+  ],
+  "run_id": "test-design-1d4d73e4ca4b30a5"
+}

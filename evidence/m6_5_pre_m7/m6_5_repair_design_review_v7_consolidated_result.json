@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 61,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "GOVERNANCE_BOUNDARIES_NOT_CLOSED",
+  "summary": "Two independent read-only reviews of canonical design v7 found four in-scope P1 architecture gaps: fork-safe one-use dispatch, externally anchored authority activation, descriptor-bound terminal publication, and a complete staged replay runtime/import/native closure. M7, real fit, archival replay, and final OOS remain sealed.",
+  "issue_type": "architecture",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v7.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v7_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v7.md",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v10.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:b2fcfad0f3e0a3fdf7a82680d5d60c38e08bb000a2f59e0e25f0093b7f55b2a4",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "The independent reviewers were read-only and did not mutate product code, tests, contracts, gates, ledgers, or historical evidence.",
+      "No training, server replay, budget consumption, real PIT certification, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "M7 derived-contract freeze, real M7 fit, CCC/Gate experiments, archival replay, and final OOS remain prohibited until the replacement design passes independent review."
+  ]
+}

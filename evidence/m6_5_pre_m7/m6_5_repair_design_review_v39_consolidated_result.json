@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 223,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V39_SCHEMA_SANDBOX_MANIFEST_PLAN_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm v39's root, reservation, lease, reconciler, field-clock and full replay-identity repairs, but require distinct typed-content schema IDs and inner contracts, a one-way trusted-policy equality, path-mutation syscall denial, a closed observation evidence and digest model, execution-specific sandbox receipt slots, a closed replay plan, duplicate-before-promotion reservation ordering and LP-framed lease inventory digests.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v39.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v39_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v39.md",
+    "evidence/m6_5_pre_m7/capacity_reservation_protocol_v10.md",
+    "evidence/m6_5_pre_m7/run_authority_generation_v9.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v17.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v17.md",
+    "evidence/m6_5_pre_m7/score_replay_identity_v1.md",
+    "evidence/m6_5_pre_m7/current_control_pointer_v17.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:1407085f50888501327a8398ef0e6dd1e15ad870f5fa93db34273321129aeb75",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or ledger.",
+      "No replay, training, real data, PIT, budget or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "DISTINCT_CONTENT_SCHEMAS_AND_INNER_CONTRACTS",
+    "ONE_WAY_TRUSTED_POLICY_EQUALITY",
+    "FILESYSTEM_MUTATION_SANDBOX_DENY",
+    "OBSERVATION_EVIDENCE_DIGEST_COVERAGE",
+    "EXECUTION_SPECIFIC_SANDBOX_RECEIPTS",
+    "CLOSED_REPLAY_PLAN",
+    "DUPLICATE_BEFORE_PROMOTION_AND_LP_LEASE_DIGEST"
+  ]
+}

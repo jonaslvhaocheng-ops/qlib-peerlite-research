@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 318,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_V2_REVIEW_PASS",
+  "summary": "Independent read-only review confirms that external CI v2 closes the prior replay-command, public-release, mutable-action, same-PR verifier and duplicate-digest findings. The workflow uses pinned dependencies, the pinned canonical controller, minimal permissions and clean-checkout M6 evidence tests. No unresolved P0-P3 finding remains.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v2_independent.md"
+  ],
+  "evidence_paths": [
+    ".github/workflows/m65-external-quality-gate.yml",
+    ".github/CODEOWNERS",
+    "LICENSE",
+    "docs/PUBLICATION_POLICY.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/public_release_pre_push_audit.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_gate_v2.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v2.md",
+    ".engineering-quality/changes/m6-5-pre-m7-repair/runs/tests-green-f79d81f8ae44b3be.json"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only review; no repository, ledger, remote or GitHub settings were modified.",
+      "No M7 execution, model fit, real-data access, budget mutation or final-OOS access was performed.",
+      "External GitHub CI terminal execution remains a later independent gate."
+    ]
+  },
+  "blockers": []
+}

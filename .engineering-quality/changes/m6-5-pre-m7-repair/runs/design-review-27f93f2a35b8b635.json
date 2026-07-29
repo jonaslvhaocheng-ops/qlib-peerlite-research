@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 203,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V34_CAPACITY_ACTIVATION_BUDGET_AND_LIFECYCLE_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm the v33 marker-mode, derived-root, oversized-orphan, historical-delist and replay-grain repairs, but v34 remains fail-open or ambiguous around expected-byte and inode reservations, cross-protocol identity, durable activation, cross-generation budget and qualification order, pre-list semantics, closed transaction schemas, temp recovery, typed numeric canonicalization, and observation-to-source reconciliation.",
+  "commands": [],
+  "subject_digest": "sha256:611800375ad7c7700613fcf7367cd688cf39801917badcb45b6824c8428f1b64",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "CAPACITY_EXPECTED_AND_ENTRY_RESERVATION",
+    "CROSS_PROTOCOL_EQUALITY_AND_CLOSED_TRANSACTION_SCHEMAS",
+    "DURABLE_AUTHORITY_ACTIVATION",
+    "CROSS_GENERATION_BUDGET_AND_QUALIFICATION_ORDER",
+    "PRE_LIST_CARTESIAN_SEMANTICS",
+    "PRIVATE_TEMP_AND_INODE_RECOVERY",
+    "TYPED_NUMERIC_CANONICALIZATION_AND_PARSER_LOCATOR",
+    "LIFECYCLE_RECORD_HASH_CLOCK_AND_SOURCE_RECONCILIATION"
+  ],
+  "issue_type": "design",
+  "recorded_at": "2026-07-29T08:42:42+00:00",
+  "source_digest": "sha256:add7c43d69bbbad599f96c36ae30e9ce2faf8ff0d83398000a94e8ae69644008",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v34.md",
+      "sha256": "sha256:7fc62771e4e1a99752829a9cb07fba53ebb885c302aef9ab624bc1633d123356"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v34_adversarial.md",
+      "sha256": "sha256:faca44510b5904f669228b68ef18c3abba6c49ef13d03631d84fc3178e5784f2"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v34.md",
+      "sha256": "sha256:611800375ad7c7700613fcf7367cd688cf39801917badcb45b6824c8428f1b64"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v5.md",
+      "sha256": "sha256:88a89838f6df0b85930fadcadb966fb44e969c2d6ef9a8b8feaae2e8fe4bb7f4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/nested_directory_recovery_v1.md",
+      "sha256": "sha256:c353228c7778d85dc114045b35b70aad5ca3c3f94d4beb3925241f5017cd28d1"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v4.md",
+      "sha256": "sha256:3e2d106b944f2aebfab72422b8a74f53f271aae12e601f2e98bb4c73808fe44d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v12.md",
+      "sha256": "sha256:80240e3cd0cb6c569a35f755d187f92d51437c4da25dd617242af0fd2c911130"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v12.md",
+      "sha256": "sha256:9df558dcb671facc1556ace0b53b9f855a67bc68fd80677dfbbf781c6f60d6d3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v12.md",
+      "sha256": "sha256:0278f4d3317679d18357d9f1fb910b838ab653ba511c319cdc98463f8c55afa0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v12.json",
+      "sha256": "sha256:908f32cfbdcb26bb5313d3ca5e09481d0add9ae03bc3f3e5bbc9072491e47a82"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:9986cb24907eb21e1875657a4291f570f4935923c6a1133dcce1edc7a8089807"
+    }
+  ],
+  "run_id": "design-review-27f93f2a35b8b635"
+}

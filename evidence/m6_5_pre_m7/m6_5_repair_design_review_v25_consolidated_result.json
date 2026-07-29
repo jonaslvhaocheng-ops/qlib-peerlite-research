@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 165,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V25_LIFECYCLE_AND_M7_CONTRACTS_UNCLOSED",
+  "summary": "Two independent R3 reviews agree that v25 fixes the v24 publication, logical poison, sealing and runtime-policy direction, but still lacks complete PIT event lifecycles, confuses post-cutoff known clocks with null clocks, can abandon a valid multi-event run, has no claim-to-outcome lease and crash terminal, does not close the staging seal/publication order, and leaves the M7 V2 qualification, Gate capability, screening prerequisites, CCC numeric semantics and stage-owned test responsibilities incomplete.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v25.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v25_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v25.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v3.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v3.md",
+    "evidence/m6_5_pre_m7/m7_design_review_v3.md",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "contracts/immutable/research_contract_pit_v2.json",
+    "contracts/cost_spec.json",
+    "contracts/benchmark_spec.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:f59698a1e76b8bcf9e23895b39222f1abc151c7b36e4cf189d1632d1b9f3f3c2",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "PIT_DAILY_LIFECYCLE_AND_POST_C_CLOCK_SEMANTICS",
+    "EVENT_RUN_TERMINAL_AND_CLAIM_OUTCOME_LEASE",
+    "STAGING_SEAL_PUBLICATION_AND_OUTPUT_ORDER",
+    "M7_V2_QUALIFICATION_AND_GATE_CAPABILITY",
+    "M7_SCREENING_FIRST_FIT_PREREQUISITES",
+    "CCC_NUMERIC_DTYPE",
+    "M7_TEST_STAGE_OWNERSHIP"
+  ]
+}

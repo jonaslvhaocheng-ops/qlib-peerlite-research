@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 127,
+  "source_digest_observed": "sha256:c6788d62318141b3a5f16e09f69e185303247910946582cb6501fad6b7b963a0",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "independent-adversarial-read-only-r3-review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "RELEASE_PROVENANCE_CHILD_RECEIPT_ACCEPTANCE_RECOVERY_AND_WORKER_ADAPTER_NOT_CLOSED",
+  "summary": "v22/v19 materially close the Context, slot topology, writer matrix, observed PASS bytes and held-lock route. But the root release policy and exact M6.5 quality-evidence inventory are still passed as abstract policy data, ChildReceipt has no valid writer/publication handoff, post-S5 acceptance publication has undefined crash recovery, and the unchanged path-only mechanics worker lacks a sealed-FD staging adapter.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 4,
+    "P2": 0,
+    "P3": 0
+  },
+  "subject_digest": "sha256:c6788d62318141b3a5f16e09f69e185303247910946582cb6501fad6b7b963a0",
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v19.md",
+    "sha256": "sha256:c6788d62318141b3a5f16e09f69e185303247910946582cb6501fad6b7b963a0"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v22.md",
+    "sha256": "sha256:389ccd530c7705244e9025ef72efd891527a55a97286f14293e4912f12af49e9"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:0df94baf38b64030bf34a45eba8531bb87081cbef19f5e74308918480b41ab42"
+  },
+  "review_report": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19_adversarial.md",
+    "sha256": "sha256:ce8e70223b8fc623c8bd311a36a71edd9dc19ea5b59b1ec05bed53143c221b34"
+  },
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v22.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v19.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "scripts/server/verify_m6_peerlite_archival_replay.py",
+    "docs/STATUS.md"
+  ],
+  "commands": [
+    "read-only rg --files/rg/nl/sed/wc/python3 SHA inspection/git status",
+    "read-only inspection of current M6.5 gate/change request and historic mechanics worker source"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v18_adversary",
+    "limitations": [
+      "No product/test/contract/gate/ledger/status/historical-evidence implementation changes.",
+      "No training, archival replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "Anchor the release policy and the exact M6.5 quality-evidence inventory as observed immutable input before Bootstrap/PASS issuance.",
+    "Define one feasible ChildReceipt author/publisher/slot/IPC model consistent with the writer matrix and held-lock boundary.",
+    "Define deterministic lock-held recovery for ArchiveAcceptanceReceipt, S6 and FinalIndex partial-publication states.",
+    "Define a sealed staging/FD-to-path adapter for the unchanged mechanics worker and bind actual executed inputs/output to ChildReceipt.",
+    "Re-run independent R3 design review before test design or implementation."
+  ],
+  "next_route": "architecture"
+}

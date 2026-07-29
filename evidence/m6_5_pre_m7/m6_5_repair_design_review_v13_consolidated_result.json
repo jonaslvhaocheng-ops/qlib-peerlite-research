@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 93,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "REPLAY_RESERVATION_ASSOCIATION_AND_DURABILITY_NOT_CLOSED",
+  "summary": "The lead review passed v16/v13, but the independent adversarial review found a stricter in-scope P1 that controls routing: the binding, reservation, namespace policy and derived basename are not constrained by exact cross-object equality and basename grammar, permitting a hash-valid semantic composite to select an incorrect output leaf. It also found two R3-blocking P2 implementation-contract gaps: no typed, acyclic control-root anchor producer/content universe, and no exact post-mkdir lock/sync-FD/durability order. Architecture must be repaired before test design or implementation.",
+  "issue_type": "architecture",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v13.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v13_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v16.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v13.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:fdba160c3e22680b3ba20844966fef0e673cbcb66b9ad1a3b51b0f283dba9e8a",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "Reviews were read-only and made no product, test, contract, gate, ledger, or historical-evidence changes.",
+      "No empirical training, M6 replay, PIT certification, budget consumption, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Define a canonical, typed, duplicate-key-free DAG and exact B↔reservation↔policy↔basename equations with a single-component basename grammar.",
+    "Specify the post-mkdir lock/sync-FD/fsync/receipt durability sequence and a typed, pre-existing, cycle-free control-root anchor before fresh review.",
+    "Do not enter test design, red tests, implementation, code review, M7, CCC/Gate, server replay, or final OOS until corrected design receives fresh independent PASS."
+  ]
+}

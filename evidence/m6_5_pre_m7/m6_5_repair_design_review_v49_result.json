@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 270,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "RUN_INTENT_V2_IDENTITY_IS_SHALLOWLY_MUTABLE",
+  "summary": "The bounded dual-authority rule is directionally correct, but caller-owned mutable containers allow one RunIntent to produce changing V2 hashes; V2 canonicalization is not guaranteed at construction; and the design overstates the currently landed caller and verification surface.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v49_independent_b.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v49.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v48.md",
+    "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v6.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v29.md",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "src/qlib_peerlite/governance/artifacts.py",
+    "scripts/reconcile_trial_ledger.py",
+    "tests/test_m65_expected_red.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:bac89c843cbb394240c852015b2eb910f5249f95564e231edd2d25dd13fadf4a",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v45_adversarial_retry",
+    "limitations": [
+      "Read-only review; no production, design or ledger edits.",
+      "No replay, fit, PIT, real-data access, CCC or Gate execution."
+    ]
+  },
+  "blockers": [
+    "Take and validate an owned immutable V2 canonical snapshot at construction while preserving V1 byte identity.",
+    "Specify V2-only recursive JSON/NFC validation and reject invalid binding content before side effects.",
+    "Describe the current state as a RunIntent-class-only partial slice until caller and verification obligations land."
+  ]
+}

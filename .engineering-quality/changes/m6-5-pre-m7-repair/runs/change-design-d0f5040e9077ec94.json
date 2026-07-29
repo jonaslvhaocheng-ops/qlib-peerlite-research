@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 268,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "IMPLEMENTED_SLICE_BOUND_TO_V48_MAINLINE",
+  "summary": "Design v49 binds the actual RunIntent source object to the approved v48 mainline without expanding scope: M7 initial-screen requires both frozen authorities before identity creation, bound intents use canonical V2 identity, and historical unbound non-M7 intents retain V1 compatibility. Failure is side-effect-free and all replay, fit, PIT, real-data, budget-mutation and final-OOS work remains forbidden.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:bac89c843cbb394240c852015b2eb910f5249f95564e231edd2d25dd13fadf4a",
+  "blockers": [],
+  "recorded_at": "2026-07-29T11:48:47+00:00",
+  "source_digest": "sha256:6a24917e1e993769ea615bebc3853ae87d4d4827c8d1fd89b488af771f23de5b",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v49.md",
+      "sha256": "sha256:bac89c843cbb394240c852015b2eb910f5249f95564e231edd2d25dd13fadf4a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v48.md",
+      "sha256": "sha256:4c3ae229338deed3b32722b9933a100688c9fb1ff3463c55dc65fc70522bc6c7"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v6.json",
+      "sha256": "sha256:bfd161ae21c8e81948c5d58e99103742397f47aa43a02be0d063cd83513385c2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v29.md",
+      "sha256": "sha256:d59ca3e2fcf5d627ba2459a530070d30d3acf499cd862400854b2ba2916e6b60"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:127ecbfb9cf2f7a89302e6d917bef5ac99b8ffe4f6cd21b90bc50a4822d489a4"
+    },
+    {
+      "path": "tests/test_m65_expected_red.py",
+      "sha256": "sha256:9e1b63f2f7c23d3deabd8c0e8e48fbd0d5cae1d0140d0de4aec21abcf93c21bf"
+    }
+  ],
+  "run_id": "change-design-d0f5040e9077ec94"
+}

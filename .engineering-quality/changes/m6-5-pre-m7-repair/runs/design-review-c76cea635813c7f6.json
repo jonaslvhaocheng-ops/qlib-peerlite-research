@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 211,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V36_BLOCKS_LEDGER_TRUST_RESOLVER_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm the logical payload bijection, committed budget, qualification, PIT history and replay-grain repairs, but v36 remains incomplete around physical block reservation and lease bootstrap, phase-specific final inventories, durable event-ledger transitions, external issuer trust, parser and historical resolver resources, exact control slots, event identity, chmod durability, replay digest preimages and explicit negative fixtures.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:291d9edca6b69bcc9004c51ddf4ffcfe59b6c196d2367bc9a648815ab1b728a7",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "PHYSICAL_BLOCK_CAPACITY_AND_LEASE_BOOTSTRAP",
+    "PHASE_SPECIFIC_FINAL_INVENTORY_AND_CONTROL_SCAN",
+    "EVENT_LEDGER_TRANSITION_RESULT_AND_IDENTITY",
+    "EXTERNAL_ISSUER_TRUST_REGISTRY",
+    "PARSER_RESOURCE_AND_HISTORICAL_RESOLVER_CLOSURE",
+    "CONTROL_SLOT_COUNT_AND_CHMOD_DURABILITY",
+    "REPLAY_DIGEST_PREIMAGES_AND_MATRIX_GRAIN"
+  ],
+  "recorded_at": "2026-07-29T09:18:50+00:00",
+  "source_digest": "sha256:cecbb5f33a9f9085f025552485888c837bb2e7f655a8845f6d9df0c5b4da2033",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v36.md",
+      "sha256": "sha256:ebfb6dbec667ead1be24e313c95d705fa7c1f288c0c46acecb6a81e0624871a9"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v36_adversarial.md",
+      "sha256": "sha256:8c9f01b63ffad32cdd88e2fd4ef411cb250624637a67da8f2795cc026aec9dac"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v36.md",
+      "sha256": "sha256:291d9edca6b69bcc9004c51ddf4ffcfe59b6c196d2367bc9a648815ab1b728a7"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v7.md",
+      "sha256": "sha256:79696cfa6b071c29673a44fb85456b484fdbc5ee7eb28f65f8ba0abeb8717fbf"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/nested_directory_recovery_v3.md",
+      "sha256": "sha256:0e527f208826a99d04e92a4710887a2d10a4501dcf1bfbde82d494dd4f714f83"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v6.md",
+      "sha256": "sha256:fd3f6b5b53c6c3c5d4587626953ed6a0753579e457ab0280fb06b70256346ca2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v14.md",
+      "sha256": "sha256:7fa0a3798047b1427d978bdcc238f04a8afa84ff64318b1d4b9b2abcccb8100b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v14.md",
+      "sha256": "sha256:641a8560ec704908976023ea2bc37b5c2e1cd1605f38872ae2a9ec5f41087c76"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v14.json",
+      "sha256": "sha256:ea4b9a05c98413f838dbca113c9414fb5aebc69f10bdd8ed9bf1eadabbf71654"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:bb19e2d4ba10559cc8568eb67960e6199895f6eaf79e3b9b8cd34b04a7b86fe8"
+    }
+  ],
+  "run_id": "design-review-c76cea635813c7f6"
+}

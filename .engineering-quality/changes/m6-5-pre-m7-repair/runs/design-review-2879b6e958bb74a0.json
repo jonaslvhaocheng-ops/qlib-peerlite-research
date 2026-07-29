@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 13,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "GATE_BYPASS_PIT_AUTHORITY_REPLAY_TRUST_GAPS",
+  "summary": "Independent review found that the proposed repair still permits the legacy PeerLite Gate to consume future-conditioned M3 market columns, incorrectly treats PIT VERIFY as a positive training gate, lacks an external RunAuthority grant, and relies on verifier self-attestation for replay. The genesis archive-proof schema also remains incomplete.",
+  "issue_type": "architecture",
+  "commands": [],
+  "subject_digest": "sha256:0550c0330add31ea9327f0d99a43832d14b295bae9d03f9bc8d274d4b7581d7a",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m6_5_design_review_v2",
+    "limitations": [
+      "Read-only design review; no production, test, contract, ledger, server, training, or final-OOS mutation."
+    ]
+  },
+  "blockers": [
+    "M7 derived-contract freeze, real M7 fit, CCC/Gate experiments, and final OOS remain prohibited until the design defects are resolved and re-reviewed."
+  ],
+  "recorded_at": "2026-07-28T16:48:00+00:00",
+  "source_digest": "sha256:8a9a6b7482478c54eb341d44fd04df7361af9488450171c4c310d062480215e1",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v2.md",
+      "sha256": "sha256:0550c0330add31ea9327f0d99a43832d14b295bae9d03f9bc8d274d4b7581d7a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v2.md",
+      "sha256": "sha256:e1d537506c7cda076f17420caca18b02eec6f7ba9b370d5547e536b3d6b6a77e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v4.md",
+      "sha256": "sha256:3cf28947ab7eff5b1c9e94d6caf571203a572daafb5855fcd72ff754ab8556fa"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "evidence/gates/M6_peerlite_gate.json",
+      "sha256": "sha256:83cdc68597e6b3bddc79fe366d71d9c4cc08398d88f06c94087d4b56bbf8ae86"
+    },
+    {
+      "path": "contracts/immutable/m6_trial_budget_start.json",
+      "sha256": "sha256:01d32b937c3a8a3c3869b4a44783301cf002ef9299314d0011d3840673e23741"
+    },
+    {
+      "path": "contracts/trial_ledger.jsonl",
+      "sha256": "sha256:31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_server_receipt_v2.json",
+      "sha256": "sha256:851b37e6ff9f66e804ccb1bae23df1f190b22019cdae38f7b99e4033ad72208e"
+    },
+    {
+      "path": "src/qlib_peerlite/data/market_state.py",
+      "sha256": "sha256:b9b8b1052ae32bf3812a06b42d83520a089cbb9bb3604cc755362375fc470706"
+    },
+    {
+      "path": "src/qlib_peerlite/data/qlib_dataset.py",
+      "sha256": "sha256:095a8f22ee014db37fa374083d73ed859352b4afcb7a5195129204da88ce1081"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    }
+  ],
+  "run_id": "design-review-2879b6e958bb74a0"
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 266,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "BOUND_RUN_INTENT_SLICE_WITHIN_APPROVED_ARCHITECTURE",
+  "summary": "The implemented RunIntent authority-binding slice remains entirely inside governance.trial_ledger, preserves historical non-M7 V1 identity, introduces only a future-M7 V2 identity, and adds no dependency, process, service, runtime, data owner or privileged control plane. Architecture v28 remains sufficient and the implementation remains bounded by the approved v48 closure.",
+  "issue_type": null,
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v29.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v48.md",
+    "evidence/m6_5_pre_m7/m6_5_implementation_slice_v1.md",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "tests/test_m65_expected_red.py",
+    "evidence/m6_5_pre_m7/m6_5_test_design_v1.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:d59ca3e2fcf5d627ba2459a530070d30d3acf499cd862400854b2ba2916e6b60",
+  "blockers": []
+}

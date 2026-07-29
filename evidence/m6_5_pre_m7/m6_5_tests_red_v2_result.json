@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 287,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "MUTABLE_NESTED_AUTHORITY_PRODUCES_EXPECTED_RED",
+  "summary": "The smallest v50 behavior test fails for the intended product gap: after valid construction, mutating caller-owned nested authority containers changes the same RunIntent V2 identity. The failure is an identity assertion, not a syntax, import, fixture, harness or environment error; the existing unbound-M7 rejection remains green.",
+  "issue_type": "product-code",
+  "artifact_paths": [
+    "tests/test_m65_expected_red.py"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_tests_red_v2.md",
+    "evidence/m6_5_pre_m7/m6_5_test_design_v2.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m65_expected_red.py",
+      "executed_at": "2026-07-29T20:03:19+08:00",
+      "exit_code": 1,
+      "summary": "Expected red: caller mutation changed an already-constructed RunIntent V2 identity."
+    }
+  ],
+  "subject_digest": "sha256:5b4f82684d99e8d09d3b772ab87ebc7c1bb9b5a9eb8f6c2c7888e7cf84228129",
+  "blockers": []
+}

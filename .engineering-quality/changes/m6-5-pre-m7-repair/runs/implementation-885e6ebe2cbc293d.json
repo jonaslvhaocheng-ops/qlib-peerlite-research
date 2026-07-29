@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 315,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_REVIEW_FINDINGS_CLOSED",
+  "summary": "Closed the external-CI review findings by replacing the impossible server replay invocation with clean-checkout archival evidence tests, pinning all Actions and uv, invoking the immutable external canonical quality controller, removing the duplicate verifier, and freezing a public-release boundary with an empty credential scan.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py",
+      "executed_at": "2026-07-29T14:19:02+00:00",
+      "exit_code": 0,
+      "summary": "Seven clean-checkout M6 archival-evidence and replay-mechanics tests passed."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T14:19:02+00:00",
+      "exit_code": 0,
+      "summary": "Complete repository suite passed: 86 tests."
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-29T14:19:02+00:00",
+      "exit_code": 0,
+      "summary": "All self-authored source, tests and scripts pass Ruff."
+    },
+    {
+      "command": ".venv/bin/python /Users/jonas/Desktop/重要资料/各种skill/工程质量技能/scripts/quality/quality_ledger.py validate --ledger .engineering-quality/changes/m6-5-pre-m7-repair/ledger.json --repo .",
+      "executed_at": "2026-07-29T14:19:02+00:00",
+      "exit_code": 0,
+      "summary": "Canonical engineering-quality ledger validation passed."
+    }
+  ],
+  "subject_digest": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+  "blockers": [],
+  "recorded_at": "2026-07-29T14:19:41+00:00",
+  "source_digest": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_gate_v2.md",
+      "sha256": "sha256:960e2d52ef8a6aa7bb8bb412dd9ce129d790022e78c943ec3561339766076b44"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v1_independent.md",
+      "sha256": "sha256:3d71fc3585b1aa93efa6d17ed24036601975cf692c271fd63e83ed57df53d6d9"
+    },
+    {
+      "path": ".github/workflows/m65-external-quality-gate.yml",
+      "sha256": "sha256:9bf0f8560f91302e030454bd602dfbe565488c8efbd35b78c132719e05d7477f"
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "sha256": "sha256:75a9e00951132e04cea8e97296a5d61a019ec59e24a1407ca21b7731d81d37c0"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "sha256:1ce8610db4bc0a5a4839ca1f62ad7c988288727fa9dc82d60cfc045cb2cbe078"
+    },
+    {
+      "path": "docs/PUBLICATION_POLICY.md",
+      "sha256": "sha256:d2f8d9f8692febe725a57f32791841cae1688e7fb6ca06406cae72f44189c049"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/public_release_pre_push_audit.md",
+      "sha256": "sha256:b318f2aa2ffd2b39d176361511ab044929db5af23c4cbcbac585ef62f7869e7c"
+    }
+  ],
+  "run_id": "implementation-885e6ebe2cbc293d"
+}

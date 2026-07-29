@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 247,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "STATIC_SOURCE_RECEIPT_AND_REPLAY_CLOSURE_INCOMPLETE",
+  "summary": "Two independent read-only reviews agree that v45 preserves the bounded architecture and closes most v44 findings, but test design is still blocked. The minimal repair must bind frozen source identity into the static archive, make receipt no-op/recovery immutable across later suffixes, prevent sidecar drift before any mutation, use a canonical checkpoint digest, close private fit aliases and the third-party import roster, enforce the exact budget roster per event, and freeze remaining revision/signed-zero/nonfinite encodings.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v45.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v45_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v45.md",
+    "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v3.json",
+    "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v3.md",
+    "evidence/m6_5_pre_m7/m6_archival_replay_contract_v3.md",
+    "evidence/m6_5_pre_m7/m7_bounded_design_v3.md",
+    "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v3.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:5eeb0350583d349f27f8eddb55c9fa502681dc74e7323020f83512cee1d066d3",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v45_adversarial_retry",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or the quality ledger.",
+      "No tests, implementation, replay, fit, real-data access, PIT rerun, budget mutation or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "STATIC_FROZEN_SOURCE_IDENTITY",
+    "IMMUTABLE_RECEIPT_AFTER_LATER_SUFFIX",
+    "PREMUTATION_STABLE_LOCK_PROOF",
+    "CANONICAL_CHECKPOINT_DIGEST",
+    "PRIVATE_ALIAS_AND_DEPENDENCY_IMPORT_CLOSURE",
+    "EXACT_EVENT_ROSTER_ENFORCEMENT",
+    "REVISION_AND_BINARY64_EDGE_ENCODING"
+  ]
+}

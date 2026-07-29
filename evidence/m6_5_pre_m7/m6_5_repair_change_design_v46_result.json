@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 249,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V46_MINIMAL_STATIC_RECEIPT_REPLAY_CLOSURE_READY",
+  "summary": "The v46 self-contained bundle makes only the bounded repairs requested by the v45 reviews: static frozen-source identity, immutable receipt semantics across later suffixes, pre-mutation sidecar checks, an immutable reconciliation snapshot, exact event-roster validation, canonical checkpoint semantics, private alias and call-closure no-fit guards, lock-bound transitive dependency identity, and exact revision/signed-zero/nonfinite encodings. It adds no model, service, production control plane or research direction. This registers design evidence only and authorizes no test execution, implementation, replay, fit, PIT rerun, real-data access, budget mutation or final-OOS access.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v46.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v45.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v45.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v45_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v45_consolidated_result.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+    "contracts/changes/m7_initial_screen_budget_binding_v1.json",
+    "evidence/m6_5_pre_m7/static_m6_archive_binding_v2.json",
+    "evidence/m6_5_pre_m7/m6_archival_replay_binding_v2.json",
+    "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v4.md",
+    "evidence/m6_5_pre_m7/m6_archival_replay_contract_v4.md",
+    "evidence/m6_5_pre_m7/m7_bounded_design_v4.md",
+    "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v4.md",
+    "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v4.json",
+    "evidence/m6_5_pre_m7/current_control_pointer_v24.json",
+    "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:05f21bf9b15497e85b16538c8497495440d6216246642af318b113f2e55df37f",
+  "blockers": []
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 157,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V23_CRASH_AUTHORITY_STATE_AND_REPLAY_BINDINGS_UNCLOSED",
+  "summary": "Two independent R3 reviews agree that v23 preserves the bounded M6.5 architecture but still permits reuse of a fit authorization after crash, does not fully freeze or physically isolate every non-market state source, lacks a live authority anchor and unique run index, uses non-atomic no-replace publication semantics, leaves post-tail run termination undefined, and does not prove replay-consumed bytes equal the measured bytes.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:b5ba1f3cd84923911ed5c2a3b3c522da9fed8b85069bd1f63eb24b9c1bd92e8d",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v23_design_review,/root/m65_v23_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "ONE_SHOT_FIT_LAUNCH_CLAIM_AND_POST_TAIL_TERMINAL_STATE",
+    "MARKET_STATE_SOURCE_ADAPTER_AND_PREOOS_PHYSICAL_SLICE",
+    "LIVE_AUTHORITY_ANCHOR_AND_GLOBAL_RUN_ID_INDEX",
+    "CRASH_ATOMIC_NO_REPLACE_PUBLICATION",
+    "REPLAY_CONSUMED_BYTES_STAGING_AND_RUNTIME_CANONICALIZATION"
+  ],
+  "recorded_at": "2026-07-29T00:07:17+00:00",
+  "source_digest": "sha256:d20c17c0c029377f2edfe53773496eb7c32437af29e42868c9e5a6d0c088d40d",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v23.md",
+      "sha256": "sha256:39b12232274d6cd56769e283f89117ae3864ddba55aed32cea8aa6b5cb0b18bf"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v23_adversarial.md",
+      "sha256": "sha256:abbf1be62453692ccb4b9b341daf0411ceb79083a5bc67a514bd16425c1b8be8"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v23.md",
+      "sha256": "sha256:b5ba1f3cd84923911ed5c2a3b3c522da9fed8b85069bd1f63eb24b9c1bd92e8d"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+      "sha256": "sha256:694fb03169dac8be9c3992a6cd39634a4f0300e5ea638d5b8fedd589e30d226b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v1.md",
+      "sha256": "sha256:3fc276c67ef889c41495a37fc139b2ffaee98e3e216f8040276c71365a530caf"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v1.json",
+      "sha256": "sha256:cba783a3ff347ad91aeed4d7db221cff50f7b89520040fb918b70c5e1ff4c798"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "contracts/immutable/research_contract_pit_v2.json",
+      "sha256": "sha256:2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c"
+    },
+    {
+      "path": "src/qlib_peerlite/data/features.py",
+      "sha256": "sha256:0de3b798e8f49032bb04c58507ab471591e167013d58ea9f3f86e62308b47ef0"
+    },
+    {
+      "path": "src/qlib_peerlite/data/market_state.py",
+      "sha256": "sha256:b9b8b1052ae32bf3812a06b42d83520a089cbb9bb3604cc755362375fc470706"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "scripts/server/build_sealed_source_snapshot.py",
+      "sha256": "sha256:ab3ac8dcf451418c72ad6028d6dd1c1fe1ba51893f09bd03357377f43b165703"
+    },
+    {
+      "path": "scripts/server/build_pit_data_product.py",
+      "sha256": "sha256:c6b499ba3037b64026f0784627b745494eca019ae6208ad2dc33c94889ac8d30"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_frozen_source_0af4572_manifest.json",
+      "sha256": "sha256:104740de8bb55b9ec07706f836e764cd40c45931516e43ab361de74861c6bd2c"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:b3c7d027ea65f39d2a6e770465360471479d2fd2f91eb19ec54657529405cc8a"
+    }
+  ],
+  "run_id": "design-review-378d88595d160af2"
+}

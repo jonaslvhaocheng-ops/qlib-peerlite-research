@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 312,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "EXTERNAL_CI_GATE_HAS_BLOCKING_REVIEW_FINDINGS",
+  "summary": "The external CI command is guaranteed to fail because the server archival replay requires unavailable bound assets; the now-public repository also needs an explicit release-safety boundary. Mutable Action tags and the same-PR custom quality verifier weaken the public R3 gate.",
+  "issue_type": "review-finding",
+  "commands": [],
+  "subject_digest": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only review; no files, ledger entries, remote branches or GitHub settings were modified.",
+      "No M7, model fit, real-data operation, budget mutation or final-OOS access was performed."
+    ]
+  },
+  "blockers": [
+    "CI archival replay invocation lacks required arguments and server assets.",
+    "PUBLIC visibility needs a completed release-safety boundary.",
+    "Third-party Actions are not pinned to immutable commits.",
+    "The same-PR custom quality verifier is not an independent canonical anchor."
+  ],
+  "recorded_at": "2026-07-29T14:17:08+00:00",
+  "source_digest": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v1_independent.md",
+      "sha256": "sha256:3d71fc3585b1aa93efa6d17ed24036601975cf692c271fd63e83ed57df53d6d9"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".github/workflows/m65-external-quality-gate.yml",
+      "sha256": "sha256:43f4eef87a5857e66d468949b0658a76dc356b32db5a4bf2a6d1731b09a82735"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/ci_verify_m65.py",
+      "sha256": "sha256:ae17e452bde0838d4a388bb95f59057ae2ed65207108db171daaab6dcd44c236"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/repository_identity_migration_20260729.md",
+      "sha256": "sha256:55084ca8b87c16502137e050d2bf68cf92ae92ef9f6a4dfed2f625ec9873f5af"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_gate.md",
+      "sha256": "sha256:dee8f6b867595ad98d5c637e6001144a4210bbe7346e567d70309781f83f15cc"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate.md",
+      "sha256": "sha256:a03b009c7ff8aed26faf3d5f309c52d51bc039fabc959b55f8e50b8e11915891"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/repository_visibility_public_20260729.md",
+      "sha256": "sha256:a835014f35d53b6bda8b3dae68765146a4bf1082a64514c200968b96659c0eaa"
+    }
+  ],
+  "run_id": "code-review-31d2b30fa86dfa8e"
+}

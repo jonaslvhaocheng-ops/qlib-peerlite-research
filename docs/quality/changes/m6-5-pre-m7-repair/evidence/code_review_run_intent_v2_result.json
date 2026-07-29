@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 295,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "RUN_INTENT_V2_CONSTRUCTOR_TYPE_CONTRACT_MISMATCH",
+  "summary": "The V2 normalization, deep freeze, cached identity, V1 compatibility and protected coverage evidence are otherwise coherent, but RunIntent publicly annotates Mapping inputs while rejecting every non-exact-dict Mapping at runtime. The constructor API must be aligned with the frozen exact-dict contract and protected by an API regression.",
+  "issue_type": "product-code",
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_run_intent_v2_independent.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_run_intent_v2.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_run_intent_v2.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_coverage.json",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "tests/test_run_intent_v2.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:1f471d4195d93c27f1db31e2158205c97dc8dda371f3e46787c26d4c072779a7",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only code review; supplied execution receipts were inspected, not rerun by the reviewer.",
+      "No replay, fit, PIT, real-data access, budget mutation, CCC or Gate execution."
+    ]
+  },
+  "blockers": [
+    "Align the RunIntent constructor annotation with the exact-dict runtime contract while preserving read-only post-construction properties."
+  ]
+}

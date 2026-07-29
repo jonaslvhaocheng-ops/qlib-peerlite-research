@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 315,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_REVIEW_FINDINGS_CLOSED",
+  "summary": "Closed the external-CI review findings by replacing the impossible server replay invocation with clean-checkout archival evidence tests, pinning all Actions and uv, invoking the immutable external canonical quality controller, removing the duplicate verifier, and freezing a public-release boundary with an empty credential scan.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_gate_v2.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v1_independent.md",
+    ".github/workflows/m65-external-quality-gate.yml",
+    ".github/CODEOWNERS",
+    "LICENSE",
+    "docs/PUBLICATION_POLICY.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/public_release_pre_push_audit.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py",
+      "executed_at": "2026-07-29T14:19:02+00:00",
+      "exit_code": 0,
+      "summary": "Seven clean-checkout M6 archival-evidence and replay-mechanics tests passed."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T14:19:02+00:00",
+      "exit_code": 0,
+      "summary": "Complete repository suite passed: 86 tests."
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-29T14:19:02+00:00",
+      "exit_code": 0,
+      "summary": "All self-authored source, tests and scripts pass Ruff."
+    },
+    {
+      "command": ".venv/bin/python /Users/jonas/Desktop/重要资料/各种skill/工程质量技能/scripts/quality/quality_ledger.py validate --ledger .engineering-quality/changes/m6-5-pre-m7-repair/ledger.json --repo .",
+      "executed_at": "2026-07-29T14:19:02+00:00",
+      "exit_code": 0,
+      "summary": "Canonical engineering-quality ledger validation passed."
+    }
+  ],
+  "subject_digest": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+  "blockers": []
+}

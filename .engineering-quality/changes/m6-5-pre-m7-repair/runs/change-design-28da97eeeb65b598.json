@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 82,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "SELF_CONTAINED_V11_DESIGN_READY",
+  "summary": "Self-contained v11 is the sole implementation contract. It explicitly includes M6 exact close facts, public Gate and PIT behavior boundaries, authority/ACL/dispatch, descriptor v5 and closure v2 rejection rules, observed startup/umask process state, full replay binding v6, failure behavior and ordered synthetic-only implementation.",
+  "commands": [],
+  "subject_digest": "sha256:cdbcbff655d7e8de152d62e1d4aa33a1fa145ebb43ad8f7efde555ac39c52a21",
+  "blockers": [],
+  "recorded_at": "2026-07-28T18:16:50+00:00",
+  "source_digest": "sha256:8b1163c4158020e0e9f6b5e3c79340943b804816092f840c128a820bc2e394cd",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v11.md",
+      "sha256": "sha256:cdbcbff655d7e8de152d62e1d4aa33a1fa145ebb43ad8f7efde555ac39c52a21"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v14.md",
+      "sha256": "sha256:148490b9933be0311ff7c0b8626cdc5c3c268a2070cf6a6f49e9e26ac2af410f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10.md",
+      "sha256": "sha256:25d63ba434246ec57d398821953c833a65501409cce0610db954514029cc0aa3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10_adversarial.md",
+      "sha256": "sha256:7cf84e6292c3eef36473bb64887e175a736de9bcca3a86ccb1e890cdf0b22a2c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:4df5da18d2d722f9788d067f4846b4b23e8a4a29f8743a1ba8f152cc11dc7cd6"
+    }
+  ],
+  "run_id": "change-design-28da97eeeb65b598"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 326,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_FULL_HISTORY_GREEN",
+  "summary": "The complete suite, M6 archival subset, Ruff, and pinned full-history workflow contract all pass against the corrected external-CI source digest.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v3.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/external_ci_run1_failure.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_fetch_depth_fix.md",
+    ".github/workflows/m65-external-quality-gate.yml"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T14:33:00+00:00",
+      "exit_code": 0,
+      "summary": "Complete repository suite passed: 86 tests."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py",
+      "executed_at": "2026-07-29T14:33:00+00:00",
+      "exit_code": 0,
+      "summary": "M6 archival evidence and replay subset passed: 7 tests."
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-29T14:33:00+00:00",
+      "exit_code": 0,
+      "summary": "All bounded self-authored files pass Ruff."
+    },
+    {
+      "command": ".venv/bin/python -c \"from pathlib import Path; import yaml; d=yaml.load(Path('.github/workflows/m65-external-quality-gate.yml').read_text(), Loader=yaml.BaseLoader); j=d['jobs']['m6-5-external-quality-gate']; s=j['steps']; u=[x['uses'] for x in s if x.get('uses')]; r=[' '.join(x.get('run','').split()) for x in s]; assert s[0]['with']['fetch-depth']=='0'; assert s[0]['with']['persist-credentials']=='false'; assert all('@' in x and len(x.rsplit('@',1)[1].split()[0])==40 for x in u); assert any('quality_ledger.py check-ci --pre-merge' in x for x in r); assert any('tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py' in x for x in r)\"",
+      "executed_at": "2026-07-29T14:33:00+00:00",
+      "exit_code": 0,
+      "summary": "Pinned, full-history, credential-safe workflow contract passed."
+    }
+  ],
+  "subject_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+  "blockers": []
+}

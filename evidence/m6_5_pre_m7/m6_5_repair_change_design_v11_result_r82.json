@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 82,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "SELF_CONTAINED_V11_DESIGN_READY",
+  "summary": "Self-contained v11 is the sole implementation contract. It explicitly includes M6 exact close facts, public Gate and PIT behavior boundaries, authority/ACL/dispatch, descriptor v5 and closure v2 rejection rules, observed startup/umask process state, full replay binding v6, failure behavior and ordered synthetic-only implementation.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v11.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v14.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:cdbcbff655d7e8de152d62e1d4aa33a1fa145ebb43ad8f7efde555ac39c52a21",
+  "blockers": []
+}

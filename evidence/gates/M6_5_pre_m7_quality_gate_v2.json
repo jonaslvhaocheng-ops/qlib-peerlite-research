@@ -1,0 +1,44 @@
+{
+  "schema_version": "qlib_peerlite_gate_v2",
+  "gate_id": "M6.5-PRE-M7-ENGINEERING-QUALITY",
+  "status": "NEEDS_CHANGES",
+  "passed": false,
+  "executed": true,
+  "completed": false,
+  "track": "STRICT_PRE_M7_ENGINEERING_REVIEW",
+  "claim_ceiling": "M6_HISTORY_RETAINED_M7_NOT_AUTHORIZED",
+  "supersedes_historical_gate": {
+    "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "sha256": "0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+  },
+  "parent": {
+    "m6_gate": "evidence/gates/M6_peerlite_gate.json",
+    "m6_status": "PASS",
+    "m6_candidate_evaluations": 6,
+    "m6_model_fits": 44,
+    "m7_status": "NOT_RUN"
+  },
+  "change_request": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+  "current_quality_stage": "design-review",
+  "allowed_next_action": "Complete two independent read-only R3 design reviews of the current exact bounded bundle. Only a recorded PASS may route to test-design and then expected-red tests.",
+  "currently_authorized": [
+    "read-only design inspection",
+    "design artifact correction",
+    "quality-ledger recording"
+  ],
+  "currently_forbidden": [
+    "test execution",
+    "product implementation",
+    "real archival replay",
+    "M7 implementation or fit",
+    "real-data extraction or PIT rerun",
+    "trial-budget mutation",
+    "final-OOS access",
+    "CCC plus Gate combination"
+  ],
+  "design_pass_effect": "Routes only to test-design; it does not authorize implementation, real replay, fitting, data access or final-OOS.",
+  "m7_future_ceiling": {
+    "candidate_evaluations": 8,
+    "model_fits": 60
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 187,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V30_AUX_PROOF_RESERVATION_AND_AUTHORITY_CONTRACT_UNCLOSED",
+  "summary": "Two independent R3 reviews confirm that v30 closes the registration hash cycle, site-startup exposure, Gate state join/standardizer, marker mode and fail-closed missing-authority behavior, but it does not yet provide a mechanically recomputable per-product aux prefix proof, a concurrency-safe reservation/orphan lifecycle, an implementation-ready security lifecycle authority, a valid official scalar flattening, verifiable review publication order, an exact authority-file hash boundary, or self-contained score canonicalization.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:28bab313bc07f4d9ffc838a0256f8dbc8f71fb86df320dc31f206c87e7f1746b",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "OFFICIAL_BEHAVIOR_SCALAR_AND_SLOT_MAPPING",
+    "PER_PRODUCT_AUX_PREFIX_EXECUTABLE_PROOF",
+    "STAGING_RESERVATION_AND_ORPHAN_LIFECYCLE",
+    "SECURITY_LIFECYCLE_AUTHORITY_CLOSED_SCHEMA",
+    "REVIEW_PUBLICATION_ORDER_EVIDENCE",
+    "AUTHORITY_FILE_HASH_BOUNDARY",
+    "SELF_CONTAINED_SCORE_CANONICALIZATION"
+  ],
+  "recorded_at": "2026-07-29T07:49:42+00:00",
+  "source_digest": "sha256:6c8254deaf2ce30a00d2b3ec8619d35de3557c4c759ba969a7a51f8cd34ece2e",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v30.md",
+      "sha256": "sha256:78aebf607b5cadce83a6446b134780ebe92c012faca25f5ce2dd8bae343c6673"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v30_adversarial.md",
+      "sha256": "sha256:900c2652aa223d081d17789e182124942e2ab11dfa640f4bda55948d2133e09d"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v30.md",
+      "sha256": "sha256:28bab313bc07f4d9ffc838a0256f8dbc8f71fb86df320dc31f206c87e7f1746b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v29.md",
+      "sha256": "sha256:be21d2301fd8911f1dcc620ade824d4e6e2fc6b0dcc9ddb85965024836fc4d1e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v8.md",
+      "sha256": "sha256:9a5a3c5d1034efdb947f744d124a80e8657ee9c303f6021ffaff02dc77ebbebc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v8.md",
+      "sha256": "sha256:932ac1b4dc61e58bf1fd860402d64c5e7d39eafceb37b3563c61c6cd281a7d89"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v8.md",
+      "sha256": "sha256:7b2f52b69d806e1aa9f7e740b5bcbb3f776ce8fa2e31d2767d3e4a6cefaf789c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:50ed9537e62d10950b8dcc70718d7cc6a9d48337078100396873d1795765594d"
+    }
+  ],
+  "run_id": "design-review-7bc065610ce1f079"
+}

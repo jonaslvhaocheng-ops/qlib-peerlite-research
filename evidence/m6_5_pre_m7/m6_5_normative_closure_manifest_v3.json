@@ -1,0 +1,82 @@
+{
+  "schema_version": "qlib_peerlite_m6_5_normative_closure_manifest_v3",
+  "classification": "NORMATIVE_DESIGN_CLOSURE",
+  "entries": [
+    {
+      "role": "MAINLINE_SCOPE",
+      "path": "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+      "sha256": "694fb03169dac8be9c3992a6cd39634a4f0300e5ea638d5b8fedd589e30d226b"
+    },
+    {
+      "role": "ARCHITECTURE",
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "role": "CHANGE_AUTHORITY",
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "role": "CURRENT_GATE",
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+      "sha256": "609297714b832136a242cb07981e7493ec9780f49caa6f5bd6c2c3f84a0f1d13"
+    },
+    {
+      "role": "BUDGET_LIMIT_BINDING",
+      "path": "contracts/changes/m7_initial_screen_budget_binding_v1.json",
+      "sha256": "595abe97557c43caf99f3a0630ca9d0f443aa6d56558ca12c5a8b1a634b738b6"
+    },
+    {
+      "role": "STATIC_M6_ARCHIVE_BINDING",
+      "path": "evidence/m6_5_pre_m7/static_m6_archive_binding_v1.json",
+      "sha256": "eb960cde71af349336fb26a0094161495a7ebe2a11901f96ce08d788f32e894f"
+    },
+    {
+      "role": "M6_ARCHIVAL_REPLAY_BINDING",
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_binding_v1.json",
+      "sha256": "b2474a6b5e76f39e79bfb3a3e412decd5bcae46b1603cc4e5a3c2d6e863fa4ae"
+    },
+    {
+      "role": "BOUNDED_COMPONENT_DESIGN",
+      "path": "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v3.md",
+      "sha256": "710e4085c2f32693239b74de2f7024ecd0ed03936f014b5312b392867d1b1073"
+    },
+    {
+      "role": "ARCHIVAL_REPLAY_CONTRACT",
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_contract_v3.md",
+      "sha256": "5c5d8ba622fdf2bc16f2a75875e83683344183e3da5cf3d260af63058c00d9dc"
+    },
+    {
+      "role": "M7_BOUNDED_DESIGN",
+      "path": "evidence/m6_5_pre_m7/m7_bounded_design_v3.md",
+      "sha256": "b91ff4af6050a3077333a252e170b8b587a77f6af84c7d5c2d9c9ec75ebfba25"
+    },
+    {
+      "role": "M7_BEHAVIOR_MATRIX",
+      "path": "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v3.md",
+      "sha256": "fdfe1aadda52f8248a85a99840f1c7aec7814e69e98f958d9976e6069b334eb6"
+    }
+  ],
+  "supersedes": {
+    "path": "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v2.json",
+    "sha256": "bebed2e4e72715d919b114fa718298674158dec2c11f578385d27d26c5340aa5"
+  },
+  "deferred_classification": "HISTORICAL_OR_DEFERRED_PRODUCTION_HARDENING_NON_NORMATIVE_FOR_M6_5",
+  "m6_prefix": {
+    "sha256": "31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93",
+    "bytes": 14328,
+    "candidate_evaluations": 6,
+    "model_fits": 44
+  },
+  "m7_status": "NOT_RUN",
+  "m7_future_ceiling": {
+    "candidate_evaluations": 8,
+    "model_fits": 60
+  },
+  "execution_authorized": false,
+  "test_execution_authorized": false,
+  "replay_authorized": false,
+  "real_fit_authorized": false,
+  "final_oos_access_authorized": false
+}

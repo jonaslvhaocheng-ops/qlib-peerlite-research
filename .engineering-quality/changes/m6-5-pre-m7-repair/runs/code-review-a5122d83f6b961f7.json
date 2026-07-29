@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 318,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_V2_REVIEW_PASS",
+  "summary": "Independent read-only review confirms that external CI v2 closes the prior replay-command, public-release, mutable-action, same-PR verifier and duplicate-digest findings. The workflow uses pinned dependencies, the pinned canonical controller, minimal permissions and clean-checkout M6 evidence tests. No unresolved P0-P3 finding remains.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only review; no repository, ledger, remote or GitHub settings were modified.",
+      "No M7 execution, model fit, real-data access, budget mutation or final-OOS access was performed.",
+      "External GitHub CI terminal execution remains a later independent gate."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-29T14:24:34+00:00",
+  "source_digest": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v2_independent.md",
+      "sha256": "sha256:b839ae672c75db2ff77a8cdcb953f3dc64a8e0a7e31b0694d8bb6e5338f6e4f6"
+    }
+  ],
+  "evidence": [
+    {
+      "path": ".github/workflows/m65-external-quality-gate.yml",
+      "sha256": "sha256:9bf0f8560f91302e030454bd602dfbe565488c8efbd35b78c132719e05d7477f"
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "sha256": "sha256:75a9e00951132e04cea8e97296a5d61a019ec59e24a1407ca21b7731d81d37c0"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "sha256:1ce8610db4bc0a5a4839ca1f62ad7c988288727fa9dc82d60cfc045cb2cbe078"
+    },
+    {
+      "path": "docs/PUBLICATION_POLICY.md",
+      "sha256": "sha256:d2f8d9f8692febe725a57f32791841cae1688e7fb6ca06406cae72f44189c049"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/public_release_pre_push_audit.md",
+      "sha256": "sha256:b318f2aa2ffd2b39d176361511ab044929db5af23c4cbcbac585ef62f7869e7c"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_gate_v2.md",
+      "sha256": "sha256:960e2d52ef8a6aa7bb8bb412dd9ce129d790022e78c943ec3561339766076b44"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v2.md",
+      "sha256": "sha256:201a18eef36ce7f3cca7b839b07a5d1ff96257183ebd1c98d572e9683291a72e"
+    },
+    {
+      "path": ".engineering-quality/changes/m6-5-pre-m7-repair/runs/tests-green-f79d81f8ae44b3be.json",
+      "sha256": "sha256:00afabbe73dab9b7635269cd69889ebcc9462de0f8d2d734f2422d893c71d290"
+    }
+  ],
+  "run_id": "code-review-a5122d83f6b961f7"
+}

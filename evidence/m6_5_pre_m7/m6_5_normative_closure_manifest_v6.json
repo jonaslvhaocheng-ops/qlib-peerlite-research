@@ -1,0 +1,35 @@
+{
+  "schema_version": "qlib_peerlite_m6_5_normative_closure_manifest_v6",
+  "classification": "NORMATIVE_DESIGN_CLOSURE",
+  "entries": [
+    {"role": "MAINLINE_SCOPE", "path": "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md", "sha256": "694fb03169dac8be9c3992a6cd39634a4f0300e5ea638d5b8fedd589e30d226b"},
+    {"role": "ARCHITECTURE", "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md", "sha256": "87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"},
+    {"role": "CHANGE_AUTHORITY", "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json", "sha256": "60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"},
+    {"role": "CURRENT_GATE", "path": "evidence/gates/M6_5_pre_m7_quality_gate_v2.json", "sha256": "609297714b832136a242cb07981e7493ec9780f49caa6f5bd6c2c3f84a0f1d13"},
+    {"role": "BUDGET_LIMIT_BINDING", "path": "contracts/changes/m7_initial_screen_budget_binding_v2.json", "sha256": "dd162de1565f887261cebbaef3eeec50c83697125a2acf5adb1546e8e819fcf4"},
+    {"role": "STATIC_M6_ARCHIVE_BINDING", "path": "evidence/m6_5_pre_m7/static_m6_archive_binding_v2.json", "sha256": "a12cebd94a1bf0da6bbd607f7e95227de3573bd409d16a41ad84711faf5dfad1"},
+    {"role": "M6_ARCHIVAL_REPLAY_BINDING", "path": "evidence/m6_5_pre_m7/m6_archival_replay_binding_v2.json", "sha256": "0c01c5eb95e71ad8644df09e2eba8d56fc8cb694f8e41ace0021e7f51913aa01"},
+    {"role": "BOUNDED_COMPONENT_DESIGN", "path": "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v6.md", "sha256": "ab5a7d3feba7fd684ee489918f1f7378763a5fb321a3e7143d58e069ad5888f8"},
+    {"role": "ARCHIVAL_REPLAY_CONTRACT", "path": "evidence/m6_5_pre_m7/m6_archival_replay_contract_v5.md", "sha256": "524d182fbc701cc15be6e47b8c7d7d5043991d347a53538eb5e285eda1499146"},
+    {"role": "M7_BOUNDED_DESIGN", "path": "evidence/m6_5_pre_m7/m7_bounded_design_v5.md", "sha256": "de4aa33331443f7e7e97470d401a79d8d8b1e631163800c36a2ddabffe9f6715"},
+    {"role": "M7_BEHAVIOR_MATRIX", "path": "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v6.md", "sha256": "b7f8b475d8aeaa152eaae45fee54711e1246ebcc6b2eff85d763a627739870af"}
+  ],
+  "supersedes": {
+    "path": "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v5.json",
+    "sha256": "a2a2cc541133f255d1197b1c9af28c7e5f30e6841fecdb672ff5873280487973"
+  },
+  "deferred_classification": "HISTORICAL_OR_DEFERRED_PRODUCTION_HARDENING_NON_NORMATIVE_FOR_M6_5",
+  "m6_prefix": {
+    "sha256": "31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93",
+    "bytes": 14328,
+    "candidate_evaluations": 6,
+    "model_fits": 44
+  },
+  "m7_status": "NOT_RUN",
+  "m7_future_ceiling": {"candidate_evaluations": 8, "model_fits": 60},
+  "execution_authorized": false,
+  "test_execution_authorized": false,
+  "replay_authorized": false,
+  "real_fit_authorized": false,
+  "final_oos_access_authorized": false
+}

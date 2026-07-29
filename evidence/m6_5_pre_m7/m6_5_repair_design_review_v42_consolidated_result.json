@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 235,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V42_ARCHITECTURE_AND_STATE_MACHINE_CONFLICT",
+  "summary": "Two independent read-only R3 reviews find that v42 closes several local identity issues but violates the approved architecture-v28 boundary by expanding a trusted single-process archival verifier into a multi-process FD, sandbox and capacity control plane. The resulting schemas are also internally non-composable for generated output admission, policy ref types, supervisor crash recovery, runtime evidence binding and pipe completion. The required redirect is a mainline-preserving simplification back to one trusted command, read-only frozen inputs and one previously absent output directory.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v42.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v42_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v42.md",
+    "evidence/m6_5_pre_m7/capacity_reservation_protocol_v11.md",
+    "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+    "evidence/m6_5_pre_m7/run_authority_generation_v12.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v20.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v20.md",
+    "evidence/m6_5_pre_m7/score_replay_identity_v3.md",
+    "evidence/m6_5_pre_m7/score_replay_plan_v3.md",
+    "evidence/m6_5_pre_m7/current_control_pointer_v20.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:50fe02263d2cb0aa181aed97b217b4c742fa998b4a50d32172257041a4101978",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or ledger.",
+      "No replay, training, real data, PIT, budget or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "ARCHITECTURE_V28_SCOPE_CONFLICT",
+    "GENERATED_OUTPUT_CAPACITY_MISMATCH",
+    "TYPED_POLICY_REF_MISMATCH",
+    "SUPERVISOR_RECOVERY_AND_PIPE_COMPLETION",
+    "INDEPENDENT_RUNTIME_EVIDENCE_BINDING",
+    "CANONICAL_JSON_SAME_FD_CONSUMPTION",
+    "TRANSITIVE_CLOSURE_MANIFEST"
+  ]
+}

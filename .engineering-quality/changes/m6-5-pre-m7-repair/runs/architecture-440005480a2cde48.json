@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 28,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_ARCHITECTURE_RECONFIRMED_FOR_DESIGN_V4",
+  "summary": "The new change design v4 implements the existing v7 architecture without introducing a new data path, authority root, model family, or OOS access. The architecture is reconfirmed after its source-digest invalidation.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T17:06:01+00:00",
+  "source_digest": "sha256:768a34f85336751bd73b7ee87d260358d28333171d50b2dbf91a1e081423dea9",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v7.md",
+      "sha256": "sha256:db91fab06cb271e9431de02491cae7c151e3d36c47edd7e3d093a0ad16ccb6b4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v4.md",
+      "sha256": "sha256:16ac80ae172cbedf077d9c2f3c4b74a89c6298303f8d17f30fdc14f28e0ad810"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v3.md",
+      "sha256": "sha256:0fe6a5c589811d55fb4456f300d1d6491afe8207987e60c3e70b455719a6ae70"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v3_adversarial.md",
+      "sha256": "sha256:eba3b4772f636b2cca9a99ed3337f8e3b11b277238b10c316eeb47def65d4d1f"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:d001a40132117f19e6fe996dd16b60ef49e41a570930286b594aae00c8d4d922"
+    }
+  ],
+  "run_id": "architecture-440005480a2cde48"
+}

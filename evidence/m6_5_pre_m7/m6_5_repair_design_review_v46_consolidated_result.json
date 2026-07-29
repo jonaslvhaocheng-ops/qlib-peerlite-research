@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 251,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "SNAPSHOT_SLOT_ROSTER_AND_CALLABLE_GRAPH_INCOMPLETE",
+  "summary": "Two independent read-only reviews confirm that v46 preserves the bounded mainline and closes the prior static-source, receipt-no-op, lock, checkpoint, dependency and numeric issues. Test design remains blocked by four narrow specification gaps: deterministic snapshot and receipt locations with pre-commit identity/missing events, authority-owned evaluation IDs and purposes, generic reachable-object no-fit scanning, and sub-microsecond timestamp rejection.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v46.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v46_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v46.md",
+    "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v4.json",
+    "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v4.md",
+    "evidence/m6_5_pre_m7/m6_archival_replay_contract_v4.md",
+    "evidence/m6_5_pre_m7/m7_bounded_design_v4.md",
+    "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v4.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:05f21bf9b15497e85b16538c8497495440d6216246642af318b113f2e55df37f",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v45_adversarial_retry",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or the quality ledger.",
+      "No tests, implementation, replay, fit, real-data access, PIT rerun, budget mutation or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "DETERMINISTIC_RECONCILIATION_SNAPSHOT_AND_RECEIPT_SLOTS",
+    "SNAPSHOT_PRECOMMIT_IDENTITY_AND_MISSING_EVENTS",
+    "AUTHORITY_OWNED_EVALUATION_IDS_AND_PURPOSES",
+    "GENERIC_REACHABLE_OBJECT_NO_FIT_SCAN",
+    "SUBMICROSECOND_TIMESTAMP_REJECTION"
+  ]
+}

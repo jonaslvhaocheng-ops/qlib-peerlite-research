@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 259,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "V48_BOUNDED_DESIGN_INDEPENDENTLY_APPROVED",
+  "summary": "Both independent read-only R3 reviews pass v48 with no P0-P3 findings. The sole v47 blocker is closed: snapshot slots bind ledger-before, retries can rebase onto an advanced legal prefix without changing old evidence, and partial or ambiguous commits fail closed. The full v48 closure remains within architecture v28 and preserves M6 6/44, M7 NOT_RUN and all no-execution boundaries.",
+  "issue_type": null,
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v48.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v48_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v48.md",
+    "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v6.json",
+    "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v6.md",
+    "evidence/m6_5_pre_m7/m6_archival_replay_contract_v5.md",
+    "evidence/m6_5_pre_m7/m7_bounded_design_v5.md",
+    "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v6.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:4c3ae229338deed3b32722b9933a100688c9fb1ff3463c55dc65fc70522bc6c7",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v45_adversarial_retry",
+    "limitations": [
+      "Both reviewers were read-only.",
+      "No tests, implementation, replay, fit, PIT, budget or final-OOS action occurred."
+    ]
+  },
+  "blockers": []
+}

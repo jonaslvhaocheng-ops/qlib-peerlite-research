@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 48,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_ARCHITECTURE_RECONFIRMED_FOR_DESIGN_V6",
+  "summary": "Design v6 implements the v9 research-governance architecture without adding a model family, data scope, production security claim, training action, replay action, or OOS access; architecture is reconfirmed after source-digest invalidation.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T17:26:17+00:00",
+  "source_digest": "sha256:2db2889f8ee5fc9d5e82fd5be8e17b87bad51fd932307aad29e60150a06541cc",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v9.md",
+      "sha256": "sha256:e4e0bb71e12dea48d6fa3db4bb0331804240f55d505771810dfa3befbd312598"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v6.md",
+      "sha256": "sha256:2130f8659f132fb637898d6ddfb78f8af4ccab1c7b4b52c12899111643a95f78"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v5.md",
+      "sha256": "sha256:a10812792dae28bca1dc51c7c8b6eaf5533ffed71ce117c9e36947ca3a4d2d67"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v5_adversarial.md",
+      "sha256": "sha256:52ff6eb6d013f8954cfdfb54a5a06c52b92218407cba688d704e13fbd96fe160"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:eea60f09cc4e3404215068d69444e8935166ac5f81b8b30098e7f810d996960f"
+    }
+  ],
+  "run_id": "architecture-498ab02b93b73f0c"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 2,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_REPAIR_DESIGN_READY",
+  "summary": "The M6.5 repair has a bounded R3 design with explicit provenance, run-authority, archive replay, rollback, and verification contracts.",
+  "issue_type": null,
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v1.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_remediation_independent_code_review.md",
+    "evidence/m6_5_pre_m7/m6_5_independent_test_coverage_audit.md"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 173,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V27_POISON_GENERATION_AND_M7_CHECKSET_UNCLOSED",
+  "summary": "Two independent R3 reviews agree that v27 is self-contained and closes prior policy, projection, status, transaction, lease, replay-retry, cleanup, Gate-loader and CCC gaps, but still mixes cutoff-wide and per-T future-poison oracles, lacks nested-directory publication rules, has no crash-commit protocol for authority generations, does not durably resolve conditional retry events, conflicts M7 replacement retries with the remaining 16-fit budget, fails to bind exact 17+4 check identities to the official behavior schema, and omits nullable sort and clean launcher environment rules.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:1517a81b731444e5c9a8528566d1e2fe97da9f183b9838441d6706a68051ced9",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "SINGLE_PIT_POISON_HORIZON",
+    "NESTED_DIRECTORY_TRANSACTION",
+    "AUTHORITY_GENERATION_CRASH_COMMIT",
+    "CONDITIONAL_EVENT_SKIP_RESOLUTION",
+    "M7_NO_REPLACEMENT_WITHIN_16_FIT_CAP",
+    "EXACT_OFFICIAL_PIT_BEHAVIOR_CHECKSET",
+    "NULLABLE_CANONICAL_SORT",
+    "CLEAN_REPLAY_ENVIRONMENT"
+  ],
+  "recorded_at": "2026-07-29T04:52:00+00:00",
+  "source_digest": "sha256:d34cc7b004bfa9631fe5ca1fc5b5496f76545dc4a52cf2454051c6bff516afd1",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v27.md",
+      "sha256": "sha256:58dcb740e16c899c6192a0bdf88509510a54dc9b0a6158d3bafa6035fad03380"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v27_adversarial.md",
+      "sha256": "sha256:4a9a9e76f2d674f9c6858b65ab87239678f28798eaa6c3f401a6cc806271b568"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v27.md",
+      "sha256": "sha256:1517a81b731444e5c9a8528566d1e2fe97da9f183b9838441d6706a68051ced9"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v5.md",
+      "sha256": "sha256:59f24bbe0c6ae9568889518fd6c329420b4823306a715c6da5a565edf34fb2ad"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v5.md",
+      "sha256": "sha256:d149922b2d0536d284442142a90b25052e300a900a0a14ce15d690a5ef462992"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_design_review_v5.md",
+      "sha256": "sha256:00e0b17e38bb1ba2f1135fcd8bb95eb5785363692976a19f7af9bae5058edc49"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "contracts/immutable/research_contract_pit_v2.json",
+      "sha256": "sha256:2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:bc836535b81027f8106a8b4a4c02991c0a00d8d18c59c6e0bd8103ca57452866"
+    }
+  ],
+  "run_id": "design-review-4f8a795fae82fe4d"
+}

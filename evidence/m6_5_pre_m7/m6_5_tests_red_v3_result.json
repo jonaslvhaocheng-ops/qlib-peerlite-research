@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 289,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "COMPLETE_V50_MATRIX_FAILS_FOR_APPROVED_PRODUCT_GAPS",
+  "summary": "The complete bounded v50 test portfolio fails only on the intended missing behaviors: owned nested snapshots, cached immutable identity, recursive NFC/collision rules, and construction-time rejection of unsupported, cyclic and nonfinite JSON values. Existing binding-pair/type rejection, known ASCII V2 identity, authority sensitivity, shared noncyclic values and exact historical V1 identity already pass.",
+  "issue_type": "product-code",
+  "artifact_paths": [
+    "tests/test_m65_expected_red.py",
+    "tests/test_run_intent_v2.py"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_tests_red_v3.md",
+    "evidence/m6_5_pre_m7/m6_5_test_design_v2.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m65_expected_red.py tests/test_run_intent_v2.py",
+      "executed_at": "2026-07-29T20:05:40+08:00",
+      "exit_code": 1,
+      "summary": "Expected red: 15 approved V2 immutability/canonicalization assertions fail and 9 pre-existing/compatible behaviors pass."
+    }
+  ],
+  "subject_digest": "sha256:44c3fbdddc9788dd86d734327d082dab1b373c2b1dc1099faf0f32dcff625a45",
+  "blockers": []
+}

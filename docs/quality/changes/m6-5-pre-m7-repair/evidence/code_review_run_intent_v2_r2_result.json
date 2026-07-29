@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 303,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "RUN_INTENT_V2_CONSTRUCTOR_API_P2_CLOSED",
+  "summary": "The sole prior P2 is closed: RunIntent now declares exact-dict constructor parameters and separate read-only Mapping properties backed by owned frozen snapshots. Custom frozen-dataclass equality, representation and ownership are coherent; V1/V2 hashing and canonicalization are unchanged; fresh 27/34/86, Ruff and protected branch-coverage evidence bind the reviewed source digest.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_run_intent_v2_r2_independent.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_run_intent_v2_independent.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_red_constructor_api_v4.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_constructor_api_repair.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_constructor_api_repair.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_coverage.json",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "tests/test_run_intent_v2.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:8968e7b8e172ceea730e4251cb90a8d902e46ffa406da3fb4fe47b32e950f477",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only code review; controller receipts were inspected rather than rerun by the reviewer.",
+      "No replay, fit, PIT, real-data access, budget mutation, CCC or Gate execution."
+    ]
+  },
+  "blockers": []
+}

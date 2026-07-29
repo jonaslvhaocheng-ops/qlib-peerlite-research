@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 130,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "PRE_E_PROVENANCE_FORK_CHILD_RECOVERY_AND_ADAPTER_NOT_CLOSED",
+  "summary": "Two independent R3 design reviews agree that v22/v19 preserve the repaired post-Bootstrap slot, held-lock, and official-result foundations, but six remaining normal-failure paths are still implementation-blocking: pre-E quality policy provenance/topology, fork-safe held-lock lifetime, control-chain materialization and partial recovery, ChildReceipt author-versus-publisher handoff, post-S5 acceptance recovery, and the sealed adapter for the unchanged path-only mechanics worker.",
+  "issue_type": "architecture",
+  "subject_digest": "sha256:c6788d62318141b3a5f16e09f69e185303247910946582cb6501fad6b7b963a0",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v19_consolidated_result.json"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v22.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v19.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "src/qlib_peerlite/governance/m6_archive.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v18_lead,/root/design_review_v18_adversary,/root/reservation_graph_audit",
+    "limitations": [
+      "The consolidated result only records independent read-only findings and does not change the reviewed design.",
+      "No product/test/contract/gate/ledger/status/historical-evidence implementation changed; no project-code execution, training, archival replay, budget consumption, PIT certification, M7 or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Make the pre-E release policy an observed immutable root with a fixed quality-slot topology, anchor/root/parent D-v2 identity chains, policy bytes/ref equality, and an exact M6.5 gate-evidence role map before Bootstrap/PASS publication.",
+    "Make the held control lock process-bound across fork with owner PID/generation checks, child at-fork poison/close, and an explicit close-all plus FD allow-list launch protocol.",
+    "Specify a locked replay-supervisor materialization/recovery API for E/C and C-to-P/F-to-A-to-B-to-Q partial chains, with deterministic byte-equality and no generic publisher.",
+    "Replace the contradictory ChildReceipt writer rule with a frozen child-attestation / supervisor-durable-envelope handoff, including kernel-authenticated IPC, raw-receipt binding, lock ownership, and crash behavior.",
+    "Define deterministic lock-held recovery for ArchiveAcceptanceReceipt, S6, and FinalIndex partial-publication windows.",
+    "Define a SlotSpec-bound scratch/staging adapter that supplies the unchanged mechanics worker only an adapter-derived path, never arbitrary caller paths or the official output root.",
+    "Reissue architecture and change design, then obtain fresh independent R3 design-review PASS before test design, red tests, implementation, code review, replay, M7, CCC/Gate, or final-OOS work."
+  ]
+}

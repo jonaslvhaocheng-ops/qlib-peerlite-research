@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 62,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "CONTROL_PLANE_BOUNDARIES_CLOSED",
+  "summary": "Architecture v11 preserves the verified M6 6/44 and PIT/state boundaries while defining a single-host control plane for externally anchored authority activation, fork-safe one-use fit dispatch, descriptor-bound terminal publication, and a Linux/CUDA staged replay runtime closure. It remains synthetic-only and does not authorize M7, replay, or OOS.",
+  "commands": [],
+  "subject_digest": "sha256:c3766c6aa50da57d0c0866d4f5542d1e227283da6a4abe5d2a15c2b67736d5f3",
+  "blockers": [],
+  "recorded_at": "2026-07-28T17:48:30+00:00",
+  "source_digest": "sha256:2f231a866e6acdc53d8b2793c1cd7b61f6b2824af7e4168a886720318ba63b15",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v11.md",
+      "sha256": "sha256:c3766c6aa50da57d0c0866d4f5542d1e227283da6a4abe5d2a15c2b67736d5f3"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v9.md",
+      "sha256": "sha256:e4e0bb71e12dea48d6fa3db4bb0331804240f55d505771810dfa3befbd312598"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v10.md",
+      "sha256": "sha256:e47c62a359a81b1c9f12c4946c8b1b2a4ea223f7b04b2fb76a9cf6fd87c4db13"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v7_adversarial.md",
+      "sha256": "sha256:1f682193cecd9e4bc7d7c9f4c34e139b8cc42583bec283baa1c0b0fc89bc54dc"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    }
+  ],
+  "run_id": "architecture-f7836cb955e09e96"
+}

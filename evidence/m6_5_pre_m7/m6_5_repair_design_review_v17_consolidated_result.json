@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 108,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "AUTHORITY_CONTEXT_CONTROL_ROOT_AND_DIRECTORY_IDENTITY_NOT_CLOSED",
+  "summary": "Two independent read-only R3 design reviews agree that the v20/v17 materialization, Q-before-R precommit, and pre-S0 lifecycle can be retained, but the authority-context derivation/validation set, E-to-A control-root identity chain, and complete DirectoryIdentity v2 field set are not yet mechanically closed.",
+  "issue_type": "architecture",
+  "subject_digest": "sha256:e83b5f20971c4813307a561e3beb4b62737e9d6c46e000fa534eefd8096ce9fc",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v17_consolidated_result.json"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v20.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v17.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "The consolidated result records, but does not alter, the two independent review verdicts.",
+      "No product/test/contract/gate/historical-evidence implementation changed; no training, replay, PIT certification, budget consumption, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Define one complete typed authority-context preimage and require every C/P/F/A/Q/V and V historical-inventory validator to resolve and compare its exact family, scope, verifier, runtime, startup, fixed argv/cwd/import and six evidence-role values.",
+    "Bind E's closed replay control root through A to exact registry, transaction-lock, claim, binding and pre-S0 terminal paths using no-follow FD-derived equality; reject a same-ACL alternate root before R publication.",
+    "Retain every DirectoryIdentity v2 field, including opaque_file_handle_sha256 obtained with name_to_handle_at(AT_EMPTY_PATH), in D serialization, K derivation and each phase comparison; fail closed if unsupported.",
+    "Reissue architecture and bounded change design, then obtain a fresh independent R3 design-review PASS before test design, red tests, implementation, code review, replay, M7, CCC/Gate or final-OOS work."
+  ]
+}

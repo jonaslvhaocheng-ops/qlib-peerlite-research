@@ -1,0 +1,36 @@
+{
+  "schema_version": "qlib_peerlite_m6_5_control_pointer_v3",
+  "classification": "INFORMATIONAL_NAVIGATION",
+  "status": "M6_5_BOUNDED_CHANGE_DESIGN",
+  "canonical_change_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v43.md",
+    "sha256": "04e1b8e1cdc1744e63afb4b3d5a0c3da09245c547ca8d31e54c89cf08d647016"
+  },
+  "normative_closure": {
+    "path": "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v1.json",
+    "sha256": "7611bbb5ce01bf9e163fa80d823029f4dac97b4fc9fb139dddb79a4d6eeb7b8c"
+  },
+  "superseded_control_plane_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v42.md",
+    "sha256": "50fe02263d2cb0aa181aed97b217b4c742fa998b4a50d32172257041a4101978",
+    "classification": "SUPERSEDED_HISTORY_NOT_NORMATIVE"
+  },
+  "latest_completed_review": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v42_consolidated_result.json",
+  "latest_review_verdict": "NEEDS_CHANGES",
+  "next_stage": "independent-r3-design-review-v43-bounded-bundle",
+  "m6_status": "PASS",
+  "m6_prefix": {
+    "candidate_evaluations": 6,
+    "model_fits": 44
+  },
+  "m6_5_status": "NEEDS_CHANGES",
+  "m7_status": "NOT_RUN",
+  "m7_future_ceiling": {
+    "candidate_evaluations": 8,
+    "model_fits": 60
+  },
+  "replay_authorized": false,
+  "real_fit_authorized": false,
+  "final_oos_access_authorized": false,
+  "trial_budget_change_authorized": false
+}

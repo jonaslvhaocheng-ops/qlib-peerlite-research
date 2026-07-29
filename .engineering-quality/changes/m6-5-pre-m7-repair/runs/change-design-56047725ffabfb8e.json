@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 74,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "V10_EFFECTIVE_STARTUP_POLICY_READY",
+  "summary": "Canonical v10 retains v9's repaired authority, dispatch, execution-closure, ACL and publication design, and replaces only M7/replay Python startup with an exact CPython 3.11 envp plus -s -S -P effective-hash-policy contract. It binds observed flags/probe to receipts and defines fail-closed behavior without authorizing empirical work.",
+  "commands": [],
+  "subject_digest": "sha256:a1ef1422e0d4c247396a2b900bec60291ba4cb3b9399762755b51d204ca4f3e3",
+  "blockers": [],
+  "recorded_at": "2026-07-28T18:07:06+00:00",
+  "source_digest": "sha256:1b9043483c6a04688b885664c162fd3bbee086860308f552f47ef03ef3796c5a",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v10.md",
+      "sha256": "sha256:a1ef1422e0d4c247396a2b900bec60291ba4cb3b9399762755b51d204ca4f3e3"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v13.md",
+      "sha256": "sha256:54d8ca248206a1c702ac3fe84f708edb5223a82ae6b9c44ef67396a5f0bc0bc4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v9.md",
+      "sha256": "sha256:11059be45e9ae8d5cc46dff2a5662e4d4001814b4b604ce862b4cb1c722d75f6"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v9.md",
+      "sha256": "sha256:e251130d893cee26572b1548c282687c271db8437893386e3c30f4b222c06f8e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v9_adversarial.md",
+      "sha256": "sha256:d5d9c611ff15a4f998ae7b3440e003d7c51fd09abc22e253d6bc027da130d406"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:ac608de4bf9b4c7750d7f396d0112e26fc7777d0fcb00b53fd265bdf6b6147d0"
+    }
+  ],
+  "run_id": "change-design-56047725ffabfb8e"
+}

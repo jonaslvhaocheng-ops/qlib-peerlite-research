@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 81,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "SELF_CONTAINED_GOVERNANCE_ARCHITECTURE_READY",
+  "summary": "Architecture v14 is the single self-contained governance architecture. It explicitly preserves exact M6 genesis and PIT boundaries, migrates M7 admission to v5/v2 closures, makes umask an observed pre-exec process state, and restates complete M6 replay binding v6 without caller path selection.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v14.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v10_adversarial.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "contracts/immutable/m6_trial_budget_start.json",
+    "evidence/gates/M6_peerlite_gate.json",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "src/qlib_peerlite/governance/m6_archive.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:148490b9933be0311ff7c0b8626cdc5c3c268a2070cf6a6f49e9e26ac2af410f",
+  "blockers": []
+}

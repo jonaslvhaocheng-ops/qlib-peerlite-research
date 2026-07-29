@@ -1,0 +1,79 @@
+{
+  "schema_version": "qlib_peerlite_gate_v1",
+  "gate_id": "M6.5-PRE-M7-ENGINEERING-QUALITY",
+  "status": "NEEDS_CHANGES",
+  "passed": false,
+  "executed": true,
+  "completed": true,
+  "created_at": "2026-07-28T23:35:00+08:00",
+  "track": "STRICT_PRE_M7_ENGINEERING_REVIEW",
+  "claim_ceiling": "M6_HISTORY_RETAINED_M7_NOT_AUTHORIZED",
+  "parent": {
+    "m6_gate": "evidence/gates/M6_peerlite_gate.json",
+    "m6_status": "PASS",
+    "m7_status": "NOT_RUN"
+  },
+  "change_request": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+  "acceptance_checks": [
+    {
+      "check": "independent_m6_code_review",
+      "status": "NEEDS_CHANGES",
+      "evidence": "evidence/m6_5_pre_m7/m6_independent_code_review.md"
+    },
+    {
+      "check": "independent_m6_test_revalidation",
+      "status": "NEEDS_CHANGES",
+      "evidence": "evidence/m6_5_pre_m7/m6_test_revalidation.md"
+    },
+    {
+      "check": "independent_m7_design_review_v1",
+      "status": "NEEDS_CHANGES",
+      "evidence": "evidence/m6_5_pre_m7/m7_design_review.md"
+    },
+    {
+      "check": "revised_design_v2_independent_review",
+      "status": "PASS",
+      "evidence": "evidence/m6_5_pre_m7/m7_design_review_v2.md"
+    },
+    {
+      "check": "fresh_static_and_regression_baseline",
+      "status": "PASS",
+      "evidence": "ruff PASS; pytest 41 passed; coverage baseline retained as a gap, not a pass"
+    }
+  ],
+  "unresolved_findings": [
+    {
+      "severity": "P0",
+      "title": "M7 Gate future-label and future-conditioned population path",
+      "required_fix": "Build and audit a separate T-known market_state_population before Gate training."
+    },
+    {
+      "severity": "P1",
+      "title": "CCC checkpoint semantics not frozen",
+      "required_fix": "Freeze loss/validation/early-stop/tie/fallback rules and test them."
+    },
+    {
+      "severity": "P1",
+      "title": "Trial ledger is not safely appendable/reconcilable",
+      "required_fix": "Implement archival prefix verification and journal-to-global idempotent reconciliation."
+    },
+    {
+      "severity": "P1",
+      "title": "M7 science promotion/conditional combination is not executable",
+      "required_fix": "Freeze development portfolio/cost comparison, trigger rule and nonfungible budget in a derived contract."
+    },
+    {
+      "severity": "P2",
+      "title": "M6 independent verifier lacks actual per-fold checkpoint replay",
+      "required_fix": "Add a versioned archival replay verifier and preserve the original receipt."
+    }
+  ],
+  "forbidden_until_pass": [
+    "M7 derived research-contract freeze",
+    "M7 real-label training or server fit",
+    "CCC+Gate combination",
+    "2025+ final-OOS access",
+    "model/parameter search or production claim"
+  ],
+  "allowed_next_action": "Implement and test the M6.5 remediation package without M7 real training: archival M6 verifier, crash-safe ledger reconciler and T-known state-population mechanics."
+}

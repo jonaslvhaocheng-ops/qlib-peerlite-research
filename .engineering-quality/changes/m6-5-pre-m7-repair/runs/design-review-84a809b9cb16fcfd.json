@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 247,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "STATIC_SOURCE_RECEIPT_AND_REPLAY_CLOSURE_INCOMPLETE",
+  "summary": "Two independent read-only reviews agree that v45 preserves the bounded architecture and closes most v44 findings, but test design is still blocked. The minimal repair must bind frozen source identity into the static archive, make receipt no-op/recovery immutable across later suffixes, prevent sidecar drift before any mutation, use a canonical checkpoint digest, close private fit aliases and the third-party import roster, enforce the exact budget roster per event, and freeze remaining revision/signed-zero/nonfinite encodings.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:5eeb0350583d349f27f8eddb55c9fa502681dc74e7323020f83512cee1d066d3",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v45_adversarial_retry",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or the quality ledger.",
+      "No tests, implementation, replay, fit, real-data access, PIT rerun, budget mutation or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "STATIC_FROZEN_SOURCE_IDENTITY",
+    "IMMUTABLE_RECEIPT_AFTER_LATER_SUFFIX",
+    "PREMUTATION_STABLE_LOCK_PROOF",
+    "CANONICAL_CHECKPOINT_DIGEST",
+    "PRIVATE_ALIAS_AND_DEPENDENCY_IMPORT_CLOSURE",
+    "EXACT_EVENT_ROSTER_ENFORCEMENT",
+    "REVISION_AND_BINARY64_EDGE_ENCODING"
+  ],
+  "recorded_at": "2026-07-29T11:13:11+00:00",
+  "source_digest": "sha256:e414868346fba0f135c51769a9e0d90cd8530df5366e5e3bc9df7408ee0937dc",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v45.md",
+      "sha256": "sha256:835ca1248ead16929070ca4cbb9cb076beaae031ea7dcdecc419681a11441f39"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v45_adversarial.md",
+      "sha256": "sha256:c3a35ec9b9a910a776440bbcaa451520f719062986187d347e738059a2d82657"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v45.md",
+      "sha256": "sha256:5eeb0350583d349f27f8eddb55c9fa502681dc74e7323020f83512cee1d066d3"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v3.json",
+      "sha256": "sha256:178c65868f252f0d6bd18666a5602832d9264d59c90d696242a020771f32c661"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v3.md",
+      "sha256": "sha256:710e4085c2f32693239b74de2f7024ecd0ed03936f014b5312b392867d1b1073"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_contract_v3.md",
+      "sha256": "sha256:5c5d8ba622fdf2bc16f2a75875e83683344183e3da5cf3d260af63058c00d9dc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_bounded_design_v3.md",
+      "sha256": "sha256:b91ff4af6050a3077333a252e170b8b587a77f6af84c7d5c2d9c9ec75ebfba25"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v3.md",
+      "sha256": "sha256:fdfe1aadda52f8248a85a99840f1c7aec7814e69e98f958d9976e6069b334eb6"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+      "sha256": "sha256:609297714b832136a242cb07981e7493ec9780f49caa6f5bd6c2c3f84a0f1d13"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    }
+  ],
+  "run_id": "design-review-84a809b9cb16fcfd"
+}

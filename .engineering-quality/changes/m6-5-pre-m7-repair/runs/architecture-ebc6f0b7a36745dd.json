@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 7,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "TRUST_ROOT_ARCHITECTURE_CONFIRMED",
+  "summary": "The revised architecture adds an M6 6/44 authority genesis, two-stage PIT-auditable state provenance, semantic run authorities, and an external replay input binding without expanding into M7 training.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T16:37:43+00:00",
+  "source_digest": "sha256:a3201064b6d7761eca1dd75ca71ee8ba0a622e129defaf8716a532a2c2509bf2",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v4.md",
+      "sha256": "sha256:3cf28947ab7eff5b1c9e94d6caf571203a572daafb5855fcd72ff754ab8556fa"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v1.md",
+      "sha256": "sha256:5f3cf77a39a4be4b0a44689252a81000bf15b079b409ceecdedf9d8797e7f565"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_fast.md",
+      "sha256": "sha256:a4c773dad980f7fba281e50d9e5c4cfd9048b9e7a7bd57893351c4b3453a53c6"
+    },
+    {
+      "path": "contracts/immutable/m6_trial_budget_start.json",
+      "sha256": "sha256:01d32b937c3a8a3c3869b4a44783301cf002ef9299314d0011d3840673e23741"
+    },
+    {
+      "path": "evidence/gates/M6_peerlite_gate.json",
+      "sha256": "sha256:83cdc68597e6b3bddc79fe366d71d9c4cc08398d88f06c94087d4b56bbf8ae86"
+    },
+    {
+      "path": "contracts/trial_ledger.jsonl",
+      "sha256": "sha256:31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93"
+    }
+  ],
+  "run_id": "architecture-ebc6f0b7a36745dd"
+}

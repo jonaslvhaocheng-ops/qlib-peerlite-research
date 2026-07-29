@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 268,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "IMPLEMENTED_SLICE_BOUND_TO_V48_MAINLINE",
+  "summary": "Design v49 binds the actual RunIntent source object to the approved v48 mainline without expanding scope: M7 initial-screen requires both frozen authorities before identity creation, bound intents use canonical V2 identity, and historical unbound non-M7 intents retain V1 compatibility. Failure is side-effect-free and all replay, fit, PIT, real-data, budget-mutation and final-OOS work remains forbidden.",
+  "issue_type": null,
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v49.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v48.md",
+    "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v6.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v29.md",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "tests/test_m65_expected_red.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:bac89c843cbb394240c852015b2eb910f5249f95564e231edd2d25dd13fadf4a",
+  "blockers": []
+}

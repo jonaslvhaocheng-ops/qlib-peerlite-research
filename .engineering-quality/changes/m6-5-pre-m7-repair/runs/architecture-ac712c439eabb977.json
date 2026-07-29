@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 68,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "LINEARIZED_AUTHORITY_AND_EXECUTION_BOUNDARIES",
+  "summary": "Architecture v12 eliminates the Plan/QRC cycle, fixes the only post-exec claim/permit order and close linearization, adds a shared measured execution closure for authoritative M7 fit and archival replay, and makes four writer identities plus ACL policy mechanically enforceable. It preserves the M6 6/44 and PIT/state boundaries and remains synthetic-only.",
+  "commands": [],
+  "subject_digest": "sha256:f80ca2a93ecca804f0c8c7ecc604eee26d0ad2b08f93d5b8bbf71afc26aa38ad",
+  "blockers": [],
+  "recorded_at": "2026-07-28T17:58:12+00:00",
+  "source_digest": "sha256:cfe8168fdbd5922a0b2d5535a12645fd80f0f83c21adf4776e5d6240ea2c1133",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v12.md",
+      "sha256": "sha256:f80ca2a93ecca804f0c8c7ecc604eee26d0ad2b08f93d5b8bbf71afc26aa38ad"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v9.md",
+      "sha256": "sha256:e4e0bb71e12dea48d6fa3db4bb0331804240f55d505771810dfa3befbd312598"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v8.md",
+      "sha256": "sha256:c74d7caeee387dece9c8313e180a194c0cf422df12151e9874e784e0534706ba"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v8_adversarial.md",
+      "sha256": "sha256:bd47e3b1c45d2ac3e5810e52a07c8c89c49d30b9b84e5409c1e05e06fabe8ec2"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    }
+  ],
+  "run_id": "architecture-ac712c439eabb977"
+}

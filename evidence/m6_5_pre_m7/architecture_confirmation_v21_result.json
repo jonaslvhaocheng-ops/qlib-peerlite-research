@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 115,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "CLOSED_AUTHORITY_CONTEXT_AND_SINGLE_ROOT_ARCHITECTURE_READY",
+  "summary": "Architecture v21 replaces the ambiguous six-role evidence key with one canonical, complete authority context; binds the quality-gate Bootstrap, E, A, registry and transaction lock to one FD-derived topology; and retains the complete DirectoryIdentity v2 including opaque file handle in K v4. The retained PTemplate materialization, Q-before-R V precommit and state lineage remain acyclic.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v21.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v20.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v17_consolidated_result.json",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:7e14a5b8a5cbdb1d1bc3e44fa7bb623ce9c5c8bba20cd1efe8ca418618b66881",
+  "blockers": []
+}

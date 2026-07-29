@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 58,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_COMPLETE_STAGED_REPLAY_DESIGN_READY",
+  "summary": "Canonical design v7 incorporates v6 unchanged except for a complete frozen archive replay transaction: it enumerates every historical input and forces measured immutable staging, fixed runtime/import execution, and binding/execution/child receipt agreement.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T17:35:31+00:00",
+  "source_digest": "sha256:e2cb07fea92ef97022a1d475a8097ef2ee02d3341e15bdda05fe337b2d3ae88f",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v7.md",
+      "sha256": "sha256:b2fcfad0f3e0a3fdf7a82680d5d60c38e08bb000a2f59e0e25f0093b7f55b2a4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v6.md",
+      "sha256": "sha256:2130f8659f132fb637898d6ddfb78f8af4ccab1c7b4b52c12899111643a95f78"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v9.md",
+      "sha256": "sha256:e4e0bb71e12dea48d6fa3db4bb0331804240f55d505771810dfa3befbd312598"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v10.md",
+      "sha256": "sha256:e47c62a359a81b1c9f12c4946c8b1b2a4ea223f7b04b2fb76a9cf6fd87c4db13"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v6_adversarial.md",
+      "sha256": "sha256:8adf9c288e87f8acf7abf08b123c3dccd2276529f2795625edae7ea71892b279"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:c8afb0a1eef9715bf220316340ce7d53c0ff4323e7355a4e8005e1809fb5d7d5"
+    }
+  ],
+  "run_id": "change-design-64bbde25e17ffb62"
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 179,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V29_TERMINAL_AND_M7_BUNDLE_READY",
+  "summary": "The v29 exact replacement closes the v28 findings with one official FUTURE_POISON manifest per horizon, canonical event artifact slots and a synthetic-only guard, an idempotent terminal reconciler, separate CCC and Gate authority generations, a self-contained M7 v7 loader/checkpoint/standardizer/CCC contract, a durable sibling COMMITTED marker with locked loading, and an effective clean Python launch that preserves PYTHONHASHSEED and binds a private TMPDIR. It authorizes no implementation, replay, M7 fit, budget change or final-OOS.",
+  "commands": [],
+  "subject_digest": "sha256:be21d2301fd8911f1dcc620ade824d4e6e2fc6b0dcc9ddb85965024836fc4d1e",
+  "blockers": [],
+  "recorded_at": "2026-07-29T07:32:28+00:00",
+  "source_digest": "sha256:b61226b61f9bfc899b5edc90b3ba86a0652e25ade08ccf60e3f844409b8423d1",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v29.md",
+      "sha256": "sha256:be21d2301fd8911f1dcc620ade824d4e6e2fc6b0dcc9ddb85965024836fc4d1e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v28.md",
+      "sha256": "sha256:d9851b71e2688645538b03eadc282480add1706329db0583e66bd5a064f6db39"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v28.md",
+      "sha256": "sha256:040973585e4214d11c208403b19e28bec0e3b9d7ace280408a9852f8d63ea7f6"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v28_adversarial.md",
+      "sha256": "sha256:6ff59e634bf3e8466940cbead296c5fbfdf2ad293c82242578cc8d96aad945b0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v28_consolidated_result.json",
+      "sha256": "sha256:bdbc0dda9ea3e5349fd3a12204f061cb32bb61b8749e2165acdae65b7049d93b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v7.md",
+      "sha256": "sha256:ee5cf78709abaeee910fa7fe6c9bbaea8e6deae42e33b96785db4739b3985d06"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v7.md",
+      "sha256": "sha256:9bd49a3257f216fcbb2a9a744b322ddd20326fa815a689b78a6821a5dd67d5bf"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v7.md",
+      "sha256": "sha256:8a3e48e3fa2e4443a9a770d644a086165e3793874d4d2be2a678c7e06f9b001b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v7.json",
+      "sha256": "sha256:437c31c34df2c22be5cb476eef4adccab11c6de84ca1a201d4ff24fd534eb8e2"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:0f48ead447aefbaca82359561fe2cf20a41971aa0316223dc4033b4d884b6b6b"
+    }
+  ],
+  "run_id": "change-design-628b836b32a3fd99"
+}

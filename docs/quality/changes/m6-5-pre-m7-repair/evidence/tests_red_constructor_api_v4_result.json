@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 297,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "CONSTRUCTOR_TYPE_CONTRACT_EXPECTED_RED",
+  "summary": "The code-review regression fails for the intended API defect: RunIntent.__init__ advertises Mapping authority inputs while runtime and v50 require exact dict inputs. The test also fixes the required post-construction surface as read-only Mapping properties; the failure is reflective contract evidence, not a harness or environment error.",
+  "issue_type": "product-code",
+  "artifact_paths": [
+    "tests/test_run_intent_v2.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_red_constructor_api_v4.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_run_intent_v2_independent.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_run_intent_v2.py::test_constructor_declares_exact_dict_inputs_and_exposes_read_only_mappings",
+      "executed_at": "2026-07-29T20:21:53+08:00",
+      "exit_code": 1,
+      "summary": "Expected red: constructor type hint is Mapping rather than exact dict."
+    }
+  ],
+  "subject_digest": "sha256:84265bc443db7a4b405d54610c131db311128f1750bdbd0c2900379383aaef66",
+  "blockers": []
+}

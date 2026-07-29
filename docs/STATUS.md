@@ -2,11 +2,14 @@
 
 - Master plan: `docs/MASTER_PLAN.md`
 - Master plan SHA256:
-  `d44077728a1692eb0a3a6a95fb9308c8524161c0341b6531361790cf67707665`
-- Current phase and track: `M7-ISOLATED-INCREMENTS-PREFLIGHT`
-- Last actual action: completed and independently verified the frozen M6 v1
-  K16/K32 PeerLite-MSE rolling run
-- Status: executed=`yes`; completed=`yes`; passed=`M6 PASS`
+  `d302eccca49f9c65d3ef56f1fc2188ba11a64464ab6a8db9dde478c5b710cd1e`
+- Current phase and track: `M6.5-PRE-M7-ENGINEERING-QUALITY`
+- Last actual action: canonical v47两份独立R3审查已登记为`NEEDS_CHANGES`；只剩snapshot在
+  precommit crash后被另一合法journal推进ledger时可能stranded。随后形成v48/v6单点修复：
+  snapshot slot绑定ledger-before并定义immutable rebase。旧控制面仍非normative。
+  尚未进入test-design、测试实现、产品实现、code review或replay。没有训练、预算消耗或
+  final-OOS。
+- Status: executed=`yes`; completed=`no`; passed=`M6 PASS`; M6.5=`V48_BOUNDED_BUNDLE_READY_FOR_REVIEW`
 - Active frozen contract:
   - `contracts/immutable/research_contract_pit_v2.json`
   - contract ID `qrc-v2-5b7353756e0fded36622a6946011f77a`
@@ -59,7 +62,17 @@
     `853b9341c4b2c8a156a5d50265465ed134c4d843c5516105452f0704f8a27613`
   - final-OOS market partitions opened: `false`
   - only pre-final-OOS signal diagnostics computed: `true`
-- Current blocker: none for M7 contract and engineering preflight.
+- Current blocker:
+  - `evidence/m6_5_pre_m7/m6_5_repair_change_design_v48.md`、
+    `m6_5_bounded_component_design_v6.md`、`m6_archival_replay_contract_v5.md`、
+    `m7_bounded_design_v5.md`、`m7_bounded_behavior_matrix_v6.md`及三个external bindings
+    控制协议必须获得新的独立
+    R3 design review `PASS`，并产生当前专用 M7 design-review artifact。通过前不得进入
+    test design、red/green tests、implementation、code review 或 replay。
+  - M7 must start from the verified M6 `6/44` close snapshot in a new authority
+    namespace; the server's legacy `4/29` ledger is not an authority.
+  - Final-OOS remains sealed; no archival server replay is authorized until the
+    M6.5 quality route has passed.
 - Risk/ambiguity:
   - DataYes descriptions and snapshot hashes cannot prove vendor truth or that
     no off-system future data was consulted.
@@ -68,11 +81,11 @@
     prove that the upstream vendor omitted no eligible security.
   - Behavior status is `NOVEL_CANDIDATE`: it proves this exact hash-bound replay,
     not every possible execution.
-- Only permitted next action: freeze two separate M7 contracts and budgets for
-  PeerLite-CCC and PeerLite-Gate, then execute and evaluate each increment in
-  isolation on the same development folds.
-- Forbidden until later gates: combining CCC and Gate before both isolated
-  branches pass, unregistered model or hyperparameter search, result-based K
+- Only permitted next action: 将 canonical v48 bounded bundle 登记到 engineering-quality ledger，
+  然后进行新的独立 R3 design review。A derived M7 contract remains forbidden until
+  the whole M6.5 quality gate passes.
+- Forbidden until M6.5 and later gates: M7 real-label training, combining CCC
+  and Gate, unregistered model or hyperparameter search, result-based K
   selection, final-OOS access before M8 freeze, production trading and “top 1%”
   claims.
 

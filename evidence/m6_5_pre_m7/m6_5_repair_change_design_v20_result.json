@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 139,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "LINUX_CONTROL_PLANE_CHANGE_DESIGN_READY",
+  "summary": "Design v20 maps v24 to isolated identity/filesystem/process/authority/quality/control/worker-adapter/lifecycle modules, freezes the acyclic release build, Linux no-replace/OFD behavior, per-message child credentials, exact legacy-call staging, deterministic output normalization and archive rejection, while preserving raw M6 artifacts as non-authoritative inputs.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v20.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v24.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v20_preflight.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v20_preflight_result.json",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v19_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v19_consolidated_result.json",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "src/qlib_peerlite/governance/artifacts.py",
+    "src/qlib_peerlite/governance/m6_archive.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py",
+    "pyproject.toml"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:5c89a379284e0f7397fa6a3fdabcfbb1d19187cb79fe20a999aa27527d074bd2",
+  "blockers": []
+}

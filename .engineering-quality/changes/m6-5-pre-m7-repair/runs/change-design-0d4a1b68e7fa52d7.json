@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 9,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_TRUST_ROOT_REPAIR_DESIGN_READY",
+  "summary": "The revised M6.5 design fixes the rejected trust boundaries with an M6 6/44 genesis, externally bound state audit/artifact chain, semantic run authority receipt chain, and replay input binding.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T16:39:31+00:00",
+  "source_digest": "sha256:8e7246b44de7aa87bb04a04f80b81ee05f36bf9b070ebfacf1bd8d3248c048b2",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v2.md",
+      "sha256": "sha256:0550c0330add31ea9327f0d99a43832d14b295bae9d03f9bc8d274d4b7581d7a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v4.md",
+      "sha256": "sha256:3cf28947ab7eff5b1c9e94d6caf571203a572daafb5855fcd72ff754ab8556fa"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v1.md",
+      "sha256": "sha256:5f3cf77a39a4be4b0a44689252a81000bf15b079b409ceecdedf9d8797e7f565"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_fast.md",
+      "sha256": "sha256:a4c773dad980f7fba281e50d9e5c4cfd9048b9e7a7bd57893351c4b3453a53c6"
+    }
+  ],
+  "run_id": "change-design-0d4a1b68e7fa52d7"
+}

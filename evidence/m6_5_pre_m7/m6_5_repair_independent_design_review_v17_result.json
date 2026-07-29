@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 107,
+  "source_digest_observed": "sha256:dfd743d7abc1a1cb32088a5420387a8a9608a218eb840b06d3f91b20ef6a9886",
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "AUTHORITY_CONTEXT_AND_CONTROL_ROOT_BINDING_NOT_CLOSED",
+  "summary": "v20/v17 correctly close the PTemplate materialization, preclaim V freeze and pre-S0 lifecycle, but do not make the declared evidence-key preimage or the E-to-A-to-registry root binding mechanically verifiable; DirectoryIdentity v2 also has an unresolved field-set ambiguity.",
+  "issue_type": "architecture",
+  "risk_tier": "R3",
+  "unresolved_severity": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 1,
+    "P3": 0
+  },
+  "subject_digest": "sha256:e83b5f20971c4813307a561e3beb4b62737e9d6c46e000fa534eefd8096ce9fc",
+  "reviewed_design": {
+    "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v17.md",
+    "sha256": "sha256:e83b5f20971c4813307a561e3beb4b62737e9d6c46e000fa534eefd8096ce9fc"
+  },
+  "architecture_evidence": {
+    "path": "evidence/m6_5_pre_m7/architecture_confirmation_v20.md",
+    "sha256": "sha256:d944ab700454dbc22515a779366a60e09337efb9b69b2365c0608f08441528e0"
+  },
+  "threat_model_evidence": {
+    "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+  },
+  "status_evidence": {
+    "path": "docs/STATUS.md",
+    "sha256": "sha256:16e558a7c2bc8e175207f9eea7383bc1305762d4cd2511574941e6b183b96667"
+  },
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v17_result.json"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v20.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v17.md",
+    "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+    "docs/STATUS.md"
+  ],
+  "commands": [
+    "read-only rg --files/rg/nl/sed/shasum/git status/jq",
+    "read-only inspection of retained DirectoryIdentity and authority contracts"
+  ],
+  "independence": {
+    "mode": "distinct-subagent-independent-read-only-r3-review",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead",
+    "limitations": [
+      "No product, test, contract, gate, ledger, or historical-evidence changes.",
+      "No project-code execution, training, M6 replay, PIT certification, budget consumption, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "Define one complete typed authority-context preimage and make every C/P/F/A/Q/V and V-inventory validator compare family, scope, verifier, runtime and startup fields as well as the six evidence roles.",
+    "Bind E control-store identities mechanically through A to the resolved registry/lock/claim roots, with no-follow FD equality checks and alternate-root rejection fixtures.",
+    "State whether D is byte-for-byte retained DirectoryIdentity v2 including opaque handle, or issue a new version with an explicit safety/equivalence decision and fixtures.",
+    "Reissue architecture and change-design evidence, then obtain a fresh independent R3 review before test design or implementation."
+  ],
+  "next_route": "architecture"
+}

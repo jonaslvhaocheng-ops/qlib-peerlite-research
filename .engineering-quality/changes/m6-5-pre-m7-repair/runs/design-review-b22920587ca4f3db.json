@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 4,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "LEDGER_GENESIS_PIT_PROVENANCE_AND_REPLAY_TRUST_ROOT_UNSPECIFIED",
+  "summary": "The repair direction is sound, but it lacks a server authority genesis for the verified M6 6/44 close state, an auditable and contract-anchored state provenance chain, a semantic event plan, and an immutable replay-input/verifier trust root.",
+  "issue_type": "architecture",
+  "commands": [],
+  "subject_digest": "sha256:27a88f08714c91d5097ef876b1200c3391503b595d119bf87730f53177f6bd53",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m6_5_design_review_v3",
+    "limitations": [
+      "Read-only design review; no production, test, contract, ledger, server, training, or final-OOS mutation."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-28T16:35:14+00:00",
+  "source_digest": "sha256:1ea515e67330353760a396e9928929e523ff710f2c39060c8e1453b98ee92ba0",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v1.md",
+      "sha256": "sha256:27a88f08714c91d5097ef876b1200c3391503b595d119bf87730f53177f6bd53"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v1.md",
+      "sha256": "sha256:5f3cf77a39a4be4b0a44689252a81000bf15b079b409ceecdedf9d8797e7f565"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v3.md",
+      "sha256": "sha256:eefdd27f393f38427e05bf8a49f800b4266bc9adb7d73e0869e3259f32d39062"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_remediation_independent_code_review.md",
+      "sha256": "sha256:472472cd2fe0f276cceb6e02f98f28f73dfdecc67c8aa81730f1adbe4fb1b423"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_independent_test_coverage_audit.md",
+      "sha256": "sha256:a089c7884356dff9f42e01463375b9d02141782dae4806bf291ee7068a975427"
+    },
+    {
+      "path": "contracts/immutable/m6_trial_budget_start.json",
+      "sha256": "sha256:01d32b937c3a8a3c3869b4a44783301cf002ef9299314d0011d3840673e23741"
+    },
+    {
+      "path": "evidence/gates/M6_peerlite_gate.json",
+      "sha256": "sha256:83cdc68597e6b3bddc79fe366d71d9c4cc08398d88f06c94087d4b56bbf8ae86"
+    },
+    {
+      "path": "contracts/trial_ledger.jsonl",
+      "sha256": "sha256:31a90d1ff506d9dfae48ab8bd191bf8ee9bbcbdc261c8f1acde9c3741992de93"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_archival_replay_server_receipt_v2.json",
+      "sha256": "sha256:851b37e6ff9f66e804ccb1bae23df1f190b22019cdae38f7b99e4033ad72208e"
+    },
+    {
+      "path": "src/qlib_peerlite/data/market_state.py",
+      "sha256": "sha256:b9b8b1052ae32bf3812a06b42d83520a089cbb9bb3604cc755362375fc470706"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    }
+  ],
+  "run_id": "design-review-b22920587ca4f3db"
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 24,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "PIT_AUTHORITY_LEASE_REPLAY_AND_API_GAPS",
+  "summary": "Two independent R3 reviews confirm that v3 preserves the right direction but remains unsafe to implement: the PIT production evidence contract and issuance order are incomplete, the authority registry has bootstrap/activation gaps, a retained start is not a single-use fit admission, replay lacks a fully independent signer/runtime trust root, and the public raw-tensor Gate migration is not explicit.",
+  "issue_type": "architecture",
+  "commands": [],
+  "subject_digest": "sha256:9ac6394aa68deee9a0572e081bdfd500b9de5b4ddfd778bd31222e1efc564ad6",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v3_lead,/root/design_review_v3_adversary",
+    "limitations": [
+      "Read-only design reviews; no product/test/contract/gate/ledger mutation, training, server replay, budget consumption, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "M7 derived-contract freeze, real M7 fit, CCC/Gate experiments, server v3 replay, and final OOS remain prohibited."
+  ],
+  "recorded_at": "2026-07-28T17:03:05+00:00",
+  "source_digest": "sha256:7e62be67d34a79324c6802359e2c0c1b729233cce21a6edd59a7310e2fad005a",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v3.md",
+      "sha256": "sha256:9ac6394aa68deee9a0572e081bdfd500b9de5b4ddfd778bd31222e1efc564ad6"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v3.md",
+      "sha256": "sha256:0fe6a5c589811d55fb4456f300d1d6491afe8207987e60c3e70b455719a6ae70"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v3_adversarial.md",
+      "sha256": "sha256:eba3b4772f636b2cca9a99ed3337f8e3b11b277238b10c316eeb47def65d4d1f"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v5.md",
+      "sha256": "sha256:60f9352e394cd413e628ddcc02455e6112738281a25a04f4cddce62bd837bec0"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v6.md",
+      "sha256": "sha256:6ed8486527e49e25fc32cfaca1fcf88c8dc4978cbdcc76439f112137e08b7a68"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v2.md",
+      "sha256": "sha256:e1d537506c7cda076f17420caca18b02eec6f7ba9b370d5547e536b3d6b6a77e"
+    },
+    {
+      "path": "evidence/pit/audits/pit_full_2012_2024_v2/audit_manifest.json",
+      "sha256": "sha256:2c800a67e70e9b8621a974d52b6d4200970dbd18abbe88f3c32b6584226ef0fa"
+    },
+    {
+      "path": "evidence/pit/behavior/audits/future_poison_real_feature_v1/behavior_manifest.json",
+      "sha256": "sha256:d61d878154ce6027c44f46a658a96d828aa31fe8446a6b9bd38f900e17cf9596"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a"
+    },
+    {
+      "path": "src/qlib_peerlite/models/__init__.py",
+      "sha256": "sha256:67f3d59384d02d515b605157a6b670d29d2230dea7ec07f17d6802368348ed5b"
+    },
+    {
+      "path": "src/qlib_peerlite/__init__.py",
+      "sha256": "sha256:2ddbda1345c42b5a3152596639fc7878bf64d8e2ba68ea5b40d0db85e845b847"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:038644456597b218016147b13eeb6d1a983c19dfcfe3f57f8c043cca39620985"
+    }
+  ],
+  "run_id": "design-review-9fb85b2384e67bb8"
+}

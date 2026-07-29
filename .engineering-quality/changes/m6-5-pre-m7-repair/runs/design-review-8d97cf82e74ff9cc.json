@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 103,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M6_REPLAY_AUTHORITY_AND_CLAIM_LIFECYCLE_NOT_FULLY_CLOSED",
+  "summary": "Both reviews require another architecture repair. The coordinate key uses an undefined/unrecomputed parent identity digest, so same physical parent/leaf can receive multiple claims. The pre-V durable claim lacks a deterministic terminal/recovery protocol, and policy issuance/execution receipt writer roles are ambiguous. The adversarial review additionally found that policy/profile/P/A/V do not bind the exact same M6 evidence set, M6.5 PASS receipt, producer/ACL/slot and P template/allow-list, enabling normal configuration cross-splice. The stricter findings control routing.",
+  "issue_type": "architecture",
+  "commands": [],
+  "subject_digest": "sha256:b376d221fc2273d83db4aa608f031b8f8254789ea29ca6d10e6b3b34c23bc1b1",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "Reviews were read-only and made no product, test, contract, gate, ledger, or historical-evidence changes.",
+      "No empirical training, M6 replay, PIT certification, budget consumption, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Derive the coordinate key directly from canonical DirectoryIdentity v2 and reject an unbound digest; define deterministic R→V pretransition recovery/terminal handling.",
+    "Bind policy/profile/P/A/V role-by-role to one exact M6 evidence set and immutable M6.5 PASS receipt, with one policy issuer identity and a policy-owned P template/allow-list.",
+    "Define all receipt writers explicitly, then obtain fresh independent design PASS before test design, implementation, code review, replay, M7, CCC/Gate or final OOS."
+  ],
+  "recorded_at": "2026-07-28T19:16:17+00:00",
+  "source_digest": "sha256:a6f1d89a60570dbaa64a05c52c87b52c92467d43e70944ae80be8c4e6d9ad975",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v15.md",
+      "sha256": "sha256:4914b93e634457376108b6f490cc906e7a061d2c4be5eb63a73ebcf628c7bfae"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v15_adversarial.md",
+      "sha256": "sha256:ac19c9f6e5b8782da1deb5171e97ed62fc0c7d7ad70c72773df65e75020fc4d3"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v18.md",
+      "sha256": "sha256:690484697271b00795a26f9e22bc04704114617a567f840fc3293ef40241715b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v15.md",
+      "sha256": "sha256:b376d221fc2273d83db4aa608f031b8f8254789ea29ca6d10e6b3b34c23bc1b1"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:51fed21186ee2686f755722de00ff73f3f830991d561df2d97970a16654c5e26"
+    }
+  ],
+  "run_id": "design-review-8d97cf82e74ff9cc"
+}

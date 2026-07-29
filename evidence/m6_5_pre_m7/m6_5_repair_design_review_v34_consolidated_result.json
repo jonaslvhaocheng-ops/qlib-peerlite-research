@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 203,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V34_CAPACITY_ACTIVATION_BUDGET_AND_LIFECYCLE_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm the v33 marker-mode, derived-root, oversized-orphan, historical-delist and replay-grain repairs, but v34 remains fail-open or ambiguous around expected-byte and inode reservations, cross-protocol identity, durable activation, cross-generation budget and qualification order, pre-list semantics, closed transaction schemas, temp recovery, typed numeric canonicalization, and observation-to-source reconciliation.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v34.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v34_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v34.md",
+    "evidence/m6_5_pre_m7/capacity_reservation_protocol_v5.md",
+    "evidence/m6_5_pre_m7/nested_directory_recovery_v1.md",
+    "evidence/m6_5_pre_m7/run_authority_generation_v4.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v12.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v12.md",
+    "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v12.md",
+    "evidence/m6_5_pre_m7/current_control_pointer_v12.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:611800375ad7c7700613fcf7367cd688cf39801917badcb45b6824c8428f1b64",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "CAPACITY_EXPECTED_AND_ENTRY_RESERVATION",
+    "CROSS_PROTOCOL_EQUALITY_AND_CLOSED_TRANSACTION_SCHEMAS",
+    "DURABLE_AUTHORITY_ACTIVATION",
+    "CROSS_GENERATION_BUDGET_AND_QUALIFICATION_ORDER",
+    "PRE_LIST_CARTESIAN_SEMANTICS",
+    "PRIVATE_TEMP_AND_INODE_RECOVERY",
+    "TYPED_NUMERIC_CANONICALIZATION_AND_PARSER_LOCATOR",
+    "LIFECYCLE_RECORD_HASH_CLOCK_AND_SOURCE_RECONCILIATION"
+  ],
+  "issue_type": "design"
+}

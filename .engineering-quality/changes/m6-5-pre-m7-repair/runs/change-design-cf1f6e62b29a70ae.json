@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 197,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V33_CLOSED_MARKERS_AUTHORITY_POISON_AND_AXES_READY",
+  "summary": "The v33 exact replacement closes the v32 findings with self-contained reservation marker and receipt schemas plus conservative charge formulas, a closed upstream-only RunAuthority and linear plan, fixed two-merged-expected plus fourteen-per-fold replay grain with canonical-date window checks, and M7 v11 value-only poison/null observation clocks, dual-sided AP005, exact fixed axes, issuer-authorized evidence and canonical SLA006 records. No implementation, replay, fit, budget change or final-OOS is authorized.",
+  "commands": [],
+  "subject_digest": "sha256:3db1bb4f576f0b6a557a014185c126b067395a07522cf38ee9f610595b8808d7",
+  "blockers": [],
+  "recorded_at": "2026-07-29T08:19:47+00:00",
+  "source_digest": "sha256:69a01324481bfd38d12ea209b7d81bdd1043de5952e6ca8a55465ef9706199be",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v33.md",
+      "sha256": "sha256:3db1bb4f576f0b6a557a014185c126b067395a07522cf38ee9f610595b8808d7"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v32.md",
+      "sha256": "sha256:fbc5d53c40589787c832b54585dd2a07355ba07c4539d4f2de9cc785d7335cba"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v32.md",
+      "sha256": "sha256:f6034c88eeb0d99262a3c5344885f6168f7fef23bdfc2ccc00d25f084dd42a22"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v32_adversarial.md",
+      "sha256": "sha256:ad5240a62fc97c993aec2a6076989fbfbf2b80911ba5406a14d59fde3ea3a665"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v32_consolidated_result.json",
+      "sha256": "sha256:17cd923ca479b3d08c2c0aa0814dba448433700f65f2d73c5e150dee7c63fd69"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v11.md",
+      "sha256": "sha256:642e6e54a30c6436ae76a6da2b2e638a4fa3ac844c9f2b0f7d6dd6755e9b3add"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v11.md",
+      "sha256": "sha256:75bb5106313ff5d2508d03dfaf4e8a55c67a75625efadc552a6cf1431f40bf57"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v11.md",
+      "sha256": "sha256:b80e814ff18fff9966da260f7748e388b437923faacd8de84c26c08d19639e78"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v11.json",
+      "sha256": "sha256:64a0bbd4a931d6c41ac8691b5fcb85049094b8bc68fd93cda18f571e13d5c2c1"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:e107ffd9d5609092e267c150e395cfc1849cb1ad215a9dcb1e0ac844dd390890"
+    }
+  ],
+  "run_id": "change-design-cf1f6e62b29a70ae"
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 151,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_BOUNDED_REMEDIATION_DESIGN_READY",
+  "summary": "The canonical M6.5 design closes the audited state provenance, current-ledger head/run-identity, archive-to-import-tree and legacy Gate boundaries using ordinary data/governance/server composition roots. It preserves immutable M6 history and makes M7 design-only artifacts explicit dependencies rather than implementing or authorizing M7.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v22.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+    "evidence/m6_5_pre_m7/m6_5_remediation_independent_code_review.md",
+    "evidence/m6_5_pre_m7/m6_independent_code_review.md",
+    "evidence/m6_5_pre_m7/m6_test_revalidation.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v2.md",
+    "evidence/m6_5_pre_m7/m7_test_plan_v2.md",
+    "evidence/m6_5_pre_m7/m7_design_review_v2.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "src/qlib_peerlite/data/market_state.py",
+    "src/qlib_peerlite/data/qlib_dataset.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "src/qlib_peerlite/governance/m6_archive.py",
+    "scripts/reconcile_trial_ledger.py",
+    "scripts/server/build_pit_data_product.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:92ee9aab598c38d3f9d00d8d6ab4a2bfa444b08c7da5da99c7b70e6d616d28a6",
+  "blockers": []
+}

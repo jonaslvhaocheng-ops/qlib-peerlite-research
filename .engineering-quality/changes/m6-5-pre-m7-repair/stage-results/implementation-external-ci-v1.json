@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 309,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_GATE_IMPLEMENTED",
+  "summary": "Added the bounded private GitHub Actions gate and a read-only verifier that binds CI to the exact repository source digest and existing M6.5 evidence. Local workflow-structure checks, Ruff and the complete 86-test suite pass; no M7 execution surface or research budget changed.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_gate.md"
+  ],
+  "evidence_paths": [
+    ".github/workflows/m65-external-quality-gate.yml",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/ci_verify_m65.py",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/repository_identity_migration_20260729.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check docs/quality/changes/m6-5-pre-m7-repair/evidence/ci_verify_m65.py",
+      "executed_at": "2026-07-29T14:09:01+00:00",
+      "exit_code": 0,
+      "summary": "CI evidence verifier passes repository Ruff rules."
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-29T14:09:01+00:00",
+      "exit_code": 0,
+      "summary": "All self-authored source, tests and scripts pass Ruff."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T14:09:01+00:00",
+      "exit_code": 0,
+      "summary": "Complete repository suite passed: 86 tests."
+    },
+    {
+      "command": ".venv/bin/python -c \"from pathlib import Path; import yaml; d=yaml.load(Path('.github/workflows/m65-external-quality-gate.yml').read_text(), Loader=yaml.BaseLoader); assert 'pull_request' in d['on']; assert 'm6-5-external-quality-gate' in d['jobs']\"",
+      "executed_at": "2026-07-29T14:09:01+00:00",
+      "exit_code": 0,
+      "summary": "Workflow structure and external gate job are present."
+    }
+  ],
+  "subject_digest": "sha256:d7a2c063201eed111716cc3a0b57ecf5e8ebd72fd698c1f583903995482f2fde",
+  "blockers": []
+}

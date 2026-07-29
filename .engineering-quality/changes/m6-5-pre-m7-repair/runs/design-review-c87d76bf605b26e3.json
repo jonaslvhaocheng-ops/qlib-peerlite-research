@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 88,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "FROZEN_REPLAY_NAMESPACE_PARENT_IDENTITY_NOT_BOUND_TO_RESERVATION",
+  "summary": "Both independent R3 reviews found the same P1: v15/v12 verify the namespace parent at binding time but do not freeze that identity in FreshOutputReservation v1 or M6ReplayInputBinding v7. A same-path, same-ACL parent replacement can therefore pass runtime checks. The design must bind the parent identity at freeze and require exact equality at execution, handoff, and M6 archive acceptance.",
+  "issue_type": "architecture",
+  "commands": [],
+  "subject_digest": "sha256:4798192f857896147774e269900db72777ec01dd75fa1b82fc354262a12753f4",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v7_lead,/root/design_review_v7_adversary",
+    "limitations": [
+      "Reviews were read-only and made no product, test, contract, gate, ledger, or historical-evidence changes.",
+      "No empirical training, M6 replay, PIT certification, budget consumption, or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "Return to architecture and add an exact freeze-time namespace-parent binding to the reservation and v7 binding; compare it at execution, handoff, and archive acceptance.",
+    "Do not enter test design, red tests, implementation, code review, M7, CCC/Gate, server replay, or final OOS until the corrected design receives a fresh independent PASS."
+  ],
+  "recorded_at": "2026-07-28T18:32:06+00:00",
+  "source_digest": "sha256:9b94027a830b20c86cff8ea2f925946a6330ec271bd09b516070b4c317b2cb3d",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v12.md",
+      "sha256": "sha256:bb872a600101c5d0d577e82508e9038240fe4c7d6971141058fc1946dc314c54"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v12_adversarial.md",
+      "sha256": "sha256:5b94a26d13ec1096e26309fb19bf2e99d784a667c21332733a16397dd9b1fa8a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v12.md",
+      "sha256": "sha256:4798192f857896147774e269900db72777ec01dd75fa1b82fc354262a12753f4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v15.md",
+      "sha256": "sha256:f6dd3a7d92007cfdc8a2b863be95b9c2bd3204305d63ee5ae849f3d22776fafd"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/research_governance_threat_model_v1.md",
+      "sha256": "sha256:d2fb7afe7525bc53c528645794093a43b396a39d8daabb908da6484277dcca14"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:5db8aa7431243826db5a5fd0856c1146e33cf8a5e1d6da933000ca7d97d3dc06"
+    }
+  ],
+  "run_id": "design-review-c87d76bf605b26e3"
+}

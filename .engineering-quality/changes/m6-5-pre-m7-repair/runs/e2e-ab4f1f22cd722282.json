@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 320,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_V2_PUBLIC_BOUNDARIES_PASS",
+  "summary": "Clean-process acceptance proves the public RunIntent boundary rejects unbound and cyclic M7 requests with zero persistent effects, while seven M6 archival-evidence and replay-mechanics tests verify the frozen historical boundary. No M7 dispatch, fit, budget mutation, real-data or final-OOS access occurred.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+      "executed_at": "2026-07-29T14:25:19+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:34843f76202c3b378d8636c75ddf6852d62a0fc0950d72935a95960c8411b03f; stdout_bytes=348; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T14:25:19+00:00",
+      "stdout_sha256": "sha256:34843f76202c3b378d8636c75ddf6852d62a0fc0950d72935a95960c8411b03f",
+      "stdout_bytes": 348,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+      "source_digest_after": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py",
+      "executed_at": "2026-07-29T14:25:19+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:e5664d64303f9216a471e687c89839fa803af82540b1f6dbd048a2c928921264; stdout_bytes=98; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m6_evidence.py",
+        "tests/test_m6_archive.py",
+        "tests/test_m6_archival_replay_script.py"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T14:25:21+00:00",
+      "stdout_sha256": "sha256:e5664d64303f9216a471e687c89839fa803af82540b1f6dbd048a2c928921264",
+      "stdout_bytes": 98,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+      "source_digest_after": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289"
+    }
+  ],
+  "subject_digest": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+  "blockers": [],
+  "recorded_at": "2026-07-29T14:25:21+00:00",
+  "source_digest": "sha256:6d60dec06440bc120ebf6c0195d91a6aa502229a1348040088f5776992383289",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/e2e_external_ci_v2_acceptance.md",
+      "sha256": "sha256:1d334beb1ab38876796ddc2bc5607628117a27de8553f6e0b1daa99e81726683"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+      "sha256": "sha256:d8c34671c2355329260a935a565ba568b6be1567d4fb67a5efef33106ea1853c"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v2_independent.md",
+      "sha256": "sha256:b839ae672c75db2ff77a8cdcb953f3dc64a8e0a7e31b0694d8bb6e5338f6e4f6"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v2.md",
+      "sha256": "sha256:201a18eef36ce7f3cca7b839b07a5d1ff96257183ebd1c98d572e9683291a72e"
+    },
+    {
+      "path": "tests/test_m6_evidence.py",
+      "sha256": "sha256:b4c2c94ba6d93339a3aaa113ae5d1b6c4eebe37a2a50aa223aff0fdc197804d3"
+    },
+    {
+      "path": "tests/test_m6_archive.py",
+      "sha256": "sha256:323b24594a4e7d31c036caa8515c44e4d8f467bebd595646525ee1ee02601d7f"
+    },
+    {
+      "path": "tests/test_m6_archival_replay_script.py",
+      "sha256": "sha256:357b9cc85b199c467eac261310ddeded562b9ed501d4ad0ac3f5b11faab48b41"
+    }
+  ],
+  "run_id": "e2e-ab4f1f22cd722282"
+}

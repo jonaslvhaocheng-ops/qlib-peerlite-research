@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 305,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "PUBLIC_RUN_INTENT_V2_ACCEPTANCE_PASSES_WITH_ZERO_EFFECTS",
+  "summary": "A clean-process public Python journey constructed a fully bound M7 RunIntent, proved caller-alias mutation isolation, recursively read-only snapshots and NFC-equivalent identity, and exercised unbound-M7 and cyclic-input rejection. It terminated with deterministic PASS JSON and zero persistent effects.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+      "executed_at": "2026-07-29T12:31:01+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:34843f76202c3b378d8636c75ddf6852d62a0fc0950d72935a95960c8411b03f; stdout_bytes=348; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T12:31:01+00:00",
+      "stdout_sha256": "sha256:34843f76202c3b378d8636c75ddf6852d62a0fc0950d72935a95960c8411b03f",
+      "stdout_bytes": 348,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:8968e7b8e172ceea730e4251cb90a8d902e46ffa406da3fb4fe47b32e950f477",
+      "source_digest_after": "sha256:8968e7b8e172ceea730e4251cb90a8d902e46ffa406da3fb4fe47b32e950f477"
+    }
+  ],
+  "subject_digest": "sha256:8968e7b8e172ceea730e4251cb90a8d902e46ffa406da3fb4fe47b32e950f477",
+  "blockers": [],
+  "recorded_at": "2026-07-29T12:31:01+00:00",
+  "source_digest": "sha256:8968e7b8e172ceea730e4251cb90a8d902e46ffa406da3fb4fe47b32e950f477",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/e2e_run_intent_v2_acceptance.md",
+      "sha256": "sha256:25d7bc2fd3e21c0249cf0ccd71e8f2da7f0b18fb902c26ecb585eda5df83b07f"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+      "sha256": "sha256:d8c34671c2355329260a935a565ba568b6be1567d4fb67a5efef33106ea1853c"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_run_intent_v2_r2_independent.md",
+      "sha256": "sha256:59cd64219b560e26679ce2afec7479abf6326cd6963901c97cb9fab598ff5146"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_constructor_api_repair.md",
+      "sha256": "sha256:02ad3b0c1bb1a9b0581fa29f98720eb65030ab0ff30610eb8e82502e3d9ad64a"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_test_design_v2.md",
+      "sha256": "sha256:fb62c1a0655769d6502b184918bce2a8ee869f095020b5b9eee70e1822a6979d"
+    }
+  ],
+  "run_id": "e2e-0ccefdddf666a19a"
+}

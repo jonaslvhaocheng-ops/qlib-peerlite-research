@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 1,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "BOUNDED_ARCHITECTURE_CONFIRMED",
+  "summary": "Existing data, governance, and server-composition boundaries safely contain the M6.5 repair when provenance and run authority are explicit artifacts.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T16:21:31+00:00",
+  "source_digest": "sha256:fded1023a05872c30158d84bb2bd9d500b975c1eed2038e6bb447a98502d209f",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v3.md",
+      "sha256": "sha256:eefdd27f393f38427e05bf8a49f800b4266bc9adb7d73e0869e3259f32d39062"
+    }
+  ],
+  "evidence": [],
+  "run_id": "architecture-57f34d453bef6ea4"
+}

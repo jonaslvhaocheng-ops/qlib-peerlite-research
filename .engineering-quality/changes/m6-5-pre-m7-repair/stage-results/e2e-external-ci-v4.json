@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 335,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "EXTERNAL_CI_ACCEPTANCE_ARTIFACT_REBOUND",
+  "summary": "Re-executed clean-process RunIntent and commit-bound M6 archive acceptance after rebinding the formatting-cleaned independent-review artifact; both boundaries pass with zero persistent effects.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/e2e_external_ci_v3_acceptance.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v3_independent.md",
+    "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v3.md",
+    "tests/test_m6_evidence.py",
+    "tests/test_m6_archive.py",
+    "tests/test_m6_archival_replay_script.py"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+      "executed_at": "2026-07-29T14:39:00+00:00",
+      "exit_code": 0,
+      "summary": "RunIntent acceptance passed with unbound M7 rejected and persistent_effects=0."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py",
+      "executed_at": "2026-07-29T14:39:00+00:00",
+      "exit_code": 0,
+      "summary": "M6 archival evidence and replay boundary passed: 7 tests."
+    }
+  ],
+  "subject_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+  "blockers": []
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 239,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V43_TKNOWN_AND_EXECUTABLE_CONTRACT_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm that v43 correctly restores the architecture-v28 bounded mainline and exact closure, but require a self-contained T-known server-builder and source-manifest contract, a current gate with correct review-first routing, exact ledger and replay schemas and crash rules, frozen runtime and CUDA evidence, complete-date CCC batching, deterministic Gate statistics, executable screening formulas, and expanded bounded tests. No production control plane is required.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v43.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v43_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v43.md",
+    "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v1.md",
+    "evidence/m6_5_pre_m7/m6_archival_replay_contract_v1.md",
+    "evidence/m6_5_pre_m7/m7_bounded_design_v1.md",
+    "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v1.md",
+    "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v1.json",
+    "evidence/m6_5_pre_m7/current_control_pointer_v21.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:04e1b8e1cdc1744e63afb4b3d5a0c3da09245c547ca8d31e54c89cf08d647016",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or ledger.",
+      "No replay, training, real data, PIT, budget or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "CURRENT_REVIEW_FIRST_GATE",
+    "TKNOWN_BUILDER_AND_SOURCE_MANIFEST",
+    "SELF_CONTAINED_LEDGER_AND_REPLAY_SCHEMAS",
+    "ATOMIC_LEDGER_CRASH_AND_CONCURRENCY",
+    "FROZEN_IMPORT_RUNTIME_CUDA_EVIDENCE",
+    "COMPLETE_DATE_CCC_AND_GATE_NUMERICS",
+    "SCREEN_ONLY_REFIT_AND_PROMOTION_FORMULAS",
+    "BOUNDED_NEGATIVE_TEST_COVERAGE"
+  ]
+}

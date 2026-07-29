@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 253,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V47_EXACT_SLOTS_ROSTER_AND_OBJECT_GRAPH_READY",
+  "summary": "The v47 self-contained bounded bundle closes only the four narrow v46 findings. Snapshot and receipt slots now have exact paths and preimages plus pre-commit and missing-event identities; the external budget owns evaluation IDs and purposes; source timestamps reject sub-microsecond precision before comparison; and no-fit proof traverses the complete reachable Python object graph fail-closed. The recovery state machine distinguishes append, recovery and immutable no-op under later suffixes. No model, service, production control plane or research direction was added. This is design evidence only.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v47.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v46.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v46.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v46_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v46_consolidated_result.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate_v2.json",
+    "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+    "evidence/m6_5_pre_m7/static_m6_archive_binding_v2.json",
+    "evidence/m6_5_pre_m7/m6_archival_replay_binding_v2.json",
+    "evidence/m6_5_pre_m7/m6_5_bounded_component_design_v5.md",
+    "evidence/m6_5_pre_m7/m6_archival_replay_contract_v5.md",
+    "evidence/m6_5_pre_m7/m7_bounded_design_v5.md",
+    "evidence/m6_5_pre_m7/m7_bounded_behavior_matrix_v5.md",
+    "evidence/m6_5_pre_m7/m6_5_normative_closure_manifest_v5.json",
+    "evidence/m6_5_pre_m7/current_control_pointer_v25.json",
+    "evidence/m6_5_pre_m7/m6_5_mainline_scope_review_v1.md",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:2620ce69e1beae901a41f27f22515d51921a2300d24fdca52ff642f867f6807c",
+  "blockers": []
+}

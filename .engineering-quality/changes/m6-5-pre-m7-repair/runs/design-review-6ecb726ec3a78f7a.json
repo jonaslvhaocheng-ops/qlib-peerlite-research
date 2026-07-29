@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 195,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V32_MARKER_AUTHORITY_AND_LIFECYCLE_SCHEMAS_UNCLOSED",
+  "summary": "Two independent R3 reviews confirm the main lease/abort, five-column identity, AP lineage and generation schemas, but v32 still references replaced sections, lacks closed reservation and RunAuthority schemas, permits clock-only poison and cannot encode null-delist observation time, persists AP005 as a single value plus status, under-binds fixed lifecycle axes and issuer/SLA006 evidence, and leaves replay artifact grain and canonical-date window order ambiguous.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:fbc5d53c40589787c832b54585dd2a07355ba07c4539d4f2de9cc785d7335cba",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "SELF_CONTAINED_REPLACEMENT_COMPOSITION",
+    "RESERVATION_MARKER_AND_RECEIPT_CLOSED_SCHEMAS",
+    "RUN_AUTHORITY_CLOSED_SCHEMA",
+    "VALUE_CHANGING_POISON_AND_NULL_OBSERVATION_CLOCK",
+    "AP005_DUAL_SIDED_EVIDENCE",
+    "LIFECYCLE_FIXED_AXES_ISSUER_AND_SLA006_CANONICALIZATION",
+    "REPLAY_ARTIFACT_GRAIN_AND_CANONICAL_WINDOW_ORDER"
+  ],
+  "recorded_at": "2026-07-29T08:15:23+00:00",
+  "source_digest": "sha256:54d39fd1b9d187ba0738b9765c35b2c85ea9fdfd989bb3754f5a0ebb461f0c64",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v32.md",
+      "sha256": "sha256:f6034c88eeb0d99262a3c5344885f6168f7fef23bdfc2ccc00d25f084dd42a22"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v32_adversarial.md",
+      "sha256": "sha256:ad5240a62fc97c993aec2a6076989fbfbf2b80911ba5406a14d59fde3ea3a665"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v32.md",
+      "sha256": "sha256:fbc5d53c40589787c832b54585dd2a07355ba07c4539d4f2de9cc785d7335cba"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v31.md",
+      "sha256": "sha256:f83f2b51861c55f2abd96b051ef6e5546a43c5eff47128aa69c4125f9c28ca87"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v10.md",
+      "sha256": "sha256:bfa95544be056fb7d2874a072b3feabbe15f3665064775bcdace194383917bb4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v10.md",
+      "sha256": "sha256:3dc5379980d3ac0cf20836576668ddcbe670100a2f5da4eda9a6250c4760e0a4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v10.md",
+      "sha256": "sha256:99d2bec5fb1049db93930dfbf96cbe06b3d98aff50116fcb1169833fc9ac88e4"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:be2f1585709e3523b43a342567bb4985b71f839f737d32d4e8d86ad920527e74"
+    }
+  ],
+  "run_id": "design-review-6ecb726ec3a78f7a"
+}

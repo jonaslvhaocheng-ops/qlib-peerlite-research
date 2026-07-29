@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 217,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V38_DEVICE_LEASE_EXEC_TRUST_CLOCK_READY",
+  "summary": "The v38 bundle closes v37 with a single-device complete scan and inode-deduplicated physical blocks, a single durable RESERVED marker that atomically binds the precreated lease slot and capacity, unique staging inodes, an exclusive per-event execution lease, typed and fixed result payloads, externally supplied trusted issuer-policy inputs plus closed registry objects, process-spawn denial and supervisor runtime receipts, field-grain historical source clocks and closed Evidence V3, while retaining permanent commit-time budgets and exact replay identity. No implementation, replay, fit, budget mutation, real-data access or final-OOS access is authorized.",
+  "commands": [],
+  "subject_digest": "sha256:707abeffc088b49549b8711ac73df69a18281fd0fad0171d0e57768b1beeade3",
+  "blockers": [],
+  "recorded_at": "2026-07-29T09:32:41+00:00",
+  "source_digest": "sha256:04465e41ab92428408dc6fbfcef788984858a6ee1b1a7c24d72f1d1ebed3cf8a",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v38.md",
+      "sha256": "sha256:707abeffc088b49549b8711ac73df69a18281fd0fad0171d0e57768b1beeade3"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v37.md",
+      "sha256": "sha256:ab3d455f308d108b86a9ced8dd6b4db27eba354d6ace94d5d438e2126ff74bb5"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v37.md",
+      "sha256": "sha256:73743477f56da210a4be23ab9a29cf782d282372eb2aa2def627c1be7a020847"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v37_adversarial.md",
+      "sha256": "sha256:a272f39fb63cb5dc56c5638f86be9b343c0b95c72f95a8124f950d28782fbdbb"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v37_consolidated_result.json",
+      "sha256": "sha256:6e72bfb72966548a2e08dcb1b0769fcbc7225f567c5ce573bb9a5689d1cf930c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/capacity_reservation_protocol_v9.md",
+      "sha256": "sha256:32f6110dd10c7b6e80da922a8c934ba4032548e97528f88ea4bb6a61599d025f"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+      "sha256": "sha256:57a46db7a4f4e2b142efbb5bbd0b3ea2dfa461a8817c8d675fa855d9f2760632"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/run_authority_generation_v8.md",
+      "sha256": "sha256:c5772d9f298ac6a3833fc0206f06844cffb3a7d5aa9cedf38e02d0c13d5c888e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_change_design_v16.md",
+      "sha256": "sha256:637b167fdb651f10112971a0b4d41c86e9f5f868d427429bc6dda01e3857a978"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v16.md",
+      "sha256": "sha256:40767b2765d5e7e1a9b37acc8d232108275af5170b82d7d870443e23f65c7a4e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v16.md",
+      "sha256": "sha256:56eef785c190a3b7172be794cd578f6bff72165ef8ca844007ebeb7150ce121c"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/current_control_pointer_v16.json",
+      "sha256": "sha256:0ccbdcf35fc38009e4a5aec64d6a1bc3ded90482ba8825a55c18814520fc201b"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+      "sha256": "sha256:87da944f1d463258f5cf6dcfa8ab86bdb3091db42a46f3aea4a8ce2b20478242"
+    },
+    {
+      "path": "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+      "sha256": "sha256:60fda8cc95ea1ffd75364dcfec06ef07e833619500333a9ab42ff8baef459c0b"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:f9b6972ddc8f7d5ab8cce8b2d6783090e7ef186a89c6df074adf9bdeaaa750ec"
+    }
+  ],
+  "run_id": "change-design-c7e121e53895b12a"
+}

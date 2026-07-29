@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 16,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_ARCHITECTURE_TRUST_BOUNDARIES_CLOSED",
+  "summary": "Architecture v5 closes the reviewed boundaries by denying the legacy Gate, separating construction from PIT CERTIFY eligibility, anchoring run authorities in an external registry/grant, and requiring independent replay launch/deployment evidence.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T16:50:24+00:00",
+  "source_digest": "sha256:b50d0caabef9c1fec95e1122ee4f075bbdf3fb951542c92c2908c7abea80a582",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/architecture_confirmation_v5.md",
+      "sha256": "sha256:60f9352e394cd413e628ddcc02455e6112738281a25a04f4cddce62bd837bec0"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v2.md",
+      "sha256": "sha256:e1d537506c7cda076f17420caca18b02eec6f7ba9b370d5547e536b3d6b6a77e"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v2.md",
+      "sha256": "sha256:0550c0330add31ea9327f0d99a43832d14b295bae9d03f9bc8d274d4b7581d7a"
+    },
+    {
+      "path": "docs/STATUS.md",
+      "sha256": "sha256:cbc6e9ecf84b11d1f57d5fc48a961fbfa5933f8a6c307af9e51c9a7c0804319d"
+    },
+    {
+      "path": "evidence/gates/M6_5_pre_m7_quality_gate.json",
+      "sha256": "sha256:0be97ec56179fc77ed791740c084a48db4872618ff12aed29b1895cad2a2b200"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a"
+    },
+    {
+      "path": "src/qlib_peerlite/data/qlib_dataset.py",
+      "sha256": "sha256:095a8f22ee014db37fa374083d73ed859352b4afcb7a5195129204da88ce1081"
+    },
+    {
+      "path": "src/qlib_peerlite/data/market_state.py",
+      "sha256": "sha256:b9b8b1052ae32bf3812a06b42d83520a089cbb9bb3604cc755362375fc470706"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:67f1b545fd718506dc533e8c395a7ce00e9839d900023b7ba15eb4dcd487252d"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/m6_archive.py",
+      "sha256": "sha256:98a10e539edf62892425478ee1cec95468a7bc147823ddf8836bdbdcf756c3e9"
+    },
+    {
+      "path": "scripts/server/verify_m6_peerlite_archival_replay.py",
+      "sha256": "sha256:1454f2530c97ed409a4bf5cbc82b9cf71a0e8ea18663abb4067036557571b3dc"
+    }
+  ],
+  "run_id": "architecture-b87d70591585bdb6"
+}

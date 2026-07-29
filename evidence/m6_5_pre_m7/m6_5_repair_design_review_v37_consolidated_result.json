@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 215,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V37_DEVICE_LEASE_TRUST_CLOCK_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm v37's block framework, inventory phases, event head recurrence, budget, parser resources and replay closure, but require inode-deduplicated and device-complete capacity, a single-marker lease bootstrap, exclusive event execution, typed result payloads, an externally supplied issuer-policy trust root with closed objects, subprocess denial and runtime I/O attestation, field-specific historical clocks and fully closed receipts and evidence.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v37.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v37_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v37.md",
+    "evidence/m6_5_pre_m7/capacity_reservation_protocol_v8.md",
+    "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+    "evidence/m6_5_pre_m7/run_authority_generation_v7.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v15.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v15.md",
+    "evidence/m6_5_pre_m7/current_control_pointer_v15.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:ab3d455f308d108b86a9ced8dd6b4db27eba354d6ace94d5d438e2126ff74bb5",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit design, product, test, gate or ledger files.",
+      "Neither reviewer invoked quality_ledger or ran replay, training, real data, PIT certification, budget consumption or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "DEVICE_COMPLETE_BLOCK_CAPACITY_AND_INODE_DEDUPE",
+    "SINGLE_MARKER_LEASE_BOOTSTRAP_AND_UNIQUE_STAGING_INODES",
+    "EXCLUSIVE_EVENT_EXECUTION_AND_TYPED_RESULTS",
+    "EXTERNAL_TRUSTED_ISSUER_POLICY_AND_CLOSED_REGISTRY",
+    "PROCESS_DENIAL_AND_RUNTIME_IO_ATTESTATION",
+    "FIELD_SPECIFIC_HISTORICAL_CLOCKS_AND_CLOSED_EVIDENCE"
+  ]
+}

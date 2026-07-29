@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 213,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_V37_BLOCK_LEDGER_TRUST_RESOLVER_READY",
+  "summary": "The v37 exact bundle closes v36 with filesystem-fragment block reservation, a precreated lease-pool bootstrap under the capacity lock, an exact four-directory plus nineteen-file control footprint, PRE_SEAL/SEALED/POST_CLEANUP inventories, sibling-only transaction controls, immutable run-ledger entry and receipt head recurrence, result-to-claim binding, request-external issuer registration without a derived-contract cycle, exact field and executable closure schemas, a closed historical resolver and clock order, chmod durability, collision-free event keys, replay digest preimages, and dedicated adversarial fixtures. No implementation, replay, fit, budget mutation, real-data access or final-OOS access is authorized.",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v37.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v36.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v36.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v36_adversarial.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_design_review_v36_consolidated_result.json",
+    "evidence/m6_5_pre_m7/capacity_reservation_protocol_v8.md",
+    "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+    "evidence/m6_5_pre_m7/run_authority_generation_v7.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v15.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v15.md",
+    "evidence/m6_5_pre_m7/m7_v28_compatibility_addendum_v15.md",
+    "evidence/m6_5_pre_m7/current_control_pointer_v15.json",
+    "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+    "contracts/changes/m6_5_pre_m7_quality_gate_v1.json",
+    "evidence/gates/M6_5_pre_m7_quality_gate.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:ab3d455f308d108b86a9ced8dd6b4db27eba354d6ace94d5d438e2126ff74bb5",
+  "blockers": []
+}

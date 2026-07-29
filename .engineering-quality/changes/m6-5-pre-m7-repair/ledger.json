@@ -1,0 +1,1643 @@
+{
+  "schema_version": "1.0",
+  "suite_version": "0.2.1",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 337,
+  "status": "READY_FOR_CI",
+  "repository": {
+    "identity": "github.com/jonaslvhaocheng-ops/qlib-peerlite-research",
+    "root_hint": "qlib模型框架",
+    "baseline_commit": "82f19ec05deef809d5321568ef7b9aa279c384f6",
+    "branch": "main",
+    "source_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b"
+  },
+  "scope": {
+    "goal": "在 M7 前修复并独立验证市场状态 PIT 来源边界、服务器唯一账本运行身份，以及 M6 checkpoint 重放证据绑定；不启动 M7 训练或访问最终 OOS。",
+    "non_goals": [],
+    "changed_surfaces": [],
+    "change_kind": "unspecified",
+    "architecture_required": true,
+    "critical_journeys": [
+      "从 sealed raw snapshot 到 market_state artifact 的 PIT-safe builder 输入边界",
+      "服务器 journal 到唯一权威 trial ledger 的精确 head 绑定与幂等恢复",
+      "冻结源码下 M6 checkpoint 的只读 14-fold archival replay"
+    ]
+  },
+  "risk": {
+    "tier": "R3",
+    "initial_tier": "R3",
+    "rationale": [],
+    "locked": true
+  },
+  "stages": {
+    "scope": {
+      "owner_skill": "eng-route-quality-work",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Scope and locked risk supplied at initialization.",
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-28T16:19:59+00:00"
+    },
+    "architecture": {
+      "owner_skill": "eng-architect-repository",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The post-v29 delta is test-only and proves the approved mutable-identity defect at the pure RunIntent class seam. It introduces no production module, dependency, runtime, data owner, service or execution path; the v28/v29 trusted single-process architecture remains sufficient for the v50 bounded repair.",
+      "latest_run": "runs/architecture-f31c588f93631bdd.json",
+      "subject_digest": "sha256:6601afd992b9d6f417da907f9c95a25aa5a0eac870159b4a9037b29d500342c7",
+      "artifacts": [
+        {
+          "path": "evidence/m6_5_pre_m7/architecture_confirmation_v30.md",
+          "sha256": "sha256:6601afd992b9d6f417da907f9c95a25aa5a0eac870159b4a9037b29d500342c7"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/m6_5_pre_m7/architecture_confirmation_v29.md",
+          "sha256": "sha256:d59ca3e2fcf5d627ba2459a530070d30d3acf499cd862400854b2ba2916e6b60"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+          "sha256": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md",
+          "sha256": "sha256:8c9bb077e26d95de71793ae7f373ed11d8986b4571f072afee1af551ef327d19"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_test_design_v2.md",
+          "sha256": "sha256:fb62c1a0655769d6502b184918bce2a8ee869f095020b5b9eee70e1822a6979d"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_tests_red_v2.md",
+          "sha256": "sha256:4a47835700e6efa6070145b5f72d75143be6f7bb0b4cc3e3ebdd9c296adc6ab1"
+        }
+      ],
+      "updated_at": "2026-07-29T12:01:40+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "change-design": {
+      "owner_skill": "eng-design-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The expected-red test implements exactly v50 RI-U3 and does not alter any design decision. V50 remains the smallest coherent repair: construction-time V2 validation, owned immutable snapshots and cached identity, with exact V1 compatibility and no caller/event/execution claim.",
+      "latest_run": "runs/change-design-5d556916c0fe6b8e.json",
+      "subject_digest": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e",
+      "artifacts": [
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+          "sha256": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/m6_5_pre_m7/architecture_confirmation_v30.md",
+          "sha256": "sha256:6601afd992b9d6f417da907f9c95a25aa5a0eac870159b4a9037b29d500342c7"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md",
+          "sha256": "sha256:8c9bb077e26d95de71793ae7f373ed11d8986b4571f072afee1af551ef327d19"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_test_design_v2.md",
+          "sha256": "sha256:fb62c1a0655769d6502b184918bce2a8ee869f095020b5b9eee70e1822a6979d"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_tests_red_v2.md",
+          "sha256": "sha256:4a47835700e6efa6070145b5f72d75143be6f7bb0b4cc3e3ebdd9c296adc6ab1"
+        }
+      ],
+      "updated_at": "2026-07-29T12:02:12+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "design-review": {
+      "owner_skill": "eng-review-design",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The independently reviewed v50 design artifact is byte-unchanged, and the new expected-red test exercises its approved caller-mutation invariant without introducing a new interface or decision. The independent R3 PASS therefore remains applicable with no P0-P3 finding.",
+      "latest_run": "runs/design-review-3feb32956be02952.json",
+      "subject_digest": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e",
+      "artifacts": [
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md",
+          "sha256": "sha256:8c9bb077e26d95de71793ae7f373ed11d8986b4571f072afee1af551ef327d19"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+          "sha256": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50_revalidation_result.json",
+          "sha256": "sha256:399e74c750146510ce24670aeca6772af28b62bfbab5c0bad7c92ced27f95faf"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/architecture_confirmation_v30.md",
+          "sha256": "sha256:6601afd992b9d6f417da907f9c95a25aa5a0eac870159b4a9037b29d500342c7"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_tests_red_v2.md",
+          "sha256": "sha256:4a47835700e6efa6070145b5f72d75143be6f7bb0b4cc3e3ebdd9c296adc6ab1"
+        }
+      ],
+      "updated_at": "2026-07-29T12:02:46+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m65_v45_adversarial_retry",
+        "limitations": [
+          "The independent review applies to the unchanged v50 design artifact.",
+          "No replay, fit, PIT, real-data access, CCC or Gate execution."
+        ]
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "test-design": {
+      "owner_skill": "eng-design-tests",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The v2 portfolio remains complete and unchanged. Its RI-U3 oracle produced the intended product failure while the existing M7-unbound rejection stayed green, confirming that the fixture and seam isolate the approved mutable-identity defect rather than a harness or environment error.",
+      "latest_run": "runs/test-design-8c72c7915a19b6cb.json",
+      "subject_digest": "sha256:fb62c1a0655769d6502b184918bce2a8ee869f095020b5b9eee70e1822a6979d",
+      "artifacts": [
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_test_design_v2.md",
+          "sha256": "sha256:fb62c1a0655769d6502b184918bce2a8ee869f095020b5b9eee70e1822a6979d"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+          "sha256": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v50_independent.md",
+          "sha256": "sha256:8c9bb077e26d95de71793ae7f373ed11d8986b4571f072afee1af551ef327d19"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_tests_red_v2.md",
+          "sha256": "sha256:4a47835700e6efa6070145b5f72d75143be6f7bb0b4cc3e3ebdd9c296adc6ab1"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/architecture_confirmation_v30.md",
+          "sha256": "sha256:6601afd992b9d6f417da907f9c95a25aa5a0eac870159b4a9037b29d500342c7"
+        }
+      ],
+      "updated_at": "2026-07-29T12:03:11+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-red": {
+      "owner_skill": "eng-write-tests",
+      "mode": "red",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The code-review regression fails for the intended API defect: RunIntent.__init__ advertises Mapping authority inputs while runtime and v50 require exact dict inputs. The test also fixes the required post-construction surface as read-only Mapping properties; the failure is reflective contract evidence, not a harness or environment error.",
+      "latest_run": "runs/tests-red-9e93796bab3f486c.json",
+      "subject_digest": "sha256:84265bc443db7a4b405d54610c131db311128f1750bdbd0c2900379383aaef66",
+      "artifacts": [
+        {
+          "path": "tests/test_run_intent_v2.py",
+          "sha256": "sha256:84265bc443db7a4b405d54610c131db311128f1750bdbd0c2900379383aaef66"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_red_constructor_api_v4.md",
+          "sha256": "sha256:0eaf446cff956143fa8eba45f9536f96a9952883eb383c3a842d477819191735"
+        },
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_run_intent_v2_independent.md",
+          "sha256": "sha256:8a7b21ca94411c87460dc156f819b875b3a8c7b54ec6a29d0e12b866a52d2e76"
+        },
+        {
+          "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v50.md",
+          "sha256": "sha256:d056f83c4ecd2f5a4a135a0e5ff24bd46a510be6e9590f675627c268f9318f0e"
+        }
+      ],
+      "updated_at": "2026-07-29T12:22:16+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m pytest -q tests/test_run_intent_v2.py::test_constructor_declares_exact_dict_inputs_and_exposes_read_only_mappings",
+          "executed_at": "2026-07-29T12:22:15+00:00",
+          "exit_code": 1,
+          "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:1b47812c474ceac115bf348601df19ba73fe2958552fd2cb77ad0b272598d63f; stdout_bytes=843; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_run_intent_v2.py::test_constructor_declares_exact_dict_inputs_and_exposes_read_only_mappings"
+          ],
+          "expected_exit_code": 1,
+          "finished_at": "2026-07-29T12:22:16+00:00",
+          "stdout_sha256": "sha256:1b47812c474ceac115bf348601df19ba73fe2958552fd2cb77ad0b272598d63f",
+          "stdout_bytes": 843,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:37a4e9ab4000817ef3eca289fc24be30424e2d725e73b0a60186315af4a3ddc8",
+          "source_digest_after": "sha256:37a4e9ab4000817ef3eca289fc24be30424e2d725e73b0a60186315af4a3ddc8"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": "product-code",
+      "redirect_stage": null
+    },
+    "implementation": {
+      "owner_skill": "eng-implement-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Corrected the external runner's shallow-checkout mismatch by fetching complete Git history, preserving the commit-bound M6 archive verification without weakening tests or expanding into M7.",
+      "latest_run": "runs/implementation-6592ece1141b7c7e.json",
+      "subject_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_fetch_depth_fix.md",
+          "sha256": "sha256:fb916a907f661a24fcfae70363523af46da3178d80b93aa40ae67a898510254c"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/external_ci_run1_failure.md",
+          "sha256": "sha256:13f6f5bf3ebab937b1356938dd9a5492408eed43c53e672ff56eb8e45f4da527"
+        },
+        {
+          "path": ".github/workflows/m65-external-quality-gate.yml",
+          "sha256": "sha256:111038cdc4f5d10acfe7128493caa29c44c087befc26975cb8750b56d3f6d9bb"
+        }
+      ],
+      "updated_at": "2026-07-29T14:32:38+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -c \"from pathlib import Path; import yaml; d=yaml.load(Path('.github/workflows/m65-external-quality-gate.yml').read_text(), Loader=yaml.BaseLoader); steps=d['jobs']['m6-5-external-quality-gate']['steps']; primary=steps[0]; assert primary['name']=='Check out exact revision'; assert primary['with']['fetch-depth']=='0'; assert primary['with']['persist-credentials']=='false'\"",
+          "executed_at": "2026-07-29T14:32:00+00:00",
+          "exit_code": 0,
+          "summary": "The primary external checkout is full-history and still disables persisted credentials."
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-green": {
+      "owner_skill": "eng-write-tests",
+      "mode": "green",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The complete suite, M6 archival subset, Ruff, and pinned full-history workflow contract all pass against the corrected external-CI source digest.",
+      "latest_run": "runs/tests-green-8c014136fd124244.json",
+      "subject_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v3.md",
+          "sha256": "sha256:f45fdbc73b0946178d2264b3aa7af7dc5000a4e893a10b47e6adbe3a0f633818"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/external_ci_run1_failure.md",
+          "sha256": "sha256:13f6f5bf3ebab937b1356938dd9a5492408eed43c53e672ff56eb8e45f4da527"
+        },
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_fetch_depth_fix.md",
+          "sha256": "sha256:fb916a907f661a24fcfae70363523af46da3178d80b93aa40ae67a898510254c"
+        },
+        {
+          "path": ".github/workflows/m65-external-quality-gate.yml",
+          "sha256": "sha256:111038cdc4f5d10acfe7128493caa29c44c087befc26975cb8750b56d3f6d9bb"
+        }
+      ],
+      "updated_at": "2026-07-29T14:33:25+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m pytest -q",
+          "executed_at": "2026-07-29T14:33:17+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:49de794a94c3f2f649395bf4723bb7f2a4fbf871930757262b38e20cd6209540; stdout_bytes=179; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T14:33:23+00:00",
+          "stdout_sha256": "sha256:49de794a94c3f2f649395bf4723bb7f2a4fbf871930757262b38e20cd6209540",
+          "stdout_bytes": 179,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+          "source_digest_after": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b"
+        },
+        {
+          "command": ".venv/bin/python -m pytest -q tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py",
+          "executed_at": "2026-07-29T14:33:23+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:c356eafbf65977199ed70984da461e590fda849af350e2afa22dad5422d4ba41; stdout_bytes=98; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_m6_evidence.py",
+            "tests/test_m6_archive.py",
+            "tests/test_m6_archival_replay_script.py"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T14:33:24+00:00",
+          "stdout_sha256": "sha256:c356eafbf65977199ed70984da461e590fda849af350e2afa22dad5422d4ba41",
+          "stdout_bytes": 98,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+          "source_digest_after": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b"
+        },
+        {
+          "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+          "executed_at": "2026-07-29T14:33:24+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "tests",
+            "scripts",
+            "--exclude",
+            "scripts/vendor"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T14:33:24+00:00",
+          "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "stdout_bytes": 19,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+          "source_digest_after": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b"
+        },
+        {
+          "command": ".venv/bin/python -c \"from pathlib import Path; import yaml; d=yaml.load(Path('.github/workflows/m65-external-quality-gate.yml').read_text(), Loader=yaml.BaseLoader); j=d['jobs']['m6-5-external-quality-gate']; s=j['steps']; u=[x['uses'] for x in s if x.get('uses')]; r=[' '.join(x.get('run','').split()) for x in s]; assert s[0]['with']['fetch-depth']=='0'; assert s[0]['with']['persist-credentials']=='false'; assert all('@' in x and len(x.rsplit('@',1)[1].split()[0])==40 for x in u); assert any('quality_ledger.py check-ci --pre-merge' in x for x in r); assert any('tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py' in x for x in r)\"",
+          "executed_at": "2026-07-29T14:33:24+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-c",
+            "from pathlib import Path; import yaml; d=yaml.load(Path('.github/workflows/m65-external-quality-gate.yml').read_text(), Loader=yaml.BaseLoader); j=d['jobs']['m6-5-external-quality-gate']; s=j['steps']; u=[x['uses'] for x in s if x.get('uses')]; r=[' '.join(x.get('run','').split()) for x in s]; assert s[0]['with']['fetch-depth']=='0'; assert s[0]['with']['persist-credentials']=='false'; assert all('@' in x and len(x.rsplit('@',1)[1].split()[0])==40 for x in u); assert any('quality_ledger.py check-ci --pre-merge' in x for x in r); assert any('tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py' in x for x in r)"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T14:33:24+00:00",
+          "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 0,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+          "source_digest_after": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "code-review": {
+      "owner_skill": "eng-review-code",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Rebound the unchanged independent PASS review after a formatting-only trailing-whitespace cleanup; findings and reviewed source remain identical at P0-P3 zero.",
+      "latest_run": "runs/code-review-6079b31956b90df0.json",
+      "subject_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v3_independent.md",
+          "sha256": "sha256:33852f720dc0c4ddccf2ef5575bd569932a6ffb700b0ed725771c131b4e530b1"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/external_ci_run1_failure.md",
+          "sha256": "sha256:13f6f5bf3ebab937b1356938dd9a5492408eed43c53e672ff56eb8e45f4da527"
+        },
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/implementation_external_ci_fetch_depth_fix.md",
+          "sha256": "sha256:fb916a907f661a24fcfae70363523af46da3178d80b93aa40ae67a898510254c"
+        },
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v3.md",
+          "sha256": "sha256:f45fdbc73b0946178d2264b3aa7af7dc5000a4e893a10b47e6adbe3a0f633818"
+        },
+        {
+          "path": ".github/workflows/m65-external-quality-gate.yml",
+          "sha256": "sha256:111038cdc4f5d10acfe7128493caa29c44c087befc26975cb8750b56d3f6d9bb"
+        }
+      ],
+      "updated_at": "2026-07-29T14:37:47+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m65_v25_design_review",
+        "limitations": [
+          "The rebound follows removal of Markdown trailing whitespace only; reviewed semantics and source digest are unchanged.",
+          "No M7 execution, model fit, real-data access, budget mutation, or final-OOS access was performed.",
+          "A fresh terminal external GitHub Actions PASS remains required."
+        ]
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "e2e": {
+      "owner_skill": "eng-validate-e2e",
+      "mode": "acceptance",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Re-executed clean-process RunIntent and commit-bound M6 archive acceptance after rebinding the formatting-cleaned independent-review artifact; both boundaries pass with zero persistent effects.",
+      "latest_run": "runs/e2e-c366892416a157b5.json",
+      "subject_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/e2e_external_ci_v3_acceptance.md",
+          "sha256": "sha256:4b66160439ac6bc997ca8ec6999ef3a29c3107065983a9ac75bd18861b498e3f"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+          "sha256": "sha256:d8c34671c2355329260a935a565ba568b6be1567d4fb67a5efef33106ea1853c"
+        },
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/code_review_external_ci_v3_independent.md",
+          "sha256": "sha256:33852f720dc0c4ddccf2ef5575bd569932a6ffb700b0ed725771c131b4e530b1"
+        },
+        {
+          "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/tests_green_external_ci_gate_v3.md",
+          "sha256": "sha256:f45fdbc73b0946178d2264b3aa7af7dc5000a4e893a10b47e6adbe3a0f633818"
+        },
+        {
+          "path": "tests/test_m6_evidence.py",
+          "sha256": "sha256:b4c2c94ba6d93339a3aaa113ae5d1b6c4eebe37a2a50aa223aff0fdc197804d3"
+        },
+        {
+          "path": "tests/test_m6_archive.py",
+          "sha256": "sha256:323b24594a4e7d31c036caa8515c44e4d8f467bebd595646525ee1ee02601d7f"
+        },
+        {
+          "path": "tests/test_m6_archival_replay_script.py",
+          "sha256": "sha256:357b9cc85b199c467eac261310ddeded562b9ed501d4ad0ac3f5b11faab48b41"
+        }
+      ],
+      "updated_at": "2026-07-29T14:38:16+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py",
+          "executed_at": "2026-07-29T14:38:15+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:34843f76202c3b378d8636c75ddf6852d62a0fc0950d72935a95960c8411b03f; stdout_bytes=348; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "docs/quality/changes/m6-5-pre-m7-repair/evidence/run_intent_v2_acceptance.py"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T14:38:15+00:00",
+          "stdout_sha256": "sha256:34843f76202c3b378d8636c75ddf6852d62a0fc0950d72935a95960c8411b03f",
+          "stdout_bytes": 348,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+          "source_digest_after": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b"
+        },
+        {
+          "command": ".venv/bin/python -m pytest -q tests/test_m6_evidence.py tests/test_m6_archive.py tests/test_m6_archival_replay_script.py",
+          "executed_at": "2026-07-29T14:38:15+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:e5664d64303f9216a471e687c89839fa803af82540b1f6dbd048a2c928921264; stdout_bytes=98; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_m6_evidence.py",
+            "tests/test_m6_archive.py",
+            "tests/test_m6_archival_replay_script.py"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T14:38:16+00:00",
+          "stdout_sha256": "sha256:e5664d64303f9216a471e687c89839fa803af82540b1f6dbd048a2c928921264",
+          "stdout_bytes": 98,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+          "source_digest_after": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "ci": {
+      "owner_skill": "ci",
+      "mode": "external",
+      "applicability": "REQUIRED",
+      "status": "PENDING",
+      "reason": null,
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-28T16:19:59+00:00"
+    }
+  },
+  "latest_route": {
+    "next_action": "CI",
+    "stage_id": "ci",
+    "skill": null,
+    "reason_code": "READY_FOR_EXTERNAL_CI",
+    "reason": "All required Skill stages are current PASS; the live external required check is the final gate."
+  },
+  "blockers": [],
+  "exceptions": [],
+  "history": [
+    {
+      "at": "2026-07-28T16:19:59+00:00",
+      "event": "LEDGER_INITIALIZED",
+      "stage": "scope",
+      "detail": "Initialized at R3."
+    },
+    {
+      "at": "2026-07-28T16:21:31+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-57f34d453bef6ea4."
+    },
+    {
+      "at": "2026-07-28T16:26:30+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-28f4b54c33edd319."
+    },
+    {
+      "at": "2026-07-28T16:35:14+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-b22920587ca4f3db."
+    },
+    {
+      "at": "2026-07-28T16:37:43+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-ebc6f0b7a36745dd."
+    },
+    {
+      "at": "2026-07-28T16:39:31+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-0d4a1b68e7fa52d7."
+    },
+    {
+      "at": "2026-07-28T16:48:00+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-2879b6e958bb74a0."
+    },
+    {
+      "at": "2026-07-28T16:50:24+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-b87d70591585bdb6."
+    },
+    {
+      "at": "2026-07-28T16:54:48+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture."
+    },
+    {
+      "at": "2026-07-28T16:55:26+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-00dfc461eb723913."
+    },
+    {
+      "at": "2026-07-28T16:55:44+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-beaf300bd9f1d77d."
+    },
+    {
+      "at": "2026-07-28T17:03:05+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-9fb85b2384e67bb8."
+    },
+    {
+      "at": "2026-07-28T17:04:36+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-0e0ee4adfdbd9208."
+    },
+    {
+      "at": "2026-07-28T17:05:49+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture."
+    },
+    {
+      "at": "2026-07-28T17:06:01+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-440005480a2cde48."
+    },
+    {
+      "at": "2026-07-28T17:06:18+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-ddacf32618a1c7c8."
+    },
+    {
+      "at": "2026-07-28T17:11:41+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-9007e73414b0ecf3."
+    },
+    {
+      "at": "2026-07-28T17:13:10+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-0e43af565a86be33."
+    },
+    {
+      "at": "2026-07-28T17:14:04+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture."
+    },
+    {
+      "at": "2026-07-28T17:14:16+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-8195d49c0d070bf4."
+    },
+    {
+      "at": "2026-07-28T17:14:35+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-a4b6954c1be9a719."
+    },
+    {
+      "at": "2026-07-28T17:21:50+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-ee1bf4978a5d8395."
+    },
+    {
+      "at": "2026-07-28T17:23:59+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-eb3f8b98e39fc574."
+    },
+    {
+      "at": "2026-07-28T17:26:05+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture."
+    },
+    {
+      "at": "2026-07-28T17:26:17+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-498ab02b93b73f0c."
+    },
+    {
+      "at": "2026-07-28T17:26:49+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-ac84751ec2e116bd."
+    },
+    {
+      "at": "2026-07-28T17:33:49+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-cba0939062a74fa9."
+    },
+    {
+      "at": "2026-07-28T17:35:11+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-65a9a774c4deed31."
+    },
+    {
+      "at": "2026-07-28T17:35:31+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-64bbde25e17ffb62."
+    },
+    {
+      "at": "2026-07-28T17:40:51+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-68699d6dff3e9738."
+    },
+    {
+      "at": "2026-07-28T17:48:30+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-f7836cb955e09e96."
+    },
+    {
+      "at": "2026-07-28T17:48:46+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-d3df54b751ff922c."
+    },
+    {
+      "at": "2026-07-28T17:54:08+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-1c57ba2343aa3359."
+    },
+    {
+      "at": "2026-07-28T17:58:12+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-ac712c439eabb977."
+    },
+    {
+      "at": "2026-07-28T17:58:27+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-55118e8e08575ecc."
+    },
+    {
+      "at": "2026-07-28T18:04:21+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-8988be2eb34b9264."
+    },
+    {
+      "at": "2026-07-28T18:06:46+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-846f59fff74d18e3."
+    },
+    {
+      "at": "2026-07-28T18:07:06+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-56047725ffabfb8e."
+    },
+    {
+      "at": "2026-07-28T18:13:10+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-4884025c38a5c9af."
+    },
+    {
+      "at": "2026-07-28T18:15:28+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-3182280c25b03dad."
+    },
+    {
+      "at": "2026-07-28T18:15:46+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-077a48274db53299."
+    },
+    {
+      "at": "2026-07-28T18:16:22+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture, change-design."
+    },
+    {
+      "at": "2026-07-28T18:16:37+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-00c0009537fd980b."
+    },
+    {
+      "at": "2026-07-28T18:16:50+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-28da97eeeb65b598."
+    },
+    {
+      "at": "2026-07-28T18:22:03+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-62e6381a8a0fbf88."
+    },
+    {
+      "at": "2026-07-28T18:23:30+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-dcc07d6fba60ed86."
+    },
+    {
+      "at": "2026-07-28T18:24:35+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-b28c1182718f8e84."
+    },
+    {
+      "at": "2026-07-28T18:32:06+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-c87d76bf605b26e3."
+    },
+    {
+      "at": "2026-07-28T18:36:41+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-602ecd1547bd018c."
+    },
+    {
+      "at": "2026-07-28T18:36:57+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-1f6d17e9aa0430c5."
+    },
+    {
+      "at": "2026-07-28T18:48:55+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-fb144ff9b40d7237."
+    },
+    {
+      "at": "2026-07-28T18:54:51+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-0489d1b4c725217e."
+    },
+    {
+      "at": "2026-07-28T18:55:06+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-437b8e9731141aac."
+    },
+    {
+      "at": "2026-07-28T19:03:22+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-49b4d7733d9aca47."
+    },
+    {
+      "at": "2026-07-28T19:08:28+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-e3b653ff961357d9."
+    },
+    {
+      "at": "2026-07-28T19:08:45+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-87a07ef779ac3e56."
+    },
+    {
+      "at": "2026-07-28T19:16:17+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-8d97cf82e74ff9cc."
+    },
+    {
+      "at": "2026-07-28T19:25:22+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-72723031b8e305a7."
+    },
+    {
+      "at": "2026-07-28T19:25:38+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-b0c99eb360f885aa."
+    },
+    {
+      "at": "2026-07-28T19:36:04+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-35febe0030da570f."
+    },
+    {
+      "at": "2026-07-28T19:40:33+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-75a8ed74dbbd5746."
+    },
+    {
+      "at": "2026-07-28T19:42:51+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture."
+    },
+    {
+      "at": "2026-07-28T19:43:06+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-a428e02054c1c90d."
+    },
+    {
+      "at": "2026-07-28T19:43:21+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-bf81fe66c63e2165."
+    },
+    {
+      "at": "2026-07-28T19:49:29+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-e869753decc68472."
+    },
+    {
+      "at": "2026-07-28T19:52:51+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-291f4d3601e08735."
+    },
+    {
+      "at": "2026-07-28T19:54:43+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-317b2b257dc6eebe."
+    },
+    {
+      "at": "2026-07-28T20:00:12+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-c1d0ae7c741340f1."
+    },
+    {
+      "at": "2026-07-28T20:07:38+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-12725d47aaad3066."
+    },
+    {
+      "at": "2026-07-28T20:12:55+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "NEEDS_CHANGES as change-design-616e0d2caf5aa47f."
+    },
+    {
+      "at": "2026-07-28T20:15:55+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-203d5a56b680e8e7."
+    },
+    {
+      "at": "2026-07-28T20:18:44+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-bf04e9e4ebe3bd07."
+    },
+    {
+      "at": "2026-07-28T20:26:04+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-9664d4e5d94aac67."
+    },
+    {
+      "at": "2026-07-28T20:40:04+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-ec9e0ad40db876a1."
+    },
+    {
+      "at": "2026-07-28T20:46:06+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "NEEDS_CHANGES as change-design-a96e014230928cf2."
+    },
+    {
+      "at": "2026-07-28T21:07:18+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-807490fdd19f3382."
+    },
+    {
+      "at": "2026-07-28T21:16:46+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-682424e4579cac34."
+    },
+    {
+      "at": "2026-07-28T21:23:51+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-e992aee626554ae1."
+    },
+    {
+      "at": "2026-07-28T23:54:33+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-4c8aa75f94cd2df4."
+    },
+    {
+      "at": "2026-07-29T00:07:17+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-378d88595d160af2."
+    },
+    {
+      "at": "2026-07-29T00:16:29+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-5d2561dc0c62aa2e."
+    },
+    {
+      "at": "2026-07-29T00:37:38+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-75984e5c4631dc10."
+    },
+    {
+      "at": "2026-07-29T03:46:35+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-9addb066d0206b43."
+    },
+    {
+      "at": "2026-07-29T03:55:24+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-0290c3fb72c00c98."
+    },
+    {
+      "at": "2026-07-29T04:07:35+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-fb16681fac3d81ca."
+    },
+    {
+      "at": "2026-07-29T04:31:55+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-6b2520c57b906873."
+    },
+    {
+      "at": "2026-07-29T04:45:51+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-d31779e05844ade3."
+    },
+    {
+      "at": "2026-07-29T04:52:00+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-4f8a795fae82fe4d."
+    },
+    {
+      "at": "2026-07-29T05:24:28+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-29c9c72ff337423b."
+    },
+    {
+      "at": "2026-07-29T07:24:50+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-4e613baf6b0e69ea."
+    },
+    {
+      "at": "2026-07-29T07:32:28+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-628b836b32a3fd99."
+    },
+    {
+      "at": "2026-07-29T07:39:52+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-8bceac3cb8a95a9f."
+    },
+    {
+      "at": "2026-07-29T07:43:27+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-32deec86ca071d35."
+    },
+    {
+      "at": "2026-07-29T07:49:14+00:00",
+      "event": "REPOSITORY_IDENTITY_MIGRATED",
+      "stage": "scope",
+      "detail": "Migrated no-remote identity from the legacy absolute-path form to suite 0.2.1 router identity local:qlib模型框架; repository root, baseline commit and branch are unchanged."
+    },
+    {
+      "at": "2026-07-29T07:49:42+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-7bc065610ce1f079."
+    },
+    {
+      "at": "2026-07-29T07:54:18+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-69d3a04904f647fe."
+    },
+    {
+      "at": "2026-07-29T08:03:12+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-8a47e582001d106e."
+    },
+    {
+      "at": "2026-07-29T08:09:06+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-c2acecc370bc3751."
+    },
+    {
+      "at": "2026-07-29T08:15:23+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-6ecb726ec3a78f7a."
+    },
+    {
+      "at": "2026-07-29T08:19:47+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-cf1f6e62b29a70ae."
+    },
+    {
+      "at": "2026-07-29T08:25:31+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-548679909d6230f7."
+    },
+    {
+      "at": "2026-07-29T08:31:53+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-93021e8449501e6e."
+    },
+    {
+      "at": "2026-07-29T08:42:42+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-27f93f2a35b8b635."
+    },
+    {
+      "at": "2026-07-29T08:47:52+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-9e555b192a708783."
+    },
+    {
+      "at": "2026-07-29T08:55:16+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-556284f0898df785."
+    },
+    {
+      "at": "2026-07-29T09:11:20+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-50a67a6fa7e11bf9."
+    },
+    {
+      "at": "2026-07-29T09:18:50+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-c76cea635813c7f6."
+    },
+    {
+      "at": "2026-07-29T09:23:38+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-cb98d983218e5756."
+    },
+    {
+      "at": "2026-07-29T09:29:39+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-600481e5b7fc6cd7."
+    },
+    {
+      "at": "2026-07-29T09:32:41+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-c7e121e53895b12a."
+    },
+    {
+      "at": "2026-07-29T09:40:26+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-ed98ed79efa026fc."
+    },
+    {
+      "at": "2026-07-29T09:43:19+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-da54500f9087ae81."
+    },
+    {
+      "at": "2026-07-29T10:00:08+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-cc6caebaffd02871."
+    },
+    {
+      "at": "2026-07-29T10:02:59+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-a921724fa7fd585c."
+    },
+    {
+      "at": "2026-07-29T10:07:17+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-d862b191b9b34c6e."
+    },
+    {
+      "at": "2026-07-29T10:12:21+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-7b5da1be26fe02f1."
+    },
+    {
+      "at": "2026-07-29T10:16:41+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-203d577f155c375e."
+    },
+    {
+      "at": "2026-07-29T10:20:56+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-a5350771d5ec8f12."
+    },
+    {
+      "at": "2026-07-29T10:29:02+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-2f5f7fd187f7d468."
+    },
+    {
+      "at": "2026-07-29T10:32:42+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-63cde57337c667ab."
+    },
+    {
+      "at": "2026-07-29T10:38:28+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-e0842adc2ef42289."
+    },
+    {
+      "at": "2026-07-29T10:42:23+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-a1f67790aad264cd."
+    },
+    {
+      "at": "2026-07-29T10:50:08+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-584cfbde347aea1e."
+    },
+    {
+      "at": "2026-07-29T10:56:06+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-80d58aff8ae395a3."
+    },
+    {
+      "at": "2026-07-29T11:13:11+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-84a809b9cb16fcfd."
+    },
+    {
+      "at": "2026-07-29T11:18:50+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-8073184d48e7e883."
+    },
+    {
+      "at": "2026-07-29T11:22:35+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-93e6010a63a6bf0d."
+    },
+    {
+      "at": "2026-07-29T11:27:04+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-def0f529474d316a."
+    },
+    {
+      "at": "2026-07-29T11:29:56+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-cc545d4d0c06957a."
+    },
+    {
+      "at": "2026-07-29T11:32:21+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-ac79c7ffc0f7dde1."
+    },
+    {
+      "at": "2026-07-29T11:35:49+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "PASS as design-review-1560efb757c54bce."
+    },
+    {
+      "at": "2026-07-29T11:38:03+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "test-design",
+      "detail": "PASS as test-design-1d4d73e4ca4b30a5."
+    },
+    {
+      "at": "2026-07-29T11:40:43+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-ee7d7ca97df3477e."
+    },
+    {
+      "at": "2026-07-29T11:43:18+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture, change-design, design-review, test-design, tests-red."
+    },
+    {
+      "at": "2026-07-29T11:46:02+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-43c2b86a700b9362."
+    },
+    {
+      "at": "2026-07-29T11:48:47+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-d0f5040e9077ec94."
+    },
+    {
+      "at": "2026-07-29T11:53:35+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-0d4e7320b2bcfd25."
+    },
+    {
+      "at": "2026-07-29T11:55:46+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-7b1af50a94b0396f."
+    },
+    {
+      "at": "2026-07-29T11:58:31+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "PASS as design-review-71f2c00a68bb3e84."
+    },
+    {
+      "at": "2026-07-29T11:59:53+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "test-design",
+      "detail": "PASS as test-design-fb0d35c64ed4acde."
+    },
+    {
+      "at": "2026-07-29T12:00:44+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture, change-design, design-review, test-design."
+    },
+    {
+      "at": "2026-07-29T12:01:40+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-f31c588f93631bdd."
+    },
+    {
+      "at": "2026-07-29T12:02:12+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-5d556916c0fe6b8e."
+    },
+    {
+      "at": "2026-07-29T12:02:46+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "PASS as design-review-3feb32956be02952."
+    },
+    {
+      "at": "2026-07-29T12:03:11+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "test-design",
+      "detail": "PASS as test-design-8c72c7915a19b6cb."
+    },
+    {
+      "at": "2026-07-29T12:03:42+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-10d3e3b69051e2d1."
+    },
+    {
+      "at": "2026-07-29T12:05:32+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: tests-red."
+    },
+    {
+      "at": "2026-07-29T12:06:00+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-faf630d5fa77c39d."
+    },
+    {
+      "at": "2026-07-29T12:08:59+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-20cb57a861f42766."
+    },
+    {
+      "at": "2026-07-29T12:13:07+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-f0f16b6a4e9effd1."
+    },
+    {
+      "at": "2026-07-29T12:20:41+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "NEEDS_CHANGES as code-review-17cbb6e99b0cac47."
+    },
+    {
+      "at": "2026-07-29T12:21:41+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: code-review, implementation, tests-red."
+    },
+    {
+      "at": "2026-07-29T12:22:16+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-9e93796bab3f486c."
+    },
+    {
+      "at": "2026-07-29T12:24:17+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-1e245b1475fd7118."
+    },
+    {
+      "at": "2026-07-29T12:25:30+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-1ba8b82672c5f910."
+    },
+    {
+      "at": "2026-07-29T12:28:56+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "PASS as code-review-f532bde0a3cf241a."
+    },
+    {
+      "at": "2026-07-29T12:31:01+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "e2e",
+      "detail": "PASS as e2e-0ccefdddf666a19a."
+    },
+    {
+      "at": "2026-07-29T14:06:55+00:00",
+      "event": "REPOSITORY_IDENTITY_MIGRATED",
+      "stage": null,
+      "detail": "Authoritative identity migrated from local:qlib模型框架 to github.com/jonaslvhaocheng-ops/qlib-peerlite-research for private external CI; baseline commit preserved."
+    },
+    {
+      "at": "2026-07-29T14:07:10+00:00",
+      "event": "SOURCE_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: code-review, e2e, implementation, tests-green."
+    },
+    {
+      "at": "2026-07-29T14:09:48+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-cedf77dcf15322a1."
+    },
+    {
+      "at": "2026-07-29T14:10:23+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-61b77172fd5a8829."
+    },
+    {
+      "at": "2026-07-29T14:17:08+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "NEEDS_CHANGES as code-review-31d2b30fa86dfa8e."
+    },
+    {
+      "at": "2026-07-29T14:19:41+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-885e6ebe2cbc293d."
+    },
+    {
+      "at": "2026-07-29T14:20:55+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-f79d81f8ae44b3be."
+    },
+    {
+      "at": "2026-07-29T14:24:34+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "PASS as code-review-a5122d83f6b961f7."
+    },
+    {
+      "at": "2026-07-29T14:25:21+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "e2e",
+      "detail": "PASS as e2e-ab4f1f22cd722282."
+    },
+    {
+      "at": "2026-07-29T14:31:32+00:00",
+      "event": "SOURCE_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: code-review, e2e, implementation, tests-green."
+    },
+    {
+      "at": "2026-07-29T14:32:38+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-6592ece1141b7c7e."
+    },
+    {
+      "at": "2026-07-29T14:33:25+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-8c014136fd124244."
+    },
+    {
+      "at": "2026-07-29T14:35:16+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "PASS as code-review-9d4e794e0a726d76."
+    },
+    {
+      "at": "2026-07-29T14:35:46+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "e2e",
+      "detail": "PASS as e2e-a3f31f3761b5decf."
+    },
+    {
+      "at": "2026-07-29T14:37:29+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: code-review, e2e."
+    },
+    {
+      "at": "2026-07-29T14:37:47+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "PASS as code-review-6079b31956b90df0."
+    },
+    {
+      "at": "2026-07-29T14:38:16+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "e2e",
+      "detail": "PASS as e2e-c366892416a157b5."
+    }
+  ]
+}

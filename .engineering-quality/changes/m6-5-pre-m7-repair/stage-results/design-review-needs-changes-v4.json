@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 34,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "BEHAVIOR_FIT_OUTPUT_DISPATCH_AND_LAUNCH_GAPS",
+  "summary": "Two independent R3 reviews find five P1 design gaps: derived-state behavior coverage is underspecified, FitAdmission lacks crash-safe output publication and exact state-to-fit binding, dispatch is not fork-safe/single-winner, and the replay launch/acceptance chain does not bind the actual launcher identity.",
+  "issue_type": "architecture",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v4.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v4.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v4_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/architecture_confirmation_v7.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v3.md",
+    "src/qlib_peerlite/models/peerlite.py",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "scripts/server/verify_m6_peerlite_archival_replay.py",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:16ac80ae172cbedf077d9c2f3c4b74a89c6298303f8d17f30fdc14f28e0ad810",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/design_review_v4_lead,/root/design_review_v4_adversary",
+    "limitations": [
+      "Read-only independent reviews; no product/test/contract/gate/ledger mutation, training, server replay, budget consumption, real PIT certification, or final-OOS access."
+    ]
+  },
+  "blockers": [
+    "M7 derived-contract freeze, real M7 fit, CCC/Gate experiments, server replay, and final OOS remain prohibited."
+  ]
+}

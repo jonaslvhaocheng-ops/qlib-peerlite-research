@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 231,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M65_V41_STORAGE_EXECUTION_TRANSACTION_GAPS",
+  "summary": "Two independent read-only R3 reviews confirm that v41 closes typed event artifacts, acyclic receipt identity, LP execution identity, output-root containment and exact pair coverage. Remaining design blockers are the obsolete storage-policy binding, mutable reservation invocation identity, missing separation of input and output transactions, an unfixed output-manifest slot, unverifiable CUDA-only and zero-fit assertions, stale-worker writable capability after lock loss, and raw-file validation-to-consumption TOCTOU.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v41.md",
+    "evidence/m6_5_pre_m7/m6_5_repair_independent_design_review_v41_adversarial.md"
+  ],
+  "evidence_paths": [
+    "evidence/m6_5_pre_m7/m6_5_repair_change_design_v41.md",
+    "evidence/m6_5_pre_m7/capacity_reservation_protocol_v11.md",
+    "evidence/m6_5_pre_m7/nested_directory_recovery_v4.md",
+    "evidence/m6_5_pre_m7/run_authority_generation_v11.md",
+    "evidence/m6_5_pre_m7/m7_change_design_v19.md",
+    "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v19.md",
+    "evidence/m6_5_pre_m7/score_replay_identity_v2.md",
+    "evidence/m6_5_pre_m7/score_replay_plan_v2.md",
+    "evidence/m6_5_pre_m7/current_control_pointer_v19.json",
+    "docs/STATUS.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:a9724a5dc98a27710f7724aa306e25dd710b3135fa12133a56b1bbf8ae3ead4f",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review,/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Both reviewers were read-only and did not edit files or ledger.",
+      "No replay, training, real data, PIT, budget or final-OOS access occurred."
+    ]
+  },
+  "blockers": [
+    "CURRENT_STORAGE_POLICY_BINDING",
+    "IMMUTABLE_RESERVATION_INVOCATION",
+    "SEPARATE_INPUT_OUTPUT_TRANSACTIONS",
+    "FIXED_OUTPUT_MANIFEST_SLOT",
+    "VERIFIABLE_CUDA_ZERO_FIT_EXECUTION_RECEIPT",
+    "SUPERVISOR_OWNED_LOCK_AND_WRITE_CAPABILITY",
+    "SAME_FD_VALIDATION_AND_CONSUMPTION"
+  ]
+}

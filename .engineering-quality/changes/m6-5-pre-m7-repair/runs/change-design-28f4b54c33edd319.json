@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m6-5-pre-m7-repair",
+  "ledger_revision": 2,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M65_REPAIR_DESIGN_READY",
+  "summary": "The M6.5 repair has a bounded R3 design with explicit provenance, run-authority, archive replay, rollback, and verification contracts.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-28T16:26:30+00:00",
+  "source_digest": "sha256:4fc87075199d704d1e9bf1acb641ead35885d20a65903ce7990c163275bc6d9a",
+  "artifacts": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v1.md",
+      "sha256": "sha256:27a88f08714c91d5097ef876b1200c3391503b595d119bf87730f53177f6bd53"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_remediation_independent_code_review.md",
+      "sha256": "sha256:472472cd2fe0f276cceb6e02f98f28f73dfdecc67c8aa81730f1adbe4fb1b423"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m6_5_independent_test_coverage_audit.md",
+      "sha256": "sha256:a089c7884356dff9f42e01463375b9d02141782dae4806bf291ee7068a975427"
+    }
+  ],
+  "run_id": "change-design-28f4b54c33edd319"
+}

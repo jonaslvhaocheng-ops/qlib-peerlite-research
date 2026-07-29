@@ -1,0 +1,21 @@
+{
+  "schema_version": "qlib_peerlite_m6_5_control_pointer_v1",
+  "status": "M6_5_CHANGE_DESIGN_REPAIR",
+  "current_phase": "M6.5-PRE-M7-ENGINEERING-QUALITY",
+  "master_plan": "docs/MASTER_PLAN.md",
+  "architecture": "evidence/m6_5_pre_m7/architecture_confirmation_v28.md",
+  "canonical_change_design": "evidence/m6_5_pre_m7/m6_5_repair_change_design_v25.md",
+  "current_m7_design": "evidence/m6_5_pre_m7/m7_change_design_v3.md",
+  "current_m7_behavior_matrix": "evidence/m6_5_pre_m7/m7_behavior_to_test_matrix_v3.md",
+  "latest_completed_review": "evidence/m6_5_pre_m7/m6_5_repair_design_review_v24_consolidated_result.json",
+  "latest_review_verdict": "NEEDS_CHANGES",
+  "next_stage": "independent-r3-design-review-v25-bundle",
+  "m6_status": "PASS",
+  "m6_5_status": "NEEDS_CHANGES",
+  "m7_status": "NOT_RUN",
+  "live_run_authority_available": false,
+  "real_fit_authorized": false,
+  "final_oos_access_authorized": false,
+  "trial_budget_change_authorized": false
+}
+
