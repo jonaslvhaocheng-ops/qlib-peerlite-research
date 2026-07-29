@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 30,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_ENGINEERING_PACKAGE_BOUNDED",
+  "summary": "The complete step-eight engineering scope fits one cohesive in-process m7 package with one-way dependencies, thin PeerLite integration, governance-owned persistence, unchanged score output, complete-package protected coverage and no empirical authority.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T16:25:21+00:00",
+  "source_digest": "sha256:3578b7c4e4c3173b55f26254f08cd26eaae7ae4f2cbb58811e28e8b011176040",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+      "sha256": "sha256:a65ec57e23fa2705351d3dcf77a8101317d89215cc78e0e970384f4784bd3b92"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "contracts/changes/m7_complete_engineering_cr_v1.json",
+      "sha256": "sha256:9fa4ae01810de1d6f82ae0e7270239d6bab563511d098141ca226fd64ab19009"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "sha256:effa8e50b1a197bce98a34fd7559026ee792901e12a562453162881ce0b62d9b"
+    },
+    {
+      "path": "README.md",
+      "sha256": "sha256:592cba8d8f2ca4e84eab8bd91c835128de1d0522e1ef7e70873ced936488b2cf"
+    }
+  ],
+  "run_id": "architecture-42417b51a9eafdcc"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 38,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_PACKAGE_EXPECTED_RED",
+  "summary": "The approved public M7 contract test fails for the intended missing package behavior while the test harness collects and runs normally.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m7_complete_red.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v3_complete.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_complete_red.py",
+      "executed_at": "2026-07-30T01:20:00+08:00",
+      "exit_code": 1,
+      "summary": "Expected missing qlib_peerlite.m7 package failure."
+    }
+  ],
+  "subject_digest": "sha256:50254dd8d1ea6ab3db5a71d5760a81a197b76441ca22e1629f0cc532410b8919",
+  "independence": null,
+  "blockers": []
+}

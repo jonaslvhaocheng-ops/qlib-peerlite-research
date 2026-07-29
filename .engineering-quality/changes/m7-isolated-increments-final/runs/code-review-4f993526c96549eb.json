@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 14,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M7_RECOVERY_CHECKPOINT_ACCEPTANCE_FINDINGS_CLOSED",
+  "summary": "Independent final review found no P0-P3 findings after strict receipt, checkpoint-context and measured-side-effect repairs.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Engineering and synthetic mechanics only; no empirical or Alpha claim."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-29T20:18:23+00:00",
+  "source_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md",
+      "sha256": "sha256:9ac5734c47fae454fc6eef43d773230ebfc7749e6842c56785ba3411ad90f476"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+      "sha256": "sha256:9c0ee852ae29efb5e365ec8cffb5636e912b189f093409a11f55405f0db9329e"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
+      "sha256": "sha256:31a0dcb995782bbcd004709c9bd2561ffe957acf41c9b9940c56184dd5c1fcc4"
+    }
+  ],
+  "run_id": "code-review-4f993526c96549eb"
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 48,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_IMPLEMENTATION_WITH_PROTECTED_CONTROLLER_ENTRYPOINT",
+  "summary": "The final source includes the M7 package, PeerLite adapters and the repository-local controller entrypoint required to enforce protected coverage locally and in pinned CI.",
+  "issue_type": null,
+  "artifact_paths": [
+    "src/qlib_peerlite/m7/__init__.py",
+    "src/qlib_peerlite/m7/ccc.py",
+    "src/qlib_peerlite/m7/market_state.py",
+    "src/qlib_peerlite/m7/prerequisites.py",
+    "src/qlib_peerlite/m7/run_state.py",
+    "src/qlib_peerlite/m7/checkpoint.py",
+    "src/qlib_peerlite/models/losses.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "scripts/quality/quality_ledger.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/implementation_complete_v1.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v4_base_replay.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T02:55:00+08:00",
+      "exit_code": 0,
+      "summary": "Repository static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T02:55:00+08:00",
+      "exit_code": 0,
+      "summary": "141 tests pass."
+    }
+  ],
+  "subject_digest": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+  "independence": null,
+  "blockers": []
+}

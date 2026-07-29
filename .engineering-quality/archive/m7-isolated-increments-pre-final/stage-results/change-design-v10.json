@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 53,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FINAL_REPAIR_DESIGN_WITH_PROTECTED_ADAPTER",
+  "summary": "The canonical repair design now moves every M7-specific PeerLite policy branch into m7.adapter, which is automatically inventoried under exact 100% protected line/branch coverage with no fallback.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v7_code_review_repairs_independent.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v6_adapter_coverage.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
+    "contracts/changes/m7_complete_engineering_cr_v1.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

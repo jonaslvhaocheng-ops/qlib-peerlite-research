@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 42,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_TEST_MATRIX_READY",
+  "summary": "The unchanged complete test matrix remains bound to the unchanged independently approved design.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v6_enforceable_independent.md"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

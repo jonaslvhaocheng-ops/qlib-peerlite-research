@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 40,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_ENFORCEABLE_DESIGN_RECORDED_WITH_STABLE_BASIS",
+  "summary": "The unchanged enforceable design is re-recorded against stable requirement and contract evidence only; mutable implementation files are intentionally not design-evidence freshness anchors.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v5_complete_independent.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+    "contracts/changes/m7_complete_engineering_cr_v1.json",
+    "contracts/cost_spec.json",
+    "contracts/benchmark_spec.json",
+    "contracts/changes/m7_initial_screen_budget_binding_v2.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

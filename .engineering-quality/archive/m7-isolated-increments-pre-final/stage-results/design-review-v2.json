@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 10,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M7_V2_R3_DESIGN_CONTRACTS_CLOSED",
+  "summary": "The hash-bound v2 bundle closes the screening prerequisite, budget/recovery state machine, Gate value-provenance binding, and CCC numerical/checkpoint findings without expanding M7 scope; one non-blocking semantic-hash test clarification remains.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v2_independent.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v1_independent.md",
+    "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+    "contracts/cost_spec.json",
+    "contracts/benchmark_spec.json",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "src/qlib_peerlite/data/market_state.py",
+    "src/qlib_peerlite/data/dataset.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "src/qlib_peerlite/models/losses.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:f163026b9973b1296db8e7e19607419e098af46089e84af97855acb6dce7d450",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only review; no repository, ledger, Git, training, budget, or final-OOS mutation.",
+      "PASS authorizes only the next quality stage and does not authorize M7 empirical execution."
+    ]
+  },
+  "blockers": []
+}

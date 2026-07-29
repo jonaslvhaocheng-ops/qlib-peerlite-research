@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 35,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_ENFORCEABLE_ENGINEERING_DESIGN_READY",
+  "summary": "The revised design separates generated bounded synthetic mechanics from externally reconciled empirical fit authority, parses prerequisites from fixed canonical artifacts, removes boolean recovery claims, completes checkpoint identity and freezes protected whole-package coverage.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v5_complete_independent.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+    "contracts/changes/m7_complete_engineering_cr_v1.json",
+    "contracts/cost_spec.json",
+    "contracts/benchmark_spec.json",
+    "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "src/qlib_peerlite/models/peerlite.py"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

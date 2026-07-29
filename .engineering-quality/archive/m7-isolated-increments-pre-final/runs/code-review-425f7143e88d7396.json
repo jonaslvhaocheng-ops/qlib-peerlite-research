@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 50,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M7_EMPIRICAL_AUTHORITY_BYPASS_AND_CONTRACT_GAPS",
+  "summary": "Independent review found a CR-forbidden empirical fit bypass plus candidate, recovery, checkpoint, empirical-Gate, CI and verification gaps.",
+  "issue_type": "contract",
+  "commands": [],
+  "subject_digest": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Read-only review; no repository, ledger, Git, training or OOS mutation.",
+      "Review covers engineering compliance only and grants no empirical authority."
+    ]
+  },
+  "blockers": [
+    "P0 caller-forgeable empirical fit authorization",
+    "P1 frozen candidate configuration not enforced",
+    "P1 recovery accepts caller digest strings",
+    "P1 checkpoint dispatch/expected identity incomplete",
+    "P1 empirical Gate binding absent",
+    "P1 protected M7 CI workflow absent",
+    "P2 frozen journeys and PeerLite adapter coverage incomplete",
+    "P2 pre-existing M6.5 archival diff mixed into M7 scope"
+  ],
+  "recorded_at": "2026-07-29T19:37:33+00:00",
+  "source_digest": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
+      "sha256": "sha256:31a0dcb995782bbcd004709c9bd2561ffe957acf41c9b9940c56184dd5c1fcc4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+      "sha256": "sha256:b204c6b935e524095f48c638c49c477ded1195774987bb166c3a6668e0c07b3c"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md",
+      "sha256": "sha256:baf141e5a4e5a9320182d937db7aebaf3b8d6f9e744d51f86ac6ea8368036170"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.json",
+      "sha256": "sha256:7cc45e59cd990afcd99f6b9827e20d310b3674bf52009866bb793f35f9d4011a"
+    },
+    {
+      "path": "contracts/changes/m7_complete_engineering_cr_v1.json",
+      "sha256": "sha256:9fa4ae01810de1d6f82ae0e7270239d6bab563511d098141ca226fd64ab19009"
+    }
+  ],
+  "run_id": "code-review-425f7143e88d7396"
+}

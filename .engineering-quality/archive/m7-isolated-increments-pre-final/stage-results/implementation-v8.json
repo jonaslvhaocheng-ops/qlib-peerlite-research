@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 57,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_CODE_REVIEW_REPAIRS_COMPLETE",
+  "summary": "M7 is synthetic-only, exact-candidate bound, persisted-evidence recovered, strict-checkpoint dispatched, protected by complete-package coverage, and exercised by clean-process journeys.",
+  "issue_type": null,
+  "artifact_paths": [
+    "src/qlib_peerlite/m7/__init__.py",
+    "src/qlib_peerlite/m7/adapter.py",
+    "src/qlib_peerlite/m7/ccc.py",
+    "src/qlib_peerlite/m7/market_state.py",
+    "src/qlib_peerlite/m7/prerequisites.py",
+    "src/qlib_peerlite/m7/run_state.py",
+    "src/qlib_peerlite/m7/checkpoint.py",
+    "src/qlib_peerlite/models/losses.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "scripts/run_m7_acceptance.py",
+    ".github/workflows/m7-quality-gate.yml"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/implementation_final_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T11:00:00+08:00",
+      "exit_code": 0,
+      "summary": "Static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T11:00:00+08:00",
+      "exit_code": 0,
+      "summary": "147 tests pass."
+    }
+  ],
+  "subject_digest": "sha256:e07721d16cf10e6a3508f842cee873ad9414549837fecf80e8954beb57bd90a4",
+  "independence": null,
+  "blockers": []
+}

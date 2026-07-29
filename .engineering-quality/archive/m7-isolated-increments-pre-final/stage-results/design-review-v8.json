@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 41,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "PRIOR_FIVE_FINDINGS_CLOSED_BY_ENFORCEABLE_DESIGN",
+  "summary": "The independently approved canonical design bytes are unchanged; only the router's mutable-source evidence binding was removed.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v6_enforceable_independent.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v5_complete_independent.md",
+    "contracts/changes/m7_complete_engineering_cr_v1.json"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:b204c6b935e524095f48c638c49c477ded1195774987bb166c3a6668e0c07b3c",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v24_adversarial_review",
+    "limitations": [
+      "The canonical design bytes and CR are unchanged from the independent review.",
+      "PASS remains engineering-only and grants no empirical execution authority."
+    ]
+  },
+  "blockers": []
+}

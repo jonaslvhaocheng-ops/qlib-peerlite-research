@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 49,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_GREEN_AND_PROTECTED_COVERAGE",
+  "summary": "All repository and M7 tests pass; the protected complete-package profile requires and reaches exact 100% line and branch coverage with no omitted source.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-29T19:31:03+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts",
+        "--exclude",
+        "scripts/vendor"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T19:31:03+00:00",
+      "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stdout_bytes": 19,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+      "source_digest_after": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T19:31:03+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:499ff6f8d960327ffa061bc08c43c53be89d75be5ada9ff3fea2bc63619b3067; stdout_bytes=180; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T19:31:09+00:00",
+      "stdout_sha256": "sha256:499ff6f8d960327ffa061bc08c43c53be89d75be5ada9ff3fea2bc63619b3067",
+      "stdout_bytes": 180,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+      "source_digest_after": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f"
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m7-core --receipt docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.json",
+      "executed_at": "2026-07-29T19:31:09+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:e580b6819e068d1437ee06ee84e4821508d021570356d4eaa1b0b47642f72e2a; stdout_bytes=431; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        "python3",
+        "scripts/quality/quality_ledger.py",
+        "capture-coverage",
+        "--repo",
+        ".",
+        "--profile",
+        "m7-core",
+        "--receipt",
+        "docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.json"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T19:31:11+00:00",
+      "stdout_sha256": "sha256:e580b6819e068d1437ee06ee84e4821508d021570356d4eaa1b0b47642f72e2a",
+      "stdout_bytes": 431,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+      "source_digest_after": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f"
+    }
+  ],
+  "coverage": {
+    "schema_version": "engineering-quality-coverage-v1",
+    "receipt_path": "docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.json",
+    "policy": {
+      "path": ".engineering-quality/coverage-policy.json",
+      "sha256": "sha256:3d7b6c515c86df7a238573400e307a8e50bd552b6238175dd5bb2be5b137921b",
+      "profile": "m7-core"
+    },
+    "format": "coveragepy-json",
+    "source_roots": [
+      "src/qlib_peerlite/m7"
+    ],
+    "expected_core_paths": [
+      "src/qlib_peerlite/m7/__init__.py",
+      "src/qlib_peerlite/m7/ccc.py",
+      "src/qlib_peerlite/m7/checkpoint.py",
+      "src/qlib_peerlite/m7/market_state.py",
+      "src/qlib_peerlite/m7/prerequisites.py",
+      "src/qlib_peerlite/m7/run_state.py"
+    ],
+    "observed_core_paths": [
+      "src/qlib_peerlite/m7/__init__.py",
+      "src/qlib_peerlite/m7/ccc.py",
+      "src/qlib_peerlite/m7/checkpoint.py",
+      "src/qlib_peerlite/m7/market_state.py",
+      "src/qlib_peerlite/m7/prerequisites.py",
+      "src/qlib_peerlite/m7/run_state.py"
+    ],
+    "line": {
+      "covered": 404,
+      "total": 404,
+      "missing": 0,
+      "excluded": 0,
+      "percent": 100.0
+    },
+    "branch": {
+      "covered": 120,
+      "total": 120,
+      "missing": 0,
+      "excluded": 0,
+      "percent": 100.0
+    },
+    "required_line_percent": 100.0,
+    "required_branch_percent": 100.0,
+    "source": {
+      "kind": "raw-report",
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.raw.json",
+      "sha256": "sha256:358bed3d0158cb3b8cfb1101ce8ecf011e807a4c37bdfb9fe86f43487a38c412"
+    }
+  },
+  "subject_digest": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T19:31:12+00:00",
+  "source_digest": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+  "artifacts": [
+    {
+      "path": "tests/test_m7_complete.py",
+      "sha256": "sha256:d50e5a48cc3bbfb344427d23b36ba373491b7308362ac6b448a66dd9cb96bef1"
+    },
+    {
+      "path": "tests/test_m7_complete_red.py",
+      "sha256": "sha256:50254dd8d1ea6ab3db5a71d5760a81a197b76441ca22e1629f0cc532410b8919"
+    },
+    {
+      "path": "tests/test_m7_first_tranche_green.py",
+      "sha256": "sha256:b0753cda26869ac9189dc03e5617c11070a4689ebb2fdef65f7d8210dfa41021"
+    },
+    {
+      "path": "tests/test_m7_expected_red.py",
+      "sha256": "sha256:c535a1280d5e3480da13f5f294c196da76beffa64204cfe9814e717d883e180c"
+    },
+    {
+      "path": ".engineering-quality/coverage-policy.json",
+      "sha256": "sha256:3d7b6c515c86df7a238573400e307a8e50bd552b6238175dd5bb2be5b137921b"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_green_complete_v1.md",
+      "sha256": "sha256:8c54b1d3b0d0f67d1b545b0cf412798d069ca7c52cf8c0ef1b91b2d8953c22a8"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.json",
+      "sha256": "sha256:7cc45e59cd990afcd99f6b9827e20d310b3674bf52009866bb793f35f9d4011a"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.raw.json",
+      "sha256": "sha256:358bed3d0158cb3b8cfb1101ce8ecf011e807a4c37bdfb9fe86f43487a38c412"
+    }
+  ],
+  "run_id": "tests-green-f09a7e9d3572c33a"
+}

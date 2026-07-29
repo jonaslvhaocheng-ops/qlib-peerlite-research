@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 34,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "EMPIRICAL_AUTHORITY_AND_VERIFIED_EVIDENCE_NOT_ENFORCEABLE",
+  "summary": "Independent R3 review found that empirical fit authority, prerequisite semantics, crash recovery, checkpoint execution identity and protected coverage remain insufficiently enforceable.",
+  "issue_type": "contract",
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v5_complete_independent.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v3_complete.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+    "contracts/changes/m7_complete_engineering_cr_v1.json"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:8524cf2289b0b6dea5773257ece8287810b66ccd01ac1ddfcf8afe9d069bf205",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v45_adversarial_retry",
+    "limitations": [
+      "Read-only review; no repository, ledger, Git, training, budget or final-OOS mutation.",
+      "The verdict assesses design enforceability only and does not make an empirical or implementation claim."
+    ]
+  },
+  "blockers": [
+    "P0 caller-forgeable empirical authority",
+    "P1 caller-declared prerequisite terminal status",
+    "P1 unverifiable append/ack and crash recovery boundary",
+    "P1 incomplete checkpoint execution identity",
+    "P2 unfrozen protected M7 coverage policy"
+  ]
+}

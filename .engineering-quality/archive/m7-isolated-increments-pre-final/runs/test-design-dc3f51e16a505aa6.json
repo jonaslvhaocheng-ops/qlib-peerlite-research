@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 12,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_BEHAVIOR_TEST_MATRIX_COMPLETE",
+  "summary": "The test design covers CCC numerics, verified Gate value/provenance, zero-event screening prerequisites, the complete authorization/consumption/recovery state machine, M6 compatibility, final-OOS denial and three synthetic public-boundary journeys with 100% line/branch obligations.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T15:16:31+00:00",
+  "source_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design.md",
+      "sha256": "sha256:98be88f665bfab5c92496fec8f31f07b5abfe1ef28b8e2000b36ded085096e21"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+      "sha256": "sha256:f163026b9973b1296db8e7e19607419e098af46089e84af97855acb6dce7d450"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design.md",
+      "sha256": "sha256:15d30f9fb46f1cec6099cf7fedf72d44cbff18ac7d2d5cc29122e12e5aceed2d"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v2_independent.md",
+      "sha256": "sha256:605324db571ce0176d7d55a6198ae30baf01070eb2505ee8af0c9c4335cd66a7"
+    },
+    {
+      "path": "tests/test_market_state.py",
+      "sha256": "sha256:4f780c593d2cbe6b4c9ac5b4f69bc5e69407b528904a190f91353d20ee92d2b2"
+    },
+    {
+      "path": "tests/test_panel_dataset.py",
+      "sha256": "sha256:e09efec61c0946ef409441c025be61ae6c7b51e0f95a8551f080d931bc12ee53"
+    },
+    {
+      "path": "tests/test_peerlite.py",
+      "sha256": "sha256:ee724364b3b5705d52255569cddcae142087b9518c3d29bf054e18eacb74c72b"
+    },
+    {
+      "path": "tests/test_trial_ledger.py",
+      "sha256": "sha256:a22443f9d01c2c47d0b4a315116dba5c545bcc226bdd562f524a1cb7c3506242"
+    },
+    {
+      "path": "tests/test_run_intent_v2.py",
+      "sha256": "sha256:84265bc443db7a4b405d54610c131db311128f1750bdbd0c2900379383aaef66"
+    }
+  ],
+  "run_id": "test-design-dc3f51e16a505aa6"
+}

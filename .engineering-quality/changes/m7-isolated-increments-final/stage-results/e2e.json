@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 15,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "M7_THREE_CLEAN_PROCESS_JOURNEYS_PASS",
+  "summary": "CCC and Gate replay exactly with zero measured repository effects; empirical preflight remains fail-closed and NOT_RUN.",
+  "issue_type": null,
+  "artifact_paths": [
+    "scripts/run_m7_acceptance.py",
+    "tests/test_m7_acceptance_cli.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments-final/evidence/e2e_final.md",
+    "docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py ccc",
+      "executed_at": "2026-07-30T04:15:00+08:00",
+      "exit_code": 0,
+      "summary": "CCC clean-process journey passes with zero measured repository effects."
+    },
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py gate",
+      "executed_at": "2026-07-30T04:15:00+08:00",
+      "exit_code": 0,
+      "summary": "Gate clean-process journey passes with zero measured repository effects."
+    },
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py preflight",
+      "executed_at": "2026-07-30T04:15:00+08:00",
+      "exit_code": 0,
+      "summary": "Empirical preflight remains NOT_RUN with zero measured repository effects."
+    }
+  ],
+  "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+  "independence": null,
+  "blockers": []
+}

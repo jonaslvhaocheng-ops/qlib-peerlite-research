@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 7,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_REPAIR_EXPECTED_RED_PROVEN",
+  "summary": "The protected adapter test historically failed for the intended missing module before implementation.",
+  "issue_type": null,
+  "artifact_paths": ["tests/test_m7_review_repairs_red.py"],
+  "evidence_paths": ["docs/quality/changes/m7-isolated-increments/evidence/tests_red_v5_code_review_repairs.md"],
+  "commands": [
+    {
+      "command": ".venv/bin/python -c 'from qlib_peerlite.m7.run_state import EmpiricalFitLease'",
+      "executed_at": "2026-07-30T04:05:00+08:00",
+      "exit_code": 1,
+      "summary": "Forbidden empirical fit authority is absent."
+    }
+  ],
+  "subject_digest": "sha256:231a0e46a7a094a9a20c62000bbad5dc6322e86baf200082e349a9d5d2511f55",
+  "independence": null,
+  "blockers": []
+}

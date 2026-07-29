@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 30,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_ENGINEERING_PACKAGE_BOUNDED",
+  "summary": "The complete step-eight engineering scope fits one cohesive in-process m7 package with one-way dependencies, thin PeerLite integration, governance-owned persistence, unchanged score output, complete-package protected coverage and no empirical authority.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md"
+  ],
+  "evidence_paths": [
+    "contracts/changes/m7_complete_engineering_cr_v1.json",
+    "pyproject.toml",
+    "README.md"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "blockers": []
+}

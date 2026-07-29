@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 14,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M7_RECOVERY_CHECKPOINT_ACCEPTANCE_FINDINGS_CLOSED",
+  "summary": "Independent final review found no P0-P3 findings after strict receipt, checkpoint-context and measured-side-effect repairs.",
+  "issue_type": null,
+  "artifact_paths": ["docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md"],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+    "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v24_adversarial_review",
+    "limitations": ["Engineering and synthetic mechanics only; no empirical or Alpha claim."]
+  },
+  "blockers": []
+}

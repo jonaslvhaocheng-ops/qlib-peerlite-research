@@ -1,0 +1,53 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 13,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M7_FINAL_GREEN_100_PERCENT",
+  "summary": "The full suite passes and the complete M7 package reaches exact 100% line and branch coverage.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m7_complete.py",
+    "tests/test_m7_complete_red.py",
+    "tests/test_m7_expected_red.py",
+    "tests/test_m7_first_tranche_green.py",
+    "tests/test_m7_review_repairs_red.py",
+    "tests/test_m7_acceptance_cli.py",
+    ".engineering-quality/coverage-policy.json"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_green_final.md",
+    "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+    "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.raw.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T04:05:00+08:00",
+      "exit_code": 0,
+      "summary": "Static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T04:05:00+08:00",
+      "exit_code": 0,
+      "summary": "148 tests pass."
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m7-core --receipt docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+      "executed_at": "2026-07-30T04:07:00+08:00",
+      "exit_code": 0,
+      "summary": "Protected M7 line and branch coverage is 100%."
+    }
+  ],
+  "coverage": {
+    "receipt_path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+    "profile": "m7-core"
+  },
+  "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+  "independence": null,
+  "blockers": []
+}

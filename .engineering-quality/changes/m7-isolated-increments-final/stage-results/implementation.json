@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 12,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FINAL_IMPLEMENTATION_COMPLETE",
+  "summary": "Synthetic-only CCC and Gate, strict authority, checkpoint, recovery and CI controls are complete.",
+  "issue_type": null,
+  "artifact_paths": [
+    "src/qlib_peerlite/m7/adapter.py",
+    "src/qlib_peerlite/m7/ccc.py",
+    "src/qlib_peerlite/m7/checkpoint.py",
+    "src/qlib_peerlite/m7/market_state.py",
+    "src/qlib_peerlite/m7/prerequisites.py",
+    "src/qlib_peerlite/m7/run_state.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "scripts/run_m7_acceptance.py",
+    ".github/workflows/m7-quality-gate.yml"
+  ],
+  "evidence_paths": ["docs/quality/changes/m7-isolated-increments/evidence/implementation_final_v2.md"],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T04:05:00+08:00",
+      "exit_code": 0,
+      "summary": "Static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T04:05:00+08:00",
+      "exit_code": 0,
+      "summary": "Full suite passes."
+    }
+  ],
+  "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+  "independence": null,
+  "blockers": []
+}

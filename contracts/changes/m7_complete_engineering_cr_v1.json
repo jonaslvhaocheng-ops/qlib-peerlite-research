@@ -1,0 +1,33 @@
+{
+  "schema_version": "qlib_peerlite_change_request_v1",
+  "change_id": "M7_COMPLETE_ENGINEERING_CR_V1",
+  "trigger": "The user explicitly requested completion and testing of all step-eight engineering surfaces after the first CCC/Gate-denial tranche.",
+  "owner_phase": "M7_ENGINEERING_ONLY",
+  "research_family": "QLIB_PEERLITE_M7_INITIAL_SCREEN_V1",
+  "authorizes": [
+    "synthetic and fixed-fixture implementation of the verified market-state binding",
+    "synthetic and fixed-fixture implementation of M7 prerequisite validation",
+    "synthetic and fixed-fixture implementation of the authorization and run state machine",
+    "CCC and Gate checkpoint metadata and semantic replay contracts",
+    "unit, integration, property, negative-control and synthetic E2E testing",
+    "protected coverage, independent review and external CI"
+  ],
+  "does_not_authorize": [
+    "freezing planned cost or benchmark specifications without official evidence",
+    "creating an empirical M7 execution specification",
+    "candidate or model-fit budget events",
+    "real-data M7 fitting or screening",
+    "opening or reading the 2025+ final OOS partition",
+    "combining CCC and Gate",
+    "adding SAM, multitask learning, Transformer sequence encoding, text, LLM, minute, tick or L2 features"
+  ],
+  "frozen_candidates": [
+    "PEERLITE_K16_CCC",
+    "PEERLITE_K16_MSE_GATE"
+  ],
+  "implementation_namespace": "src/qlib_peerlite/m7",
+  "public_output_contract": "(datetime, instrument) -> score",
+  "failure_rule": "Any absent or mismatched authority, PIT identity, digest, transition or final-OOS seal fails before data preparation, model construction, ledger mutation or output creation.",
+  "empirical_status_after_engineering_pass": "NOT_RUN",
+  "rollback": "Remove the m7 package and its thin PeerLite integration; M6 checkpoints, scores and immutable evidence remain unchanged."
+}

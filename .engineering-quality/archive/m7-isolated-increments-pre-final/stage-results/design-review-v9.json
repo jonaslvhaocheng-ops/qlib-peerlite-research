@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 52,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M7_ADAPTER_COVERAGE_NOT_MECHANICALLY_FROZEN",
+  "summary": "Independent review found the empirical-authority and contract repairs sound, but rejected the conditional manual fallback for changed PeerLite adapter coverage.",
+  "issue_type": "design",
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v7_code_review_repairs_independent.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
+    "contracts/changes/m7_complete_engineering_cr_v1.json"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:c141aa5cd6f96e141893309ab944592760dfa8735cb3510394ae0e48b294d680",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Read-only design review.",
+      "No code, ledger, Git, training or OOS mutation."
+    ]
+  },
+  "blockers": [
+    "P2 M7 adapter branch denominator is not mechanically protected"
+  ]
+}

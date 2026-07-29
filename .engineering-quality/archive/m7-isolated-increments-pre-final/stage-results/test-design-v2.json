@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 22,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FIRST_TRANCHE_REPAIR_TESTS_BOUNDED",
+  "summary": "The refreshed tests require pre-prepare denial of spoofed Gate inputs, prove error_if_nonfinite is active before optimizer step, preserve M6 replay, and defer all concrete factory, prerequisite, state-machine and Gate E2E tests.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/test_design.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v4_independent.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red.md",
+    "tests/test_m7_expected_red.py",
+    "tests/test_peerlite.py"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "blockers": []
+}
