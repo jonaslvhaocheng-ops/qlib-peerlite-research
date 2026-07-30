@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 20,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M8_FAIL_CLOSED_IMPLEMENTATION_APPROVED",
+  "summary": "Independent review found no unresolved P0-P3 issues; all live complete paths close before side effects, forensic bytes are bound, append-only prefixes verify, and historical contract defects remain explicit failures.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m8-institutional-evaluation/evidence/code_review_independent.md"
+  ],
+  "evidence_paths": [
+    "evidence/gates/M8_institutional_evaluation_gate.json",
+    "evidence/m8/forensics/m8_confirmation_20260730_v1/closure_package_manifest.json",
+    "evidence/m8/verifications/m8_confirmation_20260730_v1/verification_receipt.json",
+    "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m8_independent_code_review",
+    "limitations": [
+      "This validates the HOLD closure, not predictive performance or a new confirmation run."
+    ]
+  },
+  "blockers": []
+}

@@ -22,6 +22,11 @@
       "evidence": "The v1 runner durably journaled starts but did not import them into the authoritative ledger before model.fit."
     },
     {
+      "check": "research_contract_outcome_attestation",
+      "status": "FAIL_RETAINED",
+      "evidence": "The M8 child contract was frozen after M7 outcomes selected the active path but retained decisive_outcomes_seen=false. It is not claimed as a valid pre-outcome freeze."
+    },
+    {
       "check": "interruption_reconciliation",
       "status": "PASS_RETAINED_FAILURE",
       "evidence": "Exactly one candidate start and three fit starts were atomically retained; cumulative budget is 9 candidate evaluations / 64 fit starts."
@@ -73,11 +78,20 @@
       "path": "evidence/m8/verifications/m8_confirmation_20260730_v1/verification_receipt.json",
       "sha256": "922ddeb3b0037a33466bbbd5c81a460af70bbe255c9decdbcb464948685c0273"
     },
+    "execution_binding_closure": {
+      "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/execution_binding_closure.json",
+      "sha256": "b4d08e2ed8420fd6bf2adb128fc172505bd3dbebc3237b912fcd0d98d3a0c1f8"
+    },
+    "contract_authorization_closure": {
+      "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/contract_authorization_closure.json",
+      "sha256": "c8ed654029918073704a3c0bdef0c01e1d8bc77d2ead9ad825cd5618ab1e266c"
+    },
     "trial_ledger": {
       "path": "contracts/trial_ledger.jsonl",
       "sha256": "57cff58227f29930e46fbe4271a38162d795f68645ad386017be52de12fab671",
       "candidate_evaluations": 9,
-      "model_fits": 64
+      "model_fits": 64,
+      "prefix_bytes": 39964
     }
   },
   "final_oos_access_count": 0,
@@ -87,9 +101,10 @@
   "limitations": [
     "This HOLD is an engineering-governance outcome, not evidence that PeerLite lacks or has predictive edge.",
     "The two completed folds are retained only as incident evidence and are not used for performance claims.",
+    "The M8 child contract's decisive_outcomes_seen=false attestation conflicts with the M7-to-M8 timeline; this is retained as a governance defect and the child is not represented as a valid pre-outcome freeze.",
     "PeerLite K16 MSE remains the active pre-final-OOS research baseline; it is not promoted.",
     "Any future confirmation requires a separately governed research path. This frozen M8 run cannot be retried."
   ],
   "next_gate": null,
-  "content_sha256": "fe34bb75c074491b95699a8a1914b19b5b67f7c80fede6c2f5278901b76deb22"
+  "content_sha256": "6c3c98d61fef07aebde4c77ba0c8d51af7572b3606a3d0f0bb1e3370e8f7a2f2"
 }

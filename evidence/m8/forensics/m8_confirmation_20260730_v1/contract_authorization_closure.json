@@ -1,0 +1,23 @@
+{
+  "schema_version": "qlib_peerlite_m8_contract_authorization_closure_v1",
+  "status": "FAIL_RETAINED_NOT_RETROACTIVELY_RATIFIABLE",
+  "change_request_id": "qrc-cr-v2-405ad2b8c8b8d75edf3c9af4f4ced7a4",
+  "change_request_path": "contracts/changes/m8_contract_repair_cr_v1.json",
+  "change_request_sha256": "10b5cd4cc31935633630ac30679185ebad2193af73a88259b858c2ab658ec4c5",
+  "change_request_recorded_status": "PLANNED",
+  "parent_contract_id": "qrc-v2-5b7353756e0fded36622a6946011f77a",
+  "parent_contract_path": "contracts/immutable/research_contract_pit_v2.json",
+  "parent_contract_sha256": "2f99bfb56929c732b24efe5da25c6c9d2786773ce95af347099228a521a9502c",
+  "child_contract_id": "qrc-v2-441150f0695d61a1709ca348fd55ea1c",
+  "child_contract_path": "contracts/immutable/research_contract_m8_v1.json",
+  "child_contract_sha256": "b90a2e1967b291c0e2e40c5a5b41c491928dea8c2859f60b5b3f06321e3b1b15",
+  "authorization_evidence": {
+    "user_scope": "The user explicitly instructed implementation of Step 9 in this Codex task.",
+    "limitation": "The repository contains no independently timestamped approval receipt that changed the CR from PLANNED before execution."
+  },
+  "outcome_attestation_defect": "The child retained decisive_outcomes_seen=false although M7 screening outcomes were already known.",
+  "closure_decision": "Do not rewrite or retroactively approve historical artifacts. Treat the child authorization chain as failed, retain M8 as HOLD, and prohibit retry or performance claims.",
+  "retry_authorized": false,
+  "promotion_authorized": false,
+  "final_oos_opened": false
+}

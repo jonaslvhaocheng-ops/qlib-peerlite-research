@@ -7,10 +7,10 @@ from pathlib import Path
 import pandas as pd
 import pytest
 
-from qlib_peerlite.governance.m8_recovery import (
+from qlib_peerlite.governance.trial_ledger import RunIntent
+from qlib_peerlite.m8_closure.recovery import (
     canonicalize_interrupted_m8_journal,
 )
-from qlib_peerlite.governance.trial_ledger import RunIntent
 
 
 def _load_script(name: str):
@@ -34,6 +34,13 @@ def test_m8_confirmation_schedule_and_model_are_frozen() -> None:
     assert parameters["seed"] == 42
 
 
+def test_m8_confirmation_entrypoint_is_permanently_closed(tmp_path: Path) -> None:
+    runner = _load_script("run_m8_confirmation.py")
+    with pytest.raises(RuntimeError, match="permanently closed"):
+        runner.run(tmp_path, tmp_path, tmp_path / "forbidden-retry")
+    assert not (tmp_path / "forbidden-retry").exists()
+
+
 def test_m8_score_loader_rejects_duplicate_keys(tmp_path: Path) -> None:
     evaluator = _load_script("evaluate_m8_confirmation.py")
     path = tmp_path / "scores.parquet"
@@ -47,6 +54,18 @@ def test_m8_score_loader_rejects_duplicate_keys(tmp_path: Path) -> None:
     ).to_parquet(path, index=False)
     with pytest.raises(RuntimeError, match="duplicate predictions"):
         evaluator.load_scores(path)
+
+
+def test_m8_complete_path_evaluator_is_permanently_closed(tmp_path: Path) -> None:
+    evaluator = _load_script("evaluate_m8_confirmation.py")
+    with pytest.raises(RuntimeError, match="permanently closed"):
+        evaluator.run(tmp_path, tmp_path, tmp_path, tmp_path, tmp_path)
+
+
+def test_m8_complete_path_verifier_is_permanently_closed(tmp_path: Path) -> None:
+    verifier = _load_script("verify_m8_confirmation.py")
+    with pytest.raises(RuntimeError, match="permanently closed"):
+        verifier.run(tmp_path, tmp_path, tmp_path, tmp_path)
 
 
 def test_m8_content_hash_excludes_only_its_own_field() -> None:

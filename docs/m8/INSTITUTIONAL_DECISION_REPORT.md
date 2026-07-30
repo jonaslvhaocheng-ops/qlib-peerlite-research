@@ -26,6 +26,7 @@ access log.
 | --- | --- |
 | Frozen scope | PASS |
 | Pre-fit authoritative accounting | FAIL_RETAINED |
+| Child-contract outcome attestation | FAIL_RETAINED |
 | Incident reconciliation | PASS_RETAINED_FAILURE |
 | Five-seed confirmation | NOT_RUN_DEPENDENCY_STOP |
 | Statistical stability | NOT_RUN_DEPENDENCY_STOP |
@@ -36,6 +37,13 @@ access log.
 The frozen `no_retry_after_started_fit` rule prevents resuming or replacing the
 interrupted confirmation. The partial folds are incident evidence only and
 were not evaluated for predictive performance.
+
+The M8 child research contract was frozen after the M7 screen had already
+selected the surviving baseline path, yet it retained
+`decisive_outcomes_seen=false`. This binary attestation is inconsistent with
+the timeline. The frozen files are preserved rather than silently rewritten;
+the child contract is not claimed as a valid pre-outcome freeze. Because M8 is
+HOLD and final OOS was never opened, no performance conclusion relies on it.
 
 ## Claims permitted
 
@@ -55,4 +63,3 @@ is permitted.
   `evidence/m8/verifications/m8_confirmation_20260730_v1/verification_receipt.json`
 - Authoritative ledger: `contracts/trial_ledger.jsonl`
 - OOS access log: `contracts/oos_access_log.jsonl`
-

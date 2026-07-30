@@ -8,10 +8,6 @@ import json
 from pathlib import Path
 
 from qlib_peerlite.governance.artifacts import atomic_write_json, sha256_file
-from qlib_peerlite.governance.m8_recovery import (
-    canonicalize_interrupted_m8_journal,
-    write_canonical_jsonl,
-)
 from qlib_peerlite.governance.trial_ledger import (
     LedgerPrefixBinding,
     RunIntent,
@@ -19,6 +15,10 @@ from qlib_peerlite.governance.trial_ledger import (
     assert_journal_starts_reconciled,
     ledger_sha256,
     reconcile_started_events,
+)
+from qlib_peerlite.m8_closure.recovery import (
+    canonicalize_interrupted_m8_journal,
+    write_canonical_jsonl,
 )
 
 FAMILY_ID = "QLIB_PEERLITE_M8_CONFIRMATION_V1"

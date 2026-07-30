@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 2,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M8_FAIL_CLOSED_BOUNDARIES_CONFIRMED",
+  "summary": "M8 closure remains within governance composition roots and adds no model, data, portfolio, OOS or production surface.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:14:04+00:00",
+  "source_digest": "sha256:d4a99a5afc838a28c3b16b94e182ac7ef98a26bfd4110fee09c6eac3cd861b2f",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/architecture_confirmation.md",
+      "sha256": "sha256:02e3b27c23b072c8b5beac97fc4aaf63bf0dc5846846cd41e735e1b23ae143d9"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "contracts/immutable/m8_institutional_evaluation_spec_v1.json",
+      "sha256": "sha256:148b0e2ee79b5d4cdce2d421c2e3d5a0404c4ea80351c82f9b6d484c4e6b438c"
+    }
+  ],
+  "run_id": "architecture-0f7920283486e09d"
+}

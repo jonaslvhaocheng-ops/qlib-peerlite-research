@@ -1,0 +1,681 @@
+{
+  "schema_version": "1.0",
+  "suite_version": "0.3.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 22,
+  "status": "READY_FOR_CI",
+  "repository": {
+    "identity": "github.com/jonaslvhaocheng-ops/qlib-peerlite-research",
+    "root_hint": "qlib模型框架",
+    "baseline_commit": "aa424dd69d9e242c7c9536cf7a126be9e018c77f",
+    "branch": "codex/m8-institutional-evaluation",
+    "source_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+  },
+  "scope": {
+    "goal": "Close M8 institutional confirmation fail-closed: retain the counted interruption, preserve the untouched final-OOS boundary, publish HOLD evidence, and make the recovery path auditable without retrying training.",
+    "non_goals": [],
+    "changed_surfaces": [],
+    "change_kind": "unspecified",
+    "architecture_required": true,
+    "critical_journeys": [
+      "Retain exactly one candidate and three fit starts in the authoritative ledger",
+      "Independently verify the retained interruption and untouched final-OOS seal",
+      "Reject duplicate recovery without changing the authoritative ledger"
+    ]
+  },
+  "risk": {
+    "tier": "R3",
+    "initial_tier": "R3",
+    "rationale": [],
+    "locked": true
+  },
+  "stages": {
+    "scope": {
+      "owner_skill": "eng-route-quality-work",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Scope and locked risk supplied at initialization.",
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-30T04:08:20+00:00"
+    },
+    "architecture": {
+      "owner_skill": "eng-architect-repository",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "M8 closure remains within governance composition roots and adds no model, data, portfolio, OOS or production surface.",
+      "latest_run": "runs/architecture-0f7920283486e09d.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/architecture_confirmation.md",
+          "sha256": "sha256:02e3b27c23b072c8b5beac97fc4aaf63bf0dc5846846cd41e735e1b23ae143d9"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "contracts/immutable/m8_institutional_evaluation_spec_v1.json",
+          "sha256": "sha256:148b0e2ee79b5d4cdce2d421c2e3d5a0404c4ea80351c82f9b6d484c4e6b438c"
+        }
+      ],
+      "updated_at": "2026-07-30T04:14:04+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "change-design": {
+      "owner_skill": "eng-design-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The design retains exact starts, verifies append-only prefixes, closes all complete-path entry points and preserves historical defects without retroactive approval.",
+      "latest_run": "runs/change-design-d412e414f854105b.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/change_design.md",
+          "sha256": "sha256:bcf7239e18311e4c182238babe7a0b08f6684ccca8d357a6a51b840b642f9219"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/closure_package_manifest.json",
+          "sha256": "sha256:6256943ccd01d1ca2c6abe74081a6e39c09e4a3928e65803778068ccee1b1163"
+        }
+      ],
+      "updated_at": "2026-07-30T04:14:04+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "design-review": {
+      "owner_skill": "eng-review-design",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "M8 closes without rewriting history: executed and disabled code are separately bound, authorization defects remain explicit failures, and retry, promotion and final-OOS opening are prohibited.",
+      "latest_run": "runs/design-review-8249e6614e283333.json",
+      "subject_digest": "sha256:bcf7239e18311e4c182238babe7a0b08f6684ccca8d357a6a51b840b642f9219",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/design_review_independent.md",
+          "sha256": "sha256:8dfccaf2458a21bf6c964da98076dc763adaae66a31e292522381cc708277160"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/change_design.md",
+          "sha256": "sha256:bcf7239e18311e4c182238babe7a0b08f6684ccca8d357a6a51b840b642f9219"
+        },
+        {
+          "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/closure_package_manifest.json",
+          "sha256": "sha256:6256943ccd01d1ca2c6abe74081a6e39c09e4a3928e65803778068ccee1b1163"
+        }
+      ],
+      "updated_at": "2026-07-30T04:15:19+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m8_independent_design_review",
+        "limitations": [
+          "No new training, Alpha conclusion, retry or final-OOS access was reviewed or authorized."
+        ]
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "test-design": {
+      "owner_skill": "eng-design-tests",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The matrix covers exact incident parsing, 9/64 accounting, forensic bindings, append-only prefixes, duplicate recovery, closed complete paths and forbidden claims.",
+      "latest_run": "runs/test-design-164fada89c6732f0.json",
+      "subject_digest": "sha256:163386c4e894fdd8a86913355977dfe92a8f4db50be6c409f3e10e730dbc637d",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/test_design.md",
+          "sha256": "sha256:163386c4e894fdd8a86913355977dfe92a8f4db50be6c409f3e10e730dbc637d"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/design_review_independent.md",
+          "sha256": "sha256:8dfccaf2458a21bf6c964da98076dc763adaae66a31e292522381cc708277160"
+        }
+      ],
+      "updated_at": "2026-07-30T04:15:57+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-red": {
+      "owner_skill": "eng-write-tests",
+      "mode": "red",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The expected-red probe invokes the historical confirmation entry point and must terminate non-zero before creating any output or counted start.",
+      "latest_run": "runs/tests-red-6d526cfccbbc6096.json",
+      "subject_digest": "sha256:c4c0843250477d964cfa452411897a0dc89f5c340d374b272c0bab9bc5faecf4",
+      "artifacts": [
+        {
+          "path": "scripts/quality/m8_expected_red_probe.py",
+          "sha256": "sha256:c4c0843250477d964cfa452411897a0dc89f5c340d374b272c0bab9bc5faecf4"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/tests_red.md",
+          "sha256": "sha256:6ad4e9b3c3cdd26b145fca6dfe93569a697fc330d5214cdc60d11883d3bedcbb"
+        }
+      ],
+      "updated_at": "2026-07-30T04:16:50+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python scripts/quality/m8_expected_red_probe.py",
+          "executed_at": "2026-07-30T04:16:49+00:00",
+          "exit_code": 1,
+          "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:42806446225172b4fd50ed5acd133e6f71f5325f058c51feb36b7f28c79747bd; stderr_bytes=583",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/quality/m8_expected_red_probe.py"
+          ],
+          "expected_exit_code": 1,
+          "finished_at": "2026-07-30T04:16:50+00:00",
+          "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 0,
+          "stderr_sha256": "sha256:42806446225172b4fd50ed5acd133e6f71f5325f058c51feb36b7f28c79747bd",
+          "stderr_bytes": 583,
+          "source_digest_before": "sha256:b09e5d101079b7420bae7d50e0c226f7eb331411fabc78af1a50a1308df2a32c",
+          "source_digest_after": "sha256:b09e5d101079b7420bae7d50e0c226f7eb331411fabc78af1a50a1308df2a32c"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "implementation": {
+      "owner_skill": "eng-implement-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Exact incident retention, prefix-safe verification, forensic bindings, permanently closed complete paths, HOLD evidence and focused coverage tests are implemented.",
+      "latest_run": "runs/implementation-bb9b2f4118eda084.json",
+      "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+      "artifacts": [
+        {
+          "path": "src/qlib_peerlite/m8_closure/recovery.py",
+          "sha256": "sha256:38397c46974155170b447ce7b0df5d1ffba55ba9eccc38e89763835d52e7a264"
+        },
+        {
+          "path": "scripts/server/reconcile_m8_interrupted_run.py",
+          "sha256": "sha256:f532d97e359600bc93613c63d1cc194aac330607e4c35591ae5b93bec8f44ef7"
+        },
+        {
+          "path": "scripts/server/verify_m8_interruption.py",
+          "sha256": "sha256:6ffd85ab17bba794734b1a744e3ea0b1390d10aa1cc12270da21bc73a3d9cb17"
+        },
+        {
+          "path": "scripts/server/run_m8_confirmation.py",
+          "sha256": "sha256:f66ec9f3126b9aab8996da6bffcd9e70cafb486b6e1f54c797aab0d3bd306fda"
+        },
+        {
+          "path": "scripts/server/evaluate_m8_confirmation.py",
+          "sha256": "sha256:09ba778214113e3f816a8f12c783e0e5751c8e3927e38922f625ff44495f94a0"
+        },
+        {
+          "path": "scripts/server/verify_m8_confirmation.py",
+          "sha256": "sha256:3f8b375e4d249accc12c2a5e360d3fdf7d49dd1c2c47421b1e24b8722c96dd09"
+        },
+        {
+          "path": "tests/test_m8_confirmation.py",
+          "sha256": "sha256:6c16e9b72d73c033619b3042d93a7647de172c09c98b42057de2b10234c828a0"
+        },
+        {
+          "path": "tests/test_m8_evidence.py",
+          "sha256": "sha256:ba93144a1a0870a86313a45a4e3ec927e0eb572113a6d1c32b4f62f8eeb3a949"
+        },
+        {
+          "path": "tests/test_m8_recovery_coverage.py",
+          "sha256": "sha256:3dad19681bbf0e6a456a91b1d609c398d8a37f9dd861627d89280a9ccd6e3ad4"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/implementation.md",
+          "sha256": "sha256:41b21a18308ea41d7d3757914407ad352c781238ee698cda5db0d1ca9be072e0"
+        },
+        {
+          "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/closure_package_manifest.json",
+          "sha256": "sha256:6256943ccd01d1ca2c6abe74081a6e39c09e4a3928e65803778068ccee1b1163"
+        }
+      ],
+      "updated_at": "2026-07-30T04:20:00+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+          "executed_at": "2026-07-30T12:21:00+08:00",
+          "exit_code": 0,
+          "summary": "Static checks passed."
+        },
+        {
+          "command": ".venv/bin/python -m pytest -q",
+          "executed_at": "2026-07-30T12:21:00+08:00",
+          "exit_code": 0,
+          "summary": "Full suite passed: 188 tests."
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-green": {
+      "owner_skill": "eng-write-tests",
+      "mode": "green",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The full suite and static checks pass; the complete m8_closure package has exact 100% line and branch coverage.",
+      "latest_run": "runs/tests-green-93a683120b13014f.json",
+      "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+      "artifacts": [
+        {
+          "path": "tests/test_m8_confirmation.py",
+          "sha256": "sha256:6c16e9b72d73c033619b3042d93a7647de172c09c98b42057de2b10234c828a0"
+        },
+        {
+          "path": "tests/test_m8_evidence.py",
+          "sha256": "sha256:ba93144a1a0870a86313a45a4e3ec927e0eb572113a6d1c32b4f62f8eeb3a949"
+        },
+        {
+          "path": "tests/test_m8_recovery_coverage.py",
+          "sha256": "sha256:3dad19681bbf0e6a456a91b1d609c398d8a37f9dd861627d89280a9ccd6e3ad4"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+          "sha256": "sha256:2f2dc761b091d8104b13dd91ab307ce2101c0badcde337f25a6ddd9b55b229d8"
+        },
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.raw.json",
+          "sha256": "sha256:5e84ea6e9faa977755cc8d41d9528e454c8a6923b343636798518901dc81d685"
+        }
+      ],
+      "updated_at": "2026-07-30T04:21:35+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+          "executed_at": "2026-07-30T04:21:21+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "tests",
+            "scripts",
+            "--exclude",
+            "scripts/vendor"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T04:21:21+00:00",
+          "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "stdout_bytes": 19,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+          "source_digest_after": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+        },
+        {
+          "command": ".venv/bin/python -m pytest -q",
+          "executed_at": "2026-07-30T04:21:21+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:63350250ab960edc0114b7dc944e61928226a02dcdea5d2ef409aa685997faee; stdout_bytes=261; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T04:21:34+00:00",
+          "stdout_sha256": "sha256:63350250ab960edc0114b7dc944e61928226a02dcdea5d2ef409aa685997faee",
+          "stdout_bytes": 261,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+          "source_digest_after": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+        },
+        {
+          "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m8-core --receipt docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+          "executed_at": "2026-07-30T04:21:34+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:24e62b6fa0501f82687fd26be279d60c890b22ae35ac1c1af437180f7080ff81; stdout_bytes=435; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            "python3",
+            "scripts/quality/quality_ledger.py",
+            "capture-coverage",
+            "--repo",
+            ".",
+            "--profile",
+            "m8-core",
+            "--receipt",
+            "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T04:21:35+00:00",
+          "stdout_sha256": "sha256:24e62b6fa0501f82687fd26be279d60c890b22ae35ac1c1af437180f7080ff81",
+          "stdout_bytes": 435,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+          "source_digest_after": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null,
+      "coverage": {
+        "schema_version": "engineering-quality-coverage-v1",
+        "receipt_path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+        "policy": {
+          "path": ".engineering-quality/coverage-policy.json",
+          "sha256": "sha256:ddbe2b34684687147d30d34da80f7af14a0ac5726f0c8da2526ebee5928a6518",
+          "profile": "m8-core"
+        },
+        "format": "coveragepy-json",
+        "source_roots": [
+          "src/qlib_peerlite/m8_closure"
+        ],
+        "expected_core_paths": [
+          "src/qlib_peerlite/m8_closure/__init__.py",
+          "src/qlib_peerlite/m8_closure/recovery.py"
+        ],
+        "observed_core_paths": [
+          "src/qlib_peerlite/m8_closure/__init__.py",
+          "src/qlib_peerlite/m8_closure/recovery.py"
+        ],
+        "line": {
+          "covered": 63,
+          "total": 63,
+          "missing": 0,
+          "excluded": 0,
+          "percent": 100.0
+        },
+        "branch": {
+          "covered": 24,
+          "total": 24,
+          "missing": 0,
+          "excluded": 0,
+          "percent": 100.0
+        },
+        "required_line_percent": 100.0,
+        "required_branch_percent": 100.0,
+        "source": {
+          "kind": "raw-report",
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.raw.json",
+          "sha256": "sha256:5e84ea6e9faa977755cc8d41d9528e454c8a6923b343636798518901dc81d685"
+        }
+      }
+    },
+    "code-review": {
+      "owner_skill": "eng-review-code",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Independent review found no unresolved P0-P3 issues; all live complete paths close before side effects, forensic bytes are bound, append-only prefixes verify, and historical contract defects remain explicit failures.",
+      "latest_run": "runs/code-review-d28a66ceca9fd855.json",
+      "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/code_review_independent.md",
+          "sha256": "sha256:39d1e63e5f63f513b9cf501dd354736cdd1bf24a74ed94fca43df4d35816fe10"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/gates/M8_institutional_evaluation_gate.json",
+          "sha256": "sha256:27a200034be48313bc8e8dc0143e27d0f17e0ef192485d3ab60ce89fa12d1808"
+        },
+        {
+          "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/closure_package_manifest.json",
+          "sha256": "sha256:6256943ccd01d1ca2c6abe74081a6e39c09e4a3928e65803778068ccee1b1163"
+        },
+        {
+          "path": "evidence/m8/verifications/m8_confirmation_20260730_v1/verification_receipt.json",
+          "sha256": "sha256:922ddeb3b0037a33466bbbd5c81a460af70bbe255c9decdbcb464948685c0273"
+        },
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+          "sha256": "sha256:2f2dc761b091d8104b13dd91ab307ce2101c0badcde337f25a6ddd9b55b229d8"
+        }
+      ],
+      "updated_at": "2026-07-30T04:23:32+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m8_independent_code_review",
+        "limitations": [
+          "This validates the HOLD closure, not predictive performance or a new confirmation run."
+        ]
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "e2e": {
+      "owner_skill": "eng-validate-e2e",
+      "mode": "acceptance",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The public verifier accepts the retained incident, a retry attempt is rejected without output, and repeated reconciliation is rejected without changing the authoritative ledger.",
+      "latest_run": "runs/e2e-10419849025c2ab5.json",
+      "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m8-institutional-evaluation/evidence/e2e_local.md",
+          "sha256": "sha256:dd91b8e761c3260789b3d27485dea85134249771fe09b1556c8e973d318724dc"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/m8/verifications/m8_confirmation_20260730_v1/verification_receipt.json",
+          "sha256": "sha256:922ddeb3b0037a33466bbbd5c81a460af70bbe255c9decdbcb464948685c0273"
+        },
+        {
+          "path": "evidence/m8/failures/m8_confirmation_20260730_v1/recovery/reconciliation_receipt.json",
+          "sha256": "sha256:d6af9d1779b424d3a1ffc28857095c8c3dd528b9b6a08795c38a47eb1c69286b"
+        }
+      ],
+      "updated_at": "2026-07-30T04:24:07+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python scripts/server/verify_m8_interruption.py --project-root . --failure-dir evidence/m8/failures/m8_confirmation_20260730_v1 --output /tmp/m8_quality_e2e_verify.json",
+          "executed_at": "2026-07-30T04:24:05+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:63867855c52946b204c70c3960e9338501c4bd8b3ee37cdf969e2e233bbad5a4; stdout_bytes=640; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/server/verify_m8_interruption.py",
+            "--project-root",
+            ".",
+            "--failure-dir",
+            "evidence/m8/failures/m8_confirmation_20260730_v1",
+            "--output",
+            "/tmp/m8_quality_e2e_verify.json"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T04:24:06+00:00",
+          "stdout_sha256": "sha256:63867855c52946b204c70c3960e9338501c4bd8b3ee37cdf969e2e233bbad5a4",
+          "stdout_bytes": 640,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+          "source_digest_after": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+        },
+        {
+          "command": ".venv/bin/python -c \"import pathlib,subprocess; r=subprocess.run(['.venv/bin/python','scripts/quality/m8_expected_red_probe.py']); assert r.returncode == 1; assert not pathlib.Path('artifacts/forbidden_m8_retry_probe').exists()\"",
+          "executed_at": "2026-07-30T04:24:06+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:42806446225172b4fd50ed5acd133e6f71f5325f058c51feb36b7f28c79747bd; stderr_bytes=583",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-c",
+            "import pathlib,subprocess; r=subprocess.run(['.venv/bin/python','scripts/quality/m8_expected_red_probe.py']); assert r.returncode == 1; assert not pathlib.Path('artifacts/forbidden_m8_retry_probe').exists()"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T04:24:06+00:00",
+          "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 0,
+          "stderr_sha256": "sha256:42806446225172b4fd50ed5acd133e6f71f5325f058c51feb36b7f28c79747bd",
+          "stderr_bytes": 583,
+          "source_digest_before": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+          "source_digest_after": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+        },
+        {
+          "command": ".venv/bin/python -c \"import hashlib,pathlib,subprocess; p=pathlib.Path('contracts/trial_ledger.jsonl'); before=hashlib.sha256(p.read_bytes()).hexdigest(); r=subprocess.run(['.venv/bin/python','scripts/server/reconcile_m8_interrupted_run.py','--project-root','.','--legacy-journal','evidence/m8/failures/m8_confirmation_20260730_v1/trial_journal.jsonl','--canonical-journal','evidence/m8/failures/m8_confirmation_20260730_v1/recovery/trial_journal_v2.jsonl','--ledger','contracts/trial_ledger.jsonl','--receipt','evidence/m8/failures/m8_confirmation_20260730_v1/recovery/reconciliation_receipt.json']); assert r.returncode == 1; assert hashlib.sha256(p.read_bytes()).hexdigest() == before\"",
+          "executed_at": "2026-07-30T04:24:06+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:b2af5e661dd4835d2bd4a2e0569a76552a8083a27c17909b2680b6fd23478b30; stderr_bytes=677",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-c",
+            "import hashlib,pathlib,subprocess; p=pathlib.Path('contracts/trial_ledger.jsonl'); before=hashlib.sha256(p.read_bytes()).hexdigest(); r=subprocess.run(['.venv/bin/python','scripts/server/reconcile_m8_interrupted_run.py','--project-root','.','--legacy-journal','evidence/m8/failures/m8_confirmation_20260730_v1/trial_journal.jsonl','--canonical-journal','evidence/m8/failures/m8_confirmation_20260730_v1/recovery/trial_journal_v2.jsonl','--ledger','contracts/trial_ledger.jsonl','--receipt','evidence/m8/failures/m8_confirmation_20260730_v1/recovery/reconciliation_receipt.json']); assert r.returncode == 1; assert hashlib.sha256(p.read_bytes()).hexdigest() == before"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T04:24:07+00:00",
+          "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 0,
+          "stderr_sha256": "sha256:b2af5e661dd4835d2bd4a2e0569a76552a8083a27c17909b2680b6fd23478b30",
+          "stderr_bytes": 677,
+          "source_digest_before": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+          "source_digest_after": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "ci": {
+      "owner_skill": "ci",
+      "mode": "external",
+      "applicability": "REQUIRED",
+      "status": "PENDING",
+      "reason": null,
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-30T04:08:20+00:00"
+    }
+  },
+  "latest_route": {
+    "next_action": "CI",
+    "stage_id": "ci",
+    "skill": null,
+    "reason_code": "READY_FOR_EXTERNAL_CI",
+    "reason": "All required Skill stages are current PASS; the live external required check is the final gate."
+  },
+  "blockers": [],
+  "exceptions": [],
+  "history": [
+    {
+      "at": "2026-07-30T04:08:20+00:00",
+      "event": "LEDGER_INITIALIZED",
+      "stage": "scope",
+      "detail": "Initialized at R3."
+    },
+    {
+      "at": "2026-07-30T04:14:04+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-0f7920283486e09d."
+    },
+    {
+      "at": "2026-07-30T04:14:04+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-d412e414f854105b."
+    },
+    {
+      "at": "2026-07-30T04:15:19+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "PASS as design-review-8249e6614e283333."
+    },
+    {
+      "at": "2026-07-30T04:15:57+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "test-design",
+      "detail": "PASS as test-design-164fada89c6732f0."
+    },
+    {
+      "at": "2026-07-30T04:16:50+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-6d526cfccbbc6096."
+    },
+    {
+      "at": "2026-07-30T04:19:14+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-8b24c4cac45d1ffb."
+    },
+    {
+      "at": "2026-07-30T04:19:30+00:00",
+      "event": "SOURCE_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: implementation."
+    },
+    {
+      "at": "2026-07-30T04:20:00+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-bb9b2f4118eda084."
+    },
+    {
+      "at": "2026-07-30T04:21:35+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-93a683120b13014f."
+    },
+    {
+      "at": "2026-07-30T04:23:32+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "PASS as code-review-d28a66ceca9fd855."
+    },
+    {
+      "at": "2026-07-30T04:24:07+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "e2e",
+      "detail": "PASS as e2e-10419849025c2ab5."
+    }
+  ]
+}

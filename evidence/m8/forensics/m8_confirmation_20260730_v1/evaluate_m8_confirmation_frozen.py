@@ -50,11 +50,6 @@ def run(
     confirmation_dir: Path,
     output: Path,
 ) -> None:
-    raise RuntimeError(
-        "M8 complete-path evaluation is permanently closed; "
-        "the retained confirmation is incomplete"
-    )
-    # The frozen implementation remains below for forensic review only.
     panel = pd.read_parquet(execution_panel)
     panel["datetime"] = pd.to_datetime(panel["datetime"]).dt.normalize()
     panel["instrument"] = panel["instrument"].astype(str)

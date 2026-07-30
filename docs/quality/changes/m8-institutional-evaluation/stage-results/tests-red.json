@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 11,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M8_RETRY_ATTEMPT_REJECTED_BEFORE_SIDE_EFFECTS",
+  "summary": "The expected-red probe invokes the historical confirmation entry point and must terminate non-zero before creating any output or counted start.",
+  "issue_type": null,
+  "artifact_paths": [
+    "scripts/quality/m8_expected_red_probe.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m8-institutional-evaluation/evidence/tests_red.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python scripts/quality/m8_expected_red_probe.py",
+      "executed_at": "2026-07-30T12:15:00+08:00",
+      "exit_code": 1,
+      "summary": "Requested expected-red execution: closed M8 runner must reject before side effects."
+    }
+  ],
+  "subject_digest": "sha256:c4c0843250477d964cfa452411897a0dc89f5c340d374b272c0bab9bc5faecf4",
+  "independence": null,
+  "blockers": []
+}

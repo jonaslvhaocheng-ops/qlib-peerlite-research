@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 from pathlib import Path
 
@@ -36,6 +37,8 @@ def run(project_root: Path, failure_dir: Path, output: Path) -> dict[str, object
         "oos_log": project_root / "contracts/oos_access_log.jsonl",
     }
     for name, path in paths.items():
+        if name in {"ledger", "oos_log"}:
+            continue
         if sha256_file(path) != EXPECTED[name]:
             raise RuntimeError(f"M8 interruption evidence hash mismatch: {name}")
 
@@ -43,7 +46,14 @@ def run(project_root: Path, failure_dir: Path, output: Path) -> dict[str, object
         paths["ledger"],
         expected_prefix_sha256=EXPECTED["ledger"],
         expected_counts={"candidate_evaluations": 9, "model_fits": 64},
+        expected_prefix_bytes=39_964,
     )
+    oos_prefix = paths["oos_log"].read_bytes()[:187]
+    if (
+        len(oos_prefix) != 187
+        or hashlib.sha256(oos_prefix).hexdigest() != EXPECTED["oos_log"]
+    ):
+        raise RuntimeError("M8 final-OOS access-log prefix mismatch")
     receipt = json.loads(paths["reconciliation_receipt"].read_text(encoding="utf-8"))
     if (
         receipt.get("status") != "PASS_RETAINED_FAILURE"

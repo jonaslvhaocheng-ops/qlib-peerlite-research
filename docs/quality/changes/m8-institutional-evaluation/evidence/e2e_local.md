@@ -31,6 +31,15 @@ uv run python scripts/server/verify_m8_interruption.py --project-root . --failur
 
 ## Overall
 
-Local E2E verdict: PASS. This proves retained-failure verification and
-duplicate-recovery rejection. It does not substitute for an independent code
-review or the live external CI gate.
+## Journey 3 — all complete-path entry points remain closed
+
+- Mode: quantitative workflow / CLI
+- Entry points: confirmation runner, evaluator and complete-path verifier
+- Expected: each rejects before creating an authorized output
+- Actual: focused regression tests and independent code review confirmed all
+  three fail before side effects
+- Result: PASS
+
+Local E2E verdict: PASS. This proves retained-failure verification,
+duplicate-recovery rejection and complete-path closure. It does not substitute
+for the live external CI gate.

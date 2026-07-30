@@ -66,12 +66,6 @@ def model_parameters(seed: int) -> dict[str, object]:
 
 
 def run(project_root: Path, product_dir: Path, output_dir: Path) -> None:
-    raise RuntimeError(
-        "M8 confirmation is permanently closed after retained run "
-        "m8_confirmation_20260730_v1; no retry is authorized"
-    )
-    # The original frozen implementation is intentionally retained below for
-    # forensic review, but this composition root can no longer reach it.
     if os.environ.get("CUBLAS_WORKSPACE_CONFIG") != ":4096:8":
         raise RuntimeError("strict CUBLAS workspace configuration is required")
     if os.environ.get("QLIB_PEERLITE_ALLOW_EMPIRICAL") != "true":

@@ -1,0 +1,31 @@
+{
+  "schema_version": "qlib_peerlite_m8_execution_binding_closure_v1",
+  "status": "CLOSED_WITH_FORENSIC_BINDING",
+  "frozen_spec_path": "contracts/immutable/m8_institutional_evaluation_spec_v1.json",
+  "frozen_spec_sha256": "148b0e2ee79b5d4cdce2d421c2e3d5a0404c4ea80351c82f9b6d484c4e6b438c",
+  "executed_runner_original_path": "scripts/server/run_m8_confirmation.py",
+  "executed_source_commit": "fc1ef62ba96549ca1c16479c4989172859292a45",
+  "executed_runner_git_blob": "b2ed91aed0c4c521afe4b0b3d223535a0eb70e06",
+  "executed_runner_frozen_sha256": "562db096c39e9bb79f60d4c7b5cee171697c6ccb6ed932dff965e91f747fbaab",
+  "executed_runner_forensic_path": "evidence/m8/forensics/m8_confirmation_20260730_v1/run_m8_confirmation_executed.py",
+  "executed_runner_forensic_sha256": "562db096c39e9bb79f60d4c7b5cee171697c6ccb6ed932dff965e91f747fbaab",
+  "closed_entrypoint_path": "scripts/server/run_m8_confirmation.py",
+  "closed_entrypoint_sha256": "f66ec9f3126b9aab8996da6bffcd9e70cafb486b6e1f54c797aab0d3bd306fda",
+  "frozen_evaluator": {
+    "git_blob": "29161441c0bba8bea3a511b8cba351391934e73d",
+    "forensic_path": "evidence/m8/forensics/m8_confirmation_20260730_v1/evaluate_m8_confirmation_frozen.py",
+    "frozen_sha256": "ac675158fd3de7dca1da92d9d8f708aca42e3b22c41dfa0a29ff6e9f67a4edcb",
+    "closed_path": "scripts/server/evaluate_m8_confirmation.py",
+    "closed_sha256": "09ba778214113e3f816a8f12c783e0e5751c8e3927e38922f625ff44495f94a0"
+  },
+  "frozen_complete_verifier": {
+    "git_blob": "4153ef172e7d605cdb0df562d275410f6101b443",
+    "forensic_path": "evidence/m8/forensics/m8_confirmation_20260730_v1/verify_m8_confirmation_frozen.py",
+    "frozen_sha256": "2381ff855ea6c71162449e85424f35726d42a1283678e92e7ed8b62f098f16f2",
+    "closed_path": "scripts/server/verify_m8_confirmation.py",
+    "closed_sha256": "3f8b375e4d249accc12c2a5e360d3fdf7d49dd1c2c47421b1e24b8722c96dd09"
+  },
+  "closure_rule": "The executed bytes remain immutable forensic evidence. All live complete-path entry points intentionally differ only to reject every retry, evaluation or PASS verification before side effects.",
+  "retry_authorized": false,
+  "final_oos_opened": false
+}

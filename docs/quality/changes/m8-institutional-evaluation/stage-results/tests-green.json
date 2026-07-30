@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 18,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M8_FULL_SUITE_AND_CORE_COVERAGE_GREEN",
+  "summary": "The full suite and static checks pass; the complete m8_closure package has exact 100% line and branch coverage.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m8_confirmation.py",
+    "tests/test_m8_evidence.py",
+    "tests/test_m8_recovery_coverage.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+    "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.raw.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T12:20:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must execute static checks."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T12:20:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must execute the full suite."
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m8-core --receipt docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+      "executed_at": "2026-07-30T12:20:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must recapture protected coverage."
+    }
+  ],
+  "coverage": {
+    "receipt_path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+    "profile": "m8-core"
+  },
+  "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "independence": null,
+  "blockers": []
+}

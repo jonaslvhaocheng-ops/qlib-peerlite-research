@@ -25,11 +25,6 @@ def canonical_hash(value: dict[str, object]) -> str:
 
 
 def run(project_root: Path, run_dir: Path, evaluation: Path, output: Path) -> None:
-    raise RuntimeError(
-        "M8 complete-path verification is permanently closed; "
-        "only verify_m8_interruption.py is authoritative"
-    )
-    # The frozen implementation remains below for forensic review only.
     manifest_path = run_dir / "run_manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if manifest.get("status") != "PASS" or manifest.get("model_fits") != 28:
