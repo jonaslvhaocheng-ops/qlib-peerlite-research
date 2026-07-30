@@ -1,0 +1,11 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "ir_implementation_v1",
+  "status": "PASS",
+  "implementation": [
+    "src/qlib_peerlite/evaluation/metrics.py",
+    "src/qlib_peerlite/evaluation/bootstrap.py"
+  ],
+  "test": "tests/test_portfolio_and_gates.py",
+  "assertion": "Weekly IR annualizes by sqrt(52); candidate-baseline uncertainty uses paired circular moving blocks of four weeks and 2000 frozen-seed draws."
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "development_folds_v1",
+  "status": "PASS",
+  "contract": "contracts/immutable/research_contract_pit_v2.json",
+  "implementation": "src/qlib_peerlite/data/splits.py",
+  "test": "tests/test_splits.py",
+  "folds": [
+    "wf_2018",
+    "wf_2019",
+    "wf_2020",
+    "wf_2021",
+    "wf_2022",
+    "wf_2023",
+    "wf_2024"
+  ],
+  "assertion": "Every fold uses five training years, one validation year, one test year, label-end purge and five eligible-session embargo."
+}

@@ -1,0 +1,8 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "portfolio_implementation_v1",
+  "status": "PASS",
+  "implementation": "src/qlib_peerlite/evaluation/institutional.py",
+  "test": "tests/test_institutional_portfolio.py",
+  "assertion": "The mapper executes sells before buys, retains failed fills, allocates replacement buys only from available cash, and emits weekly returns, holdings and filled/unfilled trade details without scaling retained positions upward."
+}

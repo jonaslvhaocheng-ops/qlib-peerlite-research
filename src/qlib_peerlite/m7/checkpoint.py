@@ -74,12 +74,23 @@ def validate_checkpoint_v2_header(
         context = M7CheckpointContext(**execution)
     except TypeError as exc:
         raise M7ContractError("M7 checkpoint execution context is invalid") from exc
-    if (
-        context.family_id != "SYNTHETIC_M7_ENGINEERING_V1"
-        or context.purpose != "SYNTHETIC_MECHANICS_ONLY"
-        or context.fold_id != "synthetic_reserved_dates"
-    ):
-        raise M7ContractError("M7 checkpoint is not synthetic engineering evidence")
+    synthetic = context.family_id == "SYNTHETIC_M7_ENGINEERING_V1"
+    empirical = context.family_id == "QLIB_PEERLITE_M7_INITIAL_SCREEN_V1"
+    if synthetic:
+        if (
+            context.purpose != "SYNTHETIC_MECHANICS_ONLY"
+            or context.fold_id != "synthetic_reserved_dates"
+        ):
+            raise M7ContractError("M7 checkpoint is not synthetic engineering evidence")
+    elif empirical:
+        if context.purpose not in {"ROLLING_SCREEN_FIT", "DETERMINISTIC_REFIT"}:
+            raise M7ContractError("M7 empirical checkpoint purpose mismatch")
+        if context.fold_id not in {f"wf_{year}" for year in range(2018, 2025)}:
+            raise M7ContractError("M7 empirical checkpoint fold mismatch")
+    else:
+        raise M7ContractError(
+            "M7 checkpoint is not synthetic engineering or authorized empirical evidence"
+        )
     config = semantic.get("config")
     if not isinstance(config, dict):
         raise M7ContractError("M7 checkpoint candidate config is missing")
@@ -102,18 +113,20 @@ def validate_checkpoint_v2_header(
         _require_sha256(getattr(context, name), name)
     if context.state_binding_sha256 is not None:
         _require_sha256(context.state_binding_sha256, "state_binding_sha256")
-    expected_contract_sha256 = hashlib.sha256(b"m7-synthetic-engineering-v1").hexdigest()
-    expected_empty_ledger_sha256 = hashlib.sha256(b"").hexdigest()
-    if (
-        context.seed != config.get("seed")
-        or context.fit_id != f"{expected_model_id}:synthetic:seed{config.get('seed')}"
-        or context.run_id != f"synthetic-{context.lease_event_sha256[:16]}"
-        or context.execution_spec_sha256 != expected_contract_sha256
-        or context.budget_sha256 != expected_contract_sha256
-        or context.prerequisite_bundle_sha256 != expected_contract_sha256
-        or context.authoritative_ledger_sha256 != expected_empty_ledger_sha256
-    ):
+    if context.seed != config.get("seed"):
         raise M7ContractError("M7 checkpoint execution context/config mismatch")
+    if synthetic:
+        expected_contract_sha256 = hashlib.sha256(b"m7-synthetic-engineering-v1").hexdigest()
+        expected_empty_ledger_sha256 = hashlib.sha256(b"").hexdigest()
+        if (
+            context.fit_id != f"{expected_model_id}:synthetic:seed{config.get('seed')}"
+            or context.run_id != f"synthetic-{context.lease_event_sha256[:16]}"
+            or context.execution_spec_sha256 != expected_contract_sha256
+            or context.budget_sha256 != expected_contract_sha256
+            or context.prerequisite_bundle_sha256 != expected_contract_sha256
+            or context.authoritative_ledger_sha256 != expected_empty_ledger_sha256
+        ):
+            raise M7ContractError("M7 checkpoint execution context/config mismatch")
     expected_state_binding = (
         semantic.get("state_binding_sha256") if config.get("market_gate") is True else None
     )

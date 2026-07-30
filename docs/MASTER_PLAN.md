@@ -22,8 +22,8 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M4 | Qlib research foundation | reproducible data/model/recorder loop | PASS |
 | M5 | baselines | B0 LightGBM and B1 MLP rolling scores | PASS |
 | M6 | PeerLite | mechanics, frozen MSE runs and independent verification | PASS |
-| M6.5 | pre-M7 engineering quality | independent design/code/test review and remediation | NEEDS_CHANGES |
-| M7 | Huatai increments | CCC/Gate isolated comparisons | NOT_RUN |
+| M6.5 | pre-M7 engineering quality | independent design/code/test review and remediation | PASS |
+| M7 | Huatai increments | CCC/Gate isolated comparisons | COMPLETE / BOTH HOLD |
 | M8 | institutional evaluation | final OOS and decision package | NOT_RUN |
 
 ## Non-negotiables
@@ -39,18 +39,15 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 
 ## Current handoff
 
-M6 passed on the exact M3-qualified pre-final-OOS product. K16 and K32 PeerLite
-MSE each completed all seven frozen rolling folds. All 14 checkpoints replayed
-exactly; the additional K16 deterministic refit reproduced its 125,413 scores
-exactly. An independent verifier rehashed 1,898,028 predictions and redownloaded
-both Qlib Recorder artifact sets. The cumulative append-only budget is now 6
-candidate evaluations and 44 model fits.
+M6.5 passed through the external required check and was archived before M7.
+M7 then executed exactly two isolated additions on the qualified 2012–2024
+development product: CCC-only and a label-free four-dimensional market-state
+Gate. Both completed seven rolling folds plus an exact deterministic refit.
 
-M6 deliberately performed no K selection, baseline comparison, portfolio
-backtest or cost-adjusted evaluation. User-authorized CR
-`contracts/changes/m6_5_pre_m7_quality_gate_v1.json` inserts M6.5 before M7:
-independent review found a Gate future-label path, a future-conditioned state
-population risk, an append-only-ledger lifecycle defect, and incomplete
-checkpoint-verification evidence. M7 cannot be frozen or run until M6.5 passes.
-It does not open 2025+ final OOS, establish Alpha, promote PeerLite, or
-authorize deployment.
+Independent verification covered 1,898,028 predictions, two Recorder readbacks,
+cash/name/ADV constraints, base and stress costs, Bootstrap decisions and the
+append-only ledger. Both additions are `HOLD`: neither beat the frozen
+PeerLite-MSE comparator under the preregistered screen, so neither is active in
+v0 and CCC+Gate remains forbidden. The cumulative budget is 8 candidate
+evaluations and 61 counted fit starts, including one retained pre-training
+harness failure. Final-OOS access remains zero. M8 has not started.

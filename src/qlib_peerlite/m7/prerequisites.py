@@ -23,14 +23,17 @@ _EVIDENCE = "evidence/prerequisites/m7"
 M7_PREREQUISITE_REGISTRY_V1 = (
     PrerequisiteRule("official_fee_receipt", f"{_EVIDENCE}/official_fee_receipt.json", "PASS"),
     PrerequisiteRule(
-        "cost_spec", "contracts/cost_spec.json", "FROZEN", "qlib_peerlite_cost_spec_v1"
+        "cost_spec",
+        "contracts/immutable/m7_cost_spec_v1.json",
+        "FROZEN",
+        "qlib_peerlite_cost_spec_v1",
     ),
     PrerequisiteRule(
         "benchmark_source_certificate", f"{_EVIDENCE}/benchmark_source_certificate.json", "PASS"
     ),
     PrerequisiteRule(
         "benchmark_spec",
-        "contracts/benchmark_spec.json",
+        "contracts/immutable/m7_benchmark_spec_v1.json",
         "FROZEN",
         "qlib_peerlite_benchmark_spec_v1",
     ),
@@ -53,6 +56,11 @@ M7_PREREQUISITE_REGISTRY_V1 = (
     PrerequisiteRule("ir_implementation", f"{_EVIDENCE}/ir_implementation.json", "PASS"),
     PrerequisiteRule("m6_k16_outputs", f"{_EVIDENCE}/m6_k16_outputs.json", "PASS"),
     PrerequisiteRule("m6_reference_portfolio", f"{_EVIDENCE}/m6_reference_portfolio.json", "PASS"),
+    PrerequisiteRule(
+        "m7_market_state_product",
+        f"{_EVIDENCE}/m7_market_state_product.json",
+        "PASS",
+    ),
     PrerequisiteRule("development_folds", f"{_EVIDENCE}/development_folds.json", "PASS"),
     PrerequisiteRule("final_oos_seal", f"{_EVIDENCE}/final_oos_seal.json", "PASS"),
 )

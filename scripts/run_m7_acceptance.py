@@ -8,7 +8,6 @@ from pathlib import Path
 
 import numpy as np
 
-from qlib_peerlite.m7 import M7ContractError
 from qlib_peerlite.m7.market_state import SyntheticFixtureSpec, build_synthetic_m7_fixture
 from qlib_peerlite.m7.prerequisites import validate_screening_prerequisites
 from qlib_peerlite.models.peerlite import PeerLiteModel
@@ -96,21 +95,19 @@ def run_candidate(journey: str) -> dict[str, object]:
 def run_preflight() -> dict[str, object]:
     repo_root = Path(__file__).resolve().parents[1]
     before = _repository_snapshot(repo_root)
-    try:
-        validate_screening_prerequisites(repo_root)
-    except M7ContractError as exc:
-        effects = _persistent_effects(before, _repository_snapshot(repo_root))
-        if effects:
-            raise RuntimeError(f"preflight changed repository state: {effects}") from exc
-        return {
-            "journey": "preflight",
-            "status": "NOT_RUN",
-            "claim_ceiling": "PRECHECK_ONLY_NOT_FIT_AUTHORITY",
-            "reason": str(exc),
-            "persistent_effects": len(effects),
-            "persistent_effect_paths": effects,
-        }
-    raise RuntimeError("empirical prerequisites unexpectedly passed")
+    bundle = validate_screening_prerequisites(repo_root)
+    effects = _persistent_effects(before, _repository_snapshot(repo_root))
+    if effects:
+        raise RuntimeError(f"preflight changed repository state: {effects}")
+    return {
+        "journey": "preflight",
+        "status": "PASS",
+        "claim_ceiling": bundle.claim_ceiling,
+        "prerequisite_bundle_sha256": bundle.bundle_sha256,
+        "artifact_count": len(bundle.artifact_sha256),
+        "persistent_effects": len(effects),
+        "persistent_effect_paths": effects,
+    }
 
 
 def main() -> None:

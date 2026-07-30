@@ -10,7 +10,7 @@ import pytest
 
 @pytest.mark.parametrize(
     ("journey", "status"),
-    [("ccc", "PASS"), ("gate", "PASS"), ("preflight", "NOT_RUN")],
+    [("ccc", "PASS"), ("gate", "PASS"), ("preflight", "PASS")],
 )
 def test_m7_acceptance_journeys_in_clean_process(journey: str, status: str) -> None:
     root = Path(__file__).resolve().parents[1]
@@ -28,8 +28,8 @@ def test_m7_acceptance_journeys_in_clean_process(journey: str, status: str) -> N
     assert result["persistent_effect_paths"] == []
     if journey == "preflight":
         assert result["claim_ceiling"] == "PRECHECK_ONLY_NOT_FIT_AUTHORITY"
-        assert "cost_spec" in result["reason"]
-        assert "benchmark_spec" in result["reason"]
+        assert result["artifact_count"] == 18
+        assert len(result["prerequisite_bundle_sha256"]) == 64
     else:
         assert result["claim_ceiling"] == "SYNTHETIC_MECHANICS_ONLY"
         assert result["checkpoint_replay_exact"] is True

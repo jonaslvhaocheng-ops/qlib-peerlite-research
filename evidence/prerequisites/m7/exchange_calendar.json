@@ -1,0 +1,11 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "exchange_calendar_v1",
+  "status": "PASS",
+  "evidence": [
+    "evidence/gates/M3_pit_data_gate.json",
+    "evidence/gates/M4_qlib_foundation_gate.json",
+    "data/manifests/pit_data_product_2012_2024_v3/data_product_manifest.json"
+  ],
+  "assertion": "The frozen XSHG/XSHE eligible-session calendar drives prediction, execution, label, purge and weekly rebalance dates through 2024-12-17."
+}

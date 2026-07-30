@@ -1,0 +1,7 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "score_to_position_rule_v1",
+  "status": "PASS",
+  "implementation": "src/qlib_peerlite/evaluation/institutional.py",
+  "assertion": "The candidate selects the top 10 percent by score, starts equal-weighted, leaves unallocated capital in cash and never exceeds the 2 percent name cap."
+}

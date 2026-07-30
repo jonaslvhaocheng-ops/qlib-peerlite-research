@@ -14,6 +14,11 @@ from .checkpoint import (
     validate_checkpoint_v2_header,
     validate_checkpoint_v2_metadata,
 )
+from .empirical import (
+    EmpiricalFitCapability,
+    EmpiricalM7Dataset,
+    require_empirical_authority,
+)
 from .market_state import (
     DAILY_STATE_COLUMNS,
     M7_CANDIDATES,
@@ -60,7 +65,7 @@ def validate_candidate_config(config: Mapping[str, Any]) -> bool:
     return True
 
 
-def authorize_synthetic_fit(
+def authorize_m7_fit(
     config: Mapping[str, Any],
     dataset: object,
     authority: object,
@@ -69,8 +74,19 @@ def authorize_synthetic_fit(
         if authority is not None:
             raise M7ContractError("non-M7 models do not accept M7 authority")
         return dataset, None
-    verified = require_synthetic_authority(dataset, authority, str(config["model_id"]))
+    if type(dataset) is SyntheticM7Dataset:
+        verified = require_synthetic_authority(dataset, authority, str(config["model_id"]))
+    elif type(dataset) is EmpiricalM7Dataset:
+        verified = require_empirical_authority(dataset, authority, str(config["model_id"]))
+    else:
+        raise M7ContractError(
+            "M7 synthetic fit requires an exact synthetic factory dataset; "
+            "empirical fit requires an exact empirical factory dataset"
+        )
     return verified, authority
+
+
+authorize_synthetic_fit = authorize_m7_fit
 
 
 def market_frame(
@@ -81,7 +97,7 @@ def market_frame(
     if not config.get("market_gate"):
         return None
     validate_candidate_config(config)
-    if type(dataset) is not SyntheticM7Dataset:
+    if type(dataset) not in {SyntheticM7Dataset, EmpiricalM7Dataset}:
         raise M7ContractError("Gate requires an exact verified M7 dataset")
     dataset.verify_integrity()
     market = dataset.prepare(segment, col_set="market_state")
@@ -99,8 +115,8 @@ def validate_prediction_dataset(
 ) -> None:
     if not validate_candidate_config(config):
         return
-    if type(dataset) is not SyntheticM7Dataset:
-        raise M7ContractError("M7 prediction requires the exact synthetic dataset")
+    if type(dataset) not in {SyntheticM7Dataset, EmpiricalM7Dataset}:
+        raise M7ContractError("M7 prediction requires an exact synthetic or empirical dataset")
     dataset.verify_integrity()
     if dataset.fixture_sha256 != fixture_sha256:
         raise M7ContractError("M7 prediction fixture mismatch")
@@ -115,14 +131,23 @@ def _dates_sha256(frame: pd.DataFrame) -> str:
 
 def build_synthetic_checkpoint_context(
     config: Mapping[str, Any],
-    capability: SyntheticFitCapability,
-    dataset: SyntheticM7Dataset,
+    capability: SyntheticFitCapability | EmpiricalFitCapability,
+    dataset: SyntheticM7Dataset | EmpiricalM7Dataset,
     x_train: pd.DataFrame,
     x_valid: pd.DataFrame,
 ) -> M7CheckpointContext:
     validate_candidate_config(config)
     if capability.candidate_id != config["model_id"]:
         raise M7ContractError("synthetic checkpoint capability mismatch")
+    if type(capability) is EmpiricalFitCapability:
+        context = capability.context
+        if context.candidate_id != config["model_id"]:
+            raise M7ContractError("empirical checkpoint capability mismatch")
+        if context.training_dates_sha256 != _dates_sha256(x_train):
+            raise M7ContractError("empirical training-date binding mismatch")
+        if context.validation_dates_sha256 != _dates_sha256(x_valid):
+            raise M7ContractError("empirical validation-date binding mismatch")
+        return context
     contract_sha256 = hashlib.sha256(b"m7-synthetic-engineering-v1").hexdigest()
     return M7CheckpointContext(
         family_id="SYNTHETIC_M7_ENGINEERING_V1",
@@ -146,15 +171,17 @@ def build_synthetic_checkpoint_context(
 
 def checkpoint_context_for_fit(
     config: Mapping[str, Any],
-    authority: SyntheticFitCapability | None,
+    authority: SyntheticFitCapability | EmpiricalFitCapability | None,
     dataset: object,
     x_train: pd.DataFrame,
     x_valid: pd.DataFrame,
 ) -> tuple[M7CheckpointContext | None, str | None, str | None]:
     if not validate_candidate_config(config):
         return None, None, None
-    if type(authority) is not SyntheticFitCapability or type(dataset) is not SyntheticM7Dataset:
-        raise M7ContractError("synthetic checkpoint context requires exact authority")
+    if type(authority) not in {SyntheticFitCapability, EmpiricalFitCapability}:
+        raise M7ContractError("M7 checkpoint context requires exact authority")
+    if type(dataset) not in {SyntheticM7Dataset, EmpiricalM7Dataset}:
+        raise M7ContractError("M7 checkpoint context requires exact dataset")
     context = build_synthetic_checkpoint_context(
         config,
         authority,

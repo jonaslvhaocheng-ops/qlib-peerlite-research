@@ -1,0 +1,22 @@
+{
+  "schema_version": "qlib_peerlite_benchmark_source_certificate_v1",
+  "semantic_version": "benchmark_source_certificate_v1",
+  "status": "PASS",
+  "benchmark_id": "CSI800_EQUAL_WEIGHT_EXECUTABLE_PIT_V1",
+  "population_authority": {
+    "path": "evidence/pit/authorities/csi800_population_authority_2012_2024_v2_receipt.json",
+    "sha256": "42f1f024073346a21252ac7909977c4135cf3575bb83d661b99733c7094c907e"
+  },
+  "training_product": {
+    "path": "data/manifests/pit_data_product_2012_2024_v3/data_product_manifest.json",
+    "sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+    "rows": 1658525,
+    "date_max": "2024-12-17"
+  },
+  "pit_gate": {
+    "path": "evidence/gates/M3_pit_data_gate.json",
+    "sha256": "ea5341934f14b5617d2c7226e3bc23bfc17c23cdad4677e7d1d2ad2fec0fe1f5"
+  },
+  "interpretation": "This certificate supports an equal-weight executable replication over the audited historical CSI300 plus CSI500 union. It does not relabel the path as the vendor-published CSI800 total-return index.",
+  "bound_benchmark_spec": "contracts/immutable/m7_benchmark_spec_v1.json"
+}

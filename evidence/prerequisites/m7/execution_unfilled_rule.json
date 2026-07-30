@@ -1,0 +1,10 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "execution_unfilled_rule_v1",
+  "status": "PASS",
+  "implementation": [
+    "scripts/server/build_m7_execution_panel.py",
+    "src/qlib_peerlite/evaluation/institutional.py"
+  ],
+  "assertion": "T+1 buy/sell availability is evaluated at execution time; blocked orders retain the prior position and unfilled weight is recorded."
+}

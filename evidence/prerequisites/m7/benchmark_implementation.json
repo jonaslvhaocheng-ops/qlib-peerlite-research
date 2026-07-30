@@ -1,0 +1,10 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "benchmark_implementation_v1",
+  "status": "PASS",
+  "implementation": [
+    "src/qlib_peerlite/evaluation/institutional.py",
+    "scripts/server/prepare_m7_reference_portfolios.py"
+  ],
+  "assertion": "The market reference uses every eligible PIT CSI800 name with equal target weights under the exact candidate execution and cost mapper."
+}

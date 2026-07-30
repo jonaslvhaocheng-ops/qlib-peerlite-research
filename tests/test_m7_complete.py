@@ -216,20 +216,18 @@ def test_synthetic_private_constructors_and_integrity_fail_closed() -> None:
     assert capability.claim_ceiling == SYNTHETIC_CLAIM_CEILING
 
 
-def test_current_repository_prerequisites_report_planned_cost_and_benchmark() -> None:
+def test_current_repository_prerequisites_are_frozen_and_complete() -> None:
     root = Path(__file__).resolve().parents[1]
-    with pytest.raises(M7ContractError) as captured:
-        validate_screening_prerequisites(root)
-    message = str(captured.value)
-    assert "cost_spec: status='PLANNED_NEEDS_CURRENT_FEE_RECEIPT'" in message
-    assert "benchmark_spec: status='PLANNED_NEEDS_SOURCE_CERTIFICATE'" in message
+    bundle = validate_screening_prerequisites(root)
+    assert len(bundle.artifact_sha256) == 18
+    assert bundle.claim_ceiling == "PRECHECK_ONLY_NOT_FIT_AUTHORITY"
 
 
 def test_prerequisite_registry_passes_and_hashes_exact_fixed_files(tmp_path: Path) -> None:
     _write_prerequisites(tmp_path)
     first = validate_screening_prerequisites(tmp_path)
     second = validate_screening_prerequisites(tmp_path)
-    assert len(first.artifact_sha256) == 17
+    assert len(first.artifact_sha256) == 18
     assert first == second
     assert len(first.bundle_sha256) == 64
     assert first.claim_ceiling == "PRECHECK_ONLY_NOT_FIT_AUTHORITY"
