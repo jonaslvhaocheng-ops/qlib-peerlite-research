@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 18,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M10_EXACT_BASE_EXPECTED_RED_REPLAYED",
+  "summary": "The expected-red probe was replayed against exact pre-change commit 53d123e and failed only because the M10 package was absent.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": "env PYTHONPATH=/tmp/qlib-peerlite-m10-red-base/src .venv/bin/python scripts/quality/m10_expected_red_probe.py",
+      "executed_at": "2026-07-30T06:00:49+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:25ae7ba66d9d053ea4a0e986c9969605b5268aa37bb192c94c89a9849b9721fd; stdout_bytes=56; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        "env",
+        "PYTHONPATH=/tmp/qlib-peerlite-m10-red-base/src",
+        ".venv/bin/python",
+        "scripts/quality/m10_expected_red_probe.py"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-30T06:00:49+00:00",
+      "stdout_sha256": "sha256:25ae7ba66d9d053ea4a0e986c9969605b5268aa37bb192c94c89a9849b9721fd",
+      "stdout_bytes": 56,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:254ca14b9a9415379fe4942f348baa30930f80d8bcc6c4de9292693adf10f524",
+      "source_digest_after": "sha256:254ca14b9a9415379fe4942f348baa30930f80d8bcc6c4de9292693adf10f524"
+    }
+  ],
+  "subject_digest": "sha256:ea0ca22b1fae68f931a6c76174348f2e6fe0590d2fb3243bc48a245e65f4f1dd",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T06:00:49+00:00",
+  "source_digest": "sha256:254ca14b9a9415379fe4942f348baa30930f80d8bcc6c4de9292693adf10f524",
+  "artifacts": [
+    {
+      "path": "tests/test_m10_production.py",
+      "sha256": "sha256:b351960c12ad5e9cd87ca70ce845be8c0831c230f75847230ebf0564c9d00018"
+    },
+    {
+      "path": "scripts/quality/m10_expected_red_probe.py",
+      "sha256": "sha256:ea0ca22b1fae68f931a6c76174348f2e6fe0590d2fb3243bc48a245e65f4f1dd"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/tests_red.md",
+      "sha256": "sha256:420e2792b6594d80c508860644b94a22902965f64c96057a255446c6bfd32920"
+    },
+    {
+      "path": "docs/m10/TEST_PLAN.md",
+      "sha256": "sha256:1a424c72c35b2afcbb50b0250eca0ff40f573d59498753473aca297a52a07ea6"
+    }
+  ],
+  "run_id": "tests-red-2bbda913562c8e70"
+}

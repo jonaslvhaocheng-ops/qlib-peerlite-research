@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 23,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "INDEPENDENT_REVIEW_SECURITY_FINDINGS",
+  "summary": "Independent review found two P1 and two P2 defects in terminal authorization validation, state-directory containment, trusted-input snapshot binding, and pre-mutation time validation.",
+  "issue_type": "review-finding",
+  "artifact_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/code_review_v1_needs_changes.md"
+  ],
+  "evidence_paths": [
+    "src/qlib_peerlite/production/cycle.py",
+    "tests/test_m10_production.py",
+    "tests/test_m10_edge_coverage.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:c9d01654ce20341d9dfd8abde97b1c4ccfa518fd2c72bab7d96a47f062234169",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_code_review",
+    "limitations": [
+      "Review used local synthetic fixtures and did not exercise a broker or live market-data connection."
+    ]
+  },
+  "blockers": []
+}

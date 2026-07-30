@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 21,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_FINAL_IMPLEMENTATION_CONFIRMED",
+  "summary": "The final fail-closed shadow package and public CLI satisfy the reviewed design and all test-plan obligations without adding a live execution path.",
+  "issue_type": null,
+  "artifact_paths": [
+    "src/qlib_peerlite/production/__init__.py",
+    "src/qlib_peerlite/production/cycle.py",
+    "src/qlib_peerlite/production/errors.py",
+    "src/qlib_peerlite/production/orders.py",
+    "src/qlib_peerlite/production/policy.py",
+    "src/qlib_peerlite/production/schedule.py",
+    "src/qlib_peerlite/production/signals.py",
+    "src/qlib_peerlite/cli.py",
+    "configs/m10_shadow.yaml",
+    "configs/m10_synthetic_calendar.json"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/implementation_v3.md",
+    "docs/m10/CHANGE_DESIGN.md",
+    "docs/m10/TEST_PLAN.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m10_production.py tests/test_m10_edge_coverage.py",
+      "executed_at": "2026-07-30T14:05:00+08:00",
+      "exit_code": 0,
+      "summary": "36 focused tests passed."
+    }
+  ],
+  "subject_digest": "sha256:c9d01654ce20341d9dfd8abde97b1c4ccfa518fd2c72bab7d96a47f062234169",
+  "independence": null,
+  "blockers": []
+}

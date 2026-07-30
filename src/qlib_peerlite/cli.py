@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Annotated
@@ -24,6 +25,7 @@ from .governance.artifacts import (
 from .models.lightgbm_model import LightGBMBaseline
 from .models.mlp import MLPBaseline
 from .models.peerlite import PeerLiteModel
+from .production import ProductionError, authorize_shadow, load_shadow_policy, run_shadow_cycle
 
 app = typer.Typer(no_args_is_help=True, pretty_exceptions_show_locals=False)
 SHANGHAI = ZoneInfo("Asia/Shanghai")
@@ -170,3 +172,49 @@ def synthetic_demo(
         },
     )
     typer.echo(json.dumps(metrics, ensure_ascii=False, indent=2))
+
+
+def _production_failure(error: ProductionError) -> None:
+    typer.echo(json.dumps(error.as_dict(), ensure_ascii=False), file=sys.stderr)
+    raise typer.Exit(code=2)
+
+
+@app.command("shadow-preflight")
+def shadow_preflight(
+    policy: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    project_root: Annotated[Path, typer.Option(exists=True, file_okay=False)] = Path("."),
+) -> None:
+    try:
+        parsed = load_shadow_policy(policy)
+        result = authorize_shadow(parsed, project_root)
+    except ProductionError as error:
+        _production_failure(error)
+    typer.echo(json.dumps(result, ensure_ascii=False, sort_keys=True))
+
+
+@app.command("shadow-cycle")
+def shadow_cycle(
+    policy: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    predictions: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    source_manifest: Annotated[Path, typer.Option(exists=True, dir_okay=False)],
+    state_root: Annotated[Path, typer.Option(exists=True, file_okay=False)],
+    cycle_id: Annotated[str, typer.Option()],
+    as_of: Annotated[str, typer.Option()],
+    project_root: Annotated[Path, typer.Option(exists=True, file_okay=False)] = Path("."),
+) -> None:
+    try:
+        instant = datetime.fromisoformat(as_of)
+        result = run_shadow_cycle(
+            policy_path=policy,
+            predictions_path=predictions,
+            source_manifest_path=source_manifest,
+            state_root=state_root,
+            cycle_id=cycle_id,
+            as_of=instant,
+            project_root=project_root,
+        )
+    except ValueError:
+        _production_failure(ProductionError("INVALID_AS_OF", "as_of must be ISO-8601"))
+    except ProductionError as error:
+        _production_failure(error)
+    typer.echo(json.dumps(result, ensure_ascii=False, sort_keys=True))

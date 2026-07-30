@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 51,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "INDEPENDENT_FINAL_REVIEW_PASS",
+  "summary": "Independent final review found no unresolved P0-P3 issue and verified the locked state-root contract, atomic no-replace publication, structured gate rejection, and all first-round fixes.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:5b404ad463cfb1ad7d23b09b48cb2c7a1fce1fe90569409af78e1d5eba665ef7",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_code_review",
+    "limitations": [
+      "flock is advisory and assumes cooperating M10 processes under the enforced state-root contract.",
+      "Atomic no-replace supports macOS and Linux and fails closed elsewhere.",
+      "No broker or live market-data connection was exercised."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-30T06:33:36+00:00",
+  "source_digest": "sha256:5b404ad463cfb1ad7d23b09b48cb2c7a1fce1fe90569409af78e1d5eba665ef7",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/code_review_v3_pass.md",
+      "sha256": "sha256:cbc8fb9ca3deb851b60d9b33145768d31a49f5a76ec341e9445452e8be41ea2a"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "src/qlib_peerlite/production/cycle.py",
+      "sha256": "sha256:16c21d87048331bb281b903c7d579b0e8773fd82c7a931d74ffd21098af12735"
+    },
+    {
+      "path": "src/qlib_peerlite/production/policy.py",
+      "sha256": "sha256:c571f66f0aa673961fd33aa848ad1594fa939eab2b787db6746cbcb4cd8c2b1c"
+    },
+    {
+      "path": "tests/test_m10_production.py",
+      "sha256": "sha256:252c888cac73e1836497c53b39b6eb5ec006c88fa1fb8f300ffa9d9d990d4bb4"
+    },
+    {
+      "path": "tests/test_m10_edge_coverage.py",
+      "sha256": "sha256:de5203f7f5a2edd790ea4f00018f06470c676d4a9b109e299a563bf73154594d"
+    },
+    {
+      "path": ".github/workflows/m10-shadow-quality-gate.yml",
+      "sha256": "sha256:5f3ad26e4b36cce63486f31091c015b06455f0bb80398bc716c59f12cf54f1ae"
+    },
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r49.json",
+      "sha256": "sha256:be5dcea66a5f8df97cb9264880abe37ecc13eaf76e9002530fcfcb70c6d1cb74"
+    }
+  ],
+  "run_id": "code-review-1ae78b9b035bfdb4"
+}

@@ -1,14 +1,31 @@
 # True Status Card
 
-- Current phase: `M9-STEP-NINE-TERMINAL-CLOSURE`
-- Executed / completed / passed: `yes / yes / HOLD`
+- Current phase: `M10-SHADOW-PRODUCTION`
+- Executed / completed / engineering passed: `yes / yes / yes`
 - Research decisions:
   - `PEERLITE_K16_CCC`: `HOLD`
   - `PEERLITE_K16_MSE_GATE`: `HOLD`
 - Active pre-final-OOS model path: `PEERLITE_K16_MSE`
 - M8 institutional/final-OOS evaluation: `HOLD_OPERATIONAL_CONFIRMATION_INCOMPLETE`
 - Step-nine terminal decision: `HOLD_REAUTHORIZATION_CONTRACT_INVALID`
+- M10 capability ceiling: `SHADOW_ONLY / SYNTHETIC / PAPER`
+- M10 engineering state: `SHADOW_READY`
+- Live deployment: `HOLD_NO_PROMOTED_MODEL`
 - Final-OOS access count: `0`
+
+## M10 outcome
+
+The local synthetic shadow control plane is complete. It provides scheduled
+preflight, bounded score ingestion, monitoring, transactional alerts,
+paper-intent generation, replay-safe terminal cycles, private state-root
+locking, and atomic no-replace publication. Independent final code review
+passed with no unresolved P0-P3 issue; 50 focused tests and 241 repository tests
+passed, with exact 100% protected line and branch coverage.
+
+This is an engineering `SHADOW_READY` result only. The M9 research decision
+remains `HOLD_REAUTHORIZATION_CONTRACT_INVALID`; production, promotion, real
+signals, broker connectivity, live orders, and final-OOS access remain
+unauthorized.
 
 ## M8 outcome
 

@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 62,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "M10_CRITICAL_JOURNEYS_PASS",
+  "summary": "The shipped shadow preflight, synthetic cycle, replay, live rejection, post-check move, lock, and atomic no-replace journeys pass without broadening the SHADOW_ONLY boundary.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/e2e_report.md"
+  ],
+  "evidence_paths": [
+    "configs/m10_shadow.yaml",
+    "docs/m10/RUNBOOK.md",
+    "tests/test_m10_production.py",
+    "docs/quality/changes/m10-shadow-production/evidence/code_review_v3_pass.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/qlib-peerlite shadow-preflight --policy configs/m10_shadow.yaml --project-root .",
+      "executed_at": "2026-07-30T14:33:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must observe SHADOW_ONLY with production_authorized=false."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m10_production.py::test_cli_success_and_live_rejection tests/test_m10_production.py::test_post_check_directory_move_cannot_receive_publication tests/test_m10_production.py::test_state_root_lock_and_no_replace_terminal",
+      "executed_at": "2026-07-30T14:33:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must observe all three black-box critical-journey tests passing."
+    }
+  ],
+  "subject_digest": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+  "independence": null,
+  "blockers": []
+}

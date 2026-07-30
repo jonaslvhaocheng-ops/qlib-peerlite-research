@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 45,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M10_LOCKED_NOREPLACE_TESTS_EXACT_BASE_RED",
+  "summary": "The finalized 50-test M10 suite retains the exact pre-change expected-red boundary: commit 53d123e has no M10 production package.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": "env PYTHONPATH=/tmp/qlib-peerlite-m10-red-base/src .venv/bin/python scripts/quality/m10_expected_red_probe.py",
+      "executed_at": "2026-07-30T06:30:29+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:25ae7ba66d9d053ea4a0e986c9969605b5268aa37bb192c94c89a9849b9721fd; stdout_bytes=56; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        "env",
+        "PYTHONPATH=/tmp/qlib-peerlite-m10-red-base/src",
+        ".venv/bin/python",
+        "scripts/quality/m10_expected_red_probe.py"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-30T06:30:30+00:00",
+      "stdout_sha256": "sha256:25ae7ba66d9d053ea4a0e986c9969605b5268aa37bb192c94c89a9849b9721fd",
+      "stdout_bytes": 56,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:5b404ad463cfb1ad7d23b09b48cb2c7a1fce1fe90569409af78e1d5eba665ef7",
+      "source_digest_after": "sha256:5b404ad463cfb1ad7d23b09b48cb2c7a1fce1fe90569409af78e1d5eba665ef7"
+    }
+  ],
+  "subject_digest": "sha256:ea0ca22b1fae68f931a6c76174348f2e6fe0590d2fb3243bc48a245e65f4f1dd",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T06:30:30+00:00",
+  "source_digest": "sha256:5b404ad463cfb1ad7d23b09b48cb2c7a1fce1fe90569409af78e1d5eba665ef7",
+  "artifacts": [
+    {
+      "path": "tests/test_m10_production.py",
+      "sha256": "sha256:252c888cac73e1836497c53b39b6eb5ec006c88fa1fb8f300ffa9d9d990d4bb4"
+    },
+    {
+      "path": "tests/test_m10_edge_coverage.py",
+      "sha256": "sha256:de5203f7f5a2edd790ea4f00018f06470c676d4a9b109e299a563bf73154594d"
+    },
+    {
+      "path": "scripts/quality/m10_expected_red_probe.py",
+      "sha256": "sha256:ea0ca22b1fae68f931a6c76174348f2e6fe0590d2fb3243bc48a245e65f4f1dd"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/tests_red.md",
+      "sha256": "sha256:420e2792b6594d80c508860644b94a22902965f64c96057a255446c6bfd32920"
+    },
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/code_review_v2_needs_changes.md",
+      "sha256": "sha256:1375cd7dcde482045f4ba713bcb0e2aa578f2b3ec6d4c96ece1db8921cdf29f7"
+    },
+    {
+      "path": "docs/m10/TEST_PLAN.md",
+      "sha256": "sha256:1a424c72c35b2afcbb50b0250eca0ff40f573d59498753473aca297a52a07ea6"
+    }
+  ],
+  "run_id": "tests-red-e26c66623714f6c5"
+}

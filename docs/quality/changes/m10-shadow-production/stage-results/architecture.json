@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 2,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_FAIL_CLOSED_BOUNDARY_DEFINED",
+  "summary": "One production package contains scheduling, signal validation, monitoring, local alerts and paper intents while live execution remains structurally absent.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/m10/ARCHITECTURE.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/architecture.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

@@ -1,0 +1,973 @@
+{
+  "schema_version": "1.0",
+  "suite_version": "0.3.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 64,
+  "status": "READY_FOR_CI",
+  "repository": {
+    "identity": "github.com/jonaslvhaocheng-ops/qlib-peerlite-research",
+    "root_hint": "qlib模型框架",
+    "baseline_commit": "53d123e835f11b9855b2cdc5d28d3f44321b49ac",
+    "branch": "codex/m10-shadow-production",
+    "source_digest": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7"
+  },
+  "scope": {
+    "goal": "Build a fail-closed shadow production control plane with deterministic scheduling, validated signal publication, monitoring, local alerts, idempotent paper orders, and no live-order capability without an authorized promoted model",
+    "non_goals": [],
+    "changed_surfaces": [],
+    "change_kind": "unspecified",
+    "architecture_required": true,
+    "critical_journeys": [
+      "shadow-cycle",
+      "live-order-rejection"
+    ]
+  },
+  "risk": {
+    "tier": "R3",
+    "initial_tier": "R3",
+    "rationale": [],
+    "locked": true
+  },
+  "stages": {
+    "scope": {
+      "owner_skill": "eng-route-quality-work",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Scope and locked risk supplied at initialization.",
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-30T05:42:01+00:00"
+    },
+    "architecture": {
+      "owner_skill": "eng-architect-repository",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The architecture now separates mutation-free preflight from transactional failures and requires complete terminal verification before replay or recovery.",
+      "latest_run": "runs/architecture-d46c0a7b8e208f97.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/m10/ARCHITECTURE.md",
+          "sha256": "sha256:7a9be64c29aacafc6b943ff048625861311d129a80de05ff89be0c04497278a2"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/architecture.md",
+          "sha256": "sha256:782df8f6f4e8bdee4881cdcbe0ba2b1dc7578f9fbe275587c06e83487d8c91ad"
+        },
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/design_review_v2.md",
+          "sha256": "sha256:47bae12bfb1f856461e1155fa518fb6c9a5724de61777e6cadd9025543d1a2ef"
+        },
+        {
+          "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+          "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+        }
+      ],
+      "updated_at": "2026-07-30T05:49:27+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "change-design": {
+      "owner_skill": "eng-design-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The alert is now solely transactional and the idempotency index has complete validation, corruption, exclusive-creation and repair semantics.",
+      "latest_run": "runs/change-design-acddfa9c987b3d32.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/m10/CHANGE_DESIGN.md",
+          "sha256": "sha256:588be42a399b52a326e5cccea03ed9ba93ea87d583480d169fdc060844f31e6d"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/change_design_v4.md",
+          "sha256": "sha256:54122b7b940b8857d6652e35e071e8ef6fb666c6b6c6544c02978a45489b5c5f"
+        },
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/design_review_v3.md",
+          "sha256": "sha256:1cb39b5b0434bbb0e0eaf91640b8f0ef22866dbeac38ce46f5822a277c89c68e"
+        },
+        {
+          "path": "docs/m10/ARCHITECTURE.md",
+          "sha256": "sha256:7a9be64c29aacafc6b943ff048625861311d129a80de05ff89be0c04497278a2"
+        },
+        {
+          "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+          "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+        }
+      ],
+      "updated_at": "2026-07-30T05:51:05+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "design-review": {
+      "owner_skill": "eng-review-design",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Independent review found no unresolved P0-P2 issue. The revised design defines fail-closed shadow authorization, one-session signal semantics, bounded immutable inputs, an authoritative verified terminal commit, crash-safe idempotency repair and no live-order path.",
+      "latest_run": "runs/design-review-7bd6fec8c11b157e.json",
+      "subject_digest": "sha256:588be42a399b52a326e5cccea03ed9ba93ea87d583480d169fdc060844f31e6d",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/design_review_v4_pass.md",
+          "sha256": "sha256:4c73b2111fad4d57a1416ffac80cc724dc8b5d02a6dd514cdb4bbfd730ab566a"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/m10/CHANGE_DESIGN.md",
+          "sha256": "sha256:588be42a399b52a326e5cccea03ed9ba93ea87d583480d169fdc060844f31e6d"
+        },
+        {
+          "path": "docs/m10/ARCHITECTURE.md",
+          "sha256": "sha256:7a9be64c29aacafc6b943ff048625861311d129a80de05ff89be0c04497278a2"
+        },
+        {
+          "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+          "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+        }
+      ],
+      "updated_at": "2026-07-30T05:51:51+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m10_independent_design_review"
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "test-design": {
+      "owner_skill": "eng-design-tests",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The test matrix covers every success, rejection, temporal, integrity, crash, concurrency and black-box obligation with synthetic deterministic fixtures.",
+      "latest_run": "runs/test-design-b4607e871186e73a.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/m10/TEST_PLAN.md",
+          "sha256": "sha256:1a424c72c35b2afcbb50b0250eca0ff40f573d59498753473aca297a52a07ea6"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/test_design.md",
+          "sha256": "sha256:935c9da25a01a7053ddcab71a7e6d4be157cd62a27a17d6bc7804c24505058a2"
+        },
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/design_review_v4_pass.md",
+          "sha256": "sha256:4c73b2111fad4d57a1416ffac80cc724dc8b5d02a6dd514cdb4bbfd730ab566a"
+        }
+      ],
+      "updated_at": "2026-07-30T05:52:31+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-red": {
+      "owner_skill": "eng-write-tests",
+      "mode": "red",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The finalized 50-test M10 suite retains the exact pre-change expected-red boundary: commit 53d123e has no M10 production package.",
+      "latest_run": "runs/tests-red-e26c66623714f6c5.json",
+      "subject_digest": "sha256:ea0ca22b1fae68f931a6c76174348f2e6fe0590d2fb3243bc48a245e65f4f1dd",
+      "artifacts": [
+        {
+          "path": "tests/test_m10_production.py",
+          "sha256": "sha256:252c888cac73e1836497c53b39b6eb5ec006c88fa1fb8f300ffa9d9d990d4bb4"
+        },
+        {
+          "path": "tests/test_m10_edge_coverage.py",
+          "sha256": "sha256:de5203f7f5a2edd790ea4f00018f06470c676d4a9b109e299a563bf73154594d"
+        },
+        {
+          "path": "scripts/quality/m10_expected_red_probe.py",
+          "sha256": "sha256:ea0ca22b1fae68f931a6c76174348f2e6fe0590d2fb3243bc48a245e65f4f1dd"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/tests_red.md",
+          "sha256": "sha256:420e2792b6594d80c508860644b94a22902965f64c96057a255446c6bfd32920"
+        },
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/code_review_v2_needs_changes.md",
+          "sha256": "sha256:1375cd7dcde482045f4ba713bcb0e2aa578f2b3ec6d4c96ece1db8921cdf29f7"
+        },
+        {
+          "path": "docs/m10/TEST_PLAN.md",
+          "sha256": "sha256:1a424c72c35b2afcbb50b0250eca0ff40f573d59498753473aca297a52a07ea6"
+        }
+      ],
+      "updated_at": "2026-07-30T06:30:30+00:00",
+      "commands": [
+        {
+          "command": "env PYTHONPATH=/tmp/qlib-peerlite-m10-red-base/src .venv/bin/python scripts/quality/m10_expected_red_probe.py",
+          "executed_at": "2026-07-30T06:30:29+00:00",
+          "exit_code": 1,
+          "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:25ae7ba66d9d053ea4a0e986c9969605b5268aa37bb192c94c89a9849b9721fd; stdout_bytes=56; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            "env",
+            "PYTHONPATH=/tmp/qlib-peerlite-m10-red-base/src",
+            ".venv/bin/python",
+            "scripts/quality/m10_expected_red_probe.py"
+          ],
+          "expected_exit_code": 1,
+          "finished_at": "2026-07-30T06:30:30+00:00",
+          "stdout_sha256": "sha256:25ae7ba66d9d053ea4a0e986c9969605b5268aa37bb192c94c89a9849b9721fd",
+          "stdout_bytes": 56,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:5b404ad463cfb1ad7d23b09b48cb2c7a1fce1fe90569409af78e1d5eba665ef7",
+          "source_digest_after": "sha256:5b404ad463cfb1ad7d23b09b48cb2c7a1fce1fe90569409af78e1d5eba665ef7"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "implementation": {
+      "owner_skill": "eng-implement-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "All four independent-review findings are resolved with exact shadow manifest validation, descriptor-relative state operations, single-snapshot trusted inputs, and pre-mutation timezone validation.",
+      "latest_run": "runs/implementation-e975fd7759fba5bb.json",
+      "subject_digest": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+      "artifacts": [
+        {
+          "path": "src/qlib_peerlite/production/cycle.py",
+          "sha256": "sha256:16c21d87048331bb281b903c7d579b0e8773fd82c7a931d74ffd21098af12735"
+        },
+        {
+          "path": "src/qlib_peerlite/production/policy.py",
+          "sha256": "sha256:c571f66f0aa673961fd33aa848ad1594fa939eab2b787db6746cbcb4cd8c2b1c"
+        },
+        {
+          "path": "src/qlib_peerlite/production/schedule.py",
+          "sha256": "sha256:8005582251f5c0071f192e01201cf65e2ce3bb9735e19d16503897123b0d83d8"
+        },
+        {
+          "path": "tests/test_m10_production.py",
+          "sha256": "sha256:252c888cac73e1836497c53b39b6eb5ec006c88fa1fb8f300ffa9d9d990d4bb4"
+        },
+        {
+          "path": "tests/test_m10_edge_coverage.py",
+          "sha256": "sha256:de5203f7f5a2edd790ea4f00018f06470c676d4a9b109e299a563bf73154594d"
+        },
+        {
+          "path": ".github/workflows/m10-shadow-quality-gate.yml",
+          "sha256": "sha256:5f3ad26e4b36cce63486f31091c015b06455f0bb80398bc716c59f12cf54f1ae"
+        },
+        {
+          "path": "evidence/gates/M10_shadow_operations_gate.json",
+          "sha256": "sha256:1112b144d15a0263b56eeaadfed172c12b5c4c49875d1a7124ae083fb3771673"
+        },
+        {
+          "path": "docs/STATUS.md",
+          "sha256": "sha256:f4b6a3b441fd5ac5538657cea90eb5df1ec67b28c02dffaf9ceb202ef43d31be"
+        },
+        {
+          "path": "docs/GATES.md",
+          "sha256": "sha256:0d60c4f5fc66290025c89e1826b52748dad8385c409aaab315b031d76ce49854"
+        },
+        {
+          "path": "docs/MASTER_PLAN.md",
+          "sha256": "sha256:15ee01a6b84d99b77ea5821121d32fa2d763daf57733548ca54b9d820b22e314"
+        },
+        {
+          "path": "docs/m10/RUNBOOK.md",
+          "sha256": "sha256:39644f8cfe5f2ff531b40d75a2518988c57f6c0aa1f57b803648778f5aba0966"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/implementation_v4_security_hardening.md",
+          "sha256": "sha256:6183c1750ca7c0aa8e80e08f5201733ef8d82278f88f6b2884448684763a905d"
+        },
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/code_review_v1_needs_changes.md",
+          "sha256": "sha256:25cf17436c282399b16cd1a6858940d55f9d0423342fd3d9271457d76afed85e"
+        },
+        {
+          "path": "docs/m10/CHANGE_DESIGN.md",
+          "sha256": "sha256:588be42a399b52a326e5cccea03ed9ba93ea87d583480d169fdc060844f31e6d"
+        },
+        {
+          "path": "docs/m10/TEST_PLAN.md",
+          "sha256": "sha256:1a424c72c35b2afcbb50b0250eca0ff40f573d59498753473aca297a52a07ea6"
+        }
+      ],
+      "updated_at": "2026-07-30T06:35:03+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m pytest -q tests/test_m10_production.py tests/test_m10_edge_coverage.py",
+          "executed_at": "2026-07-30T14:29:00+08:00",
+          "exit_code": 0,
+          "summary": "50 focused M10 tests passed."
+        },
+        {
+          "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor && .venv/bin/python -m pytest -q",
+          "executed_at": "2026-07-30T14:29:00+08:00",
+          "exit_code": 0,
+          "summary": "Ruff passed and all 241 repository tests passed."
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-green": {
+      "owner_skill": "eng-write-tests",
+      "mode": "green",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The locked, no-replace M10 revision passes static checks, all 241 repository tests, all 50 focused tests, and exact 100% protected line and branch coverage.",
+      "latest_run": "runs/tests-green-bcfbd2ae1a1c7193.json",
+      "subject_digest": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+      "artifacts": [
+        {
+          "path": "tests/test_m10_production.py",
+          "sha256": "sha256:252c888cac73e1836497c53b39b6eb5ec006c88fa1fb8f300ffa9d9d990d4bb4"
+        },
+        {
+          "path": "tests/test_m10_edge_coverage.py",
+          "sha256": "sha256:de5203f7f5a2edd790ea4f00018f06470c676d4a9b109e299a563bf73154594d"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/tests_green_v2.md",
+          "sha256": "sha256:2e25bef0acf25ba55ad9cf11f3124f7792da54cce873c4b4769079aed8e245be"
+        },
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+          "sha256": "sha256:f615e9440573e38a8bb53b6de4686cf7c8c072992e493ca2e50eaa69e1455e5c"
+        },
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.raw.json",
+          "sha256": "sha256:dd88fa46ee298450e0aeb0cacdaae1532fe710a8514cac25d4f71479b8fdcc37"
+        }
+      ],
+      "updated_at": "2026-07-30T06:35:40+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+          "executed_at": "2026-07-30T06:35:25+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "tests",
+            "scripts",
+            "--exclude",
+            "scripts/vendor"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T06:35:25+00:00",
+          "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "stdout_bytes": 19,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+          "source_digest_after": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7"
+        },
+        {
+          "command": ".venv/bin/python -m pytest -q",
+          "executed_at": "2026-07-30T06:35:25+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:482ea0a97725550e805c1bf373d69dbecb70599e94815f92aeebc1c8d397cb94; stdout_bytes=341; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T06:35:38+00:00",
+          "stdout_sha256": "sha256:482ea0a97725550e805c1bf373d69dbecb70599e94815f92aeebc1c8d397cb94",
+          "stdout_bytes": 341,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+          "source_digest_after": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7"
+        },
+        {
+          "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m10-core --receipt docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+          "executed_at": "2026-07-30T06:35:38+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:368d9d3ae436c5c7eb332af52688f9441a0dff36f79c20dd2acc1166e4858e00; stdout_bytes=434; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            "python3",
+            "scripts/quality/quality_ledger.py",
+            "capture-coverage",
+            "--repo",
+            ".",
+            "--profile",
+            "m10-core",
+            "--receipt",
+            "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T06:35:40+00:00",
+          "stdout_sha256": "sha256:368d9d3ae436c5c7eb332af52688f9441a0dff36f79c20dd2acc1166e4858e00",
+          "stdout_bytes": 434,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+          "source_digest_after": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null,
+      "coverage": {
+        "schema_version": "engineering-quality-coverage-v1",
+        "receipt_path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+        "policy": {
+          "path": ".engineering-quality/coverage-policy.json",
+          "sha256": "sha256:50b1d4519f03f2aaddb89e929247b0637b0537d46add977c5c0e671edb3589ac",
+          "profile": "m10-core"
+        },
+        "format": "coveragepy-json",
+        "source_roots": [
+          "src/qlib_peerlite/production"
+        ],
+        "expected_core_paths": [
+          "src/qlib_peerlite/production/__init__.py",
+          "src/qlib_peerlite/production/cycle.py",
+          "src/qlib_peerlite/production/errors.py",
+          "src/qlib_peerlite/production/orders.py",
+          "src/qlib_peerlite/production/policy.py",
+          "src/qlib_peerlite/production/schedule.py",
+          "src/qlib_peerlite/production/signals.py"
+        ],
+        "observed_core_paths": [
+          "src/qlib_peerlite/production/__init__.py",
+          "src/qlib_peerlite/production/cycle.py",
+          "src/qlib_peerlite/production/errors.py",
+          "src/qlib_peerlite/production/orders.py",
+          "src/qlib_peerlite/production/policy.py",
+          "src/qlib_peerlite/production/schedule.py",
+          "src/qlib_peerlite/production/signals.py"
+        ],
+        "line": {
+          "covered": 785,
+          "total": 785,
+          "missing": 0,
+          "excluded": 0,
+          "percent": 100.0
+        },
+        "branch": {
+          "covered": 220,
+          "total": 220,
+          "missing": 0,
+          "excluded": 0,
+          "percent": 100.0
+        },
+        "required_line_percent": 100.0,
+        "required_branch_percent": 100.0,
+        "source": {
+          "kind": "raw-report",
+          "path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.raw.json",
+          "sha256": "sha256:dd88fa46ee298450e0aeb0cacdaae1532fe710a8514cac25d4f71479b8fdcc37"
+        }
+      }
+    },
+    "code-review": {
+      "owner_skill": "eng-review-code",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Independent final review found no unresolved P0-P3 issue and verified the locked state-root contract, atomic no-replace publication, structured gate rejection, and all first-round fixes.",
+      "latest_run": "runs/code-review-3cf356499bfb9aa1.json",
+      "subject_digest": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/code_review_v3_pass.md",
+          "sha256": "sha256:9472ebfaffec7950b540d9b9375b64ab257a94939bdf4602ae708b34187be34d"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "src/qlib_peerlite/production/cycle.py",
+          "sha256": "sha256:16c21d87048331bb281b903c7d579b0e8773fd82c7a931d74ffd21098af12735"
+        },
+        {
+          "path": "src/qlib_peerlite/production/policy.py",
+          "sha256": "sha256:c571f66f0aa673961fd33aa848ad1594fa939eab2b787db6746cbcb4cd8c2b1c"
+        },
+        {
+          "path": "tests/test_m10_production.py",
+          "sha256": "sha256:252c888cac73e1836497c53b39b6eb5ec006c88fa1fb8f300ffa9d9d990d4bb4"
+        },
+        {
+          "path": "tests/test_m10_edge_coverage.py",
+          "sha256": "sha256:de5203f7f5a2edd790ea4f00018f06470c676d4a9b109e299a563bf73154594d"
+        },
+        {
+          "path": ".github/workflows/m10-shadow-quality-gate.yml",
+          "sha256": "sha256:5f3ad26e4b36cce63486f31091c015b06455f0bb80398bc716c59f12cf54f1ae"
+        },
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+          "sha256": "sha256:f615e9440573e38a8bb53b6de4686cf7c8c072992e493ca2e50eaa69e1455e5c"
+        },
+        {
+          "path": "evidence/gates/M10_shadow_operations_gate.json",
+          "sha256": "sha256:1112b144d15a0263b56eeaadfed172c12b5c4c49875d1a7124ae083fb3771673"
+        },
+        {
+          "path": "docs/STATUS.md",
+          "sha256": "sha256:f4b6a3b441fd5ac5538657cea90eb5df1ec67b28c02dffaf9ceb202ef43d31be"
+        },
+        {
+          "path": "docs/GATES.md",
+          "sha256": "sha256:0d60c4f5fc66290025c89e1826b52748dad8385c409aaab315b031d76ce49854"
+        },
+        {
+          "path": "docs/MASTER_PLAN.md",
+          "sha256": "sha256:15ee01a6b84d99b77ea5821121d32fa2d763daf57733548ca54b9d820b22e314"
+        },
+        {
+          "path": "docs/m10/RUNBOOK.md",
+          "sha256": "sha256:39644f8cfe5f2ff531b40d75a2518988c57f6c0aa1f57b803648778f5aba0966"
+        }
+      ],
+      "updated_at": "2026-07-30T06:36:49+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m10_independent_code_review",
+        "limitations": [
+          "flock is advisory and assumes cooperating M10 processes under the enforced state-root contract.",
+          "Atomic no-replace supports macOS and Linux and fails closed elsewhere.",
+          "No broker or live market-data connection was exercised."
+        ]
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "e2e": {
+      "owner_skill": "eng-validate-e2e",
+      "mode": "acceptance",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The shipped shadow preflight, synthetic cycle, replay, live rejection, post-check move, lock, and atomic no-replace journeys pass without broadening the SHADOW_ONLY boundary.",
+      "latest_run": "runs/e2e-fd110c2905d1290e.json",
+      "subject_digest": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/e2e_report.md",
+          "sha256": "sha256:6293dda6886e7c47723e85e8bfcb864517654b091367d7eb1bcc477602144b27"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "configs/m10_shadow.yaml",
+          "sha256": "sha256:efe1853a7fbd3278732c44f033ad18e6bf98d897a16273e1e1986fc1c57220ef"
+        },
+        {
+          "path": "docs/m10/RUNBOOK.md",
+          "sha256": "sha256:39644f8cfe5f2ff531b40d75a2518988c57f6c0aa1f57b803648778f5aba0966"
+        },
+        {
+          "path": "tests/test_m10_production.py",
+          "sha256": "sha256:252c888cac73e1836497c53b39b6eb5ec006c88fa1fb8f300ffa9d9d990d4bb4"
+        },
+        {
+          "path": "docs/quality/changes/m10-shadow-production/evidence/code_review_v3_pass.md",
+          "sha256": "sha256:9472ebfaffec7950b540d9b9375b64ab257a94939bdf4602ae708b34187be34d"
+        }
+      ],
+      "updated_at": "2026-07-30T06:37:06+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/qlib-peerlite shadow-preflight --policy configs/m10_shadow.yaml --project-root .",
+          "executed_at": "2026-07-30T06:37:04+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:34a9a637af0501328ed992574f52842b8678919f563ccf0145d652d28245a3d8; stdout_bytes=314; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/qlib-peerlite",
+            "shadow-preflight",
+            "--policy",
+            "configs/m10_shadow.yaml",
+            "--project-root",
+            "."
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T06:37:05+00:00",
+          "stdout_sha256": "sha256:34a9a637af0501328ed992574f52842b8678919f563ccf0145d652d28245a3d8",
+          "stdout_bytes": 314,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+          "source_digest_after": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7"
+        },
+        {
+          "command": ".venv/bin/python -m pytest -q tests/test_m10_production.py::test_cli_success_and_live_rejection tests/test_m10_production.py::test_post_check_directory_move_cannot_receive_publication tests/test_m10_production.py::test_state_root_lock_and_no_replace_terminal",
+          "executed_at": "2026-07-30T06:37:05+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:66955544312e007ae9a76c342f9c466b85d85df893b64e696e8f299c39faedfd; stdout_bytes=98; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_m10_production.py::test_cli_success_and_live_rejection",
+            "tests/test_m10_production.py::test_post_check_directory_move_cannot_receive_publication",
+            "tests/test_m10_production.py::test_state_root_lock_and_no_replace_terminal"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T06:37:06+00:00",
+          "stdout_sha256": "sha256:66955544312e007ae9a76c342f9c466b85d85df893b64e696e8f299c39faedfd",
+          "stdout_bytes": 98,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+          "source_digest_after": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "ci": {
+      "owner_skill": "ci",
+      "mode": "external",
+      "applicability": "REQUIRED",
+      "status": "PENDING",
+      "reason": null,
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-30T05:42:01+00:00"
+    }
+  },
+  "latest_route": {
+    "next_action": "CI",
+    "stage_id": "ci",
+    "skill": null,
+    "reason_code": "READY_FOR_EXTERNAL_CI",
+    "reason": "All required Skill stages are current PASS; the live external required check is the final gate."
+  },
+  "blockers": [],
+  "exceptions": [],
+  "history": [
+    {
+      "at": "2026-07-30T05:42:01+00:00",
+      "event": "LEDGER_INITIALIZED",
+      "stage": "scope",
+      "detail": "Initialized at R3."
+    },
+    {
+      "at": "2026-07-30T05:42:56+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-966dc57ee17339ae."
+    },
+    {
+      "at": "2026-07-30T05:43:34+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-089e4ac6411fed6f."
+    },
+    {
+      "at": "2026-07-30T05:45:43+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-96a67aff6dd560d3."
+    },
+    {
+      "at": "2026-07-30T05:47:26+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture, change-design, design-review."
+    },
+    {
+      "at": "2026-07-30T05:47:42+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-a91492074bcd1fa4."
+    },
+    {
+      "at": "2026-07-30T05:47:42+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-b117c2548e55943e."
+    },
+    {
+      "at": "2026-07-30T05:48:46+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-de7b0d303f97a91b."
+    },
+    {
+      "at": "2026-07-30T05:49:12+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture, change-design, design-review."
+    },
+    {
+      "at": "2026-07-30T05:49:27+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-d46c0a7b8e208f97."
+    },
+    {
+      "at": "2026-07-30T05:49:28+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-cc198ac25985b349."
+    },
+    {
+      "at": "2026-07-30T05:50:42+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "NEEDS_CHANGES as design-review-ad04c3f84544df63."
+    },
+    {
+      "at": "2026-07-30T05:51:05+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-acddfa9c987b3d32."
+    },
+    {
+      "at": "2026-07-30T05:51:51+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "PASS as design-review-7bd6fec8c11b157e."
+    },
+    {
+      "at": "2026-07-30T05:52:31+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "test-design",
+      "detail": "PASS as test-design-b4607e871186e73a."
+    },
+    {
+      "at": "2026-07-30T05:54:58+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-219c9f3a9d3ec82d."
+    },
+    {
+      "at": "2026-07-30T06:00:26+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: tests-red."
+    },
+    {
+      "at": "2026-07-30T06:00:49+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-2bbda913562c8e70."
+    },
+    {
+      "at": "2026-07-30T06:01:25+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-d22841036a0ae380."
+    },
+    {
+      "at": "2026-07-30T06:04:05+00:00",
+      "event": "SOURCE_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: implementation."
+    },
+    {
+      "at": "2026-07-30T06:04:23+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-88a2ca6d1cfb17a8."
+    },
+    {
+      "at": "2026-07-30T06:05:47+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-614bcd393c2bc376."
+    },
+    {
+      "at": "2026-07-30T06:10:33+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "NEEDS_CHANGES as code-review-24d94eed0ecf0d4d."
+    },
+    {
+      "at": "2026-07-30T06:16:29+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: code-review, implementation, tests-red."
+    },
+    {
+      "at": "2026-07-30T06:17:08+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-a5ef8e39f4ba8087."
+    },
+    {
+      "at": "2026-07-30T06:17:33+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-f5b71c11993765e1."
+    },
+    {
+      "at": "2026-07-30T06:20:25+00:00",
+      "event": "SOURCE_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: implementation."
+    },
+    {
+      "at": "2026-07-30T06:20:26+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: tests-red."
+    },
+    {
+      "at": "2026-07-30T06:20:46+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-b4577e274c3d9867."
+    },
+    {
+      "at": "2026-07-30T06:21:23+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-09fbf3bfcd241a01."
+    },
+    {
+      "at": "2026-07-30T06:22:58+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-cf9d4b19bcb3a582."
+    },
+    {
+      "at": "2026-07-30T06:23:42+00:00",
+      "event": "SOURCE_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: implementation, tests-green."
+    },
+    {
+      "at": "2026-07-30T06:24:08+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-a8a8254bc8d252e0."
+    },
+    {
+      "at": "2026-07-30T06:24:50+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-e70df92b37f35a65."
+    },
+    {
+      "at": "2026-07-30T06:26:30+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "NEEDS_CHANGES as code-review-c72f60870023769a."
+    },
+    {
+      "at": "2026-07-30T06:30:03+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: code-review, implementation, tests-red."
+    },
+    {
+      "at": "2026-07-30T06:30:30+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-e26c66623714f6c5."
+    },
+    {
+      "at": "2026-07-30T06:30:56+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-28ff668b31d01a81."
+    },
+    {
+      "at": "2026-07-30T06:31:39+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-3f37bdbedc275f28."
+    },
+    {
+      "at": "2026-07-30T06:33:36+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "PASS as code-review-1ae78b9b035bfdb4."
+    },
+    {
+      "at": "2026-07-30T06:34:08+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "e2e",
+      "detail": "PASS as e2e-3200fa6560742eb2."
+    },
+    {
+      "at": "2026-07-30T06:34:40+00:00",
+      "event": "SOURCE_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: code-review, e2e, implementation, tests-green."
+    },
+    {
+      "at": "2026-07-30T06:35:03+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-e975fd7759fba5bb."
+    },
+    {
+      "at": "2026-07-30T06:35:40+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-bcfbd2ae1a1c7193."
+    },
+    {
+      "at": "2026-07-30T06:36:49+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "PASS as code-review-3cf356499bfb9aa1."
+    },
+    {
+      "at": "2026-07-30T06:37:06+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "e2e",
+      "detail": "PASS as e2e-fd110c2905d1290e."
+    }
+  ]
+}

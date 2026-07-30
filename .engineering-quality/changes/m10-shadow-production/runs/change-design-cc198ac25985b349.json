@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 11,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_SECOND_REVIEW_FINDINGS_RESOLVED",
+  "summary": "The design now specifies mandatory terminal integrity verification and coherent zero-mutation preflight rejection semantics.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T05:49:28+00:00",
+  "source_digest": "sha256:684148f8cc0f22dfc6a3895d7341f60394f589f33a830b989c9d790e4a463c80",
+  "artifacts": [
+    {
+      "path": "docs/m10/CHANGE_DESIGN.md",
+      "sha256": "sha256:4f650c9eba3311a8732fa0fc8865a0de3e2e4d187a9c9430b17381036131bf82"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/change_design_v3.md",
+      "sha256": "sha256:8d6ce19ee85247eb961f651abf1ecbfeec26c9c30775f624d8a1dc73eb0f048c"
+    },
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/design_review_v2.md",
+      "sha256": "sha256:47bae12bfb1f856461e1155fa518fb6c9a5724de61777e6cadd9025543d1a2ef"
+    },
+    {
+      "path": "docs/m10/ARCHITECTURE.md",
+      "sha256": "sha256:7a9be64c29aacafc6b943ff048625861311d129a80de05ff89be0c04497278a2"
+    },
+    {
+      "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+      "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+    }
+  ],
+  "run_id": "change-design-cc198ac25985b349"
+}

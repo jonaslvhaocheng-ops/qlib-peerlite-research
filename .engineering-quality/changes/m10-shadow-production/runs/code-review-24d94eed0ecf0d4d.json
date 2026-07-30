@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 23,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "INDEPENDENT_REVIEW_SECURITY_FINDINGS",
+  "summary": "Independent review found two P1 and two P2 defects in terminal authorization validation, state-directory containment, trusted-input snapshot binding, and pre-mutation time validation.",
+  "issue_type": "review-finding",
+  "commands": [],
+  "subject_digest": "sha256:c9d01654ce20341d9dfd8abde97b1c4ccfa518fd2c72bab7d96a47f062234169",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_code_review",
+    "limitations": [
+      "Review used local synthetic fixtures and did not exercise a broker or live market-data connection."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-30T06:10:33+00:00",
+  "source_digest": "sha256:c9d01654ce20341d9dfd8abde97b1c4ccfa518fd2c72bab7d96a47f062234169",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/code_review_v1_needs_changes.md",
+      "sha256": "sha256:25cf17436c282399b16cd1a6858940d55f9d0423342fd3d9271457d76afed85e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "src/qlib_peerlite/production/cycle.py",
+      "sha256": "sha256:b1ab430bbded58e8f66371b6f7aa133d4b25f042068a28e11d1fac147d271886"
+    },
+    {
+      "path": "tests/test_m10_production.py",
+      "sha256": "sha256:b351960c12ad5e9cd87ca70ce845be8c0831c230f75847230ebf0564c9d00018"
+    },
+    {
+      "path": "tests/test_m10_edge_coverage.py",
+      "sha256": "sha256:2255aa11cc03e7b21aab9fc3e90a9f168078134f7ceff942485eb345f782d321"
+    }
+  ],
+  "run_id": "code-review-24d94eed0ecf0d4d"
+}

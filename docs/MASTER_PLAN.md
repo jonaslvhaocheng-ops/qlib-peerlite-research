@@ -25,6 +25,8 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M6.5 | pre-M7 engineering quality | independent design/code/test review and remediation | PASS |
 | M7 | Huatai increments | CCC/Gate isolated comparisons | COMPLETE / BOTH HOLD |
 | M8 | institutional evaluation | five-seed confirmation then final OOS | CLOSED / TERMINAL HOLD / OOS NOT OPENED |
+| M9 | terminal decision | contract-valid reauthorization check | COMPLETE / HOLD |
+| M10 | production controls | fail-closed synthetic shadow cycle | COMPLETE / SHADOW_READY / LIVE HOLD |
 
 ## Non-negotiables
 
@@ -57,3 +59,7 @@ internally inconsistent after decisive development outcomes were inspected.
 Step nine is terminally closed as `HOLD_REAUTHORIZATION_CONTRACT_INVALID`.
 This closure does not decide whether a future, separately governed replacement
 OOS can eventually be designed and accrued.
+
+M10 is now engineering-complete as a local `SHADOW_ONLY / SYNTHETIC / PAPER`
+control plane. It does not change the terminal M9 research HOLD, open final OOS,
+promote PeerLite, connect a broker, or authorize real signals or live orders.

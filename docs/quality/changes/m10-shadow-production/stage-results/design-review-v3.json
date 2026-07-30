@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 12,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M10_ALERT_AND_INDEX_PROTOCOL_INCONSISTENT",
+  "summary": "Earlier findings are resolved, but the alert location contradicts atomic publication and the idempotency index lacks fail-closed validation and collision semantics.",
+  "issue_type": "design",
+  "artifact_paths": [],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/design_review_v3.md",
+    "docs/m10/CHANGE_DESIGN.md",
+    "docs/m10/ARCHITECTURE.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:4f650c9eba3311a8732fa0fc8865a0de3e2e4d187a9c9430b17381036131bf82",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_design_review"
+  },
+  "blockers": [
+    "Alert artifact location contradicts the atomic cycle contract.",
+    "Idempotency index validation, corruption and no-overwrite rules are missing."
+  ]
+}

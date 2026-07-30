@@ -1,0 +1,52 @@
+{
+  "schema_version": "engineering-quality-coverage-v1",
+  "receipt_path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r35.json",
+  "policy": {
+    "path": ".engineering-quality/coverage-policy.json",
+    "sha256": "sha256:50b1d4519f03f2aaddb89e929247b0637b0537d46add977c5c0e671edb3589ac",
+    "profile": "m10-core"
+  },
+  "format": "coveragepy-json",
+  "source_roots": [
+    "src/qlib_peerlite/production"
+  ],
+  "expected_core_paths": [
+    "src/qlib_peerlite/production/__init__.py",
+    "src/qlib_peerlite/production/cycle.py",
+    "src/qlib_peerlite/production/errors.py",
+    "src/qlib_peerlite/production/orders.py",
+    "src/qlib_peerlite/production/policy.py",
+    "src/qlib_peerlite/production/schedule.py",
+    "src/qlib_peerlite/production/signals.py"
+  ],
+  "observed_core_paths": [
+    "src/qlib_peerlite/production/__init__.py",
+    "src/qlib_peerlite/production/cycle.py",
+    "src/qlib_peerlite/production/errors.py",
+    "src/qlib_peerlite/production/orders.py",
+    "src/qlib_peerlite/production/policy.py",
+    "src/qlib_peerlite/production/schedule.py",
+    "src/qlib_peerlite/production/signals.py"
+  ],
+  "line": {
+    "covered": 737,
+    "total": 737,
+    "missing": 0,
+    "excluded": 0,
+    "percent": 100.0
+  },
+  "branch": {
+    "covered": 206,
+    "total": 206,
+    "missing": 0,
+    "excluded": 0,
+    "percent": 100.0
+  },
+  "required_line_percent": 100.0,
+  "required_branch_percent": 100.0,
+  "source": {
+    "kind": "raw-report",
+    "path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r35.raw.json",
+    "sha256": "sha256:f2b9ad27da402eb30cc7c33aa020db483564b8420751d1adeb9afd7f83fe96bd"
+  }
+}

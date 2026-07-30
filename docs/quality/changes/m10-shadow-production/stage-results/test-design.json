@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 15,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_SAFETY_MATRIX_COMPLETE",
+  "summary": "The test matrix covers every success, rejection, temporal, integrity, crash, concurrency and black-box obligation with synthetic deterministic fixtures.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/m10/TEST_PLAN.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/test_design.md",
+    "docs/quality/changes/m10-shadow-production/evidence/design_review_v4_pass.md"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

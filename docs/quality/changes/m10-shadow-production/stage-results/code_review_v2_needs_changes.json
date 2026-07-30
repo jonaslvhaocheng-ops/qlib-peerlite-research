@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 42,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "INDEPENDENT_REREVIEW_RACE_FINDINGS",
+  "summary": "Independent re-review confirmed three first-round fixes but found one P1 and two P2 defects in post-check directory movement, no-replace terminal publication, and non-object M9 gate handling.",
+  "issue_type": "review-finding",
+  "artifact_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/code_review_v2_needs_changes.md"
+  ],
+  "evidence_paths": [
+    "src/qlib_peerlite/production/cycle.py",
+    "src/qlib_peerlite/production/policy.py",
+    "tests/test_m10_production.py",
+    "tests/test_m10_edge_coverage.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:c3f0db7db40a34036587a2d112324412337c5713978f15383c7e28b0036ff33b",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_code_review",
+    "limitations": [
+      "Review used local synthetic fixtures and no broker or live data connection."
+    ]
+  },
+  "blockers": []
+}

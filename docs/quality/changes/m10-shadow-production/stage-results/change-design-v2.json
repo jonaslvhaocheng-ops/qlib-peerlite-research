@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 7,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_REVIEW_FINDINGS_RESOLVED",
+  "summary": "The revised design defines a single commit point with crash recovery, one-session time semantics, filesystem containment, immutable input bytes and enforceable synthetic/resource bounds.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/m10/CHANGE_DESIGN.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/change_design_v2.md",
+    "docs/quality/changes/m10-shadow-production/evidence/design_review_v1.md",
+    "docs/m10/ARCHITECTURE.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 8,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M10_REPLAY_INTEGRITY_AND_PREFLIGHT_FAILURE_CONTRACT_INCOMPLETE",
+  "summary": "The four original findings are repaired, but committed replay lacks a mandatory full terminal verifier and failures before trusted transactional state exists have no coherent alert/terminal contract.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:0fe4fbbc5d8aa1f2e3cd0b6df45026bf2a0af3e3e1f562444fbcc7c6a39775e9",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_design_review"
+  },
+  "blockers": [
+    "Replay and crash repair do not mandate complete terminal artifact verification.",
+    "Preflight rejection semantics conflict with the universal HALTED-plus-alert claim."
+  ],
+  "recorded_at": "2026-07-30T05:48:46+00:00",
+  "source_digest": "sha256:4a3c67f13546040d700d04d8a0fb92fab3f2daf36b0f579e06d8bc15179497e7",
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/design_review_v2.md",
+      "sha256": "sha256:47bae12bfb1f856461e1155fa518fb6c9a5724de61777e6cadd9025543d1a2ef"
+    },
+    {
+      "path": "docs/m10/CHANGE_DESIGN.md",
+      "sha256": "sha256:0fe4fbbc5d8aa1f2e3cd0b6df45026bf2a0af3e3e1f562444fbcc7c6a39775e9"
+    },
+    {
+      "path": "docs/m10/ARCHITECTURE.md",
+      "sha256": "sha256:bdac0e67334d5b9e19e0655f357af4064be47d083d5d15d201b52d8db21942e0"
+    },
+    {
+      "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+      "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+    }
+  ],
+  "run_id": "design-review-de7b0d303f97a91b"
+}

@@ -11,6 +11,8 @@
 | M6 PeerLite | PASS | Frozen K16/K32 MSE rolling scores, O(NK) mechanics, exact replay and independent verification | Superiority, investability or Alpha |
 | M7 Increments | PASS / BOTH HOLD | Frozen CCC/Gate screens completed and independently verified | Promotion, final-OOS Alpha or guaranteed improvement |
 | M8 Evaluation | HOLD / INCOMPLETE | Counted interruption retained; no-retry and untouched final-OOS boundaries enforced | PeerLite superiority, Alpha, investability or production readiness |
+| M9 Decision | HOLD / COMPLETE | Invalid reauthorization stopped before training and OOS access | Future replacement-OOS feasibility or promotion |
+| M10 Shadow operations | SHADOW_READY / LIVE HOLD | Audited local synthetic shadow scheduling, monitoring, alerts, paper intents, locking and atomic terminal publication | Live deployment, real signals, Alpha, broker connectivity or trading authorization |
 
 ## M3 decision boundary
 

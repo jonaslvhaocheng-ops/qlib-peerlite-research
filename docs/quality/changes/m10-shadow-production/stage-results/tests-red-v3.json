@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 26,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M10_SECURITY_TESTS_EXACT_BASE_RED",
+  "summary": "The expanded M10 regression suite retains the exact pre-change expected-red boundary: commit 53d123e has no M10 production package.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m10_production.py",
+    "tests/test_m10_edge_coverage.py",
+    "scripts/quality/m10_expected_red_probe.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/tests_red.md",
+    "docs/quality/changes/m10-shadow-production/evidence/code_review_v1_needs_changes.md",
+    "docs/m10/TEST_PLAN.md"
+  ],
+  "commands": [
+    {
+      "command": "env PYTHONPATH=/tmp/qlib-peerlite-m10-red-base/src .venv/bin/python scripts/quality/m10_expected_red_probe.py",
+      "executed_at": "2026-07-30T14:16:00+08:00",
+      "exit_code": 1,
+      "summary": "Controller must observe the approved expected-red on exact base 53d123e."
+    }
+  ],
+  "subject_digest": "sha256:ea0ca22b1fae68f931a6c76174348f2e6fe0590d2fb3243bc48a245e65f4f1dd",
+  "independence": null,
+  "blockers": []
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 42,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "INDEPENDENT_REREVIEW_RACE_FINDINGS",
+  "summary": "Independent re-review confirmed three first-round fixes but found one P1 and two P2 defects in post-check directory movement, no-replace terminal publication, and non-object M9 gate handling.",
+  "issue_type": "review-finding",
+  "commands": [],
+  "subject_digest": "sha256:c3f0db7db40a34036587a2d112324412337c5713978f15383c7e28b0036ff33b",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_code_review",
+    "limitations": [
+      "Review used local synthetic fixtures and no broker or live data connection."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-30T06:26:30+00:00",
+  "source_digest": "sha256:c3f0db7db40a34036587a2d112324412337c5713978f15383c7e28b0036ff33b",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/code_review_v2_needs_changes.md",
+      "sha256": "sha256:1375cd7dcde482045f4ba713bcb0e2aa578f2b3ec6d4c96ece1db8921cdf29f7"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "src/qlib_peerlite/production/cycle.py",
+      "sha256": "sha256:e29941cc2f9fbf03b946efd3d909bdf8565f570d83dba29c7abb1f8ceae2a4a0"
+    },
+    {
+      "path": "src/qlib_peerlite/production/policy.py",
+      "sha256": "sha256:9c9e1e25812398d64f1b7ee8f0e774c3fc2e0b568b8be145da67edfabf2381aa"
+    },
+    {
+      "path": "tests/test_m10_production.py",
+      "sha256": "sha256:2a41885a25be1c31247b63cf86d8b0cde0ce0c46ad26101cb4a0ff5fd89ff528"
+    },
+    {
+      "path": "tests/test_m10_edge_coverage.py",
+      "sha256": "sha256:0dea3335ff5df4cbce710bcc240eaef966dfd360ad956b7406cfc3d1a8458fc6"
+    }
+  ],
+  "run_id": "code-review-c72f60870023769a"
+}
