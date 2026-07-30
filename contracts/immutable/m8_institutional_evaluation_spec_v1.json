@@ -1,0 +1,91 @@
+{
+  "schema_version": "qlib_peerlite_m8_evaluation_spec_v1",
+  "status": "FROZEN",
+  "stage": "M8-INSTITUTIONAL-EVALUATION",
+  "active_candidate": "PEERLITE_K16_MSE",
+  "inactive_candidates": [
+    "PEERLITE_K16_CCC",
+    "PEERLITE_K16_MSE_GATE"
+  ],
+  "comparators": [
+    "B0_LIGHTGBM",
+    "B1_MLP"
+  ],
+  "confirmation": {
+    "seeds": [7, 19, 42, 73, 101],
+    "seed_7_policy": "reuse independently verified M6 predictions; do not refit",
+    "new_fit_seeds": [19, 42, 73, 101],
+    "folds": [
+      "wf_2018",
+      "wf_2019",
+      "wf_2020",
+      "wf_2021",
+      "wf_2022",
+      "wf_2023",
+      "wf_2024"
+    ],
+    "new_model_fits": 28,
+    "primary_benchmark": "B0_LIGHTGBM"
+  },
+  "promotion_gates": {
+    "positive_seed_fraction_min": 0.8,
+    "positive_fold_fraction_min": 0.6,
+    "paired_moving_block_bootstrap_ir_delta_ci_2_5_min_exclusive": 0.0,
+    "stress_cost_net_ir_each_seed_min_exclusive": 0.0,
+    "best_year_cumulative_excess_contribution_max": 0.5
+  },
+  "negative_controls": [
+    "random_label",
+    "future_poison_prefix_replay",
+    "peer_module_disabled",
+    "time_shuffle",
+    "no_cost_diagnostic"
+  ],
+  "final_oos": {
+    "start": "2025-01-01",
+    "end": "2026-06-30",
+    "opening_rule": "open exactly once only after data, engineering, statistical, portfolio and negative-control gates all pass",
+    "retraining": "quarterly with frozen model and parameters",
+    "selection_or_tuning_forbidden": true,
+    "failure_before_opening": "HOLD or REJECT without opening final OOS"
+  },
+  "trial_budget": {
+    "family_id": "qlib-peerlite-a-share-daily-v0",
+    "cumulative_candidate_evaluations_before_m8": 8,
+    "cumulative_model_fits_before_m8": 61,
+    "cumulative_model_fit_limit": 128,
+    "failed_or_interrupted_starts_count": true,
+    "no_retry_after_started_fit": true
+  },
+  "bindings": {
+    "research_contract": {
+      "path": "contracts/immutable/research_contract_m8_v1.json",
+      "sha256": "b90a2e1967b291c0e2e40c5a5b41c491928dea8c2859f60b5b3f06321e3b1b15"
+    },
+    "contract_validation": {
+      "path": "contracts/immutable/contract_validation_m8_v1.json",
+      "sha256": "62d7351efbd7271c4577c80c385ea0cbbe19fbcb50cb20a0f029a1d2f2068083"
+    },
+    "m7_gate": {
+      "path": "evidence/gates/M7_huatai_increments_gate.json",
+      "sha256": "3a4ec60bee502129ecb0e68b01a395b6b6d355f3850c33bd20bbb98b86044e87"
+    },
+    "trial_ledger_prefix": {
+      "path": "contracts/trial_ledger.jsonl",
+      "sha256": "56693d40e28d41609bb50caec99776e0907f7ee9d5ff28ae82328aecd8de8feb"
+    },
+    "oos_access_log_prefix": {
+      "path": "contracts/oos_access_log.jsonl",
+      "sha256": "6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190"
+    },
+    "confirmation_runner": {
+      "path": "scripts/server/run_m8_confirmation.py",
+      "sha256": "562db096c39e9bb79f60d4c7b5cee171697c6ccb6ed932dff965e91f747fbaab"
+    },
+    "confirmation_evaluator": {
+      "path": "scripts/server/evaluate_m8_confirmation.py",
+      "sha256": "a04ff07aa77a0da716817ccfcc734d54659e9919d0446ff225262e8fc9b77b27"
+    }
+  },
+  "claim_ceiling_before_final_oos": "CONFIRMATORY_PRE_FINAL_OOS_ONLY"
+}
