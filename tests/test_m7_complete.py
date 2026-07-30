@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import pytest
+import test_m7_empirical as empirical_tests
 import test_m7_review_repairs_red as repair_tests
 import torch
 
@@ -692,3 +693,47 @@ def test_protected_adapter_review_suite_is_in_core_denominator(tmp_path: Path) -
     repair_tests.test_adapter_freezes_candidate_semantics_and_keeps_ordinary_models_ordinary()
     repair_tests.test_adapter_exact_authority_context_and_prediction_bindings()
     repair_tests.test_adapter_checkpoint_dispatch_rejects_schema_smuggling(tmp_path)
+
+
+def test_protected_empirical_review_suite_is_in_core_denominator(
+    tmp_path: Path,
+) -> None:
+    empirical_tests.test_empirical_fit_requires_factory_capability_and_replays(
+        tmp_path,
+        "PEERLITE_K16_CCC",
+        "ccc",
+        False,
+    )
+    empirical_tests.test_empirical_fit_requires_factory_capability_and_replays(
+        tmp_path,
+        "PEERLITE_K16_MSE_GATE",
+        "mse",
+        True,
+    )
+    empirical_tests.test_empirical_factory_rejects_wrong_candidate_or_state_binding()
+    empirical_tests.test_empirical_wrapper_omits_none_data_key_for_qlib_compatibility()
+    empirical_tests.test_empirical_private_constructors_finality_integrity_and_data_key()
+    for candidate, context_change, binding, message in [
+        ("OTHER", {}, empirical_tests._sha("dataset"), "outside"),
+        (
+            "PEERLITE_K16_CCC",
+            {"family_id": "OTHER"},
+            empirical_tests._sha("dataset"),
+            "outside frozen",
+        ),
+        ("PEERLITE_K16_CCC", {}, "bad", "not a SHA256"),
+        (
+            "PEERLITE_K16_CCC",
+            {"training_dates_sha256": empirical_tests._sha("wrong")},
+            empirical_tests._sha("dataset"),
+            "dates",
+        ),
+    ]:
+        empirical_tests.test_empirical_factory_rejects_invalid_scope_dates_or_binding(
+            candidate,
+            context_change,
+            binding,
+            message,
+        )
+    empirical_tests.test_empirical_authority_and_checkpoint_context_fail_closed()
+    empirical_tests.test_empirical_checkpoint_header_rejects_bad_purpose_and_fold()

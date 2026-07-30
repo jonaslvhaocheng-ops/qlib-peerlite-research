@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "change_id": "m7-isolated-increments-final",
-  "ledger_revision": 6,
+  "ledger_revision": 5,
   "stage_id": "test-design",
   "skill": "eng-design-tests",
   "mode": null,

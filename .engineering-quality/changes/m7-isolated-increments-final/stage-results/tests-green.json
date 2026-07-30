@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "change_id": "m7-isolated-increments-final",
-  "ledger_revision": 13,
+  "ledger_revision": 8,
   "stage_id": "tests-green",
   "skill": "eng-write-tests",
   "mode": "green",
@@ -16,38 +16,42 @@
     "tests/test_m7_first_tranche_green.py",
     "tests/test_m7_review_repairs_red.py",
     "tests/test_m7_acceptance_cli.py",
+    "tests/test_m7_empirical.py",
+    "tests/test_market_state_product.py",
+    "tests/test_institutional_portfolio.py",
     ".engineering-quality/coverage-policy.json"
   ],
   "evidence_paths": [
     "docs/quality/changes/m7-isolated-increments/evidence/tests_green_final.md",
-    "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
-    "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.raw.json"
+    "docs/quality/changes/m7-isolated-increments-final/evidence/empirical_closure_ci_rebind.md",
+    "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r8.json",
+    "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r8.raw.json"
   ],
   "commands": [
     {
       "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
-      "executed_at": "2026-07-30T04:05:00+08:00",
+      "executed_at": "2026-07-30T09:30:00+08:00",
       "exit_code": 0,
       "summary": "Static checks pass."
     },
     {
       "command": ".venv/bin/python -m pytest -q",
-      "executed_at": "2026-07-30T04:05:00+08:00",
+      "executed_at": "2026-07-30T09:30:00+08:00",
       "exit_code": 0,
-      "summary": "148 tests pass."
+      "summary": "170 tests pass."
     },
     {
-      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m7-core --receipt docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
-      "executed_at": "2026-07-30T04:07:00+08:00",
+      "command": "uv run python scripts/quality/quality_ledger.py capture-coverage --repo . --profile m7-core --receipt docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r8.json",
+      "executed_at": "2026-07-30T09:30:00+08:00",
       "exit_code": 0,
       "summary": "Protected M7 line and branch coverage is 100%."
     }
   ],
   "coverage": {
-    "receipt_path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+    "receipt_path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r8.json",
     "profile": "m7-core"
   },
-  "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+  "subject_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
   "independence": null,
   "blockers": []
 }
