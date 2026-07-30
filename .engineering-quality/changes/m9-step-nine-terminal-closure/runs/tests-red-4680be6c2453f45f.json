@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 10,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M9_REJECTED_CONTRACT_CANNOT_AUTHORIZE_TRAINING",
+  "summary": "The expected-red probe exits nonzero when the retained failed contract attempt is presented as an authorization surface.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python scripts/quality/m9_expected_red_probe.py",
+      "executed_at": "2026-07-30T04:56:36+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:95c742a094e437cbc99e4b54d509096fa53c28bd6df72635e9a8fdbe4985232e; stderr_bytes=75",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/quality/m9_expected_red_probe.py"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-30T04:56:36+00:00",
+      "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_sha256": "sha256:95c742a094e437cbc99e4b54d509096fa53c28bd6df72635e9a8fdbe4985232e",
+      "stderr_bytes": 75,
+      "source_digest_before": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+      "source_digest_after": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+    }
+  ],
+  "subject_digest": "sha256:0b339c70ea8af802504fdda4306b621b62caa042f73d50569de5ef3ee47e86b1",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:56:36+00:00",
+  "source_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "artifacts": [
+    {
+      "path": "scripts/quality/m9_expected_red_probe.py",
+      "sha256": "sha256:0b339c70ea8af802504fdda4306b621b62caa042f73d50569de5ef3ee47e86b1"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/tests_red.md",
+      "sha256": "sha256:8dce8e4af879fda1467bb548ee1d8491610d723c027942df2e7060ba3d3eb233"
+    }
+  ],
+  "run_id": "tests-red-4680be6c2453f45f"
+}

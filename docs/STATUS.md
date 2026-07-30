@@ -1,12 +1,13 @@
 # True Status Card
 
-- Current phase: `M8-INSTITUTIONAL-EVALUATION`
-- Executed / completed / engineering gate: `yes / no / FAIL_RETAINED`
+- Current phase: `M9-STEP-NINE-TERMINAL-CLOSURE`
+- Executed / completed / passed: `yes / yes / HOLD`
 - Research decisions:
   - `PEERLITE_K16_CCC`: `HOLD`
   - `PEERLITE_K16_MSE_GATE`: `HOLD`
-- Active pre-final-OOS model path: `PEERLITE_K16_MSE_BASELINE`
+- Active pre-final-OOS model path: `PEERLITE_K16_MSE`
 - M8 institutional/final-OOS evaluation: `HOLD_OPERATIONAL_CONFIRMATION_INCOMPLETE`
+- Step-nine terminal decision: `HOLD_REAUTHORIZATION_CONTRACT_INVALID`
 - Final-OOS access count: `0`
 
 ## M8 outcome
@@ -63,3 +64,12 @@ or production claim is authorized.
 The current M8 run is closed and cannot be retried. Any later confirmation
 would require a separately governed path and may not reinterpret the retained
 partial folds, revive CCC/Gate, or weaken the untouched final-OOS boundary.
+
+The attempted separately governed path was validated before training. It
+set `decisive_outcomes_seen=true`, but its change request retained
+`outcome_reviewed=false` and `final_oos_replaced=false`; its candidate-evaluation
+budget was also inconsistent. The official validator rejected it before
+training. The attempt stopped with zero new candidate evaluations, zero new fit
+starts and zero final-OOS access. The original nine-step research cycle is
+therefore complete with a terminal `HOLD`, not a promotion. This result does not
+claim that a future replacement OOS is impossible.

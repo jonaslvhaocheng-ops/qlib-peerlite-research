@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 12,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M9_FULL_SUITE_GREEN",
+  "summary": "Ruff, the focused M9 evidence tests and the complete repository suite pass; no new runtime or model package requires a protected coverage profile.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m9_terminal_closure.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/tests_green.md",
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json",
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.raw.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T12:55:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must execute static checks."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T12:55:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must execute the complete suite."
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m8-core --receipt docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json",
+      "executed_at": "2026-07-30T12:55:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must independently capture the protected M8 runtime coverage receipt."
+    }
+  ],
+  "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "coverage": {
+    "receipt_path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json",
+    "profile": "m8-core"
+  },
+  "independence": null,
+  "blockers": []
+}

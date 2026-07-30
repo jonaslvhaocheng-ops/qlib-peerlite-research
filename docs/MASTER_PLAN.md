@@ -24,7 +24,7 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M6 | PeerLite | mechanics, frozen MSE runs and independent verification | PASS |
 | M6.5 | pre-M7 engineering quality | independent design/code/test review and remediation | PASS |
 | M7 | Huatai increments | CCC/Gate isolated comparisons | COMPLETE / BOTH HOLD |
-| M8 | institutional evaluation | five-seed confirmation then final OOS | HOLD / OOS NOT OPENED |
+| M8 | institutional evaluation | five-seed confirmation then final OOS | CLOSED / TERMINAL HOLD / OOS NOT OPENED |
 
 ## Non-negotiables
 
@@ -51,4 +51,9 @@ independently verified, bringing the cumulative ledger to 9 candidate
 evaluations and 64 fit starts. The frozen no-retry rule makes confirmation
 incomplete, so statistical, portfolio, control and final-OOS gates did not run.
 M8 closes as `HOLD_OPERATIONAL_CONFIRMATION_INCOMPLETE`; final-OOS access
-remains zero and no model is promoted.
+remains zero and no model is promoted. A later truthful reauthorization attempt
+was rejected before training because the child and change request were
+internally inconsistent after decisive development outcomes were inspected.
+Step nine is terminally closed as `HOLD_REAUTHORIZATION_CONTRACT_INVALID`.
+This closure does not decide whether a future, separately governed replacement
+OOS can eventually be designed and accrued.

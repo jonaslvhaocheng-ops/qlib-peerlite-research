@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 10,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M9_REJECTED_CONTRACT_CANNOT_AUTHORIZE_TRAINING",
+  "summary": "The expected-red probe exits nonzero when the retained failed contract attempt is presented as an authorization surface.",
+  "issue_type": null,
+  "artifact_paths": [
+    "scripts/quality/m9_expected_red_probe.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/tests_red.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python scripts/quality/m9_expected_red_probe.py",
+      "executed_at": "2026-07-30T12:55:00+08:00",
+      "exit_code": 1,
+      "summary": "Expected-red: an invalid result-bearing contract must not authorize training."
+    }
+  ],
+  "subject_digest": "sha256:0b339c70ea8af802504fdda4306b621b62caa042f73d50569de5ef3ee47e86b1",
+  "independence": null,
+  "blockers": []
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 5,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M9_TERMINAL_CLOSURE_WITHIN_EXISTING_ROOTS",
+  "summary": "The terminal HOLD adds no model, data, portfolio, OOS or production surface and binds existing evidence through the established gate and test roots.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/architecture_confirmation.md"
+  ],
+  "evidence_paths": [
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}
