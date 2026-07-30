@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 11,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M9_FAIL_CLOSED_TERMINAL_PACKAGE_IMPLEMENTED",
+  "summary": "The failed attempt, prefix-safe evidence, terminal HOLD gate, reader decision, expected-red probe and tamper tests are implemented without changing model or OOS surfaces.",
+  "issue_type": null,
+  "artifact_paths": [
+    "evidence/gates/M9_step_nine_terminal_gate.json",
+    "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+    "scripts/quality/m9_expected_red_probe.py",
+    "tests/test_m9_terminal_closure.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/implementation.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m9_terminal_closure.py",
+      "executed_at": "2026-07-30T12:55:00+08:00",
+      "exit_code": 0,
+      "summary": "Focused M9 evidence tests passed."
+    }
+  ],
+  "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "independence": null,
+  "blockers": []
+}

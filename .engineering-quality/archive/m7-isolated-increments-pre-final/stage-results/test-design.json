@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 12,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_BEHAVIOR_TEST_MATRIX_COMPLETE",
+  "summary": "The test design covers CCC numerics, verified Gate value/provenance, zero-event screening prerequisites, the complete authorization/consumption/recovery state machine, M6 compatibility, final-OOS denial and three synthetic public-boundary journeys with 100% line/branch obligations.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/test_design.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v2_independent.md",
+    "tests/test_market_state.py",
+    "tests/test_panel_dataset.py",
+    "tests/test_peerlite.py",
+    "tests/test_trial_ledger.py",
+    "tests/test_run_intent_v2.py"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "blockers": []
+}

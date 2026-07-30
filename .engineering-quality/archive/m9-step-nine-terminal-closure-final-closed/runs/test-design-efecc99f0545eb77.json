@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 9,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M9_TERMINAL_EVIDENCE_MATRIX_COMPLETE",
+  "summary": "The matrix covers exact validator errors, lineage inconsistency, canonical gate hashing, append-only prefixes, zero side effects and forbidden promotion claims.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:56:35+00:00",
+  "source_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/test_design.md",
+      "sha256": "sha256:a9d4a3fc89e91e7bcf10225b2954a48519600d6a2e5e6ab546af85655ca5c6f0"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/design_review_independent.md",
+      "sha256": "sha256:8ccc1d693a5b3494506ab359c55a67461921f5296dddc8e183b91055ac64ed21"
+    }
+  ],
+  "run_id": "test-design-efecc99f0545eb77"
+}

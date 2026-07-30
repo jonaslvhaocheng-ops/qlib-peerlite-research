@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 35,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_ENFORCEABLE_ENGINEERING_DESIGN_READY",
+  "summary": "The revised design separates generated bounded synthetic mechanics from externally reconciled empirical fit authority, parses prerequisites from fixed canonical artifacts, removes boolean recovery claims, completes checkpoint identity and freezes protected whole-package coverage.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T16:51:07+00:00",
+  "source_digest": "sha256:3578b7c4e4c3173b55f26254f08cd26eaae7ae4f2cbb58811e28e8b011176040",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+      "sha256": "sha256:b204c6b935e524095f48c638c49c477ded1195774987bb166c3a6668e0c07b3c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v5_complete_independent.md",
+      "sha256": "sha256:3701696fb57d1ee0b2d762377d0ca21c14b1f964190afa7ac1ce660e90ebea73"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+      "sha256": "sha256:a65ec57e23fa2705351d3dcf77a8101317d89215cc78e0e970384f4784bd3b92"
+    },
+    {
+      "path": "contracts/changes/m7_complete_engineering_cr_v1.json",
+      "sha256": "sha256:9fa4ae01810de1d6f82ae0e7270239d6bab563511d098141ca226fd64ab19009"
+    },
+    {
+      "path": "contracts/cost_spec.json",
+      "sha256": "sha256:fc9cdeff2136993538970a71c735b882c390803e9603d4a465079e455e6688eb"
+    },
+    {
+      "path": "contracts/benchmark_spec.json",
+      "sha256": "sha256:a75fb43de089352fd3fcd424cbb6b91a085751c93bf2681ea64f7e2b75a136c3"
+    },
+    {
+      "path": "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+      "sha256": "sha256:dd162de1565f887261cebbaef3eeec50c83697125a2acf5adb1546e8e819fcf4"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:5ae99fc9f870937b2db518703e07d18db9bbf7dac8facbdca0432ade07b5de94"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:5a29db0786db239514b1d4b9ac797b57843b9e69a89590346c28a1d7612606ce"
+    }
+  ],
+  "run_id": "change-design-ca377ed167f94f41"
+}

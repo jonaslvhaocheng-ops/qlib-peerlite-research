@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 3,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_IMPLEMENTATION_READY",
+  "summary": "The bounded design fixes strict schemas, fail-closed state transitions, idempotency, atomic publication, local-only alerts and an intentionally absent live adapter.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T05:43:34+00:00",
+  "source_digest": "sha256:a32ace4114b7c197cc5d83366463ef6d5666571830e8cea0921cbc061e2a8d71",
+  "artifacts": [
+    {
+      "path": "docs/m10/CHANGE_DESIGN.md",
+      "sha256": "sha256:13f9d66fa26e8e44b5b0d93214b87cc23e6b145f2d7ec832f2df1e56061750eb"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/change_design.md",
+      "sha256": "sha256:185b6039e9d990b21e93fa2d532dd8508cac7e80ee16268c48102dbcb82fcf7e"
+    },
+    {
+      "path": "docs/m10/ARCHITECTURE.md",
+      "sha256": "sha256:daf9709da2c760142892fae151e70429640652ef8f8f195c1b1505864283a269"
+    },
+    {
+      "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+      "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+    }
+  ],
+  "run_id": "change-design-089e4ac6411fed6f"
+}

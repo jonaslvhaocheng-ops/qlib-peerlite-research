@@ -1,0 +1,159 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 18,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M8_FULL_SUITE_AND_CORE_COVERAGE_GREEN",
+  "summary": "The full suite and static checks pass; the complete m8_closure package has exact 100% line and branch coverage.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T04:21:21+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts",
+        "--exclude",
+        "scripts/vendor"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T04:21:21+00:00",
+      "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stdout_bytes": 19,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+      "source_digest_after": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T04:21:21+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:63350250ab960edc0114b7dc944e61928226a02dcdea5d2ef409aa685997faee; stdout_bytes=261; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T04:21:34+00:00",
+      "stdout_sha256": "sha256:63350250ab960edc0114b7dc944e61928226a02dcdea5d2ef409aa685997faee",
+      "stdout_bytes": 261,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+      "source_digest_after": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m8-core --receipt docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+      "executed_at": "2026-07-30T04:21:34+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:24e62b6fa0501f82687fd26be279d60c890b22ae35ac1c1af437180f7080ff81; stdout_bytes=435; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        "python3",
+        "scripts/quality/quality_ledger.py",
+        "capture-coverage",
+        "--repo",
+        ".",
+        "--profile",
+        "m8-core",
+        "--receipt",
+        "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T04:21:35+00:00",
+      "stdout_sha256": "sha256:24e62b6fa0501f82687fd26be279d60c890b22ae35ac1c1af437180f7080ff81",
+      "stdout_bytes": 435,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+      "source_digest_after": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3"
+    }
+  ],
+  "coverage": {
+    "schema_version": "engineering-quality-coverage-v1",
+    "receipt_path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+    "policy": {
+      "path": ".engineering-quality/coverage-policy.json",
+      "sha256": "sha256:ddbe2b34684687147d30d34da80f7af14a0ac5726f0c8da2526ebee5928a6518",
+      "profile": "m8-core"
+    },
+    "format": "coveragepy-json",
+    "source_roots": [
+      "src/qlib_peerlite/m8_closure"
+    ],
+    "expected_core_paths": [
+      "src/qlib_peerlite/m8_closure/__init__.py",
+      "src/qlib_peerlite/m8_closure/recovery.py"
+    ],
+    "observed_core_paths": [
+      "src/qlib_peerlite/m8_closure/__init__.py",
+      "src/qlib_peerlite/m8_closure/recovery.py"
+    ],
+    "line": {
+      "covered": 63,
+      "total": 63,
+      "missing": 0,
+      "excluded": 0,
+      "percent": 100.0
+    },
+    "branch": {
+      "covered": 24,
+      "total": 24,
+      "missing": 0,
+      "excluded": 0,
+      "percent": 100.0
+    },
+    "required_line_percent": 100.0,
+    "required_branch_percent": 100.0,
+    "source": {
+      "kind": "raw-report",
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.raw.json",
+      "sha256": "sha256:5e84ea6e9faa977755cc8d41d9528e454c8a6923b343636798518901dc81d685"
+    }
+  },
+  "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:21:35+00:00",
+  "source_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "artifacts": [
+    {
+      "path": "tests/test_m8_confirmation.py",
+      "sha256": "sha256:6c16e9b72d73c033619b3042d93a7647de172c09c98b42057de2b10234c828a0"
+    },
+    {
+      "path": "tests/test_m8_evidence.py",
+      "sha256": "sha256:ba93144a1a0870a86313a45a4e3ec927e0eb572113a6d1c32b4f62f8eeb3a949"
+    },
+    {
+      "path": "tests/test_m8_recovery_coverage.py",
+      "sha256": "sha256:3dad19681bbf0e6a456a91b1d609c398d8a37f9dd861627d89280a9ccd6e3ad4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+      "sha256": "sha256:2f2dc761b091d8104b13dd91ab307ce2101c0badcde337f25a6ddd9b55b229d8"
+    },
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.raw.json",
+      "sha256": "sha256:5e84ea6e9faa977755cc8d41d9528e454c8a6923b343636798518901dc81d685"
+    }
+  ],
+  "run_id": "tests-green-93a683120b13014f"
+}

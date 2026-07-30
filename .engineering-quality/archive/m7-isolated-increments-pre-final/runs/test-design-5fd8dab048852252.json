@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 42,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_TEST_MATRIX_READY",
+  "summary": "The unchanged complete test matrix remains bound to the unchanged independently approved design.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T18:42:58+00:00",
+  "source_digest": "sha256:a81b12c350509d151f011c8fe64288822043ba07c4fb590477cb5d737c9af1c8",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md",
+      "sha256": "sha256:baf141e5a4e5a9320182d937db7aebaf3b8d6f9e744d51f86ac6ea8368036170"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+      "sha256": "sha256:b204c6b935e524095f48c638c49c477ded1195774987bb166c3a6668e0c07b3c"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v6_enforceable_independent.md",
+      "sha256": "sha256:cf4860018a8045198ca0d77a4d543aba26cb421defc15baa085f74bdb50703db"
+    }
+  ],
+  "run_id": "test-design-5fd8dab048852252"
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 14,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "M9_TERMINAL_HOLD_ACCEPTANCE_PASS",
+  "summary": "The acceptance journey verifies the failed contract lineage, zero training/OOS side effects, prefix-safe authority bindings and completed HOLD with no promotion.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/e2e_local.md"
+  ],
+  "evidence_paths": [
+    "evidence/gates/M9_step_nine_terminal_gate.json",
+    "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m9_terminal_closure.py",
+      "executed_at": "2026-07-30T12:55:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must execute the complete terminal-evidence acceptance test."
+    }
+  ],
+  "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "independence": null,
+  "blockers": []
+}

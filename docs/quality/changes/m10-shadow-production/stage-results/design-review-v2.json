@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 8,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M10_REPLAY_INTEGRITY_AND_PREFLIGHT_FAILURE_CONTRACT_INCOMPLETE",
+  "summary": "The four original findings are repaired, but committed replay lacks a mandatory full terminal verifier and failures before trusted transactional state exists have no coherent alert/terminal contract.",
+  "issue_type": "design",
+  "artifact_paths": [],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/design_review_v2.md",
+    "docs/m10/CHANGE_DESIGN.md",
+    "docs/m10/ARCHITECTURE.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:0fe4fbbc5d8aa1f2e3cd0b6df45026bf2a0af3e3e1f562444fbcc7c6a39775e9",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_design_review"
+  },
+  "blockers": [
+    "Replay and crash repair do not mandate complete terminal artifact verification.",
+    "Preflight rejection semantics conflict with the universal HALTED-plus-alert claim."
+  ]
+}

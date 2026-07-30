@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 22,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M10_FULL_SUITE_AND_COVERAGE_GREEN",
+  "summary": "Static checks, the full suite and the protected M10 coverage profile must all pass under controller execution.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m10_production.py",
+    "tests/test_m10_edge_coverage.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/tests_green.md",
+    "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r22.json",
+    "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r22.raw.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T14:05:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must execute static checks."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T14:05:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must execute the complete suite."
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m10-core --receipt docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r22.json",
+      "executed_at": "2026-07-30T14:05:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must capture the protected M10 coverage receipt."
+    }
+  ],
+  "subject_digest": "sha256:c9d01654ce20341d9dfd8abde97b1c4ccfa518fd2c72bab7d96a47f062234169",
+  "coverage": {
+    "receipt_path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r22.json",
+    "profile": "m10-core"
+  },
+  "independence": null,
+  "blockers": []
+}

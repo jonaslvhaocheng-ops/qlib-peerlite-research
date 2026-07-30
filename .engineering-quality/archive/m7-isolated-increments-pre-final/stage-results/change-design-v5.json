@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 24,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FIRST_TRANCHE_REPAIRED_FAIL_CLOSED",
+  "summary": "The repaired design deletes the spoofable marker, denies all dataset-level Gate fit/predict until the controlled factory exists, and adds a pre-optimizer non-finite-gradient failure contract for CCC.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v3_independent.md",
+    "contracts/cost_spec.json",
+    "contracts/benchmark_spec.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "blockers": []
+}

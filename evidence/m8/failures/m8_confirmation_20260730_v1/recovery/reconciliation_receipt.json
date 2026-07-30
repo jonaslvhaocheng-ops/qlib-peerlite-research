@@ -1,0 +1,21 @@
+{
+  "appended_events": 4,
+  "candidate_evaluations_after": 9,
+  "candidate_evaluations_before": 8,
+  "canonical_journal_sha256": "adad825b70a27bac9f75c474168c8d386006b0e9fe5205478a6bc808af8f8d32",
+  "completed_fit_receipts": 2,
+  "confirmation_complete": false,
+  "final_oos_market_partitions_opened": false,
+  "interrupted_fit_starts": 1,
+  "ledger_sha256_after": "57cff58227f29930e46fbe4271a38162d795f68645ad386017be52de12fab671",
+  "ledger_sha256_before": "56693d40e28d41609bb50caec99776e0907f7ee9d5ff28ae82328aecd8de8feb",
+  "legacy_journal_sha256": "744edff52d1e59c2a507d2fa0b472427600a09a00bf4613ddc03a173fb899996",
+  "model_fits_after": 64,
+  "model_fits_before": 61,
+  "oos_access_log_sha256": "6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190",
+  "research_decision": "HOLD_OPERATIONAL_CONFIRMATION_INCOMPLETE",
+  "retry_authorized": false,
+  "run_id": "m8_confirmation_20260730_v1",
+  "schema_version": "qlib_peerlite_m8_interruption_reconciliation_v1",
+  "status": "PASS_RETAINED_FAILURE"
+}

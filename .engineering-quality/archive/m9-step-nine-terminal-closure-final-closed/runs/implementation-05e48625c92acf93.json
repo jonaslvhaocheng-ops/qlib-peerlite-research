@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 11,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M9_FAIL_CLOSED_TERMINAL_PACKAGE_IMPLEMENTED",
+  "summary": "The failed attempt, prefix-safe evidence, terminal HOLD gate, reader decision, expected-red probe and tamper tests are implemented without changing model or OOS surfaces.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m9_terminal_closure.py",
+      "executed_at": "2026-07-30T12:55:00+08:00",
+      "exit_code": 0,
+      "summary": "Focused M9 evidence tests passed."
+    }
+  ],
+  "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:56:36+00:00",
+  "source_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "artifacts": [
+    {
+      "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+      "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+    },
+    {
+      "path": "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+      "sha256": "sha256:727855f19e5bf5bdbf2ac242f140134fbf36e5ae4a78dd39ed855373c5583528"
+    },
+    {
+      "path": "scripts/quality/m9_expected_red_probe.py",
+      "sha256": "sha256:0b339c70ea8af802504fdda4306b621b62caa042f73d50569de5ef3ee47e86b1"
+    },
+    {
+      "path": "tests/test_m9_terminal_closure.py",
+      "sha256": "sha256:a9af3ee73658ea06cd5ef069829a99d08cf03e7eb191fc38a7964164041320ad"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/implementation.md",
+      "sha256": "sha256:8b27e22589a05c5f5813ee139e58f51fe6e255a7f7d1c6f8e70fbaf019656ae1"
+    }
+  ],
+  "run_id": "implementation-05e48625c92acf93"
+}

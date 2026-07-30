@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 28,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M8_FAIL_CLOSED_IMPLEMENTATION_COMPLETE",
+  "summary": "Exact incident retention, prefix-safe verification, forensic bindings, permanently closed complete paths, HOLD evidence and focused coverage tests are implemented.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T12:21:00+08:00",
+      "exit_code": 0,
+      "summary": "Static checks passed."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T12:21:00+08:00",
+      "exit_code": 0,
+      "summary": "Full suite passed: 188 tests."
+    }
+  ],
+  "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:31:42+00:00",
+  "source_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "artifacts": [
+    {
+      "path": "src/qlib_peerlite/m8_closure/recovery.py",
+      "sha256": "sha256:38397c46974155170b447ce7b0df5d1ffba55ba9eccc38e89763835d52e7a264"
+    },
+    {
+      "path": "scripts/server/reconcile_m8_interrupted_run.py",
+      "sha256": "sha256:f532d97e359600bc93613c63d1cc194aac330607e4c35591ae5b93bec8f44ef7"
+    },
+    {
+      "path": "scripts/server/verify_m8_interruption.py",
+      "sha256": "sha256:6ffd85ab17bba794734b1a744e3ea0b1390d10aa1cc12270da21bc73a3d9cb17"
+    },
+    {
+      "path": "scripts/server/run_m8_confirmation.py",
+      "sha256": "sha256:f66ec9f3126b9aab8996da6bffcd9e70cafb486b6e1f54c797aab0d3bd306fda"
+    },
+    {
+      "path": "scripts/server/evaluate_m8_confirmation.py",
+      "sha256": "sha256:09ba778214113e3f816a8f12c783e0e5751c8e3927e38922f625ff44495f94a0"
+    },
+    {
+      "path": "scripts/server/verify_m8_confirmation.py",
+      "sha256": "sha256:3f8b375e4d249accc12c2a5e360d3fdf7d49dd1c2c47421b1e24b8722c96dd09"
+    },
+    {
+      "path": "tests/test_m8_confirmation.py",
+      "sha256": "sha256:6c16e9b72d73c033619b3042d93a7647de172c09c98b42057de2b10234c828a0"
+    },
+    {
+      "path": "tests/test_m8_evidence.py",
+      "sha256": "sha256:ba93144a1a0870a86313a45a4e3ec927e0eb572113a6d1c32b4f62f8eeb3a949"
+    },
+    {
+      "path": "tests/test_m8_recovery_coverage.py",
+      "sha256": "sha256:3dad19681bbf0e6a456a91b1d609c398d8a37f9dd861627d89280a9ccd6e3ad4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/implementation.md",
+      "sha256": "sha256:41b21a18308ea41d7d3757914407ad352c781238ee698cda5db0d1ca9be072e0"
+    },
+    {
+      "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/closure_package_manifest.json",
+      "sha256": "sha256:6256943ccd01d1ca2c6abe74081a6e39c09e4a3928e65803778068ccee1b1163"
+    }
+  ],
+  "run_id": "implementation-bb2628a23a0bf4e9"
+}

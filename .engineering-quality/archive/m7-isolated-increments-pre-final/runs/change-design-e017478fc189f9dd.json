@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 4,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_MINIMAL_ISOLATED_CHANGE_DESIGN_READY",
+  "summary": "The implementation-ready design isolates CCC to the loss function and Gate to an exact PIT-qualified 4D market_state channel, freezes the 2/16 budget and screen rules, reuses M6 artifact paths, and rejects the historical over-complex runtime design.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T15:03:26+00:00",
+  "source_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design.md",
+      "sha256": "sha256:15d30f9fb46f1cec6099cf7fedf72d44cbff18ac7d2d5cc29122e12e5aceed2d"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+      "sha256": "sha256:7d5fca36b456761bcdda7606fea971258104045f4f81d01a8b76056478101676"
+    },
+    {
+      "path": "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+      "sha256": "sha256:dd162de1565f887261cebbaef3eeec50c83697125a2acf5adb1546e8e819fcf4"
+    },
+    {
+      "path": "contracts/immutable/m6_peerlite_execution_spec_v1.json",
+      "sha256": "sha256:469d67be0812e1acfa53301907f94c85bea2e799d17f2699edd8d508a2df20f8"
+    },
+    {
+      "path": "configs/model_registry.yaml",
+      "sha256": "sha256:1eb5fcc6e9399b768bd2836bce17bfc7ea4683d1e39f5a319d325ec4ceb792a1"
+    },
+    {
+      "path": "contracts/candidate_registry.json",
+      "sha256": "sha256:fb1bcca2df1f4ee1f62f68aa806a85122e423c8fdaf14622b9c0f4766faed1ac"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a"
+    },
+    {
+      "path": "src/qlib_peerlite/models/losses.py",
+      "sha256": "sha256:a8e7c0ee69c54ed1aad127b38c35ab921cc6746f3c9927ef6a7a9e3c6972bae6"
+    },
+    {
+      "path": "src/qlib_peerlite/data/market_state.py",
+      "sha256": "sha256:b9b8b1052ae32bf3812a06b42d83520a089cbb9bb3604cc755362375fc470706"
+    },
+    {
+      "path": "src/qlib_peerlite/data/dataset.py",
+      "sha256": "sha256:2d7880d6f5c2d588db0d8aa09839c47c38b9a53608e81ad1fe1e1cb3bd6b56cc"
+    },
+    {
+      "path": "evidence/m6_5_pre_m7/m7_bounded_design_v5.md",
+      "sha256": "sha256:de4aa33331443f7e7e97470d401a79d8d8b1e631163800c36a2ddabffe9f6715"
+    }
+  ],
+  "run_id": "change-design-e017478fc189f9dd"
+}

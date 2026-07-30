@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 28,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FIRST_TRANCHE_IMPLEMENTED_FAIL_CLOSED",
+  "summary": "CCC numerical and non-finite-gradient contracts are implemented, the spoofable marker is removed, and all dataset-level Gate fit/predict calls fail before data access; 93 tests and Ruff pass with empirical M7 still NOT_RUN.",
+  "issue_type": null,
+  "artifact_paths": [
+    "src/qlib_peerlite/models/losses.py",
+    "src/qlib_peerlite/models/peerlite.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/implementation_first_tranche.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v4_independent.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v2.md",
+    "tests/test_m7_expected_red.py"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_expected_red.py",
+      "executed_at": "2026-07-29T15:32:00+00:00",
+      "exit_code": 0,
+      "summary": "Seven first-tranche contract tests passed."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_peerlite.py tests/test_models.py tests/test_market_state.py tests/test_panel_dataset.py",
+      "executed_at": "2026-07-29T15:32:00+00:00",
+      "exit_code": 0,
+      "summary": "Twenty adjacent model and data regressions passed."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-29T15:32:00+00:00",
+      "exit_code": 0,
+      "summary": "Complete repository suite passed: 93 tests."
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-29T15:32:00+00:00",
+      "exit_code": 0,
+      "summary": "All self-authored source, tests and scripts pass Ruff."
+    },
+    {
+      "command": "git diff --check",
+      "executed_at": "2026-07-29T15:32:00+00:00",
+      "exit_code": 0,
+      "summary": "No whitespace errors."
+    }
+  ],
+  "subject_digest": "sha256:75da3f632a8df0b1b565f8e33b308527e3a3f89cee1f30bf5f496e1d023fc162",
+  "blockers": []
+}

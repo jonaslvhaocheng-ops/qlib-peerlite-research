@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 3,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_IMPLEMENTATION_READY",
+  "summary": "The bounded design fixes strict schemas, fail-closed state transitions, idempotency, atomic publication, local-only alerts and an intentionally absent live adapter.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/m10/CHANGE_DESIGN.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/change_design.md",
+    "docs/m10/ARCHITECTURE.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

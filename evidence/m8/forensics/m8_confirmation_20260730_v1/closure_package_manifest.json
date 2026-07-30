@@ -1,0 +1,31 @@
+{
+  "schema_version": "qlib_peerlite_m8_post_incident_closure_package_v1",
+  "status": "HOLD_CLOSED",
+  "execution_binding_closure": {
+    "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/execution_binding_closure.json",
+    "sha256": "b4d08e2ed8420fd6bf2adb128fc172505bd3dbebc3237b912fcd0d98d3a0c1f8"
+  },
+  "contract_authorization_closure": {
+    "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/contract_authorization_closure.json",
+    "sha256": "c8ed654029918073704a3c0bdef0c01e1d8bc77d2ead9ad825cd5618ab1e266c"
+  },
+  "hold_gate": {
+    "path": "evidence/gates/M8_institutional_evaluation_gate.json",
+    "sha256": "27a200034be48313bc8e8dc0143e27d0f17e0ef192485d3ab60ce89fa12d1808"
+  },
+  "authoritative_trial_ledger_prefix": {
+    "path": "contracts/trial_ledger.jsonl",
+    "prefix_bytes": 39964,
+    "prefix_sha256": "57cff58227f29930e46fbe4271a38162d795f68645ad386017be52de12fab671",
+    "candidate_evaluations": 9,
+    "model_fits": 64
+  },
+  "final_oos_access_log_prefix": {
+    "path": "contracts/oos_access_log.jsonl",
+    "prefix_bytes": 187,
+    "prefix_sha256": "6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190"
+  },
+  "retry_authorized": false,
+  "promotion_authorized": false,
+  "final_oos_opened": false
+}

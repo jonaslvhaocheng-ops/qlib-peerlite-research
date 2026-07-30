@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 4,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M10_ATOMICITY_AND_SIGNAL_TIME_CONTRACT_INCOMPLETE",
+  "summary": "M10 remains safely bounded away from live execution, but its exactly-once commit protocol, signal-session semantics, filesystem trust boundary and synthetic/resource enforcement are not implementation-ready.",
+  "issue_type": "design",
+  "commands": [],
+  "subject_digest": "sha256:13f9d66fa26e8e44b5b0d93214b87cc23e6b145f2d7ec832f2df1e56061750eb",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_design_review"
+  },
+  "blockers": [
+    "Exactly-once reservation, commit and crash-recovery protocol is incomplete.",
+    "Signal datetime, trading session and scheduled-cycle relationship is incomplete.",
+    "Filesystem path and immutable-input trust boundaries are incomplete.",
+    "Synthetic identity and bounded-input enforcement are incomplete."
+  ],
+  "recorded_at": "2026-07-30T05:45:43+00:00",
+  "source_digest": "sha256:a32ace4114b7c197cc5d83366463ef6d5666571830e8cea0921cbc061e2a8d71",
+  "artifacts": [],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/design_review_v1.md",
+      "sha256": "sha256:1b98cc958005b727d59d25e10001509c76fa6336ced336cb2f0e7fbca1a764cb"
+    },
+    {
+      "path": "docs/m10/CHANGE_DESIGN.md",
+      "sha256": "sha256:13f9d66fa26e8e44b5b0d93214b87cc23e6b145f2d7ec832f2df1e56061750eb"
+    },
+    {
+      "path": "docs/m10/ARCHITECTURE.md",
+      "sha256": "sha256:daf9709da2c760142892fae151e70429640652ef8f8f195c1b1505864283a269"
+    },
+    {
+      "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+      "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+    }
+  ],
+  "run_id": "design-review-96a67aff6dd560d3"
+}

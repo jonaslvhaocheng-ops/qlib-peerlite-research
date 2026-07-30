@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 19,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M7_FIRST_TRANCHE_FAIL_CLOSED_CONTRACT_INCOMPLETE",
+  "summary": "Independent review found that the abstract verified-state marker is caller-spoofable and that the CCC trainer still lacks the required pre-step non-finite-gradient failure path.",
+  "issue_type": "contract",
+  "commands": [],
+  "subject_digest": "sha256:311a5c222c7cedc3c0b17d29f4ee993f02fcbcf3bb0da18818f75085d7714163",
+  "blockers": [
+    "Replace the spoofable marker claim with an unconditional Gate denial until a controlled concrete factory and immutable binding exist.",
+    "Close or explicitly retain and test the CCC non-finite-gradient guard before optimizer step."
+  ],
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only review; no repository, ledger, Git, training, budget, or final-OOS mutation.",
+      "The review evaluated design and current implementation boundaries, not empirical alpha performance."
+    ]
+  },
+  "recorded_at": "2026-07-29T15:27:07+00:00",
+  "source_digest": "sha256:2585f87b0985b0f1fa90417c2f99b2f07187949f4dd4cc5873b8a6033b5459d7",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v3_independent.md",
+      "sha256": "sha256:9a310e70e0c75e72932ed1a6e8ebad87cc66bb01c6963dfd539be9e8db8c9d3f"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+      "sha256": "sha256:311a5c222c7cedc3c0b17d29f4ee993f02fcbcf3bb0da18818f75085d7714163"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+      "sha256": "sha256:d52857d30f9bbfa33a1808c13f76ff1a91aa36494441f1f1c48f87a1d63ba950"
+    },
+    {
+      "path": "src/qlib_peerlite/models/losses.py",
+      "sha256": "sha256:f9989f890b26e2211a39d322229f5fd8daa2b65436765da7b562116c280a0dd7"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:945442ce040f5e6aefaf760fd85408cf4e376d707708b3f833be0fd46b08fdc4"
+    },
+    {
+      "path": "src/qlib_peerlite/data/verified_market_state.py",
+      "sha256": "sha256:d903554fc3ae9f930f73608031ce9b4266b88848ea2fa33f26b5e63077182c54"
+    },
+    {
+      "path": "tests/test_m7_expected_red.py",
+      "sha256": "sha256:1dab62bc1cd182b57af4c618b4c7506b1ef3cb1c3737eb97208c7988b31e4956"
+    }
+  ],
+  "run_id": "design-review-25d526c02559bec7"
+}

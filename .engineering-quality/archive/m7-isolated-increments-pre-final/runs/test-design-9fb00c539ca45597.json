@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 22,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FIRST_TRANCHE_REPAIR_TESTS_BOUNDED",
+  "summary": "The refreshed tests require pre-prepare denial of spoofed Gate inputs, prove error_if_nonfinite is active before optimizer step, preserve M6 replay, and defer all concrete factory, prerequisite, state-machine and Gate E2E tests.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T15:30:02+00:00",
+  "source_digest": "sha256:2585f87b0985b0f1fa90417c2f99b2f07187949f4dd4cc5873b8a6033b5459d7",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design.md",
+      "sha256": "sha256:5a78265e128d913f0c69884ed951d1f44fc4f1d16e4a5cce3149467882b65432"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+      "sha256": "sha256:7d80320612363c9d5a59154dbbf9fc2e564e294f930bf561666c6f9898ee2a1c"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v4_independent.md",
+      "sha256": "sha256:94ef88481b0bd4565f4ed1b2387c1eb8e95c4b673ebc20d1ee2e3461b2339d19"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_red.md",
+      "sha256": "sha256:1b43beee6296d6dc0f30ccffb967a3e726150a6e34ad542a96c4012965524e40"
+    },
+    {
+      "path": "tests/test_m7_expected_red.py",
+      "sha256": "sha256:1dab62bc1cd182b57af4c618b4c7506b1ef3cb1c3737eb97208c7988b31e4956"
+    },
+    {
+      "path": "tests/test_peerlite.py",
+      "sha256": "sha256:ee724364b3b5705d52255569cddcae142087b9518c3d29bf054e18eacb74c72b"
+    }
+  ],
+  "run_id": "test-design-9fb00c539ca45597"
+}

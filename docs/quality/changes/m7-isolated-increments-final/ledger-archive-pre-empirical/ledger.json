@@ -1,0 +1,701 @@
+{
+  "schema_version": "1.0",
+  "suite_version": "0.3.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 16,
+  "status": "READY_FOR_CI",
+  "repository": {
+    "identity": "github.com/jonaslvhaocheng-ops/qlib-peerlite-research",
+    "root_hint": "qlib模型框架",
+    "baseline_commit": "964975edf8bfcaa63cfa74c71d3e053385da55d9",
+    "branch": "codex/m7-isolated-increments",
+    "source_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+  },
+  "scope": {
+    "goal": "Finalize and verify step 8 synthetic-only CCC and Gate increments; no empirical fitting or final OOS access.",
+    "non_goals": [],
+    "changed_surfaces": [],
+    "change_kind": "unspecified",
+    "architecture_required": true,
+    "critical_journeys": [
+      "CCC clean-process synthetic fit checkpoint score replay",
+      "Gate clean-process synthetic fit checkpoint score replay",
+      "Empirical prerequisite preflight remains NOT_RUN and cannot authorize fit"
+    ]
+  },
+  "risk": {
+    "tier": "R3",
+    "initial_tier": "R3",
+    "rationale": [],
+    "locked": true
+  },
+  "stages": {
+    "scope": {
+      "owner_skill": "eng-route-quality-work",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Scope and locked risk supplied at initialization.",
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-29T20:03:42+00:00"
+    },
+    "architecture": {
+      "owner_skill": "eng-architect-repository",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The final repair remains one cohesive in-process M7 package with thin PeerLite integration and no empirical authority.",
+      "latest_run": "runs/architecture-6bda7b51f5bb16c6.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+          "sha256": "sha256:a65ec57e23fa2705351d3dcf77a8101317d89215cc78e0e970384f4784bd3b92"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "contracts/changes/m7_complete_engineering_cr_v1.json",
+          "sha256": "sha256:9fa4ae01810de1d6f82ae0e7270239d6bab563511d098141ca226fd64ab19009"
+        }
+      ],
+      "updated_at": "2026-07-29T20:04:22+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "change-design": {
+      "owner_skill": "eng-design-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The frozen design centralizes M7 policy in the protected adapter and limits this change to synthetic CCC and Gate mechanics.",
+      "latest_run": "runs/change-design-739ef573505a3705.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md",
+          "sha256": "sha256:17fc01b65e7ef354b28d81bd4272d8842b4d572eadaff51d92dfd4baccba08c6"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "contracts/changes/m7_complete_engineering_cr_v1.json",
+          "sha256": "sha256:9fa4ae01810de1d6f82ae0e7270239d6bab563511d098141ca226fd64ab19009"
+        }
+      ],
+      "updated_at": "2026-07-29T20:05:23+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "design-review": {
+      "owner_skill": "eng-review-design",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Independent R3 review found no P0-P3 findings in the final repair design.",
+      "latest_run": "runs/design-review-90175199fa7c47d0.json",
+      "subject_digest": "sha256:17fc01b65e7ef354b28d81bd4272d8842b4d572eadaff51d92dfd4baccba08c6",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v8_final_repairs_independent.md",
+          "sha256": "sha256:414596dd26170dd1d3a3555c40ce2c1f00f30628c822743166a1efd359c2b9a2"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md",
+          "sha256": "sha256:17fc01b65e7ef354b28d81bd4272d8842b4d572eadaff51d92dfd4baccba08c6"
+        }
+      ],
+      "updated_at": "2026-07-29T20:05:24+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m65_v24_adversarial_review",
+        "limitations": [
+          "Engineering design only; no empirical authority."
+        ]
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "test-design": {
+      "owner_skill": "eng-design-tests",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The matrix covers exact candidates, persisted recovery, strict checkpoint dispatch, clean-process journeys and fail-closed empirical preflight.",
+      "latest_run": "runs/test-design-73d59aba650ff719.json",
+      "subject_digest": "sha256:d589d22e9a2c222e9e4f2d0fab534af6759a18854dc435ae65136adc19de5f1b",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md",
+          "sha256": "sha256:d589d22e9a2c222e9e4f2d0fab534af6759a18854dc435ae65136adc19de5f1b"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v8_final_repairs_independent.md",
+          "sha256": "sha256:414596dd26170dd1d3a3555c40ce2c1f00f30628c822743166a1efd359c2b9a2"
+        }
+      ],
+      "updated_at": "2026-07-29T20:05:24+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-red": {
+      "owner_skill": "eng-write-tests",
+      "mode": "red",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The protected adapter test historically failed for the intended missing module before implementation.",
+      "latest_run": "runs/tests-red-e99ea7ddff872491.json",
+      "subject_digest": "sha256:231a0e46a7a094a9a20c62000bbad5dc6322e86baf200082e349a9d5d2511f55",
+      "artifacts": [
+        {
+          "path": "tests/test_m7_review_repairs_red.py",
+          "sha256": "sha256:231a0e46a7a094a9a20c62000bbad5dc6322e86baf200082e349a9d5d2511f55"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v5_code_review_repairs.md",
+          "sha256": "sha256:6804e74c15b4fde443d30f0a8c42131753426dbdad67f4c465a8a43503f7c5fc"
+        }
+      ],
+      "updated_at": "2026-07-29T20:06:34+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -c 'from qlib_peerlite.m7.run_state import EmpiricalFitLease'",
+          "executed_at": "2026-07-29T20:06:33+00:00",
+          "exit_code": 1,
+          "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:5e7f5df332ab3b18166959a6dd998d01f1cc1849fd00e074dae9dcb490d7cd45; stderr_bytes=234",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-c",
+            "from qlib_peerlite.m7.run_state import EmpiricalFitLease"
+          ],
+          "expected_exit_code": 1,
+          "finished_at": "2026-07-29T20:06:33+00:00",
+          "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 0,
+          "stderr_sha256": "sha256:5e7f5df332ab3b18166959a6dd998d01f1cc1849fd00e074dae9dcb490d7cd45",
+          "stderr_bytes": 234,
+          "source_digest_before": "sha256:e07721d16cf10e6a3508f842cee873ad9414549837fecf80e8954beb57bd90a4",
+          "source_digest_after": "sha256:e07721d16cf10e6a3508f842cee873ad9414549837fecf80e8954beb57bd90a4"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "implementation": {
+      "owner_skill": "eng-implement-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Synthetic-only CCC and Gate, strict authority, checkpoint, recovery and CI controls are complete.",
+      "latest_run": "runs/implementation-4b2326b4c5711b79.json",
+      "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+      "artifacts": [
+        {
+          "path": "src/qlib_peerlite/m7/adapter.py",
+          "sha256": "sha256:5b1de439a4943830907de00bcfb05f11bcfc7e96f6bf78938ff59882bda6db4c"
+        },
+        {
+          "path": "src/qlib_peerlite/m7/ccc.py",
+          "sha256": "sha256:9c4431dda12f09fb94db10c645fefd245a4106f25995105abfa914de05dcb6ab"
+        },
+        {
+          "path": "src/qlib_peerlite/m7/checkpoint.py",
+          "sha256": "sha256:bb1de548ab728246be3f756bcab423683caec0516c14fe09fccdb6f0f028e59d"
+        },
+        {
+          "path": "src/qlib_peerlite/m7/market_state.py",
+          "sha256": "sha256:10aba01c7f0694ef3b5e39033db5749e0bcfd1a3f40066e27ffb93d41d1b7c0d"
+        },
+        {
+          "path": "src/qlib_peerlite/m7/prerequisites.py",
+          "sha256": "sha256:df97d6e6d629ad511a82edfaef262dc5349035f52c53ec2fb7f271d994126c62"
+        },
+        {
+          "path": "src/qlib_peerlite/m7/run_state.py",
+          "sha256": "sha256:6698c702824a595c06bb45b141be3af4e1155dd758df65e7aa10c6894302e15d"
+        },
+        {
+          "path": "src/qlib_peerlite/models/peerlite.py",
+          "sha256": "sha256:ff5852701210530d446fa89ca5895c377dab8e9d2604d274f99b9e3fbb6d2af5"
+        },
+        {
+          "path": "scripts/run_m7_acceptance.py",
+          "sha256": "sha256:d6fed9f2498031f87e45c727266eb219ad049e53268da13073d2dbc6aeab04cf"
+        },
+        {
+          "path": ".github/workflows/m7-quality-gate.yml",
+          "sha256": "sha256:5ce7dab3dd91dd3b11657c6256161dd59d8a3e57d1eadee158372fca22f4dd9c"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/implementation_final_v2.md",
+          "sha256": "sha256:9341af3f76d8e299e607a50af8b849f1f391a6cfc66a20a881fbc277916a0e64"
+        }
+      ],
+      "updated_at": "2026-07-29T20:17:07+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+          "executed_at": "2026-07-30T04:05:00+08:00",
+          "exit_code": 0,
+          "summary": "Static checks pass."
+        },
+        {
+          "command": ".venv/bin/python -m pytest -q",
+          "executed_at": "2026-07-30T04:05:00+08:00",
+          "exit_code": 0,
+          "summary": "Full suite passes."
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-green": {
+      "owner_skill": "eng-write-tests",
+      "mode": "green",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The full suite passes and the complete M7 package reaches exact 100% line and branch coverage.",
+      "latest_run": "runs/tests-green-0a3e91b32ee9e292.json",
+      "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+      "artifacts": [
+        {
+          "path": "tests/test_m7_complete.py",
+          "sha256": "sha256:c4641a4c9ee6f41f3412858aac2de2698d0f1e1f1735b5f7e67201423130c9d7"
+        },
+        {
+          "path": "tests/test_m7_complete_red.py",
+          "sha256": "sha256:50254dd8d1ea6ab3db5a71d5760a81a197b76441ca22e1629f0cc532410b8919"
+        },
+        {
+          "path": "tests/test_m7_expected_red.py",
+          "sha256": "sha256:8c1d2b8aaa4945dde79dcd82d899f1d53b8772e858e0b4f66fab4ae0c2629bc6"
+        },
+        {
+          "path": "tests/test_m7_first_tranche_green.py",
+          "sha256": "sha256:f19e0579d07611a5a2290fb34e1c73d7b7dfee980bf7b5e04815490544a2400c"
+        },
+        {
+          "path": "tests/test_m7_review_repairs_red.py",
+          "sha256": "sha256:231a0e46a7a094a9a20c62000bbad5dc6322e86baf200082e349a9d5d2511f55"
+        },
+        {
+          "path": "tests/test_m7_acceptance_cli.py",
+          "sha256": "sha256:4a23556756d207dd81607f3314ae135cb2669102a95681d786614f1d15dac6b5"
+        },
+        {
+          "path": ".engineering-quality/coverage-policy.json",
+          "sha256": "sha256:3d7b6c515c86df7a238573400e307a8e50bd552b6238175dd5bb2be5b137921b"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_green_final.md",
+          "sha256": "sha256:a34453cac2ae01660299668d5c854bf0a23b14a90b3b2dc4dee0cc9a97293702"
+        },
+        {
+          "path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+          "sha256": "sha256:9c0ee852ae29efb5e365ec8cffb5636e912b189f093409a11f55405f0db9329e"
+        },
+        {
+          "path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.raw.json",
+          "sha256": "sha256:de5df7ba4ea73ab33c71b9c4819b92cdfa73af2343ee019ef2a82addf4d2d559"
+        }
+      ],
+      "updated_at": "2026-07-29T20:17:59+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+          "executed_at": "2026-07-29T20:17:44+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "tests",
+            "scripts",
+            "--exclude",
+            "scripts/vendor"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T20:17:44+00:00",
+          "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "stdout_bytes": 19,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+          "source_digest_after": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+        },
+        {
+          "command": ".venv/bin/python -m pytest -q",
+          "executed_at": "2026-07-29T20:17:44+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:e0e90a17996284580413a4a2c4796a999ebf89442ef9056d83bf836b4e6c3f05; stdout_bytes=261; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T20:17:56+00:00",
+          "stdout_sha256": "sha256:e0e90a17996284580413a4a2c4796a999ebf89442ef9056d83bf836b4e6c3f05",
+          "stdout_bytes": 261,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+          "source_digest_after": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+        },
+        {
+          "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m7-core --receipt docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+          "executed_at": "2026-07-29T20:17:56+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:57f9bfe333f9d2121380813fee7b1c1338ee43ea546dc81367f41659027113f2; stdout_bytes=437; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            "python3",
+            "scripts/quality/quality_ledger.py",
+            "capture-coverage",
+            "--repo",
+            ".",
+            "--profile",
+            "m7-core",
+            "--receipt",
+            "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T20:17:59+00:00",
+          "stdout_sha256": "sha256:57f9bfe333f9d2121380813fee7b1c1338ee43ea546dc81367f41659027113f2",
+          "stdout_bytes": 437,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+          "source_digest_after": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null,
+      "coverage": {
+        "schema_version": "engineering-quality-coverage-v1",
+        "receipt_path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+        "policy": {
+          "path": ".engineering-quality/coverage-policy.json",
+          "sha256": "sha256:3d7b6c515c86df7a238573400e307a8e50bd552b6238175dd5bb2be5b137921b",
+          "profile": "m7-core"
+        },
+        "format": "coveragepy-json",
+        "source_roots": [
+          "src/qlib_peerlite/m7"
+        ],
+        "expected_core_paths": [
+          "src/qlib_peerlite/m7/__init__.py",
+          "src/qlib_peerlite/m7/adapter.py",
+          "src/qlib_peerlite/m7/ccc.py",
+          "src/qlib_peerlite/m7/checkpoint.py",
+          "src/qlib_peerlite/m7/market_state.py",
+          "src/qlib_peerlite/m7/prerequisites.py",
+          "src/qlib_peerlite/m7/run_state.py"
+        ],
+        "observed_core_paths": [
+          "src/qlib_peerlite/m7/__init__.py",
+          "src/qlib_peerlite/m7/adapter.py",
+          "src/qlib_peerlite/m7/ccc.py",
+          "src/qlib_peerlite/m7/checkpoint.py",
+          "src/qlib_peerlite/m7/market_state.py",
+          "src/qlib_peerlite/m7/prerequisites.py",
+          "src/qlib_peerlite/m7/run_state.py"
+        ],
+        "line": {
+          "covered": 537,
+          "total": 537,
+          "missing": 0,
+          "excluded": 0,
+          "percent": 100.0
+        },
+        "branch": {
+          "covered": 190,
+          "total": 190,
+          "missing": 0,
+          "excluded": 0,
+          "percent": 100.0
+        },
+        "required_line_percent": 100.0,
+        "required_branch_percent": 100.0,
+        "source": {
+          "kind": "raw-report",
+          "path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.raw.json",
+          "sha256": "sha256:de5df7ba4ea73ab33c71b9c4819b92cdfa73af2343ee019ef2a82addf4d2d559"
+        }
+      }
+    },
+    "code-review": {
+      "owner_skill": "eng-review-code",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Independent final review found no P0-P3 findings after strict receipt, checkpoint-context and measured-side-effect repairs.",
+      "latest_run": "runs/code-review-4f993526c96549eb.json",
+      "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md",
+          "sha256": "sha256:9ac5734c47fae454fc6eef43d773230ebfc7749e6842c56785ba3411ad90f476"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r13.json",
+          "sha256": "sha256:9c0ee852ae29efb5e365ec8cffb5636e912b189f093409a11f55405f0db9329e"
+        },
+        {
+          "path": "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
+          "sha256": "sha256:31a0dcb995782bbcd004709c9bd2561ffe957acf41c9b9940c56184dd5c1fcc4"
+        }
+      ],
+      "updated_at": "2026-07-29T20:18:23+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m65_v24_adversarial_review",
+        "limitations": [
+          "Engineering and synthetic mechanics only; no empirical or Alpha claim."
+        ]
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "e2e": {
+      "owner_skill": "eng-validate-e2e",
+      "mode": "acceptance",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "CCC and Gate replay exactly with zero measured repository effects; empirical preflight remains fail-closed and NOT_RUN.",
+      "latest_run": "runs/e2e-c597645c0bb37fca.json",
+      "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+      "artifacts": [
+        {
+          "path": "scripts/run_m7_acceptance.py",
+          "sha256": "sha256:d6fed9f2498031f87e45c727266eb219ad049e53268da13073d2dbc6aeab04cf"
+        },
+        {
+          "path": "tests/test_m7_acceptance_cli.py",
+          "sha256": "sha256:4a23556756d207dd81607f3314ae135cb2669102a95681d786614f1d15dac6b5"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m7-isolated-increments-final/evidence/e2e_final.md",
+          "sha256": "sha256:998691bf3f1c2745f01fe6e19459f6f3754e34edef811c55f6085afc9f7b50cb"
+        },
+        {
+          "path": "docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md",
+          "sha256": "sha256:9ac5734c47fae454fc6eef43d773230ebfc7749e6842c56785ba3411ad90f476"
+        }
+      ],
+      "updated_at": "2026-07-29T20:19:07+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python scripts/run_m7_acceptance.py ccc",
+          "executed_at": "2026-07-29T20:19:01+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:a4c16d82c20a51c4d4d05fe0a1afb99c2a4339e0bbd3c55642210edf766e5cb2; stdout_bytes=221; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/run_m7_acceptance.py",
+            "ccc"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T20:19:03+00:00",
+          "stdout_sha256": "sha256:a4c16d82c20a51c4d4d05fe0a1afb99c2a4339e0bbd3c55642210edf766e5cb2",
+          "stdout_bytes": 221,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+          "source_digest_after": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+        },
+        {
+          "command": ".venv/bin/python scripts/run_m7_acceptance.py gate",
+          "executed_at": "2026-07-29T20:19:03+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:063dbc2669ba146b49f8f1337e25a2357228f7be61f0c97303b15154e011bc71; stdout_bytes=227; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/run_m7_acceptance.py",
+            "gate"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T20:19:05+00:00",
+          "stdout_sha256": "sha256:063dbc2669ba146b49f8f1337e25a2357228f7be61f0c97303b15154e011bc71",
+          "stdout_bytes": 227,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+          "source_digest_after": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+        },
+        {
+          "command": ".venv/bin/python scripts/run_m7_acceptance.py preflight",
+          "executed_at": "2026-07-29T20:19:05+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:38e3416786669f5fcad7f72b3ce10c37f0e1ede47ded6817ac383045b142d527; stdout_bytes=820; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/run_m7_acceptance.py",
+            "preflight"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-29T20:19:07+00:00",
+          "stdout_sha256": "sha256:38e3416786669f5fcad7f72b3ce10c37f0e1ede47ded6817ac383045b142d527",
+          "stdout_bytes": 820,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+          "source_digest_after": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "ci": {
+      "owner_skill": "ci",
+      "mode": "external",
+      "applicability": "REQUIRED",
+      "status": "PENDING",
+      "reason": null,
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-29T20:03:42+00:00"
+    }
+  },
+  "latest_route": {
+    "next_action": "CI",
+    "stage_id": "ci",
+    "skill": null,
+    "reason_code": "READY_FOR_EXTERNAL_CI",
+    "reason": "All required Skill stages are current PASS; the live external required check is the final gate."
+  },
+  "blockers": [],
+  "exceptions": [],
+  "history": [
+    {
+      "at": "2026-07-29T20:03:42+00:00",
+      "event": "LEDGER_INITIALIZED",
+      "stage": "scope",
+      "detail": "Initialized at R3."
+    },
+    {
+      "at": "2026-07-29T20:04:22+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-6bda7b51f5bb16c6."
+    },
+    {
+      "at": "2026-07-29T20:05:23+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-739ef573505a3705."
+    },
+    {
+      "at": "2026-07-29T20:05:24+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "PASS as design-review-90175199fa7c47d0."
+    },
+    {
+      "at": "2026-07-29T20:05:24+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "test-design",
+      "detail": "PASS as test-design-73d59aba650ff719."
+    },
+    {
+      "at": "2026-07-29T20:06:34+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-e99ea7ddff872491."
+    },
+    {
+      "at": "2026-07-29T20:06:48+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-96e8d6550a0b0a52."
+    },
+    {
+      "at": "2026-07-29T20:09:44+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-04ae1744da730031."
+    },
+    {
+      "at": "2026-07-29T20:16:31+00:00",
+      "event": "SOURCE_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: implementation, tests-green."
+    },
+    {
+      "at": "2026-07-29T20:17:07+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-4b2326b4c5711b79."
+    },
+    {
+      "at": "2026-07-29T20:17:59+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-0a3e91b32ee9e292."
+    },
+    {
+      "at": "2026-07-29T20:18:23+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "PASS as code-review-4f993526c96549eb."
+    },
+    {
+      "at": "2026-07-29T20:19:07+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "e2e",
+      "detail": "PASS as e2e-c597645c0bb37fca."
+    }
+  ]
+}

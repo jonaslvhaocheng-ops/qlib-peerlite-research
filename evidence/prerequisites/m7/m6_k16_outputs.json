@@ -1,0 +1,15 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "m6_k16_outputs_v1",
+  "status": "PASS",
+  "m6_gate": {
+    "path": "evidence/gates/M6_peerlite_gate.json",
+    "sha256": "83cdc68597e6b3bddc79fe366d71d9c4cc08398d88f06c94087d4b56bbf8ae86"
+  },
+  "prediction": {
+    "server_path": "artifacts/runs/m6_peerlite_20260728_v1/PEERLITE_K16_MSE/predictions.parquet",
+    "rows": 949014,
+    "sha256": "559968e710e269775c67afa26f0e4f04713e43f3c5e07f877337a947a5fc99e3"
+  },
+  "assertion": "The frozen parsimonious M6 comparator covers all seven 2018-2024 rolling test folds and no final-OOS date."
+}

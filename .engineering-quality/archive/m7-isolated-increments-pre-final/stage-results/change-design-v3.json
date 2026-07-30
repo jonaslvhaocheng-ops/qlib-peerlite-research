@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 18,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FIRST_IMPLEMENTATION_SLICE_FAIL_CLOSED",
+  "summary": "The refreshed design explicitly treats the current CCC and legacy-channel repair as tranche one; the abstract verified-state seam grants no authority, and all concrete factory, checkpoint, prerequisite and run-state surfaces remain mandatory future tranches.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+    "src/qlib_peerlite/models/losses.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "src/qlib_peerlite/data/verified_market_state.py",
+    "tests/test_m7_expected_red.py"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "blockers": []
+}

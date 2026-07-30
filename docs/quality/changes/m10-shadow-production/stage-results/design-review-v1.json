@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 4,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M10_ATOMICITY_AND_SIGNAL_TIME_CONTRACT_INCOMPLETE",
+  "summary": "M10 remains safely bounded away from live execution, but its exactly-once commit protocol, signal-session semantics, filesystem trust boundary and synthetic/resource enforcement are not implementation-ready.",
+  "issue_type": "design",
+  "artifact_paths": [],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/design_review_v1.md",
+    "docs/m10/CHANGE_DESIGN.md",
+    "docs/m10/ARCHITECTURE.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:13f9d66fa26e8e44b5b0d93214b87cc23e6b145f2d7ec832f2df1e56061750eb",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m10_independent_design_review"
+  },
+  "blockers": [
+    "Exactly-once reservation, commit and crash-recovery protocol is incomplete.",
+    "Signal datetime, trading session and scheduled-cycle relationship is incomplete.",
+    "Filesystem path and immutable-input trust boundaries are incomplete.",
+    "Synthetic identity and bounded-input enforcement are incomplete."
+  ]
+}

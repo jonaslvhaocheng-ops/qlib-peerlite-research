@@ -1,0 +1,101 @@
+{
+  "builder": [
+    {
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/scripts/server/build_m7_market_state_product.py",
+      "sha256": "eafb949d781a8a751dd1334d464fea7e08d72845c9be8d3a72219133ff990859"
+    },
+    {
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/scripts/server/build_pit_data_product.py",
+      "sha256": "c6b499ba3037b64026f0784627b745494eca019ae6208ad2dc33c94889ac8d30"
+    },
+    {
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/src/qlib_peerlite/data/features.py",
+      "sha256": "0de3b798e8f49032bb04c58507ab471591e167013d58ea9f3f86e62308b47ef0"
+    },
+    {
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/src/qlib_peerlite/data/market_state.py",
+      "sha256": "b9b8b1052ae32bf3812a06b42d83520a089cbb9bb3604cc755362375fc470706"
+    }
+  ],
+  "content_sha256": "efd8bae71ee53c417b7c5b3de2cd4d27d1864625ffb1fb6426c7b63810235555",
+  "created_at": "2026-07-30T07:33:19.616095+08:00",
+  "oos_seal": {
+    "final_oos_market_partitions_opened": false,
+    "final_oos_start": "2025-01-01",
+    "performance_metrics_computed": false
+  },
+  "policy": {
+    "labels_or_execution_fields_consumed": false,
+    "population": "PIT CSI800 member AND 60-session listing age AND active AND non-ST/non-unknown AND valid RAW price domain AND causal-feature eligible",
+    "state_outputs": [
+      "mkt_trend_20",
+      "mkt_vol_20",
+      "mkt_breadth_1d",
+      "mkt_turnover_20"
+    ],
+    "state_sources": [
+      "ret_mean_20",
+      "ret_std_20",
+      "ret_1d",
+      "turnover_mean_20"
+    ]
+  },
+  "population": {
+    "path": "selected_population.parquet",
+    "rows": 1886994,
+    "sha256": "a0279c918c22850c92e25a4f8fe8c9c43b36740c9a8d9f346c70a42e0fa1f20a"
+  },
+  "product_id": "m7_market_state_product_2012_2024_v1",
+  "required_model_date_axis": {
+    "dates_sha256": "9c1643db7ddde3db29003c955457d22b310b019656bc3c1a238bfdaff7f82a30",
+    "product_manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3"
+  },
+  "schema_version": "qlib_peerlite_market_state_product_v1",
+  "semantic_version": "m7_market_state_product_v1",
+  "source_snapshot": {
+    "bundle_sha256": "2575e52c7375fe28c06ccc6305da34e3328f025e7397ae735264f06cf62dc040",
+    "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1",
+    "source_bindings": {
+      "datayes-corporate-action-mask": {
+        "manifest": "mkt_adjf.manifest.json",
+        "manifest_sha256": "e40fb724d9fd2a900921f41206252b758b9bfe311bf143295f7566ebf06831b6"
+      },
+      "datayes-daily-raw": {
+        "manifest": "mkt_equd.manifest.json",
+        "manifest_sha256": "d3f285c62c405ceed0b05fddc3abaf82f704815216ed42e454eab0e240ad3730"
+      },
+      "datayes-index-constituents": {
+        "manifest": "idx_cons_core.manifest.json",
+        "manifest_sha256": "d6c5e5b2acfe2b8b1d354a07a7fed0a3e5b594eaa7dafc2c871fed48a5565667"
+      },
+      "datayes-price-limits": {
+        "manifest": "mkt_limit.manifest.json",
+        "manifest_sha256": "165afd8e37dd9c6bc52036464b1aac9822f002a1d443ce8a4122db0e9cfc98a2"
+      },
+      "datayes-security-halts": {
+        "manifest": "md_sec_halt.manifest.json",
+        "manifest_sha256": "24426f0f46513b565b1b76f3d76abd9fc31ac0e5d9f0a6b31bc80a7a20d25853"
+      },
+      "datayes-security-master": {
+        "manifest": "md_security.manifest.json",
+        "manifest_sha256": "4eff64dd068d805754cea9d1d9e720c7d7be7a180f6a23686f5434fbe3e03426"
+      },
+      "datayes-special-status": {
+        "manifest": "equ_inst_sstate.manifest.json",
+        "manifest_sha256": "991212489d58c1ce3dc6aab7b1980774a4f0a80d28775a81bf11f954b811059e"
+      },
+      "datayes-trade-calendar": {
+        "manifest": "md_trade_cal.manifest.json",
+        "manifest_sha256": "1aefd73dfd64dc5bdbb4e688e0812f962b191353b8bb5b90a56428472cb7fd0b"
+      }
+    }
+  },
+  "state": {
+    "date_max": "2024-12-17",
+    "date_min": "2012-01-04",
+    "path": "market_state.parquet",
+    "rows": 3137,
+    "sha256": "1af85b0a0259db96eb1699b6e4339d41ee9d628123c19eb22f25e269bc741f78"
+  },
+  "status": "BUILT_NOT_PIT_QUALIFIED"
+}

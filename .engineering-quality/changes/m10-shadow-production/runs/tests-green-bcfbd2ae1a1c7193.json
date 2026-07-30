@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 58,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M10_SECURITY_HARDENED_SUITE_GREEN",
+  "summary": "The locked, no-replace M10 revision passes static checks, all 241 repository tests, all 50 focused tests, and exact 100% protected line and branch coverage.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T06:35:25+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts",
+        "--exclude",
+        "scripts/vendor"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T06:35:25+00:00",
+      "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stdout_bytes": 19,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+      "source_digest_after": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T06:35:25+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:482ea0a97725550e805c1bf373d69dbecb70599e94815f92aeebc1c8d397cb94; stdout_bytes=341; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T06:35:38+00:00",
+      "stdout_sha256": "sha256:482ea0a97725550e805c1bf373d69dbecb70599e94815f92aeebc1c8d397cb94",
+      "stdout_bytes": 341,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+      "source_digest_after": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7"
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m10-core --receipt docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+      "executed_at": "2026-07-30T06:35:38+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:368d9d3ae436c5c7eb332af52688f9441a0dff36f79c20dd2acc1166e4858e00; stdout_bytes=434; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        "python3",
+        "scripts/quality/quality_ledger.py",
+        "capture-coverage",
+        "--repo",
+        ".",
+        "--profile",
+        "m10-core",
+        "--receipt",
+        "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T06:35:40+00:00",
+      "stdout_sha256": "sha256:368d9d3ae436c5c7eb332af52688f9441a0dff36f79c20dd2acc1166e4858e00",
+      "stdout_bytes": 434,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+      "source_digest_after": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7"
+    }
+  ],
+  "coverage": {
+    "schema_version": "engineering-quality-coverage-v1",
+    "receipt_path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+    "policy": {
+      "path": ".engineering-quality/coverage-policy.json",
+      "sha256": "sha256:50b1d4519f03f2aaddb89e929247b0637b0537d46add977c5c0e671edb3589ac",
+      "profile": "m10-core"
+    },
+    "format": "coveragepy-json",
+    "source_roots": [
+      "src/qlib_peerlite/production"
+    ],
+    "expected_core_paths": [
+      "src/qlib_peerlite/production/__init__.py",
+      "src/qlib_peerlite/production/cycle.py",
+      "src/qlib_peerlite/production/errors.py",
+      "src/qlib_peerlite/production/orders.py",
+      "src/qlib_peerlite/production/policy.py",
+      "src/qlib_peerlite/production/schedule.py",
+      "src/qlib_peerlite/production/signals.py"
+    ],
+    "observed_core_paths": [
+      "src/qlib_peerlite/production/__init__.py",
+      "src/qlib_peerlite/production/cycle.py",
+      "src/qlib_peerlite/production/errors.py",
+      "src/qlib_peerlite/production/orders.py",
+      "src/qlib_peerlite/production/policy.py",
+      "src/qlib_peerlite/production/schedule.py",
+      "src/qlib_peerlite/production/signals.py"
+    ],
+    "line": {
+      "covered": 785,
+      "total": 785,
+      "missing": 0,
+      "excluded": 0,
+      "percent": 100.0
+    },
+    "branch": {
+      "covered": 220,
+      "total": 220,
+      "missing": 0,
+      "excluded": 0,
+      "percent": 100.0
+    },
+    "required_line_percent": 100.0,
+    "required_branch_percent": 100.0,
+    "source": {
+      "kind": "raw-report",
+      "path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.raw.json",
+      "sha256": "sha256:dd88fa46ee298450e0aeb0cacdaae1532fe710a8514cac25d4f71479b8fdcc37"
+    }
+  },
+  "subject_digest": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T06:35:40+00:00",
+  "source_digest": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+  "artifacts": [
+    {
+      "path": "tests/test_m10_production.py",
+      "sha256": "sha256:252c888cac73e1836497c53b39b6eb5ec006c88fa1fb8f300ffa9d9d990d4bb4"
+    },
+    {
+      "path": "tests/test_m10_edge_coverage.py",
+      "sha256": "sha256:de5203f7f5a2edd790ea4f00018f06470c676d4a9b109e299a563bf73154594d"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/tests_green_v2.md",
+      "sha256": "sha256:2e25bef0acf25ba55ad9cf11f3124f7792da54cce873c4b4769079aed8e245be"
+    },
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+      "sha256": "sha256:f615e9440573e38a8bb53b6de4686cf7c8c072992e493ca2e50eaa69e1455e5c"
+    },
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.raw.json",
+      "sha256": "sha256:dd88fa46ee298450e0aeb0cacdaae1532fe710a8514cac25d4f71479b8fdcc37"
+    }
+  ],
+  "run_id": "tests-green-bcfbd2ae1a1c7193"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 58,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M10_SECURITY_HARDENED_SUITE_GREEN",
+  "summary": "The locked, no-replace M10 revision passes static checks, all 241 repository tests, all 50 focused tests, and exact 100% protected line and branch coverage.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m10_production.py",
+    "tests/test_m10_edge_coverage.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/tests_green_v2.md",
+    "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+    "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.raw.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T14:21:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must observe a clean Ruff result."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T14:21:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must observe all 241 repository tests passing."
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m10-core --receipt docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+      "executed_at": "2026-07-30T14:21:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must validate the revision-bound 100% M10 coverage receipt."
+    }
+  ],
+  "coverage": {
+    "receipt_path": "docs/quality/changes/m10-shadow-production/evidence/coverage-m10-r58.json",
+    "profile": "m10-core"
+  },
+  "subject_digest": "sha256:80550e913f9011649cffb2b8af3838073069885fd0422ace93d708215d2f26b7",
+  "independence": null,
+  "blockers": []
+}

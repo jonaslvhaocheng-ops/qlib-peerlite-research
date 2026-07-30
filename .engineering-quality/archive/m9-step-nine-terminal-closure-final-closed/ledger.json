@@ -1,0 +1,610 @@
+{
+  "schema_version": "1.0",
+  "suite_version": "0.3.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 15,
+  "status": "READY_FOR_CI",
+  "repository": {
+    "identity": "github.com/jonaslvhaocheng-ops/qlib-peerlite-research",
+    "root_hint": "qlib模型框架",
+    "baseline_commit": "66b94eb193a62b461d64338a9e1e602ca124743a",
+    "branch": "codex/m8-institutional-evaluation",
+    "source_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+  },
+  "scope": {
+    "goal": "Close the original nine-step research cycle with a hash-bound terminal HOLD after official contract reauthorization fails before training, preserving the append-only trial ledger and untouched final OOS.",
+    "non_goals": [],
+    "changed_surfaces": [],
+    "change_kind": "unspecified",
+    "architecture_required": true,
+    "critical_journeys": [
+      "official QRC rejection -> zero training side effects -> terminal HOLD gate -> no promotion or final-OOS access"
+    ]
+  },
+  "risk": {
+    "tier": "R3",
+    "initial_tier": "R3",
+    "rationale": [],
+    "locked": true
+  },
+  "stages": {
+    "scope": {
+      "owner_skill": "eng-route-quality-work",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Scope and locked risk supplied at initialization.",
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-30T04:46:53+00:00"
+    },
+    "architecture": {
+      "owner_skill": "eng-architect-repository",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The terminal HOLD adds no model, data, portfolio, OOS or production surface and binds existing evidence through the established gate and test roots.",
+      "latest_run": "runs/architecture-2ab183d9a9f95891.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/architecture_confirmation.md",
+          "sha256": "sha256:6882bd98af209dae1ef7726aeb5474a580ada9d8dda9a854131a30807523a826"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+          "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+        }
+      ],
+      "updated_at": "2026-07-30T04:54:17+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "change-design": {
+      "owner_skill": "eng-design-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The design preserves M8, stops before training on official contract rejection, leaves the OOS untouched and permits only a future disjoint research cycle.",
+      "latest_run": "runs/change-design-afaafe4ca861f7e2.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/change_design.md",
+          "sha256": "sha256:d9ecb62d3599ad3c3eeb233b6040aa27350dd85476ab9d8601e0541c66797e8d"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+          "sha256": "sha256:727855f19e5bf5bdbf2ac242f140134fbf36e5ae4a78dd39ed855373c5583528"
+        },
+        {
+          "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+          "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+        }
+      ],
+      "updated_at": "2026-07-30T04:54:17+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "design-review": {
+      "owner_skill": "eng-review-design",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Independent review found no P0-P3 issue: the decision is limited to the invalid current contract, preserves append-only prefixes and makes no Alpha, promotion, OOS or future-path claim.",
+      "latest_run": "runs/design-review-b228eec8a1ace9a5.json",
+      "subject_digest": "sha256:d9ecb62d3599ad3c3eeb233b6040aa27350dd85476ab9d8601e0541c66797e8d",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/design_review_independent.md",
+          "sha256": "sha256:8ccc1d693a5b3494506ab359c55a67461921f5296dddc8e183b91055ac64ed21"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/change_design.md",
+          "sha256": "sha256:d9ecb62d3599ad3c3eeb233b6040aa27350dd85476ab9d8601e0541c66797e8d"
+        },
+        {
+          "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+          "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+        },
+        {
+          "path": "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+          "sha256": "sha256:727855f19e5bf5bdbf2ac242f140134fbf36e5ae4a78dd39ed855373c5583528"
+        },
+        {
+          "path": "docs/m9/FINAL_STEP_NINE_DECISION.md",
+          "sha256": "sha256:945831cb1e203d1f4bc91dd6a9a89cfe7efc7d7a388d6894dff1dafd2953f705"
+        }
+      ],
+      "updated_at": "2026-07-30T04:54:18+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m9_independent_design_review"
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "test-design": {
+      "owner_skill": "eng-design-tests",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The matrix covers exact validator errors, lineage inconsistency, canonical gate hashing, append-only prefixes, zero side effects and forbidden promotion claims.",
+      "latest_run": "runs/test-design-efecc99f0545eb77.json",
+      "subject_digest": null,
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/test_design.md",
+          "sha256": "sha256:a9d4a3fc89e91e7bcf10225b2954a48519600d6a2e5e6ab546af85655ca5c6f0"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/design_review_independent.md",
+          "sha256": "sha256:8ccc1d693a5b3494506ab359c55a67461921f5296dddc8e183b91055ac64ed21"
+        }
+      ],
+      "updated_at": "2026-07-30T04:56:35+00:00",
+      "commands": [],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-red": {
+      "owner_skill": "eng-write-tests",
+      "mode": "red",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The expected-red probe exits nonzero when the retained failed contract attempt is presented as an authorization surface.",
+      "latest_run": "runs/tests-red-4680be6c2453f45f.json",
+      "subject_digest": "sha256:0b339c70ea8af802504fdda4306b621b62caa042f73d50569de5ef3ee47e86b1",
+      "artifacts": [
+        {
+          "path": "scripts/quality/m9_expected_red_probe.py",
+          "sha256": "sha256:0b339c70ea8af802504fdda4306b621b62caa042f73d50569de5ef3ee47e86b1"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/tests_red.md",
+          "sha256": "sha256:8dce8e4af879fda1467bb548ee1d8491610d723c027942df2e7060ba3d3eb233"
+        }
+      ],
+      "updated_at": "2026-07-30T04:56:36+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python scripts/quality/m9_expected_red_probe.py",
+          "executed_at": "2026-07-30T04:56:36+00:00",
+          "exit_code": 1,
+          "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:95c742a094e437cbc99e4b54d509096fa53c28bd6df72635e9a8fdbe4985232e; stderr_bytes=75",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "scripts/quality/m9_expected_red_probe.py"
+          ],
+          "expected_exit_code": 1,
+          "finished_at": "2026-07-30T04:56:36+00:00",
+          "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_bytes": 0,
+          "stderr_sha256": "sha256:95c742a094e437cbc99e4b54d509096fa53c28bd6df72635e9a8fdbe4985232e",
+          "stderr_bytes": 75,
+          "source_digest_before": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+          "source_digest_after": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "implementation": {
+      "owner_skill": "eng-implement-change",
+      "mode": null,
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The failed attempt, prefix-safe evidence, terminal HOLD gate, reader decision, expected-red probe and tamper tests are implemented without changing model or OOS surfaces.",
+      "latest_run": "runs/implementation-05e48625c92acf93.json",
+      "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+      "artifacts": [
+        {
+          "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+          "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+        },
+        {
+          "path": "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+          "sha256": "sha256:727855f19e5bf5bdbf2ac242f140134fbf36e5ae4a78dd39ed855373c5583528"
+        },
+        {
+          "path": "scripts/quality/m9_expected_red_probe.py",
+          "sha256": "sha256:0b339c70ea8af802504fdda4306b621b62caa042f73d50569de5ef3ee47e86b1"
+        },
+        {
+          "path": "tests/test_m9_terminal_closure.py",
+          "sha256": "sha256:a9af3ee73658ea06cd5ef069829a99d08cf03e7eb191fc38a7964164041320ad"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/implementation.md",
+          "sha256": "sha256:8b27e22589a05c5f5813ee139e58f51fe6e255a7f7d1c6f8e70fbaf019656ae1"
+        }
+      ],
+      "updated_at": "2026-07-30T04:56:36+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m pytest -q tests/test_m9_terminal_closure.py",
+          "executed_at": "2026-07-30T12:55:00+08:00",
+          "exit_code": 0,
+          "summary": "Focused M9 evidence tests passed."
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "tests-green": {
+      "owner_skill": "eng-write-tests",
+      "mode": "green",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Ruff, the focused M9 evidence tests and the complete repository suite pass; no new runtime or model package requires a protected coverage profile.",
+      "latest_run": "runs/tests-green-d876d99693ec05fa.json",
+      "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+      "artifacts": [
+        {
+          "path": "tests/test_m9_terminal_closure.py",
+          "sha256": "sha256:a9af3ee73658ea06cd5ef069829a99d08cf03e7eb191fc38a7964164041320ad"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/tests_green.md",
+          "sha256": "sha256:0591b2e6104d30e5a9ca53504525f2e7ee651d5ba79accbc096913d60b66fbae"
+        },
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json",
+          "sha256": "sha256:09c21231ffbd76bf918fe0362cf2908b267678957501e280a7d0eb845a6908fd"
+        },
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.raw.json",
+          "sha256": "sha256:b885dd3e834c75294b78819a3f4f301bc7e68078d2b6102232e7a9dab12969ad"
+        }
+      ],
+      "updated_at": "2026-07-30T04:59:58+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+          "executed_at": "2026-07-30T04:59:43+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "tests",
+            "scripts",
+            "--exclude",
+            "scripts/vendor"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T04:59:43+00:00",
+          "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+          "stdout_bytes": 19,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+          "source_digest_after": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+        },
+        {
+          "command": ".venv/bin/python -m pytest -q",
+          "executed_at": "2026-07-30T04:59:43+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:6ae493aedb22afb94871f723c263b76248d6ab3e9b38393c03a0c9420541a211; stdout_bytes=261; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T04:59:56+00:00",
+          "stdout_sha256": "sha256:6ae493aedb22afb94871f723c263b76248d6ab3e9b38393c03a0c9420541a211",
+          "stdout_bytes": 261,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+          "source_digest_after": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+        },
+        {
+          "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m8-core --receipt docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json",
+          "executed_at": "2026-07-30T04:59:56+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:2319aa861b88df7d937045710bd41934ade5f8f5a873c46beeb0d1023415096c; stdout_bytes=440; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            "python3",
+            "scripts/quality/quality_ledger.py",
+            "capture-coverage",
+            "--repo",
+            ".",
+            "--profile",
+            "m8-core",
+            "--receipt",
+            "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T04:59:58+00:00",
+          "stdout_sha256": "sha256:2319aa861b88df7d937045710bd41934ade5f8f5a873c46beeb0d1023415096c",
+          "stdout_bytes": 440,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+          "source_digest_after": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null,
+      "coverage": {
+        "schema_version": "engineering-quality-coverage-v1",
+        "receipt_path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json",
+        "policy": {
+          "path": ".engineering-quality/coverage-policy.json",
+          "sha256": "sha256:ddbe2b34684687147d30d34da80f7af14a0ac5726f0c8da2526ebee5928a6518",
+          "profile": "m8-core"
+        },
+        "format": "coveragepy-json",
+        "source_roots": [
+          "src/qlib_peerlite/m8_closure"
+        ],
+        "expected_core_paths": [
+          "src/qlib_peerlite/m8_closure/__init__.py",
+          "src/qlib_peerlite/m8_closure/recovery.py"
+        ],
+        "observed_core_paths": [
+          "src/qlib_peerlite/m8_closure/__init__.py",
+          "src/qlib_peerlite/m8_closure/recovery.py"
+        ],
+        "line": {
+          "covered": 63,
+          "total": 63,
+          "missing": 0,
+          "excluded": 0,
+          "percent": 100.0
+        },
+        "branch": {
+          "covered": 24,
+          "total": 24,
+          "missing": 0,
+          "excluded": 0,
+          "percent": 100.0
+        },
+        "required_line_percent": 100.0,
+        "required_branch_percent": 100.0,
+        "source": {
+          "kind": "raw-report",
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.raw.json",
+          "sha256": "sha256:b885dd3e834c75294b78819a3f4f301bc7e68078d2b6102232e7a9dab12969ad"
+        }
+      }
+    },
+    "code-review": {
+      "owner_skill": "eng-review-code",
+      "mode": "review",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "Independent review found no remaining P0-P3 issue after narrowing the HOLD claim, completing lineage tests and making all append-only bindings prefix-safe.",
+      "latest_run": "runs/code-review-254b031b568d322b.json",
+      "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/code_review_independent.md",
+          "sha256": "sha256:c4e3c0baef7dc8e5e8008eee6a3b261b70865ecdba01ba78c5f03643d61d035e"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+          "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+        },
+        {
+          "path": "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+          "sha256": "sha256:727855f19e5bf5bdbf2ac242f140134fbf36e5ae4a78dd39ed855373c5583528"
+        },
+        {
+          "path": "tests/test_m9_terminal_closure.py",
+          "sha256": "sha256:a9af3ee73658ea06cd5ef069829a99d08cf03e7eb191fc38a7964164041320ad"
+        }
+      ],
+      "updated_at": "2026-07-30T05:00:03+00:00",
+      "commands": [],
+      "independence": {
+        "mode": "independent-agent",
+        "author_context_id": "/root",
+        "reviewer_context_id": "/root/m9_independent_code_review"
+      },
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "e2e": {
+      "owner_skill": "eng-validate-e2e",
+      "mode": "acceptance",
+      "applicability": "REQUIRED",
+      "status": "PASS",
+      "reason": "The acceptance journey verifies the failed contract lineage, zero training/OOS side effects, prefix-safe authority bindings and completed HOLD with no promotion.",
+      "latest_run": "runs/e2e-419e1410ca7981f3.json",
+      "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+      "artifacts": [
+        {
+          "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/e2e_local.md",
+          "sha256": "sha256:1bfa4d98c3656770e60655102e3832a992f11aa50550bcb14b7f6a297c071fed"
+        }
+      ],
+      "evidence": [
+        {
+          "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+          "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+        },
+        {
+          "path": "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+          "sha256": "sha256:727855f19e5bf5bdbf2ac242f140134fbf36e5ae4a78dd39ed855373c5583528"
+        }
+      ],
+      "updated_at": "2026-07-30T05:00:04+00:00",
+      "commands": [
+        {
+          "command": ".venv/bin/python -m pytest -q tests/test_m9_terminal_closure.py",
+          "executed_at": "2026-07-30T05:00:04+00:00",
+          "exit_code": 0,
+          "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:ea1473e2dd8696e5563c596f88447465643cca5ffcdbeb4fe5eda43632df278a; stdout_bytes=98; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+          "receipt_kind": "controller-executed-v1",
+          "argv": [
+            ".venv/bin/python",
+            "-m",
+            "pytest",
+            "-q",
+            "tests/test_m9_terminal_closure.py"
+          ],
+          "expected_exit_code": 0,
+          "finished_at": "2026-07-30T05:00:04+00:00",
+          "stdout_sha256": "sha256:ea1473e2dd8696e5563c596f88447465643cca5ffcdbeb4fe5eda43632df278a",
+          "stdout_bytes": 98,
+          "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_bytes": 0,
+          "source_digest_before": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+          "source_digest_after": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+        }
+      ],
+      "independence": null,
+      "blockers": [],
+      "issue_type": null,
+      "redirect_stage": null
+    },
+    "ci": {
+      "owner_skill": "ci",
+      "mode": "external",
+      "applicability": "REQUIRED",
+      "status": "PENDING",
+      "reason": null,
+      "latest_run": null,
+      "subject_digest": null,
+      "artifacts": [],
+      "evidence": [],
+      "updated_at": "2026-07-30T04:46:53+00:00"
+    }
+  },
+  "latest_route": {
+    "next_action": "CI",
+    "stage_id": "ci",
+    "skill": null,
+    "reason_code": "READY_FOR_EXTERNAL_CI",
+    "reason": "All required Skill stages are current PASS; the live external required check is the final gate."
+  },
+  "blockers": [],
+  "exceptions": [],
+  "history": [
+    {
+      "at": "2026-07-30T04:46:53+00:00",
+      "event": "LEDGER_INITIALIZED",
+      "stage": "scope",
+      "detail": "Initialized at R3."
+    },
+    {
+      "at": "2026-07-30T04:51:12+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-1d9367ea92261f9c."
+    },
+    {
+      "at": "2026-07-30T04:51:12+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-ee4899fe0f29e52f."
+    },
+    {
+      "at": "2026-07-30T04:53:54+00:00",
+      "event": "ARTIFACT_CHANGED",
+      "stage": null,
+      "detail": "Invalidated: architecture, change-design."
+    },
+    {
+      "at": "2026-07-30T04:54:17+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "architecture",
+      "detail": "PASS as architecture-2ab183d9a9f95891."
+    },
+    {
+      "at": "2026-07-30T04:54:17+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "change-design",
+      "detail": "PASS as change-design-afaafe4ca861f7e2."
+    },
+    {
+      "at": "2026-07-30T04:54:18+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "design-review",
+      "detail": "PASS as design-review-b228eec8a1ace9a5."
+    },
+    {
+      "at": "2026-07-30T04:56:35+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "test-design",
+      "detail": "PASS as test-design-efecc99f0545eb77."
+    },
+    {
+      "at": "2026-07-30T04:56:36+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-red",
+      "detail": "PASS as tests-red-4680be6c2453f45f."
+    },
+    {
+      "at": "2026-07-30T04:56:36+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "implementation",
+      "detail": "PASS as implementation-05e48625c92acf93."
+    },
+    {
+      "at": "2026-07-30T04:59:58+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "tests-green",
+      "detail": "PASS as tests-green-d876d99693ec05fa."
+    },
+    {
+      "at": "2026-07-30T05:00:03+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "code-review",
+      "detail": "PASS as code-review-254b031b568d322b."
+    },
+    {
+      "at": "2026-07-30T05:00:04+00:00",
+      "event": "STAGE_RECORDED",
+      "stage": "e2e",
+      "detail": "PASS as e2e-419e1410ca7981f3."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "qlib_peerlite_official_fee_receipt_v1",
+  "semantic_version": "official_fee_receipt_20260730_v1",
+  "status": "PASS",
+  "retrieved_at": "2026-07-30T00:00:00+08:00",
+  "scope": "A-share competitive trading, M7 2018-2024 development interval",
+  "official_sources": [
+    {
+      "authority": "State Taxation Administration",
+      "url": "https://fgk.chinatax.gov.cn/zcfgk/c100009/c5193058/content.html",
+      "evidence": "securities transaction stamp duty is seller-only and based on transaction amount; statutory rate was 1 per mille"
+    },
+    {
+      "authority": "Ministry of Finance and State Taxation Administration",
+      "url": "https://fgk.chinatax.gov.cn/zcfgk/c102416/c5211343/content.html",
+      "evidence": "stamp duty was halved effective 2023-08-28"
+    },
+    {
+      "authority": "Shanghai Stock Exchange",
+      "url": "https://one.sse.com.cn/onething/gptz/",
+      "evidence": "current A-share stamp duty 0.5 per mille seller-only, transfer fee 0.01 per mille bilateral, regulatory plus handling fees included in broker commission"
+    },
+    {
+      "authority": "Shenzhen Stock Exchange",
+      "url": "https://www.szse.cn/English/about/news/szse/t20230821_602823.html",
+      "evidence": "handling fee changed from 0.0487 per mille to 0.0341 per mille bilateral effective 2023-08-28"
+    }
+  ],
+  "research_assumption": {
+    "broker_commission_bps_per_side": 3.0,
+    "classification": "ADAPTED_NOT_OFFICIAL_TARIFF",
+    "note": "The official receipt does not claim a private broker tariff. The 3bp institutional commission is a frozen conservative research assumption and includes exchange/regulatory charges."
+  },
+  "bound_cost_spec": "contracts/immutable/m7_cost_spec_v1.json"
+}

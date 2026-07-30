@@ -1,0 +1,37 @@
+{
+  "schema_version": "qlib_peerlite_change_request_v1",
+  "semantic_version": "m7_empirical_execution_cr_v3",
+  "status": "APPROVED_PRE_OUTCOME_IMPLEMENTATION_RECOVERY",
+  "change_id": "M7_EMPIRICAL_EXECUTION_CR_V3",
+  "parent_change_request": "contracts/changes/m7_empirical_execution_cr_v2.json",
+  "parent_execution_spec": "contracts/immutable/m7_empirical_execution_spec_v2.json",
+  "trigger": "The first CCC wf_2018 fit start was durably counted, then failed before Qlib returned the training frame because the empirical wrapper explicitly forwarded data_key=None.",
+  "failure_evidence": {
+    "run_id": "m7_isolated_increments_20260730_v2",
+    "failure_receipt_sha256": "24fc071522c1df533cc46092fe601d957ca7e5a7853ee826706116f011f0178e",
+    "trial_journal_sha256": "41d034639dd6316feeabaca633af56085e8396081640a3366f190491df1f0658",
+    "ledger_sha256_after_failure": "718fed52d280147eed005165a7ba9001254b7c762b5ff97cf3609d1866dfbe7a",
+    "candidate_evaluations_after_failure": 7,
+    "model_fits_after_failure": 45,
+    "predictions_or_metrics_produced": false,
+    "final_oos_opened": false
+  },
+  "repair": "Omit data_key when it is None, matching Qlib DatasetH semantics, and add a regression test with a delegate that rejects explicit None.",
+  "recovery": "Reuse the already counted CCC candidate evaluation, count one uniquely identified replacement wf_2018 fit, then execute the remaining registered fits and the Gate candidate.",
+  "budget_change": {
+    "candidate_evaluation_limit_before": 27,
+    "candidate_evaluation_limit_after": 27,
+    "model_fit_limit_before": 60,
+    "model_fit_limit_after": 61,
+    "reason": "One failed pre-training implementation-harness fit remains permanently counted; no model outcome was observed."
+  },
+  "non_changes": [
+    "same two candidates and order",
+    "same seed, folds, deterministic refits and hyperparameters",
+    "same data, market-state product, costs, benchmark and screen thresholds",
+    "same no-combination and final-OOS prohibitions"
+  ],
+  "outcome_reviewed": false,
+  "derived_execution_spec": "contracts/immutable/m7_empirical_execution_spec_v3.json",
+  "failure_rule": "Any further failed fit is retained and terminates M7; no second replacement is authorized."
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "qlib_peerlite_session_calendar_v1",
+  "timezone": "Asia/Shanghai",
+  "sessions": [
+    "2026-07-31",
+    "2026-08-03",
+    "2026-08-04",
+    "2026-08-05",
+    "2026-08-06",
+    "2026-08-07"
+  ]
+}

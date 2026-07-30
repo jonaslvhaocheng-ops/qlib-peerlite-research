@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 24,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FIRST_TRANCHE_REPAIRED_FAIL_CLOSED",
+  "summary": "The repaired design deletes the spoofable marker, denies all dataset-level Gate fit/predict until the controlled factory exists, and adds a pre-optimizer non-finite-gradient failure contract for CCC.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T15:31:36+00:00",
+  "source_digest": "sha256:850ed127dde4fd859adf4a021b019f20dbac60e1b005abb068608389fe4c7129",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+      "sha256": "sha256:7d80320612363c9d5a59154dbbf9fc2e564e294f930bf561666c6f9898ee2a1c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+      "sha256": "sha256:d52857d30f9bbfa33a1808c13f76ff1a91aa36494441f1f1c48f87a1d63ba950"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v3_independent.md",
+      "sha256": "sha256:9a310e70e0c75e72932ed1a6e8ebad87cc66bb01c6963dfd539be9e8db8c9d3f"
+    },
+    {
+      "path": "contracts/cost_spec.json",
+      "sha256": "sha256:fc9cdeff2136993538970a71c735b882c390803e9603d4a465079e455e6688eb"
+    },
+    {
+      "path": "contracts/benchmark_spec.json",
+      "sha256": "sha256:a75fb43de089352fd3fcd424cbb6b91a085751c93bf2681ea64f7e2b75a136c3"
+    }
+  ],
+  "run_id": "change-design-9fef5ff8dbe8572d"
+}

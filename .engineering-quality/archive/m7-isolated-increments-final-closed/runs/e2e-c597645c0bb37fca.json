@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 15,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "M7_THREE_CLEAN_PROCESS_JOURNEYS_PASS",
+  "summary": "CCC and Gate replay exactly with zero measured repository effects; empirical preflight remains fail-closed and NOT_RUN.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py ccc",
+      "executed_at": "2026-07-29T20:19:01+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:a4c16d82c20a51c4d4d05fe0a1afb99c2a4339e0bbd3c55642210edf766e5cb2; stdout_bytes=221; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_m7_acceptance.py",
+        "ccc"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T20:19:03+00:00",
+      "stdout_sha256": "sha256:a4c16d82c20a51c4d4d05fe0a1afb99c2a4339e0bbd3c55642210edf766e5cb2",
+      "stdout_bytes": 221,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+      "source_digest_after": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+    },
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py gate",
+      "executed_at": "2026-07-29T20:19:03+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:063dbc2669ba146b49f8f1337e25a2357228f7be61f0c97303b15154e011bc71; stdout_bytes=227; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_m7_acceptance.py",
+        "gate"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T20:19:05+00:00",
+      "stdout_sha256": "sha256:063dbc2669ba146b49f8f1337e25a2357228f7be61f0c97303b15154e011bc71",
+      "stdout_bytes": 227,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+      "source_digest_after": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+    },
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py preflight",
+      "executed_at": "2026-07-29T20:19:05+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:38e3416786669f5fcad7f72b3ce10c37f0e1ede47ded6817ac383045b142d527; stdout_bytes=820; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_m7_acceptance.py",
+        "preflight"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-29T20:19:07+00:00",
+      "stdout_sha256": "sha256:38e3416786669f5fcad7f72b3ce10c37f0e1ede47ded6817ac383045b142d527",
+      "stdout_bytes": 820,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+      "source_digest_after": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6"
+    }
+  ],
+  "subject_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T20:19:07+00:00",
+  "source_digest": "sha256:d3ad0ac6e74d88692b9ae45a95615b51f2f311b6245344eff612941e2ee938d6",
+  "artifacts": [
+    {
+      "path": "scripts/run_m7_acceptance.py",
+      "sha256": "sha256:d6fed9f2498031f87e45c727266eb219ad049e53268da13073d2dbc6aeab04cf"
+    },
+    {
+      "path": "tests/test_m7_acceptance_cli.py",
+      "sha256": "sha256:4a23556756d207dd81607f3314ae135cb2669102a95681d786614f1d15dac6b5"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/e2e_final.md",
+      "sha256": "sha256:998691bf3f1c2745f01fe6e19459f6f3754e34edef811c55f6085afc9f7b50cb"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md",
+      "sha256": "sha256:9ac5734c47fae454fc6eef43d773230ebfc7749e6842c56785ba3411ad90f476"
+    }
+  ],
+  "run_id": "e2e-c597645c0bb37fca"
+}

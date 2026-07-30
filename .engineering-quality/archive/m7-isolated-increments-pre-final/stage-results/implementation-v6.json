@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 46,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_ENGINEERING_IMPLEMENTED_AND_FORMATTED",
+  "summary": "The final approved production diff includes the M7 package and PeerLite adapters; the only post-confirmation source edit removed an unreachable synthetic-date branch while preserving the frozen bounds.",
+  "issue_type": null,
+  "artifact_paths": [
+    "src/qlib_peerlite/m7/__init__.py",
+    "src/qlib_peerlite/m7/ccc.py",
+    "src/qlib_peerlite/m7/market_state.py",
+    "src/qlib_peerlite/m7/prerequisites.py",
+    "src/qlib_peerlite/m7/run_state.py",
+    "src/qlib_peerlite/m7/checkpoint.py",
+    "src/qlib_peerlite/models/losses.py",
+    "src/qlib_peerlite/models/peerlite.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/implementation_complete_v1.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v4_base_replay.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T02:40:00+08:00",
+      "exit_code": 0,
+      "summary": "Repository static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T02:40:00+08:00",
+      "exit_code": 0,
+      "summary": "141 tests pass."
+    }
+  ],
+  "subject_digest": "sha256:e49f58cd59602182eb9a6bc5721a2bd2742b6df5c24826a99f2e24631d656410",
+  "independence": null,
+  "blockers": []
+}

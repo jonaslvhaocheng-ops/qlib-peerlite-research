@@ -1,0 +1,12 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "final_oos_seal_v1",
+  "status": "PASS",
+  "oos_access_log": {
+    "path": "contracts/oos_access_log.jsonl",
+    "sha256": "6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190",
+    "access_count": 0,
+    "selection_uses": 0
+  },
+  "assertion": "M7 may read only 2012-2024 source/product partitions; 2025-01-01 and later remain sealed."
+}

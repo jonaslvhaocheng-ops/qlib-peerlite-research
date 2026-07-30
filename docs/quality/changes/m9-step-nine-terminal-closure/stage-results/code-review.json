@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 13,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M9_TERMINAL_PACKAGE_INDEPENDENTLY_APPROVED",
+  "summary": "Independent review found no remaining P0-P3 issue after narrowing the HOLD claim, completing lineage tests and making all append-only bindings prefix-safe.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/code_review_independent.md"
+  ],
+  "evidence_paths": [
+    "evidence/gates/M9_step_nine_terminal_gate.json",
+    "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+    "tests/test_m9_terminal_closure.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m9_independent_code_review"
+  },
+  "blockers": []
+}

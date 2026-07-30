@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 8,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FINAL_IMPLEMENTATION_COMPLETE",
+  "summary": "Synthetic-only CCC and Gate, strict authority, checkpoint, recovery and CI controls are complete.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T04:05:00+08:00",
+      "exit_code": 0,
+      "summary": "Static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T04:05:00+08:00",
+      "exit_code": 0,
+      "summary": "Full suite passes."
+    }
+  ],
+  "subject_digest": "sha256:e07721d16cf10e6a3508f842cee873ad9414549837fecf80e8954beb57bd90a4",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T20:06:48+00:00",
+  "source_digest": "sha256:e07721d16cf10e6a3508f842cee873ad9414549837fecf80e8954beb57bd90a4",
+  "artifacts": [
+    {
+      "path": "src/qlib_peerlite/m7/adapter.py",
+      "sha256": "sha256:5b1de439a4943830907de00bcfb05f11bcfc7e96f6bf78938ff59882bda6db4c"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/ccc.py",
+      "sha256": "sha256:9c4431dda12f09fb94db10c645fefd245a4106f25995105abfa914de05dcb6ab"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/checkpoint.py",
+      "sha256": "sha256:264409a25857806d7400d40b560035d58172b36b1331e54ac3548d3c76e594b0"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/market_state.py",
+      "sha256": "sha256:10aba01c7f0694ef3b5e39033db5749e0bcfd1a3f40066e27ffb93d41d1b7c0d"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/prerequisites.py",
+      "sha256": "sha256:df97d6e6d629ad511a82edfaef262dc5349035f52c53ec2fb7f271d994126c62"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/run_state.py",
+      "sha256": "sha256:bcefd3d563e83f3e65b6806729c63f295dac92c731e954cd04101d5523f54a74"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:ff5852701210530d446fa89ca5895c377dab8e9d2604d274f99b9e3fbb6d2af5"
+    },
+    {
+      "path": "scripts/run_m7_acceptance.py",
+      "sha256": "sha256:62afe613ec14b448ae676887a813de96064f4d2384f1f2a22fd33f6a6defdf16"
+    },
+    {
+      "path": ".github/workflows/m7-quality-gate.yml",
+      "sha256": "sha256:5ce7dab3dd91dd3b11657c6256161dd59d8a3e57d1eadee158372fca22f4dd9c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/implementation_final_v2.md",
+      "sha256": "sha256:9341af3f76d8e299e607a50af8b849f1f391a6cfc66a20a881fbc277916a0e64"
+    }
+  ],
+  "run_id": "implementation-96e8d6550a0b0a52"
+}

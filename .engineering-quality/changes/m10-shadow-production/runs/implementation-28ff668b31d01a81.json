@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 47,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "SECURITY_FINDINGS_RESOLVED",
+  "summary": "All four independent-review findings are resolved with exact shadow manifest validation, descriptor-relative state operations, single-snapshot trusted inputs, and pre-mutation timezone validation.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m10_production.py tests/test_m10_edge_coverage.py",
+      "executed_at": "2026-07-30T14:29:00+08:00",
+      "exit_code": 0,
+      "summary": "50 focused M10 tests passed."
+    },
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor && .venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T14:29:00+08:00",
+      "exit_code": 0,
+      "summary": "Ruff passed and all 241 repository tests passed."
+    }
+  ],
+  "subject_digest": "sha256:5b404ad463cfb1ad7d23b09b48cb2c7a1fce1fe90569409af78e1d5eba665ef7",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T06:30:56+00:00",
+  "source_digest": "sha256:5b404ad463cfb1ad7d23b09b48cb2c7a1fce1fe90569409af78e1d5eba665ef7",
+  "artifacts": [
+    {
+      "path": "src/qlib_peerlite/production/cycle.py",
+      "sha256": "sha256:16c21d87048331bb281b903c7d579b0e8773fd82c7a931d74ffd21098af12735"
+    },
+    {
+      "path": "src/qlib_peerlite/production/policy.py",
+      "sha256": "sha256:c571f66f0aa673961fd33aa848ad1594fa939eab2b787db6746cbcb4cd8c2b1c"
+    },
+    {
+      "path": "src/qlib_peerlite/production/schedule.py",
+      "sha256": "sha256:8005582251f5c0071f192e01201cf65e2ce3bb9735e19d16503897123b0d83d8"
+    },
+    {
+      "path": "tests/test_m10_production.py",
+      "sha256": "sha256:252c888cac73e1836497c53b39b6eb5ec006c88fa1fb8f300ffa9d9d990d4bb4"
+    },
+    {
+      "path": "tests/test_m10_edge_coverage.py",
+      "sha256": "sha256:de5203f7f5a2edd790ea4f00018f06470c676d4a9b109e299a563bf73154594d"
+    },
+    {
+      "path": ".github/workflows/m10-shadow-quality-gate.yml",
+      "sha256": "sha256:5f3ad26e4b36cce63486f31091c015b06455f0bb80398bc716c59f12cf54f1ae"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/implementation_v4_security_hardening.md",
+      "sha256": "sha256:79e75fc823555da74546236123b98621293c86b24ac4642f9b7361544317387a"
+    },
+    {
+      "path": "docs/quality/changes/m10-shadow-production/evidence/code_review_v1_needs_changes.md",
+      "sha256": "sha256:25cf17436c282399b16cd1a6858940d55f9d0423342fd3d9271457d76afed85e"
+    },
+    {
+      "path": "docs/m10/CHANGE_DESIGN.md",
+      "sha256": "sha256:588be42a399b52a326e5cccea03ed9ba93ea87d583480d169fdc060844f31e6d"
+    },
+    {
+      "path": "docs/m10/TEST_PLAN.md",
+      "sha256": "sha256:1a424c72c35b2afcbb50b0250eca0ff40f573d59498753473aca297a52a07ea6"
+    }
+  ],
+  "run_id": "implementation-28ff668b31d01a81"
+}

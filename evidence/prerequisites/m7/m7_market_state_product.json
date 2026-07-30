@@ -1,0 +1,24 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "m7_market_state_product_v1",
+  "status": "PASS",
+  "claim": "MARKET_RECONSTRUCTIBLE",
+  "product_manifest": {
+    "path": "evidence/prerequisites/m7/server/market_state_manifest.json",
+    "file_sha256": "fc9414b1d1b2633a52c5e6f76da5f30abb961e98b974654fba02f09247ac716e",
+    "content_sha256": "efd8bae71ee53c417b7c5b3de2cd4d27d1864625ffb1fb6426c7b63810235555"
+  },
+  "qualification_receipt": {
+    "path": "evidence/prerequisites/m7/server/market_state_qualification_receipt.json",
+    "file_sha256": "83aba24afbf263fec0583da30a90d8ad66890e3b5c18dc816678e9d5993644a4",
+    "content_sha256": "8fdc48f0474fbc8dfa81848882e973c23713b7dd96a9b873b9b72a2bfe156213"
+  },
+  "state_rows": 3137,
+  "selected_population_rows": 1886994,
+  "date_min": "2012-01-04",
+  "date_max": "2024-12-17",
+  "state_file_sha256": "1af85b0a0259db96eb1699b6e4339d41ee9d628123c19eb22f25e269bc741f78",
+  "population_file_sha256": "a0279c918c22850c92e25a4f8fe8c9c43b36740c9a8d9f346c70a42e0fa1f20a",
+  "final_oos_market_partitions_opened": false,
+  "assertion": "The four-dimensional Gate state was built from an independent label-free PIT CSI800 population, exactly recomputed, and unchanged through 2023-12-29 after poisoning the future suffix."
+}

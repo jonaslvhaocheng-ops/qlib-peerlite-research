@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 6,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M7_DESIGN_HAS_UNRESOLVED_EXECUTION_CONTRACTS",
+  "summary": "Independent R3 review found two P1 and two P2 contract defects: unfrozen screening inputs, ambiguous authorization-versus-consumption states, separable Gate values/provenance, and incomplete CCC numerical/checkpoint semantics.",
+  "issue_type": "contract",
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v1_independent.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design.md",
+    "contracts/cost_spec.json",
+    "contracts/benchmark_spec.json",
+    "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "src/qlib_peerlite/data/market_state.py",
+    "src/qlib_peerlite/data/dataset.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "src/qlib_peerlite/models/losses.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:15d30f9fb46f1cec6099cf7fedf72d44cbff18ac7d2d5cc29122e12e5aceed2d",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only review; no repository, ledger, Git, remote, training, budget, or final-OOS mutation.",
+      "The review does not authorize implementation or empirical M7 execution."
+    ]
+  },
+  "blockers": [
+    "Freeze the screening prerequisite bundle before any candidate or fit event.",
+    "Define one authorization/consumption/recovery state machine.",
+    "Bind Gate values and PIT provenance in one immutable verified object.",
+    "Freeze CCC numerical, early-stop, and checkpoint semantics."
+  ]
+}

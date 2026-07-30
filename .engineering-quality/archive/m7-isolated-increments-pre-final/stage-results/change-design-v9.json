@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 51,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_CODE_REVIEW_REPAIR_DESIGN_READY",
+  "summary": "The repair design removes empirical model authority, freezes candidate semantics, requires persisted recovery evidence, enforces synthetic-only checkpoint dispatch, adds deployable CI and separates the M6.5 baseline.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
+    "contracts/changes/m7_complete_engineering_cr_v1.json",
+    "contracts/cost_spec.json",
+    "contracts/benchmark_spec.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

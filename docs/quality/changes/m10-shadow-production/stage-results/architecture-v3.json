@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 10,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_TERMINAL_AND_PREFLIGHT_BOUNDARIES_CONFIRMED",
+  "summary": "The architecture now separates mutation-free preflight from transactional failures and requires complete terminal verification before replay or recovery.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/m10/ARCHITECTURE.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/architecture.md",
+    "docs/quality/changes/m10-shadow-production/evidence/design_review_v2.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

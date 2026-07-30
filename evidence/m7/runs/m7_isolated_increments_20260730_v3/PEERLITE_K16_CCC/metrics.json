@@ -1,0 +1,35 @@
+{
+  "claim_ceiling": "PRE_FINAL_OOS_SCREENING_ONLY",
+  "diagnostic": {
+    "dates": 1649.0,
+    "decile_slope": 0.0003515467251652057,
+    "observations": 949014.0,
+    "rank_ic_mean": 0.02210352936747816,
+    "rank_ic_positive_fraction": 0.5476046088538509,
+    "rank_ic_std": 0.16164227918490606,
+    "rank_icir": 0.13674348987738202,
+    "top_minus_bottom": 0.003985304147691117
+  },
+  "model_id": "PEERLITE_K16_CCC",
+  "portfolio_screen": {
+    "baseline_base_net_ir": 0.060024461005721695,
+    "bootstrap": {
+      "block_length": 4.0,
+      "bootstrap_draws": 2000.0,
+      "ir_delta_ci_2_5": -0.39065114024865194,
+      "ir_delta_ci_97_5": 0.22386540735460497,
+      "ir_delta_point": -0.06793561620914197
+    },
+    "candidate_base_net_ir": -0.007911155203420273,
+    "candidate_stress_net_ir": -0.2467634107903466,
+    "decision": "HOLD",
+    "final_oos_metrics_computed": false,
+    "market_reference_base_net_ir": 0.1653274361209616,
+    "overall_net_ir_delta_vs_peerlite_mse": -0.06793561620914197,
+    "positive_fold_fraction": 0.42857142857142855,
+    "weekly_observations": 349
+  },
+  "schema_version": "qlib_peerlite_m7_metrics_v1",
+  "semantic_version": "m7_metrics_v1",
+  "status": "PASS"
+}

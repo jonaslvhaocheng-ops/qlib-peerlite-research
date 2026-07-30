@@ -1,0 +1,11 @@
+{
+  "checkpoint_replay": "PASS_EXACT",
+  "content_sha256": "81f2e26c2c033db987ed72808a5d44d36a82d1ffcdeb6e52f8ece9a510460924",
+  "elapsed_seconds": 235.1014719689265,
+  "final_oos_market_partitions_opened": false,
+  "fit_id": "m8_confirmation_20260730_v1:PEERLITE_K16_MSE:seed19:wf_2018",
+  "fold_id": "wf_2018",
+  "rows": 125413,
+  "seed": 19,
+  "status": "PASS"
+}

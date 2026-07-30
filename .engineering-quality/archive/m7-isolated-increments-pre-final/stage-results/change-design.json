@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 4,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_MINIMAL_ISOLATED_CHANGE_DESIGN_READY",
+  "summary": "The implementation-ready design isolates CCC to the loss function and Gate to an exact PIT-qualified 4D market_state channel, freezes the 2/16 budget and screen rules, reuses M6 artifact paths, and rejects the historical over-complex runtime design.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+    "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+    "contracts/immutable/m6_peerlite_execution_spec_v1.json",
+    "configs/model_registry.yaml",
+    "contracts/candidate_registry.json",
+    "src/qlib_peerlite/models/peerlite.py",
+    "src/qlib_peerlite/models/losses.py",
+    "src/qlib_peerlite/data/market_state.py",
+    "src/qlib_peerlite/data/dataset.py",
+    "evidence/m6_5_pre_m7/m7_bounded_design_v5.md"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "blockers": []
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 7,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M9_TERMINAL_HOLD_DESIGN_INDEPENDENTLY_APPROVED",
+  "summary": "Independent review found no P0-P3 issue: the decision is limited to the invalid current contract, preserves append-only prefixes and makes no Alpha, promotion, OOS or future-path claim.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:d9ecb62d3599ad3c3eeb233b6040aa27350dd85476ab9d8601e0541c66797e8d",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m9_independent_design_review"
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:54:18+00:00",
+  "source_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/design_review_independent.md",
+      "sha256": "sha256:8ccc1d693a5b3494506ab359c55a67461921f5296dddc8e183b91055ac64ed21"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/change_design.md",
+      "sha256": "sha256:d9ecb62d3599ad3c3eeb233b6040aa27350dd85476ab9d8601e0541c66797e8d"
+    },
+    {
+      "path": "evidence/gates/M9_step_nine_terminal_gate.json",
+      "sha256": "sha256:e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f"
+    },
+    {
+      "path": "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+      "sha256": "sha256:727855f19e5bf5bdbf2ac242f140134fbf36e5ae4a78dd39ed855373c5583528"
+    },
+    {
+      "path": "docs/m9/FINAL_STEP_NINE_DECISION.md",
+      "sha256": "sha256:945831cb1e203d1f4bc91dd6a9a89cfe7efc7d7a388d6894dff1dafd2953f705"
+    }
+  ],
+  "run_id": "design-review-b228eec8a1ace9a5"
+}

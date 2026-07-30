@@ -1,106 +1,92 @@
 # True Status Card
 
-- Master plan: `docs/MASTER_PLAN.md`
-- Master plan SHA256:
-  `d302eccca49f9c65d3ef56f1fc2188ba11a64464ab6a8db9dde478c5b710cd1e`
-- Current phase and track: `M6.5-PRE-M7-ENGINEERING-QUALITY`
-- Last actual action: canonical v47两份独立R3审查已登记为`NEEDS_CHANGES`；只剩snapshot在
-  precommit crash后被另一合法journal推进ledger时可能stranded。随后形成v48/v6单点修复：
-  snapshot slot绑定ledger-before并定义immutable rebase。旧控制面仍非normative。
-  尚未进入test-design、测试实现、产品实现、code review或replay。没有训练、预算消耗或
-  final-OOS。
-- Status: executed=`yes`; completed=`no`; passed=`M6 PASS`; M6.5=`V48_BOUNDED_BUNDLE_READY_FOR_REVIEW`
-- Active frozen contract:
-  - `contracts/immutable/research_contract_pit_v2.json`
-  - contract ID `qrc-v2-5b7353756e0fded36622a6946011f77a`
-  - canonical hash
-    `5b7353756e0fded36622a6946011f77a99706ec82a9685cb2dd3c03bba37002d`
-- Strongest current evidence:
-  - `evidence/gates/M0_environment_gate.json`: environment `PASS`
-  - `evidence/gates/M1_source_gate.json`: source/snapshot `PASS`
-  - `evidence/gates/M2_contract_gate.json`: initial contract gate `PASS`
-  - `evidence/gates/M3_pit_data_gate.json`: full PIT data gate `PASS`
-  - `evidence/gates/M4_qlib_foundation_gate.json`: Qlib foundation gate `PASS`
-  - `evidence/gates/M5_baseline_gate.json`: strict baseline gate `PASS`
-  - `evidence/gates/M6_peerlite_gate.json`: strict PeerLite engineering gate
-    `PASS`
-  - `data/manifests/pit_data_product_2012_2024_v3/data_product_manifest.json`:
-    1,658,525 pre-OOS samples and exactly 50 frozen features
-  - `evidence/pit/audits/pit_full_2012_2024_v2/audit_manifest.json`:
-    82,926,250/82,926,250 cells parsed; all 17 fixed checks `PASS`;
-    `QUALIFIED`
-  - `evidence/pit/behavior/audits/future_poison_real_feature_v1/behavior_manifest.json`:
-    all four behavior checks `PASS`; 5,750 protected keys unchanged
-  - local grouped executor validation: fixed suite `163/163`; behavior suite
-    `18/18`
-  - Qlib foundation: 1,658,525 rows, 50 features, seven rolling folds and one
-    exact deterministic fold replay
-  - Qlib Recorder: foundation and synthetic-analysis receipts downloaded with
-    byte-identical hashes
-  - Qlib signal/portfolio mechanics: synthetic track only
-  - M5 v2: 2 candidate evaluations, 15 fits, 14 exact checkpoint replays and
-    one exact B1 deterministic refit
-  - M6 v1: 2 candidate evaluations, 15 fits, 14 exact checkpoint replays and
-    one exact K16 deterministic refit
-  - M6 verified predictions: 1,898,028 rows; unique keys; no null/non-finite
-    score; latest date 2024-12-17
-  - M6 parameter counts: K16 29,521; K32 30,561; complexity O(NK)
-  - cumulative family budget including rejected M5 v1: 6 candidate evaluations,
-    44 model fits
-  - real-data portfolio backtests and cost-adjusted selections: `0 / 0`
-  - M5 immutable execution spec:
-    `contracts/immutable/m5_baseline_execution_spec_v2.json`,
-    content SHA256
-    `fa8fb630fe3c1ea733d9f105ef3f7875f3b50e9fda4d6f57948dbdde46552904`
-  - M5 independent verification content SHA256:
-    `b8d9643f7b9eda2211e852da1f07cf0cf6e5b97646aa760356be4751f91268e6`
-  - M6 immutable execution spec:
-    `contracts/immutable/m6_peerlite_execution_spec_v1.json`,
-    content SHA256
-    `60d0cf06307991f1fafea0dd5880b43fb929546c6757040e2c868cbb361f2f69`
-  - M6 independent verification content SHA256:
-    `853b9341c4b2c8a156a5d50265465ed134c4d843c5516105452f0704f8a27613`
-  - final-OOS market partitions opened: `false`
-  - only pre-final-OOS signal diagnostics computed: `true`
-- Current blocker:
-  - `evidence/m6_5_pre_m7/m6_5_repair_change_design_v48.md`、
-    `m6_5_bounded_component_design_v6.md`、`m6_archival_replay_contract_v5.md`、
-    `m7_bounded_design_v5.md`、`m7_bounded_behavior_matrix_v6.md`及三个external bindings
-    控制协议必须获得新的独立
-    R3 design review `PASS`，并产生当前专用 M7 design-review artifact。通过前不得进入
-    test design、red/green tests、implementation、code review 或 replay。
-  - M7 must start from the verified M6 `6/44` close snapshot in a new authority
-    namespace; the server's legacy `4/29` ledger is not an authority.
-  - Final-OOS remains sealed; no archival server replay is authorized until the
-    M6.5 quality route has passed.
-- Risk/ambiguity:
-  - DataYes descriptions and snapshot hashes cannot prove vendor truth or that
-    no off-system future data was consulted.
-  - The separately versioned population authority is reconciled exactly but is
-    derived from the verified product population; it cannot independently
-    prove that the upstream vendor omitted no eligible security.
-  - Behavior status is `NOVEL_CANDIDATE`: it proves this exact hash-bound replay,
-    not every possible execution.
-- Only permitted next action: 将 canonical v48 bounded bundle 登记到 engineering-quality ledger，
-  然后进行新的独立 R3 design review。A derived M7 contract remains forbidden until
-  the whole M6.5 quality gate passes.
-- Forbidden until M6.5 and later gates: M7 real-label training, combining CCC
-  and Gate, unregistered model or hyperparameter search, result-based K
-  selection, final-OOS access before M8 freeze, production trading and “top 1%”
-  claims.
+- Current phase: `M10-SHADOW-PRODUCTION`
+- Executed / completed / engineering passed: `yes / yes / yes`
+- Research decisions:
+  - `PEERLITE_K16_CCC`: `HOLD`
+  - `PEERLITE_K16_MSE_GATE`: `HOLD`
+- Active pre-final-OOS model path: `PEERLITE_K16_MSE`
+- M8 institutional/final-OOS evaluation: `HOLD_OPERATIONAL_CONFIRMATION_INCOMPLETE`
+- Step-nine terminal decision: `HOLD_REAUTHORIZATION_CONTRACT_INVALID`
+- M10 capability ceiling: `SHADOW_ONLY / SYNTHETIC / PAPER`
+- M10 engineering state: `SHADOW_READY`
+- Live deployment: `HOLD_NO_PROMOTED_MODEL`
+- Final-OOS access count: `0`
 
-## PIT navigation
+## M10 outcome
 
-- Completed mode: `CERTIFY`
-- Target path:
-  `sealed DataYes raw daily data -> fixed causal features -> CSI800 PIT universe`
-- Fixed audit: `PASS / QUALIFIED`
-- Behavior audit: `PASS / NOVEL_CANDIDATE`
-- Project M3 decision: `PASS` for controlled development on the exact bound
-  pre-OOS data product only
-- Project M4 decision: `PASS` for Qlib foundation mechanics
-- Project M5 decision: `PASS` for reproducible pre-final-OOS engineering
-  baselines only
-- Project M6 decision: `PASS` for reproducible pre-final-OOS PeerLite
-  engineering only; no superiority or Alpha claim
-- Claim ceiling remains: `research development`; no Alpha or investability claim
+The local synthetic shadow control plane is complete. It provides scheduled
+preflight, bounded score ingestion, monitoring, transactional alerts,
+paper-intent generation, replay-safe terminal cycles, private state-root
+locking, and atomic no-replace publication. Independent final code review
+passed with no unresolved P0-P3 issue; 50 focused tests and 241 repository tests
+passed, with exact 100% protected line and branch coverage.
+
+This is an engineering `SHADOW_READY` result only. The M9 research decision
+remains `HOLD_REAUTHORIZATION_CONTRACT_INVALID`; production, promotion, real
+signals, broker connectivity, live orders, and final-OOS access remain
+unauthorized.
+
+## M8 outcome
+
+The frozen confirmation runner was stopped after discovering that it journaled
+fit starts durably but did not import them into the authoritative ledger before
+training. Two seed-19 folds completed, a third fit started and was interrupted,
+and no later work ran. The exact starts are now reconciled and independently
+verified.
+
+The frozen no-retry rule blocks resuming or replacing those fits. Statistical,
+portfolio, negative-control and final-OOS gates are therefore
+`NOT_RUN_DEPENDENCY_STOP`. This is an engineering-governance HOLD, not a
+negative Alpha result. PeerLite remains a research baseline and is not promoted.
+
+## Strongest evidence
+
+- Frozen recovery spec:
+  `contracts/immutable/m7_empirical_execution_spec_v3.json`
+- Qualified market-state evidence:
+  `evidence/prerequisites/m7/m7_market_state_product.json`
+- Run manifest:
+  `evidence/m7/runs/m7_isolated_increments_20260730_v3/run_manifest.json`
+- Independent verification:
+  `evidence/m7/verifications/m7_isolated_increments_20260730_v3/verification_receipt.json`
+- Project gate:
+  `evidence/gates/M7_huatai_increments_gate.json`
+- Predictions verified: `1,898,028`
+- Rolling fold checkpoint replays: `14 exact`
+- Deterministic refits: `2 exact`
+- Qlib Recorder readbacks: `2`
+- M8 gate: `evidence/gates/M8_institutional_evaluation_gate.json`
+- M8 reconciliation:
+  `evidence/m8/failures/m8_confirmation_20260730_v1/recovery/reconciliation_receipt.json`
+- M8 independent verification:
+  `evidence/m8/verifications/m8_confirmation_20260730_v1/verification_receipt.json`
+- Cumulative append-only budget: `9 candidate evaluations / 64 fit starts`
+- OOS access-log SHA256:
+  `6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190`
+
+## Screening results
+
+| Candidate | Net IR | Baseline Net IR | Delta | Positive folds | Bootstrap lower 95% | Stress Net IR | Decision |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| CCC only | -0.0079 | 0.0600 | -0.0679 | 42.9% | -0.3907 | -0.2468 | HOLD |
+| Market Gate only | -0.0635 | 0.0600 | -0.1235 | 28.6% | -0.3321 | -0.3458 | HOLD |
+
+Both M7 modules remain inactive. M8 began but did not complete its five-seed
+confirmation. No combined CCC+Gate experiment, final-OOS opening, Alpha claim
+or production claim is authorized.
+
+## Decision boundary
+
+The current M8 run is closed and cannot be retried. Any later confirmation
+would require a separately governed path and may not reinterpret the retained
+partial folds, revive CCC/Gate, or weaken the untouched final-OOS boundary.
+
+The attempted separately governed path was validated before training. It
+set `decisive_outcomes_seen=true`, but its change request retained
+`outcome_reviewed=false` and `final_oos_replaced=false`; its candidate-evaluation
+budget was also inconsistent. The official validator rejected it before
+training. The attempt stopped with zero new candidate evaluations, zero new fit
+starts and zero final-OOS access. The original nine-step research cycle is
+therefore complete with a terminal `HOLD`, not a promotion. This result does not
+claim that a future replacement OOS is impossible.

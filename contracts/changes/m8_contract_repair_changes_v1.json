@@ -1,0 +1,29 @@
+{
+  "method_scope": {
+    "max_model_fits": 128
+  },
+  "evaluation": {
+    "negative_controls": [
+      {
+        "name": "random_label",
+        "expected_result": "RankIC和成本后组合增量应退化至无稳定正值",
+        "failure_action": "若仍通过则判定实现或泄漏门FAIL"
+      },
+      {
+        "name": "future_poison_prefix_replay",
+        "expected_result": "严格未来输入扰动不得改变受保护历史特征键和值",
+        "failure_action": "隔离数据路径并返回M3，不得训练"
+      },
+      {
+        "name": "peer_module_disabled",
+        "expected_result": "退化为同容量MLP，用于归因Peer结构的真实增量",
+        "failure_action": "若无差异则不宣称Peer机制增益"
+      },
+      {
+        "name": "time_shuffle",
+        "expected_result": "打乱日期顺序后RankIC和成本后组合增量不得保持稳定正值",
+        "failure_action": "若仍通过则判定切分、索引或泄漏门FAIL"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "checks": {
+    "date_coverage": "PASS",
+    "future_poison_prefix": "PASS",
+    "independent_recompute": "PASS",
+    "parent_behavior_pit": "PASS",
+    "parent_fixed_pit": "PASS",
+    "schema_and_digests": "PASS",
+    "source_snapshot_binding": "PASS"
+  },
+  "claim": "MARKET_RECONSTRUCTIBLE",
+  "content_sha256": "8fdc48f0474fbc8dfa81848882e973c23713b7dd96a9b873b9b72a2bfe156213",
+  "final_oos_market_partitions_opened": false,
+  "final_oos_metrics_computed": false,
+  "limitations": [
+    "Qualification is MARKET_RECONSTRUCTIBLE, not SYSTEM_REPLAYABLE.",
+    "The product is authorized only as the frozen four-dimensional M7 Gate input."
+  ],
+  "parent_behavior_content_sha256": "c9a2bdaa48d7e6dc8077a2eaaf7ec4c7d66172e98ff8a830df1fd9feebddf8af",
+  "parent_behavior_manifest_sha256": "d61d878154ce6027c44f46a658a96d828aa31fe8446a6b9bd38f900e17cf9596",
+  "parent_fixed_pit_content_sha256": "08e3a3e299b530191bac7169d8b14369259a6cbc8285918011cc0215c88b16d0",
+  "parent_fixed_pit_manifest_sha256": "2c800a67e70e9b8621a974d52b6d4200970dbd18abbe88f3c32b6584226ef0fa",
+  "population_file_sha256": "a0279c918c22850c92e25a4f8fe8c9c43b36740c9a8d9f346c70a42e0fa1f20a",
+  "product_manifest_content_sha256": "efd8bae71ee53c417b7c5b3de2cd4d27d1864625ffb1fb6426c7b63810235555",
+  "product_manifest_file_sha256": "fc9414b1d1b2633a52c5e6f76da5f30abb961e98b974654fba02f09247ac716e",
+  "product_manifest_path": "data/processed/m7_market_state_product_2012_2024_v1/market_state_manifest.json",
+  "protected_through": "2023-12-29",
+  "schema_version": "qlib_peerlite_market_state_qualification_receipt_v1",
+  "semantic_version": "m7_market_state_qualification_v1",
+  "state_file_sha256": "1af85b0a0259db96eb1699b6e4339d41ee9d628123c19eb22f25e269bc741f78",
+  "status": "PASS"
+}

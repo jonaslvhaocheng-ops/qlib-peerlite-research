@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 46,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_ENGINEERING_IMPLEMENTED_AND_FORMATTED",
+  "summary": "The final approved production diff includes the M7 package and PeerLite adapters; the only post-confirmation source edit removed an unreachable synthetic-date branch while preserving the frozen bounds.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T02:40:00+08:00",
+      "exit_code": 0,
+      "summary": "Repository static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T02:40:00+08:00",
+      "exit_code": 0,
+      "summary": "141 tests pass."
+    }
+  ],
+  "subject_digest": "sha256:e49f58cd59602182eb9a6bc5721a2bd2742b6df5c24826a99f2e24631d656410",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T19:15:44+00:00",
+  "source_digest": "sha256:e49f58cd59602182eb9a6bc5721a2bd2742b6df5c24826a99f2e24631d656410",
+  "artifacts": [
+    {
+      "path": "src/qlib_peerlite/m7/__init__.py",
+      "sha256": "sha256:5ccc0e1214f9025595d767a1dd227321a3f38d2dfc3ac41367325ca4d1cf2427"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/ccc.py",
+      "sha256": "sha256:9c4431dda12f09fb94db10c645fefd245a4106f25995105abfa914de05dcb6ab"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/market_state.py",
+      "sha256": "sha256:10aba01c7f0694ef3b5e39033db5749e0bcfd1a3f40066e27ffb93d41d1b7c0d"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/prerequisites.py",
+      "sha256": "sha256:ef034635eb01d175a0a242a4c46ee0e0439b4c0c11890c2936f723ca6a461bd3"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/run_state.py",
+      "sha256": "sha256:e2ef1efe505ab034b5690819da8ad9202a7e65ec3e4f325c762c8187341497e5"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/checkpoint.py",
+      "sha256": "sha256:f4e6dcc1f33a6c17f6415d9cc2549f79d9e6832486448ad8758cb539ced019a8"
+    },
+    {
+      "path": "src/qlib_peerlite/models/losses.py",
+      "sha256": "sha256:48c85cf0c45b36f4b024cd7b07ea24e374e24b05aeeadeff1ff119c21baae233"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:ef45151d49af6f5852a0c740eeb0aa8ae2b1bbb8208c4983a9f73cf4ac36aa5e"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/implementation_complete_v1.md",
+      "sha256": "sha256:d8bb9fa48bc05a920f2cb6e36b80c6fe396b40c6e1ca231443232c00f824c269"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+      "sha256": "sha256:b204c6b935e524095f48c638c49c477ded1195774987bb166c3a6668e0c07b3c"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v4_base_replay.md",
+      "sha256": "sha256:66a568126da033aa09d526f8fc3ae5970912474d6587f6056d93719fa4926349"
+    }
+  ],
+  "run_id": "implementation-b6fd0bf4ead711c0"
+}

@@ -12,6 +12,20 @@ import torch
 from torch import nn
 
 from qlib_peerlite.governance.artifacts import atomic_write_json
+from qlib_peerlite.m7.adapter import (
+    authorize_synthetic_fit,
+    checkpoint_config_for_load,
+    checkpoint_context_after_state_load,
+    checkpoint_context_for_fit,
+    checkpoint_payload_for_load,
+    market_frame,
+    validate_candidate_config,
+    validate_prediction_dataset,
+)
+from qlib_peerlite.m7.checkpoint import (
+    M7CheckpointContext,
+    build_checkpoint_v2_metadata,
+)
 
 from .common import (
     TrainOnlyStandardizer,
@@ -104,8 +118,7 @@ class PeerLiteNetwork(nn.Module):
             features = features.unsqueeze(0)
         elif features.ndim != 3:
             raise ValueError(
-                "features must have shape [stocks, features] or "
-                "[dates, stocks, features]"
+                "features must have shape [stocks, features] or [dates, stocks, features]"
             )
         n_dates, n_stocks, input_dim = features.shape
         if n_stocks == 0:
@@ -122,9 +135,7 @@ class PeerLiteNetwork(nn.Module):
         elif unbatched and valid_mask.shape == (n_stocks,):
             valid_mask = valid_mask.unsqueeze(0)
         if valid_mask.shape != (n_dates, n_stocks):
-            raise ValueError(
-                "valid_mask must have shape [stocks] or [dates, stocks]"
-            )
+            raise ValueError("valid_mask must have shape [stocks] or [dates, stocks]")
         valid_mask = valid_mask.to(device=features.device, dtype=torch.bool)
         if not valid_mask.any(dim=1).all():
             raise ValueError("each cross-section must contain at least one valid stock")
@@ -144,8 +155,7 @@ class PeerLiteNetwork(nn.Module):
                 market_state = market_state.unsqueeze(0)
             if market_state.shape != (n_dates, self.market_dim):
                 raise ValueError(
-                    "market_state must have shape [market_features] or "
-                    "[dates, market_features]"
+                    "market_state must have shape [market_features] or [dates, market_features]"
                 )
             gate = self.market_gate(market_state).reshape(
                 n_dates,
@@ -240,6 +250,7 @@ class PeerLiteModel:
             "cross_section_batch_size": cross_section_batch_size,
             "model_id": self.model_id,
         }
+        validate_candidate_config(self.config)
         self.network = PeerLiteNetwork(
             input_dim,
             hidden_dim=hidden_dim,
@@ -259,14 +270,12 @@ class PeerLiteModel:
         self.training_history: list[dict[str, float]] = []
         self.best_epoch = -1
         self.best_valid_loss = float("nan")
+        self.m7_context: M7CheckpointContext | None = None
+        self.m7_fixture_sha256: str | None = None
+        self.m7_state_binding_sha256: str | None = None
 
     def _market_frame(self, dataset: object, segment: str) -> pd.DataFrame | None:
-        if not self.market_gate_enabled:
-            return None
-        market = dataset.prepare(segment, col_set="market").sort_index()
-        if market.empty or market.shape[1] == 0:
-            raise ValueError("market-gated PeerLite requires market columns")
-        return market
+        return market_frame(self.config, dataset, segment)
 
     @staticmethod
     def _date_batches(
@@ -294,9 +303,7 @@ class PeerLiteModel:
 
     @staticmethod
     def _pack_date_batches(
-        batches: list[
-            tuple[pd.MultiIndex, np.ndarray, np.ndarray | None, np.ndarray | None]
-        ],
+        batches: list[tuple[pd.MultiIndex, np.ndarray, np.ndarray | None, np.ndarray | None]],
     ) -> tuple[np.ndarray, np.ndarray | None, np.ndarray | None, np.ndarray]:
         if not batches:
             raise ValueError("cannot pack an empty date batch")
@@ -305,17 +312,9 @@ class PeerLiteModel:
         features = np.zeros((len(batches), max_stocks, feature_dim), dtype=np.float32)
         valid_mask = np.zeros((len(batches), max_stocks), dtype=bool)
         has_target = batches[0][2] is not None
-        targets = (
-            np.zeros((len(batches), max_stocks), dtype=np.float32)
-            if has_target
-            else None
-        )
+        targets = np.zeros((len(batches), max_stocks), dtype=np.float32) if has_target else None
         has_market = batches[0][3] is not None
-        market = (
-            np.stack([item[3] for item in batches]).astype(np.float32)
-            if has_market
-            else None
-        )
+        market = np.stack([item[3] for item in batches]).astype(np.float32) if has_market else None
         for batch_index, (_, x, y, _) in enumerate(batches):
             size = len(x)
             features[batch_index, :size] = x
@@ -380,10 +379,24 @@ class PeerLiteModel:
         return float(np.mean(values))
 
     def fit(self, dataset: object, **kwargs: Any) -> PeerLiteModel:
-        del kwargs
+        authority = kwargs.pop("m7_authority", None)
+        if kwargs:
+            raise TypeError(f"unexpected fit keyword arguments: {sorted(kwargs)}")
+        dataset, checked_authority = authorize_synthetic_fit(self.config, dataset, authority)
         seed_everything(self.seed)
         x_train, y_train = dataset_xy(dataset, "train")
         x_valid, y_valid = dataset_xy(dataset, "valid")
+        (
+            self.m7_context,
+            self.m7_fixture_sha256,
+            self.m7_state_binding_sha256,
+        ) = checkpoint_context_for_fit(
+            self.config,
+            checked_authority,
+            dataset,
+            x_train,
+            x_valid,
+        )
         self.feature_names = tuple(str(column) for column in x_train.columns)
         x_train = self.standardizer.fit_transform(x_train)
         x_valid = self.standardizer.transform(x_valid)
@@ -391,7 +404,9 @@ class PeerLiteModel:
         market_train = self._market_frame(dataset, "train")
         market_valid = self._market_frame(dataset, "valid")
         if market_train is not None and market_valid is not None:
-            market_train = self.market_standardizer.fit_transform(market_train)
+            unique_train = market_train.groupby(level="datetime", sort=True).first()
+            self.market_standardizer.fit(unique_train)
+            market_train = self.market_standardizer.transform(market_train)
             market_valid = self.market_standardizer.transform(market_valid)
 
         optimizer = torch.optim.AdamW(
@@ -434,7 +449,9 @@ class PeerLiteModel:
                 )
                 objective.backward()
                 torch.nn.utils.clip_grad_norm_(
-                    self.network.parameters(), self.gradient_clip_norm
+                    self.network.parameters(),
+                    self.gradient_clip_norm,
+                    error_if_nonfinite=True,
                 )
                 optimizer.step()
                 train_losses.append(float(objective.detach().cpu()))
@@ -467,6 +484,12 @@ class PeerLiteModel:
     def predict(self, dataset: object, segment: str = "test") -> pd.Series:
         if not self.fitted:
             raise RuntimeError("model is not fitted")
+        validate_prediction_dataset(
+            self.config,
+            dataset,
+            fixture_sha256=self.m7_fixture_sha256,
+            state_binding_sha256=self.m7_state_binding_sha256,
+        )
         features = dataset_features(dataset, segment)
         if tuple(str(column) for column in features.columns) != self.feature_names:
             raise ValueError("prediction feature order differs from fitted PeerLite")
@@ -505,23 +528,33 @@ class PeerLiteModel:
         target = Path(path)
         target.mkdir(parents=True, exist_ok=False)
         torch.save(self.network.state_dict(), target / "state_dict.pt")
-        atomic_write_json(
-            target / "metadata.json",
-            {
+        if self.m7_context is None:
+            metadata = {
                 "schema_version": "qlib_peerlite_checkpoint_v1",
                 "model_id": self.model_id,
                 "config": self.config,
                 "feature_names": list(self.feature_names),
                 "standardizer": self.standardizer.to_payload(),
                 "market_standardizer": (
-                    self.market_standardizer.to_payload()
-                    if self.market_gate_enabled
-                    else None
+                    self.market_standardizer.to_payload() if self.market_gate_enabled else None
                 ),
                 "training_summary": self.training_summary(),
                 "training_history": self.training_history,
-            },
-        )
+            }
+        else:
+            metadata = build_checkpoint_v2_metadata(
+                config=self.config,
+                feature_names=list(self.feature_names),
+                standardizer=self.standardizer.to_payload(),
+                market_standardizer=(
+                    self.market_standardizer.to_payload() if self.market_gate_enabled else None
+                ),
+                training_summary=self.training_summary(),
+                training_history=self.training_history,
+                state_dict=self.network.state_dict(),
+                context=self.m7_context,
+            )
+        atomic_write_json(target / "metadata.json", metadata)
 
     @classmethod
     def load_checkpoint(
@@ -532,35 +565,33 @@ class PeerLiteModel:
     ) -> PeerLiteModel:
         target = Path(path)
         metadata = json.loads((target / "metadata.json").read_text(encoding="utf-8"))
-        if metadata.get("schema_version") != "qlib_peerlite_checkpoint_v1":
-            raise ValueError("unsupported PeerLite checkpoint")
-        config = metadata.get("config")
-        if not isinstance(config, dict):
-            raise ValueError("PeerLite checkpoint config is missing")
+        config = checkpoint_config_for_load(metadata)
         instance = cls(**config, device=device)
         state = torch.load(
             target / "state_dict.pt",
             map_location=instance.device,
             weights_only=True,
         )
+        context = checkpoint_context_after_state_load(metadata, state)
+        if context is not None:
+            instance.m7_context = context
+            instance.m7_fixture_sha256 = context.lease_event_sha256
+            instance.m7_state_binding_sha256 = context.state_binding_sha256
         instance.network.load_state_dict(state)
-        instance.standardizer = TrainOnlyStandardizer.from_payload(metadata["standardizer"])
+        payload_owner = checkpoint_payload_for_load(metadata)
+        instance.standardizer = TrainOnlyStandardizer.from_payload(payload_owner["standardizer"])
         if instance.market_gate_enabled:
-            market_payload = metadata.get("market_standardizer")
+            market_payload = payload_owner.get("market_standardizer")
             if not isinstance(market_payload, dict):
                 raise ValueError("PeerLite market standardizer is missing")
-            instance.market_standardizer = TrainOnlyStandardizer.from_payload(
-                market_payload
-            )
-        feature_names = metadata.get("feature_names")
+            instance.market_standardizer = TrainOnlyStandardizer.from_payload(market_payload)
+        feature_names = payload_owner.get("feature_names")
         if not isinstance(feature_names, list) or not feature_names:
             raise ValueError("PeerLite checkpoint feature names are invalid")
         instance.feature_names = tuple(str(name) for name in feature_names)
         summary = metadata.get("training_summary", {})
         instance.best_epoch = int(summary.get("best_epoch", -1))
-        instance.best_valid_loss = float(
-            summary.get("best_valid_loss", float("nan"))
-        )
+        instance.best_valid_loss = float(summary.get("best_valid_loss", float("nan")))
         history = metadata.get("training_history")
         if not isinstance(history, list):
             raise ValueError("PeerLite checkpoint training history is invalid")

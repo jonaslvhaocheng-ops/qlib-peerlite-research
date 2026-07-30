@@ -1,0 +1,45 @@
+{
+  "schema_version": "quant_change_request_v2",
+  "parent_contract_id": "qrc-v2-5b7353756e0fded36622a6946011f77a",
+  "parent_canonical_hash": "5b7353756e0fded36622a6946011f77a99706ec82a9685cb2dd3c03bba37002d",
+  "research_family_id": "qlib-peerlite-a-share-daily-v0",
+  "requested_at": "2026-07-30T03:40:10+00:00",
+  "reason": "Repair the frozen cumulative fit-budget arithmetic so the already-predeclared five-seed confirmation, negative controls, and quarterly final-OOS refits can execute without resetting the append-only family ledger; add the master-plan time-shuffle negative control. No M7 outcome changes the active candidate, threshold, sample, or OOS.",
+  "changed_fields": [
+    "method_scope.max_model_fits",
+    "evaluation.negative_controls"
+  ],
+  "outcome_reviewed": false,
+  "final_oos_replaced": false,
+  "changes": {
+    "method_scope": {
+      "max_model_fits": 128
+    },
+    "evaluation": {
+      "negative_controls": [
+        {
+          "name": "random_label",
+          "expected_result": "RankIC和成本后组合增量应退化至无稳定正值",
+          "failure_action": "若仍通过则判定实现或泄漏门FAIL"
+        },
+        {
+          "name": "future_poison_prefix_replay",
+          "expected_result": "严格未来输入扰动不得改变受保护历史特征键和值",
+          "failure_action": "隔离数据路径并返回M3，不得训练"
+        },
+        {
+          "name": "peer_module_disabled",
+          "expected_result": "退化为同容量MLP，用于归因Peer结构的真实增量",
+          "failure_action": "若无差异则不宣称Peer机制增益"
+        },
+        {
+          "name": "time_shuffle",
+          "expected_result": "打乱日期顺序后RankIC和成本后组合增量不得保持稳定正值",
+          "failure_action": "若仍通过则判定切分、索引或泄漏门FAIL"
+        }
+      ]
+    }
+  },
+  "status": "PLANNED",
+  "change_request_id": "qrc-cr-v2-405ad2b8c8b8d75edf3c9af4f4ced7a4"
+}

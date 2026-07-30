@@ -1,0 +1,8 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "cost_implementation_v1",
+  "status": "PASS",
+  "implementation": "src/qlib_peerlite/evaluation/institutional.py",
+  "test": "tests/test_institutional_portfolio.py",
+  "assertion": "Buy and sell turnover are charged separately using effective-date transfer fee, seller-only stamp duty, frozen commission and base/stress impact."
+}

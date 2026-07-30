@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 56,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_CODE_REVIEW_REPAIRS_EXPECTED_RED",
+  "summary": "The repaired-surface test fails for the intended missing protected adapter before implementation.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_review_repairs_red.py",
+      "executed_at": "2026-07-29T19:46:49+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:ff58bed20e69a0e52816c402acc26f6b7359a10c02cfef14f70d535c38b075ba; stdout_bytes=1551; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m7_review_repairs_red.py"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-29T19:46:50+00:00",
+      "stdout_sha256": "sha256:ff58bed20e69a0e52816c402acc26f6b7359a10c02cfef14f70d535c38b075ba",
+      "stdout_bytes": 1551,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:ef5c77606a420a56c4d456c7d9fb1073ae1109ee4d3bf29030e679e612560596",
+      "source_digest_after": "sha256:ef5c77606a420a56c4d456c7d9fb1073ae1109ee4d3bf29030e679e612560596"
+    }
+  ],
+  "subject_digest": "sha256:aae494ab7e76118265908b237aca23a836ca8530fa7037b5fcf89c94c498acd3",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T19:46:50+00:00",
+  "source_digest": "sha256:ef5c77606a420a56c4d456c7d9fb1073ae1109ee4d3bf29030e679e612560596",
+  "artifacts": [
+    {
+      "path": "tests/test_m7_review_repairs_red.py",
+      "sha256": "sha256:aae494ab7e76118265908b237aca23a836ca8530fa7037b5fcf89c94c498acd3"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v5_code_review_repairs.md",
+      "sha256": "sha256:6804e74c15b4fde443d30f0a8c42131753426dbdad67f4c465a8a43503f7c5fc"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md",
+      "sha256": "sha256:d589d22e9a2c222e9e4f2d0fab534af6759a18854dc435ae65136adc19de5f1b"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
+      "sha256": "sha256:31a0dcb995782bbcd004709c9bd2561ffe957acf41c9b9940c56184dd5c1fcc4"
+    }
+  ],
+  "run_id": "tests-red-954befed91941902"
+}

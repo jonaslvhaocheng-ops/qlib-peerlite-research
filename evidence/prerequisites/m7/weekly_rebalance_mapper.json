@@ -1,0 +1,8 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "weekly_rebalance_mapper_v1",
+  "status": "PASS",
+  "implementation": "src/qlib_peerlite/evaluation/institutional.py",
+  "test": "tests/test_institutional_portfolio.py",
+  "assertion": "One final available session per W-FRI period is selected, preferring Friday when present."
+}

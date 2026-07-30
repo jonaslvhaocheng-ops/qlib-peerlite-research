@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 25,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M7_FIRST_TRANCHE_REPAIRED_DESIGN_PASS",
+  "summary": "Independent review confirms that the repaired tranche deletes the spoofable marker, denies all dataset-level Gate use before data access, and adds an exact pre-step non-finite-gradient contract without granting empirical authority.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v4_independent.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v3_independent.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:7d80320612363c9d5a59154dbbf9fc2e564e294f930bf561666c6f9898ee2a1c",
+  "blockers": [],
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only review; no repository, ledger, Git, training, budget, or final-OOS mutation.",
+      "PASS authorizes refreshed tests only and does not assert source implementation completion."
+    ]
+  }
+}

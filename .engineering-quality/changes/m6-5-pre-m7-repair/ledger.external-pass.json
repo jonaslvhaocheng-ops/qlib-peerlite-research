@@ -3,7 +3,7 @@
   "suite_version": "0.2.1",
   "change_id": "m6-5-pre-m7-repair",
   "ledger_revision": 337,
-  "status": "READY_FOR_CI",
+  "status": "EXTERNAL_PASS_ARCHIVE",
   "repository": {
     "identity": "github.com/jonaslvhaocheng-ops/qlib-peerlite-research",
     "root_hint": "qlib模型框架",

@@ -1,0 +1,23 @@
+schema_version: qlib_peerlite_shadow_policy_v1
+capability: SHADOW_ONLY
+input_track: SYNTHETIC
+execution_mode: paper
+timezone: Asia/Shanghai
+session_close: "15:00"
+run_after: "16:30"
+rebalance_weekday: 4
+max_signal_age_minutes: 180
+future_skew_seconds: 30
+max_input_bytes: 3000000
+max_rows: 2000
+max_instruments: 1000
+top_fraction: 0.10
+max_name_weight: 0.02
+max_paper_intents: 100
+reservation_timeout_seconds: 900
+m9_gate_path: evidence/gates/M9_step_nine_terminal_gate.json
+m9_gate_sha256: e1d5fda7576e97a3cd3302f1307c6d210bba3fd2dff0aa616c691d212bf20a1f
+calendar_path: configs/m10_synthetic_calendar.json
+calendar_sha256: d6ed1cb39f81d14496b8a9a916ac62a2c9548db563202e97ce24be1e66cbf660
+permitted_model_ids:
+  - SYNTHETIC_PEERLITE

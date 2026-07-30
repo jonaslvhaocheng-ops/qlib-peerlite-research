@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 6,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M9_FAIL_CLOSED_TERMINAL_HOLD_DESIGNED",
+  "summary": "The design preserves M8, stops before training on official contract rejection, leaves the OOS untouched and permits only a future disjoint research cycle.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/change_design.md"
+  ],
+  "evidence_paths": [
+    "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

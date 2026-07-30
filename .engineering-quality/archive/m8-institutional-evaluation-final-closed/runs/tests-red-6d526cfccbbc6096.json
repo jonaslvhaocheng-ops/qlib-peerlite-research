@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 11,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M8_RETRY_ATTEMPT_REJECTED_BEFORE_SIDE_EFFECTS",
+  "summary": "The expected-red probe invokes the historical confirmation entry point and must terminate non-zero before creating any output or counted start.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python scripts/quality/m8_expected_red_probe.py",
+      "executed_at": "2026-07-30T04:16:49+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:42806446225172b4fd50ed5acd133e6f71f5325f058c51feb36b7f28c79747bd; stderr_bytes=583",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/quality/m8_expected_red_probe.py"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-30T04:16:50+00:00",
+      "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_sha256": "sha256:42806446225172b4fd50ed5acd133e6f71f5325f058c51feb36b7f28c79747bd",
+      "stderr_bytes": 583,
+      "source_digest_before": "sha256:b09e5d101079b7420bae7d50e0c226f7eb331411fabc78af1a50a1308df2a32c",
+      "source_digest_after": "sha256:b09e5d101079b7420bae7d50e0c226f7eb331411fabc78af1a50a1308df2a32c"
+    }
+  ],
+  "subject_digest": "sha256:c4c0843250477d964cfa452411897a0dc89f5c340d374b272c0bab9bc5faecf4",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:16:50+00:00",
+  "source_digest": "sha256:b09e5d101079b7420bae7d50e0c226f7eb331411fabc78af1a50a1308df2a32c",
+  "artifacts": [
+    {
+      "path": "scripts/quality/m8_expected_red_probe.py",
+      "sha256": "sha256:c4c0843250477d964cfa452411897a0dc89f5c340d374b272c0bab9bc5faecf4"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/tests_red.md",
+      "sha256": "sha256:6ad4e9b3c3cdd26b145fca6dfe93569a697fc330d5214cdc60d11883d3bedcbb"
+    }
+  ],
+  "run_id": "tests-red-6d526cfccbbc6096"
+}

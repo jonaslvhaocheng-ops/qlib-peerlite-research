@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 6,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_TRUST_BOUNDARIES_CONFIRMED",
+  "summary": "The revised architecture keeps one bounded package and now defines the authoritative commit point, filesystem trust boundary, immutable input snapshot and pinned-session boundary.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/m10/ARCHITECTURE.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/architecture.md",
+    "docs/quality/changes/m10-shadow-production/evidence/design_review_v1.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

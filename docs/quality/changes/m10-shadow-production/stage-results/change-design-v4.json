@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m10-shadow-production",
+  "ledger_revision": 13,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M10_THIRD_REVIEW_FINDINGS_RESOLVED",
+  "summary": "The alert is now solely transactional and the idempotency index has complete validation, corruption, exclusive-creation and repair semantics.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/m10/CHANGE_DESIGN.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m10-shadow-production/evidence/change_design_v4.md",
+    "docs/quality/changes/m10-shadow-production/evidence/design_review_v3.md",
+    "docs/m10/ARCHITECTURE.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

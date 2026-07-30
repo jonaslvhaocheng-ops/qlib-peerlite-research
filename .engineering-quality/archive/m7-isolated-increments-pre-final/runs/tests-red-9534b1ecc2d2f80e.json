@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 27,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_FIRST_TRANCHE_REPAIR_EXPECTED_RED",
+  "summary": "Two exact product-code failures prove that the intermediate Gate marker is spoofable and CCC clipping omits error_if_nonfinite; five prior tranche cases and twenty adjacent regressions are green.",
+  "issue_type": "product-code",
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_expected_red.py",
+      "executed_at": "2026-07-29T15:32:06+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:2012f078425184078e93b391edcfc1b7feac02b4f288907ceba308587203a1f8; stdout_bytes=3042; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m7_expected_red.py"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-29T15:32:08+00:00",
+      "stdout_sha256": "sha256:2012f078425184078e93b391edcfc1b7feac02b4f288907ceba308587203a1f8",
+      "stdout_bytes": 3042,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:850ed127dde4fd859adf4a021b019f20dbac60e1b005abb068608389fe4c7129",
+      "source_digest_after": "sha256:850ed127dde4fd859adf4a021b019f20dbac60e1b005abb068608389fe4c7129"
+    }
+  ],
+  "subject_digest": "sha256:7c9e71a4a723f74d48a6013822d29e7429101fab445dcbe5a106950fc4f22cc8",
+  "blockers": [],
+  "recorded_at": "2026-07-29T15:32:08+00:00",
+  "source_digest": "sha256:850ed127dde4fd859adf4a021b019f20dbac60e1b005abb068608389fe4c7129",
+  "artifacts": [
+    {
+      "path": "tests/test_m7_expected_red.py",
+      "sha256": "sha256:7c9e71a4a723f74d48a6013822d29e7429101fab445dcbe5a106950fc4f22cc8"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v2.md",
+      "sha256": "sha256:4365bd749893cfaea33b2194caed511a30604ff42d66585b4ddec2557a4d40ba"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design.md",
+      "sha256": "sha256:5a78265e128d913f0c69884ed951d1f44fc4f1d16e4a5cce3149467882b65432"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+      "sha256": "sha256:7d80320612363c9d5a59154dbbf9fc2e564e294f930bf561666c6f9898ee2a1c"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v4_independent.md",
+      "sha256": "sha256:94ef88481b0bd4565f4ed1b2387c1eb8e95c4b673ebc20d1ee2e3461b2339d19"
+    }
+  ],
+  "run_id": "tests-red-9534b1ecc2d2f80e"
+}

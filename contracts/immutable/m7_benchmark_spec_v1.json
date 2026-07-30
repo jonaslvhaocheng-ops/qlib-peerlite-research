@@ -1,0 +1,15 @@
+{
+  "schema_version": "qlib_peerlite_benchmark_spec_v1",
+  "semantic_version": "m7_benchmark_spec_v1",
+  "status": "FROZEN",
+  "benchmark_id": "CSI800_EQUAL_WEIGHT_EXECUTABLE_PIT_V1",
+  "definition": "equal-weight replicating portfolio over each historical point-in-time CSI300 plus CSI500 eligible cross-section",
+  "return_basis": "the same audited T+1 open to T+5 close constituent return used for every model; this is an executable research benchmark, not the vendor-published CSI800 total-return index",
+  "rebalance_alignment": "same weekly signal date and T+1 execution calendar as each candidate",
+  "execution_policy": "same buy/sell availability, failed-fill retention, 2 percent name cap and 5 percent ADV participation limit",
+  "cost_policy": "gross and net paths reported; net path uses the exact frozen candidate cost implementation",
+  "incrementality_benchmark": "PEERLITE_K16_MSE frozen M6 score under the exact same portfolio mapper",
+  "selection_role": "CCC and Gate are screened relative to PEERLITE_K16_MSE; the CSI800 replicating path is a market reference and does not replace the frozen incremental comparator",
+  "source_certificate": "evidence/prerequisites/m7/benchmark_source_certificate.json",
+  "scope": "M7 pre-final-OOS screening only"
+}

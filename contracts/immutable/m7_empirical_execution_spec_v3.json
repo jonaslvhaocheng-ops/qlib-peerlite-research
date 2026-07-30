@@ -1,0 +1,133 @@
+{
+  "schema_version": "qlib_peerlite_m7_execution_spec_v3",
+  "semantic_version": "m7_empirical_execution_spec_v3",
+  "status": "FROZEN",
+  "family_id": "QLIB_PEERLITE_M7_INITIAL_SCREEN_V1",
+  "run_id": "m7_isolated_increments_20260730_v3",
+  "parent_execution_spec": "contracts/immutable/m7_empirical_execution_spec_v2.json",
+  "change_request": "contracts/changes/m7_empirical_execution_cr_v3.json",
+  "parent_contract": "contracts/immutable/research_contract_pit_v2.json",
+  "cost_spec": "contracts/immutable/m7_cost_spec_v1.json",
+  "benchmark_spec": "contracts/immutable/m7_benchmark_spec_v1.json",
+  "product_id": "pit_data_product_2012_2024_v3",
+  "market_state": {
+    "product_id": "m7_market_state_product_2012_2024_v1",
+    "claim": "MARKET_RECONSTRUCTIBLE",
+    "columns": [
+      "mkt_trend_20",
+      "mkt_vol_20",
+      "mkt_breadth_1d",
+      "mkt_turnover_20"
+    ]
+  },
+  "recovery": {
+    "kind": "ONE_PRE_OUTCOME_HARNESS_REPLACEMENT",
+    "ancestor_run_id": "m7_isolated_increments_20260730_v2",
+    "reused_evaluation_id": "m7_isolated_increments_20260730_v2:PEERLITE_K16_CCC:seed7",
+    "failed_fit_id": "m7_isolated_increments_20260730_v2:PEERLITE_K16_CCC:seed7:wf_2018",
+    "replacement_fit_id": "m7_isolated_increments_20260730_v2:PEERLITE_K16_CCC:seed7:wf_2018:replacement_1",
+    "failure_receipt_sha256": "24fc071522c1df533cc46092fe601d957ca7e5a7853ee826706116f011f0178e",
+    "trial_journal_sha256": "41d034639dd6316feeabaca633af56085e8396081640a3366f190491df1f0658",
+    "ledger_sha256_before": "718fed52d280147eed005165a7ba9001254b7c762b5ff97cf3609d1866dfbe7a",
+    "no_second_replacement": true
+  },
+  "schedule": {
+    "fold_ids": [
+      "wf_2018",
+      "wf_2019",
+      "wf_2020",
+      "wf_2021",
+      "wf_2022",
+      "wf_2023",
+      "wf_2024"
+    ],
+    "seed": 7,
+    "embargo_sessions": 5,
+    "candidate_evaluations": 2,
+    "model_fits": 16,
+    "deterministic_refit_fold": "wf_2018",
+    "candidate_order": [
+      "PEERLITE_K16_CCC",
+      "PEERLITE_K16_MSE_GATE"
+    ],
+    "trial_counts_before": {
+      "candidate_evaluations": 7,
+      "model_fits": 45
+    },
+    "trial_counts_after_success": {
+      "candidate_evaluations": 8,
+      "model_fits": 61
+    },
+    "limits": {
+      "candidate_evaluations": 27,
+      "model_fits": 61
+    },
+    "failure_policy": "durably count every start, preserve evidence and stop at first further failed fit"
+  },
+  "candidates": [
+    {
+      "model_id": "PEERLITE_K16_CCC",
+      "isolated_increment": "CCC loss only",
+      "parameters": {
+        "input_dim": 50,
+        "hidden_dim": 64,
+        "num_peers": 16,
+        "num_heads": 4,
+        "dropout": 0.1,
+        "market_dim": 0,
+        "market_gate": false,
+        "loss": "ccc",
+        "seed": 7,
+        "epochs": 100,
+        "patience": 12,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "cross_section_batch_size": 16,
+        "device": "cuda",
+        "model_id": "PEERLITE_K16_CCC"
+      }
+    },
+    {
+      "model_id": "PEERLITE_K16_MSE_GATE",
+      "isolated_increment": "four-dimensional causal market-state gate only",
+      "parameters": {
+        "input_dim": 50,
+        "hidden_dim": 64,
+        "num_peers": 16,
+        "num_heads": 4,
+        "dropout": 0.1,
+        "market_dim": 4,
+        "market_gate": true,
+        "loss": "mse",
+        "seed": 7,
+        "epochs": 100,
+        "patience": 12,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "cross_section_batch_size": 16,
+        "device": "cuda",
+        "model_id": "PEERLITE_K16_MSE_GATE"
+      }
+    }
+  ],
+  "evaluation": {
+    "incremental_comparator": "PEERLITE_K16_MSE",
+    "market_reference": "CSI800_EQUAL_WEIGHT_EXECUTABLE_PIT_V1",
+    "portfolio": "weekly top 10 percent, equal-weight, 2 percent name cap, 5 percent ADV cap",
+    "base_impact_bps_per_side": 10.0,
+    "stress_impact_bps_per_side": 20.0,
+    "screen_rule": "each candidate is evaluated independently; no combination is authorized"
+  },
+  "forbidden": [
+    "CCC plus Gate combination",
+    "five-seed confirmation",
+    "a second replacement fit",
+    "SAM",
+    "final OOS access",
+    "step-nine promotion claim",
+    "text, LLM, minute, tick or L2 inputs"
+  ],
+  "claim_ceiling": "PRE_FINAL_OOS_SCREENING_ONLY"
+}

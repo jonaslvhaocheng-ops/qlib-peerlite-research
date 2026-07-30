@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 23,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_ARCHITECTURE_EVIDENCE_SCOPE_REPAIRED",
+  "summary": "The contained monorepo/data-model-governance boundary remains valid; architecture evidence is now bound only to stable architecture artifacts rather than downstream tests or implementation files that must change.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md"
+  ],
+  "evidence_paths": [
+    "pyproject.toml",
+    "README.md"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "blockers": []
+}

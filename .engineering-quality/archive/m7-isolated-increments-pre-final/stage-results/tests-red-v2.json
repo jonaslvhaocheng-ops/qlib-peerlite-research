@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 27,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_FIRST_TRANCHE_REPAIR_EXPECTED_RED",
+  "summary": "Two exact product-code failures prove that the intermediate Gate marker is spoofable and CCC clipping omits error_if_nonfinite; five prior tranche cases and twenty adjacent regressions are green.",
+  "issue_type": "product-code",
+  "artifact_paths": [
+    "tests/test_m7_expected_red.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/test_design.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v4_independent.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_expected_red.py",
+      "executed_at": "2026-07-29T15:30:00+00:00",
+      "exit_code": 1,
+      "summary": "Expected red: two product-code contract failures; five current cases pass with no harness failure."
+    }
+  ],
+  "subject_digest": "sha256:7c9e71a4a723f74d48a6013822d29e7429101fab445dcbe5a106950fc4f22cc8",
+  "blockers": []
+}

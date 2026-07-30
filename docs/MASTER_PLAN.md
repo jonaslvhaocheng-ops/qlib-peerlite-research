@@ -22,9 +22,11 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M4 | Qlib research foundation | reproducible data/model/recorder loop | PASS |
 | M5 | baselines | B0 LightGBM and B1 MLP rolling scores | PASS |
 | M6 | PeerLite | mechanics, frozen MSE runs and independent verification | PASS |
-| M6.5 | pre-M7 engineering quality | independent design/code/test review and remediation | NEEDS_CHANGES |
-| M7 | Huatai increments | CCC/Gate isolated comparisons | NOT_RUN |
-| M8 | institutional evaluation | final OOS and decision package | NOT_RUN |
+| M6.5 | pre-M7 engineering quality | independent design/code/test review and remediation | PASS |
+| M7 | Huatai increments | CCC/Gate isolated comparisons | COMPLETE / BOTH HOLD |
+| M8 | institutional evaluation | five-seed confirmation then final OOS | CLOSED / TERMINAL HOLD / OOS NOT OPENED |
+| M9 | terminal decision | contract-valid reauthorization check | COMPLETE / HOLD |
+| M10 | production controls | fail-closed synthetic shadow cycle | COMPLETE / SHADOW_READY / LIVE HOLD |
 
 ## Non-negotiables
 
@@ -39,18 +41,25 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 
 ## Current handoff
 
-M6 passed on the exact M3-qualified pre-final-OOS product. K16 and K32 PeerLite
-MSE each completed all seven frozen rolling folds. All 14 checkpoints replayed
-exactly; the additional K16 deterministic refit reproduced its 125,413 scores
-exactly. An independent verifier rehashed 1,898,028 predictions and redownloaded
-both Qlib Recorder artifact sets. The cumulative append-only budget is now 6
-candidate evaluations and 44 model fits.
+M7 closed with CCC and Gate both `HOLD`, leaving PeerLite K16 MSE as the active
+pre-final-OOS research baseline. M8 then started the frozen five-seed
+confirmation. During seed 19, an accounting defect was found: start events were
+durably journaled but not imported into the authoritative ledger before
+`model.fit`. The process was stopped after two completed folds and one
+interrupted fit.
 
-M6 deliberately performed no K selection, baseline comparison, portfolio
-backtest or cost-adjusted evaluation. User-authorized CR
-`contracts/changes/m6_5_pre_m7_quality_gate_v1.json` inserts M6.5 before M7:
-independent review found a Gate future-label path, a future-conditioned state
-population risk, an append-only-ledger lifecycle defect, and incomplete
-checkpoint-verification evidence. M7 cannot be frozen or run until M6.5 passes.
-It does not open 2025+ final OOS, establish Alpha, promote PeerLite, or
-authorize deployment.
+The exact one candidate start and three fit starts were retained atomically and
+independently verified, bringing the cumulative ledger to 9 candidate
+evaluations and 64 fit starts. The frozen no-retry rule makes confirmation
+incomplete, so statistical, portfolio, control and final-OOS gates did not run.
+M8 closes as `HOLD_OPERATIONAL_CONFIRMATION_INCOMPLETE`; final-OOS access
+remains zero and no model is promoted. A later truthful reauthorization attempt
+was rejected before training because the child and change request were
+internally inconsistent after decisive development outcomes were inspected.
+Step nine is terminally closed as `HOLD_REAUTHORIZATION_CONTRACT_INVALID`.
+This closure does not decide whether a future, separately governed replacement
+OOS can eventually be designed and accrued.
+
+M10 is now engineering-complete as a local `SHADOW_ONLY / SYNTHETIC / PAPER`
+control plane. It does not change the terminal M9 research HOLD, open final OOS,
+promote PeerLite, connect a broker, or authorize real signals or live orders.

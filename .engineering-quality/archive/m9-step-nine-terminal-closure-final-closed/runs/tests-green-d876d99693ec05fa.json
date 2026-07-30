@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 12,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M9_FULL_SUITE_GREEN",
+  "summary": "Ruff, the focused M9 evidence tests and the complete repository suite pass; no new runtime or model package requires a protected coverage profile.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T04:59:43+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18; stdout_bytes=19; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "tests",
+        "scripts",
+        "--exclude",
+        "scripts/vendor"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T04:59:43+00:00",
+      "stdout_sha256": "sha256:82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "stdout_bytes": 19,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+      "source_digest_after": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T04:59:43+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:6ae493aedb22afb94871f723c263b76248d6ab3e9b38393c03a0c9420541a211; stdout_bytes=261; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T04:59:56+00:00",
+      "stdout_sha256": "sha256:6ae493aedb22afb94871f723c263b76248d6ab3e9b38393c03a0c9420541a211",
+      "stdout_bytes": 261,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+      "source_digest_after": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m8-core --receipt docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json",
+      "executed_at": "2026-07-30T04:59:56+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:2319aa861b88df7d937045710bd41934ade5f8f5a873c46beeb0d1023415096c; stdout_bytes=440; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        "python3",
+        "scripts/quality/quality_ledger.py",
+        "capture-coverage",
+        "--repo",
+        ".",
+        "--profile",
+        "m8-core",
+        "--receipt",
+        "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T04:59:58+00:00",
+      "stdout_sha256": "sha256:2319aa861b88df7d937045710bd41934ade5f8f5a873c46beeb0d1023415096c",
+      "stdout_bytes": 440,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+      "source_digest_after": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223"
+    }
+  ],
+  "subject_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "coverage": {
+    "schema_version": "engineering-quality-coverage-v1",
+    "receipt_path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json",
+    "policy": {
+      "path": ".engineering-quality/coverage-policy.json",
+      "sha256": "sha256:ddbe2b34684687147d30d34da80f7af14a0ac5726f0c8da2526ebee5928a6518",
+      "profile": "m8-core"
+    },
+    "format": "coveragepy-json",
+    "source_roots": [
+      "src/qlib_peerlite/m8_closure"
+    ],
+    "expected_core_paths": [
+      "src/qlib_peerlite/m8_closure/__init__.py",
+      "src/qlib_peerlite/m8_closure/recovery.py"
+    ],
+    "observed_core_paths": [
+      "src/qlib_peerlite/m8_closure/__init__.py",
+      "src/qlib_peerlite/m8_closure/recovery.py"
+    ],
+    "line": {
+      "covered": 63,
+      "total": 63,
+      "missing": 0,
+      "excluded": 0,
+      "percent": 100.0
+    },
+    "branch": {
+      "covered": 24,
+      "total": 24,
+      "missing": 0,
+      "excluded": 0,
+      "percent": 100.0
+    },
+    "required_line_percent": 100.0,
+    "required_branch_percent": 100.0,
+    "source": {
+      "kind": "raw-report",
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.raw.json",
+      "sha256": "sha256:b885dd3e834c75294b78819a3f4f301bc7e68078d2b6102232e7a9dab12969ad"
+    }
+  },
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:59:58+00:00",
+  "source_digest": "sha256:115edb6f1bdde8548a06c1fe5b4d5a840e3496ad6d42929b7ae66d3274540223",
+  "artifacts": [
+    {
+      "path": "tests/test_m9_terminal_closure.py",
+      "sha256": "sha256:a9af3ee73658ea06cd5ef069829a99d08cf03e7eb191fc38a7964164041320ad"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/tests_green.md",
+      "sha256": "sha256:0591b2e6104d30e5a9ca53504525f2e7ee651d5ba79accbc096913d60b66fbae"
+    },
+    {
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.json",
+      "sha256": "sha256:09c21231ffbd76bf918fe0362cf2908b267678957501e280a7d0eb845a6908fd"
+    },
+    {
+      "path": "docs/quality/changes/m9-step-nine-terminal-closure/evidence/coverage-m9-r12.raw.json",
+      "sha256": "sha256:b885dd3e834c75294b78819a3f4f301bc7e68078d2b6102232e7a9dab12969ad"
+    }
+  ],
+  "run_id": "tests-green-d876d99693ec05fa"
+}

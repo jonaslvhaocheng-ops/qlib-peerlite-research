@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 8,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_EXECUTION_CONTRACT_FINDINGS_CLOSED",
+  "summary": "V2 closes all independent-review findings with a zero-event screening prerequisite bundle, one authorization/consumption/recovery state machine, a value-bound VerifiedMarketStateDataset, and exact CCC numerical/early-stop/checkpoint semantics.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v1_independent.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+    "contracts/cost_spec.json",
+    "contracts/benchmark_spec.json",
+    "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+    "src/qlib_peerlite/governance/trial_ledger.py",
+    "src/qlib_peerlite/data/market_state.py",
+    "src/qlib_peerlite/data/dataset.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "src/qlib_peerlite/models/losses.py"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "blockers": []
+}

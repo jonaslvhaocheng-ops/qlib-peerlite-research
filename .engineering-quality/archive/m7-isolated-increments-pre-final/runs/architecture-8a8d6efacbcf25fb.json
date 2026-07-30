@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 2,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_ISOLATED_INCREMENT_BOUNDARIES_CONFIRMED",
+  "summary": "The existing data/model/governance/server-runner boundaries can contain isolated CCC and PIT-qualified 4D Gate candidates without a new runtime or public schema; the bounded design must remove legacy market-channel access from the authoritative Gate path.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T15:01:31+00:00",
+  "source_digest": "sha256:e4437de3fd16910b3ef5b298db094b164f4f9c543d3fc52eea0727f148d0fb9b",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+      "sha256": "sha256:7d5fca36b456761bcdda7606fea971258104045f4f81d01a8b76056478101676"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:bad0afd9c013cf0d01c7d7728ee285543b7ef6425b7258160e845e938f77034a"
+    },
+    {
+      "path": "src/qlib_peerlite/models/losses.py",
+      "sha256": "sha256:a8e7c0ee69c54ed1aad127b38c35ab921cc6746f3c9927ef6a7a9e3c6972bae6"
+    },
+    {
+      "path": "src/qlib_peerlite/data/market_state.py",
+      "sha256": "sha256:b9b8b1052ae32bf3812a06b42d83520a089cbb9bb3604cc755362375fc470706"
+    },
+    {
+      "path": "src/qlib_peerlite/data/dataset.py",
+      "sha256": "sha256:2d7880d6f5c2d588db0d8aa09839c47c38b9a53608e81ad1fe1e1cb3bd6b56cc"
+    },
+    {
+      "path": "src/qlib_peerlite/governance/trial_ledger.py",
+      "sha256": "sha256:5ae99fc9f870937b2db518703e07d18db9bbf7dac8facbdca0432ade07b5de94"
+    },
+    {
+      "path": "contracts/changes/m7_initial_screen_budget_binding_v2.json",
+      "sha256": "sha256:dd162de1565f887261cebbaef3eeec50c83697125a2acf5adb1546e8e819fcf4"
+    },
+    {
+      "path": "evidence/gates/M6_peerlite_gate.json",
+      "sha256": "sha256:83cdc68597e6b3bddc79fe366d71d9c4cc08398d88f06c94087d4b56bbf8ae86"
+    },
+    {
+      "path": "docs/quality/changes/m6-5-pre-m7-repair/evidence/external_ci_terminal_pass.md",
+      "sha256": "sha256:657b977ae8d1953163d9354ad2cecda72fd9ce838288be1918d8a1ce6b976595"
+    }
+  ],
+  "run_id": "architecture-8a8d6efacbcf25fb"
+}
