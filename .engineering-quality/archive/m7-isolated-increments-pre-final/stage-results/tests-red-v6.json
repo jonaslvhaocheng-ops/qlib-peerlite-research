@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 56,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_CODE_REVIEW_REPAIRS_EXPECTED_RED",
+  "summary": "The repaired-surface test fails for the intended missing protected adapter before implementation.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m7_review_repairs_red.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v5_code_review_repairs.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_review_repairs_red.py",
+      "executed_at": "2026-07-30T03:45:00+08:00",
+      "exit_code": 1,
+      "summary": "Expected missing m7.adapter failure."
+    }
+  ],
+  "subject_digest": "sha256:aae494ab7e76118265908b237aca23a836ca8530fa7037b5fcf89c94c498acd3",
+  "independence": null,
+  "blockers": []
+}

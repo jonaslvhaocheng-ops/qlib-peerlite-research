@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 55,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FINAL_REPAIR_TEST_MATRIX_READY",
+  "summary": "The revised matrix removes positive empirical lease tests and adds exact candidate mutations, persisted recovery, strict checkpoint dispatch, protected adapter coverage, clean-process journeys and CI contract tests.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v8_final_repairs_independent.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:d589d22e9a2c222e9e4f2d0fab534af6759a18854dc435ae65136adc19de5f1b",
+  "independence": null,
+  "blockers": []
+}

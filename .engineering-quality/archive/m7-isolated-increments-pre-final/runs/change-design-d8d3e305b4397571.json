@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 51,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_CODE_REVIEW_REPAIR_DESIGN_READY",
+  "summary": "The repair design removes empirical model authority, freezes candidate semantics, requires persisted recovery evidence, enforces synthetic-only checkpoint dispatch, adds deployable CI and separates the M6.5 baseline.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T19:40:27+00:00",
+  "source_digest": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md",
+      "sha256": "sha256:c141aa5cd6f96e141893309ab944592760dfa8735cb3510394ae0e48b294d680"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
+      "sha256": "sha256:31a0dcb995782bbcd004709c9bd2561ffe957acf41c9b9940c56184dd5c1fcc4"
+    },
+    {
+      "path": "contracts/changes/m7_complete_engineering_cr_v1.json",
+      "sha256": "sha256:9fa4ae01810de1d6f82ae0e7270239d6bab563511d098141ca226fd64ab19009"
+    },
+    {
+      "path": "contracts/cost_spec.json",
+      "sha256": "sha256:fc9cdeff2136993538970a71c735b882c390803e9603d4a465079e455e6688eb"
+    },
+    {
+      "path": "contracts/benchmark_spec.json",
+      "sha256": "sha256:a75fb43de089352fd3fcd424cbb6b91a085751c93bf2681ea64f7e2b75a136c3"
+    }
+  ],
+  "run_id": "change-design-d8d3e305b4397571"
+}

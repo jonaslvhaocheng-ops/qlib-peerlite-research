@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 14,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_ISOLATED_CONTRACTS_EXPECTED_RED",
+  "summary": "Five product-code failures prove the intended M7 gaps: CCC violates the float64/finite-input numerical contract and the Gate accepts an unverified dataset through the legacy market channel; the adjacent existing suite remains green.",
+  "issue_type": "product-code",
+  "artifact_paths": [
+    "tests/test_m7_expected_red.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/test_design.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v2_independent.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_expected_red.py",
+      "executed_at": "2026-07-29T15:20:31+00:00",
+      "exit_code": 1,
+      "summary": "Expected red: five product-code contract failures, with no collection, import, fixture, harness, or environment failure."
+    }
+  ],
+  "subject_digest": "sha256:1dab62bc1cd182b57af4c618b4c7506b1ef3cb1c3737eb97208c7988b31e4956",
+  "blockers": []
+}

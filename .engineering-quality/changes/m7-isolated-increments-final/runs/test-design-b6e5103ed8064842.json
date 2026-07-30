@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 5,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_FINAL_TEST_MATRIX_COMPLETE",
+  "summary": "The matrix covers exact candidates, persisted recovery, strict checkpoint dispatch, clean-process journeys and fail-closed empirical preflight.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:d589d22e9a2c222e9e4f2d0fab534af6759a18854dc435ae65136adc19de5f1b",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T01:33:09+00:00",
+  "source_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md",
+      "sha256": "sha256:d589d22e9a2c222e9e4f2d0fab534af6759a18854dc435ae65136adc19de5f1b"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v8_final_repairs_independent.md",
+      "sha256": "sha256:414596dd26170dd1d3a3555c40ce2c1f00f30628c822743166a1efd359c2b9a2"
+    }
+  ],
+  "run_id": "test-design-b6e5103ed8064842"
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 43,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_BASE_REPLAY_EXPECTED_RED",
+  "summary": "The approved behavioral test was replayed against exact base deed0a6 in an isolated worktree and failed only because the M7 package was absent.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m7_complete_red.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v4_base_replay.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -c 'import os,pathlib,shutil,subprocess,sys,tempfile; d=tempfile.mkdtemp(prefix=\"m7-red-\"); subprocess.check_call([\"git\",\"worktree\",\"add\",\"--detach\",d,\"deed0a6314a90099f4b9c0c258a89e36f7c95423\"],stdout=subprocess.DEVNULL); shutil.copy2(\"tests/test_m7_complete_red.py\",pathlib.Path(d)/\"tests/test_m7_complete_red.py\"); env=dict(os.environ); env[\"PYTHONPATH\"]=str(pathlib.Path(d)/\"src\"); r=subprocess.run([sys.executable,\"-m\",\"pytest\",\"-q\",str(pathlib.Path(d)/\"tests/test_m7_complete_red.py\")],env=env); subprocess.run([\"git\",\"worktree\",\"remove\",\"--force\",d],stdout=subprocess.DEVNULL); sys.exit(r.returncode)'",
+      "executed_at": "2026-07-30T02:20:00+08:00",
+      "exit_code": 1,
+      "summary": "Expected isolated base replay failure."
+    }
+  ],
+  "subject_digest": "sha256:50254dd8d1ea6ab3db5a71d5760a81a197b76441ca22e1629f0cc532410b8919",
+  "independence": null,
+  "blockers": []
+}

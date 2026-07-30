@@ -1,0 +1,36 @@
+{
+  "schema_version": "qlib_peerlite_cost_spec_v1",
+  "semantic_version": "m7_cost_spec_v1",
+  "status": "FROZEN",
+  "currency": "CNY",
+  "broker_commission_bps_per_side": 3.0,
+  "broker_commission_interpretation": "research assumption inclusive of exchange handling and regulatory fees; no unsupported claim that this is the user's live broker tariff",
+  "minimum_commission_policy": "not applied because the research portfolio is institutional-notional and orders are aggregated by name",
+  "statutory_schedule": [
+    {
+      "effective_from": "2018-01-01",
+      "effective_to": "2022-04-28",
+      "transfer_fee_bps_per_side": 0.2,
+      "stamp_duty_bps_sell_only": 10.0
+    },
+    {
+      "effective_from": "2022-04-29",
+      "effective_to": "2023-08-27",
+      "transfer_fee_bps_per_side": 0.1,
+      "stamp_duty_bps_sell_only": 10.0
+    },
+    {
+      "effective_from": "2023-08-28",
+      "effective_to": null,
+      "transfer_fee_bps_per_side": 0.1,
+      "stamp_duty_bps_sell_only": 5.0
+    }
+  ],
+  "base_impact_bps_per_side": 10.0,
+  "stress_impact_bps_per_side": 20.0,
+  "adv_participation_limit": 0.05,
+  "turnover_definition": "sum absolute filled weight changes; buys and sells charged separately",
+  "unfilled_order_policy": "retain the existing position and record unfilled weight; never assume a fill at an unavailable price",
+  "scope": "M7 pre-final-OOS screening only",
+  "official_fee_receipt": "evidence/prerequisites/m7/official_fee_receipt.json"
+}

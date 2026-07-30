@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 36,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "PRIOR_FIVE_FINDINGS_CLOSED_BY_ENFORCEABLE_DESIGN",
+  "summary": "Independent R3 review found no P0-P3 findings and confirmed closure of empirical authority, prerequisite semantics, recovery, checkpoint identity and protected coverage defects.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:b204c6b935e524095f48c638c49c477ded1195774987bb166c3a6668e0c07b3c",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Read-only review of the canonical design, prior findings and change request.",
+      "PASS is engineering-design approval only; it is not empirical execution authority."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-29T17:29:56+00:00",
+  "source_digest": "sha256:3578b7c4e4c3173b55f26254f08cd26eaae7ae4f2cbb58811e28e8b011176040",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v6_enforceable_independent.md",
+      "sha256": "sha256:cf4860018a8045198ca0d77a4d543aba26cb421defc15baa085f74bdb50703db"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+      "sha256": "sha256:b204c6b935e524095f48c638c49c477ded1195774987bb166c3a6668e0c07b3c"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/design_review_v5_complete_independent.md",
+      "sha256": "sha256:3701696fb57d1ee0b2d762377d0ca21c14b1f964190afa7ac1ce660e90ebea73"
+    },
+    {
+      "path": "contracts/changes/m7_complete_engineering_cr_v1.json",
+      "sha256": "sha256:9fa4ae01810de1d6f82ae0e7270239d6bab563511d098141ca226fd64ab19009"
+    }
+  ],
+  "run_id": "design-review-b5b5e4a6cf9b684e"
+}

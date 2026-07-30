@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 17,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_IMPLEMENTATION_BOUNDARY_STILL_CONTAINED",
+  "summary": "The implementation keeps CCC policy in the model loss boundary and introduces only the approved in-process verified-state type seam; it adds no runtime, service, storage, empirical authority, or public score-schema change.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T15:23:38+00:00",
+  "source_digest": "sha256:2585f87b0985b0f1fa90417c2f99b2f07187949f4dd4cc5873b8a6033b5459d7",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+      "sha256": "sha256:d52857d30f9bbfa33a1808c13f76ff1a91aa36494441f1f1c48f87a1d63ba950"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "src/qlib_peerlite/models/losses.py",
+      "sha256": "sha256:f9989f890b26e2211a39d322229f5fd8daa2b65436765da7b562116c280a0dd7"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:945442ce040f5e6aefaf760fd85408cf4e376d707708b3f833be0fd46b08fdc4"
+    },
+    {
+      "path": "src/qlib_peerlite/data/verified_market_state.py",
+      "sha256": "sha256:d903554fc3ae9f930f73608031ce9b4266b88848ea2fa33f26b5e63077182c54"
+    },
+    {
+      "path": "tests/test_m7_expected_red.py",
+      "sha256": "sha256:1dab62bc1cd182b57af4c618b4c7506b1ef3cb1c3737eb97208c7988b31e4956"
+    }
+  ],
+  "run_id": "architecture-cfa69be9d0e0ac9e"
+}

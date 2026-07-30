@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 49,
+  "stage_id": "tests-green",
+  "skill": "eng-write-tests",
+  "mode": "green",
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_GREEN_AND_PROTECTED_COVERAGE",
+  "summary": "All repository and M7 tests pass; the protected complete-package profile requires and reaches exact 100% line and branch coverage with no omitted source.",
+  "issue_type": null,
+  "artifact_paths": [
+    "tests/test_m7_complete.py",
+    "tests/test_m7_complete_red.py",
+    "tests/test_m7_first_tranche_green.py",
+    "tests/test_m7_expected_red.py",
+    ".engineering-quality/coverage-policy.json"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_green_complete_v1.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.json",
+    "docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.raw.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T02:45:00+08:00",
+      "exit_code": 0,
+      "summary": "Repository static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T02:45:00+08:00",
+      "exit_code": 0,
+      "summary": "Full suite passes."
+    },
+    {
+      "command": "python3 scripts/quality/quality_ledger.py capture-coverage --repo . --profile m7-core --receipt docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.json",
+      "executed_at": "2026-07-30T02:45:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller-owned coverage capture request."
+    }
+  ],
+  "coverage": {
+    "receipt_path": "docs/quality/changes/m7-isolated-increments/evidence/coverage-r49.json",
+    "profile": "m7-core"
+  },
+  "subject_digest": "sha256:e84ef9727bf2054849f05f3c5551d108c5c9fe1d1dba918d3578fd6393d3ff9f",
+  "independence": null,
+  "blockers": []
+}

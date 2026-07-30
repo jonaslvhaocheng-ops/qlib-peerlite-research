@@ -1,0 +1,7 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "adv_capacity_rule_v1",
+  "status": "PASS",
+  "implementation": "src/qlib_peerlite/evaluation/institutional.py",
+  "assertion": "Each filled weight change is capped at 5 percent of T-known 20-session average traded value divided by portfolio notional."
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 19,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "NEEDS_CHANGES",
+  "reason_code": "M7_FIRST_TRANCHE_FAIL_CLOSED_CONTRACT_INCOMPLETE",
+  "summary": "Independent review found that the abstract verified-state marker is caller-spoofable and that the CCC trainer still lacks the required pre-step non-finite-gradient failure path.",
+  "issue_type": "contract",
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/design_review_v3_independent.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+    "src/qlib_peerlite/models/losses.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "src/qlib_peerlite/data/verified_market_state.py",
+    "tests/test_m7_expected_red.py"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:311a5c222c7cedc3c0b17d29f4ee993f02fcbcf3bb0da18818f75085d7714163",
+  "blockers": [
+    "Replace the spoofable marker claim with an unconditional Gate denial until a controlled concrete factory and immutable binding exist.",
+    "Close or explicitly retain and test the CCC non-finite-gradient guard before optimizer step."
+  ],
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v25_design_review",
+    "limitations": [
+      "Read-only review; no repository, ledger, Git, training, budget, or final-OOS mutation.",
+      "The review evaluated design and current implementation boundaries, not empirical alpha performance."
+    ]
+  }
+}

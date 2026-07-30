@@ -1,0 +1,188 @@
+{
+  "accounting": {
+    "cumulative_candidate_evaluations": 8,
+    "cumulative_model_fits": 61,
+    "ledger_sha256": "56693d40e28d41609bb50caec99776e0907f7ee9d5ff28ae82328aecd8de8feb",
+    "recovery_run_candidate_starts": 1,
+    "recovery_run_fit_starts": 16,
+    "step_eight_candidate_evaluations": 2,
+    "step_eight_fit_starts_including_failed_harness_fit": 17
+  },
+  "candidate_checks": [
+    {
+      "decision": "HOLD",
+      "deterministic_refit": "PASS_EXACT",
+      "fold_receipts": 7,
+      "model_id": "PEERLITE_K16_CCC",
+      "portfolio": {
+        "baseline_base": {
+          "adv_5pct_constraint": "PASS",
+          "cost_identity": "PASS_EXACT",
+          "holding_rows": 20799,
+          "max_invested_weight": 1.0000000000000004,
+          "max_name_weight": 0.02,
+          "min_cash_weight": -4.440892098500626e-16,
+          "net_ir": 0.060024461005721695,
+          "trade_rows": 33512,
+          "weekly_rows": 349
+        },
+        "bootstrap_ci_2_5": -0.39065114024865194,
+        "candidate_base": {
+          "adv_5pct_constraint": "PASS",
+          "cost_identity": "PASS_EXACT",
+          "holding_rows": 20745,
+          "max_invested_weight": 1.0000000000000002,
+          "max_name_weight": 0.02,
+          "min_cash_weight": -2.220446049250313e-16,
+          "net_ir": -0.007911155203420273,
+          "trade_rows": 30868,
+          "weekly_rows": 349
+        },
+        "candidate_stress": {
+          "adv_5pct_constraint": "PASS",
+          "cost_identity": "PASS_EXACT",
+          "holding_rows": 20745,
+          "max_invested_weight": 1.0000000000000002,
+          "max_name_weight": 0.02,
+          "min_cash_weight": -2.220446049250313e-16,
+          "net_ir": -0.2467634107903466,
+          "trade_rows": 30868,
+          "weekly_rows": 349
+        },
+        "market_reference": {
+          "adv_5pct_constraint": "PASS",
+          "cost_identity": "PASS_EXACT",
+          "holding_rows": 202886,
+          "max_invested_weight": 1.0000000000000004,
+          "max_name_weight": 0.007132235558032334,
+          "min_cash_weight": -4.440892098500626e-16,
+          "net_ir": 0.1653274361209616,
+          "trade_rows": 203171,
+          "weekly_rows": 349
+        },
+        "net_ir_delta": -0.06793561620914197,
+        "positive_fold_fraction": 0.42857142857142855
+      },
+      "prediction": {
+        "date_max": "2024-12-17",
+        "date_min": "2018-01-09",
+        "finite_scores": true,
+        "rows": 949014,
+        "sha256": "3465594815027231a073de7e611d58904a2748e0a5d5473136ed55941616ea61",
+        "unique_keys": true
+      },
+      "qlib_recorder": {
+        "artifact_names": [
+          "metrics.json",
+          "predictions.parquet"
+        ],
+        "artifact_readback": "PASS_INDEPENDENT",
+        "recorder_id": "12602c30632540d18157a0252c0da410"
+      }
+    },
+    {
+      "decision": "HOLD",
+      "deterministic_refit": "PASS_EXACT",
+      "fold_receipts": 7,
+      "model_id": "PEERLITE_K16_MSE_GATE",
+      "portfolio": {
+        "baseline_base": {
+          "adv_5pct_constraint": "PASS",
+          "cost_identity": "PASS_EXACT",
+          "holding_rows": 20799,
+          "max_invested_weight": 1.0000000000000004,
+          "max_name_weight": 0.02,
+          "min_cash_weight": -4.440892098500626e-16,
+          "net_ir": 0.060024461005721695,
+          "trade_rows": 33512,
+          "weekly_rows": 349
+        },
+        "bootstrap_ci_2_5": -0.3321046968769423,
+        "candidate_base": {
+          "adv_5pct_constraint": "PASS",
+          "cost_identity": "PASS_EXACT",
+          "holding_rows": 20649,
+          "max_invested_weight": 1.0000000000000004,
+          "max_name_weight": 0.02,
+          "min_cash_weight": -4.440892098500626e-16,
+          "net_ir": -0.06352315306411373,
+          "trade_rows": 34486,
+          "weekly_rows": 349
+        },
+        "candidate_stress": {
+          "adv_5pct_constraint": "PASS",
+          "cost_identity": "PASS_EXACT",
+          "holding_rows": 20649,
+          "max_invested_weight": 1.0000000000000004,
+          "max_name_weight": 0.02,
+          "min_cash_weight": -4.440892098500626e-16,
+          "net_ir": -0.3457973216934188,
+          "trade_rows": 34486,
+          "weekly_rows": 349
+        },
+        "market_reference": {
+          "adv_5pct_constraint": "PASS",
+          "cost_identity": "PASS_EXACT",
+          "holding_rows": 202886,
+          "max_invested_weight": 1.0000000000000004,
+          "max_name_weight": 0.007132235558032334,
+          "min_cash_weight": -4.440892098500626e-16,
+          "net_ir": 0.1653274361209616,
+          "trade_rows": 203171,
+          "weekly_rows": 349
+        },
+        "net_ir_delta": -0.12354761406983542,
+        "positive_fold_fraction": 0.2857142857142857
+      },
+      "prediction": {
+        "date_max": "2024-12-17",
+        "date_min": "2018-01-09",
+        "finite_scores": true,
+        "rows": 949014,
+        "sha256": "ce0c16cb556417b7e65698dca778e3c62ab3d2d50ac0e2d85fa3a88b9ac58d35",
+        "unique_keys": true
+      },
+      "qlib_recorder": {
+        "artifact_names": [
+          "metrics.json",
+          "predictions.parquet"
+        ],
+        "artifact_readback": "PASS_INDEPENDENT",
+        "recorder_id": "d4138972a0f0492c81676350e321d953"
+      }
+    }
+  ],
+  "claim_ceiling": "PRE_FINAL_OOS_SCREENING_ONLY",
+  "combination_authorized": false,
+  "content_sha256": "42b959b20a4f3c8deab158b644066a418825922de0118a0f1ef3f5c8eccc2ff4",
+  "created_at": "2026-07-30T09:11:25.596969+08:00",
+  "decisions": {
+    "PEERLITE_K16_CCC": "HOLD",
+    "PEERLITE_K16_MSE_GATE": "HOLD"
+  },
+  "determinism_evidence": {
+    "cublas_workspace_config": ":4096:8",
+    "environment_capture_deterministic_algorithms": false,
+    "environment_capture_timing": "BEFORE_FIRST_FOLD_SEEDING",
+    "runner_sha256": "54da806a2040c526bc4a330a95c8bf3460c55385c0eef841574c6f7284e2396e",
+    "runtime_control": "seed_everything enables torch deterministic algorithms and cuDNN determinism before every fit",
+    "runtime_proof": "TWO_CANDIDATE_WF_2018_REFITS_PASS_EXACT",
+    "seed_control_sha256": "7ad5287a1a409d7c01c020d6b2fef0b286fb35304a35493f03115a144d706b16"
+  },
+  "environment_sha256": "58ffac3716e4e0631660c229622cf93bf27a7c0c916d4dff9435a83e372dadfa",
+  "execution_spec_sha256": "bd4f4737b655276666273e79043446c0af69722144e5947b369d78b061d75c77",
+  "final_oos_access_count": 0,
+  "final_oos_access_log_sha256": "6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190",
+  "prediction_rows_total": 1898028,
+  "qlib_recorder_readbacks": 2,
+  "run_manifest": {
+    "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/artifacts/runs/m7_isolated_increments_20260730_v3/run_manifest.json",
+    "sha256": "b4057dc3aa6a9cfb649ec25dd0b88533ed2fe8e064ac8f41664fd4ed9f43e7db"
+  },
+  "schema_version": "qlib_peerlite_m7_verification_receipt_v1",
+  "status": "PASS",
+  "verifier": {
+    "path": "scripts/server/verify_m7_empirical.py",
+    "sha256": "169fdcba9e84de7af4d73213b1792e343029e619fbef2269065547be887553ea"
+  }
+}

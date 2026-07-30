@@ -1,0 +1,26 @@
+{
+  "schema_version": "engineering-quality-coverage-policy-v1",
+  "profiles": [
+    {
+      "id": "m7-core",
+      "format": "coveragepy-json",
+      "source_roots": [
+        "src/qlib_peerlite/m7"
+      ],
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m7_complete.py",
+        "tests/test_m7_complete_red.py",
+        "tests/test_m7_first_tranche_green.py",
+        "tests/test_m7_expected_red.py",
+        "--cov=src/qlib_peerlite/m7",
+        "--cov-branch",
+        "--cov-fail-under=100",
+        "--cov-report=json:{raw_report_path}"
+      ]
+    }
+  ]
+}

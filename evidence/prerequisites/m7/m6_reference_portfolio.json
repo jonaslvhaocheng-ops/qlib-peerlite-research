@@ -1,0 +1,21 @@
+{
+  "schema_version": "qlib_peerlite_m7_prerequisite_receipt_v1",
+  "semantic_version": "m6_reference_portfolio_v1",
+  "status": "PASS",
+  "server_receipt": {
+    "path": "evidence/prerequisites/m7/server/reference_portfolios_receipt.json",
+    "file_sha256": "ae46223c1b0939bf3c9ac017245be3dac1af00cde3b96be9d22a009217f6946d",
+    "content_sha256": "137c68e2aec5062d8cbcec34055f5c1bec744d915c68a340198e3734f5edc392"
+  },
+  "execution_panel": {
+    "path": "evidence/prerequisites/m7/server/execution_panel_manifest.json",
+    "file_sha256": "4e7168bf7027bc33efc4cb3c7a70b59ce7f039aba63aa4d043c510ed438a2bdf",
+    "content_sha256": "503c2852a0e6a3c68089505aabd2f5cff753d9117c531f2f03a61fb371d265a3"
+  },
+  "prediction_sha256": "559968e710e269775c67afa26f0e4f04713e43f3c5e07f877337a947a5fc99e3",
+  "weekly_observations": 349,
+  "max_invested_weight": 1.0000000000000004,
+  "cash_tolerance": 1e-12,
+  "final_oos_market_partitions_opened": false,
+  "assertion": "The frozen M6 K16 comparator and executable PIT CSI800 equal-weight reference were materialized on 2018-2024 only; every weekly portfolio satisfies the long-only cash constraint within the frozen numerical tolerance."
+}

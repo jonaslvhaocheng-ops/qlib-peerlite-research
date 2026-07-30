@@ -1,0 +1,22 @@
+{
+  "schema_version": "qlib_peerlite_change_request_v1",
+  "semantic_version": "m7_empirical_execution_cr_v2",
+  "status": "APPROVED_PRE_OUTCOME_SAFETY_REPAIR",
+  "change_id": "M7_EMPIRICAL_EXECUTION_CR_V2",
+  "parent_change_request": "contracts/changes/m7_empirical_execution_cr_v1.json",
+  "parent_execution_spec": "contracts/immutable/m7_empirical_execution_spec_v1.json",
+  "trigger": "The zero-fit server dry run proved that the v1 runner would derive Gate state from the label/execution-conditioned supervised matrix, contrary to the already approved M6.5 architecture.",
+  "change": "Require an independently materialized, hash-bound, MARKET_RECONSTRUCTIBLE market-state product built from the sealed raw snapshot and verified by exact recomputation plus future-suffix poisoning before either registered M7 candidate can start.",
+  "non_changes": [
+    "same two isolated candidates",
+    "same candidate order",
+    "same seven rolling folds and deterministic refits",
+    "same seed, hyperparameters, costs, benchmark and screen rule",
+    "same cumulative budget ceiling of 8 candidate evaluations and 60 model fits",
+    "same final-OOS seal"
+  ],
+  "outcome_reviewed": false,
+  "m7_trial_events_before_change": 0,
+  "derived_execution_spec": "contracts/immutable/m7_empirical_execution_spec_v2.json",
+  "failure_rule": "If the independent market-state product or its qualification receipt is missing or mismatched, stop before the first candidate or fit event."
+}

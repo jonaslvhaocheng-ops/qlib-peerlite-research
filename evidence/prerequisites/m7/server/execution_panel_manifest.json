@@ -1,0 +1,148 @@
+{
+  "columns": [
+    "datetime",
+    "instrument",
+    "forward_return",
+    "carry_return",
+    "overnight_return",
+    "eligible",
+    "can_buy",
+    "can_sell",
+    "adv20",
+    "execution_date"
+  ],
+  "content_sha256": "cf80d1ddf417c46b488be20233654c3db90658e17132f1bbe97e0c03204667d8",
+  "date_max": "2024-12-17",
+  "date_min": "2018-01-02",
+  "excluded_nonfinite_rows": 142457,
+  "final_oos_market_partitions_opened": false,
+  "panel_sha256": "503c2852a0e6a3c68089505aabd2f5cff753d9117c531f2f03a61fb371d265a3",
+  "product_manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+  "rows": 2031848,
+  "rules": {
+    "adv20": "exp(T-known log_amount_mean_20)",
+    "buy": "T+1 open exists, not halted, and open strictly below limit-up",
+    "missing": "fail closed",
+    "sell": "T+1 open exists, not halted, and open strictly above limit-down"
+  },
+  "schema_version": "qlib_peerlite_m7_execution_panel_v1",
+  "semantic_version": "m7_execution_panel_v1",
+  "source_files": [
+    {
+      "bytes": 13000091,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_equd_2017.parquet",
+      "sha256": "809b8450fd9737925eca41166e7424886f8f802304868d10bbb28a3124f32dc9"
+    },
+    {
+      "bytes": 13092489,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_equd_2018.parquet",
+      "sha256": "2636b002f14277b657565d90afd94155857dc025525d2663fbd5003057aff775"
+    },
+    {
+      "bytes": 56911701,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3/matrix/matrix_2018.parquet",
+      "sha256": "eea394538d944afb07232f59b739207cd9eea0b5d8ef423dd1e304117580d35b"
+    },
+    {
+      "bytes": 3661098,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_limit_2018.parquet",
+      "sha256": "e77a1986c838d9305f76b7cb8fa7bbc1736dcbddf8b2880d1edfcdf7fd69cc9a"
+    },
+    {
+      "bytes": 13761747,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_equd_2019.parquet",
+      "sha256": "f0cbd8889cabed24492b8c32cd90fe5dbe612e11cd10af171d9b924248b5b222"
+    },
+    {
+      "bytes": 63038428,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3/matrix/matrix_2019.parquet",
+      "sha256": "978dbfd2b778ad8e3c83ca405d5d75e525765dab22a8c9807d509da696db9eda"
+    },
+    {
+      "bytes": 3864225,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_limit_2019.parquet",
+      "sha256": "a4a0b063b33938e78311367256f3a0f1980ab3045015babfcdf8979780b5fac0"
+    },
+    {
+      "bytes": 14529823,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_equd_2020.parquet",
+      "sha256": "1be000d7b247a53fe4b45f96442ca589e99f3ed656909030250aece2caca7fe3"
+    },
+    {
+      "bytes": 63509464,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3/matrix/matrix_2020.parquet",
+      "sha256": "7ba74ac32735a6c7276f9f09b551b3a99ff75c734493a769071a8489ee29a9ef"
+    },
+    {
+      "bytes": 4139298,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_limit_2020.parquet",
+      "sha256": "99318293a03aaccc8d39260229ddea56a8d2c9a892746e928ad83c0379e9f6ef"
+    },
+    {
+      "bytes": 15029578,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_equd_2021.parquet",
+      "sha256": "badb3423da80d982e420a3424b24617daf02d7c0e15b0a7df4d4b755d9e2311d"
+    },
+    {
+      "bytes": 64602305,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3/matrix/matrix_2021.parquet",
+      "sha256": "2504ff47e3b0ee852d418a563d75b04c77c252b6de685ce580e9be90c7a55b5d"
+    },
+    {
+      "bytes": 4275297,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_limit_2021.parquet",
+      "sha256": "f691826053cf2c0ced839fd319e709937cedbde1e647e4d7dc879e52ace6cb1a"
+    },
+    {
+      "bytes": 15103661,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_equd_2022.parquet",
+      "sha256": "8cd8c06fb62a70e631beada21c3f78a716cd6a903fd06a78587ad1789f166b40"
+    },
+    {
+      "bytes": 64412911,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3/matrix/matrix_2022.parquet",
+      "sha256": "a30153317ecc39ffa54e8da3d5782f5469f6f61d1e47818fc9c518fa3d31a177"
+    },
+    {
+      "bytes": 4291777,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_limit_2022.parquet",
+      "sha256": "6739e3b872fb0d008db617023883597e5cdc5606d4144ea234b3514a43e2acae"
+    },
+    {
+      "bytes": 15102315,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_equd_2023.parquet",
+      "sha256": "b3834610ded8d4a792692daf9df133f20cc5341f65889f50776e571fed5fa7f7"
+    },
+    {
+      "bytes": 62744770,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3/matrix/matrix_2023.parquet",
+      "sha256": "a4bcb23552d9b084a402916b10eac0add083e08199ffd6b2ee9fba100ca1730d"
+    },
+    {
+      "bytes": 4307141,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_limit_2023.parquet",
+      "sha256": "a6cc56463dac84f6774af38c95866a3657bc28d811740ed045d89b911e01a032"
+    },
+    {
+      "bytes": 14789312,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_equd_2024.parquet",
+      "sha256": "b0adf710a1efb2e41589643981851a41a62ad5ebbcdb2efa328b54ea63eb2ab4"
+    },
+    {
+      "bytes": 56694913,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/processed/pit_data_product_2012_2024_v3/matrix/matrix_2024.parquet",
+      "sha256": "290d1fa64e8a370c8a0c37c8f723b06b7c8b584b6a553aced5ad991c839b802e"
+    },
+    {
+      "bytes": 4185655,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/mkt_limit_2024.parquet",
+      "sha256": "773aa52eeada8abe124de975f15f1ff956cdc56bf6f4fc687d5d867e38ef6f78"
+    },
+    {
+      "bytes": 213617,
+      "path": "/home/lvhc/abama/研究沙盒/qlib模型框架/data/raw/snapshots/source_snapshot_20260728_v1/md_sec_halt.parquet",
+      "sha256": "2fa598004a56599889ab58baa9302192fcfac073684cd154538772626057d57a"
+    }
+  ],
+  "status": "PASS"
+}

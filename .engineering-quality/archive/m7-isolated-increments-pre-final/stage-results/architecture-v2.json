@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 16,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_IMPLEMENTATION_BOUNDARY_STILL_CONTAINED",
+  "summary": "The implementation keeps CCC policy in the model loss boundary and introduces only the already-designed in-process verified-state type seam; it adds no runtime, service, storage, empirical authority, or public score-schema change.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md"
+  ],
+  "evidence_paths": [
+    "src/qlib_peerlite/models/losses.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "src/qlib_peerlite/data/verified_market_state.py",
+    "tests/test_m7_expected_red.py",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v2.md"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "blockers": []
+}

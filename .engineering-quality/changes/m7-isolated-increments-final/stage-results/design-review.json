@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 4,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M7_REPAIR_DESIGN_INDEPENDENT_PASS",
+  "summary": "Independent R3 review found no P0-P3 findings in the final repair design.",
+  "issue_type": null,
+  "artifact_paths": ["docs/quality/changes/m7-isolated-increments/evidence/design_review_v8_final_repairs_independent.md"],
+  "evidence_paths": ["docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md"],
+  "commands": [],
+  "subject_digest": "sha256:17fc01b65e7ef354b28d81bd4272d8842b4d572eadaff51d92dfd4baccba08c6",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v24_adversarial_review",
+    "limitations": ["Engineering design only; no empirical authority."]
+  },
+  "blockers": []
+}

@@ -1,0 +1,62 @@
+{
+  "benchmark_spec": "contracts/immutable/m7_benchmark_spec_v1.json",
+  "content_sha256": "137c68e2aec5062d8cbcec34055f5c1bec744d915c68a340198e3734f5edc392",
+  "cost_spec": "contracts/immutable/m7_cost_spec_v1.json",
+  "execution_panel_sha256": "503c2852a0e6a3c68089505aabd2f5cff753d9117c531f2f03a61fb371d265a3",
+  "final_oos_market_partitions_opened": false,
+  "final_oos_metrics_computed": false,
+  "inventory": {
+    "csi800_equal_weight_base": {
+      "average_invested_weight": 1.0,
+      "average_turnover": 0.14673179660893784,
+      "holdings_sha256": "6f37d727c372667b932d73c4e77e92876c1ec0f5c18364eabcf45dbefd2aa05a",
+      "max_invested_weight": 1.0000000000000004,
+      "minimum_cash_weight": -4.440892098500626e-16,
+      "net_information_ratio": 0.1653274361209616,
+      "returns_sha256": "ab32e25da9e83d93d092ecdff5b4c89f50d589a3de3b1c7d55da95edef0757d5",
+      "trades_sha256": "804a1bb320866bc31ec6895f359ca8d7c4e6e98777c3760eec06080891ea5213",
+      "unfilled_orders": 83275,
+      "weekly_observations": 349
+    },
+    "csi800_equal_weight_stress": {
+      "average_invested_weight": 1.0,
+      "average_turnover": 0.14673179660893784,
+      "holdings_sha256": "6f37d727c372667b932d73c4e77e92876c1ec0f5c18364eabcf45dbefd2aa05a",
+      "max_invested_weight": 1.0000000000000004,
+      "minimum_cash_weight": -4.440892098500626e-16,
+      "net_information_ratio": 0.13137168707525387,
+      "returns_sha256": "d006ae0b313d5f99ad66a22628aa852b89d3fcc668e9c7abee04abb074a515e8",
+      "trades_sha256": "804a1bb320866bc31ec6895f359ca8d7c4e6e98777c3760eec06080891ea5213",
+      "unfilled_orders": 83275,
+      "weekly_observations": 349
+    },
+    "peerlite_mse_base": {
+      "average_invested_weight": 0.8730389825064407,
+      "average_turnover": 1.2328314793500643,
+      "holdings_sha256": "fc424ddbc2c7c22549c4eee84078e73da8f7b3fefbdd983d53a285a3c41e17d0",
+      "max_invested_weight": 1.0000000000000004,
+      "minimum_cash_weight": -4.440892098500626e-16,
+      "net_information_ratio": 0.060024461005721695,
+      "returns_sha256": "4c8dff30606ebc3caf3f75b7f964c431e196221a5b81618d8b25d3dd635bac2b",
+      "trades_sha256": "39c7c6aa30b518b0f842e7488b1cd713351d9ec1cf675aecc29d74d2c281b75f",
+      "unfilled_orders": 8501,
+      "weekly_observations": 349
+    },
+    "peerlite_mse_stress": {
+      "average_invested_weight": 0.8730389825064407,
+      "average_turnover": 1.2328314793500643,
+      "holdings_sha256": "fc424ddbc2c7c22549c4eee84078e73da8f7b3fefbdd983d53a285a3c41e17d0",
+      "max_invested_weight": 1.0000000000000004,
+      "minimum_cash_weight": -4.440892098500626e-16,
+      "net_information_ratio": -0.20796322775073858,
+      "returns_sha256": "0912aa453e2c6a5bd79370de9dbc1aeb44ec4848e7448eb4da850d2617623c73",
+      "trades_sha256": "39c7c6aa30b518b0f842e7488b1cd713351d9ec1cf675aecc29d74d2c281b75f",
+      "unfilled_orders": 8501,
+      "weekly_observations": 349
+    }
+  },
+  "prediction_sha256": "559968e710e269775c67afa26f0e4f04713e43f3c5e07f877337a947a5fc99e3",
+  "schema_version": "qlib_peerlite_m7_reference_portfolios_v1",
+  "semantic_version": "m7_reference_portfolios_v1",
+  "status": "PASS"
+}

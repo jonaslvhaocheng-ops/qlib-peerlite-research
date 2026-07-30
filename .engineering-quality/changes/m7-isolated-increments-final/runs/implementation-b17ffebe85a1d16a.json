@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 7,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_EMPIRICAL_IMPLEMENTATION_COMPLETE",
+  "summary": "Isolated CCC and Gate empirical execution, recovery, verification, portfolio, and CI controls are complete without authorizing a combined candidate or Step 9.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T09:30:00+08:00",
+      "exit_code": 0,
+      "summary": "Static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T09:30:00+08:00",
+      "exit_code": 0,
+      "summary": "Full suite passes."
+    }
+  ],
+  "subject_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T01:33:10+00:00",
+  "source_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "artifacts": [
+    {
+      "path": "src/qlib_peerlite/m7/adapter.py",
+      "sha256": "sha256:ab17d88262029efb9f71d510e9db31f8e160a7a30216dbfa68b64e5f7da033cf"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/ccc.py",
+      "sha256": "sha256:9c4431dda12f09fb94db10c645fefd245a4106f25995105abfa914de05dcb6ab"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/checkpoint.py",
+      "sha256": "sha256:3aaea33e9afbae04329918768d6f12f24237541c72133a6f71851708e70a3f8e"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/market_state.py",
+      "sha256": "sha256:10aba01c7f0694ef3b5e39033db5749e0bcfd1a3f40066e27ffb93d41d1b7c0d"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/prerequisites.py",
+      "sha256": "sha256:13cf5a2a5f85c7b327f35c8770b7982e538a2d8bb046baaf3b14a04a1557a0c0"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/run_state.py",
+      "sha256": "sha256:6698c702824a595c06bb45b141be3af4e1155dd758df65e7aa10c6894302e15d"
+    },
+    {
+      "path": "src/qlib_peerlite/m7/empirical.py",
+      "sha256": "sha256:8fff2e3cd4b29e6338c193b3011a77bbce338af0f98e9a0105ba06e95bcfa00b"
+    },
+    {
+      "path": "src/qlib_peerlite/data/market_state_product.py",
+      "sha256": "sha256:c966b11b947b6aeb30cb7ebf1941473cbd5287a0012aa59da1e0e7915ea78223"
+    },
+    {
+      "path": "src/qlib_peerlite/evaluation/institutional.py",
+      "sha256": "sha256:1a1dfaef9bec6eb9184828fa33142a3b324a312fc0537302fcc21e35083f7172"
+    },
+    {
+      "path": "src/qlib_peerlite/models/peerlite.py",
+      "sha256": "sha256:ff5852701210530d446fa89ca5895c377dab8e9d2604d274f99b9e3fbb6d2af5"
+    },
+    {
+      "path": "scripts/run_m7_acceptance.py",
+      "sha256": "sha256:21b219ca5020bb453d2303465a798e08cce7769f615fdfcd713bc99e41aa7c38"
+    },
+    {
+      "path": "scripts/server/build_m7_execution_panel.py",
+      "sha256": "sha256:ea344e9cc4b0af19248eaed86aa5c8eb33df13c5608104544b193e4830922494"
+    },
+    {
+      "path": "scripts/server/build_m7_market_state_product.py",
+      "sha256": "sha256:eafb949d781a8a751dd1334d464fea7e08d72845c9be8d3a72219133ff990859"
+    },
+    {
+      "path": "scripts/server/preflight_m7_empirical_recovery.py",
+      "sha256": "sha256:fe06cb9725a5bc0d404bbdbaebde22877ecc6528827d7cf532bbf69ae40e62a8"
+    },
+    {
+      "path": "scripts/server/run_m7_empirical.py",
+      "sha256": "sha256:54da806a2040c526bc4a330a95c8bf3460c55385c0eef841574c6f7284e2396e"
+    },
+    {
+      "path": "scripts/server/verify_m7_empirical.py",
+      "sha256": "sha256:169fdcba9e84de7af4d73213b1792e343029e619fbef2269065547be887553ea"
+    },
+    {
+      "path": "scripts/server/verify_m7_market_state_product.py",
+      "sha256": "sha256:fd30de3d67000c76131a569114a9e07a4b30cf90e799599f8805c74b2d2e9135"
+    },
+    {
+      "path": ".github/workflows/m7-quality-gate.yml",
+      "sha256": "sha256:5ce7dab3dd91dd3b11657c6256161dd59d8a3e57d1eadee158372fca22f4dd9c"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/implementation_final_v2.md",
+      "sha256": "sha256:9341af3f76d8e299e607a50af8b849f1f391a6cfc66a20a881fbc277916a0e64"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/empirical_closure_ci_rebind.md",
+      "sha256": "sha256:dfb8b7244aec828a6c133563cd2c84129cbac205c8d4126bd9e49013b2ef6706"
+    },
+    {
+      "path": "evidence/m7/runs/m7_isolated_increments_20260730_v3/run_manifest.json",
+      "sha256": "sha256:b4057dc3aa6a9cfb649ec25dd0b88533ed2fe8e064ac8f41664fd4ed9f43e7db"
+    },
+    {
+      "path": "evidence/m7/verifications/m7_isolated_increments_20260730_v3/verification_receipt.json",
+      "sha256": "sha256:e220cc9467ad0f059c5a627c37b15d15c997cb7f78afc71f6f45df217e7155b0"
+    }
+  ],
+  "run_id": "implementation-b17ffebe85a1d16a"
+}

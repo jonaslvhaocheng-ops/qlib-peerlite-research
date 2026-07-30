@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 10,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "M7_EMPIRICAL_JOURNEY_VERIFIED",
+  "summary": "Both isolated empirical journeys completed and independently verified; both decisions are HOLD, combination is unauthorized, and final OOS remains sealed.",
+  "issue_type": null,
+  "artifact_paths": [
+    "scripts/run_m7_acceptance.py",
+    "scripts/server/run_m7_empirical.py",
+    "scripts/server/verify_m7_empirical.py",
+    "tests/test_m7_acceptance_cli.py",
+    "tests/test_m7_empirical.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments-final/evidence/e2e_final.md",
+    "docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md",
+    "docs/quality/changes/m7-isolated-increments-final/evidence/empirical_closure_ci_rebind.md",
+    "evidence/m7/runs/m7_isolated_increments_20260730_v3/run_manifest.json",
+    "evidence/m7/verifications/m7_isolated_increments_20260730_v3/verification_receipt.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py ccc",
+      "executed_at": "2026-07-30T09:30:00+08:00",
+      "exit_code": 0,
+      "summary": "CCC clean-process journey passes with zero measured repository effects."
+    },
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py gate",
+      "executed_at": "2026-07-30T09:30:00+08:00",
+      "exit_code": 0,
+      "summary": "Gate clean-process journey passes with zero measured repository effects."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_empirical.py tests/test_market_state_product.py tests/test_institutional_portfolio.py",
+      "executed_at": "2026-07-30T09:30:00+08:00",
+      "exit_code": 0,
+      "summary": "Empirical authority, PIT market-state product, and institutional portfolio regression journeys pass; the immutable independent verification receipt is bound as evidence."
+    }
+  ],
+  "subject_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "independence": null,
+  "blockers": []
+}

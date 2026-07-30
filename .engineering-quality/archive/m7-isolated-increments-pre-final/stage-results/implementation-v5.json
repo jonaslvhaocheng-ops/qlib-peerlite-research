@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 44,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_ENGINEERING_IMPLEMENTED",
+  "summary": "The approved M7 package and thin PeerLite adapters implement bounded synthetic CCC/Gate mechanics, fixed prerequisites, reconciled lease verification, recovery state and checkpoint v2 without empirical execution authority.",
+  "issue_type": null,
+  "artifact_paths": [
+    "src/qlib_peerlite/m7/__init__.py",
+    "src/qlib_peerlite/m7/ccc.py",
+    "src/qlib_peerlite/m7/market_state.py",
+    "src/qlib_peerlite/m7/prerequisites.py",
+    "src/qlib_peerlite/m7/run_state.py",
+    "src/qlib_peerlite/m7/checkpoint.py",
+    "src/qlib_peerlite/models/losses.py",
+    "src/qlib_peerlite/models/peerlite.py"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/implementation_complete_v1.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+    "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v4_base_replay.md"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/ruff check src/qlib_peerlite/m7 src/qlib_peerlite/models/losses.py src/qlib_peerlite/models/peerlite.py",
+      "executed_at": "2026-07-30T02:25:00+08:00",
+      "exit_code": 0,
+      "summary": "Changed production files pass Ruff."
+    }
+  ],
+  "subject_digest": "sha256:a81b12c350509d151f011c8fe64288822043ba07c4fb590477cb5d737c9af1c8",
+  "independence": null,
+  "blockers": []
+}

@@ -1,0 +1,124 @@
+{
+  "candidates": [
+    {
+      "decision": "HOLD",
+      "fold_receipts": [
+        {
+          "fold_id": "wf_2018",
+          "path": "PEERLITE_K16_CCC/folds/wf_2018/fold_receipt.json",
+          "sha256": "234677f97c032d6e1346504c67ed6e70bd28f557d335f80165193c8aab887f88"
+        },
+        {
+          "fold_id": "wf_2019",
+          "path": "PEERLITE_K16_CCC/folds/wf_2019/fold_receipt.json",
+          "sha256": "e3ff5bcf9db27e6f0de1b5bf64d61be7afa4dc56fa2f4ca0d2cc5708ab99b4af"
+        },
+        {
+          "fold_id": "wf_2020",
+          "path": "PEERLITE_K16_CCC/folds/wf_2020/fold_receipt.json",
+          "sha256": "52fc7871d4f4e34369fbbbde7aaefc86d9fba1bb1997798044e795bc781b8305"
+        },
+        {
+          "fold_id": "wf_2021",
+          "path": "PEERLITE_K16_CCC/folds/wf_2021/fold_receipt.json",
+          "sha256": "5c64070548ed38d3e08cd1c0f48f6ed07479c2a0d0e4472dc60d1d1cd286a4bd"
+        },
+        {
+          "fold_id": "wf_2022",
+          "path": "PEERLITE_K16_CCC/folds/wf_2022/fold_receipt.json",
+          "sha256": "ca5ea664dd10a0b24520adfbc00f031d4802db7a5c0956535ce1f6b3c07193b8"
+        },
+        {
+          "fold_id": "wf_2023",
+          "path": "PEERLITE_K16_CCC/folds/wf_2023/fold_receipt.json",
+          "sha256": "9ee1fbf7217b7ed865679dcdb56ae09ee4f36a69ef33d39168dfc99b817c41b0"
+        },
+        {
+          "fold_id": "wf_2024",
+          "path": "PEERLITE_K16_CCC/folds/wf_2024/fold_receipt.json",
+          "sha256": "4a937c886d1daa70aa81af569369a9a58fabae89fbb9374ac7e30f99f7b38911"
+        }
+      ],
+      "metrics_sha256": "f76b3d8b2b1152818d32fd884adeddf56946786b6f6ef03cd6fd07158ef3eb3b",
+      "model_fits": 8,
+      "model_id": "PEERLITE_K16_CCC",
+      "prediction_rows": 949014,
+      "prediction_sha256": "3465594815027231a073de7e611d58904a2748e0a5d5473136ed55941616ea61",
+      "qlib_recorder_id": "12602c30632540d18157a0252c0da410",
+      "reused_ancestor_evaluation": true
+    },
+    {
+      "decision": "HOLD",
+      "fold_receipts": [
+        {
+          "fold_id": "wf_2018",
+          "path": "PEERLITE_K16_MSE_GATE/folds/wf_2018/fold_receipt.json",
+          "sha256": "afeb9e066ae5a324775110dae0526d8815b471159f765e4445f5ade4885003fa"
+        },
+        {
+          "fold_id": "wf_2019",
+          "path": "PEERLITE_K16_MSE_GATE/folds/wf_2019/fold_receipt.json",
+          "sha256": "75fd14c21065c303347904b4f11ac001171fa007f0e1228053e8a2d0e269046b"
+        },
+        {
+          "fold_id": "wf_2020",
+          "path": "PEERLITE_K16_MSE_GATE/folds/wf_2020/fold_receipt.json",
+          "sha256": "5bbb8eb1e03f35510646de3cfb32994c29cce5bc97b3d3a3f01ee3db173fb12e"
+        },
+        {
+          "fold_id": "wf_2021",
+          "path": "PEERLITE_K16_MSE_GATE/folds/wf_2021/fold_receipt.json",
+          "sha256": "329215b8b0857865e40eebf856bf66f7feaca0cc3a840bdfdd24e6b939f099d6"
+        },
+        {
+          "fold_id": "wf_2022",
+          "path": "PEERLITE_K16_MSE_GATE/folds/wf_2022/fold_receipt.json",
+          "sha256": "613d7af8210c8804702a30ab843cad00c482a03a98485221ebf238110f60c4dc"
+        },
+        {
+          "fold_id": "wf_2023",
+          "path": "PEERLITE_K16_MSE_GATE/folds/wf_2023/fold_receipt.json",
+          "sha256": "c5ab1c1e2b8af9fbdae8e3877b355f69f80251b26b95575dbda6e5936239b204"
+        },
+        {
+          "fold_id": "wf_2024",
+          "path": "PEERLITE_K16_MSE_GATE/folds/wf_2024/fold_receipt.json",
+          "sha256": "40101cbe7d826dbc13008a92290ae1d2857aee26831f741dfd20c0247d6cefd2"
+        }
+      ],
+      "metrics_sha256": "ef34ee55f11c129da69537e9cfa8e44a43d8b77231cd61bce74e3f31bd2689da",
+      "model_fits": 8,
+      "model_id": "PEERLITE_K16_MSE_GATE",
+      "prediction_rows": 949014,
+      "prediction_sha256": "ce0c16cb556417b7e65698dca778e3c62ab3d2d50ac0e2d85fa3a88b9ac58d35",
+      "qlib_recorder_id": "d4138972a0f0492c81676350e321d953",
+      "reused_ancestor_evaluation": false
+    }
+  ],
+  "claim_ceiling": "PRE_FINAL_OOS_SCREENING_ONLY",
+  "combination_authorized": false,
+  "created_at": "2026-07-30T09:07:15.264806+08:00",
+  "execution_panel_sha256": "503c2852a0e6a3c68089505aabd2f5cff753d9117c531f2f03a61fb371d265a3",
+  "execution_spec_sha256": "bd4f4737b655276666273e79043446c0af69722144e5947b369d78b061d75c77",
+  "final_oos_market_partitions_opened": false,
+  "final_oos_metrics_computed": false,
+  "market_state_product_manifest_sha256": "fc9414b1d1b2633a52c5e6f76da5f30abb961e98b974654fba02f09247ac716e",
+  "market_state_qualification_receipt_sha256": "83aba24afbf263fec0583da30a90d8ad66890e3b5c18dc816678e9d5993644a4",
+  "new_candidate_evaluation_starts": 1,
+  "prerequisite_bundle_sha256": "a6ae6a9274e1e350c65c04bc8985d37ceb02934e77eaebee1d40355204e81df2",
+  "product_manifest_sha256": "728069ec1a774000f6bda4c258c49def3e176a3d7638a1ba31d5ae7ac1d753a3",
+  "recovery_ancestor": {
+    "failure_receipt_sha256": "24fc071522c1df533cc46092fe601d957ca7e5a7853ee826706116f011f0178e",
+    "run_id": "m7_isolated_increments_20260730_v2",
+    "trial_journal_sha256": "41d034639dd6316feeabaca633af56085e8396081640a3366f190491df1f0658"
+  },
+  "schema_version": "qlib_peerlite_m7_run_manifest_v1",
+  "semantic_version": "m7_run_manifest_v1",
+  "stage": "M7-ISOLATED-INCREMENTS",
+  "status": "PASS",
+  "step_eight_candidate_evaluations": 2,
+  "step_eight_counted_model_fit_starts": 17,
+  "step_eight_failed_model_fits": 1,
+  "successful_model_fits_this_run": 16,
+  "trial_ledger_sha256_after": "56693d40e28d41609bb50caec99776e0907f7ee9d5ff28ae82328aecd8de8feb"
+}

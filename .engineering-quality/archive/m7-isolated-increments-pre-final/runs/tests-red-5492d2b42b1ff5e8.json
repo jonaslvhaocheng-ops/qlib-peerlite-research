@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 38,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_PACKAGE_EXPECTED_RED",
+  "summary": "The approved public M7 contract test fails for the intended missing package behavior while the test harness collects and runs normally.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_complete_red.py",
+      "executed_at": "2026-07-29T18:33:15+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:d4ea5c0b44b8286ea8565e91e6364b0b1f3d87f777ba126635ff3b7437fef642; stdout_bytes=1781; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m7_complete_red.py"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-29T18:33:16+00:00",
+      "stdout_sha256": "sha256:d4ea5c0b44b8286ea8565e91e6364b0b1f3d87f777ba126635ff3b7437fef642",
+      "stdout_bytes": 1781,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:24e83ce88ded8e8e81749e7755b03c1d6aa4368bd49c2c1c8816da7a70c7d416",
+      "source_digest_after": "sha256:24e83ce88ded8e8e81749e7755b03c1d6aa4368bd49c2c1c8816da7a70c7d416"
+    }
+  ],
+  "subject_digest": "sha256:50254dd8d1ea6ab3db5a71d5760a81a197b76441ca22e1629f0cc532410b8919",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T18:33:17+00:00",
+  "source_digest": "sha256:24e83ce88ded8e8e81749e7755b03c1d6aa4368bd49c2c1c8816da7a70c7d416",
+  "artifacts": [
+    {
+      "path": "tests/test_m7_complete_red.py",
+      "sha256": "sha256:50254dd8d1ea6ab3db5a71d5760a81a197b76441ca22e1629f0cc532410b8919"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v3_complete.md",
+      "sha256": "sha256:22955f3edb8615890d49247dbda486aa546642d177d615f4d16d4c6aff4a4e3e"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md",
+      "sha256": "sha256:baf141e5a4e5a9320182d937db7aebaf3b8d6f9e744d51f86ac6ea8368036170"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v4_enforceable.md",
+      "sha256": "sha256:b204c6b935e524095f48c638c49c477ded1195774987bb166c3a6668e0c07b3c"
+    }
+  ],
+  "run_id": "tests-red-5492d2b42b1ff5e8"
+}

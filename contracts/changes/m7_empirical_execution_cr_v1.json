@@ -1,0 +1,24 @@
+{
+  "schema_version": "qlib_peerlite_change_request_v1",
+  "semantic_version": "m7_empirical_execution_cr_v1",
+  "status": "APPROVED_BY_USER_REQUEST",
+  "change_id": "M7_EMPIRICAL_EXECUTION_CR_V1",
+  "trigger": "The user explicitly requested completion and testing of all step-eight work.",
+  "parent_contract": "contracts/immutable/research_contract_pit_v2.json",
+  "authorizes": [
+    "freeze evidence-backed M7 cost and executable benchmark specifications",
+    "build a pre-final-OOS execution panel from the already sealed source snapshot",
+    "run the two isolated registered M7 candidates on the seven frozen development folds",
+    "run one deterministic refit per candidate",
+    "evaluate both candidates relative to the frozen M6 K16-MSE score under identical portfolio rules"
+  ],
+  "does_not_authorize": [
+    "opening 2025 or later market partitions",
+    "combining CCC and Gate",
+    "five-seed confirmation",
+    "step-nine final evaluation",
+    "production trading"
+  ],
+  "derived_execution_spec": "contracts/immutable/m7_empirical_execution_spec_v1.json",
+  "rollback": "retain all counted trial starts and evidence, mark M7 HOLD, and leave M6 as the active model baseline"
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "engineering-quality-coverage-v1",
+  "receipt_path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r8-v2.json",
+  "policy": {
+    "path": ".engineering-quality/coverage-policy.json",
+    "sha256": "sha256:3d7b6c515c86df7a238573400e307a8e50bd552b6238175dd5bb2be5b137921b",
+    "profile": "m7-core"
+  },
+  "format": "coveragepy-json",
+  "source_roots": [
+    "src/qlib_peerlite/m7"
+  ],
+  "expected_core_paths": [
+    "src/qlib_peerlite/m7/__init__.py",
+    "src/qlib_peerlite/m7/adapter.py",
+    "src/qlib_peerlite/m7/ccc.py",
+    "src/qlib_peerlite/m7/checkpoint.py",
+    "src/qlib_peerlite/m7/empirical.py",
+    "src/qlib_peerlite/m7/market_state.py",
+    "src/qlib_peerlite/m7/prerequisites.py",
+    "src/qlib_peerlite/m7/run_state.py"
+  ],
+  "observed_core_paths": [
+    "src/qlib_peerlite/m7/__init__.py",
+    "src/qlib_peerlite/m7/adapter.py",
+    "src/qlib_peerlite/m7/ccc.py",
+    "src/qlib_peerlite/m7/checkpoint.py",
+    "src/qlib_peerlite/m7/empirical.py",
+    "src/qlib_peerlite/m7/market_state.py",
+    "src/qlib_peerlite/m7/prerequisites.py",
+    "src/qlib_peerlite/m7/run_state.py"
+  ],
+  "line": {
+    "covered": 654,
+    "total": 654,
+    "missing": 0,
+    "excluded": 0,
+    "percent": 100.0
+  },
+  "branch": {
+    "covered": 244,
+    "total": 244,
+    "missing": 0,
+    "excluded": 0,
+    "percent": 100.0
+  },
+  "required_line_percent": 100.0,
+  "required_branch_percent": 100.0,
+  "source": {
+    "kind": "raw-report",
+    "path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r8-v2.raw.json",
+    "sha256": "sha256:e6e0258c5764ee1ee56c669948f5c000ea1816c0196a50b7e115470fdc36af2b"
+  }
+}

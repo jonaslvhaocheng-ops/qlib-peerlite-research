@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 7,
+  "stage_id": "implementation",
+  "skill": "eng-implement-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_EMPIRICAL_IMPLEMENTATION_COMPLETE",
+  "summary": "Isolated CCC and Gate empirical execution, recovery, verification, portfolio, and CI controls are complete without authorizing a combined candidate or Step 9.",
+  "issue_type": null,
+  "artifact_paths": [
+    "src/qlib_peerlite/m7/adapter.py",
+    "src/qlib_peerlite/m7/ccc.py",
+    "src/qlib_peerlite/m7/checkpoint.py",
+    "src/qlib_peerlite/m7/market_state.py",
+    "src/qlib_peerlite/m7/prerequisites.py",
+    "src/qlib_peerlite/m7/run_state.py",
+    "src/qlib_peerlite/m7/empirical.py",
+    "src/qlib_peerlite/data/market_state_product.py",
+    "src/qlib_peerlite/evaluation/institutional.py",
+    "src/qlib_peerlite/models/peerlite.py",
+    "scripts/run_m7_acceptance.py",
+    "scripts/server/build_m7_execution_panel.py",
+    "scripts/server/build_m7_market_state_product.py",
+    "scripts/server/preflight_m7_empirical_recovery.py",
+    "scripts/server/run_m7_empirical.py",
+    "scripts/server/verify_m7_empirical.py",
+    "scripts/server/verify_m7_market_state_product.py",
+    ".github/workflows/m7-quality-gate.yml"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m7-isolated-increments/evidence/implementation_final_v2.md",
+    "docs/quality/changes/m7-isolated-increments-final/evidence/empirical_closure_ci_rebind.md",
+    "evidence/m7/runs/m7_isolated_increments_20260730_v3/run_manifest.json",
+    "evidence/m7/verifications/m7_isolated_increments_20260730_v3/verification_receipt.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python -m ruff check src tests scripts --exclude scripts/vendor",
+      "executed_at": "2026-07-30T09:30:00+08:00",
+      "exit_code": 0,
+      "summary": "Static checks pass."
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "executed_at": "2026-07-30T09:30:00+08:00",
+      "exit_code": 0,
+      "summary": "Full suite passes."
+    }
+  ],
+  "subject_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "independence": null,
+  "blockers": []
+}

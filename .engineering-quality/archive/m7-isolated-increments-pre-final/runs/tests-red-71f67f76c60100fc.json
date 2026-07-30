@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments",
+  "ledger_revision": 43,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_COMPLETE_BASE_REPLAY_EXPECTED_RED",
+  "summary": "The approved behavioral test was replayed against exact base deed0a6 in an isolated worktree and failed only because the M7 package was absent.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -c 'import os,pathlib,shutil,subprocess,sys,tempfile; d=tempfile.mkdtemp(prefix=\"m7-red-\"); subprocess.check_call([\"git\",\"worktree\",\"add\",\"--detach\",d,\"deed0a6314a90099f4b9c0c258a89e36f7c95423\"],stdout=subprocess.DEVNULL); shutil.copy2(\"tests/test_m7_complete_red.py\",pathlib.Path(d)/\"tests/test_m7_complete_red.py\"); env=dict(os.environ); env[\"PYTHONPATH\"]=str(pathlib.Path(d)/\"src\"); r=subprocess.run([sys.executable,\"-m\",\"pytest\",\"-q\",str(pathlib.Path(d)/\"tests/test_m7_complete_red.py\")],env=env); subprocess.run([\"git\",\"worktree\",\"remove\",\"--force\",d],stdout=subprocess.DEVNULL); sys.exit(r.returncode)'",
+      "executed_at": "2026-07-29T18:43:37+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:a35d4119591fc4ce8f2d19dd3e1d803861b1758bba90a7305fa985eaf36d3a48; stdout_bytes=1922; stderr_sha256=sha256:075cb7396a6461fa3322cbd338a0c115d80c1503a915891c59fdf9d90923afef; stderr_bytes=43",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-c",
+        "import os,pathlib,shutil,subprocess,sys,tempfile; d=tempfile.mkdtemp(prefix=\"m7-red-\"); subprocess.check_call([\"git\",\"worktree\",\"add\",\"--detach\",d,\"deed0a6314a90099f4b9c0c258a89e36f7c95423\"],stdout=subprocess.DEVNULL); shutil.copy2(\"tests/test_m7_complete_red.py\",pathlib.Path(d)/\"tests/test_m7_complete_red.py\"); env=dict(os.environ); env[\"PYTHONPATH\"]=str(pathlib.Path(d)/\"src\"); r=subprocess.run([sys.executable,\"-m\",\"pytest\",\"-q\",str(pathlib.Path(d)/\"tests/test_m7_complete_red.py\")],env=env); subprocess.run([\"git\",\"worktree\",\"remove\",\"--force\",d],stdout=subprocess.DEVNULL); sys.exit(r.returncode)"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-29T18:43:38+00:00",
+      "stdout_sha256": "sha256:a35d4119591fc4ce8f2d19dd3e1d803861b1758bba90a7305fa985eaf36d3a48",
+      "stdout_bytes": 1922,
+      "stderr_sha256": "sha256:075cb7396a6461fa3322cbd338a0c115d80c1503a915891c59fdf9d90923afef",
+      "stderr_bytes": 43,
+      "source_digest_before": "sha256:a81b12c350509d151f011c8fe64288822043ba07c4fb590477cb5d737c9af1c8",
+      "source_digest_after": "sha256:a81b12c350509d151f011c8fe64288822043ba07c4fb590477cb5d737c9af1c8"
+    }
+  ],
+  "subject_digest": "sha256:50254dd8d1ea6ab3db5a71d5760a81a197b76441ca22e1629f0cc532410b8919",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-29T18:43:38+00:00",
+  "source_digest": "sha256:a81b12c350509d151f011c8fe64288822043ba07c4fb590477cb5d737c9af1c8",
+  "artifacts": [
+    {
+      "path": "tests/test_m7_complete_red.py",
+      "sha256": "sha256:50254dd8d1ea6ab3db5a71d5760a81a197b76441ca22e1629f0cc532410b8919"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v4_base_replay.md",
+      "sha256": "sha256:66a568126da033aa09d526f8fc3ae5970912474d6587f6056d93719fa4926349"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/test_design_v2_complete.md",
+      "sha256": "sha256:baf141e5a4e5a9320182d937db7aebaf3b8d6f9e744d51f86ac6ea8368036170"
+    }
+  ],
+  "run_id": "tests-red-71f67f76c60100fc"
+}

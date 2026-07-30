@@ -1,0 +1,118 @@
+{
+  "schema_version": "qlib_peerlite_m7_execution_spec_v1",
+  "semantic_version": "m7_empirical_execution_spec_v1",
+  "status": "FROZEN",
+  "family_id": "QLIB_PEERLITE_M7_INITIAL_SCREEN_V1",
+  "run_id": "m7_isolated_increments_20260730_v1",
+  "parent_contract": "contracts/immutable/research_contract_pit_v2.json",
+  "prerequisite_registry": "qlib_peerlite.m7.prerequisites.M7_PREREQUISITE_REGISTRY_V1",
+  "cost_spec": "contracts/immutable/m7_cost_spec_v1.json",
+  "benchmark_spec": "contracts/immutable/m7_benchmark_spec_v1.json",
+  "product_id": "pit_data_product_2012_2024_v3",
+  "schedule": {
+    "fold_ids": [
+      "wf_2018",
+      "wf_2019",
+      "wf_2020",
+      "wf_2021",
+      "wf_2022",
+      "wf_2023",
+      "wf_2024"
+    ],
+    "seed": 7,
+    "embargo_sessions": 5,
+    "candidate_evaluations": 2,
+    "model_fits": 16,
+    "deterministic_refit_fold": "wf_2018",
+    "candidate_order": [
+      "PEERLITE_K16_CCC",
+      "PEERLITE_K16_MSE_GATE"
+    ],
+    "trial_counts_before": {
+      "candidate_evaluations": 6,
+      "model_fits": 44
+    },
+    "trial_counts_after_success": {
+      "candidate_evaluations": 8,
+      "model_fits": 60
+    },
+    "limits": {
+      "candidate_evaluations": 27,
+      "model_fits": 60
+    },
+    "failure_policy": "durably count the start, preserve evidence and stop at first failed fit"
+  },
+  "candidates": [
+    {
+      "model_id": "PEERLITE_K16_CCC",
+      "isolated_increment": "CCC loss only",
+      "parameters": {
+        "input_dim": 50,
+        "hidden_dim": 64,
+        "num_peers": 16,
+        "num_heads": 4,
+        "dropout": 0.1,
+        "market_dim": 0,
+        "market_gate": false,
+        "loss": "ccc",
+        "seed": 7,
+        "epochs": 100,
+        "patience": 12,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "cross_section_batch_size": 16,
+        "device": "cuda",
+        "model_id": "PEERLITE_K16_CCC"
+      }
+    },
+    {
+      "model_id": "PEERLITE_K16_MSE_GATE",
+      "isolated_increment": "four-dimensional causal market-state gate only",
+      "parameters": {
+        "input_dim": 50,
+        "hidden_dim": 64,
+        "num_peers": 16,
+        "num_heads": 4,
+        "dropout": 0.1,
+        "market_dim": 4,
+        "market_gate": true,
+        "loss": "mse",
+        "seed": 7,
+        "epochs": 100,
+        "patience": 12,
+        "learning_rate": 0.001,
+        "weight_decay": 0.0001,
+        "gradient_clip_norm": 1.0,
+        "cross_section_batch_size": 16,
+        "device": "cuda",
+        "model_id": "PEERLITE_K16_MSE_GATE"
+      }
+    }
+  ],
+  "evaluation": {
+    "incremental_comparator": "PEERLITE_K16_MSE",
+    "market_reference": "CSI800_EQUAL_WEIGHT_EXECUTABLE_PIT_V1",
+    "portfolio": "weekly top 10 percent, equal-weight, 2 percent name cap, 5 percent ADV cap",
+    "base_impact_bps_per_side": 10.0,
+    "stress_impact_bps_per_side": 20.0,
+    "screen_rule": "each candidate is evaluated independently; no combination is authorized",
+    "screen_outputs": [
+      "RankIC diagnostics",
+      "gross and net weekly return paths",
+      "base and stress cost paths",
+      "fold-level net IR delta versus PEERLITE_K16_MSE",
+      "paired moving-block bootstrap",
+      "capacity and failed-fill details"
+    ]
+  },
+  "forbidden": [
+    "CCC plus Gate combination",
+    "five-seed confirmation",
+    "SAM",
+    "final OOS access",
+    "step-nine promotion claim",
+    "text, LLM, minute, tick or L2 inputs"
+  ],
+  "claim_ceiling": "PRE_FINAL_OOS_SCREENING_ONLY"
+}
