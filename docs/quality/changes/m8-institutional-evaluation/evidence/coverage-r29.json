@@ -1,0 +1,42 @@
+{
+  "schema_version": "engineering-quality-coverage-v1",
+  "receipt_path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r29.json",
+  "policy": {
+    "path": ".engineering-quality/coverage-policy.json",
+    "sha256": "sha256:ddbe2b34684687147d30d34da80f7af14a0ac5726f0c8da2526ebee5928a6518",
+    "profile": "m8-core"
+  },
+  "format": "coveragepy-json",
+  "source_roots": [
+    "src/qlib_peerlite/m8_closure"
+  ],
+  "expected_core_paths": [
+    "src/qlib_peerlite/m8_closure/__init__.py",
+    "src/qlib_peerlite/m8_closure/recovery.py"
+  ],
+  "observed_core_paths": [
+    "src/qlib_peerlite/m8_closure/__init__.py",
+    "src/qlib_peerlite/m8_closure/recovery.py"
+  ],
+  "line": {
+    "covered": 63,
+    "total": 63,
+    "missing": 0,
+    "excluded": 0,
+    "percent": 100.0
+  },
+  "branch": {
+    "covered": 24,
+    "total": 24,
+    "missing": 0,
+    "excluded": 0,
+    "percent": 100.0
+  },
+  "required_line_percent": 100.0,
+  "required_branch_percent": 100.0,
+  "source": {
+    "kind": "raw-report",
+    "path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r29.raw.json",
+    "sha256": "sha256:3c8e3e1d81fa615900b9eeb07a7933d46271cbacc24fb8d9b72a3d57a7463521"
+  }
+}

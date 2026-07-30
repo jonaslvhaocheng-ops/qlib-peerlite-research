@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 26,
+  "stage_id": "test-design",
+  "skill": "eng-design-tests",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M8_FAILURE_CLOSURE_TEST_MATRIX_COMPLETE",
+  "summary": "The matrix covers exact incident parsing, 9/64 accounting, forensic bindings, append-only prefixes, duplicate recovery, closed complete paths and forbidden claims.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:163386c4e894fdd8a86913355977dfe92a8f4db50be6c409f3e10e730dbc637d",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:31:40+00:00",
+  "source_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/test_design.md",
+      "sha256": "sha256:6214dbab53a16e18fe890eb5ef8a132cc0546f9b56e7b2b61b630096d5b301f2"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/design_review_independent.md",
+      "sha256": "sha256:23505ae278822d1536b1d50124811be0f995834b6ce50eede7eb06c24880fd1d"
+    }
+  ],
+  "run_id": "test-design-e27d543a645d169f"
+}

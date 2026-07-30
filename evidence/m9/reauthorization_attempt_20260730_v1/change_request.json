@@ -1,0 +1,34 @@
+{
+  "schema_version": "quant_change_request_v2",
+  "parent_contract_id": "qrc-v2-441150f0695d61a1709ca348fd55ea1c",
+  "parent_canonical_hash": "441150f0695d61a1709ca348fd55ea1c9fb6d6721e8154266ef495d19fb01750",
+  "research_family_id": "qlib-peerlite-a-share-daily-v0",
+  "requested_at": "2026-07-30T04:43:23+00:00",
+  "reason": "Authorize a new confirmation after the retained M8 accounting incident. Exclude the started seed 19, truthfully disclose that M7 pre-final-OOS outcomes were seen, bind the current append-only trial ledger, and fix one untouched replacement seed before training. No final-OOS data, result, threshold, model, feature, label, universe, cost, portfolio or acceptance rule informed this operational repair.",
+  "changed_fields": [
+    "research.decisive_outcomes_seen",
+    "research_family.ledger_snapshot_id",
+    "research_family.ledger_snapshot_hash",
+    "research_family.completed_trials",
+    "research_family.planned_new_trials",
+    "method_scope.model_selection_rule"
+  ],
+  "outcome_reviewed": false,
+  "final_oos_replaced": false,
+  "changes": {
+    "research": {
+      "decisive_outcomes_seen": true
+    },
+    "research_family": {
+      "ledger_snapshot_id": "trial-ledger-after-m8-retained-failure-20260730",
+      "ledger_snapshot_hash": "57cff58227f29930e46fbe4271a38162d795f68645ad386017be52de12fab671",
+      "completed_trials": 9,
+      "planned_new_trials": 4
+    },
+    "method_scope": {
+      "model_selection_rule": "筛选期结果已用于冻结PEERLITE_K16_MSE；新确认期只复用已独立验证的seed 7，并训练未在事故运行中启动的42、73、101和预先固定的替代seed 137。seed 19仅作事故证据，禁止进入确认统计。"
+    }
+  },
+  "status": "PLANNED",
+  "change_request_id": "qrc-cr-v2-2954e0feadc31c5a4d060eb0de2a3e6f"
+}

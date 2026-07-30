@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m9-step-nine-terminal-closure",
+  "ledger_revision": 7,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M9_TERMINAL_HOLD_DESIGN_INDEPENDENTLY_APPROVED",
+  "summary": "Independent review found no P0-P3 issue: the decision is limited to the invalid current contract, preserves append-only prefixes and makes no Alpha, promotion, OOS or future-path claim.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/design_review_independent.md"
+  ],
+  "evidence_paths": [
+    "docs/quality/changes/m9-step-nine-terminal-closure/evidence/change_design.md",
+    "evidence/gates/M9_step_nine_terminal_gate.json",
+    "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+    "docs/m9/FINAL_STEP_NINE_DECISION.md"
+  ],
+  "commands": [],
+  "subject_digest": "sha256:d9ecb62d3599ad3c3eeb233b6040aa27350dd85476ab9d8601e0541c66797e8d",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m9_independent_design_review"
+  },
+  "blockers": []
+}

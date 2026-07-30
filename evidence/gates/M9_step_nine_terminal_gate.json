@@ -1,0 +1,92 @@
+{
+  "schema_version": "qlib_peerlite_gate_v1",
+  "gate_id": "M9-STEP-NINE-TERMINAL-CLOSURE",
+  "status": "HOLD",
+  "passed": false,
+  "executed": true,
+  "completed": true,
+  "created_at": "2026-07-30T12:50:00+08:00",
+  "track": "STRICT_INSTITUTIONAL_DECISION",
+  "claim_ceiling": "PRE_FINAL_OOS_RESEARCH_BASELINE_ONLY",
+  "research_decision": "HOLD_REAUTHORIZATION_CONTRACT_INVALID",
+  "active_candidate": "PEERLITE_K16_MSE",
+  "acceptance_checks": [
+    {
+      "check": "m8_failure_retained",
+      "status": "PASS",
+      "evidence": "The original M8 accounting and contract-timeline failures remain immutable and are not reinterpreted."
+    },
+    {
+      "check": "contract_lineage_consistency",
+      "status": "FAIL_RETAINED",
+      "evidence": "The child sets decisive_outcomes_seen=true while its change request leaves outcome_reviewed=false and final_oos_replaced=false."
+    },
+    {
+      "check": "new_contract_validation",
+      "status": "FAIL_RETAINED",
+      "evidence": "The official quant_contract_v2 validator requires a disjoint replacement final OOS after decisive outcomes were seen."
+    },
+    {
+      "check": "replacement_final_oos",
+      "status": "NOT_ASSESSED",
+      "evidence": "This failed attempt does not establish whether a future disjoint replacement interval can later be designed and accrued."
+    },
+    {
+      "check": "new_training",
+      "status": "NOT_RUN_DEPENDENCY_STOP",
+      "evidence": "Validation failed before any candidate evaluation or model fit was started."
+    },
+    {
+      "check": "statistical_portfolio_and_controls",
+      "status": "NOT_RUN_DEPENDENCY_STOP",
+      "evidence": "No invalid confirmation output was evaluated."
+    },
+    {
+      "check": "final_oos_boundary",
+      "status": "PASS",
+      "evidence": "The access log remains byte-identical with access_count=0 and selection_uses=0."
+    }
+  ],
+  "trial_accounting": {
+    "candidate_evaluations": 9,
+    "model_fit_starts": 64,
+    "new_candidate_evaluations": 0,
+    "new_model_fit_starts": 0
+  },
+  "evidence": {
+    "m8_gate": {
+      "path": "evidence/gates/M8_institutional_evaluation_gate.json",
+      "sha256": "27a200034be48313bc8e8dc0143e27d0f17e0ef192485d3ab60ce89fa12d1808"
+    },
+    "failed_validation": {
+      "path": "evidence/m9/reauthorization_attempt_20260730_v1/validation_receipt.json",
+      "sha256": "727855f19e5bf5bdbf2ac242f140134fbf36e5ae4a78dd39ed855373c5583528"
+    },
+    "trial_ledger": {
+      "path": "contracts/trial_ledger.jsonl",
+      "prefix_sha256": "57cff58227f29930e46fbe4271a38162d795f68645ad386017be52de12fab671",
+      "prefix_bytes": 39964,
+      "candidate_evaluations_at_prefix": 9,
+      "model_fit_starts_at_prefix": 64
+    },
+    "oos_access_log": {
+      "path": "contracts/oos_access_log.jsonl",
+      "prefix_sha256": "6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190",
+      "prefix_bytes": 187,
+      "access_count_at_prefix": 0,
+      "selection_uses_at_prefix": 0
+    }
+  },
+  "final_oos_access_count": 0,
+  "final_oos_opened": false,
+  "promotion_authorized": false,
+  "production_authorized": false,
+  "limitations": [
+    "This is a terminal governance HOLD, not evidence for or against PeerLite predictive edge.",
+    "The original 2025-01-01 through 2026-06-30 interval is not opened or reused by a newly frozen result-bearing contract.",
+    "This gate proves only that the retained reauthorization attempt is invalid; it does not prove that no future replacement OOS can be designed.",
+    "Any future research cycle requires a consistent change request, a disjoint prospectively accrued final OOS and a separately frozen valid contract."
+  ],
+  "next_gate": null,
+  "content_sha256": "4dc95e2040172ba020daa4adb92957972217f3c22fca5b7f691fce15764ad58a"
+}

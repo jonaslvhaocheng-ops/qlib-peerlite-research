@@ -1,0 +1,16 @@
+{
+  "completed_fit_receipts": 2,
+  "confirmation_complete": false,
+  "final_oos": "NOT_OPENED",
+  "interrupted_fit_starts": 1,
+  "ledger_candidate_evaluations": 9,
+  "ledger_model_fits": 64,
+  "ledger_sha256": "57cff58227f29930e46fbe4271a38162d795f68645ad386017be52de12fab671",
+  "oos_access_log_sha256": "6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190",
+  "research_decision": "HOLD_OPERATIONAL_CONFIRMATION_INCOMPLETE",
+  "retained_candidate_evaluations": 1,
+  "retained_model_fit_starts": 3,
+  "schema_version": "qlib_peerlite_m8_interruption_verification_v1",
+  "statistical_gates": "NOT_RUN_DEPENDENCY_STOP",
+  "status": "PASS_RETAINED_FAILURE"
+}

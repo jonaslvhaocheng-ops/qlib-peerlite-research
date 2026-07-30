@@ -24,7 +24,7 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 | M6 | PeerLite | mechanics, frozen MSE runs and independent verification | PASS |
 | M6.5 | pre-M7 engineering quality | independent design/code/test review and remediation | PASS |
 | M7 | Huatai increments | CCC/Gate isolated comparisons | COMPLETE / BOTH HOLD |
-| M8 | institutional evaluation | final OOS and decision package | NOT_RUN |
+| M8 | institutional evaluation | five-seed confirmation then final OOS | CLOSED / TERMINAL HOLD / OOS NOT OPENED |
 
 ## Non-negotiables
 
@@ -39,15 +39,21 @@ PeerLite 的横截面同伴结构在扣除成本后的顺序样本外结果中�
 
 ## Current handoff
 
-M6.5 passed through the external required check and was archived before M7.
-M7 then executed exactly two isolated additions on the qualified 2012–2024
-development product: CCC-only and a label-free four-dimensional market-state
-Gate. Both completed seven rolling folds plus an exact deterministic refit.
+M7 closed with CCC and Gate both `HOLD`, leaving PeerLite K16 MSE as the active
+pre-final-OOS research baseline. M8 then started the frozen five-seed
+confirmation. During seed 19, an accounting defect was found: start events were
+durably journaled but not imported into the authoritative ledger before
+`model.fit`. The process was stopped after two completed folds and one
+interrupted fit.
 
-Independent verification covered 1,898,028 predictions, two Recorder readbacks,
-cash/name/ADV constraints, base and stress costs, Bootstrap decisions and the
-append-only ledger. Both additions are `HOLD`: neither beat the frozen
-PeerLite-MSE comparator under the preregistered screen, so neither is active in
-v0 and CCC+Gate remains forbidden. The cumulative budget is 8 candidate
-evaluations and 61 counted fit starts, including one retained pre-training
-harness failure. Final-OOS access remains zero. M8 has not started.
+The exact one candidate start and three fit starts were retained atomically and
+independently verified, bringing the cumulative ledger to 9 candidate
+evaluations and 64 fit starts. The frozen no-retry rule makes confirmation
+incomplete, so statistical, portfolio, control and final-OOS gates did not run.
+M8 closes as `HOLD_OPERATIONAL_CONFIRMATION_INCOMPLETE`; final-OOS access
+remains zero and no model is promoted. A later truthful reauthorization attempt
+was rejected before training because the child and change request were
+internally inconsistent after decisive development outcomes were inspected.
+Step nine is terminally closed as `HOLD_REAUTHORIZATION_CONTRACT_INVALID`.
+This closure does not decide whether a future, separately governed replacement
+OOS can eventually be designed and accrued.

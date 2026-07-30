@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 24,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M8_CLOSURE_DESIGN_COMPLETE",
+  "summary": "The design retains exact starts, verifies append-only prefixes, closes all complete-path entry points and preserves historical defects without retroactive approval.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m8-institutional-evaluation/evidence/change_design.md"
+  ],
+  "evidence_paths": [
+    "evidence/m8/forensics/m8_confirmation_20260730_v1/closure_package_manifest.json"
+  ],
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": []
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 20,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M8_FAIL_CLOSED_IMPLEMENTATION_APPROVED",
+  "summary": "Independent review found no unresolved P0-P3 issues; all live complete paths close before side effects, forensic bytes are bound, append-only prefixes verify, and historical contract defects remain explicit failures.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m8_independent_code_review",
+    "limitations": [
+      "This validates the HOLD closure, not predictive performance or a new confirmation run."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:23:32+00:00",
+  "source_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/code_review_independent.md",
+      "sha256": "sha256:39d1e63e5f63f513b9cf501dd354736cdd1bf24a74ed94fca43df4d35816fe10"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "evidence/gates/M8_institutional_evaluation_gate.json",
+      "sha256": "sha256:27a200034be48313bc8e8dc0143e27d0f17e0ef192485d3ab60ce89fa12d1808"
+    },
+    {
+      "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/closure_package_manifest.json",
+      "sha256": "sha256:6256943ccd01d1ca2c6abe74081a6e39c09e4a3928e65803778068ccee1b1163"
+    },
+    {
+      "path": "evidence/m8/verifications/m8_confirmation_20260730_v1/verification_receipt.json",
+      "sha256": "sha256:922ddeb3b0037a33466bbbd5c81a460af70bbe255c9decdbcb464948685c0273"
+    },
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/coverage-r18.json",
+      "sha256": "sha256:2f2dc761b091d8104b13dd91ab307ce2101c0badcde337f25a6ddd9b55b229d8"
+    }
+  ],
+  "run_id": "code-review-d28a66ceca9fd855"
+}

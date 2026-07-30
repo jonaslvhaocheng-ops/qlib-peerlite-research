@@ -1,0 +1,50 @@
+{
+  "schema_version": "qlib_peerlite_failed_contract_validation_receipt_v1",
+  "status": "FAIL",
+  "attempt_id": "m9_reauthorization_attempt_20260730_v1",
+  "validator": "quant-research-contract.validate_contract",
+  "validator_version": "quant_contract_v2",
+  "validator_bundle_sha256": "6dbb4fe1eb929a368b9608a7944c8ba3ae4b14d30cc07d9ff7b091dfefaeeb0b",
+  "command": "python /Users/jonas/.codex/skills/quant-research-contract/scripts/validate_contract.py evidence/m9/reauthorization_attempt_20260730_v1/planned_contract.json",
+  "exit_code": 1,
+  "errors": [
+    {
+      "code": "FAIL_OUTCOME_INFORMED_CONTRACT",
+      "path": "research.decisive_outcomes_seen",
+      "message": "a new frozen contract cannot be written after decisive outcomes were inspected; derive a contract and replace the final OOS"
+    },
+    {
+      "code": "FAIL_TRIAL_BUDGET",
+      "path": "method_scope.max_candidate_evaluations",
+      "message": "must equal research_family.planned_new_trials"
+    }
+  ],
+  "lineage_observation": {
+    "child_decisive_outcomes_seen": true,
+    "change_request_outcome_reviewed": false,
+    "change_request_final_oos_replaced": false,
+    "result": "INCONSISTENT_NOT_FREEZABLE"
+  },
+  "input_sha256": {
+    "proposed_changes.json": "e7ce059696ffc1d4890c5416db9c8da8c08e3f3acc1965e92449af8abf943b68",
+    "change_request.json": "7db32f1c0386d314c11ec0e1e810c69d23cbae695b5773d1199224fdbaff90e8",
+    "planned_contract.json": "b8f588b3edbfa1b21fe8d9608dcf10a69c451e3cdcba3fe65e12a9fc8b57907b",
+    "parent_contract.json": "b90a2e1967b291c0e2e40c5a5b41c491928dea8c2859f60b5b3f06321e3b1b15",
+    "trial_ledger.jsonl": {
+      "prefix_sha256": "57cff58227f29930e46fbe4271a38162d795f68645ad386017be52de12fab671",
+      "prefix_bytes": 39964
+    },
+    "oos_access_log.jsonl": {
+      "prefix_sha256": "6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190",
+      "prefix_bytes": 187
+    }
+  },
+  "side_effects": {
+    "new_candidate_evaluations": 0,
+    "new_model_fit_starts": 0,
+    "final_oos_accesses": 0,
+    "final_oos_opened": false
+  },
+  "decision": "STOP_BEFORE_TRAINING",
+  "claim": "THIS_ATTEMPT_IS_INVALID; NO CLAIM ABOUT AVAILABILITY_OF_A_FUTURE_REPLACEMENT_OOS"
+}

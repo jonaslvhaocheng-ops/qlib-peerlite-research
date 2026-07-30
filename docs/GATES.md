@@ -10,7 +10,7 @@
 | M5 Baselines | PASS | Frozen LightGBM/MLP rolling scores, exact replay and independent Recorder/output verification | PeerLite edge |
 | M6 PeerLite | PASS | Frozen K16/K32 MSE rolling scores, O(NK) mechanics, exact replay and independent verification | Superiority, investability or Alpha |
 | M7 Increments | PASS / BOTH HOLD | Frozen CCC/Gate screens completed and independently verified | Promotion, final-OOS Alpha or guaranteed improvement |
-| M8 Evaluation | NOT_RUN | Pending frozen final OOS and institutional decision package | Production readiness |
+| M8 Evaluation | HOLD / INCOMPLETE | Counted interruption retained; no-retry and untouched final-OOS boundaries enforced | PeerLite superiority, Alpha, investability or production readiness |
 
 ## M3 decision boundary
 
@@ -110,5 +110,28 @@ folds, exact deterministic refits, Qlib recording and institution-style
 portfolio checks. The research decisions are both `HOLD`. CCC had a net-IR
 delta of -0.06794 versus PeerLite-MSE and Gate had -0.12355; neither met the
 positive-fold, Bootstrap or stress-cost screen. They therefore remain inactive,
-and no CCC+Gate combination is authorized. The final-OOS access count remains
-zero and M8 has not started.
+and no CCC+Gate combination is authorized. At M7 close, the final-OOS access
+count remained zero and M8 had not started.
+
+## M8 decision boundary
+
+M8 binds:
+
+- frozen evaluation spec
+  `contracts/immutable/m8_institutional_evaluation_spec_v1.json`;
+- retained incident evidence under
+  `evidence/m8/failures/m8_confirmation_20260730_v1`;
+- independent verification under
+  `evidence/m8/verifications/m8_confirmation_20260730_v1`;
+- project gate `evidence/gates/M8_institutional_evaluation_gate.json`.
+
+The run is an engineering-governance `HOLD`. Seed 19 completed two folds and
+started a third before the missing pre-fit authoritative-ledger import was
+detected. Exactly one candidate and three fit starts were reconciled, for a
+cumulative budget of 9/64. The no-retry rule blocks completion of this frozen
+run. No partial performance was evaluated, and all statistical, portfolio and
+negative-control checks are `NOT_RUN_DEPENDENCY_STOP`.
+
+The final-OOS access log is byte-identical to its frozen prefix and its access
+count remains zero. PeerLite K16 MSE remains a pre-final-OOS research baseline,
+not a promoted model.

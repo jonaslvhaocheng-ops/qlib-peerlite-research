@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 31,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "M8_CLOSURE_PUBLIC_JOURNEYS_PASS",
+  "summary": "The public verifier accepts the retained incident, a retry attempt is rejected without output, and repeated reconciliation is rejected without changing the authoritative ledger.",
+  "issue_type": null,
+  "artifact_paths": [
+    "docs/quality/changes/m8-institutional-evaluation/evidence/e2e_local.md"
+  ],
+  "evidence_paths": [
+    "evidence/m8/verifications/m8_confirmation_20260730_v1/verification_receipt.json",
+    "evidence/m8/failures/m8_confirmation_20260730_v1/recovery/reconciliation_receipt.json"
+  ],
+  "commands": [
+    {
+      "command": ".venv/bin/python scripts/server/verify_m8_interruption.py --project-root . --failure-dir evidence/m8/failures/m8_confirmation_20260730_v1 --output /tmp/m8_quality_e2e_verify.json",
+      "executed_at": "2026-07-30T12:20:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must verify the retained failure through the public CLI."
+    },
+    {
+      "command": ".venv/bin/python -c \"import pathlib,subprocess; r=subprocess.run(['.venv/bin/python','scripts/quality/m8_expected_red_probe.py']); assert r.returncode == 1; assert not pathlib.Path('artifacts/forbidden_m8_retry_probe').exists()\"",
+      "executed_at": "2026-07-30T12:20:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must observe a rejected retry and no output directory."
+    },
+    {
+      "command": ".venv/bin/python -c \"import hashlib,pathlib,subprocess; p=pathlib.Path('contracts/trial_ledger.jsonl'); before=hashlib.sha256(p.read_bytes()).hexdigest(); r=subprocess.run(['.venv/bin/python','scripts/server/reconcile_m8_interrupted_run.py','--project-root','.','--legacy-journal','evidence/m8/failures/m8_confirmation_20260730_v1/trial_journal.jsonl','--canonical-journal','evidence/m8/failures/m8_confirmation_20260730_v1/recovery/trial_journal_v2.jsonl','--ledger','contracts/trial_ledger.jsonl','--receipt','evidence/m8/failures/m8_confirmation_20260730_v1/recovery/reconciliation_receipt.json']); assert r.returncode == 1; assert hashlib.sha256(p.read_bytes()).hexdigest() == before\"",
+      "executed_at": "2026-07-30T12:20:00+08:00",
+      "exit_code": 0,
+      "summary": "Controller must observe duplicate-recovery rejection and an unchanged ledger."
+    }
+  ],
+  "subject_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "independence": null,
+  "blockers": []
+}

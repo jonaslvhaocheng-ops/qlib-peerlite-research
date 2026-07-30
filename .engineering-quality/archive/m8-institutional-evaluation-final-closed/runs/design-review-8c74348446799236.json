@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m8-institutional-evaluation",
+  "ledger_revision": 25,
+  "stage_id": "design-review",
+  "skill": "eng-review-design",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "DESIGN_APPROVED_FAIL_CLOSED_FORENSIC_CLOSURE",
+  "summary": "M8 closes without rewriting history: executed and disabled code are separately bound, authorization defects remain explicit failures, and retry, promotion and final-OOS opening are prohibited.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:bcf7239e18311e4c182238babe7a0b08f6684ccca8d357a6a51b840b642f9219",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m8_independent_design_review",
+    "limitations": [
+      "No new training, Alpha conclusion, retry or final-OOS access was reviewed or authorized."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-30T04:31:39+00:00",
+  "source_digest": "sha256:fe90f1ea1917851d0c2ed16cb4c7bd87a45c59f7d496d9c33be564b88e86ffd3",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/design_review_independent.md",
+      "sha256": "sha256:23505ae278822d1536b1d50124811be0f995834b6ce50eede7eb06c24880fd1d"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m8-institutional-evaluation/evidence/change_design.md",
+      "sha256": "sha256:bcf7239e18311e4c182238babe7a0b08f6684ccca8d357a6a51b840b642f9219"
+    },
+    {
+      "path": "evidence/m8/forensics/m8_confirmation_20260730_v1/closure_package_manifest.json",
+      "sha256": "sha256:6256943ccd01d1ca2c6abe74081a6e39c09e4a3928e65803778068ccee1b1163"
+    }
+  ],
+  "run_id": "design-review-8c74348446799236"
+}
