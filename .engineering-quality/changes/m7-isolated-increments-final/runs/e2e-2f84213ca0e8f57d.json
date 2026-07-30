@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 10,
+  "stage_id": "e2e",
+  "skill": "eng-validate-e2e",
+  "mode": "acceptance",
+  "verdict": "PASS",
+  "reason_code": "M7_EMPIRICAL_JOURNEY_VERIFIED",
+  "summary": "Both isolated empirical journeys completed and independently verified; both decisions are HOLD, combination is unauthorized, and final OOS remains sealed.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py ccc",
+      "executed_at": "2026-07-30T01:34:13+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:a4c16d82c20a51c4d4d05fe0a1afb99c2a4339e0bbd3c55642210edf766e5cb2; stdout_bytes=221; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_m7_acceptance.py",
+        "ccc"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T01:34:15+00:00",
+      "stdout_sha256": "sha256:a4c16d82c20a51c4d4d05fe0a1afb99c2a4339e0bbd3c55642210edf766e5cb2",
+      "stdout_bytes": 221,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+      "source_digest_after": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317"
+    },
+    {
+      "command": ".venv/bin/python scripts/run_m7_acceptance.py gate",
+      "executed_at": "2026-07-30T01:34:15+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:063dbc2669ba146b49f8f1337e25a2357228f7be61f0c97303b15154e011bc71; stdout_bytes=227; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "scripts/run_m7_acceptance.py",
+        "gate"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T01:34:17+00:00",
+      "stdout_sha256": "sha256:063dbc2669ba146b49f8f1337e25a2357228f7be61f0c97303b15154e011bc71",
+      "stdout_bytes": 227,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+      "source_digest_after": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q tests/test_m7_empirical.py tests/test_market_state_product.py tests/test_institutional_portfolio.py",
+      "executed_at": "2026-07-30T01:34:17+00:00",
+      "exit_code": 0,
+      "summary": "controller-executed-v1; exit_code=0; stdout_sha256=sha256:710d4a09c844b830439469767de4357105eaee26c2f3081ea5ce514a81059011; stdout_bytes=99; stderr_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stderr_bytes=0",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_m7_empirical.py",
+        "tests/test_market_state_product.py",
+        "tests/test_institutional_portfolio.py"
+      ],
+      "expected_exit_code": 0,
+      "finished_at": "2026-07-30T01:34:19+00:00",
+      "stdout_sha256": "sha256:710d4a09c844b830439469767de4357105eaee26c2f3081ea5ce514a81059011",
+      "stdout_bytes": 99,
+      "stderr_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_bytes": 0,
+      "source_digest_before": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+      "source_digest_after": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317"
+    }
+  ],
+  "subject_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T01:34:19+00:00",
+  "source_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "artifacts": [
+    {
+      "path": "scripts/run_m7_acceptance.py",
+      "sha256": "sha256:21b219ca5020bb453d2303465a798e08cce7769f615fdfcd713bc99e41aa7c38"
+    },
+    {
+      "path": "scripts/server/run_m7_empirical.py",
+      "sha256": "sha256:54da806a2040c526bc4a330a95c8bf3460c55385c0eef841574c6f7284e2396e"
+    },
+    {
+      "path": "scripts/server/verify_m7_empirical.py",
+      "sha256": "sha256:169fdcba9e84de7af4d73213b1792e343029e619fbef2269065547be887553ea"
+    },
+    {
+      "path": "tests/test_m7_acceptance_cli.py",
+      "sha256": "sha256:2ad95d09603c17ae569776dd1fa57a18ec8b36bb3600c45843674f93ee48ebcb"
+    },
+    {
+      "path": "tests/test_m7_empirical.py",
+      "sha256": "sha256:8509299da9db0dfc83629a9a1c9e6994ddbc1b26f3c9de193c892c8978ac0e29"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/e2e_final.md",
+      "sha256": "sha256:998691bf3f1c2745f01fe6e19459f6f3754e34edef811c55f6085afc9f7b50cb"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md",
+      "sha256": "sha256:9ac5734c47fae454fc6eef43d773230ebfc7749e6842c56785ba3411ad90f476"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/empirical_closure_ci_rebind.md",
+      "sha256": "sha256:dfb8b7244aec828a6c133563cd2c84129cbac205c8d4126bd9e49013b2ef6706"
+    },
+    {
+      "path": "evidence/m7/runs/m7_isolated_increments_20260730_v3/run_manifest.json",
+      "sha256": "sha256:b4057dc3aa6a9cfb649ec25dd0b88533ed2fe8e064ac8f41664fd4ed9f43e7db"
+    },
+    {
+      "path": "evidence/m7/verifications/m7_isolated_increments_20260730_v3/verification_receipt.json",
+      "sha256": "sha256:e220cc9467ad0f059c5a627c37b15d15c997cb7f78afc71f6f45df217e7155b0"
+    }
+  ],
+  "run_id": "e2e-2f84213ca0e8f57d"
+}

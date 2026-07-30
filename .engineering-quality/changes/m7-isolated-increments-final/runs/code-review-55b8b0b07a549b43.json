@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 9,
+  "stage_id": "code-review",
+  "skill": "eng-review-code",
+  "mode": "review",
+  "verdict": "PASS",
+  "reason_code": "M7_REVIEW_AND_EMPIRICAL_VERIFICATION_CLOSED",
+  "summary": "The independent design and core-mechanics review has no open P0-P3 findings; post-closure empirical paths additionally pass exhaustive branch tests and the independent evidence verifier.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "independence": {
+    "mode": "independent-agent",
+    "author_context_id": "/root",
+    "reviewer_context_id": "/root/m65_v24_adversarial_review",
+    "limitations": [
+      "Independent-agent review covers the frozen design and core mechanics; the later empirical execution paths are validated by exhaustive branch tests and a separate deterministic evidence verifier, not a second agent-authored review.",
+      "No Alpha promotion claim and no final-OOS access."
+    ]
+  },
+  "blockers": [],
+  "recorded_at": "2026-07-30T01:34:12+00:00",
+  "source_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md",
+      "sha256": "sha256:9ac5734c47fae454fc6eef43d773230ebfc7749e6842c56785ba3411ad90f476"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r8-v2.json",
+      "sha256": "sha256:fb1030db8b734c393ed56850d3a84c01f1e6142e7ab312cb57660d17696cd4a7"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
+      "sha256": "sha256:31a0dcb995782bbcd004709c9bd2561ffe957acf41c9b9940c56184dd5c1fcc4"
+    },
+    {
+      "path": "docs/quality/changes/m7-isolated-increments-final/evidence/empirical_closure_ci_rebind.md",
+      "sha256": "sha256:dfb8b7244aec828a6c133563cd2c84129cbac205c8d4126bd9e49013b2ef6706"
+    },
+    {
+      "path": "evidence/m7/verifications/m7_isolated_increments_20260730_v3/verification_receipt.json",
+      "sha256": "sha256:e220cc9467ad0f059c5a627c37b15d15c997cb7f78afc71f6f45df217e7155b0"
+    }
+  ],
+  "run_id": "code-review-55b8b0b07a549b43"
+}

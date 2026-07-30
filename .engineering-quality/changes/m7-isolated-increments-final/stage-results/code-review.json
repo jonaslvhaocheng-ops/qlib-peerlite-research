@@ -11,7 +11,7 @@
   "issue_type": null,
   "artifact_paths": ["docs/quality/changes/m7-isolated-increments-final/evidence/code_review_final_independent.md"],
   "evidence_paths": [
-    "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r8.json",
+    "docs/quality/changes/m7-isolated-increments-final/evidence/coverage-r8-v2.json",
     "docs/quality/changes/m7-isolated-increments/evidence/code_review_v1_independent.md",
     "docs/quality/changes/m7-isolated-increments-final/evidence/empirical_closure_ci_rebind.md",
     "evidence/m7/verifications/m7_isolated_increments_20260730_v3/verification_receipt.json"

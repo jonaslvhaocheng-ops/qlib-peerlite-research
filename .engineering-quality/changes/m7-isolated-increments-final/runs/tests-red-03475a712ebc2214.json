@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 6,
+  "stage_id": "tests-red",
+  "skill": "eng-write-tests",
+  "mode": "red",
+  "verdict": "PASS",
+  "reason_code": "M7_REPAIR_EXPECTED_RED_PROVEN",
+  "summary": "The protected adapter test historically failed for the intended missing module before implementation.",
+  "issue_type": null,
+  "commands": [
+    {
+      "command": ".venv/bin/python -c 'from qlib_peerlite.m7.run_state import EmpiricalFitLease'",
+      "executed_at": "2026-07-30T01:33:09+00:00",
+      "exit_code": 1,
+      "summary": "controller-executed-v1; exit_code=1; stdout_sha256=sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855; stdout_bytes=0; stderr_sha256=sha256:5e7f5df332ab3b18166959a6dd998d01f1cc1849fd00e074dae9dcb490d7cd45; stderr_bytes=234",
+      "receipt_kind": "controller-executed-v1",
+      "argv": [
+        ".venv/bin/python",
+        "-c",
+        "from qlib_peerlite.m7.run_state import EmpiricalFitLease"
+      ],
+      "expected_exit_code": 1,
+      "finished_at": "2026-07-30T01:33:10+00:00",
+      "stdout_sha256": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 0,
+      "stderr_sha256": "sha256:5e7f5df332ab3b18166959a6dd998d01f1cc1849fd00e074dae9dcb490d7cd45",
+      "stderr_bytes": 234,
+      "source_digest_before": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+      "source_digest_after": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317"
+    }
+  ],
+  "subject_digest": "sha256:231a0e46a7a094a9a20c62000bbad5dc6322e86baf200082e349a9d5d2511f55",
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T01:33:10+00:00",
+  "source_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "artifacts": [
+    {
+      "path": "tests/test_m7_review_repairs_red.py",
+      "sha256": "sha256:231a0e46a7a094a9a20c62000bbad5dc6322e86baf200082e349a9d5d2511f55"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/tests_red_v5_code_review_repairs.md",
+      "sha256": "sha256:6804e74c15b4fde443d30f0a8c42131753426dbdad67f4c465a8a43503f7c5fc"
+    }
+  ],
+  "run_id": "tests-red-03475a712ebc2214"
+}

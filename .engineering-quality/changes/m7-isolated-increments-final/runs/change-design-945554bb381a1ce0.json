@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 3,
+  "stage_id": "change-design",
+  "skill": "eng-design-change",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_REPAIR_DESIGN_FROZEN",
+  "summary": "The frozen design centralizes M7 policy in the protected adapter and limits this change to synthetic CCC and Gate mechanics.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T01:33:08+00:00",
+  "source_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/change_design_v5_code_review_repairs.md",
+      "sha256": "sha256:17fc01b65e7ef354b28d81bd4272d8842b4d572eadaff51d92dfd4baccba08c6"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "contracts/changes/m7_complete_engineering_cr_v1.json",
+      "sha256": "sha256:9fa4ae01810de1d6f82ae0e7270239d6bab563511d098141ca226fd64ab19009"
+    }
+  ],
+  "run_id": "change-design-945554bb381a1ce0"
+}

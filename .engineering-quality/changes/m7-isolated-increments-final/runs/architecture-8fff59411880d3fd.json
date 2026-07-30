@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "change_id": "m7-isolated-increments-final",
+  "ledger_revision": 2,
+  "stage_id": "architecture",
+  "skill": "eng-architect-repository",
+  "mode": null,
+  "verdict": "PASS",
+  "reason_code": "M7_ISOLATED_PACKAGE_CONFIRMED",
+  "summary": "The final repair remains one cohesive in-process M7 package with thin PeerLite integration and no empirical authority.",
+  "issue_type": null,
+  "commands": [],
+  "subject_digest": null,
+  "independence": null,
+  "blockers": [],
+  "recorded_at": "2026-07-30T01:33:08+00:00",
+  "source_digest": "sha256:7321efb4fae9f4de37d1092756ffc42abab6e0af0a4948e3053333f071f99317",
+  "artifacts": [
+    {
+      "path": "docs/quality/changes/m7-isolated-increments/evidence/architecture_confirmation.md",
+      "sha256": "sha256:a65ec57e23fa2705351d3dcf77a8101317d89215cc78e0e970384f4784bd3b92"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "contracts/changes/m7_complete_engineering_cr_v1.json",
+      "sha256": "sha256:9fa4ae01810de1d6f82ae0e7270239d6bab563511d098141ca226fd64ab19009"
+    }
+  ],
+  "run_id": "architecture-8fff59411880d3fd"
+}
