@@ -50,3 +50,10 @@ def test_m8_content_hash_excludes_only_its_own_field() -> None:
     changed = runner.canonical_hash({"value": 2})
     assert first == second
     assert changed != first
+
+
+def test_m8_verifier_hash_uses_canonical_payload() -> None:
+    verifier = _load_script("verify_m8_confirmation.py")
+    assert verifier.canonical_hash({"b": 2, "a": 1}) == verifier.canonical_hash(
+        {"a": 1, "b": 2, "content_sha256": "ignored"}
+    )

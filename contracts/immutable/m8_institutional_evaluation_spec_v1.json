@@ -85,6 +85,10 @@
     "confirmation_evaluator": {
       "path": "scripts/server/evaluate_m8_confirmation.py",
       "sha256": "ac675158fd3de7dca1da92d9d8f708aca42e3b22c41dfa0a29ff6e9f67a4edcb"
+    },
+    "confirmation_verifier": {
+      "path": "scripts/server/verify_m8_confirmation.py",
+      "sha256": "2381ff855ea6c71162449e85424f35726d42a1283678e92e7ed8b62f098f16f2"
     }
   },
   "claim_ceiling_before_final_oos": "CONFIRMATORY_PRE_FINAL_OOS_ONLY"
