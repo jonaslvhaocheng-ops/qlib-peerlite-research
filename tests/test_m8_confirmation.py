@@ -1,10 +1,16 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 from pathlib import Path
 
 import pandas as pd
 import pytest
+
+from qlib_peerlite.governance.m8_recovery import (
+    canonicalize_interrupted_m8_journal,
+)
+from qlib_peerlite.governance.trial_ledger import RunIntent
 
 
 def _load_script(name: str):
@@ -57,3 +63,34 @@ def test_m8_verifier_hash_uses_canonical_payload() -> None:
     assert verifier.canonical_hash({"b": 2, "a": 1}) == verifier.canonical_hash(
         {"a": 1, "b": 2, "content_sha256": "ignored"}
     )
+
+
+def test_m8_interruption_recovery_counts_exact_starts(tmp_path: Path) -> None:
+    source = (
+        Path(__file__).parents[1]
+        / "evidence/m8/failures/m8_confirmation_20260730_v1/trial_journal.jsonl"
+    )
+    intent = RunIntent(
+        run_id="m8_confirmation_20260730_v1_recovery",
+        family_id="QLIB_PEERLITE_M8_CONFIRMATION_V1",
+        execution_spec_content_sha256="1" * 64,
+    )
+    events = canonicalize_interrupted_m8_journal(source, run_intent=intent)
+    assert len(events) == 4
+    assert sum(event["counts_as_candidate_evaluation"] for event in events) == 1
+    assert sum(event["counts_as_model_fit"] for event in events) == 3
+    assert [event.get("fold_id") for event in events[1:]] == [
+        "wf_2018",
+        "wf_2019",
+        "wf_2020",
+    ]
+
+    modified = [json.loads(line) for line in source.read_text().splitlines()]
+    modified[-1]["fold_id"] = "wf_2021"
+    tampered = tmp_path / "tampered.jsonl"
+    tampered.write_text(
+        "".join(json.dumps(event) + "\n" for event in modified),
+        encoding="utf-8",
+    )
+    with pytest.raises(RuntimeError, match="fit identity mismatch"):
+        canonicalize_interrupted_m8_journal(tampered, run_intent=intent)

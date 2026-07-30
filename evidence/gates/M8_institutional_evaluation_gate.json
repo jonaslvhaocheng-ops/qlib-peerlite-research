@@ -1,0 +1,95 @@
+{
+  "schema_version": "qlib_peerlite_gate_v1",
+  "gate_id": "M8-INSTITUTIONAL-EVALUATION",
+  "status": "HOLD",
+  "passed": false,
+  "executed": true,
+  "completed": false,
+  "created_at": "2026-07-30T12:30:00+08:00",
+  "track": "STRICT_CONFIRMATION_BEFORE_FINAL_OOS",
+  "claim_ceiling": "PRE_FINAL_OOS_RESEARCH_BASELINE_ONLY",
+  "research_decision": "HOLD_OPERATIONAL_CONFIRMATION_INCOMPLETE",
+  "active_candidate": "PEERLITE_K16_MSE",
+  "acceptance_checks": [
+    {
+      "check": "frozen_scope",
+      "status": "PASS",
+      "evidence": "Only PEERLITE_K16_MSE confirmation began; no model, parameter, threshold or portfolio selection changed."
+    },
+    {
+      "check": "authoritative_pre_fit_accounting",
+      "status": "FAIL_RETAINED",
+      "evidence": "The v1 runner durably journaled starts but did not import them into the authoritative ledger before model.fit."
+    },
+    {
+      "check": "interruption_reconciliation",
+      "status": "PASS_RETAINED_FAILURE",
+      "evidence": "Exactly one candidate start and three fit starts were atomically retained; cumulative budget is 9 candidate evaluations / 64 fit starts."
+    },
+    {
+      "check": "five_seed_confirmation",
+      "status": "NOT_RUN_DEPENDENCY_STOP",
+      "evidence": "Seed 19 completed wf_2018 and wf_2019; wf_2020 was interrupted. Frozen no-retry policy prevents replacement or resumption."
+    },
+    {
+      "check": "statistical_and_portfolio_gates",
+      "status": "NOT_RUN_DEPENDENCY_STOP",
+      "evidence": "No incomplete confirmation result was evaluated."
+    },
+    {
+      "check": "negative_controls",
+      "status": "NOT_RUN_DEPENDENCY_STOP",
+      "evidence": "Downstream controls were not run after the engineering stop."
+    },
+    {
+      "check": "final_oos_boundary",
+      "status": "PASS",
+      "evidence": "OOS access-log SHA256 remains 6d9c32144fe465c0f17f7f8f3ceb5f26c51ffdb9a79c3c68b80e92a256426190; access count remains zero."
+    }
+  ],
+  "trial_accounting": {
+    "candidate_evaluations_before": 8,
+    "candidate_evaluations_after": 9,
+    "model_fits_before": 61,
+    "model_fits_after": 64,
+    "completed_fit_receipts": 2,
+    "interrupted_fit_starts": 1,
+    "retry_authorized": false
+  },
+  "evidence": {
+    "frozen_spec": {
+      "path": "contracts/immutable/m8_institutional_evaluation_spec_v1.json",
+      "sha256": "148b0e2ee79b5d4cdce2d421c2e3d5a0404c4ea80351c82f9b6d484c4e6b438c"
+    },
+    "legacy_journal": {
+      "path": "evidence/m8/failures/m8_confirmation_20260730_v1/trial_journal.jsonl",
+      "sha256": "744edff52d1e59c2a507d2fa0b472427600a09a00bf4613ddc03a173fb899996"
+    },
+    "reconciliation": {
+      "path": "evidence/m8/failures/m8_confirmation_20260730_v1/recovery/reconciliation_receipt.json",
+      "sha256": "d6af9d1779b424d3a1ffc28857095c8c3dd528b9b6a08795c38a47eb1c69286b"
+    },
+    "independent_verification": {
+      "path": "evidence/m8/verifications/m8_confirmation_20260730_v1/verification_receipt.json",
+      "sha256": "922ddeb3b0037a33466bbbd5c81a460af70bbe255c9decdbcb464948685c0273"
+    },
+    "trial_ledger": {
+      "path": "contracts/trial_ledger.jsonl",
+      "sha256": "57cff58227f29930e46fbe4271a38162d795f68645ad386017be52de12fab671",
+      "candidate_evaluations": 9,
+      "model_fits": 64
+    }
+  },
+  "final_oos_access_count": 0,
+  "final_oos_opened": false,
+  "promotion_authorized": false,
+  "production_authorized": false,
+  "limitations": [
+    "This HOLD is an engineering-governance outcome, not evidence that PeerLite lacks or has predictive edge.",
+    "The two completed folds are retained only as incident evidence and are not used for performance claims.",
+    "PeerLite K16 MSE remains the active pre-final-OOS research baseline; it is not promoted.",
+    "Any future confirmation requires a separately governed research path. This frozen M8 run cannot be retried."
+  ],
+  "next_gate": null,
+  "content_sha256": "fe34bb75c074491b95699a8a1914b19b5b67f7c80fede6c2f5278901b76deb22"
+}
