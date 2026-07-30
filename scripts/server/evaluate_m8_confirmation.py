@@ -13,7 +13,7 @@ import pandas as pd
 
 from qlib_peerlite.evaluation.bootstrap import bootstrap_ir_difference
 from qlib_peerlite.evaluation.institutional import backtest_weekly_executable
-from qlib_peerlite.evaluation.metrics import information_ratio
+from qlib_peerlite.evaluation.metrics import information_ratio, max_drawdown
 from qlib_peerlite.governance.artifacts import atomic_write_json, sha256_file
 
 
@@ -62,6 +62,7 @@ def run(
     seed_rows: list[dict[str, object]] = []
     fold_positive: list[bool] = []
     seed_base_returns: list[pd.Series] = []
+    seed_base_frames: list[pd.DataFrame] = []
     for seed, path in seed_paths.items():
         scores = load_scores(path)
         base = portfolio(panel, scores, False)
@@ -82,6 +83,7 @@ def run(
             by_fold[str(fold_id)] = fold_delta
             fold_positive.append(fold_delta > 0)
         seed_base_returns.append(base["net_return"].rename(str(seed)))
+        seed_base_frames.append(base)
         seed_rows.append(
             {
                 "seed": seed,
@@ -98,11 +100,23 @@ def run(
     positive_fold_fraction = float(np.mean(fold_positive))
     mean_candidate = pd.concat(seed_base_returns, axis=1).mean(axis=1)
     mean_bootstrap = bootstrap_ir_difference(mean_candidate, baseline_base["net_return"])
+    excess = mean_candidate.align(baseline_base["net_return"], join="inner")
+    excess_returns = excess[0] - excess[1]
+    annual_excess = excess_returns.groupby(excess_returns.index.year).sum()
+    cumulative_excess = float(annual_excess.sum())
+    best_year_contribution: float | None = (
+        float(annual_excess.max() / cumulative_excess)
+        if cumulative_excess > 0
+        else None
+    )
     gates = {
         "positive_seed_fraction": positive_seed_fraction >= 0.8,
         "positive_fold_fraction": positive_fold_fraction >= 0.6,
         "bootstrap_lower_bound": mean_bootstrap["ir_delta_ci_2_5"] > 0,
         "stress_positive": all(float(row["stress_net_ir"]) > 0 for row in seed_rows),
+        "best_year_contribution": (
+            best_year_contribution is not None and best_year_contribution <= 0.5
+        ),
     }
     result = {
         "schema_version": "qlib_peerlite_m8_confirmation_evaluation_v1",
@@ -113,6 +127,15 @@ def run(
         "positive_seed_fraction": positive_seed_fraction,
         "positive_fold_fraction": positive_fold_fraction,
         "mean_seed_bootstrap": mean_bootstrap,
+        "annual_excess_returns": {str(year): float(value) for year, value in annual_excess.items()},
+        "cumulative_excess_return": cumulative_excess,
+        "best_year_contribution": best_year_contribution,
+        "mean_seed_max_drawdown": max_drawdown(mean_candidate),
+        "mean_seed_average_turnover": float(
+            pd.concat([frame["turnover"] for frame in seed_base_frames], axis=1)
+            .mean(axis=1)
+            .mean()
+        ),
         "gates": gates,
         "final_oos_opening_authorized": all(gates.values()),
         "final_oos_market_partitions_opened": False,
