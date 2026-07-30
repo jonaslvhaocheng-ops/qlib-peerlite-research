@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "change_id": "m8-institutional-evaluation",
-  "ledger_revision": 3,
+  "ledger_revision": 24,
   "stage_id": "change-design",
   "skill": "eng-design-change",
   "mode": null,
